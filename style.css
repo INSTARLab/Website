@@ -15,7 +15,7 @@
 	1. Theme default CSS
 	2. Header CSS
 	3. Slider CSS
-	4. Our couses area CSS
+	4. Our projects area CSS
 	5. Help us area CSS
 	6. Our-gallery CSS
 	7. Countdown area CSS
@@ -27,7 +27,7 @@
 	13. About us CSS
 	14. Blog CSS
 	15. Contact CSS
-	16. Couses page CSS
+	16. Projects page CSS
 	17. Up comming events CSS
 	18. Error page area CSS
 	19. Blog details CSS
@@ -562,7 +562,7 @@ h1.title1 {
   width: 13px;
 }
 /*----------------------------------------*/
-/*  4. Our couses area CSS
+/*  4. Our projects area CSS
 /*----------------------------------------*/
 /* section title */
 .section-title {
@@ -585,45 +585,45 @@ h1.title1 {
   font-size: 15px;
   margin-top: 10px;
 }
-/* single couses */
-.single-couses {
+/* single projects */
+.single-projects {
   display: block;
   margin-bottom: -5px;
   overflow: hidden;
 }
-.single-couses-image-text {
+.single-projects-image-text {
   transition: all 0.3s ease 0s;
 }
-.single-couses:hover .single-couses-image-text {
+.single-projects:hover .single-projects-image-text {
   box-shadow: 0 0 10px 0 #999;
 }
-.couses-text {
+.projects-text {
   background: #f1f1f1 none repeat scroll 0 0;
   display: block;
   margin-bottom: 30px;
   overflow: hidden;
   padding: 40px 25px;
 }
-.couses-text h3 {
+.projects-text h3 {
   color: #1b1b1b;
   font-size: 18px;
   font-weight: bold;
 }
-.couses-text.text-center > p {
+.projects-text.text-center > p {
   color: #333;
   font-family: roboto;
   font-size: 13px;
   margin-bottom: 0;
 }
-.couses-button {
+.projects-button {
   float: left;
   width: 40%;
 }
-.couses-price {
+.projects-price {
   float: right;
   width: 60%;
 }
-.couses-price h5 {
+.projects-price h5 {
   color: #555;
   float: right;
   font-family: roboto;
@@ -1477,34 +1477,34 @@ line-height: 36px;}
   height:500px;
 }
 /*----------------------------------------*/
-/*  16. Couses page CSS
+/*  16. Projects page CSS
 /*----------------------------------------*/
-.couses-page-content .couses-button {
+.projects-page-content .projects-button {
   float: none;
   margin: 30px 0;
   width: 100%;
 }
-.couses-page-content .couses-text {
+.projects-page-content .projects-text {
   background: transparent none repeat scroll 0 0;
 }
-.couses-page-content .btn-md {
+.projects-page-content .btn-md {
   border: 1px solid transparent;
 }
-.couses-page-content .couses-price h5 {
+.projects-page-content .projects-price h5 {
   float: none;
 }
-.couses-page-content .couses-price {
+.projects-page-content .projects-price {
   float: none;
   width: 100%;
 }
-.couses-page-content .single-couses-image-text {
+.projects-page-content .single-projects-image-text {
   border: 1px solid #efefef;
   transition: all 0.3s ease 0s;
 }
-.couses-page-content .couses-text {
+.projects-page-content .projects-text {
   padding: 40px 25px 0;
 }
-.couses-page-content .blog-pagination {
+.projects-page-content .blog-pagination {
   float: none;
 }
 /* causes sidebar */

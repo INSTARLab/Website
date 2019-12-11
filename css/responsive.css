@@ -69,7 +69,7 @@ h1.title1 {
 .people-say-slide .owl-next {
   right: 0;
 }
-.couses-button .btn-md {
+.projects-button .btn-md {
   display: block;
   margin: 10px auto auto;
   width: 140px;
@@ -110,17 +110,17 @@ h1.title1 {
 .nivo-nextNav .right {
   margin-right: 40px;
 }
-.couses-button {
+.projects-button {
   float: none;
   text-align: center;
   width: 100%;
 }
-.couses-price {
+.projects-price {
   float: none;
   text-align: center;
   width: 100%;
 }
-.couses-price h5 {
+.projects-price h5 {
   float: none;
   line-height: 60px;
 }
@@ -180,7 +180,7 @@ h1.title1 {
 .comment > a {
   padding: 0 4.5px;
 }
-.couses-button .btn-md {
+.projects-button .btn-md {
   display: block;
   margin-top: 10px;
 }
@@ -293,7 +293,7 @@ h1.title1 {
   overflow: hidden;
   width: 240px;
 }
-.single-couses {
+.single-projects {
   margin-bottom: 30px;
 }
 /* about page css */
@@ -327,7 +327,7 @@ h1.title1 {
 .single-box {
   margin-bottom: 30px;
 }
-.couses-page-content .couses-button .btn-md {
+.projects-page-content .projects-button .btn-md {
   display: block;
   margin: 10px auto auto;
   width: 140px;
@@ -386,7 +386,7 @@ h1.title1 {
 /* Large Mobile :480px. */
 @media only screen and (min-width: 480px) and (max-width: 767px) {
 .container {width:450px}
-.couses-image > img {
+.projects-image > img {
   width: 100%;
 }
 .help-text {
