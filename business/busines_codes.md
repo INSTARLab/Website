@@ -8,11 +8,11 @@
 - 541611: Administrative Management and General Management Consulting Services  
 - 541512: Computer Systems Design Services  
 **SIN Codes**  
-- 541715  
-- 541611  
-- 54151S  
-- 541720  
-- 611430  
+- 541715: Engineering Research and Development for Advanced Technology  
+- 541611: Management and Financial Consulting, Acquisition and Grants Management Support, and Business Program and Project Management Services  
+- 54151S: Information Technology Professional Services  
+- 541720: Research and Development in the Social Sciences and Humanities  
+- 611430: Professional and Management Development Training  
 **SIC Codes**  
 - 8731: Commercial Physical and Biological Research  
 - 8732: Commercial Economic, Sociological, and Educational Research  
