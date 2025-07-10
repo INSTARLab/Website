@@ -1,5 +1,5 @@
 # Research & Market Analysis
-## 5. Gap Analysis
+## 1. Gap Analysis
 This section identifies strategic opportunities where INSTAR Lab can differentiate itself from major competitors in the scientific research and innovation ecosystem.
 ### Top 10 Competitors Analyzed
 1. Microsoft  
@@ -30,7 +30,7 @@ This section identifies strategic opportunities where INSTAR Lab can differentia
 | Wyss Institute | Strong in bio-inspired design, but internalized projects | Offer accessible applied design labs for MSMEs and students |
 | NVIDIA | Technical foundation only; no turnkey research solutions | Package simulation and AI into usable, targeted solutions for scientists |
 ---
-## 6. Market Research
+## 2. Market Research
 ### Target Audience / Customer Persona
 - **Primary Audience:** Scientific institutions, R&D centers, policy labs, MSMEs, public research agencies  
 - **Job Titles:** Research Director, Innovation Officer, Government Research Lead, Science Educator, Nonprofit Program Manager  
@@ -65,7 +65,7 @@ This section identifies strategic opportunities where INSTAR Lab can differentia
 | Wyss Institute | Biologically inspired design | Internalized and limited MSME support |
 | NVIDIA | Omniverse and AI leader | No integrated research or knowledge management layer |
 ---
-## 7. SWOT Analysis
+## 3. SWOT Analysis
 ### Strengths (Internal)
 - Deep R&D capability using the ORBITAL Dream System  
 - Multidisciplinary integration across sciences  
