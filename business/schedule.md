@@ -162,9 +162,29 @@ Available as per project scope. Engagements start at $5,000.
 
 **Contact INSTAR Lab for customized solutions:**  
 
-**Website:** [https://instarlab.org](https://instarlab.org)  
+**Website:**  
 
 **Phone:** +1 855-221-4692  
 
 **Address:** 125 Frederick St, Marietta, OH 45750, USA
- 
+# GSA Schedule Contract Information
+## Contract Number  
+Not Applicable
+## Contract Title  
+Not Applicable
+## Period of Performance  
+Not Applicable
+## Contractor Name  
+INSTAR Lab
+## DUNS Number  
+Not Applicable
+## UEI Number  
+Not Applicable
+## Contract Type  
+Not Applicable
+## Ordering Instructions  
+Not Applicable
+## Point of Contact  
+**INSTAR Lab**  
+125 Frederick St, Marietta, OH 45750, USA  
+Phone: +1 855-221-4692  
