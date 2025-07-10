@@ -79,8 +79,8 @@ This section includes all relevant industry and government classification codes 
 - **STTR & Government Listings** for institutional visibility  
 - **Email Campaigns** for research updates and supporter engagement
 ### SMART Goal  
-> Generate 50 qualified collaboration inquiries through the website contact form within the first 90 days of launch.
----
+ Generate 50 qualified collaboration inquiries through the website contact form within the first 90 days of launch.
+ 
 ## 4. Call to Actions Desired
 **Primary CTAs:**  
 - **"Propose a Research Partnership"** Invite collaborators to pitch aligned projects  
