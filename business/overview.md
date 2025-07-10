@@ -70,7 +70,17 @@ This section includes all relevant industry and government classification codes 
 - **AJ13** – R&D: General Science/Technology – Advanced Development  
 - **AS11** – R&D: Life Sciences – Basic Research  
 - **AS12** – R&D: Life Sciences – Applied Research  
-- **R425** – Support: Professional – Engineering/Technical 
+- **R425** – Support: Professional – Engineering/Technical
+## 4. Marketing Strategy and Goal of the Website
+### Marketing Channels  
+- **SEO** to attract science- and future-focused traffic  
+- **LinkedIn, X, YouTube** for outreach to innovators and partners  
+- **University & Research Networks** for student and faculty engagement  
+- **STTR & Government Listings** for institutional visibility  
+- **Email Campaigns** for research updates and supporter engagement
+### SMART Goal  
+> Generate 50 qualified collaboration inquiries through the website contact form within the first 90 days of launch.
+---
 ## 4. Call to Actions Desired
 **Primary CTAs:**  
 - **"Propose a Research Partnership"** Invite collaborators to pitch aligned projects  
