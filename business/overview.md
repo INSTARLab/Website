@@ -4,7 +4,7 @@
 ## Who We Are
 Instar Lab is a nonprofit research institute founded to challenge the boundaries of science, technology, and human understanding. As a futuristic lab built for exploration, we welcome bold ideas, unconventional thinking, and experimental breakthroughs that defy traditional limits.
 ## What We Do
-We conduct advanced research, develop high-impact STEM labs, and cultivate intellectual property that advances both public knowledge and practical technology. From scientific theory to experimental tools, our work supports a wide spectrum of innovation—across disciplines and beyond convention.
+We conduct advanced research, develop high impact STEM labs, and cultivate intellectual property that advances both public knowledge and practical technology. From scientific theory to experimental tools, our work supports a wide spectrum of innovation across disciplines and beyond convention.
 ## Who We Serve
 We support a global community of:
 - Scientists and researchers
@@ -73,7 +73,7 @@ This section includes all relevant industry and government classification codes 
 - **R425** – Support: Professional – Engineering/Technical
 ## 4. Marketing Strategy and Goal of the Website
 ### Marketing Channels  
-- **SEO** to attract science- and future-focused traffic  
+- **SEO** to attract science and future focused traffic  
 - **LinkedIn, X, YouTube** for outreach to innovators and partners  
 - **University & Research Networks** for student and faculty engagement  
 - **STTR & Government Listings** for institutional visibility  
