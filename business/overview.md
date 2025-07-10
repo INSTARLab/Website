@@ -43,11 +43,11 @@ This section includes all relevant industry and government classification codes 
 
 ## NAICS Code(s)  
 *(North American Industry Classification System)*  
--** 541715** – Research and Development in the Physical, Engineering, and Life Sciences (except Nanotechnology and Biotechnology)  
+- **541715** – Research and Development in the Physical, Engineering, and Life Sciences (except Nanotechnology and Biotechnology)  
 - **541713** – Research and Development in Nanotechnology  
 - **541714** – Research and Development in Biotechnology (except Nanobiotechnology)  
--** 541720 **– Research and Development in the Social Sciences and Humanities  
-- **541690 **– Other Scientific and Technical Consulting Services  
+- **541720** – Research and Development in the Social Sciences and Humanities  
+- **541690** – Other Scientific and Technical Consulting Services  
 - **541611** – Administrative Management and General Management Consulting Services  
 - **541512** – Computer Systems Design Services  
 ## SIN(s)  
@@ -60,17 +60,17 @@ This section includes all relevant industry and government classification codes 
 ## SIC Code(s)  
 *(Standard Industrial Classification)*  
 - **8731** – Commercial Physical and Biological Research  
--** 8732** – Commercial Economic, Sociological, and Educational Research  
+- **8732** – Commercial Economic, Sociological, and Educational Research  
 - **8748** – Business Consulting Services, Not Elsewhere Classified  
 - **8742** – Management Consulting Services  
 ## PSC Code(s)  
 *(Product Service Codes)*  
--** AJ12** – R&D: General Science/Technology – Applied Research  
--** AJ11** – R&D: General Science/Technology – Basic Research  
+- **AJ12** – R&D: General Science/Technology – Applied Research  
+- **AJ11** – R&D: General Science/Technology – Basic Research  
 - **AJ13** – R&D: General Science/Technology – Advanced Development  
 - **AS11** – R&D: Life Sciences – Basic Research  
 - **AS12** – R&D: Life Sciences – Applied Research  
--** R425** – Support: Professional – Engineering/Technical 
+- **R425** – Support: Professional – Engineering/Technical 
 ## 4. Call to Actions Desired
 **Primary CTAs:**  
 - **"Propose a Research Partnership"** Invite collaborators to pitch aligned projects  
