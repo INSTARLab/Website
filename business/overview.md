@@ -43,40 +43,41 @@ This section includes all relevant industry and government classification codes 
 
 ## NAICS Code(s)  
 *(North American Industry Classification System)*  
-- 541715 – Research and Development in the Physical, Engineering, and Life Sciences (except Nanotechnology and Biotechnology)  
-- 541713 – Research and Development in Nanotechnology  
-- 541714 – Research and Development in Biotechnology (except Nanobiotechnology)  
-- 541720 – Research and Development in the Social Sciences and Humanities  
-- 541690 – Other Scientific and Technical Consulting Services  
-- 541611 – Administrative Management and General Management Consulting Services  
-- 541512 – Computer Systems Design Services  
+-** 541715** – Research and Development in the Physical, Engineering, and Life Sciences (except Nanotechnology and Biotechnology)  
+- **541713** – Research and Development in Nanotechnology  
+- **541714** – Research and Development in Biotechnology (except Nanobiotechnology)  
+-** 541720 **– Research and Development in the Social Sciences and Humanities  
+- **541690 **– Other Scientific and Technical Consulting Services  
+- **541611** – Administrative Management and General Management Consulting Services  
+- **541512** – Computer Systems Design Services  
 ## SIN(s)  
 *(Special Item Numbers – for GSA Schedules)*  
-- 541715 – R&D in Physical, Engineering, and Life Sciences  
-- 541611 – Management and Financial Consulting  
-- 54151S – IT Professional Services  
-- 541720 – R&D in Social Sciences and Humanities  
-- 611430 – Professional and Management Development Training  
+- **541715** – R&D in Physical, Engineering, and Life Sciences  
+- **541611** – Management and Financial Consulting  
+- **54151S** – IT Professional Services  
+- **541720** – R&D in Social Sciences and Humanities  
+- **611430** – Professional and Management Development Training  
 ## SIC Code(s)  
 *(Standard Industrial Classification)*  
-- 8731 – Commercial Physical and Biological Research  
-- 8732 – Commercial Economic, Sociological, and Educational Research  
-- 8748 – Business Consulting Services, Not Elsewhere Classified  
-- 8742 – Management Consulting Services  
+- **8731** – Commercial Physical and Biological Research  
+-** 8732** – Commercial Economic, Sociological, and Educational Research  
+- **8748** – Business Consulting Services, Not Elsewhere Classified  
+- **8742** – Management Consulting Services  
 ## PSC Code(s)  
 *(Product Service Codes)*  
-- AJ12 – R&D: General Science/Technology – Applied Research  
-- AJ11 – R&D: General Science/Technology – Basic Research  
-- AJ13 – R&D: General Science/Technology – Advanced Development  
-- AS11 – R&D: Life Sciences – Basic Research  
-- AS12 – R&D: Life Sciences – Applied Research  
-- R425 – Support: Professional – Engineering/Technical 
+-** AJ12** – R&D: General Science/Technology – Applied Research  
+-** AJ11** – R&D: General Science/Technology – Basic Research  
+- **AJ13** – R&D: General Science/Technology – Advanced Development  
+- **AS11** – R&D: Life Sciences – Basic Research  
+- **AS12** – R&D: Life Sciences – Applied Research  
+-** R425** – Support: Professional – Engineering/Technical 
 ## 4. Call to Actions Desired
 **Primary CTAs:**  
 - **"Propose a Research Partnership"** Invite collaborators to pitch aligned projects  
 - **"Request Lab Access"** Let students or partners schedule use of our facilities  
 - **"Submit an STTR Proposal"**  Enable quick onboarding for government-backed projects  
 - **"Book a Discovery Call"**  Allow stakeholders to quickly engage with our leadership
+  
 **Secondary CTAs:**  
 - **"Download Our Research Overview"**  A concise PDF describing core services and areas  
 - **"Explore Innovation Themes"**  Guide visitors through our future-facing work  
