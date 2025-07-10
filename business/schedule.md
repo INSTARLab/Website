@@ -147,18 +147,18 @@ Specialized services for integrating NVIDIA Omniverse with R&D workflows. Ideal 
 **Phone:** +1 855-221-4692  
 
 **Address:** 125 Frederick St, Marietta, OH 45750, USA
-# GSA Schedule for INSTAR Lab
-## Contractor Information
+## GSA Schedule for INSTAR Lab
+### Contractor Information
 **Business Name:** INSTAR Lab  
 **Address:** 125 Frederick St, Marietta, OH 45750, USA  
 **Phone:** +1 855-221-4692  
 **Website:** https://instarlab.org
-## Business Size and Socioeconomic Status
+### Business Size and Socioeconomic Status
 **Business Type:** Nonprofit Research Institute  
 **Socioeconomic Status:** Small Business  
-## GSA Contract Vehicle
-**Type:** MAS – Multiple Award Schedule  
-**Eligible Users:** Federal, State, and Local Government Agencies  
+### GSA Contract Vehicle
+**Type:** MAS Multiple Award Schedule  
+**Eligible Users:** Federal State and Local Government Agencies  
 ---
 ## Terms and Conditions
 ### 1. Geographic Scope
