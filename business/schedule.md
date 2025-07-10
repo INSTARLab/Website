@@ -26,10 +26,6 @@ The ORBITAL Dream System is INSTAR Lab's flagship innovation platform for simula
 
 - Reduces R&D risk through predictive modeling
 
-**Pricing:**  
-
-Custom pricing based on deployment size and sector. Contact INSTAR Lab directly at +1 855-221-4692 for a quote.
-
 ---
 
 ## 2. R&D Innovation Services
@@ -57,10 +53,6 @@ Advanced scientific research services leveraging data, simulation, and frontier 
 - Ensures project-specific scientific rigor
 
 - Accelerates time from idea to impact
-
-**Pricing:**  
-
-Scope-based; available upon request.
 
 ---
 
@@ -90,10 +82,6 @@ Consulting services focused on designing future-ready infrastructure and operati
 
 - Aligns innovation with national research goals
 
-**Pricing:**  
-
-Fixed or retainer-based pricing available through statement of work.
-
 ---
 
 ## 4. Scientific Simulation & Training
@@ -121,10 +109,6 @@ Immersive, scenario-based training and modeling services for researchers, facult
 - Reduces learning curves for advanced tools
 
 - Enables reproducible science education
-
-**Pricing:**  
-
-Tiered pricing based on participant number and delivery format.
 
 ---
 
@@ -154,10 +138,6 @@ Specialized services for integrating NVIDIA Omniverse with R&D workflows. Ideal 
 
 - Provides expert support for Omniverse tools
 
-**Pricing:**  
-
-Available as per project scope. Engagements start at $5,000.
-
 ---
 
 **Contact INSTAR Lab for customized solutions:**  
@@ -167,24 +147,36 @@ Available as per project scope. Engagements start at $5,000.
 **Phone:** +1 855-221-4692  
 
 **Address:** 125 Frederick St, Marietta, OH 45750, USA
-# GSA Schedule Contract Information
-## Contract Number  
-Not Applicable
-## Contract Title  
-Not Applicable
-## Period of Performance  
-Not Applicable
-## Contractor Name  
-INSTAR Lab
-## DUNS Number  
-Not Applicable
-## UEI Number  
-Not Applicable
-## Contract Type  
-Not Applicable
-## Ordering Instructions  
-Not Applicable
-## Point of Contact  
-**INSTAR Lab**  
-125 Frederick St, Marietta, OH 45750, USA  
-Phone: +1 855-221-4692  
+# GSA Schedule for INSTAR Lab
+## Contractor Information
+**Business Name:** INSTAR Lab  
+**Address:** 125 Frederick St, Marietta, OH 45750, USA  
+**Phone:** +1 855-221-4692  
+**Website:** https://instarlab.org
+## Business Size and Socioeconomic Status
+**Business Type:** Nonprofit Research Institute  
+**Socioeconomic Status:** Small Business  
+## GSA Contract Vehicle
+**Type:** MAS – Multiple Award Schedule  
+**Eligible Users:** Federal, State, and Local Government Agencies  
+---
+## Terms and Conditions
+### 1. Geographic Scope
+Domestic delivery within the 48 contiguous states, Alaska, Hawaii, Puerto Rico, Washington, DC, and U.S. territories.
+### 2. Ordering Procedures
+Orders must follow procedures as outlined in FAR 8.405-1 and FAR 8.405-2. Customers may use GSA Advantage!® or contact INSTAR Lab directly.
+### 3. Payment Terms
+Payment terms are Net 30 days from receipt of invoice unless otherwise agreed.
+### 4. Labor Category Descriptions
+Detailed labor category descriptions, including minimum qualifications and responsibilities, are available upon request.
+### 5. Degree and Experience Equivalency
+Equivalent experience may substitute for educational requirements and vice versa per INSTAR Lab’s GSA-approved policy.
+### 6. Warranty Provision
+Standard commercial warranty applies unless otherwise specified in individual task orders.
+### 7. Export Packing Charges
+Not applicable.
+### 8. Terms and Conditions of Government Purchase Cards
+Accepted at or below the micro-purchase threshold. Above the threshold, acceptance is subject to negotiation.
+### 9. Cancellation and Termination
+Orders may be canceled in accordance with FAR 52.212-4 or the terms specified in individual task orders.
+---
