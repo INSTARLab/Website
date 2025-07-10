@@ -160,7 +160,7 @@ Specialized services for integrating NVIDIA Omniverse with R&D workflows. Ideal 
 **Type:** MAS Multiple Award Schedule  
 **Eligible Users:** Federal State and Local Government Agencies  
 ---
-## Terms and Conditions
+### Terms and Conditions
 ### 1. Geographic Scope
 Domestic delivery within the 48 contiguous states, Alaska, Hawaii, Puerto Rico, Washington, DC, and U.S. territories.
 ### 2. Ordering Procedures
@@ -178,5 +178,6 @@ Not applicable.
 ### 8. Terms and Conditions of Government Purchase Cards
 Accepted at or below the micro-purchase threshold. Above the threshold, acceptance is subject to negotiation.
 ### 9. Cancellation and Termination
+
 Orders may be canceled in accordance with FAR 52.212-4 or the terms specified in individual task orders.
 ---
