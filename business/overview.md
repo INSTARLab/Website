@@ -1,4 +1,4 @@
-# Instar Lab Incorporated
+# 1. InstarLab Inc. description
 **Type:** 501(c)(3) Nonprofit Research Institute  
 **Identity:** A next-generation R&D and Innovation Lab redefining scientific discovery, emerging technology, and cross-disciplinary research.
 ## Who We Are
@@ -37,7 +37,7 @@ Spark meaningful research partnerships and secure interest from funding programs
 - Showcase success stories, unique research focus areas, and our IP pipeline  
 - Share insights, ideas, and updates that reflect the spirit of radical curiosity  
 - Build long-term visibility and alignment with government, nonprofit, and academic R&D efforts
-# 4. All Business Codes
+# 3. All Business Codes
 
 This section includes all relevant industry and government classification codes for Instar Lab.
 
@@ -81,7 +81,7 @@ This section includes all relevant industry and government classification codes 
 ### SMART Goal  
  Generate 50 qualified collaboration inquiries through the website contact form within the first 90 days of launch.
  
-## 4. Call to Actions Desired
+## 5. Call to Actions Desired
 **Primary CTAs:**  
 - **"Propose a Research Partnership"** Invite collaborators to pitch aligned projects  
 - **"Request Lab Access"** Let students or partners schedule use of our facilities  
