@@ -50,7 +50,8 @@ This section identifies what top competitors are not addressing and highlights t
 
 - **No Unified System Architecture**: Competitors rely on disconnected services, whereas INSTAR provides a coherent ecosystem.
  ### Strategic Opportunity for INSTAR Lab
-INSTAR Lab can lead by offering a unified, immersive, and interactive research environment tailored for public institutions, academic partners, and MSMEs. The fusion of Omniverse-powered simulation, clear public-sector deliverables, and transparent sustainability strategies positions INSTAR to fill multiple critical industry gaps.
+ 
+INSTAR Lab can lead by offering a unified, immersive, and interactive research environment tailored for public institutions, academic partners, and MSMEs. The fusion of Omniverse powered simulation, clear public-sector deliverables, and transparent sustainability strategies positions INSTAR to fill multiple critical industry gaps.
 ---
 ## 6. Market Research
 ### Target Audience / Customer Persona
