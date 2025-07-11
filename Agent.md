@@ -54,7 +54,7 @@ We are innovators focused on pushing the boundaries of science and human knowled
 4.  **Compelling Call to Actions (CTAs):**
     *     Ensure each page has clear, strategically placed CTAs that guide the user to the next logical step.
     *     CTAs should be mission-oriented and relevant to our nonprofit status.
-    *     Examples: "Explore Our Research," "Partner With Us," "Learn About Our Labs," "Read Our Latest Paper," "Support Our Mission,"   "Contact Our Innovators."
+    *     Examples: "Explore Our Research," "Partner With Us," "Learn About Our Labs," "Read Our Latest Paper," "Support Our Mission," "Contact Our Innovators."
 5.  **Target Audience Focus:**
     *     Write for a diverse and intelligent audience: scientists, academic researchers, engineering students (Hackney University), potential corporate STTR partners, philanthropists, and government grant organizations.
     *     Maintain an intelligent, inspiring, and professional tone.
