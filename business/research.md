@@ -1,19 +1,19 @@
 # Research & Market Analysis
 ## 1. Gap Analysis
 This section identifies strategic opportunities where INSTAR Lab can differentiate itself from major competitors in the scientific research and innovation ecosystem.
-### Top 10 Competitors Analyzed
-1. Microsoft  
-2. Boston Dynamics  
-3. CERN  
-4. Allen Institute  
-5. HHMI / Janelia Research Campus  
-6. Draper (Charles Stark Draper Laboratory)  
-7. SRI International  
-8. Biohub Network  
-9. Broad Institute  
-10. Whitehead Institute  
-11. Wyss Institute  
-12. NVIDIA  
+### Top Competitors Analyzed
+- [Microsoft](https://www.microsoft.com)
+- [Boston Dynamics](https://www.bostondynamics.com)
+- [CERN](https://home.cern)
+- [Allen Institute](https://alleninstitute.org)
+- [HHMI / Janelia Research Campus](https://www.janelia.org)
+- [Draper](https://www.draper.com)
+- [SRI International](https://www.sri.com)
+- [Biohub Network](https://www.biohubnetwork.org)
+- [Broad Institute](https://www.broadinstitute.org)
+- [Whitehead Institute](https://wi.mit.edu)
+- [Wyss Institute](https://wyss.harvard.edu)
+- [NVIDIA](https://www.nvidia.com) 
 ### Gaps in Competitor Offerings
 | Competitor | Missing Feature or Gap | Opportunity for INSTAR Lab |
 |------------|-------------------------|-----------------------------|
