@@ -1,6 +1,6 @@
 **AI Instructions: Creating Instar Lab Website Copy**
 
-**AI Task - Create Website Copy for Instar Lab Incorporated**
+**Subject: AI Task - Create Website Copy for Instar Lab Incorporated**
 
 **Objective:**
 Your primary task is to develop and write the textual content for the Instar Lab website. The goal is to ensure the copy accurately reflects our unique brand identity as a nonprofit research institute, clearly communicates our mission and value proposition, and effectively inspires our target audience to engage, partner, and support our work.
