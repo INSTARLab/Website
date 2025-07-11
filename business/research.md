@@ -9,7 +9,7 @@ This section identifies strategic opportunities where INSTAR Lab can differentia
 - [HHMI / Janelia Research Campus](https://www.janelia.org)
 - [Draper](https://www.draper.com)
 - [SRI International](https://www.sri.com)
-- [Biohub Network](https://www.biohubnetwork.org)
+- [Chan Zuckerberg Biohub Network](https://www.czbiohub.org)
 - [Broad Institute](https://www.broadinstitute.org)
 - [Whitehead Institute](https://wi.mit.edu)
 - [Wyss Institute](https://wyss.harvard.edu)
