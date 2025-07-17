@@ -34,11 +34,6 @@ This section identifies strategic opportunities where INSTAR Lab can differentia
 ### Target Audience / Customer Persona
 - **Primary Audience:** Scientific institutions, R&D centers, policy labs, MSMEs, public research agencies  
 - **Job Titles:** Research Director, Innovation Officer, Government Research Lead, Science Educator, Nonprofit Program Manager  
-- **Pain Points:**  
- - Lack of affordable advanced simulation tools  
- - Limited interoperability between research systems  
- - Slow tech transfer from lab to deployment  
- - Difficulty accessing Omniverse or AI tools without technical staff  
 - **Goals:**  
  - Streamline experimentation  
  - Increase collaboration across institutions  
