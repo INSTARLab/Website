@@ -1,0 +1,425 @@
+/* ============================================================
+   Interior Pages — Scientific Editorial Theme
+   INSTAR Lab — Template enhancements for BS5
+   ============================================================ */
+
+:root {
+  --ip-blue: #1072ba;
+  --ip-blue-dark: #0a5a94;
+  --ip-blue-light: #e8f2fa;
+  --ip-blue-glow: rgba(16, 114, 186, 0.12);
+  --ip-navy: #0d2137;
+  --ip-slate: #3a4a5c;
+  --ip-warm-gray: #f7f6f4;
+  --ip-border: #e2e0dc;
+  --ip-text: #2c3e50;
+  --ip-text-light: #64748b;
+  --ip-radius: 6px;
+  --ip-shadow-sm: 0 1px 3px rgba(0,0,0,.06), 0 1px 2px rgba(0,0,0,.04);
+  --ip-shadow-md: 0 4px 16px rgba(0,0,0,.08), 0 1px 3px rgba(0,0,0,.06);
+  --ip-shadow-lg: 0 12px 40px rgba(0,0,0,.1), 0 4px 12px rgba(0,0,0,.05);
+}
+
+/* ---- Template A: Hero Intro ---- */
+.ip-hero-intro {
+  position: relative;
+  overflow: hidden;
+  min-height: 420px;
+  display: flex;
+  align-items: center;
+}
+.ip-hero-intro__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.ip-hero-intro__bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.ip-hero-intro__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(13,33,55,.88) 0%, rgba(16,114,186,.72) 100%);
+  z-index: 1;
+}
+.ip-hero-intro__content {
+  position: relative;
+  z-index: 2;
+  padding: 80px 0;
+  color: #fff;
+}
+.ip-hero-intro__eyebrow {
+  display: inline-block;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.7);
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--ip-blue);
+}
+.ip-hero-intro__title {
+  font-family: 'Raleway', sans-serif;
+  font-size: 38px;
+  font-weight: 700;
+  line-height: 1.25;
+  color: #fff;
+  margin-bottom: 20px;
+  max-width: 640px;
+}
+.ip-hero-intro__desc {
+  font-size: 16px;
+  line-height: 1.75;
+  color: rgba(255,255,255,.88);
+  max-width: 580px;
+  margin-bottom: 0;
+}
+@media (max-width: 767px) {
+  .ip-hero-intro { min-height: 320px; }
+  .ip-hero-intro__content { padding: 50px 0; }
+  .ip-hero-intro__title { font-size: 26px; }
+  .ip-hero-intro__desc { font-size: 14px; }
+}
+
+/* ---- Template A: Content Sections ---- */
+.ip-section {
+  padding: 80px 0;
+}
+.ip-section--alt {
+  background-color: var(--ip-warm-gray);
+}
+.ip-content-block {
+  display: flex;
+  align-items: center;
+  gap: 48px;
+}
+.ip-content-block--reverse {
+  flex-direction: row-reverse;
+}
+.ip-content-block__media {
+  flex: 0 0 50%;
+  max-width: 50%;
+}
+.ip-content-block__text {
+  flex: 1;
+  min-width: 0;
+}
+.ip-img-frame {
+  position: relative;
+  border-radius: var(--ip-radius);
+  overflow: hidden;
+  box-shadow: var(--ip-shadow-md);
+}
+.ip-img-frame img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform .5s ease;
+}
+.ip-img-frame:hover img {
+  transform: scale(1.03);
+}
+.ip-img-frame::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 4px;
+  background: var(--ip-blue);
+  border-radius: 2px;
+  margin: 0 0 12px 12px;
+}
+.ip-content-block__label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--ip-blue);
+  margin-bottom: 12px;
+}
+.ip-content-block__label i {
+  font-size: 14px;
+}
+.ip-content-block__heading {
+  font-family: 'Raleway', sans-serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--ip-text);
+  margin-bottom: 16px;
+  line-height: 1.3;
+}
+.ip-content-block__body {
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--ip-text-light);
+}
+@media (max-width: 991px) {
+  .ip-content-block,
+  .ip-content-block--reverse {
+    flex-direction: column;
+    gap: 30px;
+  }
+  .ip-content-block__media {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+@media (max-width: 767px) {
+  .ip-section { padding: 50px 0; }
+  .ip-content-block__heading { font-size: 22px; }
+}
+
+/* ---- Template A: Stats / Counter ---- */
+.ip-stats {
+  background: var(--ip-navy);
+  padding: 70px 0;
+  position: relative;
+  overflow: hidden;
+}
+.ip-stats::before {
+  content: '';
+  position: absolute;
+  top: -60%;
+  right: -10%;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background: rgba(16,114,186,.08);
+  pointer-events: none;
+}
+.ip-stats::after {
+  content: '';
+  position: absolute;
+  bottom: -40%;
+  left: -5%;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: rgba(16,114,186,.06);
+  pointer-events: none;
+}
+.ip-stat {
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  padding: 20px 10px;
+}
+.ip-stat__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(16,114,186,.18);
+  margin-bottom: 16px;
+}
+.ip-stat__icon i {
+  font-size: 20px;
+  color: var(--ip-blue);
+}
+.ip-stat__number {
+  font-family: 'Raleway', sans-serif;
+  font-size: 42px;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+.ip-stat__label {
+  font-family: 'Raleway', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.6);
+}
+@media (max-width: 767px) {
+  .ip-stats { padding: 50px 0; }
+  .ip-stat__number { font-size: 32px; }
+  .ip-stat { padding: 16px 10px; }
+}
+
+/* ---- Template B: Card Grid ---- */
+.ip-card-grid {
+  padding: 80px 0 60px;
+}
+.ip-card-grid__intro {
+  max-width: 720px;
+  margin: 0 auto 50px;
+  text-align: center;
+}
+.ip-card-grid__intro h2 {
+  font-family: 'Raleway', sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--ip-text);
+  margin-bottom: 12px;
+}
+.ip-card-grid__intro h2 span {
+  color: var(--ip-blue);
+}
+.ip-card-grid__intro p {
+  font-size: 15px;
+  line-height: 1.75;
+  color: var(--ip-text-light);
+}
+.ip-card {
+  background: #fff;
+  border-radius: var(--ip-radius);
+  overflow: hidden;
+  box-shadow: var(--ip-shadow-sm);
+  transition: box-shadow .3s ease, transform .3s ease;
+  margin-bottom: 30px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.ip-card:hover {
+  box-shadow: var(--ip-shadow-lg);
+  transform: translateY(-4px);
+}
+.ip-card__image {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 16/10;
+}
+.ip-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .5s ease;
+}
+.ip-card:hover .ip-card__image img {
+  transform: scale(1.05);
+}
+.ip-card__image::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60%;
+  background: linear-gradient(to top, rgba(0,0,0,.2), transparent);
+  pointer-events: none;
+}
+.ip-card__body {
+  padding: 24px 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.ip-card__title {
+  font-family: 'Raleway', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--ip-text);
+  margin-bottom: 10px;
+  line-height: 1.35;
+}
+.ip-card__title a {
+  color: inherit;
+  text-decoration: none;
+}
+.ip-card__title a:hover {
+  color: var(--ip-blue);
+}
+.ip-card__desc {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--ip-text-light);
+  flex: 1;
+}
+.ip-card__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Raleway', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--ip-blue);
+  margin-top: 16px;
+  text-decoration: none;
+  transition: gap .2s ease;
+}
+.ip-card__link:hover {
+  gap: 10px;
+  color: var(--ip-blue-dark);
+}
+.ip-card__link i {
+  font-size: 10px;
+  transition: transform .2s ease;
+}
+.ip-card__link:hover i {
+  transform: translateX(2px);
+}
+
+/* ---- Section Title Enhancement ---- */
+.ip-section-title {
+  text-align: center;
+  margin-bottom: 50px;
+}
+.ip-section-title h2 {
+  font-family: 'Raleway', sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--ip-text);
+  margin-bottom: 8px;
+}
+.ip-section-title h2 span {
+  color: var(--ip-blue);
+}
+.ip-section-title__bar {
+  display: inline-block;
+  width: 50px;
+  height: 3px;
+  background: var(--ip-blue);
+  border-radius: 2px;
+  margin-bottom: 16px;
+}
+.ip-section-title p {
+  max-width: 700px;
+  margin: 0 auto;
+  font-size: 15px;
+  line-height: 1.75;
+  color: var(--ip-text-light);
+}
+
+/* ---- Focus States for WCAG ---- */
+.ip-card__title a:focus,
+.ip-card__link:focus,
+.ip-img-frame a:focus {
+  outline: 2px solid var(--ip-blue);
+  outline-offset: 2px;
+}
+
+/* ---- Animations ---- */
+@media (prefers-reduced-motion: no-preference) {
+  .ip-fade-up {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity .6s ease, transform .6s ease;
+  }
+  .ip-fade-up.ip-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .ip-fade-up:nth-child(2) { transition-delay: .1s; }
+  .ip-fade-up:nth-child(3) { transition-delay: .2s; }
+  .ip-fade-up:nth-child(4) { transition-delay: .3s; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ip-fade-up { opacity: 1; transform: none; }
+}
