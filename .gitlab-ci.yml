@@ -1,13 +1,7 @@
-# INSTAR Lab Website — GitLab Pages deploy + GitHub mirror
-#
-# demo branch  → deploys to GitLab Pages at demo.instarlab.org (via Ziti)
-# gh-pages     → mirrors to GitHub Pages at instarlab.org (public)
-
 include:
-  - project: 'FocusApiary/ci-templates'
-    ref: main
+  - project: 'DroidOpsInc/launch-sequence'
+    ref: v0.2.5
     file: '/pipelines/static-site.yml'
-
 variables:
   GITHUB_REPO: "INSTARLab/Website"
   SITE_DIR: "."
