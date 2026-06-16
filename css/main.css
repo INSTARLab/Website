@@ -281,26 +281,41 @@ textarea {
     }
 }
 
-/* Partner logo strip — uniform sizing across varying aspect ratios */
+/* Partner logo strip — uniform sizing across varying aspect ratios.
+   The .b-logo container is fixed at 110px tall (flex-centered in style.css).
+   Per-logo max-height is tuned so visual weight is balanced across marks:
+   ultra-wide wordmarks get smaller max-height (width-constrained anyway),
+   landscape/square marks get larger max-height to fill the box. */
 .b-logo img {
-    max-height: 80px;
+    max-height: 65px;
     width: auto;
     max-width: 100%;
     object-fit: contain;
     display: block;
     margin: 0 auto;
 }
-/* Wide SVG wordmarks need more horizontal room; override per-file to avoid
-   the col-sm-2 (~192px) capping them to a postage-stamp height. */
+/* focus-hive: AR 8.68 — ultra-wide, width-constrained; reduce height so
+   it doesn't appear oversized relative to its actual rendered footprint. */
 .b-logo img[src$="focus-hive.svg"] {
-    max-height: 60px;
+    max-height: 45px;
     max-width: 520px;
 }
+/* global-enterprise: AR 3.26 — landscape wordmark; 65px gives good presence. */
+.b-logo img[src$="global-enterprise.svg"] {
+    max-height: 65px;
+}
+/* ravonics: AR 6.18 — ultra-wide, width-constrained. */
+.b-logo img[src$="ravonics.svg"] {
+    max-height: 40px;
+    max-width: 340px;
+}
+/* curiosity-research: AR 5.40 — ultra-wide, width-constrained. */
 .b-logo img[src$="curiosity-research.svg"] {
-    max-height: 50px;
+    max-height: 40px;
     max-width: 430px;
 }
-.b-logo img[src$="ravonics.svg"] {
-    max-height: 55px;
-    max-width: 340px;
+/* tao-learning: AR 3.38 — landscape with hexagon cluster + wordmark + kanji;
+   65px gives balanced visual weight matching global-enterprise. */
+.b-logo img[src$="tao-learning.svg"] {
+    max-height: 65px;
 }

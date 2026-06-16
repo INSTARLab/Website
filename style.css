@@ -969,7 +969,11 @@ h1.title1 {
 /*----------------------------------------*/
 .b-logo {
   border: 1px solid #f2f2f2;
-  padding: 30px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 110px;
+  padding: 0 18px;
   text-align: center;
   transition: all 0.3s ease 0s;
 }
