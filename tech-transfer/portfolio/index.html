@@ -3,9 +3,20 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>INSTAR Lab || Portfolio</title>
-        <meta name="description" content="INSTAR Lab - Portfolio research program">
+        <title>INSTAR Lab || Research Portfolio</title>
+        <meta name="description" content="INSTAR Lab's applied research portfolio — original projects in AI model compression, distributed GPU inference, LLM serving optimization, and knowledge-graph research governance, conducted in alignment with STTR research objectives.">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Open Graph -->
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://instarlab.org/tech-transfer/portfolio/">
+        <meta property="og:title" content="Research Portfolio — INSTAR Lab">
+        <meta property="og:description" content="Original applied research projects from INSTAR-affiliated researchers: BLADE model compression, GPU Router distributed inference, Inference Tuning R&amp;D, and Hypermap knowledge-graph governance.">
+        <meta property="og:image" content="https://instarlab.org/img/logo/instar.svg">
+        <!-- Twitter Card -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="Research Portfolio — INSTAR Lab">
+        <meta name="twitter:description" content="Original applied research projects from INSTAR-affiliated researchers: BLADE model compression, GPU Router distributed inference, Inference Tuning R&amp;D, and Hypermap knowledge-graph governance.">
+        <meta name="twitter:image" content="https://instarlab.org/img/logo/instar.svg">
         <link rel="apple-touch-icon" sizes="180x180" href="../../img/logo/fav/apple-touch-icon.png">
         <link rel="icon" type="image/png" sizes="32x32" href="../../img/logo/fav/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="16x16" href="../../img/logo/fav/favicon-16x16.png">
@@ -259,91 +270,177 @@
             </section>
             <!-- End page title -->
 
-            <!-- Start card grid area -->
+            <!-- Start applied research portfolio -->
             <section class="ip-card-grid">
                 <div class="container">
                     <div class="ip-card-grid__intro">
-                        <h2>RESEARCH <span>FOCUS AREAS</span></h2>
+                        <h2>APPLIED RESEARCH <span>PORTFOLIO</span></h2>
                         <div class="ip-section-title__bar"></div>
-                        <p>INSTAR's research and technology capabilities span eight high-priority domains. These focus areas define where we are positioned to collaborate — whether as an STTR research partner, an enterprise R&amp;D resource, or a sponsored-research host. Each domain reflects active engagement across the INSTAR Consortium.</p>
+                        <p>The following projects represent original applied research conducted by INSTAR-affiliated researchers and collaborators, pursued in alignment with STTR research objectives. Several have reached TRL 6 or above and are positioned for federal partnership engagement. All work is carried out using INSTAR's computational infrastructure and governed by the Lab's research review process.</p>
                     </div>
                     <div class="row">
                         <div class="col-sm-6 col-lg-4">
                             <div class="ip-card">
                                 <div class="ip-card__image">
-                                    <img src="../../img/pages/portfolio/card-1.avif" alt="AI-Powered Diagnostic Platform">
+                                    <img src="../../img/pages/portfolio/card-1.avif" alt="BLADE — Budget Language Adaptable Distillation Enhancer">
                                 </div>
                                 <div class="ip-card__body">
-                                    <h3 class="ip-card__title"><a href="#">Artificial Intelligence &amp; Machine Learning</a></h3>
-                                    <p class="ip-card__desc">INSTAR conducts research in applied machine learning, predictive modeling, and AI system design across health, energy, and scientific discovery contexts. Our researchers work at the intersection of algorithm development and domain-specific deployment challenges.</p>
-                                    <a href="#" class="ip-card__link">Learn More <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+                                    <h3 class="ip-card__title"><a href="#">BLADE — Model Compression &amp; Expert Pruning</a></h3>
+                                    <p class="ip-card__desc">BLADE (Budget Language Adaptable Distillation Enhancer) is a Mixture-of-Experts expert-pruning toolkit that compresses large language models to run on a single consumer GPU (24 GB) with CPU offload. It combines activation-norm expert scoring, shared-expert redundancy correction, non-uniform per-layer budgets selected via evolutionary search, and post-pruning router knowledge distillation. Domain-aware calibration covers code, legal, finance, and government tasks; outputs export to GGUF and are evaluated against standard benchmarks including HumanEval, MBPP, and MMLU. Demonstrated 25–40% expert removal with under approximately 1% quality regression. <em>TRL 6 / SBIR-readiness.</em></p>
+                                    <a href="../../tech-transfer/sttr-programs/" class="ip-card__link">STTR Programs <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
                                 </div>
                             </div>
                         </div>
                         <div class="col-sm-6 col-lg-4">
                             <div class="ip-card">
                                 <div class="ip-card__image">
-                                    <img src="../../img/pages/portfolio/card-2.avif" alt="Advanced Battery Chemistry">
+                                    <img src="../../img/pages/portfolio/card-2.avif" alt="GPU Router — Distributed Multi-Model Inference Orchestration">
                                 </div>
                                 <div class="ip-card__body">
-                                    <h3 class="ip-card__title"><a href="#">Energy Systems Research</a></h3>
-                                    <p class="ip-card__desc">INSTAR's energy research capacity spans storage chemistry, grid analytics, and renewable integration. We approach energy problems through the lens of both materials science and systems engineering, positioning our work for collaboration with industry and federal programs targeting energy independence.</p>
-                                    <a href="#" class="ip-card__link">Learn More <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+                                    <h3 class="ip-card__title"><a href="#">GPU Router — Distributed Multi-Model Inference</a></h3>
+                                    <p class="ip-card__desc">GPU Router is a production inference platform that routes requests across a local Kubernetes GPU cluster (9&times; RTX 3090, 50+ models spanning text, vision, audio, video, and 3D) with automatic LRU model load/eviction and overflow to cloud capacity when local resources are saturated. It provides dynamic GPU partitioning across modalities, an OpenAI-compatible API, schema-guided structured output, and per-user cost tracking and tiering — all backed by full IaC (Kustomize/ArgoCD) and end-to-end test coverage.</p>
+                                    <a href="../../tech-transfer/sttr-programs/" class="ip-card__link">STTR Programs <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
                                 </div>
                             </div>
                         </div>
                         <div class="col-sm-6 col-lg-4">
                             <div class="ip-card">
                                 <div class="ip-card__image">
-                                    <img src="../../img/pages/portfolio/card-3.avif" alt="Precision Agriculture Suite">
+                                    <img src="../../img/pages/portfolio/card-3.avif" alt="Inference Tuning Research Program">
                                 </div>
                                 <div class="ip-card__body">
-                                    <h3 class="ip-card__title"><a href="#">Health &amp; Biomedical Informatics</a></h3>
-                                    <p class="ip-card__desc">Health is a core research domain at INSTAR, encompassing biomedical data analytics, cognitive science applied to clinical decision-making, and interdisciplinary approaches to disease modeling. This work is suited for engagement with life science industry partners and health-focused federal programs.</p>
-                                    <a href="#" class="ip-card__link">Learn More <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+                                    <h3 class="ip-card__title"><a href="#">Inference Tuning — Systematic LLM Serving R&amp;D</a></h3>
+                                    <p class="ip-card__desc">This R&amp;D program captures every serving-configuration hypothesis, measured outcome, and verdict — including negative results — as institutional knowledge. The program achieved approximately 96K usable context on a single RTX 3090 while enforcing a strict quality gate (≤1% relative regression across HumanEval, MBPP, long-context retrieval, structured tool calls, and throughput). A deterministic Kubernetes benchmark harness and living runbooks ensure reproducibility across experiments.</p>
+                                    <a href="../../tech-transfer/sttr-programs/" class="ip-card__link">STTR Programs <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
                                 </div>
                             </div>
                         </div>
                         <div class="col-sm-6 col-lg-4">
                             <div class="ip-card">
                                 <div class="ip-card__image">
-                                    <img src="../../img/pages/portfolio/card-4.avif" alt="Quantum Error Correction IP">
+                                    <img src="../../img/pages/portfolio/card-4.avif" alt="Hypermap — Knowledge Graph for Research Governance">
                                 </div>
                                 <div class="ip-card__body">
-                                    <h3 class="ip-card__title"><a href="#">Quantum Computing</a></h3>
-                                    <p class="ip-card__desc">INSTAR's quantum computing research addresses algorithm design, error mitigation, and near-term application development. As quantum hardware matures, this work positions us — and our collaborators — to engage federal and industry programs at the leading edge of this transformative technology.</p>
-                                    <a href="#" class="ip-card__link">Learn More <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+                                    <h3 class="ip-card__title"><a href="#">Hypermap — Research Governance Knowledge Graph</a></h3>
+                                    <p class="ip-card__desc">Hypermap is a schema-validated, version-controlled knowledge graph that models organizations, products, grants/contracts, and their relationships as a navigable map — used to track active grant, SBIR, and STTR pipelines and organizational dependencies for a research enterprise. The project delivers a reusable specification and a reference implementation comprising a relational store, a REST API, and a force-directed graph UI.</p>
+                                    <a href="../../tech-transfer/sttr-programs/" class="ip-card__link">STTR Programs <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
                                 </div>
                             </div>
                         </div>
                         <div class="col-sm-6 col-lg-4">
                             <div class="ip-card">
                                 <div class="ip-card__image">
-                                    <img src="../../img/pages/portfolio/card-5.avif" alt="Environmental Monitoring Network">
+                                    <img src="../../img/pages/portfolio/card-5.avif" alt="AI Safety &amp; Red-Teaming Evaluation">
                                 </div>
                                 <div class="ip-card__body">
-                                    <h3 class="ip-card__title"><a href="#">Space, Orbital &amp; Geoscience</a></h3>
-                                    <p class="ip-card__desc">INSTAR brings research capability in space systems, orbital mechanics, remote sensing, and earth observation analytics. These competencies intersect with both commercial space sector needs and federal R&amp;D priorities in national security, climate, and infrastructure monitoring.</p>
-                                    <a href="#" class="ip-card__link">Learn More <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+                                    <h3 class="ip-card__title"><a href="#">AI Safety &amp; Red-Teaming Evaluation</a></h3>
+                                    <p class="ip-card__desc">INSTAR conducts AI safety and adversarial evaluation research using open-source red-teaming frameworks, including Microsoft's PyRIT (Python Risk Identification Toolkit for generative AI). This work informs the Lab's responsible-AI guidelines and supports the development of evaluation methodologies for AI systems deployed in sensitive contexts. INSTAR is an evaluator and research user of these tools, not their author.</p>
+                                    <a href="../../tech-transfer/sttr-programs/" class="ip-card__link">STTR Programs <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
                                 </div>
                             </div>
                         </div>
                         <div class="col-sm-6 col-lg-4">
                             <div class="ip-card">
                                 <div class="ip-card__image">
-                                    <img src="../../img/pages/portfolio/card-6.avif" alt="AR Surgical Guidance System">
+                                    <img src="../../img/pages/portfolio/card-6.avif" alt="Enterprise R&amp;D Collaboration">
                                 </div>
                                 <div class="ip-card__body">
-                                    <h3 class="ip-card__title"><a href="#">Advanced Materials &amp; HPC</a></h3>
-                                    <p class="ip-card__desc">Materials science and high-performance computing represent two additional pillars of INSTAR's research capacity. Our work in computational materials modeling, simulation-driven design, and HPC methods supports both fundamental discovery and translational applications in manufacturing, defense, and energy sectors.</p>
-                                    <a href="#" class="ip-card__link">Learn More <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+                                    <h3 class="ip-card__title"><a href="#">Partner on Applied AI Research</a></h3>
+                                    <p class="ip-card__desc">INSTAR is open to sponsored-research arrangements, STTR teaming partnerships, and enterprise R&amp;D collaborations in AI/ML, HPC, and data infrastructure. We bring institutional nonprofit status, existing computational resources, and active research programs to partnership engagements. Contact us to discuss how INSTAR can support your R&amp;D objectives.</p>
+                                    <a href="../../community/partner/" class="ip-card__link">Partner With Us <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
-            <!-- End card grid area -->
+            <!-- End applied research portfolio -->
+
+            <!-- Start research focus areas -->
+            <section class="ip-card-grid">
+                <div class="container">
+                    <div class="ip-card-grid__intro">
+                        <h2>RESEARCH <span>FOCUS AREAS</span></h2>
+                        <div class="ip-section-title__bar"></div>
+                        <p>INSTAR's research and technology capabilities span high-priority domains that align with federal R&amp;D priorities and industry needs. These focus areas define where we are positioned to collaborate — whether as an STTR research partner, an enterprise R&amp;D resource, or a sponsored-research host.</p>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6 col-lg-4">
+                            <div class="ip-card">
+                                <div class="ip-card__image">
+                                    <img src="../../img/pages/portfolio/card-1.avif" alt="Artificial Intelligence and Machine Learning">
+                                </div>
+                                <div class="ip-card__body">
+                                    <h3 class="ip-card__title"><a href="#">Artificial Intelligence &amp; Machine Learning</a></h3>
+                                    <p class="ip-card__desc">INSTAR conducts research in applied machine learning, model compression, AI system design, and inference optimization across scientific discovery, government, and enterprise contexts. Our researchers work at the intersection of algorithm development and domain-specific deployment challenges.</p>
+                                    <a href="../../research/current-programs/" class="ip-card__link">Current Programs <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4">
+                            <div class="ip-card">
+                                <div class="ip-card__image">
+                                    <img src="../../img/pages/portfolio/card-2.avif" alt="HPC and Distributed Systems">
+                                </div>
+                                <div class="ip-card__body">
+                                    <h3 class="ip-card__title"><a href="#">HPC &amp; Distributed Systems</a></h3>
+                                    <p class="ip-card__desc">INSTAR's HPC research addresses GPU cluster orchestration, distributed inference, Kubernetes-based workload scheduling, and reproducible benchmark harnesses. This work directly supports INSTAR's operational research infrastructure and informs scalable federal computing architectures.</p>
+                                    <a href="../../research/current-programs/" class="ip-card__link">Current Programs <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4">
+                            <div class="ip-card">
+                                <div class="ip-card__image">
+                                    <img src="../../img/pages/portfolio/card-3.avif" alt="Data Governance and Knowledge Systems">
+                                </div>
+                                <div class="ip-card__body">
+                                    <h3 class="ip-card__title"><a href="#">Data Governance &amp; Knowledge Systems</a></h3>
+                                    <p class="ip-card__desc">Research in this area addresses schema-validated knowledge graphs, entity resolution, version-controlled data models, and institutional knowledge management. Outputs support research governance, grant pipeline tracking, and organizational dependency mapping for complex research enterprises.</p>
+                                    <a href="../../research/current-programs/" class="ip-card__link">Current Programs <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4">
+                            <div class="ip-card">
+                                <div class="ip-card__image">
+                                    <img src="../../img/pages/portfolio/card-4.avif" alt="Quantum Computing">
+                                </div>
+                                <div class="ip-card__body">
+                                    <h3 class="ip-card__title"><a href="#">Quantum Computing</a></h3>
+                                    <p class="ip-card__desc">INSTAR's quantum computing research addresses algorithm design, error mitigation, and near-term application development. As quantum hardware matures, this work positions us — and our collaborators — to engage federal and industry programs at the leading edge of this transformative technology.</p>
+                                    <a href="../../research/current-programs/" class="ip-card__link">Current Programs <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4">
+                            <div class="ip-card">
+                                <div class="ip-card__image">
+                                    <img src="../../img/pages/portfolio/card-5.avif" alt="Space, Orbital and Geoscience">
+                                </div>
+                                <div class="ip-card__body">
+                                    <h3 class="ip-card__title"><a href="#">Space, Orbital &amp; Geoscience</a></h3>
+                                    <p class="ip-card__desc">INSTAR brings research capability in space systems, orbital mechanics, remote sensing, and earth observation analytics. These competencies intersect with both commercial space sector needs and federal R&amp;D priorities in national security, climate, and infrastructure monitoring.</p>
+                                    <a href="../../research/current-programs/" class="ip-card__link">Current Programs <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-4">
+                            <div class="ip-card">
+                                <div class="ip-card__image">
+                                    <img src="../../img/pages/portfolio/card-6.avif" alt="Advanced Materials and Energy">
+                                </div>
+                                <div class="ip-card__body">
+                                    <h3 class="ip-card__title"><a href="#">Advanced Materials &amp; Energy</a></h3>
+                                    <p class="ip-card__desc">Materials science and energy systems research represent core pillars of INSTAR's scientific mission. Our work in computational materials modeling, simulation-driven design, and energy storage and grid analytics supports translational applications in manufacturing, defense, and energy independence.</p>
+                                    <a href="../../research/current-programs/" class="ip-card__link">Current Programs <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- End research focus areas -->
             <!-- Start brand logo area -->
             <section class="brand-logo-area pb-90">
                 <div class="container">
