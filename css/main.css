@@ -300,3 +300,7 @@ textarea {
     max-height: 50px;
     max-width: 430px;
 }
+.b-logo img[src$="ravonics.svg"] {
+    max-height: 55px;
+    max-width: 340px;
+}
