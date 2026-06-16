@@ -48,6 +48,12 @@
   <url><loc>https://instarlab.org/tech-transfer/portfolio/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://instarlab.org/tech-transfer/sttr-programs/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://instarlab.org/tech-transfer/workshops-events/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://instarlab.org/labs/sovereign-ai/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://instarlab.org/labs/biometric-security/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://instarlab.org/labs/cognitive-ai/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://instarlab.org/news/quantum-sensing-breakthroughs/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://instarlab.org/news/hpc-infrastructure-for-ai/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://instarlab.org/news/clinical-ai-safety/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://instarlab.org/privacy.html</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
   <url><loc>https://instarlab.org/terms.html</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
   <url><loc>https://instarlab.org/accessibility.html</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
