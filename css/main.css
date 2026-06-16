@@ -290,3 +290,13 @@ textarea {
     display: block;
     margin: 0 auto;
 }
+/* Wide SVG wordmarks need more horizontal room; override per-file to avoid
+   the col-sm-2 (~192px) capping them to a postage-stamp height. */
+.b-logo img[src$="focus-hive.svg"] {
+    max-height: 60px;
+    max-width: 520px;
+}
+.b-logo img[src$="curiosity-research.svg"] {
+    max-height: 50px;
+    max-width: 430px;
+}
