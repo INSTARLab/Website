@@ -38,7 +38,7 @@
 		fixedContentPos: false
 	});
 
-	// $('.image-link').magnificPopup({type:'image'});  // disabled: gallery now links to topic pages
+	$('.image-link').magnificPopup({type:'inline', midClick:true, mainClass:'mfp-fade', removalDelay:160});
 
 /* TOP Menu Stick*/
 	$(window).on('scroll',function() {    
