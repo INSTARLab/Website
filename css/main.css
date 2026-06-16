@@ -280,3 +280,13 @@ textarea {
         page-break-after: avoid;
     }
 }
+
+/* Partner logo strip — uniform sizing across varying aspect ratios */
+.b-logo img {
+    max-height: 80px;
+    width: auto;
+    max-width: 100%;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+}
