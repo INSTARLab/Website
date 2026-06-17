@@ -54,19 +54,7 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-sm-5 col-md-6">
-                                <div class="top-social">
-                                    <nav>
-                                        <ul>
-                                            <li><a href="#">Follow Us On:</a></li>
-                                            <li><a href="#" aria-label="Facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                            <li><a href="#" aria-label="Twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                            <li><a href="#" aria-label="Google Plus"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
-                                            <li><a href="#" aria-label="Dribbble"><i class="fa fa-dribbble" aria-hidden="true"></i></a></li>
-                                            <li><a href="#" aria-label="RSS Feed"><i class="fa fa-rss" aria-hidden="true"></i></a></li>
-                                            <li><a href="#" aria-label="LinkedIn"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-                                        </ul>
-                                    </nav>
-                                </div>
+                                <div class="top-social"></div>
                             </div>
                             <div class="col-sm-7 col-md-6">
                                 <div class="call-to-action">
@@ -178,7 +166,7 @@
         							</nav>
         						</div>
         						<div class="donate-button ptb-32">
-        							<a class="waves-effect waves-light" href="community/contact/?type=Philanthropy">Donate</a>
+        							<a class="waves-effect waves-light" href="community/contact/">Donate</a>
         						</div>
         					</div>
                         </div>
@@ -353,22 +341,28 @@
                         <!-- End section title -->
                         <div class="col-sm-12">
                             <div class="contact-form">
-                                <form id="contact-form" method="POST" action="mail.php">
+                                <!-- TODO(owner): create a Formspree form at https://formspree.io/ and replace REPLACE_WITH_FORM_ID with the real form endpoint ID -->
+                                <form id="contact-form" method="POST" action="https://formspree.io/f/REPLACE_WITH_FORM_ID">
+                                    <input type="hidden" name="_replyto" value="">
                                     <div class="form-fields">
                                         <label for="name">Name</label>
                                         <input id="name" name="name" type="text" placeholder="Your Name" required aria-label="Your name">
                                     </div>
                                     <div class="form-fields">
                                         <label for="email">Email</label>
-                                        <input id="email" name="email" type="text" placeholder="Your Email" required aria-label="Your email">
+                                        <input id="email" name="email" type="email" placeholder="Your Email" required aria-label="Your email">
+                                    </div>
+                                    <div class="form-fields">
+                                        <label for="subject">Subject</label>
+                                        <input id="subject" name="subject" type="text" placeholder="Subject" aria-label="Subject">
                                     </div>
                                     <div class="form-fields last">
                                         <label for="phone">Phone</label>
-                                        <input id="phone" name="phone" type="text" placeholder="Your Phone" required aria-label="Your phone number">
+                                        <input id="phone" name="phone" type="text" placeholder="Your Phone" aria-label="Your phone number">
                                     </div>
                                     <div class="message-fields">
-                                        <label for="mess">Message</label>
-                                        <textarea name="mess" id="mess" cols="30" rows="10" placeholder="Message" aria-label="Your message"></textarea>
+                                        <label for="message">Message</label>
+                                        <textarea name="message" id="message" cols="30" rows="10" placeholder="Message" aria-label="Your message"></textarea>
                                     </div>
                                     <div class="form-button">
                                         <button type="submit">Send your message</button>
@@ -532,18 +526,7 @@
                                 </div>
                             </div>
                             <div class="col-sm-4">
-                                <div class="footer-social">
-                                    <nav>
-                                        <ul>
-                                            <li><a href="#" aria-label="Facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                            <li><a href="#" aria-label="Twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                            <li><a href="#" aria-label="Google Plus"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
-                                            <li><a href="#" aria-label="Dribbble"><i class="fa fa-dribbble" aria-hidden="true"></i></a></li>
-                                            <li><a href="#" aria-label="RSS Feed"><i class="fa fa-rss" aria-hidden="true"></i></a></li>
-                                            <li><a href="#" aria-label="LinkedIn"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-                                        </ul>
-                                    </nav>
-                                </div>
+                                <div class="footer-social"></div>
                             </div>
                         </div>
                         <div class="d-none d-sm-block" id="back-top" style="display: block;" aria-label="Back to top" role="button" tabindex="0"></div>
@@ -621,30 +604,24 @@
 		============================================ -->           
         <script src="js/main.js"></script>
 
-        <!-- Google Map js -->
-        <script src="https://maps.googleapis.com/maps/api/js"></script>
+        <!-- Google Map iframe (125 Frederick St, Marietta, OH 45750) -->
         <script>
-            function initialize() {
-              var mapOptions = {
-                zoom: 15,
-                scrollwheel: false,
-                center: new google.maps.LatLng(40.663293, -73.956351)
-              };
-
-              var map = new google.maps.Map(document.getElementById('googleMap'),
-                  mapOptions);
-
-
-              var marker = new google.maps.Marker({
-                position: map.getCenter(),
-                animation:google.maps.Animation.BOUNCE,
-                icon: 'img/map-marker.png',
-                map: map
-              });
-
-            }
-
-            google.maps.event.addDomListener(window, 'load', initialize);
+            // Map rendered via iframe embed — see #googleMap div above
+            document.addEventListener('DOMContentLoaded', function () {
+                var mapDiv = document.getElementById('googleMap');
+                if (mapDiv) {
+                    var iframe = document.createElement('iframe');
+                    iframe.src = 'https://maps.google.com/maps?q=125+Frederick+St%2C+Marietta%2C+OH+45750&output=embed';
+                    iframe.width = '100%';
+                    iframe.height = '450';
+                    iframe.style.border = '0';
+                    iframe.setAttribute('allowfullscreen', '');
+                    iframe.setAttribute('loading', 'lazy');
+                    iframe.setAttribute('referrerpolicy', 'no-referrer-when-downgrade');
+                    iframe.setAttribute('title', 'INSTAR Lab location — 125 Frederick St, Marietta, OH 45750');
+                    mapDiv.appendChild(iframe);
+                }
+            });
         </script>
     </body>
 </html>
