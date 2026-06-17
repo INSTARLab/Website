@@ -319,3 +319,14 @@ textarea {
 .b-logo img[src$="tao-learning.svg"] {
     max-height: 65px;
 }
+/* world-enterprise-group: AR 5.00 — wide all-caps wordmark; reduce height so
+   the text renders at the same apparent weight as the other marks. */
+.b-logo img[src$="world-enterprise-group.svg"] {
+    max-height: 40px;
+    max-width: 400px;
+}
+/* dream-limited: AR 3.50 — shorter all-caps wordmark; 45px matches weight. */
+.b-logo img[src$="dream-limited.svg"] {
+    max-height: 45px;
+    max-width: 280px;
+}
