@@ -50,15 +50,6 @@
 	   }
 	}); 
 
-/* syotimer*/
-	$('#simple_timer').syotimer({
-		year: 2018,
-		month: 5,
-		day: 9,
-		hour: 20,
-		minute: 30
-	});
-
  /* scrollUp*/
 	$.scrollUp({
 	  scrollText: '<i class="fa fa-angle-up" aria-hidden="true"></i>',
