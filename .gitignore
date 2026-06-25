@@ -1,2 +1,6 @@
 # Claude Code harness state (worktrees, memory, per-project tooling)
 .claude/
+
+# Local-only preview/mockup pages (must not publish to gh-pages)
+nav-preview.html
+issue-triage.html
