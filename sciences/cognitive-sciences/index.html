@@ -77,8 +77,12 @@
         </script>
 
         <link rel="stylesheet" href="../../master.css">
-        <script src="../../js/vendor/modernizr-2.8.3.min.js"></script>
-    </head>
+        <!-- NAV-2026-HEAD:START -->
+        <script>document.documentElement.classList.replace('no-js','js');</script>
+        <link rel="stylesheet" href="../../css/nav-2026.css">
+        <script defer src="../../js/nav-2026.js"></script>
+        <!-- NAV-2026-HEAD:END -->
+</head>
     <body>
         <a class="skip-to-content" href="#main-content">Skip to main content</a>
 		<!-- Start main area -->
@@ -93,38 +97,78 @@
                                 <div class="top-social"></div>
                             </div>
                             <div class="col-sm-7 col-md-6">
-                                <div class="call-to-action">
-                                    <nav>
-                                        <ul>
-                                            <li><a href="mailto:info@instarlab.org"><i class="fa fa-envelope" aria-hidden="true"></i> Email: info@instarlab.org</a></li>
-                                            <li><a href="tel:+18552214692"><i class="fa fa-phone" aria-hidden="true"></i> Phone: +1 855-221-4692</a></li>
-                                            <li><a href="../../about.html"><i class="fa fa-flask" aria-hidden="true"></i> Research</a>
-                                            </li>
-                                        </ul>
-                                    </nav>
-                                </div>
+                                	                            <!-- NAV-2026-TOPBAR:START -->
+                            <div class="call-to-action">
+                                <nav aria-label="Contact">
+                                	<ul>
+	                                	<li><a href="mailto:info@instarlab.org"><svg width="14" height="11" viewBox="0 0 14 11" aria-hidden="true" focusable="false"><rect x="1" y="1" width="12" height="9" rx="1.5" stroke="currentColor" stroke-width="1.5" fill="none"/><polyline points="1,1.5 7,6.5 13,1.5" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linejoin="round"/></svg> Email: info@instarlab.org</a></li>
+	                                	<li><a href="tel:+18552214692"><svg width="12" height="13" viewBox="0 0 12 13" aria-hidden="true" focusable="false"><path d="M2.5 1.5h2.2l.9 2.6-1.7 1.2c.8 1.8 2.2 3.1 3.9 3.9L9.1 7.6l2.6.9v2.2a1 1 0 0 1-1 1C4.2 11.7.3 7.8.3 2.5a1 1 0 0 1 1-1h1.2z" stroke="currentColor" stroke-width="1.3" fill="none" stroke-linejoin="round"/></svg> Phone: +1 855-221-4692</a></li>
+	                                	<li><a href="../../research/current-programs/"><svg width="12" height="14" viewBox="0 0 12 14" aria-hidden="true" focusable="false"><path d="M4.5 1v5.5L1.5 12h9L7.5 6.5V1" stroke="currentColor" stroke-width="1.3" fill="none" stroke-linecap="round" stroke-linejoin="round"/><line x1="3" y1="1" x2="9" y2="1" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg> Research</a></li>
+	                                </ul>
+                                </nav>
                             </div>
+                            <!-- NAV-2026-TOPBAR:END -->
                         </div>
                     </div>
                 </div>
                 <!-- End header top -->
-                <!-- Start main menu area -->
-                <div class="main-menu-area" id="sticker">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-sm-3">
-                                <div class="logo ptb-32">
-                                    <a href="../../index.html">
-                                        <img src="../../img/logo/instar.svg" alt="INSTAR Lab">
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-sm-9 col-12">
-        						<div class="main-menu">
-        							<nav>
-        								<ul>
-                                            <li class="mega-menu"><a href="#" aria-current="page">Sciences</a>
-                                                <div class="mega-menu-area">
+                        		<!-- NAV-2026:START -->
+		<!-- Start main menu area -->
+		<div class="main-menu-area" id="sticker">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-3 col-12">
+						<div class="logo ptb-32">
+							<a href="../../index.html">
+								<img src="../../img/logo/instar.svg" alt="INSTAR Lab">
+							</a>
+						</div>
+                                <!-- Hamburger: visible on mobile ≤991px only -->
+                                <button type="button" class="mobile-menu-btn"
+                                        aria-expanded="false"
+                                        aria-controls="mobile-nav"
+                                        aria-label="Open navigation menu">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <line class="hb-line hb-top" x1="3" y1="6"  x2="21" y2="6"  stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                        <line class="hb-line hb-mid" x1="3" y1="12" x2="21" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                        <line class="hb-line hb-bot" x1="3" y1="18" x2="21" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                    </svg>
+                                </button>
+					</div>
+					<div class="col-sm-9 col-12">
+						<div class="donate-button ptb-32">
+							<a class="waves-effect waves-light" href="../../community/support/">Donate</a>
+						</div>
+						<div class="main-menu">
+							<nav aria-label="Main">
+								<ul>
+                                            <!-- 1. About -->
+                                            <li>
+                                                <button type="button" class="nav-toggle" aria-expanded="false" aria-haspopup="true" aria-controls="submenu-about">About <svg class="nav-chevron" width="10" height="6" viewBox="0 0 10 6" aria-hidden="true" focusable="false"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+                                                <ul class="drop-menu" id="submenu-about">
+                                                    <li><a href="../../mission.html">Mission</a></li>
+                                                    <li><a href="../../community/about-us/">About Us</a></li>
+                                                    <li><a href="../../community/leadership/">Leadership</a></li>
+                                                    <li><a href="../../research/consortium/">INSTAR Consortium</a></li>
+                                                    <li><a href="../../research/facilities/">Facilities</a></li>
+                                                </ul>
+                                            </li>
+                                            <!-- 2. Research -->
+                                            <li>
+                                                <button type="button" class="nav-toggle" aria-expanded="false" aria-haspopup="true" aria-controls="submenu-research">Research <svg class="nav-chevron" width="10" height="6" viewBox="0 0 10 6" aria-hidden="true" focusable="false"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+                                                <ul class="drop-menu" id="submenu-research">
+                                                    <li><a href="../../research/innovation/">Innovation</a></li>
+                                                    <li><a href="../../research/our-process/">Our Process</a></li>
+                                                    <li><a href="../../research/current-programs/">Current Programs</a></li>
+                                                    <li><a href="../../research/funding/">Funding</a></li>
+                                                    <li><a href="../../research/open-data/">Open Data</a></li>
+                                                    <li><a href="../../research/opportunities/">Opportunities</a></li>
+                                                </ul>
+                                            </li>
+                                            <!-- 3. Sciences — 4-column mega-menu -->
+                                            <li class="mega-menu">
+                                                <button type="button" class="nav-toggle" aria-expanded="false" aria-haspopup="true" aria-controls="submenu-sciences">Sciences <svg class="nav-chevron" width="10" height="6" viewBox="0 0 10 6" aria-hidden="true" focusable="false"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+                                                <div class="mega-menu-area" id="submenu-sciences">
                                                     <ul class="single-mega-item">
                                                         <li class="shortcode-title">Earth &amp; Space</li>
                                                         <li><a href="../../sciences/agriculture/">Agriculture</a></li>
@@ -147,7 +191,7 @@
                                                         <li><a href="../../sciences/biology/">Biology</a></li>
                                                         <li><a href="../../sciences/genetics/">Genetics</a></li>
                                                         <li><a href="../../sciences/medicine/">Medicine</a></li>
-                                                        <li><a href="../../sciences/cognitive-sciences/">Cognitive Sciences</a></li>
+                                                        <li><a href="../../sciences/cognitive-sciences/" aria-current="page">Cognitive Sciences</a></li>
                                                         <li><a href="../../sciences/neuroscience/">Neuroscience</a></li>
                                                         <li><a href="../../sciences/physiology/">Physiology</a></li>
                                                         <li><a href="../../sciences/kinesiology/">Kinesiology</a></li>
@@ -161,132 +205,181 @@
                                                     </ul>
                                                 </div>
                                             </li>
-                                            <li><a href="#">Technology</a>
-                                                <ul class="drop-menu">
+                                            <!-- 4. Technology -->
+                                            <li>
+                                                <button type="button" class="nav-toggle" aria-expanded="false" aria-haspopup="true" aria-controls="submenu-technology">Technology <svg class="nav-chevron" width="10" height="6" viewBox="0 0 10 6" aria-hidden="true" focusable="false"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+                                                <ul class="drop-menu" id="submenu-technology">
                                                     <li><a href="../../technology/formal-methods/">Formal Methods</a></li>
                                                     <li><a href="../../technology/data-science/">Data Science</a></li>
                                                     <li><a href="../../technology/computer-science/">Computer Science</a></li>
                                                     <li><a href="../../technology/machine-intelligence/">Machine Intelligence</a></li>
+                                                    <li><a href="../../technology/natural-language-processing/">Natural Language Processing</a></li>
                                                     <li><a href="../../technology/augmented-reality/">Augmented Reality</a></li>
                                                     <li><a href="../../technology/quantum-computing/">Quantum Computing</a></li>
                                                 </ul>
                                             </li>
-        									<li><a href="#">Tech Transfer</a>
-                                                <ul class="drop-menu">
+                                            <!-- 5. Tech Transfer -->
+									<li>
+                                                <button type="button" class="nav-toggle" aria-expanded="false" aria-haspopup="true" aria-controls="submenu-tech-transfer">Tech Transfer <svg class="nav-chevron" width="10" height="6" viewBox="0 0 10 6" aria-hidden="true" focusable="false"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+                                                <ul class="drop-menu" id="submenu-tech-transfer">
                                                     <li><a href="../../tech-transfer/sttr-programs/">STTR Programs</a></li>
                                                     <li><a href="../../tech-transfer/enterprise-rd/">Enterprise R&amp;D</a></li>
                                                     <li><a href="../../tech-transfer/portfolio/">Portfolio</a></li>
                                                     <li><a href="../../tech-transfer/workshops-events/">Workshops &amp; Events</a></li>
                                                 </ul>
                                             </li>
-        									<li><a href="#">Research</a>
-                                                <ul class="drop-menu">
-                                                    <li><a href="../../research/innovation/">Innovation</a></li>
-                                                    <li><a href="../../research/our-process/">Our Process</a></li>
-                                                    <li><a href="../../research/current-programs/">Current Programs</a></li>
-                                                    <li><a href="../../research/consortium/">INSTAR Consortium</a></li>
-                                                    <li><a href="../../research/facilities/">Facilities</a></li>
-                                                    <li><a href="../../research/opportunities/">Opportunities</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="#">Community</a>
-                                                <ul class="drop-menu">
-                                                    <li><a href="../../community/about-us/">About Us</a></li>
+                                            <!-- 6. Community -->
+                                            <li>
+                                                <button type="button" class="nav-toggle" aria-expanded="false" aria-haspopup="true" aria-controls="submenu-community">Community <svg class="nav-chevron" width="10" height="6" viewBox="0 0 10 6" aria-hidden="true" focusable="false"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+                                                <ul class="drop-menu" id="submenu-community">
                                                     <li><a href="../../community/fellowship/">Fellowship</a></li>
-                                                    <li><a href="../../community/work-with-us/">Work With Us</a></li>
-                                                    <li><a href="../../community/contact/">Contact</a></li>
+                                                    <li><a href="../../community/work-with-us/">Collaborate</a></li>
                                                     <li><a href="../../community/careers/">Careers</a></li>
+                                                    <li><a href="../../community/contact/">Contact</a></li>
                                                 </ul>
                                             </li>
-        								</ul>
-        							</nav>
-        						</div>
-        						<div class="donate-button ptb-32">
-        							<a class="waves-effect waves-light" href="../../community/contact/">Donate</a>
-        						</div>
-        					</div>
-                        </div>
-                    </div>
-                </div>
-                <!-- End main menu area -->
-                <!-- Start mobile menu -->
-                <div class="mobile-menu-area">
-                    <div class="container">
-                        <div class="row">
-                            <div class="mobile-menu">
-                                <nav id="dropdown">
-                                    <ul class="nav">
-                                        <li><a href="../../index.html">Home</a></li>
-                                        <li><a href="#">Sciences</a>
-                                            <ul>
-                                                <li><a href="../../sciences/agriculture/">Agriculture</a></li>
-                                                <li><a href="../../sciences/geology/">Geology</a></li>
-                                                <li><a href="../../sciences/ocean-science/">Ocean Science</a></li>
-                                                <li><a href="../../sciences/outer-space/">Outer Space</a></li>
-                                                <li><a href="../../sciences/anthropology/">Anthropology</a></li>
-                                                <li><a href="../../sciences/archaeology/">Archaeology</a></li>
-                                                <li><a href="../../sciences/economics/">Economics</a></li>
-                                                <li><a href="../../sciences/law/">Law</a></li>
-                                                <li><a href="../../sciences/linguistics/">Linguistics</a></li>
-                                                <li><a href="../../sciences/psychology/">Psychology</a></li>
-                                                <li><a href="../../sciences/sociology/">Sociology</a></li>
-                                                <li><a href="../../sciences/biology/">Biology</a></li>
-                                                <li><a href="../../sciences/genetics/">Genetics</a></li>
-                                                <li><a href="../../sciences/medicine/">Medicine</a></li>
-                                                <li><a href="../../sciences/cognitive-sciences/">Cognitive Sciences</a></li>
-                                                <li><a href="../../sciences/neuroscience/">Neuroscience</a></li>
-                                                <li><a href="../../sciences/physiology/">Physiology</a></li>
-                                                <li><a href="../../sciences/kinesiology/">Kinesiology</a></li>
-                                                <li><a href="../../sciences/chemistry/">Chemistry</a></li>
-                                                <li><a href="../../sciences/physics/">Physics</a></li>
-                                                <li><a href="../../sciences/materials-science/">Materials Science</a></li>
-                                                <li><a href="../../sciences/energy/">Energy</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="#">Technology</a>
-                                            <ul>
-                                                <li><a href="../../technology/formal-methods/">Formal Methods</a></li>
-                                                <li><a href="../../technology/data-science/">Data Science</a></li>
-                                                <li><a href="../../technology/computer-science/">Computer Science</a></li>
-                                                <li><a href="../../technology/machine-intelligence/">Machine Intelligence</a></li>
-                                                <li><a href="../../technology/augmented-reality/">Augmented Reality</a></li>
-                                                <li><a href="../../technology/quantum-computing/">Quantum Computing</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="#">Tech Transfer</a>
-                                            <ul>
-                                                <li><a href="../../tech-transfer/sttr-programs/">STTR Programs</a></li>
-                                                <li><a href="../../tech-transfer/enterprise-rd/">Enterprise R&amp;D</a></li>
-                                                <li><a href="../../tech-transfer/portfolio/">Portfolio</a></li>
-                                                <li><a href="../../tech-transfer/workshops-events/">Workshops &amp; Events</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="#">Research</a>
-                                            <ul>
-                                                <li><a href="../../research/innovation/">Innovation</a></li>
-                                                <li><a href="../../research/our-process/">Our Process</a></li>
-                                                <li><a href="../../research/current-programs/">Current Programs</a></li>
-                                                <li><a href="../../research/consortium/">INSTAR Consortium</a></li>
-                                                <li><a href="../../research/facilities/">Facilities</a></li>
-                                                <li><a href="../../research/opportunities/">Opportunities</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="#">Community</a>
-                                            <ul>
-                                                <li><a href="../../community/about-us/">About Us</a></li>
-                                                <li><a href="../../community/fellowship/">Fellowship</a></li>
-                                                <li><a href="../../community/work-with-us/">Work With Us</a></li>
-                                                <li><a href="../../community/contact/">Contact</a></li>
-                                                <li><a href="../../community/careers/">Careers</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </nav>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- End mobile menu -->
+                                            <!-- 7. News (direct link) -->
+                                            <li><a class="nav-link" href="../../news/">News</a></li>
+								</ul>
+							</nav>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- End main menu area -->
+        <!-- Mobile nav backdrop -->
+        <div class="mobile-nav-overlay" id="mobile-nav-overlay" aria-hidden="true"></div>
+        <!-- Mobile nav off-canvas drawer (vanilla JS, no meanmenu) -->
+        <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation" aria-hidden="true">
+            <div class="mobile-nav__header">
+                <img src="../../img/logo/instar.svg" alt="INSTAR Lab" class="mobile-nav__logo">
+                <button type="button" class="mobile-nav__close" aria-label="Close navigation menu">
+                    <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true" focusable="false" fill="none">
+                        <line x1="3" y1="3" x2="17" y2="17" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                        <line x1="17" y1="3" x2="3" y2="17" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="mobile-nav__body">
+                <ul class="mobile-nav__list">
+                    <!-- 1. About -->
+                    <li class="mobile-nav__item">
+                        <button type="button" class="mobile-nav__toggle" aria-expanded="false" aria-controls="mob-sub-about">
+                            About
+                            <svg class="mobile-nav__chevron" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" focusable="false" fill="none"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </button>
+                        <ul class="mobile-nav__sub" id="mob-sub-about">
+                            <li><a class="mobile-nav__sub-link" href="../../mission.html">Mission</a></li>
+                            <li><a class="mobile-nav__sub-link" href="../../community/about-us/">About Us</a></li>
+                            <li><a class="mobile-nav__sub-link" href="../../community/leadership/">Leadership</a></li>
+                            <li><a class="mobile-nav__sub-link" href="../../research/consortium/">INSTAR Consortium</a></li>
+                            <li><a class="mobile-nav__sub-link" href="../../research/facilities/">Facilities</a></li>
+                        </ul>
+                    </li>
+                    <!-- 2. Research -->
+                    <li class="mobile-nav__item">
+                        <button type="button" class="mobile-nav__toggle" aria-expanded="false" aria-controls="mob-sub-research">
+                            Research
+                            <svg class="mobile-nav__chevron" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" focusable="false" fill="none"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </button>
+                        <ul class="mobile-nav__sub" id="mob-sub-research">
+                            <li><a class="mobile-nav__sub-link" href="../../research/innovation/">Innovation</a></li>
+                            <li><a class="mobile-nav__sub-link" href="../../research/our-process/">Our Process</a></li>
+                            <li><a class="mobile-nav__sub-link" href="../../research/current-programs/">Current Programs</a></li>
+                            <li><a class="mobile-nav__sub-link" href="../../research/funding/">Funding</a></li>
+                            <li><a class="mobile-nav__sub-link" href="../../research/open-data/">Open Data</a></li>
+                            <li><a class="mobile-nav__sub-link" href="../../research/opportunities/">Opportunities</a></li>
+                        </ul>
+                    </li>
+                    <!-- 3. Sciences (mega-menu flattened with category headings) -->
+                    <li class="mobile-nav__item">
+                        <button type="button" class="mobile-nav__toggle" aria-expanded="false" aria-controls="mob-sub-sciences">
+                            Sciences
+                            <svg class="mobile-nav__chevron" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" focusable="false" fill="none"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </button>
+                        <ul class="mobile-nav__sub" id="mob-sub-sciences">
+                            <li class="mobile-nav__sub-heading">Earth &amp; Space</li>
+                            <li><a class="mobile-nav__sub-link" href="../../sciences/agriculture/">Agriculture</a></li>
+                            <li><a class="mobile-nav__sub-link" href="../../sciences/geology/">Geology</a></li>
+                            <li><a class="mobile-nav__sub-link" href="../../sciences/ocean-science/">Ocean Science</a></li>
+                            <li><a class="mobile-nav__sub-link" href="../../sciences/outer-space/">Outer Space</a></li>
+                            <li class="mobile-nav__sub-heading">Social Sciences</li>
+                            <li><a class="mobile-nav__sub-link" href="../../sciences/anthropology/">Anthropology</a></li>
+                            <li><a class="mobile-nav__sub-link" href="../../sciences/archaeology/">Archaeology</a></li>
+                            <li><a class="mobile-nav__sub-link" href="../../sciences/economics/">Economics</a></li>
+                            <li><a class="mobile-nav__sub-link" href="../../sciences/law/">Law</a></li>
+                            <li><a class="mobile-nav__sub-link" href="../../sciences/linguistics/">Linguistics</a></li>
+                            <li><a class="mobile-nav__sub-link" href="../../sciences/psychology/">Psychology</a></li>
+                            <li><a class="mobile-nav__sub-link" href="../../sciences/sociology/">Sociology</a></li>
+                            <li class="mobile-nav__sub-heading">Life Sciences</li>
+                            <li><a class="mobile-nav__sub-link" href="../../sciences/biology/">Biology</a></li>
+                            <li><a class="mobile-nav__sub-link" href="../../sciences/genetics/">Genetics</a></li>
+                            <li><a class="mobile-nav__sub-link" href="../../sciences/medicine/">Medicine</a></li>
+                            <li><a class="mobile-nav__sub-link" href="../../sciences/cognitive-sciences/" aria-current="page">Cognitive Sciences</a></li>
+                            <li><a class="mobile-nav__sub-link" href="../../sciences/neuroscience/">Neuroscience</a></li>
+                            <li><a class="mobile-nav__sub-link" href="../../sciences/physiology/">Physiology</a></li>
+                            <li><a class="mobile-nav__sub-link" href="../../sciences/kinesiology/">Kinesiology</a></li>
+                            <li class="mobile-nav__sub-heading">Physical Sciences</li>
+                            <li><a class="mobile-nav__sub-link" href="../../sciences/chemistry/">Chemistry</a></li>
+                            <li><a class="mobile-nav__sub-link" href="../../sciences/physics/">Physics</a></li>
+                            <li><a class="mobile-nav__sub-link" href="../../sciences/materials-science/">Materials Science</a></li>
+                            <li><a class="mobile-nav__sub-link" href="../../sciences/energy/">Energy</a></li>
+                        </ul>
+                    </li>
+                    <!-- 4. Technology -->
+                    <li class="mobile-nav__item">
+                        <button type="button" class="mobile-nav__toggle" aria-expanded="false" aria-controls="mob-sub-technology">
+                            Technology
+                            <svg class="mobile-nav__chevron" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" focusable="false" fill="none"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </button>
+                        <ul class="mobile-nav__sub" id="mob-sub-technology">
+                            <li><a class="mobile-nav__sub-link" href="../../technology/formal-methods/">Formal Methods</a></li>
+                            <li><a class="mobile-nav__sub-link" href="../../technology/data-science/">Data Science</a></li>
+                            <li><a class="mobile-nav__sub-link" href="../../technology/computer-science/">Computer Science</a></li>
+                            <li><a class="mobile-nav__sub-link" href="../../technology/machine-intelligence/">Machine Intelligence</a></li>
+                            <li><a class="mobile-nav__sub-link" href="../../technology/natural-language-processing/">Natural Language Processing</a></li>
+                            <li><a class="mobile-nav__sub-link" href="../../technology/augmented-reality/">Augmented Reality</a></li>
+                            <li><a class="mobile-nav__sub-link" href="../../technology/quantum-computing/">Quantum Computing</a></li>
+                        </ul>
+                    </li>
+                    <!-- 5. Tech Transfer -->
+                    <li class="mobile-nav__item">
+                        <button type="button" class="mobile-nav__toggle" aria-expanded="false" aria-controls="mob-sub-tech-transfer">
+                            Tech Transfer
+                            <svg class="mobile-nav__chevron" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" focusable="false" fill="none"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </button>
+                        <ul class="mobile-nav__sub" id="mob-sub-tech-transfer">
+                            <li><a class="mobile-nav__sub-link" href="../../tech-transfer/sttr-programs/">STTR Programs</a></li>
+                            <li><a class="mobile-nav__sub-link" href="../../tech-transfer/enterprise-rd/">Enterprise R&amp;D</a></li>
+                            <li><a class="mobile-nav__sub-link" href="../../tech-transfer/portfolio/">Portfolio</a></li>
+                            <li><a class="mobile-nav__sub-link" href="../../tech-transfer/workshops-events/">Workshops &amp; Events</a></li>
+                        </ul>
+                    </li>
+                    <!-- 6. Community -->
+                    <li class="mobile-nav__item">
+                        <button type="button" class="mobile-nav__toggle" aria-expanded="false" aria-controls="mob-sub-community">
+                            Community
+                            <svg class="mobile-nav__chevron" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" focusable="false" fill="none"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </button>
+                        <ul class="mobile-nav__sub" id="mob-sub-community">
+                            <li><a class="mobile-nav__sub-link" href="../../community/fellowship/">Fellowship</a></li>
+                            <li><a class="mobile-nav__sub-link" href="../../community/work-with-us/">Collaborate</a></li>
+                            <li><a class="mobile-nav__sub-link" href="../../community/careers/">Careers</a></li>
+                            <li><a class="mobile-nav__sub-link" href="../../community/contact/">Contact</a></li>
+                        </ul>
+                    </li>
+                    <!-- 7. News -->
+                    <li class="mobile-nav__item">
+                        <a class="mobile-nav__link" href="../../news/">News</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="mobile-nav__donate">
+                <a href="../../community/support/">Donate</a>
+            </div>
+        </nav>
+        <!-- NAV-2026:END -->
             </header>
             <!-- End header -->
             <main id="main-content">

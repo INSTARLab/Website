@@ -1,0 +1,479 @@
+/* ==========================================================================
+   nav-2026.css — INSTAR Lab 2026 Navigation Upgrade
+   Shared stylesheet loaded after master.css to override legacy nav styles.
+   Companion script: js/nav-2026.js
+   ========================================================================== */
+
+/* ------------------------------------------------------------------
+   MEGA-MENU POSITIONING FIX
+   .mega-menu-area is position:absolute. The nearest positioned
+   ancestor is .main-area {position:relative}, whose height spans
+   the full page. Fix: add position:relative to #sticker (the
+   nav-bar container) whenever it is NOT in sticky mode, making
+   top:100% resolve to just below the nav bar.
+   The :not(.stick) guard ensures this doesn't fire in sticky mode
+   (where main.js adds class .stick and position:fixed takes over).
+   ------------------------------------------------------------------ */
+#sticker:not(.stick) {
+  position: relative;
+}
+
+/* ------------------------------------------------------------------
+   NAV RIGHT-SHIFT — push menu items toward the Donate CTA
+   donate-button is rendered before main-menu in the HTML so its
+   float:right occupies the far-right slot first. Floating the nav
+   <ul> right lands it immediately to the left of the Donate button.
+   li items still float:left (existing rule), preserving L→R order.
+   Responsive safety: responsive.css hides .main-menu below 768px.
+   ------------------------------------------------------------------ */
+.main-menu-area .main-menu nav > ul {
+  float: right;
+}
+
+/* ========================================================================
+   nav2026 — SOTA Disclosure Nav + WCAG 2.2 AA Mobile Drawer
+   ======================================================================== */
+
+/* ---- Design tokens ---- */
+:root {
+  --n-brand:   #1072ba;
+  --n-deep:    #1d4ed8;
+  --n-text:    #444;
+  --n-font:    "Raleway", sans-serif;
+  --n-size:    14px;
+  --n-weight:  500;
+  --n-gap:     5px;
+  --n-minh:    24px;
+  --n-ease:    0.2s ease;
+  --n-shadow:  0 8px 28px rgba(0,0,0,0.11);
+  --n-radius:  6px;
+  --n-mob-w:   min(320px, 88vw);
+}
+
+/* ---- 1 & 2. Shared base for nav buttons and nav links ---- */
+.main-menu .nav-toggle,
+.main-menu .nav-link {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--n-font);
+  font-size: var(--n-size);
+  font-weight: var(--n-weight);
+  color: var(--n-text);
+  text-decoration: none;
+  padding-block: 7px;
+  padding-inline: 0;
+  min-height: var(--n-minh);
+  line-height: 1.4;
+  white-space: nowrap;
+  position: relative;
+  transition: color var(--n-ease);
+}
+
+/* Button-specific UA resets (not needed on .nav-link <a>) */
+.main-menu .nav-toggle {
+  appearance: none;
+  -webkit-appearance: none;
+  background: none;
+  border: none;
+  outline: none;
+  margin: 0;
+  cursor: pointer;
+  gap: var(--n-gap);
+}
+
+/* ---- 3. Top-level <li>: flex row so toggle and nav-link sit on one baseline ---- */
+.main-menu nav > ul > li {
+  display: inline-flex;
+  align-items: center;
+}
+
+/* ---- 4. Hover/active color — shared ---- */
+.main-menu ul li:hover > .nav-toggle,
+.main-menu ul li:hover > .nav-link,
+.main-menu .nav-toggle[aria-expanded="true"] {
+  color: var(--n-brand);
+}
+
+/* ---- 5. Animated underline indicator ---- */
+.main-menu .nav-toggle::after,
+.main-menu .nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  inset-inline-start: 0;
+  width: 0;
+  height: 2px;
+  background: var(--n-brand);
+  border-radius: 1px;
+  transition: width var(--n-ease);
+}
+.main-menu ul li:hover > .nav-toggle::after,
+.main-menu ul li:hover > .nav-link::after,
+.main-menu .nav-toggle[aria-expanded="true"]::after {
+  width: 100%;
+}
+
+/* ---- 6. Chevron rotation ---- */
+.nav-chevron {
+  display: inline-block;
+  flex-shrink: 0;
+  transition: transform var(--n-ease);
+}
+.nav-toggle[aria-expanded="true"] .nav-chevron {
+  transform: rotate(180deg);
+}
+
+/* ---- 7. Smooth submenu reveal: opacity + translateY ---- */
+.main-menu .drop-menu,
+.main-menu .mega-menu-area {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-6px);
+  transition:
+    opacity var(--n-ease),
+    transform var(--n-ease),
+    visibility 0s linear 0.2s;
+  box-shadow: var(--n-shadow);
+  border-radius: 0 0 var(--n-radius) var(--n-radius);
+  border-top: 3px solid var(--n-brand);
+}
+.main-menu .nav-toggle[aria-expanded="true"] + .drop-menu,
+.main-menu .nav-toggle[aria-expanded="true"] + .mega-menu-area,
+.main-menu li:hover > .drop-menu,
+.main-menu li:hover > .mega-menu-area {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  top: 100%;
+  transition:
+    opacity var(--n-ease),
+    transform var(--n-ease),
+    visibility 0s linear 0s;
+}
+
+/* ---- 8. Focus-visible rings — unified (WCAG 2.4.7 / 2.4.13, ≥3:1 contrast) ---- */
+.main-menu .nav-toggle:focus-visible,
+.main-menu .nav-link:focus-visible,
+.main-menu nav ul li > a:focus-visible,
+.main-menu .drop-menu a:focus-visible,
+.main-menu .mega-menu-area a:focus-visible {
+  outline: 2px solid var(--n-deep);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* ---- 9. Min touch-target sizes (WCAG 2.5.8) ---- */
+.main-menu .drop-menu li a,
+.main-menu .mega-menu-area .single-mega-item li a {
+  min-height: var(--n-minh);
+}
+
+/* ---- 10. Contact-bar SVG alignment ---- */
+.call-to-action nav ul li a {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+.call-to-action nav ul li a svg { flex-shrink: 0; }
+
+/* ---- 11. Active-page indicator (aria-current) ---- */
+.main-menu a[aria-current="page"] {
+  color: var(--n-brand);
+  font-weight: 700;
+}
+
+/* ========================================================================
+   MOBILE NAV — 2026 off-canvas drawer (WCAG 2.2 AA)
+   ======================================================================== */
+
+/* Suppress old mobile system (safety net for un-propagated pages) */
+.mobile-menu-area           { display: none !important; }
+.mean-bar, .meanmenu-reveal { display: none !important; }
+
+/* ---- Hamburger button ---- */
+.mobile-menu-btn {
+  display: none; /* shown via breakpoint below */
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  border-radius: 6px;
+  padding: 8px;
+  cursor: pointer;
+  color: var(--n-text);
+  min-height: 44px;
+  min-width: 44px;
+  line-height: 1;
+  transition: color var(--n-ease);
+}
+.mobile-menu-btn:hover { color: var(--n-brand); }
+.mobile-menu-btn:focus-visible {
+  outline: 2px solid var(--n-deep);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Hamburger lines — animated X */
+.hb-line {
+  transform-box: fill-box;
+  transform-origin: center;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+.mobile-menu-btn[aria-expanded="true"] .hb-top { transform: translateY(8px)  rotate(45deg); }
+.mobile-menu-btn[aria-expanded="true"] .hb-mid { opacity: 0; transform: scaleX(0); }
+.mobile-menu-btn[aria-expanded="true"] .hb-bot { transform: translateY(-8px) rotate(-45deg); }
+
+/* ---- Backdrop overlay ---- */
+.mobile-nav-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.48);
+  z-index: 9996;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0s linear 0.3s;
+}
+.mobile-nav-overlay.is-open {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.3s ease, visibility 0s linear 0s;
+}
+
+/* ---- Off-canvas drawer ---- */
+.mobile-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: var(--n-mob-w);
+  height: 100vh;
+  height: 100dvh;
+  background: #fff;
+  z-index: 9997;
+  display: flex;
+  flex-direction: column;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  overflow: hidden;
+  box-shadow: 4px 0 32px rgba(0,0,0,0.16);
+}
+.mobile-nav.is-open { transform: translateX(0); }
+
+/* Drawer header */
+.mobile-nav__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  border-bottom: 1px solid #e5e7eb;
+  flex-shrink: 0;
+}
+.mobile-nav__logo { height: 34px; width: auto; }
+
+/* Close button */
+.mobile-nav__close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  color: #666;
+  border-radius: 4px;
+  min-height: 44px;
+  min-width: 44px;
+  transition: color var(--n-ease);
+}
+.mobile-nav__close:hover { color: var(--n-brand); }
+.mobile-nav__close:focus-visible {
+  outline: 2px solid var(--n-deep);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Scrollable body */
+.mobile-nav__body {
+  flex: 1;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Nav list */
+.mobile-nav__list,
+.mobile-nav__list li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.mobile-nav__list { padding-bottom: 8px; }
+.mobile-nav__item { border-bottom: 1px solid #f0f0f0; }
+
+/* ---- Shared base: top-level plain link (News) + accordion toggle ---- */
+.mobile-nav__link,
+.mobile-nav__toggle {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 14px 20px;
+  font-family: var(--n-font);
+  font-size: 15px;
+  font-weight: 600;
+  color: #333;
+  text-decoration: none;
+  min-height: 48px;
+  transition: color var(--n-ease), background-color var(--n-ease);
+}
+.mobile-nav__link:hover,
+.mobile-nav__toggle:hover { color: var(--n-brand); background-color: #f5f9ff; }
+.mobile-nav__link:focus-visible,
+.mobile-nav__toggle:focus-visible {
+  outline: 2px solid var(--n-deep);
+  outline-offset: -2px;
+  border-radius: 2px;
+}
+
+/* Accordion toggle extras */
+.mobile-nav__toggle {
+  justify-content: space-between;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: start;
+}
+.mobile-nav__toggle[aria-expanded="true"] {
+  color: var(--n-brand);
+  background-color: #f0f5fc;
+}
+
+/* Accordion chevron */
+.mobile-nav__chevron {
+  flex-shrink: 0;
+  color: #aaa;
+  transition: transform 0.25s ease;
+}
+.mobile-nav__toggle[aria-expanded="true"] .mobile-nav__chevron {
+  transform: rotate(180deg);
+  color: var(--n-brand);
+}
+
+/* Accordion submenu — max-height collapse pattern */
+.mobile-nav__sub {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease;
+  background: #f8f9fb;
+}
+.mobile-nav__sub li { list-style: none; margin: 0; padding: 0; }
+.mobile-nav__toggle[aria-expanded="true"] + .mobile-nav__sub {
+  max-height: 1400px; /* generous ceiling for Sciences (22 items) */
+}
+
+/* Section headings inside Sciences accordion */
+.mobile-nav__sub-heading {
+  display: block;
+  padding: 10px 20px 4px;
+  font-family: var(--n-font);
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--n-brand);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  background: #eef3fb;
+  margin-top: 2px;
+}
+
+/* Submenu links */
+.mobile-nav__sub-link {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px 10px 28px;
+  font-family: var(--n-font);
+  font-size: 13px;
+  font-weight: 500;
+  color: #555;
+  text-decoration: none;
+  min-height: 44px;
+  transition: color var(--n-ease), background-color var(--n-ease);
+}
+.mobile-nav__sub-link:hover { color: var(--n-brand); background-color: #eef3fb; }
+.mobile-nav__sub-link:focus-visible {
+  outline: 2px solid var(--n-deep);
+  outline-offset: -2px;
+  border-radius: 2px;
+}
+
+/* Donate strip at drawer bottom */
+.mobile-nav__donate {
+  padding: 16px 20px;
+  border-top: 2px solid #e5e7eb;
+  flex-shrink: 0;
+  background: #fff;
+}
+.mobile-nav__donate a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--n-brand);
+  color: #fff;
+  font-family: var(--n-font);
+  font-size: 14px;
+  font-weight: 700;
+  padding: 12px 24px;
+  border-radius: 4px;
+  text-decoration: none;
+  min-height: 44px;
+  letter-spacing: 0.02em;
+  transition: background-color var(--n-ease);
+}
+.mobile-nav__donate a:hover { background: #0d5fa0; }
+.mobile-nav__donate a:focus-visible {
+  outline: 2px solid var(--n-deep);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Body scroll-lock class (toggled by JS) */
+body.nav-scroll-locked { overflow: hidden; }
+
+/* ---- Responsive breakpoints ---- */
+@media (max-width: 991px) {
+  .mobile-menu-btn               { display: flex !important; }
+  .main-menu-area .main-menu     { display: none !important; }
+  .main-menu-area .donate-button { display: none !important; }
+  /* Logo col: full-width flex row with hamburger on the right */
+  .main-menu-area .col-sm-3 {
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+    display: flex !important;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  /* 9-col nav wrapper is empty on mobile — hide it */
+  .main-menu-area .col-sm-9 { display: none !important; }
+}
+@media (min-width: 992px) {
+  .mobile-menu-btn    { display: none !important; }
+  .mobile-nav-overlay { display: none !important; }
+  .mobile-nav         { display: none !important; }
+}
+
+/* ---- Consolidated prefers-reduced-motion block ---- */
+@media (prefers-reduced-motion: reduce) {
+  .main-menu .drop-menu,
+  .main-menu .mega-menu-area,
+  .nav-chevron,
+  .main-menu .nav-toggle::after,
+  .main-menu .nav-link::after,
+  .hb-line,
+  .mobile-nav-overlay,
+  .mobile-nav,
+  .mobile-nav__chevron,
+  .mobile-nav__sub {
+    transition: none !important;
+  }
+}
