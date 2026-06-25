@@ -2065,3 +2065,118 @@ line-height: 36px;}
   padding-bottom: 8px;
   text-transform: capitalize;
 }
+
+/*----------------------------------------*/
+/*  21. Giving Page CSS (community/support)
+/*----------------------------------------*/
+
+/* ---- Amount buttons ---- */
+.give-amounts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 28px 0 8px;
+  justify-content: center;
+}
+.give-amounts__btn {
+  display: inline-block;
+  padding: 14px 32px;
+  background: #fff;
+  border: 2px solid var(--ip-blue);
+  color: var(--ip-blue);
+  font-family: 'Raleway', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: all 0.25s ease;
+  text-align: center;
+  min-width: 110px;
+}
+.give-amounts__btn:hover,
+.give-amounts__btn:focus {
+  background: var(--ip-blue);
+  color: #fff;
+  outline: none;
+}
+/* Custom-amount button: dashed border signals "open-ended"; transparent
+   background intentional — secondary visual weight vs. preset amounts. */
+.give-amounts__btn--custom {
+  border-style: dashed;
+  background: transparent;
+}
+.give-amounts__btn--custom:hover {
+  border-style: solid;
+}
+
+/* ---- Tier table ---- */
+.give-tier-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0 8px;
+  font-size: 14px;
+}
+.give-tier-table th {
+  background: var(--ip-blue);
+  color: #fff;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+  text-align: left;
+  padding: 12px 16px;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.give-tier-table td {
+  padding: 13px 16px;
+  border-bottom: 1px solid var(--ip-border);
+  vertical-align: top;
+  color: var(--ip-slate);
+  line-height: 1.55;
+}
+/* General rule first; terminal-row override second (correct cascade order). */
+.give-tier-table tr:nth-child(even) td {
+  background: #f0f4f8;
+}
+.give-tier-table tr:last-child td {
+  border-bottom: none;
+}
+.give-tier-table td:first-child {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+  color: var(--ip-navy);
+  white-space: nowrap;
+}
+.give-tier-table td:nth-child(2) {
+  font-weight: 600;
+  color: var(--ip-blue);
+  white-space: nowrap;
+}
+
+/* ---- Stripe embed wrapper ---- */
+.give-stripe-embed {
+  margin: 32px 0 0;
+}
+
+/* ---- Fine-print notice text ---- */
+.give-notice {
+  font-size: 13px;
+  color: var(--ip-text-light);
+  margin-top: 14px;
+  line-height: 1.65;
+}
+.give-notice a {
+  color: var(--ip-blue);
+}
+
+/* ---- Card layout variants used on this page ---- */
+.give-card--centered { padding: 32px 24px; text-align: center; }
+.give-card--flex     { padding: 32px 24px; display: flex; flex-direction: column; }
+.give-card--panel    { padding: 48px 40px; }
+
+/* Card inner elements */
+.give-card__icon           { font-size: 32px; color: var(--ip-blue); margin-bottom: 16px; }
+.give-card__heading        { font-family: 'Raleway', sans-serif; font-size: 17px; font-weight: 700; color: var(--ip-navy); margin-bottom: 12px; }
+.give-card__heading--lg    { font-size: 24px; margin-bottom: 16px; }
+.give-card__body           { font-size: 14px; line-height: 1.75; color: var(--ip-slate); }
+.give-card__body--grow     { flex: 1; }
