@@ -73,20 +73,13 @@ of the tier card grid.
 |----------------------------------|----------|-----------------------------------------------|
 | `bpc_1TmM9TBjjHl3Ee7QEFVnHURy`  | Yes      | invoice history, payment method update, cancel |
 
-**Shareable portal login URL:** The `billing.stripe.com/p/login/...` URL is only
-accessible from the Stripe Dashboard (Settings > Customer portal > "Link to portal").
-The page currently uses a `mailto:info@instarlab.org` fallback for the "manage membership"
-link. Once you have the shareable URL from the Dashboard, replace:
+**Shareable portal login URL:** `https://billing.stripe.com/p/login/00wdR8eyfgIx49v3iWbAs00`
 
-```html
-<a href="mailto:info@instarlab.org?subject=Membership%20Management">contact INSTAR Lab</a>
-```
-with:
-```html
-<a href="https://billing.stripe.com/p/login/YOUR_PORTAL_PATH" target="_blank" rel="noopener noreferrer">Stripe customer portal</a>
-```
-
-in `community/support/index.html` (search for `mailto:info@instarlab.org`).
+**Status:** Wired per CEO directive 2026-06-25 while Stripe account is under review.
+The URL currently returns HTTP 404 because a new account under review does not yet
+serve the portal. Re-verify that the link opens the portal (not a 404) once Stripe
+clears the account review. The `mailto:info@instarlab.org` fallback has been removed
+from `community/support/index.html` — the portal link is now live.
 
 ---
 
@@ -100,7 +93,7 @@ in `community/support/index.html` (search for `mailto:info@instarlab.org`).
 | `PLACEHOLDER_ONETIME_CUSTOM`  | `https://buy.stripe.com/aFabJ0fCjcsheO95r4bAs03`             |
 | `PLACEHOLDER_PRICING_TABLE_ID`| N/A — pricing table replaced with Payment Link tier cards     |
 | `pk_live_PLACEHOLDER`         | N/A — publishable key not needed (Payment Links are plain URLs)|
-| `PLACEHOLDER_PORTAL`          | `mailto:info@instarlab.org` fallback (see portal note above)  |
+| `PLACEHOLDER_PORTAL`          | `https://billing.stripe.com/p/login/00wdR8eyfgIx49v3iWbAs00` (wired 2026-06-25; pending Stripe review) |
 
 ---
 
