@@ -135,6 +135,39 @@
   border-radius: 2px;
   margin: 0 0 12px 12px;
 }
+.consortium-logo-frame {
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 260px;
+  padding: 42px;
+  background: #fff;
+  border: 1px solid var(--ip-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.consortium-logo-frame img {
+  width: auto;
+  max-width: 94%;
+  max-height: 130px;
+  object-fit: contain;
+  transform: none;
+}
+.consortium-logo-frame:hover img {
+  transform: none;
+}
+.consortium-logo-frame::after {
+  display: none;
+}
+.consortium-logo-frame--focus-hive img,
+.consortium-logo-frame--ravonics img,
+.consortium-logo-frame--curiosity-research img,
+.consortium-logo-frame--world-enterprise-group img {
+  max-width: 98%;
+}
+.consortium-logo-frame--dream-limited img {
+  max-width: 82%;
+}
 .ip-content-block__label {
   display: inline-flex;
   align-items: center;
@@ -172,11 +205,93 @@
   .ip-content-block__media {
     flex: 0 0 100%;
     max-width: 100%;
+    width: 100%;
+  }
+  .consortium-logo-frame {
+    min-height: 220px;
   }
 }
 @media (max-width: 767px) {
   .ip-section { padding: 50px 0; }
   .ip-content-block__heading { font-size: 22px; }
+  .consortium-logo-frame {
+    min-height: 170px;
+    padding: 30px 24px;
+  }
+}
+
+/* ---- Consortium Partner Logos ---- */
+.consortium-partners {
+  background: var(--ip-warm-gray);
+  padding-top: 80px;
+}
+.consortium-partners__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+.consortium-partners__logo {
+  min-height: 174px;
+  padding: 36px 42px;
+  background: #fff;
+  border: 1px solid var(--ip-border);
+  border-radius: var(--ip-radius);
+  box-shadow: var(--ip-shadow-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease;
+}
+a.consortium-partners__logo:hover,
+a.consortium-partners__logo:focus {
+  border-color: rgba(16, 114, 186, .35);
+  box-shadow: var(--ip-shadow-md);
+  transform: translateY(-2px);
+}
+.consortium-partners__logo img {
+  display: block;
+  width: auto;
+  max-width: 96%;
+  max-height: 96px;
+  object-fit: contain;
+}
+.consortium-partners__logo--focus-hive img,
+.consortium-partners__logo--ravonics img,
+.consortium-partners__logo--curiosity-research img,
+.consortium-partners__logo--world-enterprise-group img {
+  max-width: 100%;
+}
+.consortium-partners__logo--dream-limited img {
+  max-width: 78%;
+}
+.consortium-partners__logo--tao-learning img {
+  max-height: 118px;
+}
+@media (min-width: 992px) {
+  .consortium-partners__logo:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    justify-self: center;
+    width: calc(50% - 12px);
+  }
+}
+@media (max-width: 767px) {
+  .consortium-partners {
+    padding-top: 50px;
+  }
+  .consortium-partners__grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+  .consortium-partners__logo {
+    min-height: 142px;
+    padding: 28px 24px;
+  }
+  .consortium-partners__logo img {
+    max-height: 82px;
+  }
+  .consortium-partners__logo--dream-limited img {
+    max-width: 90%;
+  }
 }
 
 /* ---- Template A: Stats / Counter ---- */

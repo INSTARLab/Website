@@ -1173,6 +1173,13 @@ h1.title1 {
 .about-button.btn {
   margin-top: 30px;
 }
+.about-button.btn > a {
+  color: #fff;
+  text-decoration: none;
+}
+.about-button.btn:hover > a {
+  color: #666;
+}
 /* what we do */
 .single-we-do {
   position: relative;
@@ -1194,7 +1201,20 @@ h1.title1 {
 }
 /* fiinish project */
 .finish-project {
-  background: rgba(0, 0, 0, 0) url("img/about/finish-project.avif") repeat scroll 0 0;
+  background:
+    linear-gradient(rgba(5, 14, 24, 0.55), rgba(5, 14, 24, 0.55)),
+    url("img/about/finish-project.avif") center center / cover no-repeat;
+}
+.finish-project .section-title h2,
+.finish-project .single-project,
+.finish-project .single-project h3,
+.finish-project .single-project h3 a,
+.finish-project .single-project i {
+  color: #fff;
+}
+.finish-project .section-title p,
+.finish-project .single-project p {
+  color: rgba(255, 255, 255, 0.9);
 }
 .single-project h2 {
   color: #fff;
@@ -1223,6 +1243,9 @@ h1.title1 {
   color: #fff;
 }
 /* video and skill area */
+.about-video {
+  position: relative;
+}
 .about-video .image-link,
  .about-video .popup-youtube{
   left: 45%;
