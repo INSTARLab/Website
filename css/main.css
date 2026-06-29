@@ -290,6 +290,7 @@ textarea {
     max-height: 65px;
     width: auto;
     max-width: 100%;
+    flex: 0 0 auto;
     object-fit: contain;
     display: block;
     margin: 0 auto;
