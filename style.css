@@ -980,6 +980,11 @@ h1.title1 {
 .b-logo:hover {
   box-shadow: 0 0 5px 3px #eaeaea;
 }
+.b-logo a {
+  display: block;
+  width: 100%;
+  min-width: 0;
+}
 /*----------------------------------------*/
 /*  12. footer top CSS
 /*----------------------------------------*/

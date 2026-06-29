@@ -288,9 +288,8 @@ textarea {
    landscape/square marks get larger max-height to fill the box. */
 .b-logo img {
     max-height: 65px;
-    width: auto;
-    max-width: 100%;
-    flex: 0 0 auto;
+    width: 100%;
+    height: auto;
     object-fit: contain;
     display: block;
     margin: 0 auto;
