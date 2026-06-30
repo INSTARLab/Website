@@ -2219,3 +2219,29 @@ line-height: 36px;}
 .give-card__heading--lg    { font-size: 24px; margin-bottom: 16px; }
 .give-card__body           { font-size: 14px; line-height: 1.75; color: var(--ip-slate); }
 .give-card__body--grow     { flex: 1; }
+
+/*----------------------------------------*/
+/*  22. Mission page: we-do overlay & CTA button fixes
+/*----------------------------------------*/
+
+/* Issue #3: Force we-do images to fill column width so the green overlay matches the
+   image exactly. Natural image size is 370×300 px but col-sm-4 content is wider at
+   typical desktop widths, so max-width:100% alone leaves ~46 px of overhang on each
+   side. Setting width:100% stretches the image to fill the container, eliminating the
+   mismatch. display:block removes the 4 px inline descender gap. */
+.we-do-image {
+  line-height: 0;
+}
+.we-do-image img {
+  width: 100%;
+  display: block;
+}
+
+/* Issue #7: CTA buttons in the "Join Us in Advancing Science" (finish-project) section.
+   The <a class="donate-button"> inherits float:right from the nav .donate-button rule,
+   pushing it out of the text-flow and to the far right. Reset the float so
+   text-align:center on the col/.single-project parent centres the button correctly. */
+.finish-project .donate-button {
+  float: none;
+  margin-top: 20px;
+}
