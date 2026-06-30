@@ -355,6 +355,8 @@ body {
   background: #1072ba none repeat scroll 0 0;
   border: 1px solid #1072ba;
   color: #fff;
+  display: inline-flex;
+  align-items: center;
   font-family: "Raleway",sans-serif;
   font-size: 14px;
   font-weight: bold;
@@ -638,12 +640,12 @@ h1.title1 {
 }
 .image-link {
   background: rgba(43, 97, 165, 0.68) none repeat scroll 0 0;
-  bottom: 15px;
-  left: 15px;
+  bottom: 0;
+  left: 0;
   opacity: 0;
   position: absolute;
-  right: 15px;
-  top: 15px;
+  right: 0;
+  top: 0;
   transition: all 0.3s ease 0s;
 }
 .image-link i {
@@ -1198,11 +1200,11 @@ h1.title1 {
 }
 .we-do-text {
   background: rgba(10, 170, 160, 0.63) none repeat scroll 0 0;
-  height: 90%;
-  left: 5%;
+  height: 100%;
+  left: 0;
   position: absolute;
-  top: 5%;
-  width: 90%;
+  top: 0;
+  width: 100%;
 }
 .we-do-text > h5 {
   color: #fff;
@@ -1263,6 +1265,8 @@ h1.title1 {
   left: 45%;
   position: absolute;
   top: 40%;
+  right: auto;
+  bottom: auto;
   opacity: inherit;
   width: inherit;
 }
