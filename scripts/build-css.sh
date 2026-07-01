@@ -26,7 +26,6 @@ SOURCES=(
   css/owl.transitions.css
   css/nivo-slider.css
   css/animate.css
-  css/meanmenu.min.css
   css/main.css
   style.css
   css/interior-pages.css
