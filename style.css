@@ -38,7 +38,9 @@
 /*----------------------------------------*/
 /*  1. Theme default CSS
 /*----------------------------------------*/
-@import url('https://fonts.googleapis.com/css?family=Lato:400,700|Raleway:400,700|Roboto:400,700');
+/* Lato/Raleway/Roboto now loaded via <link rel=stylesheet> + preconnect
+   in every page's <head> instead of a runtime @import here — avoids a
+   sequential, render-blocking CSS-in-CSS fetch. See optimize/css-bundle. */
 @font-face {
     font-family: 'latomedium';
     src: url('fonts/lato-medium-webfont.woff2') format('woff2'),
