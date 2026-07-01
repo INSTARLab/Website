@@ -1,9 +1,6 @@
 (function ($) {
  "use strict";
 
-/* mobile menu*/
-	$('nav#dropdown').meanmenu();
-
 /* Nivo slider  */
 	$("#gallery-filter").mixitup({
 			effects: ['fade','rotateZ'],
