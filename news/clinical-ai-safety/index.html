@@ -1,0 +1,631 @@
+<!doctype html>
+<html class="no-js" lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Clinical AI Safety Research — INSTAR Lab</title>
+        <meta name="description" content="An INSTAR Lab research brief on how AI can improve patient safety and clinical workflows — and why rigorous safety evaluation and human oversight are essential before clinical deployment.">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="canonical" href="https://instarlab.org/news/clinical-ai-safety/">
+        <meta name="robots" content="index, follow">
+        <meta name="theme-color" content="#1072ba">
+        <!-- Open Graph -->
+        <meta property="og:type" content="article">
+        <meta property="og:url" content="https://instarlab.org/news/clinical-ai-safety/">
+        <meta property="og:title" content="Clinical AI Safety Research — INSTAR Lab">
+        <meta property="og:description" content="Examining how AI can improve patient safety, clinical workflows, and healthcare outcomes — and why rigorous safety evaluation and human oversight are essential before clinical deployment.">
+        <meta property="og:image" content="https://instarlab.org/img/og/default.jpg">
+        <meta property="og:image:alt" content="Clinical environment illustrating AI-assisted care and human oversight in a hospital setting">
+        <meta property="og:site_name" content="INSTAR Lab">
+        <!-- Twitter Card -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:site" content="@INSTARLab">
+        <meta name="twitter:title" content="Clinical AI Safety Research — INSTAR Lab">
+        <meta name="twitter:description" content="Examining how AI can improve patient safety, clinical workflows, and healthcare outcomes — and why rigorous safety evaluation and human oversight are essential before clinical deployment.">
+        <meta name="twitter:image" content="https://instarlab.org/img/og/default.jpg">
+        <!-- JSON-LD -->
+        <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "Article",
+          "headline": "Clinical AI Safety Research",
+          "description": "An INSTAR Lab research brief on how AI can improve patient safety and clinical workflows — and why rigorous safety evaluation and human oversight are essential before clinical deployment.",
+          "url": "https://instarlab.org/news/clinical-ai-safety/",
+          "datePublished": "2026-05-24",
+          "publisher": {
+            "@type": "Organization",
+            "name": "INSTAR Lab",
+            "url": "https://instarlab.org",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://instarlab.org/img/logo/instar.svg"
+            }
+          },
+          "image": "https://instarlab.org/img/blog/blog-three.avif",
+          "breadcrumb": {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://instarlab.org/" },
+              { "@type": "ListItem", "position": 2, "name": "News", "item": "https://instarlab.org/news/" },
+              { "@type": "ListItem", "position": 3, "name": "Clinical AI Safety Research", "item": "https://instarlab.org/news/clinical-ai-safety/" }
+            ]
+          }
+        }
+        </script>
+        <link rel="apple-touch-icon" sizes="180x180" href="../../img/logo/fav/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="../../img/logo/fav/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="../../img/logo/fav/favicon-16x16.png">
+        <link rel="manifest" href="../../img/logo/fav/site.webmanifest">
+        <link rel="stylesheet" href="../../master.css">
+        <!-- NAV-2026-HEAD:START -->
+        <script>document.documentElement.classList.replace('no-js','js');</script>
+        <link rel="stylesheet" href="../../css/nav-2026.css">
+        <script defer src="../../js/nav-2026.js"></script>
+        <!-- NAV-2026-HEAD:END -->
+    <style>.footer-widget.widget-two li::after { display: none; }</style>
+</head>
+    <body>
+        <a class="skip-to-content" href="#main-content">Skip to main content</a>
+        <!-- Start main area -->
+        <div class="main-area">
+            <!-- Start header -->
+            <header>
+                <!-- Start header top -->
+                <div class="header-top">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-5 col-md-6">
+                                <div class="top-social"></div>
+                            </div>
+                            <div class="col-sm-7 col-md-6">
+                                	                            <!-- NAV-2026-TOPBAR:START -->
+                            <div class="call-to-action">
+                                <nav aria-label="Contact">
+                                	<ul>
+	                                	<li><a href="mailto:info@instarlab.org"><svg width="14" height="11" viewBox="0 0 14 11" aria-hidden="true" focusable="false"><rect x="1" y="1" width="12" height="9" rx="1.5" stroke="currentColor" stroke-width="1.5" fill="none"/><polyline points="1,1.5 7,6.5 13,1.5" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linejoin="round"/></svg> Email: info@instarlab.org</a></li>
+	                                	<li><a href="tel:9292292918"><svg width="12" height="13" viewBox="0 0 12 13" aria-hidden="true" focusable="false"><path d="M2.5 1.5h2.2l.9 2.6-1.7 1.2c.8 1.8 2.2 3.1 3.9 3.9L9.1 7.6l2.6.9v2.2a1 1 0 0 1-1 1C4.2 11.7.3 7.8.3 2.5a1 1 0 0 1 1-1h1.2z" stroke="currentColor" stroke-width="1.3" fill="none" stroke-linejoin="round"/></svg> Phone: 929-229-2918</a></li>
+	                                	<li><a href="../../research/current-programs/"><svg width="12" height="14" viewBox="0 0 12 14" aria-hidden="true" focusable="false"><path d="M4.5 1v5.5L1.5 12h9L7.5 6.5V1" stroke="currentColor" stroke-width="1.3" fill="none" stroke-linecap="round" stroke-linejoin="round"/><line x1="3" y1="1" x2="9" y2="1" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg> Research</a></li>
+	                                </ul>
+                                </nav>
+                            </div>
+                            <!-- NAV-2026-TOPBAR:END -->
+                        </div>
+                    </div>
+                </div>
+                <!-- End header top -->
+                        		<!-- NAV-2026:START -->
+		<!-- Start main menu area -->
+		<div class="main-menu-area" id="sticker">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-3 col-12">
+						<div class="logo ptb-32">
+							<a href="../../index.html">
+								<img src="../../img/logo/instar.svg" alt="INSTAR Lab">
+							</a>
+						</div>
+                                <!-- Hamburger: visible on mobile ≤991px only -->
+                                <button type="button" class="mobile-menu-btn"
+                                        aria-expanded="false"
+                                        aria-controls="mobile-nav"
+                                        aria-label="Open navigation menu">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <line class="hb-line hb-top" x1="3" y1="6"  x2="21" y2="6"  stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                        <line class="hb-line hb-mid" x1="3" y1="12" x2="21" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                        <line class="hb-line hb-bot" x1="3" y1="18" x2="21" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                    </svg>
+                                </button>
+					</div>
+					<div class="col-sm-9 col-12">
+						<div class="donate-button ptb-32">
+							<a class="waves-effect waves-light" href="../../community/support/">Donate</a>
+						</div>
+						<div class="main-menu">
+							<nav aria-label="Main">
+								<ul>
+                                            <!-- 1. About -->
+                                            <li>
+                                                <button type="button" class="nav-toggle" aria-expanded="false" aria-haspopup="true" aria-controls="submenu-about">About <svg class="nav-chevron" width="10" height="6" viewBox="0 0 10 6" aria-hidden="true" focusable="false"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+                                                <ul class="drop-menu" id="submenu-about">
+                                                    <li><a href="../../mission.html">Mission</a></li>
+                                                    <li><a href="../../community/about-us/">About Us</a></li>
+                                                    <li><a href="../../community/leadership/">Leadership</a></li>
+                                                    <li><a href="../../research/consortium/">INSTAR Consortium</a></li>
+                                                    <li><a href="../../research/facilities/">Facilities</a></li>
+                                                </ul>
+                                            </li>
+                                            <!-- 2. Research -->
+                                            <li>
+                                                <button type="button" class="nav-toggle" aria-expanded="false" aria-haspopup="true" aria-controls="submenu-research">Research <svg class="nav-chevron" width="10" height="6" viewBox="0 0 10 6" aria-hidden="true" focusable="false"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+                                                <ul class="drop-menu" id="submenu-research">
+                                                    <li><a href="../../research/innovation/">Innovation</a></li>
+                                                    <li><a href="../../research/our-process/">Our Process</a></li>
+                                                    <li><a href="../../research/current-programs/">Current Programs</a></li>
+                                                    <li><a href="../../research/funding/">Funding</a></li>
+                                                    <li><a href="../../research/open-data/">Open Data</a></li>
+                                                    <li><a href="../../research/opportunities/">Opportunities</a></li>
+                                                </ul>
+                                            </li>
+                                            <!-- 3. Sciences — 4-column mega-menu -->
+                                            <li class="mega-menu">
+                                                <button type="button" class="nav-toggle" aria-expanded="false" aria-haspopup="true" aria-controls="submenu-sciences">Sciences <svg class="nav-chevron" width="10" height="6" viewBox="0 0 10 6" aria-hidden="true" focusable="false"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+                                                <div class="mega-menu-area" id="submenu-sciences">
+                                                    <ul class="single-mega-item">
+                                                        <li class="shortcode-title">Earth &amp; Space</li>
+                                                        <li><a href="../../sciences/agriculture/">Agriculture</a></li>
+                                                        <li><a href="../../sciences/geology/">Geology</a></li>
+                                                        <li><a href="../../sciences/ocean-science/">Ocean Science</a></li>
+                                                        <li><a href="../../sciences/outer-space/">Outer Space</a></li>
+                                                    </ul>
+                                                    <ul class="single-mega-item">
+                                                        <li class="shortcode-title">Social Sciences</li>
+                                                        <li><a href="../../sciences/anthropology/">Anthropology</a></li>
+                                                        <li><a href="../../sciences/archaeology/">Archaeology</a></li>
+                                                        <li><a href="../../sciences/economics/">Economics</a></li>
+                                                        <li><a href="../../sciences/law/">Law</a></li>
+                                                        <li><a href="../../sciences/linguistics/">Linguistics</a></li>
+                                                        <li><a href="../../sciences/psychology/">Psychology</a></li>
+                                                        <li><a href="../../sciences/sociology/">Sociology</a></li>
+                                                    </ul>
+                                                    <ul class="single-mega-item">
+                                                        <li class="shortcode-title">Life Sciences</li>
+                                                        <li><a href="../../sciences/biology/">Biology</a></li>
+                                                        <li><a href="../../sciences/genetics/">Genetics</a></li>
+                                                        <li><a href="../../sciences/medicine/">Medicine</a></li>
+                                                        <li><a href="../../sciences/cognitive-sciences/">Cognitive Sciences</a></li>
+                                                        <li><a href="../../sciences/neuroscience/">Neuroscience</a></li>
+                                                        <li><a href="../../sciences/physiology/">Physiology</a></li>
+                                                        <li><a href="../../sciences/kinesiology/">Kinesiology</a></li>
+                                                    </ul>
+                                                    <ul class="single-mega-item">
+                                                        <li class="shortcode-title">Physical Sciences</li>
+                                                        <li><a href="../../sciences/chemistry/">Chemistry</a></li>
+                                                        <li><a href="../../sciences/physics/">Physics</a></li>
+                                                        <li><a href="../../sciences/materials-science/">Materials Science</a></li>
+                                                        <li><a href="../../sciences/energy/">Energy</a></li>
+                                                    </ul>
+                                                </div>
+                                            </li>
+                                            <!-- 4. Technology -->
+                                            <li>
+                                                <button type="button" class="nav-toggle" aria-expanded="false" aria-haspopup="true" aria-controls="submenu-technology">Technology <svg class="nav-chevron" width="10" height="6" viewBox="0 0 10 6" aria-hidden="true" focusable="false"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+                                                <ul class="drop-menu" id="submenu-technology">
+                                                    <li><a href="../../technology/formal-methods/">Formal Methods</a></li>
+                                                    <li><a href="../../technology/data-science/">Data Science</a></li>
+                                                    <li><a href="../../technology/computer-science/">Computer Science</a></li>
+                                                    <li><a href="../../technology/machine-intelligence/">Machine Intelligence</a></li>
+                                                    <li><a href="../../technology/natural-language-processing/">Natural Language Processing</a></li>
+                                                    <li><a href="../../technology/augmented-reality/">Augmented Reality</a></li>
+                                                    <li><a href="../../technology/quantum-computing/">Quantum Computing</a></li>
+                                                </ul>
+                                            </li>
+                                            <!-- 5. Tech Transfer -->
+									<li>
+                                                <button type="button" class="nav-toggle" aria-expanded="false" aria-haspopup="true" aria-controls="submenu-tech-transfer">Tech Transfer <svg class="nav-chevron" width="10" height="6" viewBox="0 0 10 6" aria-hidden="true" focusable="false"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+                                                <ul class="drop-menu" id="submenu-tech-transfer">
+                                                    <li><a href="../../tech-transfer/sttr-programs/">STTR Programs</a></li>
+                                                    <li><a href="../../tech-transfer/enterprise-rd/">Enterprise R&amp;D</a></li>
+                                                    <li><a href="../../tech-transfer/portfolio/">Portfolio</a></li>
+                                                    <li><a href="../../tech-transfer/workshops-events/">Workshops &amp; Events</a></li>
+                                                </ul>
+                                            </li>
+                                            <!-- 6. Community -->
+                                            <li>
+                                                <button type="button" class="nav-toggle" aria-expanded="false" aria-haspopup="true" aria-controls="submenu-community">Community <svg class="nav-chevron" width="10" height="6" viewBox="0 0 10 6" aria-hidden="true" focusable="false"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+                                                <ul class="drop-menu" id="submenu-community">
+                                                    <li><a href="../../community/fellowship/">Fellowship</a></li>
+                                                    <li><a href="../../community/work-with-us/">Collaborate</a></li>
+                                                    <li><a href="../../community/careers/">Careers</a></li>
+                                                    <li><a href="../../community/contact/">Contact</a></li>
+                                                </ul>
+                                            </li>
+                                            <!-- 7. News (direct link) -->
+                                            <li><a class="nav-link" href="../../news/">News</a></li>
+								</ul>
+							</nav>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- End main menu area -->
+        <!-- Mobile nav backdrop -->
+        <div class="mobile-nav-overlay" id="mobile-nav-overlay" aria-hidden="true"></div>
+        <!-- Mobile nav off-canvas drawer (vanilla JS, no meanmenu) -->
+        <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation" aria-hidden="true">
+            <div class="mobile-nav__header">
+                <img src="../../img/logo/instar.svg" alt="INSTAR Lab" class="mobile-nav__logo">
+                <button type="button" class="mobile-nav__close" aria-label="Close navigation menu">
+                    <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true" focusable="false" fill="none">
+                        <line x1="3" y1="3" x2="17" y2="17" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                        <line x1="17" y1="3" x2="3" y2="17" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="mobile-nav__body">
+                <ul class="mobile-nav__list">
+                    <!-- 1. About -->
+                    <li class="mobile-nav__item">
+                        <button type="button" class="mobile-nav__toggle" aria-expanded="false" aria-controls="mob-sub-about">
+                            About
+                            <svg class="mobile-nav__chevron" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" focusable="false" fill="none"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </button>
+                        <ul class="mobile-nav__sub" id="mob-sub-about">
+                            <li><a class="mobile-nav__sub-link" href="../../mission.html">Mission</a></li>
+                            <li><a class="mobile-nav__sub-link" href="../../community/about-us/">About Us</a></li>
+                            <li><a class="mobile-nav__sub-link" href="../../community/leadership/">Leadership</a></li>
+                            <li><a class="mobile-nav__sub-link" href="../../research/consortium/">INSTAR Consortium</a></li>
+                            <li><a class="mobile-nav__sub-link" href="../../research/facilities/">Facilities</a></li>
+                        </ul>
+                    </li>
+                    <!-- 2. Research -->
+                    <li class="mobile-nav__item">
+                        <button type="button" class="mobile-nav__toggle" aria-expanded="false" aria-controls="mob-sub-research">
+                            Research
+                            <svg class="mobile-nav__chevron" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" focusable="false" fill="none"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </button>
+                        <ul class="mobile-nav__sub" id="mob-sub-research">
+                            <li><a class="mobile-nav__sub-link" href="../../research/innovation/">Innovation</a></li>
+                            <li><a class="mobile-nav__sub-link" href="../../research/our-process/">Our Process</a></li>
+                            <li><a class="mobile-nav__sub-link" href="../../research/current-programs/">Current Programs</a></li>
+                            <li><a class="mobile-nav__sub-link" href="../../research/funding/">Funding</a></li>
+                            <li><a class="mobile-nav__sub-link" href="../../research/open-data/">Open Data</a></li>
+                            <li><a class="mobile-nav__sub-link" href="../../research/opportunities/">Opportunities</a></li>
+                        </ul>
+                    </li>
+                    <!-- 3. Sciences (mega-menu flattened with category headings) -->
+                    <li class="mobile-nav__item">
+                        <button type="button" class="mobile-nav__toggle" aria-expanded="false" aria-controls="mob-sub-sciences">
+                            Sciences
+                            <svg class="mobile-nav__chevron" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" focusable="false" fill="none"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </button>
+                        <ul class="mobile-nav__sub" id="mob-sub-sciences">
+                            <li class="mobile-nav__sub-heading">Earth &amp; Space</li>
+                            <li><a class="mobile-nav__sub-link" href="../../sciences/agriculture/">Agriculture</a></li>
+                            <li><a class="mobile-nav__sub-link" href="../../sciences/geology/">Geology</a></li>
+                            <li><a class="mobile-nav__sub-link" href="../../sciences/ocean-science/">Ocean Science</a></li>
+                            <li><a class="mobile-nav__sub-link" href="../../sciences/outer-space/">Outer Space</a></li>
+                            <li class="mobile-nav__sub-heading">Social Sciences</li>
+                            <li><a class="mobile-nav__sub-link" href="../../sciences/anthropology/">Anthropology</a></li>
+                            <li><a class="mobile-nav__sub-link" href="../../sciences/archaeology/">Archaeology</a></li>
+                            <li><a class="mobile-nav__sub-link" href="../../sciences/economics/">Economics</a></li>
+                            <li><a class="mobile-nav__sub-link" href="../../sciences/law/">Law</a></li>
+                            <li><a class="mobile-nav__sub-link" href="../../sciences/linguistics/">Linguistics</a></li>
+                            <li><a class="mobile-nav__sub-link" href="../../sciences/psychology/">Psychology</a></li>
+                            <li><a class="mobile-nav__sub-link" href="../../sciences/sociology/">Sociology</a></li>
+                            <li class="mobile-nav__sub-heading">Life Sciences</li>
+                            <li><a class="mobile-nav__sub-link" href="../../sciences/biology/">Biology</a></li>
+                            <li><a class="mobile-nav__sub-link" href="../../sciences/genetics/">Genetics</a></li>
+                            <li><a class="mobile-nav__sub-link" href="../../sciences/medicine/">Medicine</a></li>
+                            <li><a class="mobile-nav__sub-link" href="../../sciences/cognitive-sciences/">Cognitive Sciences</a></li>
+                            <li><a class="mobile-nav__sub-link" href="../../sciences/neuroscience/">Neuroscience</a></li>
+                            <li><a class="mobile-nav__sub-link" href="../../sciences/physiology/">Physiology</a></li>
+                            <li><a class="mobile-nav__sub-link" href="../../sciences/kinesiology/">Kinesiology</a></li>
+                            <li class="mobile-nav__sub-heading">Physical Sciences</li>
+                            <li><a class="mobile-nav__sub-link" href="../../sciences/chemistry/">Chemistry</a></li>
+                            <li><a class="mobile-nav__sub-link" href="../../sciences/physics/">Physics</a></li>
+                            <li><a class="mobile-nav__sub-link" href="../../sciences/materials-science/">Materials Science</a></li>
+                            <li><a class="mobile-nav__sub-link" href="../../sciences/energy/">Energy</a></li>
+                        </ul>
+                    </li>
+                    <!-- 4. Technology -->
+                    <li class="mobile-nav__item">
+                        <button type="button" class="mobile-nav__toggle" aria-expanded="false" aria-controls="mob-sub-technology">
+                            Technology
+                            <svg class="mobile-nav__chevron" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" focusable="false" fill="none"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </button>
+                        <ul class="mobile-nav__sub" id="mob-sub-technology">
+                            <li><a class="mobile-nav__sub-link" href="../../technology/formal-methods/">Formal Methods</a></li>
+                            <li><a class="mobile-nav__sub-link" href="../../technology/data-science/">Data Science</a></li>
+                            <li><a class="mobile-nav__sub-link" href="../../technology/computer-science/">Computer Science</a></li>
+                            <li><a class="mobile-nav__sub-link" href="../../technology/machine-intelligence/">Machine Intelligence</a></li>
+                            <li><a class="mobile-nav__sub-link" href="../../technology/natural-language-processing/">Natural Language Processing</a></li>
+                            <li><a class="mobile-nav__sub-link" href="../../technology/augmented-reality/">Augmented Reality</a></li>
+                            <li><a class="mobile-nav__sub-link" href="../../technology/quantum-computing/">Quantum Computing</a></li>
+                        </ul>
+                    </li>
+                    <!-- 5. Tech Transfer -->
+                    <li class="mobile-nav__item">
+                        <button type="button" class="mobile-nav__toggle" aria-expanded="false" aria-controls="mob-sub-tech-transfer">
+                            Tech Transfer
+                            <svg class="mobile-nav__chevron" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" focusable="false" fill="none"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </button>
+                        <ul class="mobile-nav__sub" id="mob-sub-tech-transfer">
+                            <li><a class="mobile-nav__sub-link" href="../../tech-transfer/sttr-programs/">STTR Programs</a></li>
+                            <li><a class="mobile-nav__sub-link" href="../../tech-transfer/enterprise-rd/">Enterprise R&amp;D</a></li>
+                            <li><a class="mobile-nav__sub-link" href="../../tech-transfer/portfolio/">Portfolio</a></li>
+                            <li><a class="mobile-nav__sub-link" href="../../tech-transfer/workshops-events/">Workshops &amp; Events</a></li>
+                        </ul>
+                    </li>
+                    <!-- 6. Community -->
+                    <li class="mobile-nav__item">
+                        <button type="button" class="mobile-nav__toggle" aria-expanded="false" aria-controls="mob-sub-community">
+                            Community
+                            <svg class="mobile-nav__chevron" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" focusable="false" fill="none"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </button>
+                        <ul class="mobile-nav__sub" id="mob-sub-community">
+                            <li><a class="mobile-nav__sub-link" href="../../community/fellowship/">Fellowship</a></li>
+                            <li><a class="mobile-nav__sub-link" href="../../community/work-with-us/">Collaborate</a></li>
+                            <li><a class="mobile-nav__sub-link" href="../../community/careers/">Careers</a></li>
+                            <li><a class="mobile-nav__sub-link" href="../../community/contact/">Contact</a></li>
+                        </ul>
+                    </li>
+                    <!-- 7. News -->
+                    <li class="mobile-nav__item">
+                        <a class="mobile-nav__link" href="../../news/">News</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="mobile-nav__donate">
+                <a href="../../community/support/">Donate</a>
+            </div>
+        </nav>
+        <!-- NAV-2026:END -->
+            </header>
+            <!-- End header -->
+            <main id="main-content">
+            <!-- Start page title -->
+            <section class="page-title-area" style="background-image:url(../../img/banners/news-clinical-ai-safety.avif);background-size:cover;background-position:center;background-repeat:no-repeat;">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="page-title text-center">
+                                <h1>Clinical AI Safety Research</h1>
+                            </div>
+                            <div class="breadcumb-area text-center">
+                                <nav aria-label="breadcrumb"><ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
+                                    <li class="breadcrumb-item"><a href="#">News</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Clinical AI Safety Research</li>
+                                </ol></nav>
+                            </div>
+                            <div class="back-home">
+                                <a href="../../index.html"><i class="fa fa-arrow-left" aria-hidden="true"></i> BACK TO HOME</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- End page title -->
+
+            <!-- Start hero intro -->
+            <section class="ip-hero-intro">
+                <div class="ip-hero-intro__bg">
+                    <img src="../../img/blog/blog-three.avif" alt="Clinical environment illustrating AI-assisted care and human oversight" role="presentation">
+                </div>
+                <div class="ip-hero-intro__overlay"></div>
+                <div class="container">
+                    <div class="ip-hero-intro__content">
+                        <span class="ip-hero-intro__eyebrow">INSTAR Lab &middot; Research Brief &middot; May 2026</span>
+                        <h2 class="ip-hero-intro__title">Trustworthy AI in High-Stakes Clinical Environments</h2>
+                        <p class="ip-hero-intro__desc">AI holds genuine potential to improve patient safety, reduce clinician burden, and surface insights from complex health data. Realizing that potential responsibly requires rigorous safety evaluation and maintained human oversight — not as afterthoughts, but as foundational design requirements.</p>
+                    </div>
+                </div>
+            </section>
+            <!-- End hero intro -->
+
+            <!-- Start content sections -->
+            <section class="ip-section">
+                <div class="container">
+                    <div class="ip-content-block">
+                        <div class="ip-content-block__media">
+                            <div class="ip-img-frame">
+                                <img src="../../img/blog/blog-three.avif" alt="Clinical workflow supported by AI decision assistance">
+                            </div>
+                        </div>
+                        <div class="ip-content-block__text">
+                            <span class="ip-content-block__label"><i class="fa fa-flask" aria-hidden="true"></i> Life Sciences</span>
+                            <h3 class="ip-content-block__heading">The Promise and the Stakes</h3>
+                            <p class="ip-content-block__body">Clinical environments are among the highest-stakes domains AI systems can enter. The potential is real: AI tools capable of detecting anomalies in imaging, flagging deteriorating patient status earlier than manual review allows, synthesizing records to surface relevant history at the point of care, and reducing the administrative load that drives clinician burnout. When those capabilities work reliably and within appropriate limits, they can meaningfully improve both patient outcomes and the conditions under which care is delivered.</p>
+                            <p class="ip-content-block__body">The risks are equally real. A system that performs well on average can still fail in ways that concentrate harm on specific patient populations, rare presentations, or edge cases underrepresented in training data. Clinical failures can be silent — a missed finding, a delayed alert, a recommendation that looks plausible but is wrong for reasons the system cannot articulate. And the clinical setting creates a particular accountability challenge: when an AI-assisted decision leads to harm, the evidentiary trail for understanding why is often incomplete. These properties make the clinical domain one where the gap between demonstrated capability and trustworthy deployment is widest, and where that gap demands the most systematic attention.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="ip-section ip-section--alt">
+                <div class="container">
+                    <div class="ip-content-block ip-content-block--reverse">
+                        <div class="ip-content-block__media">
+                            <div class="ip-img-frame">
+                                <img src="../../img/blog/blog-three.avif" alt="Human clinician reviewing AI-generated analysis">
+                            </div>
+                        </div>
+                        <div class="ip-content-block__text">
+                            <span class="ip-content-block__label"><i class="fa fa-cogs" aria-hidden="true"></i> Applied Research</span>
+                            <h3 class="ip-content-block__heading">Rigorous Safety Evaluation and Human Oversight</h3>
+                            <p class="ip-content-block__body">Safety evaluation for clinical AI is not a single test or a regulatory checkbox. It is an ongoing research program that has to grapple with distributional shift — the system's environment changes as patient populations, care protocols, and documentation practices evolve — as well as adversarial inputs, workflow integration effects, and the ways human operators change their own behavior in response to AI assistance. Effective evaluation requires methods that probe failure modes directly, not just methods that measure average performance over representative test sets.</p>
+                            <p class="ip-content-block__body">Human oversight is inseparable from safety in this domain. A well-designed clinical AI system is one that maintains meaningful human control: it presents information and alerts in ways that enable informed clinician judgment rather than bypassing it; it surfaces its own uncertainty rather than projecting false confidence; and it is designed so that a clinician who disagrees with its output can override it without friction. These are not limitations on what AI can do in clinical settings — they are properties of AI systems that deserve to be trusted there.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="ip-section">
+                <div class="container">
+                    <div class="ip-content-block">
+                        <div class="ip-content-block__text" style="width:100%">
+                            <span class="ip-content-block__label"><i class="fa fa-lightbulb-o" aria-hidden="true"></i> INSTAR Perspective</span>
+                            <h3 class="ip-content-block__heading">INSTAR's Interest in Trustworthy Clinical AI</h3>
+                            <p class="ip-content-block__body">INSTAR's interest in clinical AI safety sits at the intersection of our machine intelligence and life sciences programs. We are not a clinical AI product company — we are a research institute that studies how AI systems behave in high-stakes environments, what evaluation frameworks are adequate for those environments, and what design approaches produce systems that clinicians can genuinely trust and use effectively. That research orientation means we are focused on the harder problems: understanding failure modes, developing adversarial testing methodologies for medical AI, and building the evidentiary basis for deployment decisions that is currently lacking across much of the field.</p>
+                            <p class="ip-content-block__body">We view the current moment as critical. Significant deployment of AI tools in clinical settings is already underway, driven by genuine enthusiasm about capability. The safety research needed to underpin that deployment is still catching up. INSTAR aims to contribute to closing that gap, in partnership with healthcare organizations, regulators, and researchers who share the conviction that the right place to do the hard safety work is before harm occurs, not after. Researchers and clinical organizations interested in engaging with INSTAR on AI safety evaluation are welcome to explore <a href="../../research/consortium/">INSTAR Consortium</a> or connect via <a href="../../community/contact/">community/contact</a>.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- End content sections -->
+
+            <!-- Start brand logo area -->
+            <section class="brand-logo-area pb-90">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="section-title text-center">
+                                <h2>OUR <span>PARTNERS</span></h2>
+                                <img src="../../img/title-bottom.png" alt="">
+                            </div>
+                        </div>
+                        <div class="brand-logo row justify-content-center">
+                            <div class="col-sm-2">
+                                <div class="b-logo">
+                                    <a href="https://focushive.com" target="_blank" rel="noopener noreferrer"><img src="../../img/brand-logo/focus-hive.svg" alt="Focus Hive Inc"></a>
+                                </div>
+                            </div>
+                            <div class="col-sm-2">
+                                <div class="b-logo">
+                                    <a href="https://globalenterprise.com" target="_blank" rel="noopener noreferrer"><img src="../../img/brand-logo/global-enterprise.svg" alt="Global Enterprise"></a>
+                                </div>
+                            </div>
+                            <div class="col-sm-2">
+                                <div class="b-logo">
+                                    <a href="https://ravonics.com" target="_blank" rel="noopener noreferrer"><img src="../../img/brand-logo/ravonics.svg" alt="Ravonics"></a>
+                                </div>
+                            </div>
+                            <div class="col-sm-2">
+                                <div class="b-logo">
+                                    <a href="https://curiositycorp.org" target="_blank" rel="noopener noreferrer"><img src="../../img/brand-logo/curiosity-research.svg" alt="Curiosity Research Corporation"></a>
+                                </div>
+                            </div>
+                            <div class="col-sm-2">
+                                <div class="b-logo">
+                                    <a href="https://taolearning.org" target="_blank" rel="noopener noreferrer"><img src="../../img/brand-logo/tao-learning.svg" alt="Tao Learning"></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- End brand logo area -->
+
+            <!-- Start CTA band -->
+            <section class="ip-cta-band ip-cta-band--light">
+                <div class="container">
+                    <div class="ip-cta-band__inner">
+                        <div class="ip-cta-band__text">
+                            <h2 class="ip-cta-band__heading">Support Open Science at INSTAR</h2>
+                            <p class="ip-cta-band__desc">INSTAR Lab is a 501(c)(3) nonprofit. Philanthropic gifts fund independent research that no commercial mandate can direct — including work in AI safety, clinical oversight, and responsible deployment. Your contribution is tax-deductible and goes directly to the mission.</p>
+                        </div>
+                        <div class="ip-cta-band__actions">
+                            <a class="ip-cta-band__btn ip-cta-band__btn--primary" href="../../community/contact/">Make a Gift <i class="fa fa-heart" aria-hidden="true"></i></a>
+                            <a class="ip-cta-band__btn ip-cta-band__btn--secondary" href="../../community/about-us/">About INSTAR <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- End CTA band -->
+            </main>
+            <!-- Start footer -->
+            <footer>
+                <div class="footer-top pt-50 pb-50">
+                    <div class="container">
+                        <div class="row">
+                            <div class="footer-widget-area row">
+                                <div class="col-sm-4">
+                                    <div class="footer-widget widget-one">
+                                        <div class="footer-widget-title">
+                                            <h3>ABOUT US</h3>
+                                        </div>
+                                        <div class="widget-about-content">
+                                            <p>INSTAR Lab is an independent 501(c)(3) nonprofit research institute advancing science through interdisciplinary collaboration, technological innovation, and partnership.</p>
+                                        </div>
+                                        <div class="widget-contact-content">
+                                            <h3>CONTACT US</h3>
+                                            <a href="tel:9292292918">Phone: 929-229-2918</a>
+                                            <a href="mailto:info@instarlab.org">Email: info@instarlab.org</a>
+                                            <a href="https://maps.google.com/?q=125+Frederick+St+Marietta+OH+45750">Address: 125 Frederick St, Marietta, OH 45750</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-2">
+                                    <div class="footer-widget widget-two">
+                                        <div class="footer-widget-title">
+                                            <h3>RESEARCH</h3>
+                                        </div>
+                                        <nav>
+                                            <ul>
+                                                <li><a href="../../research/innovation/">Innovation</a></li>
+                                                <li><a href="../../research/current-programs/">Current Programs</a></li>
+                                                <li><a href="../../research/facilities/">Facilities</a></li>
+                                                <li><a href="../../research/opportunities/">Opportunities</a></li>
+                                                <li><a href="../../research/consortium/">Consortium</a></li>
+                                            </ul>
+                                        </nav>
+                                    </div>
+                                </div>
+                                <div class="col-sm-2">
+                                    <div class="footer-widget widget-two">
+                                        <div class="footer-widget-title">
+                                            <h3>QUICK LINKS</h3>
+                                        </div>
+                                        <nav>
+                                            <ul>
+                                                <li><a href="../../community/about-us/">About Us</a></li>
+                                                <li><a href="../../community/careers/">Careers</a></li>
+                                                <li><a href="../../community/contact/">Contact</a></li>
+                                                <li><a href="../../community/fellowship/">Fellowship</a></li>
+                                                <li><a href="../../tech-transfer/portfolio/">Portfolio</a></li>
+                                            </ul>
+                                        </nav>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="footer-widget widget-four">
+                                        <div class="footer-widget-title">
+                                            <h3>NEWSLETTER</h3>
+                                        </div>
+                                        <div class="widget-about-content">
+                                            <p>Stay updated with INSTAR research news and events.</p>
+                                        </div>
+                                        <div class="newslater">
+                                            <form id="mc-form" class="mc-form form">
+                                                <input id="mc-email" type="email" autocomplete="off" placeholder="Email Address" aria-label="Email address for newsletter">
+                                                <button id="mc-submit" type="submit" aria-label="Subscribe to newsletter"><i class="fa fa-envelope" aria-hidden="true"></i></button>
+                                            </form>
+                                            <div class="mailchimp-alerts text-center">
+                                                <div class="mailchimp-submitting"></div>
+                                                <div class="mailchimp-success"></div>
+                                                <div class="mailchimp-error"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-8">
+                                <div class="copyright">
+                                    <p>INSTAR Lab Inc. is a registered 501(c)(3) nonprofit. Copyright &copy; 2026 INSTAR Lab Inc. All Rights Reserved.</p>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="footer-social"></div>
+                            </div>
+                        </div>
+                        <div class="d-none d-sm-block" id="back-top" aria-label="Back to top" role="button" tabindex="0"></div>
+                    </div>
+                </div>
+            </footer>
+            <!-- End footer -->
+        </div>
+        <!-- End main area -->
+        <script src="../../js/vendor/jquery-1.12.0.min.js"></script>
+        <script src="../../js/bootstrap.min.js"></script>
+        <script src="../../js/owl.carousel.min.js"></script>
+        <script src="../../js/jquery.nivo.slider.pack.js"></script>
+        <script src="../../js/jquery.mixitup.min.js"></script>
+        <script src="../../js/jquery.magnific-popup.min.js"></script>
+        <script src="../../js/jquery.meanmenu.js"></script>
+        <script src="../../js/jquery.syotimer.min.js"></script>
+        <script src="../../js/wow.js"></script>
+        <script src="../../js/jquery.scrollUp.min.js"></script>
+        <script src="../../js/jquery.ajaxchimp.min.js"></script>
+        <script src="../../js/plugins.js"></script>
+        <script>new WOW().init();</script>
+        <script src="../../js/styleswitch.js"></script>
+        <script src="../../js/main.js"></script>
+    </body>
+</html>

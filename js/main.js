@@ -38,7 +38,7 @@
 		fixedContentPos: false
 	});
 
-	$('.image-link').magnificPopup({type:'image'});
+	$('.image-link').magnificPopup({type:'inline', midClick:true, mainClass:'mfp-fade', removalDelay:160});
 
 /* TOP Menu Stick*/
 	$(window).on('scroll',function() {    
@@ -49,15 +49,6 @@
 		$("#sticker").addClass("stick");
 	   }
 	}); 
-
-/* syotimer*/
-	$('#simple_timer').syotimer({
-		year: 2018,
-		month: 5,
-		day: 9,
-		hour: 20,
-		minute: 30
-	});
 
  /* scrollUp*/
 	$.scrollUp({

@@ -355,6 +355,8 @@ body {
   background: #1072ba none repeat scroll 0 0;
   border: 1px solid #1072ba;
   color: #fff;
+  display: inline-flex;
+  align-items: center;
   font-family: "Raleway",sans-serif;
   font-size: 14px;
   font-weight: bold;
@@ -638,12 +640,12 @@ h1.title1 {
 }
 .image-link {
   background: rgba(43, 97, 165, 0.68) none repeat scroll 0 0;
-  bottom: 15px;
-  left: 15px;
+  bottom: 0;
+  left: 0;
   opacity: 0;
   position: absolute;
-  right: 15px;
-  top: 15px;
+  right: 0;
+  top: 0;
   transition: all 0.3s ease 0s;
 }
 .image-link i {
@@ -785,6 +787,13 @@ h1.title1 {
   font-weight: bold;
   margin-bottom: 2px;
 }
+.people-asy-title > h2 span {
+  color: #1072ba;
+}
+.people-asy-title > p {
+  color: #cfd8e3;
+  margin-bottom: 6px;
+}
 .people-say-image {
   border-bottom: 1px solid #ffffff;
   margin-bottom: 25px;
@@ -889,6 +898,11 @@ h1.title1 {
 .blo-image-and-date {
   position: relative;
 }
+.blo-image-and-date > img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
 .blo-image-and-date > a {
   background: #1072ba none repeat scroll 0 0;
   color: #fff;
@@ -969,12 +983,21 @@ h1.title1 {
 /*----------------------------------------*/
 .b-logo {
   border: 1px solid #f2f2f2;
-  padding: 30px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 110px;
+  padding: 0 18px;
   text-align: center;
   transition: all 0.3s ease 0s;
 }
 .b-logo:hover {
   box-shadow: 0 0 5px 3px #eaeaea;
+}
+.b-logo a {
+  display: block;
+  width: 100%;
+  min-width: 0;
 }
 /*----------------------------------------*/
 /*  12. footer top CSS
@@ -1079,6 +1102,13 @@ h1.title1 {
   color: #eee;
   font-size: 14px;
   margin-bottom: 0;
+  text-align: center;
+}
+.footer-bottom .col-sm-8 {
+  width: 100%;
+}
+.footer-bottom .col-sm-4 {
+  display: none;
 }
 .copyright > p a{
   color: #fff;
@@ -1169,17 +1199,24 @@ h1.title1 {
 .about-button.btn {
   margin-top: 30px;
 }
+.about-button.btn > a {
+  color: #fff;
+  text-decoration: none;
+}
+.about-button.btn:hover > a {
+  color: #666;
+}
 /* what we do */
 .single-we-do {
   position: relative;
 }
 .we-do-text {
   background: rgba(10, 170, 160, 0.63) none repeat scroll 0 0;
-  height: 90%;
-  left: 5%;
+  height: 100%;
+  left: 0;
   position: absolute;
-  top: 5%;
-  width: 90%;
+  top: 0;
+  width: 100%;
 }
 .we-do-text > h5 {
   color: #fff;
@@ -1190,7 +1227,20 @@ h1.title1 {
 }
 /* fiinish project */
 .finish-project {
-  background: rgba(0, 0, 0, 0) url("img/about/finish-project.avif") repeat scroll 0 0;
+  background:
+    linear-gradient(rgba(5, 14, 24, 0.55), rgba(5, 14, 24, 0.55)),
+    url("img/about/finish-project.avif") center center / cover no-repeat;
+}
+.finish-project .section-title h2,
+.finish-project .single-project,
+.finish-project .single-project h3,
+.finish-project .single-project h3 a,
+.finish-project .single-project i {
+  color: #fff;
+}
+.finish-project .section-title p,
+.finish-project .single-project p {
+  color: rgba(255, 255, 255, 0.9);
 }
 .single-project h2 {
   color: #fff;
@@ -1219,11 +1269,16 @@ h1.title1 {
   color: #fff;
 }
 /* video and skill area */
+.about-video {
+  position: relative;
+}
 .about-video .image-link,
  .about-video .popup-youtube{
   left: 45%;
   position: absolute;
   top: 40%;
+  right: auto;
+  bottom: auto;
   opacity: inherit;
   width: inherit;
 }
@@ -2060,4 +2115,145 @@ line-height: 36px;}
   line-height: 30px;
   padding-bottom: 8px;
   text-transform: capitalize;
+}
+
+/*----------------------------------------*/
+/*  21. Giving Page CSS (community/support)
+/*----------------------------------------*/
+
+/* ---- Amount buttons ---- */
+.give-amounts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 28px 0 8px;
+  justify-content: center;
+}
+.give-amounts__btn {
+  display: inline-block;
+  padding: 14px 32px;
+  background: #fff;
+  border: 2px solid var(--ip-blue);
+  color: var(--ip-blue);
+  font-family: 'Raleway', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: all 0.25s ease;
+  text-align: center;
+  min-width: 110px;
+}
+.give-amounts__btn:hover,
+.give-amounts__btn:focus {
+  background: var(--ip-blue);
+  color: #fff;
+  outline: none;
+}
+/* Custom-amount button: dashed border signals "open-ended"; transparent
+   background intentional — secondary visual weight vs. preset amounts. */
+.give-amounts__btn--custom {
+  border-style: dashed;
+  background: transparent;
+}
+.give-amounts__btn--custom:hover {
+  border-style: solid;
+}
+
+/* ---- Tier table ---- */
+.give-tier-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0 8px;
+  font-size: 14px;
+}
+.give-tier-table th {
+  background: var(--ip-blue);
+  color: #fff;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+  text-align: left;
+  padding: 12px 16px;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.give-tier-table td {
+  padding: 13px 16px;
+  border-bottom: 1px solid var(--ip-border);
+  vertical-align: top;
+  color: var(--ip-slate);
+  line-height: 1.55;
+}
+/* General rule first; terminal-row override second (correct cascade order). */
+.give-tier-table tr:nth-child(even) td {
+  background: #f0f4f8;
+}
+.give-tier-table tr:last-child td {
+  border-bottom: none;
+}
+.give-tier-table td:first-child {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+  color: var(--ip-navy);
+  white-space: nowrap;
+}
+.give-tier-table td:nth-child(2) {
+  font-weight: 600;
+  color: var(--ip-blue);
+  white-space: nowrap;
+}
+
+/* ---- Stripe embed wrapper ---- */
+.give-stripe-embed {
+  margin: 32px 0 0;
+}
+
+/* ---- Fine-print notice text ---- */
+.give-notice {
+  font-size: 13px;
+  color: var(--ip-text-light);
+  margin-top: 14px;
+  line-height: 1.65;
+}
+.give-notice a {
+  color: var(--ip-blue);
+}
+
+/* ---- Card layout variants used on this page ---- */
+.give-card--centered { padding: 32px 24px; text-align: center; }
+.give-card--flex     { padding: 32px 24px; display: flex; flex-direction: column; }
+.give-card--panel    { padding: 48px 40px; }
+
+/* Card inner elements */
+.give-card__icon           { font-size: 32px; color: var(--ip-blue); margin-bottom: 16px; }
+.give-card__heading        { font-family: 'Raleway', sans-serif; font-size: 17px; font-weight: 700; color: var(--ip-navy); margin-bottom: 12px; }
+.give-card__heading--lg    { font-size: 24px; margin-bottom: 16px; }
+.give-card__body           { font-size: 14px; line-height: 1.75; color: var(--ip-slate); }
+.give-card__body--grow     { flex: 1; }
+
+/*----------------------------------------*/
+/*  22. Mission page: we-do overlay & CTA button fixes
+/*----------------------------------------*/
+
+/* Issue #3: Force we-do images to fill column width so the green overlay matches the
+   image exactly. Natural image size is 370×300 px but col-sm-4 content is wider at
+   typical desktop widths, so max-width:100% alone leaves ~46 px of overhang on each
+   side. Setting width:100% stretches the image to fill the container, eliminating the
+   mismatch. display:block removes the 4 px inline descender gap. */
+.we-do-image {
+  line-height: 0;
+}
+.we-do-image img {
+  width: 100%;
+  display: block;
+}
+
+/* Issue #7: CTA buttons in the "Join Us in Advancing Science" (finish-project) section.
+   The <a class="donate-button"> inherits float:right from the nav .donate-button rule,
+   pushing it out of the text-flow and to the far right. Reset the float so
+   text-align:center on the col/.single-project parent centres the button correctly. */
+.finish-project .donate-button {
+  float: none;
+  margin-top: 20px;
 }

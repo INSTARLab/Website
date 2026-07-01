@@ -135,6 +135,39 @@
   border-radius: 2px;
   margin: 0 0 12px 12px;
 }
+.consortium-logo-frame {
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 260px;
+  padding: 42px;
+  background: #fff;
+  border: 1px solid var(--ip-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.consortium-logo-frame img {
+  width: auto;
+  max-width: 94%;
+  max-height: 130px;
+  object-fit: contain;
+  transform: none;
+}
+.consortium-logo-frame:hover img {
+  transform: none;
+}
+.consortium-logo-frame::after {
+  display: none;
+}
+.consortium-logo-frame--focus-hive img,
+.consortium-logo-frame--ravonics img,
+.consortium-logo-frame--curiosity-research img,
+.consortium-logo-frame--world-enterprise-group img {
+  max-width: 98%;
+}
+.consortium-logo-frame--dream-limited img {
+  max-width: 82%;
+}
 .ip-content-block__label {
   display: inline-flex;
   align-items: center;
@@ -172,11 +205,93 @@
   .ip-content-block__media {
     flex: 0 0 100%;
     max-width: 100%;
+    width: 100%;
+  }
+  .consortium-logo-frame {
+    min-height: 220px;
   }
 }
 @media (max-width: 767px) {
   .ip-section { padding: 50px 0; }
   .ip-content-block__heading { font-size: 22px; }
+  .consortium-logo-frame {
+    min-height: 170px;
+    padding: 30px 24px;
+  }
+}
+
+/* ---- Consortium Partner Logos ---- */
+.consortium-partners {
+  background: var(--ip-warm-gray);
+  padding-top: 80px;
+}
+.consortium-partners__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+.consortium-partners__logo {
+  min-height: 174px;
+  padding: 36px 42px;
+  background: #fff;
+  border: 1px solid var(--ip-border);
+  border-radius: var(--ip-radius);
+  box-shadow: var(--ip-shadow-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease;
+}
+a.consortium-partners__logo:hover,
+a.consortium-partners__logo:focus {
+  border-color: rgba(16, 114, 186, .35);
+  box-shadow: var(--ip-shadow-md);
+  transform: translateY(-2px);
+}
+.consortium-partners__logo img {
+  display: block;
+  width: auto;
+  max-width: 96%;
+  max-height: 96px;
+  object-fit: contain;
+}
+.consortium-partners__logo--focus-hive img,
+.consortium-partners__logo--ravonics img,
+.consortium-partners__logo--curiosity-research img,
+.consortium-partners__logo--world-enterprise-group img {
+  max-width: 100%;
+}
+.consortium-partners__logo--dream-limited img {
+  max-width: 78%;
+}
+.consortium-partners__logo--tao-learning img {
+  max-height: 118px;
+}
+@media (min-width: 992px) {
+  .consortium-partners__logo:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    justify-self: center;
+    width: calc(50% - 12px);
+  }
+}
+@media (max-width: 767px) {
+  .consortium-partners {
+    padding-top: 50px;
+  }
+  .consortium-partners__grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+  .consortium-partners__logo {
+    min-height: 142px;
+    padding: 28px 24px;
+  }
+  .consortium-partners__logo img {
+    max-height: 82px;
+  }
+  .consortium-partners__logo--dream-limited img {
+    max-width: 90%;
+  }
 }
 
 /* ---- Template A: Stats / Counter ---- */
@@ -422,4 +537,141 @@
 }
 @media (prefers-reduced-motion: reduce) {
   .ip-fade-up { opacity: 1; transform: none; }
+}
+
+/* ---- Accessibility: Skip-to-content link ---- */
+.skip-to-content {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  z-index: 9999;
+  display: inline-block;
+  padding: 12px 24px;
+  background: var(--ip-blue);
+  color: #fff;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 1px;
+  text-decoration: none;
+  border-radius: 0 0 var(--ip-radius) 0;
+  transition: top .15s ease;
+}
+.skip-to-content:focus {
+  top: 0;
+  outline: 3px solid #fff;
+  outline-offset: -3px;
+}
+
+/* ---- CTA Band Components ---- */
+.ip-cta-band {
+  padding: 60px 0;
+  text-align: center;
+}
+.ip-cta-band--dark {
+  background: var(--ip-navy);
+  color: #fff;
+}
+.ip-cta-band--blue {
+  background: var(--ip-blue);
+  color: #fff;
+}
+.ip-cta-band--light {
+  background: var(--ip-blue-light);
+  color: var(--ip-text);
+}
+.ip-cta-band--warm {
+  background: var(--ip-warm-gray);
+  color: var(--ip-text);
+}
+.ip-cta-band__eyebrow {
+  display: inline-block;
+  font-family: 'Raleway', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  opacity: 0.75;
+}
+.ip-cta-band__heading {
+  font-family: 'Raleway', sans-serif;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1.25;
+  margin-bottom: 14px;
+}
+.ip-cta-band--dark .ip-cta-band__heading,
+.ip-cta-band--blue .ip-cta-band__heading {
+  color: #fff;
+}
+.ip-cta-band--light .ip-cta-band__heading,
+.ip-cta-band--warm .ip-cta-band__heading {
+  color: var(--ip-navy);
+}
+.ip-cta-band__body {
+  font-size: 16px;
+  line-height: 1.75;
+  max-width: 580px;
+  margin: 0 auto 28px;
+  opacity: 0.88;
+}
+.ip-cta-band__actions {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+.ip-cta-band__btn {
+  display: inline-block;
+  padding: 13px 30px;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border-radius: var(--ip-radius);
+  text-decoration: none;
+  transition: background .25s ease, transform .2s ease, color .25s ease;
+  border: 2px solid transparent;
+}
+.ip-cta-band__btn--primary {
+  background: var(--ip-blue);
+  color: #fff;
+  border-color: var(--ip-blue);
+}
+.ip-cta-band__btn--primary:hover {
+  background: var(--ip-blue-dark);
+  border-color: var(--ip-blue-dark);
+  color: #fff;
+  transform: translateY(-2px);
+  text-decoration: none;
+}
+.ip-cta-band__btn--outline-white {
+  background: transparent;
+  color: #fff;
+  border-color: rgba(255,255,255,0.7);
+}
+.ip-cta-band__btn--outline-white:hover {
+  background: rgba(255,255,255,0.15);
+  border-color: #fff;
+  color: #fff;
+  transform: translateY(-2px);
+  text-decoration: none;
+}
+.ip-cta-band__btn--outline-blue {
+  background: transparent;
+  color: var(--ip-blue);
+  border-color: var(--ip-blue);
+}
+.ip-cta-band__btn--outline-blue:hover {
+  background: var(--ip-blue);
+  color: #fff;
+  transform: translateY(-2px);
+  text-decoration: none;
+}
+@media (max-width: 767px) {
+  .ip-cta-band { padding: 40px 0; }
+  .ip-cta-band__heading { font-size: 24px; }
+  .ip-cta-band__actions { flex-direction: column; align-items: center; }
 }
