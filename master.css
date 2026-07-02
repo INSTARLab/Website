@@ -2039,8 +2039,9 @@ img.mfp-img {
 }
 .nivo-main-image {
 	display: block !important;
-	position: relative !important; 
+	position: relative !important;
 	width: 100% !important;
+	aspect-ratio: 1920 / 750;
 }
 
 /* If an image is wrapped in a link */
@@ -6673,7 +6674,7 @@ h1.title1 {
   margin-top: 15px;
 }
 
-.volunteer-title.text-center > h5 {
+.volunteer-title.text-center > h3 {
   color: #444;
   font-family: Roboto, sans-serif;
   font-size: 18px;
@@ -6734,7 +6735,7 @@ h1.title1 {
   font-size: 14px;
 }
 
-.peoplp-say-text.text-center > h5 {
+.peoplp-say-text.text-center > h3 {
   color: #fff;
   font-family: Roboto, sans-serif;
   font-size: 18px;
@@ -6743,7 +6744,7 @@ h1.title1 {
   margin-top: 23px;
 }
 
-.peoplp-say-text h6 {
+.peoplp-say-text h4 {
   color: #fff;
   font-family: Roboto, sans-serif;
   font-size: 14px;
@@ -7230,7 +7231,7 @@ h1.title1 {
   width: 100%;
 }
 
-.we-do-text > h5 {
+.we-do-text > h3 {
   color: #fff;
   font-size: 18px;
   font-weight: bold;
@@ -7804,14 +7805,14 @@ line-height: 36px;}
   color: #1072ba;
 }
 
-.error-content h3 {
+.error-content h2 {
   color: #fff;
   font-family: Lato, sans-serif;
   font-size: 50px;
   font-weight: bold;
 }
 
-.error-content h3 span {
+.error-content h2 span {
   font-size: 24px;
 }
 
@@ -7830,7 +7831,7 @@ line-height: 36px;}
   text-decoration: none;
 }
 
-.donet-error-page h3 {
+.donet-error-page h2 {
   color: #333;
   font-family: Lato, sans-serif;
   font-size: 30px;

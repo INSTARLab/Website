@@ -22,8 +22,9 @@
 }
 .nivo-main-image {
 	display: block !important;
-	position: relative !important; 
+	position: relative !important;
 	width: 100% !important;
+	aspect-ratio: 1920 / 750;
 }
 
 /* If an image is wrapped in a link */

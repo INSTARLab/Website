@@ -18,6 +18,7 @@
 	function labelNivoControlDots() {
 		$nivoBanner.find('.nivo-controlNav a').each(function (i) {
 			$(this).attr('aria-label', 'Go to slide ' + (i + 1));
+			$(this).attr('role', 'button');
 		});
 	}
 	$nivoBanner.nivoSlider({
