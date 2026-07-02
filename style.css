@@ -1,4 +1,4 @@
-/*-----------------------------------------------------------------------------------
+/* -----------------------------------------------------------------------------------
 
   Template Name: Grant foundation 
   Template URI: http://bootexperts.com
@@ -33,11 +33,13 @@
 	19. Blog details CSS
 	20. Blog details sidebar right CSS
     
------------------------------------------------------------------------------------*/
+----------------------------------------------------------------------------------- */
 
-/*----------------------------------------*/
+/* ---------------------------------------- */
+
 /*  1. Theme default CSS
-/*----------------------------------------*/
+/*---------------------------------------- */
+
 /* Lato/Raleway/Roboto self-hosted (fonts/) instead of fonts.googleapis.com —
    third-party font CDNs leak visitor IPs to Google on every page load and
    cost a full DNS+TLS+connection round trip no preconnect fully recovers.
@@ -45,60 +47,67 @@
    Google Fonts files, not the heavier Fonts web-UI export). See
    optimize/self-hosted-fonts. */
 @font-face {
-    font-family: 'Lato';
+    font-family: Lato;
     src: url('fonts/lato-latin-400.woff2') format('woff2');
     font-weight: 400;
     font-style: normal;
     font-display: swap;
     unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
+
 @font-face {
-    font-family: 'Lato';
+    font-family: Lato;
     src: url('fonts/lato-latin-700.woff2') format('woff2');
     font-weight: 700;
     font-style: normal;
     font-display: swap;
     unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
+
 @font-face {
-    font-family: 'Raleway';
+    font-family: Raleway, sans-serif;
     src: url('fonts/raleway-latin-400.woff2') format('woff2');
     font-weight: 400;
     font-style: normal;
     font-display: swap;
     unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
+
 @font-face {
-    font-family: 'Raleway';
+    font-family: Raleway, sans-serif;
     src: url('fonts/raleway-latin-700.woff2') format('woff2');
     font-weight: 700;
     font-style: normal;
     font-display: swap;
     unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
+
 @font-face {
-    font-family: 'Roboto';
+    font-family: Roboto;
     src: url('fonts/roboto-latin-400.woff2') format('woff2');
     font-weight: 400;
     font-style: normal;
     font-display: swap;
     unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
+
 @font-face {
-    font-family: 'Roboto';
+    font-family: Roboto;
     src: url('fonts/roboto-latin-700.woff2') format('woff2');
     font-weight: 700;
     font-style: normal;
     font-display: swap;
     unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
+
 @font-face {
-    font-family: 'latomedium';
+    font-family: latomedium, sans-serif;
     src: url('fonts/lato-medium-webfont.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
 }
+
 .sr-only {
   position: absolute;
   width: 1px;
@@ -107,6 +116,7 @@
   margin: -1px;
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
   white-space: nowrap;
   border: 0;
 }
@@ -114,48 +124,57 @@ html, body {height: 100%;}
 .alignleft {float:left;margin-right:15px;margin-bottom: 15px}
 .alignright {float:right;margin-left:15px;margin-bottom: 15px}
 .aligncenter {display:block;margin:0 auto 15px}
-a:focus {outline:0px solid}
+a:focus {outline:0 solid}
 img {max-width:100%;height:auto}
 .fix {overflow:hidden}
 p {margin:0 0 15px;}
+
 h1, h2, h3, h4, h5, h6 {
   margin: 0 0 15px;
-  font-family: 'Raleway', sans-serif;
+  font-family: Raleway, sans-serif;
 }
 a {transition: all 0.3s ease 0s;text-decoration:none;color:#767676}
+
 a:hover {
   color: #1072ba;
   text-decoration: none;
 }
+
 a:active, a:hover {
   outline: 0 none;
   color: #1072ba;
 }
+
 .np{
-  padding: 0px;
+  padding: 0;
 }
+
 .npl{
-  padding-left: 0px;
+  padding-left: 0;
 }
+
 .npr{
-  padding-right: 0px;
+  padding-right: 0;
 }
+
 ul{
 list-style: outside none none;
 margin: 0;
 padding: 0
 }
+
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: Roboto, sans-serif;
   font-size: 14px;
 }
+
 /* section padding */
 .ptb-32{
-  padding: 27px 0px;
+  padding: 27px 0;
 }
 .pt-170{padding-top: 170px;}
 .pb-170{padding-bottom: 170px;}
-.ptb-114{padding: 114px 0px;}
+.ptb-114{padding: 114px 0;}
 .pt-90{padding-top: 90px;}
 .pb-90{padding-bottom: 90px;}
 .pt-80{padding-top: 80px;}
@@ -165,98 +184,123 @@ body {
 .pt-60{padding-top: 60px;}
 .pt-54{padding-top: 54px;}
 .pb-20{padding-bottom: 30px;}
+
 .pt-50{
   padding-top: 50px;
 }
+
 .pb-50{
   padding-bottom: 50px;
 }
 .clear{clear:both}
+
 /* margin */
 .mb-30{
   margin-bottom: 30px;
 }
+
 .mb-90{
   margin-bottom: 90px;
 }
+
 /* Theme button customizations */
 .btn:not(.btn-close) {
-  font-family: 'Raleway', sans-serif;
+  font-family: Raleway, sans-serif;
   font-weight: bold;
   text-transform: uppercase;
 }
+
 .btn-outline-light:hover,
 .btn-outline-secondary:hover {
   background-color: #1072ba;
   border-color: #1072ba;
   color: #fff;
 }
+
 .btn-primary {
   background-color: #1072ba;
   border-color: #1072ba;
 }
+
 .btn-primary:hover {
   background-color: transparent;
   border-color: #666;
   color: #666;
 }
-/*----------------------------------------*/
+
+/* ---------------------------------------- */
+
 /*  2. Header CSS
-/*----------------------------------------*/
+/*---------------------------------------- */
 .header-top {
   background: #1072ba none repeat scroll 0 0;
   line-height: 40px;
 }
+
 .top-social ul li {
   float: left;
   padding: 0 7.5px;
 }
+
 .top-social ul li:first-child {
   padding-left: 0;
 }
+
 .top-social ul li a {
-  font-family: "Roboto",sans-serif;
+  font-family: Roboto,sans-serif;
   font-size: 12px;
   color: #fff;
 }
+
 .call-to-action {
   float: right;
 }
+
 .call-to-action > ul {
   float: right;
 }
+
 .call-to-action ul li {
   float: left;
 }
+
 .call-to-action ul li:last-child {
   float: right;
 }
+
 .call-to-action ul li a {
   font-size: 12px;
   padding: 0 10px;
   color: #fff;
 }
+
 .call-to-action ul li a i {
   margin-right: 7px;
 }
+
 .call-to-action ul li:last-child a{
-  padding-right: 0px;
+  padding-right: 0;
 }
+
 .call-to-action ul li:last-child a i{
   margin-right: 0;
 }
+
 .call-to-action ul li ul li {
   border-bottom: 1px solid #fff;
   float: none;
   line-height: 25px;
 }
+
 .call-to-action ul li ul li:last-child{
   border-bottom: none;
 }
+
 .call-to-action ul li ul li a {
   color: #fff;
   padding: 0;
 }
+
 .call-to-action ul li ul {
   background: #1072ba none repeat scroll 0 0;
   opacity: 0;
@@ -268,39 +312,46 @@ body {
   visibility: hidden;
   z-index: 999;
 }
+
 .call-to-action ul li:hover ul{
   opacity: 1;
   visibility: visible;
 }
+
 /* main menu css */
 .main-menu-area {
   background: #fff none repeat scroll 0 0;
 }
+
 .main-menu ul li {
   float: left;
   padding: 47px 23px;
   position: relative;
 }
+
 .main-menu ul li.mega-menu {
   position: static;
 }
+
 .main-menu ul li a {
   color: #444;
-  font-family: "Raleway",sans-serif;
+  font-family: Raleway,sans-serif;
   font-size: 14px;
   padding: 7px 0;
   font-weight: 500;
   transition: all 0.3s ease 0s;
 }
+
 .main-menu ul li:hover a{
   color: #1072ba;
   border-bottom: 2px solid #1072ba;
 }
+
 /* megamenu css */
 .mega-menu-area {
-  background: #ffffff none repeat scroll 0 0;
+  background: #fff none repeat scroll 0 0;
   border-bottom: 2px solid #1072ba;
-  box-shadow: 0 1px 2px rgba(86, 86, 90, 0.5);
+  box-shadow: 0 1px 2px rgb(86 86 90 / 50%);
   left: 0;
   opacity: 0;
   padding-bottom: 10px;
@@ -313,43 +364,52 @@ body {
   width: 100%;
   z-index: 10;
 }
+
 .main-menu li:hover .mega-menu-area {
   opacity: 1;
   top: 100%;
   visibility: visible;
 }
+
 .mega-menu .mega-menu-area .single-mega-item {
   float: left;
   padding: 0 15px;
   width: 25%;
 }
+
 .main-menu li .mega-menu-area .single-mega-item li {
   border-bottom: 1px solid #e5e5e5;
   padding: 0;
   width: 100%;
 }
+
 .single-mega-item li{
   display: block;
 }
+
 .single-mega-item li a {
   display: block;
   padding: 13px 0;
 }
+
 .main-menu li:hover .single-mega-item li a{
   border-bottom: medium none;
   color: #444;
 }
+
 .main-menu li:hover .single-mega-item li:hover{
   border-bottom: 1px solid #1072ba;
 }
+
 .main-menu li:hover .single-mega-item li a:hover {
   color: #1072ba;
 }
+
 /* drop-menu menu css */
 .drop-menu {
-  background: #ffffff none repeat scroll 0 0;
+  background: #fff none repeat scroll 0 0;
   border-bottom: 2px solid #1072ba;
-  box-shadow: 0 1px 2px rgba(86, 86, 90, 0.5);
+  box-shadow: 0 1px 2px rgb(86 86 90 / 50%);
   left: 0;
   opacity: 0;
   position: absolute;
@@ -361,124 +421,122 @@ body {
   width: 250px;
   z-index: 10;
 }
+
 .main-menu li .drop-menu li {
   border-bottom: 1px solid #e5e5e5;
   display: block;
   float: none;
   padding: 0;
 }
+
 .main-menu li:hover .drop-menu li a{
   border-bottom: medium none;
   color: #444;
 }
+
 .main-menu li:hover .drop-menu li:hover{
   border-bottom: 1px solid #1072ba;
 }
+
 .main-menu li:hover .drop-menu li a:hover{
   color: #1072ba;
 }
+
 .main-menu li .drop-menu li a {
   display: block;
   padding-left: 15px;
 }
+
 .drop-menu li a:hover{
   border-bottom: 1px solid #1072ba;
   color: #1072ba;
 }
+
 .main-menu li:hover .drop-menu li:last-child a:hover{
-  border-bottom: 0px solid #1072ba;
+  border-bottom: 0 solid #1072ba;
 }
+
 .main-menu li:hover .drop-menu {
   opacity: 1;
   top: 100%;
   visibility: visible;
 }
+
 .main-menu ul li ul.single-mega-item li.shortcode-title {
   font-weight: bold;
   padding-bottom: 5px;
   padding-top: 5px;
   text-transform: uppercase;
 }
+
 /* domate button css */
 .donate-button {
   float: right;
   margin-top: 19px;
 }
+
 .donate-button > a {
   background: #1072ba none repeat scroll 0 0;
   border: 1px solid #1072ba;
   color: #fff;
   display: inline-flex;
   align-items: center;
-  font-family: "Raleway",sans-serif;
+  font-family: Raleway,sans-serif;
   font-size: 14px;
   font-weight: bold;
   padding: 10px 15px;
   text-transform: uppercase;
 }
+
 .donate-button > a:hover{
   border: 1px solid #555;
   background: transparent;
   color: #444;
 }
+
 .stick {
   animation: 300ms ease-in-out 0s normal none 1 running fadeInDown;
-  background: #ffffff none repeat scroll 0 0;
-  border-bottom: 1px solid #eeeeee;
+  background: #fff none repeat scroll 0 0;
+  border-bottom: 1px solid #eee;
   left: 0;
   position: fixed;
   top: 0;
   width: 100%;
   z-index: 9990;
 }
+
 .stick .main-menu ul li {
   padding: 18px 23px;
 }
+
 .stick .main-menu ul li .drop-menu li{
   padding: 0;
 }
+
 .stick .ptb-32 {
   padding: 10px 0;
 }
+
 .stick .logo.ptb-32 img {
   width: 130px;
 }
+
 .stick .donate-button {
   margin-top: 9px;
 }
-/* mobile menu css */
-.mobile-menu-area{
-  display: none;
-}
-.mobile-menu-area {
-  background: #424141 none repeat scroll 0 0;
-}
-.meanmenu-reveal {
-  float: right;
-}
-.mean-bar {
-  position: relative;
-}
-.mean-bar::after {
-  color: #fff;
-  content: "menu";
-  display: block;
-  font-size: 16pt;
-  font-weight: bold;
-  left: 0;
-  position: absolute;
-  text-transform: uppercase;
-  top: 12px;
-}
+
 .main-menu ul li.active a{
   color: red;
 }
-/*----------------------------------------*/
+
+/* ---------------------------------------- */
+
 /*  3. Slider CSS
-/*----------------------------------------*/
+/*---------------------------------------- */
 .slider-area {
   position: relative;
 }
+
 .nivo-caption {
   background: transparent none repeat scroll 0 0;
   bottom: 0;
@@ -494,27 +552,32 @@ body {
   width: 50%;
   z-index: 8;
 }
+
 h1.title1 {
   color: #fff;
   font-size: 40px;
   font-weight: bold;
-  text-shadow: 2px 2px 6px rgba(0,0,0,0.9);
+  text-shadow: 2px 2px 6px rgb(0 0 0 / 90%);
 }
+
 .nivoSlider img,
 .ma-nivoslider .slides img {
   filter: brightness(0.45);
 }
+
 .nivo-caption p {
   color: #fff;
-  font-family: roboto;
+  font-family: Roboto, sans-serif;
   font-size: 20px;
   margin-bottom: 40px;
   margin-top: 18px;
-  text-shadow: 1px 1px 4px rgba(0,0,0,0.8);
+  text-shadow: 1px 1px 4px rgb(0 0 0 / 80%);
 }
+
 .slider-button-area a {
   margin-right: 15px;
 }
+
 .nivo-directionNav a {
   cursor: pointer;
   font-size: 30px;
@@ -523,28 +586,35 @@ h1.title1 {
   top: 52%;
   z-index: 9;
 }
+
 .nivo-prevNav .left {
   margin-left: 160px;
 }
+
 .nivo-prevNav .left:hover i{
   color: #1072ba;
 }
+
 .nivo-nextNav .right {
   margin-right: 160px;
 }
+
 .nivo-nextNav .right:hover i{
   color: #1072ba;
 }
+
 .slider-area .nivo-controlNav {
   bottom: 0;
   left: 48%;
   position: absolute;
   z-index: 9;
 }
+
 .slider-area .nivo-controlNav a.active, .slider-area .nivo-controlNav a:hover {
   background: #fff none repeat scroll 0 0;
   box-shadow: 0 0 0 3px #1072ba inset;
 }
+
 .slider-area .nivo-controlNav a {
   background: #ebebeb none repeat scroll 0 0;
   border-radius: 100%;
@@ -557,42 +627,52 @@ h1.title1 {
   margin: 0 3px;
   width: 13px;
 }
-/*----------------------------------------*/
+
+/* ---------------------------------------- */
+
 /*  4. Our projects area CSS
-/*----------------------------------------*/
+/*---------------------------------------- */
+
 /* section title */
 .section-title {
   margin-bottom: 40px;
 }
+
 .section-title h2 {
   color: #1b1b1b;
-  font-family: raleway;
+  font-family: Raleway, sans-serif;
   font-size: 36px;
   font-weight: bold;
   line-height: 25px;
   margin-bottom: 11px;
   text-transform: uppercase;
 }
+
 .section-title h2 span {
   color: #1072ba;
 }
+
 .section-title.text-center > p {
-  color: #333333;
+  color: #333;
   font-size: 15px;
   margin-top: 10px;
 }
+
 /* single projects */
 .single-projects {
   display: block;
   margin-bottom: -5px;
   overflow: hidden;
 }
+
 .single-projects-image-text {
   transition: all 0.3s ease 0s;
 }
+
 .single-projects:hover .single-projects-image-text {
   box-shadow: 0 0 10px 0 #999;
 }
+
 .projects-text {
   background: #f1f1f1 none repeat scroll 0 0;
   display: block;
@@ -600,46 +680,56 @@ h1.title1 {
   overflow: hidden;
   padding: 40px 25px;
 }
+
 .projects-text h3 {
   color: #1b1b1b;
   font-size: 18px;
   font-weight: bold;
 }
+
 .projects-text.text-center > p {
   color: #333;
-  font-family: roboto;
+  font-family: Roboto, sans-serif;
   font-size: 13px;
   margin-bottom: 0;
 }
+
 .projects-button {
   float: left;
   width: 40%;
 }
+
 .projects-price {
   float: right;
   width: 60%;
 }
+
 .projects-price h5 {
   color: #555;
   float: right;
-  font-family: roboto;
+  font-family: Roboto, sans-serif;
   font-size: 16px;
   font-weight: bold;
 }
-/*----------------------------------------*/
+
+/* ---------------------------------------- */
+
 /*  5. Help us area CSS
-/*----------------------------------------*/
+/*---------------------------------------- */
 .help-us-area {
-  background: rgba(0, 0, 0, 0) url("img/help-us-bg.avif") repeat fixed 0 0;
+  background: rgb(0 0 0 / 0%) url("img/help-us-bg.avif") repeat fixed 0 0;
   color: #fff;
 }
+
 .section-title-style-two.text-center {
   margin-bottom: 75px;
 }
+
 .section-title-style-two.text-center > h2 {
   font-size: 36px;
   font-weight: bold;
 }
+
 /* help-icon */
 .help-icon {
   border: 1px solid #1072ba;
@@ -648,119 +738,141 @@ h1.title1 {
   text-align: center;
   width: 50px;
 }
+
 .help-icon i {
   font-size: 25px;
   line-height: 50px;
 }
+
 /* help-text */
 .help-text {
   float: right;
   width: 270px;
 }
+
 .help-text > h3 {
   font-size: 18px;
   font-weight: bold;
   text-transform: uppercase;
 }
+
 .help-text > p {
   margin-bottom: 25px;
 }
-/*----------------------------------------*/
+
+/* ---------------------------------------- */
+
 /*  6. Our-gallery CSS
-/*----------------------------------------*/
+/*---------------------------------------- */
+
 /* gallery-menu */
 .gallery-menu {
   margin-bottom: 17px;
 }
+
 .gallery-menu ul li {
   color: #1b1b1b;
   cursor: pointer;
   display: inline-block;
-  font-family: raleway;
+  font-family: Raleway, sans-serif;
   font-weight: bold;
   padding: 10px;
   transition: all 0.3s ease 0s;
 }
+
 .gallery-menu ul li:hover,
 .gallery-menu ul li.active{
   color: #1072ba;
 }
+
 /* gallery-images */
 .mix{
     display: none;
 }
+
 .gallery-image-and-text {
   position: relative;
 }
+
 .image-link {
-  background: rgba(43, 97, 165, 0.68) none repeat scroll 0 0;
-  bottom: 0;
-  left: 0;
+  background: rgb(43 97 165 / 68%) none repeat scroll 0 0;
+  inset: 0;
   opacity: 0;
   position: absolute;
-  right: 0;
-  top: 0;
   transition: all 0.3s ease 0s;
 }
+
 .image-link i {
-  color: #ffffff;
+  color: #fff;
   font-size: 32px;
   margin-top: 46%;
 }
+
 .image-link p {
-  color: #ffffff;
-  font-family: raleway;
+  color: #fff;
+  font-family: Raleway, sans-serif;
   font-size: 15px;
   font-weight: bold;
   line-height: 31px;
   text-decoration: none;
   text-transform: uppercase;
 }
+
 .gallery-image-and-text:hover .image-link{
   opacity: 1;
 }
-/*----------------------------------------*/
+
+/* ---------------------------------------- */
+
 /*  7. Countdown area CSS
-/*----------------------------------------*/
+/*---------------------------------------- */
 .countdown-area {
-  background: rgba(0, 0, 0, 0) url("img/count-down-bg.avif") repeat scroll 0 0;
+  background: rgb(0 0 0 / 0%) url("img/count-down-bg.avif") repeat scroll 0 0;
 }
+
 .countdown-side-area {
   margin-top: 35px;
 }
+
 .countdown-icon {
-  color: #ffffff;
+  color: #fff;
   float: left;
   width: 50px;
 }
+
 .countdown-icon i {
   font-size: 24px;
   margin-top: 12px;
 }
+
 .countdown-text {
   float: right;
   width: 300px;
 }
+
 .countdown-text > h3 {
-  color: #ffffff;
+  color: #fff;
   font-size: 24px;
   font-weight: bold;
   margin-bottom: 7px;
 }
+
 .countdown-text > p {
-  color: #ffffff;
+  color: #fff;
   font-size: 18px;
 }
+
 .count-down .table-cell {
   float: left;
   margin: 0 42px;
   text-align: center;
 }
+
 .count-down .tab-val {
   background: #1072ba none repeat scroll 0 0 padding-box content-box;
-  border: 2px solid #ffffff;
-  color: #ffffff;
-  font-family: roboto;
+  border: 2px solid #fff;
+  color: #fff;
+  font-family: Roboto, sans-serif;
   font-size: 24px;
   font-weight: bold;
   height: 96px;
@@ -768,21 +880,25 @@ h1.title1 {
   padding: 3px;
   width: 96px;
 }
+
 .count-down .tab-metr {
-  color: #ffffff;
-  font-family: roboto;
+  color: #fff;
+  font-family: Roboto, sans-serif;
   font-size: 15px;
   margin-top: 8px;
   text-transform: uppercase;
 }
-/*----------------------------------------*/
+
+/* ---------------------------------------- */
+
 /*  8. Our volunteers area CSS
-/*----------------------------------------*/
+/*---------------------------------------- */
 .volunteer-image-and-social {
   position: relative;
 }
+
 .volunteer-social {
-  background: rgba(10, 170, 192, 0.65) none repeat scroll 0 0;
+  background: rgb(10 170 192 / 65%) none repeat scroll 0 0;
   height: 0%;
   left: 0;
   line-height: 339px;
@@ -793,9 +909,10 @@ h1.title1 {
   width: 100%;
   opacity: 0;
 }
+
 .volunteer-social > a i {
-  border: 1px solid #ffffff;
-  color: #ffffff;
+  border: 1px solid #fff;
+  color: #fff;
   display: inline-block;
   height: 35px;
   line-height: 35px;
@@ -803,80 +920,97 @@ h1.title1 {
   transition: all 0.3s ease 0s;
   width: 35px;
 }
+
 .volunteer-social > a i:hover{
   color: #333;
   border: 1px solid #333;
 }
+
 .single-volunteer:hover .volunteer-social{
   opacity: 1;
   height: 100%;
 }
+
 .volunteer-title.text-center {
   margin-top: 15px;
 }
+
 .volunteer-title.text-center > h5 {
-  color: #444444;
-  font-family: roboto;
+  color: #444;
+  font-family: Roboto, sans-serif;
   font-size: 18px;
   margin-bottom: 0;
 }
+
 .volunteer-title.text-center > p {
-  color: #444444;
+  color: #444;
   font-size: 14px;
   margin: 0;
 }
-/*----------------------------------------*/
+
+/* ---------------------------------------- */
+
 /*  9. People says area CSS
-/*----------------------------------------*/
+/*---------------------------------------- */
 .people-says-area {
-  background: rgba(0, 0, 0, 0) url("img/peopule-say-bg.avif") repeat scroll 0 0 / cover ;
+  background: rgb(0 0 0 / 0%) url("img/peopule-say-bg.avif") repeat scroll 0 0 / cover ;
 }
+
 .single-people {
   margin: auto;
   width: 55%;
 }
+
 .people-asy-title > h2 {
-  color: #ffffff;
+  color: #fff;
   font-size: 24px;
   font-weight: bold;
   margin-bottom: 2px;
 }
+
 .people-asy-title > h2 span {
   color: #1072ba;
 }
+
 .people-asy-title > p {
   color: #cfd8e3;
   margin-bottom: 6px;
 }
+
 .people-say-image {
-  border-bottom: 1px solid #ffffff;
+  border-bottom: 1px solid #fff;
   margin-bottom: 25px;
   margin-top: 70px;
   padding-bottom: 15px;
 }
+
 .people-say-image > img {
   border: 2px solid #1072ba;
   border-radius: 100%;
   height: 115px;
   width: 115px;
 }
+
 .peoplp-say-text.text-center > p {
-  color: #ffffff;
+  color: #fff;
   font-size: 14px;
 }
+
 .peoplp-say-text.text-center > h5 {
-  color: #ffffff;
-  font-family: roboto;
+  color: #fff;
+  font-family: Roboto, sans-serif;
   font-size: 18px;
   line-height: 18px;
   margin-bottom: 10px;
   margin-top: 23px;
 }
+
 .peoplp-say-text h6 {
-  color: #ffffff;
-  font-family: roboto;
+  color: #fff;
+  font-family: Roboto, sans-serif;
   font-size: 14px;
 }
+
 .people-say-slide .owl-controls .owl-buttons {
   margin-top: inherit;
   position: absolute;
@@ -884,83 +1018,102 @@ h1.title1 {
   top: 30%;
   width: 100%;
 }
+
 .people-say-slide .owl-prev {
-  background: rgba(0, 0, 0, 0) none repeat scroll 0 0 !important;
+  background: rgb(0 0 0 / 0%) none repeat scroll 0 0 !important;
   left: -40px;
   position: absolute;
 }
+
 .people-say-slide .owl-next {
-  background: rgba(0, 0, 0, 0) none repeat scroll 0 0 !important;
+  background: rgb(0 0 0 / 0%) none repeat scroll 0 0 !important;
   position: absolute;
   right: -40px;
 }
+
 .icon-left-open {
   font-size: 30px;
 }
+
 .icon-right-open {
   font-size: 30px;
 }
+
 /* home youtube background */
 .height-100vh {
   height: 100vh;
 }
+
 .buttonBar {
   display: none;
 }
+
 .youtube-bg-overlay {
-  background: rgba(0, 0, 0, 0.68); 
+  background: rgb(0 0 0 / 68%); 
   width: 100%;
   height: 100%;
 }
+
 .youtube-text {
   width: 50%;
   margin: auto;
   padding-top: 15%;
 }
+
 .youtube-text p {
   color: #fff;
   font-size: 16px;
   margin-bottom: 35px;
 }
+
 .center-menu .main-menu {
   margin: 0 auto;
   width: 57%;
 }
+
 .center-menu .main-menu ul li {
   display: inline;
   padding: 0 23px 35px;
 }
+
 .center-menu .main-menu ul li .drop-menu li {
   display: inline;
   padding: 0;
 }
+
 .center-menu .donate-button {
   display: none;
 }
-/*----------------------------------------*/
+
+/* ---------------------------------------- */
+
 /*  10. Blog area CSS
-/*----------------------------------------*/
+/*---------------------------------------- */
 .single-blog {
   border: 1px solid #efefef;
   overflow: hidden;
   padding-bottom: 15px;
   transition: all 0.3s ease 0s;
 }
+
 .single-blog:hover {
   box-shadow: 0 8px 16px 1px #ccc;
 }
+
 .blo-image-and-date {
   position: relative;
 }
+
 .blo-image-and-date > img {
   display: block;
   width: 100%;
   height: auto;
 }
+
 .blo-image-and-date > a {
   background: #1072ba none repeat scroll 0 0;
   color: #fff;
-  font-family: "Lato",sans-serif;
+  font-family: Lato,sans-serif;
   font-size: 14px;
   font-weight: bold;
   left: 0;
@@ -971,70 +1124,86 @@ h1.title1 {
   top: 0;
   width: 75px;
 }
+
 .blog-info {
   padding: 11px 15px 31px;
 }
+
 .admin {
   width: 50%;
   float: left;
 }
+
 .comment {
   float: right;
   text-align: right;
   width: 50%;
 }
+
 .admin > a {
   color: #767676;
   font-size: 14px;
 }
+
 .admin a i,
 .comment a i {
   margin-right: 4px;
 }
+
 .comment a:hover i,
 .admin > a:hover i{
   color: #1072ba;
 }
+
 .comment > a {
   border-right: 1px solid;
   color: #767676;
   padding: 0 7.5px;
 }
+
 .comment > a:last-child{
-  border-right: 0px solid;
-  padding-right: 0px;
+  border-right: 0 solid;
+  padding-right: 0;
 }
+
 .blog-text {
   padding: 15px;
 }
+
 .blog-text h3 a {
   color: #1b1b1b;
   font-size: 18px;
   font-weight: bold;
 }
+
 .blog-text h3 a:hover{
   color: #1072ba;
 }
+
 .blog-text > p {
   color: #333;
   font-size: 14px;
 }
+
 .blog-text > a {
   border-bottom: 1px solid #333;
   color: #333;
   float: right;
-  font-family: lato;
+  font-family: Lato, sans-serif;
   font-size: 12px;
   font-weight: 600;
   line-height: 22px;
 }
+
 .blog-text > a:hover{
   color: #1072ba;
   border-bottom: 1px solid #1072ba;
 }
-/*----------------------------------------*/
+
+/* ---------------------------------------- */
+
 /*  11. Brand logo CSS
-/*----------------------------------------*/
+/*---------------------------------------- */
 .b-logo {
   border: 1px solid #f2f2f2;
   display: flex;
@@ -1045,20 +1214,25 @@ h1.title1 {
   text-align: center;
   transition: all 0.3s ease 0s;
 }
+
 .b-logo:hover {
   box-shadow: 0 0 5px 3px #eaeaea;
 }
+
 .b-logo a {
   display: block;
   width: 100%;
   min-width: 0;
 }
-/*----------------------------------------*/
+
+/* ---------------------------------------- */
+
 /*  12. footer top CSS
-/*----------------------------------------*/
+/*---------------------------------------- */
 .footer-top {
   background: #232323 none repeat scroll 0 0;
 }
+
 /* widget title */
 .footer-widget-title > h3 {
   color: #fff;
@@ -1067,6 +1241,7 @@ h1.title1 {
   margin-bottom: 45px;
   position: relative;
 }
+
 .footer-widget-title > h3::after {
   background: #1072ba none repeat scroll 0 0;
   content: "";
@@ -1077,61 +1252,74 @@ h1.title1 {
   top: 140%;
   width: 30px;
 }
+
 /* widget one */
 .widget-about-content > p {
   color: #fff;
 }
+
 .widget-contact-content > h3 {
   color: #fff;
   font-size: 18px;
   font-weight: bold;
 }
+
 .widget-contact-content > a {
   color: #fff;
   display: block;
   line-height: 25pt;
 }
+
 .widget-contact-content > p {
   color: #fff;
   font-size: 14px;
   margin-bottom: 0;
 }
+
 /* widget two */
 .footer-widget.widget-two li::after {
   color: #fff;
   content: "\f105";
+  /* stylelint-disable-next-line font-family-no-missing-generic-family-keyword -- icon glyph, no meaningful text fallback exists */
   font-family: fontawesome;
   left: 0;
   position: absolute;
   padding-left: 15px;
 }
+
 .footer-widget.widget-two a {
   color: #fff;
 }
+
 .footer-widget.widget-two li {
   margin-bottom: 12px;
   margin-left: 15px;
 }
+
 .footer-widget.widget-two li:hover::after{
   color: #0E9CB1;  
 }
+
 .footer-widget.widget-two a:hover{
   color: #0E9CB1;
 }
+
 /* widget four */
 .newslater {
   margin-top: 39px;
 }
+
 .newslater input {
   border: medium none;
   border-radius: 2px 0 0 2px;
   padding: 5px 10px;
 }
+
 .newslater button {
   background: #1072ba none repeat scroll 0 0;
   border: medium none;
   border-radius: 0 2px 2px 0;
-  color: #ffffff;
+  color: #fff;
   cursor: pointer;
   display: inline-block;
   font-size: 14px;
@@ -1141,49 +1329,61 @@ h1.title1 {
   transition: all 0.3s ease 0s;
   width: 45px;
 }
+
 .newslater button:hover{
   opacity: 0.8;
 }
+
 /* footer bottom */
 .footer-bottom {
   background: #191919 none repeat scroll 0 0;
   padding: 16px 0;
 }
+
 .footer-social {
   float: right;
 }
+
 .copyright > p {
   color: #eee;
   font-size: 14px;
   margin-bottom: 0;
   text-align: center;
 }
+
 .footer-bottom .col-sm-8 {
   width: 100%;
 }
+
 .footer-bottom .col-sm-4 {
   display: none;
 }
+
 .copyright > p a{
   color: #fff;
   font-weight: bold;
 }
+
 .footer-social ul li {
   display: inline;
   padding: 0 7.5px;
 }
+
 .footer-social ul li a {
   color: #eee;
   font-size: 12px;
 }
+
 /* home animated css */
 .slider-animate-area {
   background: #0d0d0d none repeat scroll 0 0;
-  color: #ffffff;
+  color: #fff;
 }
+
 .slider-animate-area .slider-button-area {
   margin-top: 50px;
 }
+
 #scrollUp {
   background-color: #1072ba;
   bottom: 5px;
@@ -1197,36 +1397,44 @@ h1.title1 {
   z-index: 9999;
   transition: all 0.3s ease 0s;
 }
+
 #scrollUp:hover{
   opacity: 0.7;
 }
+
 #scrollUp i {
-  color: #ffffff;
+  color: #fff;
   font-size: 30px;
   font-weight: bold;
 }
-/*----------------------------------------*/
+
+/* ---------------------------------------- */
+
 /*  13. About us CSS
-/*----------------------------------------*/
+/*---------------------------------------- */
 .page-title-area {
-  background: rgba(0, 0, 0, 0) url("img/about/page-banner.avif") repeat scroll 0 0 / cover ;
+  background: rgb(0 0 0 / 0%) url("img/about/page-banner.avif") repeat scroll 0 0 / cover ;
   padding: 150px 0 90px;
   position: relative;
 }
+
 .back-home {
   bottom: -80px;
   float: right;
   position: absolute;
   right: 0;
 }
+
 .back-home > a {
   color: #fff;
   font-size: 13px;
 }
+
 .back-home a i {
   color: #1072ba;
   margin-right: 5px;
 }
+
 .page-title h1 {
   color: #fff;
   font-size: 36px;
@@ -1234,44 +1442,56 @@ h1.title1 {
   margin-bottom: 0;
   text-transform: uppercase;
 }
+
 .breadcrumb a {
   color: #fff;
 }
+
 .breadcumb-area .breadcrumb {
   background-color: transparent;
-  --bs-breadcrumb-divider-color: rgba(255,255,255,.75);
+
+  --bs-breadcrumb-divider-color: rgb(255 255 255 / 75%);
+
   margin-bottom: 0;
 }
+
 .breadcrumb-item + .breadcrumb-item::before {
   color: inherit;
 }
+
 .breadcrumb a:hover,
 .breadcrumb .breadcrumb-item.active{
   color: #1072ba;
 }
+
 /* about text */
 .about-button.btn {
   margin-top: 30px;
 }
+
 .about-button.btn > a {
   color: #fff;
   text-decoration: none;
 }
+
 .about-button.btn:hover > a {
   color: #666;
 }
+
 /* what we do */
 .single-we-do {
   position: relative;
 }
+
 .we-do-text {
-  background: rgba(10, 170, 160, 0.63) none repeat scroll 0 0;
+  background: rgb(10 170 160 / 63%) none repeat scroll 0 0;
   height: 100%;
   left: 0;
   position: absolute;
   top: 0;
   width: 100%;
 }
+
 .we-do-text > h5 {
   color: #fff;
   font-size: 18px;
@@ -1279,12 +1499,14 @@ h1.title1 {
   line-height: 260px;
   text-align: center;
 }
+
 /* fiinish project */
 .finish-project {
   background:
-    linear-gradient(rgba(5, 14, 24, 0.55), rgba(5, 14, 24, 0.55)),
+    linear-gradient(rgb(5 14 24 / 55%), rgb(5 14 24 / 55%)),
     url("img/about/finish-project.avif") center center / cover no-repeat;
 }
+
 .finish-project .section-title h2,
 .finish-project .single-project,
 .finish-project .single-project h3,
@@ -1292,20 +1514,23 @@ h1.title1 {
 .finish-project .single-project i {
   color: #fff;
 }
+
 .finish-project .section-title p,
 .finish-project .single-project p {
-  color: rgba(255, 255, 255, 0.9);
+  color: rgb(255 255 255 / 90%);
 }
+
 .single-project h2 {
   color: #fff;
   display: inline-block;
-  font-family: roboto;
+  font-family: Roboto, sans-serif;
   font-size: 30px;
   font-weight: bold;
   line-height: 30px;
   padding-bottom: 15px;
   position: relative;
 }
+
 .single-project h2::after {
   background: #1072ba none repeat scroll 0 0;
   bottom: 0;
@@ -1315,6 +1540,7 @@ h1.title1 {
   position: absolute;
   width: 100%;
 }
+
 .single-project h3 {
   font-size: 24px;
   line-height: 24px;
@@ -1322,20 +1548,20 @@ h1.title1 {
   margin-top: 15px;
   color: #fff;
 }
+
 /* video and skill area */
 .about-video {
   position: relative;
 }
+
 .about-video .image-link,
  .about-video .popup-youtube{
-  left: 45%;
+  inset: 40% auto auto 45%;
   position: absolute;
-  top: 40%;
-  right: auto;
-  bottom: auto;
   opacity: inherit;
   width: inherit;
 }
+
 .about-video .popup-youtube {
   left: 45%;
   position: absolute;
@@ -1343,23 +1569,26 @@ h1.title1 {
   opacity: inherit;
   width: inherit;
 }
+
 .about-video .image-link i,
 .about-video .popup-youtube i {
   font-size: 50px;
-  color: #555555;
+  color: #555;
 }
+
 .mfp-iframe-holder .mfp-close {
   right: -30px;
   top: -15px;
 }
-/*------------------------------
+
+/* ------------------------------
 28.2 about-skill-area
---------------------------------*/
+-------------------------------- */
 .knob {
-  background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+  background: rgb(0 0 0 / 0%) none repeat scroll 0 0;
   border: 0 none;
   color: #2bcdc1;
-  font: bold 20px Arial;
+  font: bold 20px Arial, sans-serif;
   height: 33px;
   margin-left: -48px !important;
   margin-top: 33px;
@@ -1369,6 +1598,7 @@ h1.title1 {
   vertical-align: middle;
   width: 60px;
 }
+
 .progress-h4 {
   margin: 0 auto;
   position: absolute;
@@ -1376,141 +1606,171 @@ h1.title1 {
   width: 90%;
 }
 .about-member-area{padding:90px 0;background:#F7F5F6}
+
 .newsletter-area {
-  background: rgba(0, 0, 0, 0) url("img/about/bg-3.avif") no-repeat scroll center center / cover ;
+  background: rgb(0 0 0 / 0%) url("img/about/bg-3.avif") no-repeat scroll center center / cover ;
   overflow: hidden;
   padding: 145px 0;
   text-align: center;
 }
+
 .newsletter-area h4{color: #fff!important;
-font-family: raleway !important;
+font-family: Raleway, sans-serif !important;
 font-size: 36px;
 line-height: 36px;}
+
 .newsletter-area .email-newslatter {
   margin: 0 auto;
   width: 30%;
 }
-.newsletter-area .email-newslatter input [type=text]{
+
+.newsletter-area .email-newslatter input [type="text"]{
   color: #fff!important;
 }
+
 .newsletter-area .email-newslatter p{
   color: #fff;
 }
+
 .progress-circular input{
-  background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+  background: rgb(0 0 0 / 0%) none repeat scroll 0 0;
   border: 0 none;
   color: #000 !important;
-  font: bold 35px Arial;
+  font: bold 35px Arial, sans-serif;
   left: 66% !important;
   position: absolute !important;
   top: 0 !important;
   width: 160px;
 }
-/*----------------------------------------*/
+
+/* ---------------------------------------- */
+
 /*  14. Blog CSS
-/*----------------------------------------*/
+/*---------------------------------------- */
 .blog-pagination {
   float: right;
 }
+
 .blog-pagination li {
   float: left;
 }
+
 .blog-pagination li a {
   border: 1px solid #efefef;
   float: left;
   margin: 5px;
   padding: 6px 12px;
 }
+
 .blog-pagination li a:hover{
   background: #1072ba;
   border: 1px solid #1072ba;
   color: #fff;
 }
+
 .blog-pagination li:last-child a{
-  border: 0px solid #ccc;
+  border: 0 solid #ccc;
   padding-right: 0;
   margin-right: 0;
 }
+
 .blog-pagination li:last-child a:hover{
   background: transparent;
   color: #1072ba;
 }
-/*----------------------------------------*/
+
+/* ---------------------------------------- */
+
 /*  15. Contact CSS
-/*----------------------------------------*/
+/*---------------------------------------- */
 .single-box {
   border: 1px solid #f1f1f1;
   min-height: 250px;
   padding: 50px 0 20px;
   transition: all 0.3s ease 0s;
 }
+
 .single-box:hover{
   border: 1px solid #1072ba;
 }
+
 .single-box:hover i{
   color: #1072ba;
 }
+
 .single-box i {
   font-size: 40px;
   margin-bottom: 36px;
   transition: all 0.3s ease 0s;
 }
+
 .single-box h3 {
-  font-family: lato;
+  font-family: Lato, sans-serif;
   font-size: 18px;
   font-weight: bold;
 }
+
 .single-box p {
-  color: #333333;
-  font-family: latomedium;
+  color: #333;
+  font-family: latomedium, sans-serif;
   font-size: 14px;
   margin-bottom: 0;
 }
+
 /* form css */
 .contact-form-area {
   background: #f1f1f1 none repeat scroll 0 0;
 }
+
 .form-fields {
   float: left;
   margin-right: 2.8%;
   width: 31.45%;
 }
+
 .last{
   margin-right: 0%;  
 }
+
 .form-fields label {
   display: block;
-  font-family: Raleway;
+  font-family: Raleway, sans-serif;
   font-size: 16px;
   margin-bottom: 10px;
   text-transform: uppercase;
 }
+
 .form-fields > input {
   border: medium none;
   height: 50px;
   padding: 0 15px;
   width: 100%;
 }
+
 .message-fields {
   clear: both;
   padding-top: 20px;
 }
+
 .message-fields > label {
   display: block;
-  font-family: Raleway;
+  font-family: Raleway, sans-serif;
   font-size: 16px;
   margin-bottom: 10px;
   text-transform: uppercase;
 }
+
 .message-fields textarea {
   background: #fff none repeat scroll 0 0;
   border: medium none;
   padding: 20px;
   width: 100%;
 }
+
 .form-button {
   margin-top: 20px;
 }
+
 .form-button button {
   border: 1px solid #8a8a8a;
   border-radius: 3px;
@@ -1521,74 +1781,92 @@ line-height: 36px;}
   padding: 10px 20px;
   transition: all 0.3s ease 0s;
 }
+
 .form-button button:hover{
   background: #1072ba;
   border: 1px solid #1072ba;
   color: #fff;
 }
+
 #googleMap{
   width: 100%;
   height:500px;
 }
-/*----------------------------------------*/
+
+/* ---------------------------------------- */
+
 /*  16. Projects page CSS
-/*----------------------------------------*/
+/*---------------------------------------- */
 .projects-page-content .projects-button {
   float: none;
   margin: 30px 0;
   width: 100%;
 }
+
 .projects-page-content .projects-text {
   background: transparent none repeat scroll 0 0;
 }
+
 .projects-page-content .btn {
   border: 1px solid transparent;
 }
+
 .projects-page-content .projects-price h5 {
   float: none;
 }
+
 .projects-page-content .projects-price {
   float: none;
   width: 100%;
 }
+
 .projects-page-content .single-projects-image-text {
   border: 1px solid #efefef;
   transition: all 0.3s ease 0s;
 }
+
 .projects-page-content .projects-text {
   padding: 40px 25px 0;
 }
+
 .projects-page-content .blog-pagination {
   float: none;
 }
+
 /* causes sidebar */
 .search-box form {
   margin-top: 0;
   padding: 0;
 }
+
 .search-box .input-group.add-on {
   width: 100%;
 }
+
 .search-box .form-control {
   border: 1px solid #e6e6e6;
   border-radius: 0;
   height: 40px;
 }
+
 .search-box button {
   border: 1px solid #e6e6e6 !important;
   border-radius: 0 !important;
   color: #666;
   height: 40px;
 }
+
 /* twitter widget */
 .twitter-widget-area {
   margin-top: 34px;
 }
+
 .twitter-widget {
   border-bottom: 1px solid #e6e6e6;
   padding-bottom: 11px;
   margin-top: 26px;
 }
+
 .sidebar-widget-title > h3 {
   border-bottom: 1px solid #e6e6e6;
   color: #555;
@@ -1598,12 +1876,14 @@ line-height: 36px;}
   line-height: 40px;
   margin-bottom: 0;
 }
+
 .twitter-widget i {
   float: left;
   font-size: 40px;
   margin-right: 15px;
   color: #1072ba;
 }
+
 .twitter-widget > h5 {
   color: #555;
   font-size: 14px;
@@ -1612,65 +1892,80 @@ line-height: 36px;}
   position: relative;
   top: 10px;
 }
+
 /* popular tags */
 .popular-tags-widget {
   overflow: hidden;
   padding-top: 35px;
 }
+
 .popular-tags {
   margin-top: 30px;
 }
+
 .popular-tags ul {
   margin-left: -5px;
 }
+
 .popular-tags li {
   float: left;
   margin: 5px;
 }
+
 .popular-tags nav ul li a {
   background: #f1f1f1 none repeat scroll 0 0;
   color: #595959;
   display: inline-block;
   padding: 10px 24px;
 }
+
 .popular-tags nav ul li a:hover{
   background: #1072ba;
   color: #fff;
 }
+
 /* flicker widget */
 .flicker-widget-area {
   padding-top: 50px;
 }
+
 .flicker-widget {
   margin-top: 30px;
 }
+
 .flicker-widget li {
   float: left;
   margin-bottom: 15px;
   margin-right: 15px;
   width: 30.5%;
 }
+
 .flicker-widget li:nth-child(3),
 .flicker-widget li:nth-child(6){
-  margin-right: 0px;
+  margin-right: 0;
 }
+
 .flicker-widget ul li .image-link {
   position: static;
   opacity: inherit;
 }
-/*----------------------------------------*/
+
+/* ---------------------------------------- */
+
 /*  17. Up comming events CSS
-/*----------------------------------------*/
+/*---------------------------------------- */
 .event-image {
   position: relative;
 }
+
 .event-image > img {
   width: 100%;
 }
+
 .event-image > h3 {
   background: #1072ba none repeat scroll 0 0;
   color: #fff;
-  font-family: roboto;
+  font-family: Roboto, sans-serif;
   font-size: 18px;
   font-weight: bold;
   height: 60px;
@@ -1681,32 +1976,40 @@ line-height: 36px;}
   top: 0;
   width: 50px;
 }
+
 .event-text h3 a:hover{
   color: #1072ba;
 }
+
 .event-text > h3 {
   font-size: 18px;
   font-weight: bold;
   margin-bottom: 8px;
 }
+
 .event-text > h3 a{
   color: #1B1B1B;
 }
+
 .event-time-and-place {
   margin-bottom: 20px;
 }
+
 .ev-time {
   color: #333;
   font-size: 14px;
   margin-right: 30px;
 }
+
 .event-time-and-place span i {
   color: #1072ba;
   margin-right: 11px;
 }
+
 .event-text > p {
   margin-bottom: 40px;
 }
+
 /* eent sidebar */
 .event-sidt-title > h3 {
   color: #1b1b1b;
@@ -1715,7 +2018,8 @@ line-height: 36px;}
   padding-bottom: 15px;
   position: relative;
 }
-.event-sidt-title > h3:after{
+
+.event-sidt-title > h3::after{
   content: "";
   background: #1072ba;
   position: absolute;
@@ -1724,11 +2028,13 @@ line-height: 36px;}
   left: 0;
   top: 100%;
 }
+
 /* popular post */
 .ev-post-text > p {
   color: #8a8a8a;
   margin-bottom: 0;
 }
+
 /* event categoris */
 .event-categoris a {
   display: block;
@@ -1736,113 +2042,138 @@ line-height: 36px;}
   line-height: 20px;
   padding: 13px 0;
 }
+
 .event-tags .popular-tags > nav {
   margin-top: 28px;
 }
-/*----------------------------------------*/
+
+/* ---------------------------------------- */
+
 /*  18. Error page area CSS
-/*----------------------------------------*/
+/*---------------------------------------- */
 .error-page-area {
-  background: rgba(0, 0, 0, 0) url("img/404-bg.avif") repeat scroll 0 0;
+  background: rgb(0 0 0 / 0%) url("img/404-bg.avif") repeat scroll 0 0;
 }
+
 .error-content h1 {
   color: #fff;
   font-size: 150px;
   font-weight: bold;
   line-height: 150px;
 }
+
 .error-content h1 span {
   color: #1072ba;
 }
+
 .error-content h3 {
   color: #fff;
-  font-family: lato;
+  font-family: Lato, sans-serif;
   font-size: 50px;
   font-weight: bold;
 }
+
 .error-content h3 span {
   font-size: 24px;
 }
+
 .error-content p {
   color: #fff;
-  font-family: lato;
+  font-family: Lato, sans-serif;
   font-size: 16px;
   font-weight: 400;
   margin-bottom: 55px;
 }
+
 .error-content a {
   border: 1px solid #fff;
   color: #fff;
   padding: 15px 25px;
   text-decoration: none;
 }
+
 .donet-error-page h3 {
   color: #333;
-  font-family: lato;
+  font-family: Lato, sans-serif;
   font-size: 30px;
   font-weight: bold;
   margin-bottom: 30px;
 }
+
 .donet-error-page a {
   border: 1px solid #333;
   color: #333;
   padding: 15px 25px;
   text-decoration: none;
 }
-/*----------------------------------------*/
+
+/* ---------------------------------------- */
+
 /*  19. Blog details CSS
-/*----------------------------------------*/
+/*---------------------------------------- */
 .blog-details{
   padding: 15px;
 }
+
 .blog-details-title > h3 {
   margin-bottom: 0;
 }
+
 .blog-details .blog-info {
   padding: 11px 15px 15px 0;
 }
+
 .blog-details .comment {
   float: none;
   text-align: inherit;
   width: inherit;
 }
+
 .blog-details .admin {
   float: left;
   margin-right: 5px;
   width: inherit;
 }
+
 .blog-details .blo-image-and-date > img {
   width: 100%;
 }
+
 .blog-details .blog-text {
   padding: 0;
   margin-top: 15px;
 }
+
 /* blog details comment css */
 .single0blog-coment ul li {
   float: left;
   margin: 30px 0 0;
   width: 100%;
 }
+
 .single0blog-coment ul li .coment-image {
   float: left;
 }
+
 .single0blog-coment ul li .coment-image a {
   color: #666;
   display: inline-block;
   font-size: 16px;
   margin: 0 5px 0 0;
 }
+
 .single0blog-coment ul li .comment-heading {
   margin: 0 0 0 30px;
   padding: 0 0 5px 60px;
 }
+
 .single0blog-coment ul li .comment-heading h5 {
   color: #666;
   display: inline-block;
   font-size: 16px;
   margin: 0 5px 0 0;
 }
+
 .single0blog-coment ul li .comment-heading h5 a {
   color: #666;
   display: inline-block;
@@ -1850,13 +2181,16 @@ line-height: 36px;}
   margin: 0 5px 0 0;
   transition: all 0.3s ease 0s;
 }
+
 .single0blog-coment ul li .comment-heading h5 a:hover {
   color: #1072ba;
 }
+
 .single0blog-coment ul li .comment-heading p {
   display: inline-block;
   margin: 0;
 }
+
 .single0blog-coment ul li .comment-heading a.reply {
   color: #666;
   float: right;
@@ -1864,26 +2198,31 @@ line-height: 36px;}
   font-weight: bold;
   transition: all 0.3s ease 0s;
 }
+
 .single0blog-coment ul li .comment-heading a.reply:hover {
   color: #1072ba;
 }
+
 .single0blog-coment ul li .coment0-text {
   background: #efefef none repeat scroll 0 0;
-  border-bottom: 3px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 3px solid rgb(0 0 0 / 10%);
   display: block;
   margin-left: 40px;
   padding-left: 50px;
   padding-top: 12px;
 }
+
 .single0blog-coment ul ul {
   float: right;
   width: 90%;
 }
+
 .single0blog-coment ul li {
   float: left;
   margin: 30px 0 0;
   width: 100%;
 }
+
 /* comment reply css */
 .leave-reply {
   float: left;
@@ -1891,6 +2230,7 @@ line-height: 36px;}
   margin-top: 30px;
   width: 100%;
 }
+
 .leave-reply h2 {
   background-color: #363636;
   color: #fff;
@@ -1899,27 +2239,31 @@ line-height: 36px;}
   margin: 0;
   padding: 10px 15px;
 }
+
 .leave-reply ul {
   float: left;
   list-style: outside none none;
   margin: 30px 0 0;
   width: 100%;
 }
+
 .leave-reply ul li {
   margin: 0 0 20px;
   position: relative;
 }
+
 .leave-reply input[type="text"], .leave-reply textarea {
-  background-color: #ffffff;
-  border: 1px solid #cccccc;
+  background-color: #fff;
+  border: 1px solid #ccc;
   border-radius: 0;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+  box-shadow: 0 1px 1px rgb(0 0 0 / 7.5%) inset;
   margin: 0;
   min-height: 50px;
   padding: 4px 60px 4px 6px;
   transition: border 0.2s linear 0s, box-shadow 0.2s linear 0s;
   width: 100%;
 }
+
 .leave-reply ul li i {
   font-size: 20px;
   height: 100%;
@@ -1930,250 +2274,114 @@ line-height: 36px;}
   top: 0;
   width: 50px;
 }
+
 .leave-reply input[type="text"], .leave-reply textarea {
-  background-color: #ffffff;
-  border: 1px solid #cccccc;
+  background-color: #fff;
+  border: 1px solid #ccc;
   border-radius: 0;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+  box-shadow: 0 1px 1px rgb(0 0 0 / 7.5%) inset;
   margin: 0;
   min-height: 50px;
   padding: 4px 60px 4px 6px;
   transition: border 0.2s linear 0s, box-shadow 0.2s linear 0s;
   width: 100%;
 }
+
 .leave-reply textarea {
   height: 200px;
   resize: none;
 }
+
 .leave-reply .btn-style {
   float: right;
 }
+
 .leave-reply .btn-style:hover {
   background: #1072ba none repeat scroll 0 0;
 }
-/*----------------------------------------*/
+
+/* ---------------------------------------- */
+
 /*  20. Blog details sidebar right CSS
-/*----------------------------------------*/
+/*---------------------------------------- */
 .post-thum img {
   width: 100%;
 }
-/* Color Switcher */
-.sidebarmain.ec-colorswitcher  { left: 0px; }
-.ec-colorswitcher {
-    padding: 0px;
-    width: 260px;
-    background: #fcfcfc;
-    z-index: 99999999999;
-    position: fixed;
-    left: -260px;
-    top: 0%;
-
-    -webkit-transition: all 0.4s ease-in-out;
-       -moz-transition: all 0.4s ease-in-out;
-        -ms-transition: all 0.4s ease-in-out;
-         -o-transition: all 0.4s ease-in-out;
-            transition: all 0.4s ease-in-out;
-}
-.ec-handle {
-  background-color: #fff;
-  border: 1px solid #e9e9e9;
-  color: #333;
-  font-size: 20px;
-  height: 40px;
-  position: absolute;
-  right: -40px;
-  text-align: center;
-  top: 35%;
-  width: 40px;
-}
-.ec-handle i {
-  line-height: 38px;
-}
-.ec-colorswitcher h3 {
-  background-color: #1072ba;
-  border-top: 1px solid #1072ba;
-  color: #fff;
-  font-size: 18px;
-  font-weight: 600;
-  line-height: 20px;
-  margin: 0;
-  padding: 10px 0 10px 20px;
-  text-align: center;
-  text-transform: uppercase;
-}
-.style-swicher-logo.text-center {
-  padding-bottom: 10px;
-  padding-top: 20px;
-}
-.ec-colorswitcher h6 {
-  color: #555;
-  font-size: 15px;
-  font-weight: 600;
-}
-.ec-switcherarea {
-    padding: 15px 20px 20px 15px;
-    float: left;
-    width: 100%;
-}
-.ec-switcherarea ul.ec-switcher { margin-left: -2px; }
-.ec-switcherarea .ec-switcher li {
-  float: left;
-  list-style: outside none none;
-  margin-bottom: 5px;
-  padding-left: 5px;
-  text-align: center;
-  width: 33%;
-}
-.ec-switcherarea .ec-switcher li a {
-  float: left;
-  width: 100%;
-  height: 30px;
-}
-.layout-btn {
-  margin-left: -7px;
-}
-.layout-btn a {
-  float: left;
-  width: 50%;
-  padding: 0px 0px 0px 7px;
-  margin-bottom: 15px;
-}
-.layout-btn a span {
-  background-color: #1072ba;
-  color: #fff;
-  float: left;
-  padding: 10px;
-  text-align: center;
-  transition: all 0.4s ease-in-out 0s;
-  width: 100%;
-}
-.layout-btn a span:hover { opacity: 0.7; }
-.ec-pattren,.ec-background {
-  float: left;
-  width: 100%;
-  padding: 14px 0px 0px 0px;
-}
-.ec-pattren a,.ec-background a {
-  float: left;
-  width: 20%;
-  padding: 0px 0px 5px 5px;
-  height: 45px;
-}
-.ec-pattren a img,.ec-background a img {
-  box-shadow: 0px 0px 0px 1px #ddd;
-  width: 100%;
-}
-.ec-background a img { height: 100%; }
-.pattren-wrap,.background-wrap { margin-left: -5px; }
-.main-area {
-  position: relative;
-  transition: all 0.6s ease 0s;
-}
-.main-area.wrapper-boxed {
-  background-color: #ffffff;
-  box-shadow: 0 0 7px 3px rgba(0, 0, 0, 0.1);
-  float: none;
-  margin: 0 auto;
-  max-width: 1200px;
-}
-.cs-color-1 {
-  background: #1072ba;
-}
-.cs-color-2 {
-  background: #41c3ac;
-}
-.cs-color-3 {
-  background: #AF4D32;
-}
-.cs-color-4 {
-  background: #1abc9c;
-}
-.cs-color-5 {
-  background: #3498db;
-}
-.cs-color-6 {
-  background: #9b59b6;
-}
-.cs-color-7 {
-  background: #34495e;
-}
-.cs-color-8 {
-  background: #e67e22;
-}
-.cs-color-9 {
-  background: #c0392b;
-}
-.cs-color-10 {
-  background: #336E7B;
-}
-.cs-color-11 {
-  background: #f05a66;
-}
-.cs-color-12 {
-  background: #00ABEA;
-}
 
 /* shortcode css */
+
 /* page title left */
 .page-title-left .breadcumb-area .breadcrumb {
-  background-color: rgba(0, 0, 0, 0);
+  background-color: rgb(0 0 0 / 0%);
   padding-left: 0;
 }
+
 /* page title right */
 .page-title-right .page-title {
   text-align: right;
   width: 100%;
 }
+
 .page-title-right .breadcumb-area {
   text-align: right;
 }
+
 .page-title-right .breadcumb-area .breadcrumb {
-  background-color: rgba(0, 0, 0, 0);
+  background-color: rgb(0 0 0 / 0%);
   padding-right: 0;
 }
+
 /* page breadcumb right */
 .page-breadcumb-right .page-title {
   float: left;
 }
+
 .page-breadcumb-right .breadcumb-area .breadcrumb {
-  background-color: rgba(0, 0, 0, 0);
+  background-color: rgb(0 0 0 / 0%);
   padding-right: 0;
 }
+
 .page-damy-content p {
-  color: rgb(102, 102, 102);
+  color: rgb(102 102 102);
 }
+
 /* hiro unit css */
 .hiro-unit-area {
-  background: rgba(0, 0, 0, 0) url("img/peopule-say-bg.avif") repeat fixed 0 0;
-  color: rgb(255, 255, 255);
+  background: rgb(0 0 0 / 0%) url("img/peopule-say-bg.avif") repeat fixed 0 0;
+  color: rgb(255 255 255);
 }
+
 .hiro-unit-area h1 {
   font-size: 60px;
   font-weight: bold;
   line-height: 65px;
 }
+
 .hiro-unit-area p {
   font-size: 15px;
   margin-bottom: 40px;
 }
+
 /* video gallery css */
 .single-video-gallery iframe {
   height: 100%;
   width: 100%;
 }
+
 /* pagination css */
 .shortcode-area .section-title h2 {
   border-bottom: 1px solid #d1d1d1;
-  color: #444444;
+  color: #444;
   font-size: 21px;
   line-height: 30px;
   padding-bottom: 8px;
   text-transform: capitalize;
 }
 
-/*----------------------------------------*/
+/* ---------------------------------------- */
+
 /*  21. Giving Page CSS (community/support)
-/*----------------------------------------*/
+/*---------------------------------------- */
 
 /* ---- Amount buttons ---- */
 .give-amounts {
@@ -2183,13 +2391,14 @@ line-height: 36px;}
   margin: 28px 0 8px;
   justify-content: center;
 }
+
 .give-amounts__btn {
   display: inline-block;
   padding: 14px 32px;
   background: #fff;
   border: 2px solid var(--ip-blue);
   color: var(--ip-blue);
-  font-family: 'Raleway', sans-serif;
+  font-family: Raleway, sans-serif;
   font-size: 16px;
   font-weight: 700;
   text-decoration: none;
@@ -2198,18 +2407,21 @@ line-height: 36px;}
   text-align: center;
   min-width: 110px;
 }
+
 .give-amounts__btn:hover,
 .give-amounts__btn:focus {
   background: var(--ip-blue);
   color: #fff;
   outline: none;
 }
+
 /* Custom-amount button: dashed border signals "open-ended"; transparent
    background intentional — secondary visual weight vs. preset amounts. */
 .give-amounts__btn--custom {
   border-style: dashed;
   background: transparent;
 }
+
 .give-amounts__btn--custom:hover {
   border-style: solid;
 }
@@ -2221,10 +2433,11 @@ line-height: 36px;}
   margin: 20px 0 8px;
   font-size: 14px;
 }
+
 .give-tier-table th {
   background: var(--ip-blue);
   color: #fff;
-  font-family: 'Raleway', sans-serif;
+  font-family: Raleway, sans-serif;
   font-weight: 700;
   text-align: left;
   padding: 12px 16px;
@@ -2232,6 +2445,7 @@ line-height: 36px;}
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
+
 .give-tier-table td {
   padding: 13px 16px;
   border-bottom: 1px solid var(--ip-border);
@@ -2239,19 +2453,23 @@ line-height: 36px;}
   color: var(--ip-slate);
   line-height: 1.55;
 }
+
 /* General rule first; terminal-row override second (correct cascade order). */
 .give-tier-table tr:nth-child(even) td {
   background: #f0f4f8;
 }
+
 .give-tier-table tr:last-child td {
   border-bottom: none;
 }
+
 .give-tier-table td:first-child {
-  font-family: 'Raleway', sans-serif;
+  font-family: Raleway, sans-serif;
   font-weight: 700;
   color: var(--ip-navy);
   white-space: nowrap;
 }
+
 .give-tier-table td:nth-child(2) {
   font-weight: 600;
   color: var(--ip-blue);
@@ -2270,6 +2488,7 @@ line-height: 36px;}
   margin-top: 14px;
   line-height: 1.65;
 }
+
 .give-notice a {
   color: var(--ip-blue);
 }
@@ -2281,14 +2500,15 @@ line-height: 36px;}
 
 /* Card inner elements */
 .give-card__icon           { font-size: 32px; color: var(--ip-blue); margin-bottom: 16px; }
-.give-card__heading        { font-family: 'Raleway', sans-serif; font-size: 17px; font-weight: 700; color: var(--ip-navy); margin-bottom: 12px; }
+.give-card__heading        { font-family: Raleway, sans-serif; font-size: 17px; font-weight: 700; color: var(--ip-navy); margin-bottom: 12px; }
 .give-card__heading--lg    { font-size: 24px; margin-bottom: 16px; }
 .give-card__body           { font-size: 14px; line-height: 1.75; color: var(--ip-slate); }
 .give-card__body--grow     { flex: 1; }
 
-/*----------------------------------------*/
+/* ---------------------------------------- */
+
 /*  22. Mission page: we-do overlay & CTA button fixes
-/*----------------------------------------*/
+/*---------------------------------------- */
 
 /* Issue #3: Force we-do images to fill column width so the green overlay matches the
    image exactly. Natural image size is 370×300 px but col-sm-4 content is wider at
@@ -2298,6 +2518,7 @@ line-height: 36px;}
 .we-do-image {
   line-height: 0;
 }
+
 .we-do-image img {
   width: 100%;
   display: block;
