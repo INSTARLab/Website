@@ -38,15 +38,66 @@
 /*----------------------------------------*/
 /*  1. Theme default CSS
 /*----------------------------------------*/
-/* Lato/Raleway/Roboto now loaded via <link rel=stylesheet> + preconnect
-   in every page's <head> instead of a runtime @import here — avoids a
-   sequential, render-blocking CSS-in-CSS fetch. See optimize/css-bundle. */
+/* Lato/Raleway/Roboto self-hosted (fonts/) instead of fonts.googleapis.com —
+   third-party font CDNs leak visitor IPs to Google on every page load and
+   cost a full DNS+TLS+connection round trip no preconnect fully recovers.
+   Latin-subset WOFF2 only, sourced via @fontsource (canonical upstream
+   Google Fonts files, not the heavier Fonts web-UI export). See
+   optimize/self-hosted-fonts. */
+@font-face {
+    font-family: 'Lato';
+    src: url('fonts/lato-latin-400.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+    font-family: 'Lato';
+    src: url('fonts/lato-latin-700.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+    font-family: 'Raleway';
+    src: url('fonts/raleway-latin-400.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+    font-family: 'Raleway';
+    src: url('fonts/raleway-latin-700.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+    font-family: 'Roboto';
+    src: url('fonts/roboto-latin-400.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+    font-family: 'Roboto';
+    src: url('fonts/roboto-latin-700.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
 @font-face {
     font-family: 'latomedium';
-    src: url('fonts/lato-medium-webfont.woff2') format('woff2'),
-         url('fonts/lato-medium-webfont.woff') format('woff');
+    src: url('fonts/lato-medium-webfont.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
+    font-display: swap;
 }
 .sr-only {
   position: absolute;
