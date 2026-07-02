@@ -2614,3 +2614,16 @@ line-height: 36px;}
   float: none;
   margin-top: 20px;
 }
+
+/* WOW.js scroll-triggered animations (hero text on index.html) — WOW.js
+   predates prefers-reduced-motion and only disables itself for mobile user
+   agents, not for this preference. It manages visibility/animation via
+   inline styles (js/wow.js resetStyle/applyStyle), so this needs !important
+   to actually win. */
+@media (prefers-reduced-motion: reduce) {
+  .wow {
+    visibility: visible !important;
+    animation: none !important;
+    transition: none !important;
+  }
+}
