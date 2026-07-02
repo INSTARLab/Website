@@ -537,6 +537,64 @@ body {
   position: relative;
 }
 
+/* Hero carousel — Bootstrap 5 native, replaces jQuery nivoSlider */
+.hero-carousel__img {
+  filter: brightness(0.45);
+  object-fit: cover;
+  height: auto;
+}
+
+.hero-carousel__caption {
+  position: absolute;
+  top: 37%;
+  left: 15%;
+  width: 50%;
+  z-index: 8;
+}
+
+.hero-carousel__nav {
+  width: 8%;
+  opacity: 1;
+  background: transparent;
+}
+
+.hero-carousel__nav .left,
+.hero-carousel__nav .right {
+  color: #fff;
+  font-size: 30px;
+  display: inline-block;
+}
+
+.hero-carousel__nav:hover .left,
+.hero-carousel__nav:hover .right {
+  color: #1072ba;
+}
+
+.hero-carousel__indicators {
+  bottom: 10px;
+  margin: 0;
+}
+
+.hero-carousel__indicators button {
+  background-color: #ebebeb;
+  border-radius: 100%;
+  box-shadow: 0 0 0 3px #acacac inset;
+  cursor: pointer;
+  display: inline-block;
+  height: 13px;
+  width: 13px;
+  margin: 0 3px;
+  padding: 0;
+  opacity: 1;
+  border: 0;
+}
+
+.hero-carousel__indicators button.active,
+.hero-carousel__indicators button:hover {
+  background-color: #fff;
+  box-shadow: 0 0 0 3px #1072ba inset;
+}
+
 .nivo-caption {
   background: transparent none repeat scroll 0 0;
   bottom: 0;
@@ -1011,32 +1069,33 @@ h1.title1 {
   font-size: 14px;
 }
 
-.people-say-slide .owl-controls .owl-buttons {
-  margin-top: inherit;
-  position: absolute;
-  text-align: center;
+.people-say-nav {
+  background: transparent;
+  border: 0;
+  opacity: 1;
   top: 30%;
-  width: 100%;
+  bottom: auto;
+  width: 40px;
+  height: 40px;
 }
 
-.people-say-slide .owl-prev {
-  background: rgb(0 0 0 / 0%) none repeat scroll 0 0 !important;
+.people-say-nav--prev {
   left: -40px;
-  position: absolute;
 }
 
-.people-say-slide .owl-next {
-  background: rgb(0 0 0 / 0%) none repeat scroll 0 0 !important;
-  position: absolute;
+.people-say-nav--next {
   right: -40px;
 }
 
-.icon-left-open {
-  font-size: 30px;
-}
-
+.icon-left-open,
 .icon-right-open {
   font-size: 30px;
+  color: #444;
+}
+
+.people-say-nav:hover .icon-left-open,
+.people-say-nav:hover .icon-right-open {
+  color: #1072ba;
 }
 
 /* home youtube background */
@@ -1632,15 +1691,29 @@ line-height: 36px;}
   color: #fff;
 }
 
-.progress-circular input{
-  background: rgb(0 0 0 / 0%) none repeat scroll 0 0;
-  border: 0 none;
-  color: #000 !important;
-  font: bold 35px Arial, sans-serif;
-  left: 66% !important;
-  position: absolute !important;
-  top: 0 !important;
-  width: 160px;
+.knob-progress {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.knob-progress__ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: conic-gradient(#1072ba calc(var(--pct, 0) * 1%), #444 0);
+  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 10px), #000 calc(100% - 10px));
+  mask: radial-gradient(farthest-side, transparent calc(100% - 10px), #000 calc(100% - 10px));
+}
+
+.knob-progress__value {
+  position: relative;
+  font: bold 20px Arial, sans-serif;
+  color: #000;
 }
 
 /* ---------------------------------------- */
