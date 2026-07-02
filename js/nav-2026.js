@@ -103,6 +103,7 @@
       document.body.classList.add('nav-scroll-locked');
       hamburger.setAttribute('aria-expanded', 'true');
       drawer.removeAttribute('aria-hidden');
+      drawer.removeAttribute('inert');
       if (closeBtn) closeBtn.focus();
     }
 
@@ -113,6 +114,7 @@
       document.body.classList.remove('nav-scroll-locked');
       hamburger.setAttribute('aria-expanded', 'false');
       drawer.setAttribute('aria-hidden', 'true');
+      drawer.setAttribute('inert', '');
       hamburger.focus();
     }
 

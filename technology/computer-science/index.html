@@ -256,7 +256,7 @@
         <!-- Mobile nav backdrop -->
         <div class="mobile-nav-overlay" id="mobile-nav-overlay" aria-hidden="true"></div>
         <!-- Mobile nav off-canvas drawer (vanilla JS, no meanmenu) -->
-        <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation" aria-hidden="true">
+        <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation" aria-hidden="true" inert>
             <div class="mobile-nav__header">
                 <img src="../../img/logo/instar.svg" alt="INSTAR Lab" class="mobile-nav__logo">
                 <button type="button" class="mobile-nav__close" aria-label="Close navigation menu">
@@ -427,7 +427,7 @@
                                     <img src="../../img/pages/computer-science/card-1.avif" alt="Algorithms and Theory research — computational complexity and combinatorial optimization" loading="lazy" decoding="async">
                                 </div>
                                 <div class="ip-card__body">
-                                    <h3 class="ip-card__title"><a href="#">Algorithms & Theory</a></h3>
+                                    <h3 class="ip-card__title"><a href="#">Algorithms &amp; Theory</a></h3>
                                     <p class="ip-card__desc">INSTAR examines computational complexity, approximation algorithms, graph theory, and combinatorial optimization. The emphasis is on provable performance guarantees — understanding not just whether an algorithm works but why, and under what conditions it degrades. This rigor connects directly to applications in scientific computing, large-scale data analysis, and resource-constrained operational environments.</p>
                                     <a href="#" class="ip-card__link">Learn More <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
                                 </div>
@@ -439,7 +439,7 @@
                                     <img src="../../img/pages/computer-science/card-2.avif" alt="Systems and Architecture research — operating systems and heterogeneous processor design" loading="lazy" decoding="async">
                                 </div>
                                 <div class="ip-card__body">
-                                    <h3 class="ip-card__title"><a href="#">Systems & Architecture</a></h3>
+                                    <h3 class="ip-card__title"><a href="#">Systems &amp; Architecture</a></h3>
                                     <p class="ip-card__desc">INSTAR investigates systems software and hardware architecture questions that shape scientific computing capacity — operating system design, compiler optimization strategies, and the tradeoffs in heterogeneous processor architectures. The research interest is in how systems-level decisions propagate upward into application performance and downward into hardware requirements, particularly for high-performance computational workloads.</p>
                                     <a href="#" class="ip-card__link">Learn More <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
                                 </div>
@@ -614,7 +614,7 @@
                                         <div class="footer-widget-title">
                                             <h3>RESEARCH</h3>
                                         </div>
-                                        <nav>
+                                        <nav aria-label="Research">
                                             <ul>
                                                 <li><a href="../../research/innovation/">Innovation</a></li>
                                                 <li><a href="../../research/current-programs/">Current Programs</a></li>
@@ -630,7 +630,7 @@
                                         <div class="footer-widget-title">
                                             <h3>QUICK LINKS</h3>
                                         </div>
-                                        <nav>
+                                        <nav aria-label="Quick Links">
                                             <ul>
                                                 <li><a href="../../community/about-us/">About Us</a></li>
                                                 <li><a href="../../community/careers/">Careers</a></li>
