@@ -1,0 +1,9 @@
+# Baseline "widely available" browser support target for this program.
+# Matches the SOP's 2026 baseline: current versions of evergreen browsers
+# plus one prior major version, no legacy IE/old-Edge support (this site
+# already dropped jQuery 1.12/IE-era code paths as part of the jQuery
+# removal pass). See docs/18-sustainability.md and docs/03-css.md.
+last 2 versions
+> 0.5%
+not dead
+not IE 11
