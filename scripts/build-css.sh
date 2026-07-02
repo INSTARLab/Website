@@ -18,7 +18,6 @@ cd "$(dirname "$0")/.."
 OUT=master.css
 SOURCES=(
   css/bootstrap.min.css
-  css/font-awesome.min.css
   css/heading.css
   css/animate.css
   css/main.css

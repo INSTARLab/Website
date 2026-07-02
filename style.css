@@ -120,6 +120,17 @@
   white-space: nowrap;
   border: 0;
 }
+
+/* Inline SVG icons — replaces the Font Awesome icon font. Sized like an
+   icon font glyph (1em square, slight baseline drop) so no other CSS
+   touching the old .fa/.fa-* selectors needed to change. */
+.icon-fa {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.125em;
+  fill: currentColor;
+}
 html, body {height: 100%;}
 .alignleft {float:left;margin-right:15px;margin-bottom: 15px}
 .alignright {float:right;margin-left:15px;margin-bottom: 15px}
@@ -1338,9 +1349,7 @@ h1.title1 {
 /* widget two */
 .footer-widget.widget-two li::after {
   color: #fff;
-  content: "\f105";
-  /* stylelint-disable-next-line font-family-no-missing-generic-family-keyword -- icon glyph, no meaningful text fallback exists */
-  font-family: fontawesome;
+  content: "\203A";
   left: 0;
   position: absolute;
   padding-left: 15px;
