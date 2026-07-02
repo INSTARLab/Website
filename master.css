@@ -6671,7 +6671,7 @@ h1.title1 {
   width: 50%;
 }
 .admin > a {
-  color: #888;
+  color: #767676;
   font-size: 14px;
 }
 .admin a i,
@@ -6684,7 +6684,7 @@ h1.title1 {
 }
 .comment > a {
   border-right: 1px solid;
-  color: #888;
+  color: #767676;
   padding: 0 7.5px;
 }
 .comment > a:last-child{
@@ -8094,6 +8094,9 @@ line-height: 36px;}
 }
 .ip-section--alt {
   background-color: var(--ip-warm-gray);
+}
+.ip-section--alt a:not([class]) {
+  color: var(--ip-blue-dark);
 }
 .ip-content-block {
   display: flex;

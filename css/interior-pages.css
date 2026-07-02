@@ -93,6 +93,9 @@
 .ip-section--alt {
   background-color: var(--ip-warm-gray);
 }
+.ip-section--alt a:not([class]) {
+  color: var(--ip-blue-dark);
+}
 .ip-content-block {
   display: flex;
   align-items: center;
