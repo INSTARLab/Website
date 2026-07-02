@@ -15,6 +15,7 @@
 		scrollUpLink = document.createElement("a");
 		scrollUpLink.id = "scrollUp";
 		scrollUpLink.href = "#top";
+		scrollUpLink.setAttribute("aria-label", "Scroll to top");
 		scrollUpLink.style.position = "fixed";
 		scrollUpLink.style.zIndex = "2147483647";
 		scrollUpLink.innerHTML = '<i class="fa fa-angle-up" aria-hidden="true"></i>';

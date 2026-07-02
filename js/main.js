@@ -8,7 +8,19 @@
 		}); 
 
 /* Nivo slider*/
-	$('#ma-inivoslider-banner7').nivoSlider({
+	var $nivoBanner = $('#ma-inivoslider-banner7');
+	function syncNivoMainImageAlt() {
+		var vars = $nivoBanner.data('nivo:vars');
+		var current = vars && vars.currentImage;
+		var alt = current ? $(current).attr('alt') : null;
+		if (alt) { $nivoBanner.find('.nivo-main-image').attr('alt', alt); }
+	}
+	function labelNivoControlDots() {
+		$nivoBanner.find('.nivo-controlNav a').each(function (i) {
+			$(this).attr('aria-label', 'Go to slide ' + (i + 1));
+		});
+	}
+	$nivoBanner.nivoSlider({
 		effect: 'random',
 		slices: 15,
 		boxCols: 8,
@@ -21,8 +33,10 @@
 		controlNavThumbs: false,
 		pauseOnHover: false,
 		manualAdvance: false,
-		prevText: '<span class="left"><i class="fa fa-angle-left" aria-hidden="true"></i></span>',
-		nextText: '<span class="right"><i class="fa fa-angle-right" aria-hidden="true"></i></span>'
+		prevText: '<span class="left"><span class="visually-hidden">Previous slide</span><i class="fa fa-angle-left" aria-hidden="true"></i></span>',
+		nextText: '<span class="right"><span class="visually-hidden">Next slide</span><i class="fa fa-angle-right" aria-hidden="true"></i></span>',
+		afterLoad: function () { syncNivoMainImageAlt(); labelNivoControlDots(); },
+		afterChange: syncNivoMainImageAlt
 	});
 
 /* magnificPopup */

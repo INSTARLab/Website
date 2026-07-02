@@ -5809,7 +5809,7 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0 0 15px;
   font-family: 'Raleway', sans-serif;
 }
-a {transition: all 0.3s ease 0s;text-decoration:none;color:#777}
+a {transition: all 0.3s ease 0s;text-decoration:none;color:#767676}
 a:hover {
   color: #1072ba;
   text-decoration: none;
@@ -6236,6 +6236,7 @@ h1.title1 {
   background: #ebebeb none repeat scroll 0 0;
   border-radius: 100%;
   box-shadow: 0 0 0 3px #acacac inset;
+  color: #6a6a6a;
   cursor: pointer;
   display: inline-block;
   font-size: 0;
@@ -8014,7 +8015,7 @@ line-height: 36px;}
   --ip-warm-gray: #f7f6f4;
   --ip-border: #e2e0dc;
   --ip-text: #2c3e50;
-  --ip-text-light: #64748b;
+  --ip-text-light: #627289;
   --ip-radius: 6px;
   --ip-shadow-sm: 0 1px 3px rgba(0,0,0,.06), 0 1px 2px rgba(0,0,0,.04);
   --ip-shadow-md: 0 4px 16px rgba(0,0,0,.08), 0 1px 3px rgba(0,0,0,.06);
@@ -8196,6 +8197,9 @@ line-height: 36px;}
   font-size: 15px;
   line-height: 1.8;
   color: var(--ip-text-light);
+}
+.ip-content-block__body a {
+  color: var(--ip-blue);
 }
 @media (max-width: 991px) {
   .ip-content-block,
@@ -8662,7 +8666,7 @@ a.consortium-partners__logo:focus {
 }
 .ip-cta-band__btn--outline-blue {
   background: transparent;
-  color: var(--ip-blue);
+  color: var(--ip-blue-dark);
   border-color: var(--ip-blue);
 }
 .ip-cta-band__btn--outline-blue:hover {
@@ -8675,6 +8679,10 @@ a.consortium-partners__logo:focus {
   .ip-cta-band { padding: 40px 0; }
   .ip-cta-band__heading { font-size: 24px; }
   .ip-cta-band__actions { flex-direction: column; align-items: center; }
+}
+.cf-hero-cta {
+  color: var(--ip-blue-dark);
+  font-weight: 700;
 }
 
 /* ---- source: css/responsive.css ---- */
