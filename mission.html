@@ -269,7 +269,7 @@
         <!-- Mobile nav backdrop -->
         <div class="mobile-nav-overlay" id="mobile-nav-overlay" aria-hidden="true"></div>
         <!-- Mobile nav off-canvas drawer (vanilla JS, no meanmenu) -->
-        <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation" aria-hidden="true">
+        <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation" aria-hidden="true" inert>
             <div class="mobile-nav__header">
                 <img src="img/logo/instar.svg" alt="INSTAR Lab" class="mobile-nav__logo">
                 <button type="button" class="mobile-nav__close" aria-label="Close navigation menu">
@@ -632,7 +632,7 @@
                         <div class="col-sm-6">
                             <div class="about-video">
                                 <img src="img/about/video-image.avif" alt="INSTAR Lab — Accountability and Transparency" loading="lazy" decoding="async">
-                                <a class="popup-youtube" href="http://www.youtube.com/watch?v=0O2aH4XLbto"><i class="fa fa-play-circle" aria-hidden="true"></i></a>
+                                <a class="popup-youtube" href="http://www.youtube.com/watch?v=0O2aH4XLbto" aria-label="Play video"><i class="fa fa-play-circle" aria-hidden="true"></i></a>
                             </div>
                         </div>
                         <div class="col-sm-6">
@@ -659,7 +659,7 @@
                         </div>
                         <!-- End section title -->
                     </div>
-                    <div class="consortium-partners__grid" aria-label="INSTAR Consortium partners">
+                    <div class="consortium-partners__grid" role="group" aria-label="INSTAR Consortium partners">
                         <a class="consortium-partners__logo consortium-partners__logo--focus-hive" href="https://focushive.com" target="_blank" rel="noopener noreferrer">
                             <img src="img/brand-logo/focus-hive.svg" alt="Focus Hive Inc" loading="lazy" decoding="async">
                         </a>
@@ -765,7 +765,7 @@
                                         <div class="footer-widget-title">
                                             <h3>OUR RESEARCH</h3>
                                         </div>
-                                        <nav>
+                                        <nav aria-label="Our Research">
                                             <ul>
                                                 <li><a href="technology/machine-intelligence/">AI &amp; ML</a></li>
                                                 <li><a href="technology/quantum-computing/">Quantum Science</a></li>
@@ -784,7 +784,7 @@
                                         <div class="footer-widget-title">
                                             <h3>QUICK LINK</h3>
                                         </div>
-                                        <nav>
+                                        <nav aria-label="Quick Link">
                                             <ul>
                                                 <li><a href="community/about-us/">About Us</a></li>
                                                 <li><a href="community/fellowship/">Fellowship</a></li>

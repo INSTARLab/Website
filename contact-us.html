@@ -247,7 +247,7 @@
         <!-- Mobile nav backdrop -->
         <div class="mobile-nav-overlay" id="mobile-nav-overlay" aria-hidden="true"></div>
         <!-- Mobile nav off-canvas drawer (vanilla JS, no meanmenu) -->
-        <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation" aria-hidden="true">
+        <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation" aria-hidden="true" inert>
             <div class="mobile-nav__header">
                 <img src="img/logo/instar.svg" alt="INSTAR Lab" class="mobile-nav__logo">
                 <button type="button" class="mobile-nav__close" aria-label="Close navigation menu">
@@ -479,7 +479,7 @@
                                     </div>
                                     <div class="form-fields">
                                         <label for="subject">Subject</label>
-                                        <input id="subject" name="subject" type="text" placeholder="Subject" aria-label="Subject">
+                                        <input id="subject" name="subject" type="text" placeholder="Subject">
                                     </div>
                                     <div class="form-fields last">
                                         <label for="phone">Phone</label>
@@ -582,7 +582,7 @@
                                         <div class="footer-widget-title">
                                             <h3>OUR RESEARCH</h3>
                                         </div>
-                                        <nav>
+                                        <nav aria-label="Our Research">
                                             <ul>
                                                 <li><a href="technology/machine-intelligence/">AI &amp; ML</a></li>
                                                 <li><a href="technology/quantum-computing/">Quantum Science</a></li>
@@ -601,7 +601,7 @@
                                         <div class="footer-widget-title">
                                             <h3>QUICK LINK</h3>
                                         </div>
-                                        <nav>
+                                        <nav aria-label="Quick Link">
                                             <ul>
                                                 <li><a href="community/about-us/">About Us</a></li>
                                                 <li><a href="community/fellowship/">Fellowship</a></li>
