@@ -102,6 +102,20 @@
         form.addEventListener('submit', function (e) {
             e.preventDefault();
 
+            // ── Honeypot: a hidden field real users never see or fill.
+            // Bots that auto-fill every field trip it; pretend success and
+            // drop the submission rather than telling the bot it was caught.
+            var honeypotEl = document.getElementById('website');
+            if (honeypotEl && honeypotEl.value) {
+                form.style.display = 'none';
+                setMessage(
+                    msgEl,
+                    'Thank you &mdash; your inquiry has been received. A member of the INSTAR team will respond within one business day.',
+                    false
+                );
+                return;
+            }
+
             var firstNameEl  = document.getElementById('first-name');
             var lastNameEl   = document.getElementById('last-name');
             var emailEl      = document.getElementById('email');
