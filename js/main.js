@@ -1,3 +1,19 @@
+/* Disable Bootstrap carousel autoplay — matches the original nivoSlider
+   (pauseTime effectively infinite) and owlCarousel (autoPlay: false)
+   configs. data-bs-interval="false" alone doesn't reliably stop Bootstrap's
+   internal cycle timer in this bundled version, so pause() is called
+   explicitly once each carousel instance exists. */
+(function () {
+	"use strict";
+	if (typeof bootstrap === 'undefined' || !bootstrap.Carousel) return;
+	['heroCarousel', 'fellowsCarousel'].forEach(function (id) {
+		var el = document.getElementById(id);
+		if (!el) return;
+		var instance = bootstrap.Carousel.getOrCreateInstance(el, { interval: false });
+		instance.pause();
+	});
+})();
+
 /* Gallery filter — vanilla replacement for jQuery mixitup */
 (function () {
 	"use strict";
