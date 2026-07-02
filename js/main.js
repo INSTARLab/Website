@@ -37,23 +37,7 @@
 
 	$('.image-link').magnificPopup({type:'inline', midClick:true, mainClass:'mfp-fade', removalDelay:160});
 
-/* TOP Menu Stick*/
-	$(window).on('scroll',function() {    
-	   var scroll = $(window).scrollTop();
-	   if (scroll < 200) {
-		$("#sticker").removeClass("stick");
-	   }else{
-		$("#sticker").addClass("stick");
-	   }
-	}); 
-
- /* scrollUp*/
-	$.scrollUp({
-	  scrollText: '<i class="fa fa-angle-up" aria-hidden="true"></i>',
-	  easingType: 'linear',
-	  scrollSpeed: 900,
-	  animation: 'fade'
-	});
+/* TOP Menu Stick + scrollUp now handled by js/site-chrome.js (no jQuery) */
 
 /*slide product carosel*/
 	$(".people-say-slide").owlCarousel({
@@ -73,24 +57,7 @@
 		navigationText : ['<span class="icon-left-open"><i class="fa fa-chevron-left" aria-hidden="true"></i></span>','<span class="icon-right-open"><i class="fa fa-chevron-right" aria-hidden="true"></i></span>'] 
 	}); 
 
-/* MailChimp*/
-	$('#mc-form').ajaxChimp({
-		language: 'en',
-		callback: mailChimpResponse,
-		// ADD YOUR MAILCHIMP URL BELOW HERE!
-		url: 'http://themeshaven.us8.list-manage.com/subscribe/post?u=759ce8a8f4f1037e021ba2922&amp;id=a2452237f8'
-
-	});
-	function mailChimpResponse(resp) {
-		
-		if (resp.result === 'success') {
-			$('.mailchimp-success').html('' + resp.msg).fadeIn(900);
-			$('.mailchimp-error').fadeOut(400);
-			
-		} else if(resp.result === 'error') {
-			$('.mailchimp-error').html('' + resp.msg).fadeIn(900);
-		}  
-	}
+/* Newsletter signup now handled by js/newsletter.js (no jQuery) */
 
 /* Circular Bars - Knob */
 	if(typeof($.fn.knob) != 'undefined') {
