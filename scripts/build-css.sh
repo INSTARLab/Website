@@ -19,12 +19,7 @@ OUT=master.css
 SOURCES=(
   css/bootstrap.min.css
   css/font-awesome.min.css
-  css/owl.carousel.css
   css/heading.css
-  css/magnific-popup.css
-  css/owl.theme.css
-  css/owl.transitions.css
-  css/nivo-slider.css
   css/animate.css
   css/main.css
   style.css

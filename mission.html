@@ -630,7 +630,7 @@
                         <div class="col-sm-6">
                             <div class="about-video">
                                 <img src="img/about/video-image.avif" alt="INSTAR Lab — Accountability and Transparency" loading="lazy" decoding="async">
-                                <a class="popup-youtube" href="http://www.youtube.com/watch?v=0O2aH4XLbto" aria-label="Play video"><i class="fa fa-play-circle" aria-hidden="true"></i></a>
+                                <a class="popup-youtube" href="#" role="button" data-bs-toggle="modal" data-bs-target="#youtubeModal" aria-label="Play video"><i class="fa fa-play-circle" aria-hidden="true"></i></a>
                             </div>
                         </div>
                         <div class="col-sm-6">
@@ -846,37 +846,9 @@
 
 
 
-		<!-- jquery-1.12.0.min js
-		============================================ -->
-        <script defer src="js/vendor/jquery-1.12.0.min.js"></script>
-
 		<!-- bootstrap js
 		============================================ -->
         <script defer src="js/bootstrap.min.js"></script>
-
-		<!-- owl.carousel.min js
-		============================================ -->
-        <script defer src="js/owl.carousel.min.js"></script>
-
-        <!-- jquery.nivo.slider.pack js
-		============================================ -->
-        <script defer src="js/jquery.nivo.slider.pack.js"></script>
-
-        <!-- jquery.mixitup.min js
-        ============================================ -->
-        <script defer src="js/jquery.mixitup.min.js"></script>
-
-        <!-- jquery.magnific-popup.min js
-        ============================================ -->
-        <script defer src="js/jquery.magnific-popup.min.js"></script>
-
-		<!-- knob js
-        ============================================ -->
-        <script defer src="js/knob.js"></script>
-
-        <!-- knob js
-        ============================================ -->
-        <script defer src="js/appear.js"></script>
 
 
 		<!-- wow js
@@ -892,10 +864,6 @@
         <script defer src="js/newsletter.min.js"></script>
 
 
-        <!-- plugins js
-		============================================ -->
-        <script defer src="js/plugins.js"></script>
-
         <script>
         	document.addEventListener('DOMContentLoaded', function () { new WOW().init(); });
         </script>
@@ -903,5 +871,18 @@
    		<!-- main js
 		============================================ -->
         <script defer src="js/main.min.js"></script>
+
+        <!-- YouTube video modal (Bootstrap 5, click-to-load facade) -->
+        <div class="modal fade" id="youtubeModal" tabindex="-1" aria-labelledby="youtubeModal-label" aria-hidden="true" data-video-src="https://www.youtube.com/embed/0O2aH4XLbto">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content bg-transparent border-0">
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close" style="position:absolute; top:-40px; right:0;"></button>
+                    <h2 id="youtubeModal-label" class="visually-hidden">INSTAR Lab video overview</h2>
+                    <div class="ratio ratio-16x9">
+                        <iframe id="youtubeModalIframe" src="about:blank" title="INSTAR Lab video overview" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
     </body>
 </html>
