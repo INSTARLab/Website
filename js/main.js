@@ -92,36 +92,7 @@
 		}  
 	}
 
-/* Trigger ColorSwitcher*/
-	var colorswitcher = $('.ec-colorswitcher');
-	var mainArea = $('.main-area');
-	var wrapperBoxed = 'wrapper-boxed';
-	var wrapperWide = 'wrapper-wide';
-	$('.ec-handle').on('click', function(){
-		colorswitcher.trigger('click')
-		$(this).toggleClass('btnclose');
-		colorswitcher.toggleClass('sidebarmain');
-		return false;
-	});
-	$('.ec-boxed,.pattren-wrap a,.background-wrap a').on('click', function(){
-		mainArea.addClass(wrapperBoxed);
-		mainArea.removeClass(wrapperWide);
-		return false;
-	});
-	$('.ec-wide').on('click', function(){
-		mainArea.addClass(wrapperWide);
-		mainArea.removeClass(wrapperBoxed);
-		return false;
-	});
-
-/* youtube background*/
-	$(".youtube-bg").YTPlayer({
-			containment:'.youtube-bg',
-			autoPlay:true,
-			loop:true,
-		});
-
-/* Circular Bars - Knob */	
+/* Circular Bars - Knob */
 	if(typeof($.fn.knob) != 'undefined') {
 	$('.knob').each(function () {
 	  var $this = $(this),
