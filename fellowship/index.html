@@ -937,6 +937,8 @@
                     <div class="cf-form-wrap">
                         <form id="cf-application-form" novalidate>
 
+                            <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+
                             <p class="cf-form-section-heading">Personal Information</p>
 
                             <div class="row g-3">
@@ -1281,6 +1283,15 @@
 
           form.addEventListener('submit', function (e) {
             e.preventDefault();
+
+            // Honeypot: a hidden field real users never see or fill.
+            // Bots that auto-fill every field trip it; pretend success and
+            // drop the submission rather than telling the bot it was caught.
+            var honeypotEl = form.querySelector('input[name="_gotcha"]');
+            if (honeypotEl && honeypotEl.value) {
+              showSuccess('');
+              return;
+            }
 
             // Bootstrap 5 validation
             form.classList.add('was-validated');
