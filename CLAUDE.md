@@ -30,4 +30,11 @@ All live forms POST as JSON to the shared Tao Learning `door.taolearning.org` Lo
 
 ## Deploy
 
-GitLab-first → mirror to GitHub Pages. `.gitlab-ci.yml` includes `DroidOpsInc/launch-sequence` (`/pipelines/static-site.yml`, `SITE_DIR="."`, `GITHUB_REPO="INSTARLab/Website"`); the pipeline publishes to GitHub, which serves the `gh-pages` branch at instarlab.org via `CNAME`. `sitemap.xml` and `robots.txt` are hand-maintained — update `sitemap.xml` when adding pages.
+Static GitHub Pages site with microservices via Azure Logic Apps for dynamic-region functionality (see Forms/mail above). GitLab-first, gated in stages:
+
+1. Work lands on GitLab (`git.developerdojo.org/INSTARLab/Website`) `demo` branch — the safe staging gate. Pushing here does not go live.
+2. `demo` gets a GitLab merge request over to `gh-pages` — this is the production-promotion step.
+3. `gh-pages` is automatically push-mirrored from GitLab to GitHub (`INSTARLab/Website`).
+4. `.gitlab-ci.yml` includes `DroidOpsInc/launch-sequence` (`/pipelines/static-site.yml`, `SITE_DIR="."`, `GITHUB_REPO="INSTARLab/Website"`); GitHub Pages serves the `gh-pages` branch at instarlab.org via `CNAME`.
+
+`sitemap.xml` and `robots.txt` are hand-maintained — update `sitemap.xml` when adding pages.
