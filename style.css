@@ -2627,3 +2627,12 @@ line-height: 36px;}
     transition: none !important;
   }
 }
+
+/* .top-social / .footer-social are template slots for social-network icon
+   links; INSTAR Lab has none wired up yet. Collapse the empty containers
+   rather than reserving visible, blank space for them — this rule stops
+   applying on its own the moment real <a> icons are added inside. */
+.top-social:empty,
+.footer-social:empty {
+  display: none;
+}

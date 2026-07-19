@@ -226,7 +226,7 @@
                                             <li>
                                                 <button type="button" class="nav-toggle" aria-expanded="false" aria-haspopup="true" aria-controls="submenu-community">Community <svg class="nav-chevron" width="10" height="6" viewBox="0 0 10 6" aria-hidden="true" focusable="false"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
                                                 <ul class="drop-menu" id="submenu-community">
-                                                    <li><a href="community/fellowship/">Fellowship</a></li>
+                                                    <li><a href="/fellowship/">Fellowship</a></li>
                                                     <li><a href="community/work-with-us/">Collaborate</a></li>
                                                     <li><a href="community/careers/">Careers</a></li>
                                                     <li><a href="community/contact/">Contact</a></li>
@@ -357,7 +357,7 @@
                             <svg class="mobile-nav__chevron" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" focusable="false" fill="none"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
                         </button>
                         <ul class="mobile-nav__sub" id="mob-sub-community">
-                            <li><a class="mobile-nav__sub-link" href="community/fellowship/">Fellowship</a></li>
+                            <li><a class="mobile-nav__sub-link" href="/fellowship/">Fellowship</a></li>
                             <li><a class="mobile-nav__sub-link" href="community/work-with-us/">Collaborate</a></li>
                             <li><a class="mobile-nav__sub-link" href="community/careers/">Careers</a></li>
                             <li><a class="mobile-nav__sub-link" href="community/contact/">Contact</a></li>
@@ -464,9 +464,10 @@
                         <!-- End section title -->
                         <div class="col-sm-12">
                             <div class="contact-form">
-                                <!-- TODO(owner): create a Formspree form at https://formspree.io/ and replace REPLACE_WITH_FORM_ID with the real form endpoint ID -->
-                                <form id="contact-form" method="POST" action="https://formspree.io/f/REPLACE_WITH_FORM_ID">
+                                <!-- Wired to the shared Tao Learning door.taolearning.org Logic App — see contact-us.js for the "owner" GUID TODO -->
+                                <form id="contact-form" method="POST" action="https://door.taolearning.org/api/form" enctype="application/json">
                                     <input type="hidden" name="_replyto" value="">
+                                    <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
                                     <div class="form-fields">
                                         <label for="name">Name</label>
                                         <input id="name" name="name" type="text" placeholder="Your Name" required aria-label="Your name">
@@ -602,7 +603,7 @@
                                         <nav aria-label="Quick Link">
                                             <ul>
                                                 <li><a href="community/about-us/">About Us</a></li>
-                                                <li><a href="community/fellowship/">Fellowship</a></li>
+                                                <li><a href="/fellowship/">Fellowship</a></li>
                                                 <li><a href="community/contact/">Contact</a></li>
                                                 <li><a href="terms.html">Terms of use</a></li>
                                                 <li><a href="community/careers/">Careers</a></li>
@@ -682,9 +683,9 @@
         <script defer src="js/newsletter.min.js"></script>
 
 		
-        <!-- ajax-mail js
-        ============================================ -->       
-        <script defer src="js/ajax-mail.min.js"></script>
+        <!-- contact form js (door.taolearning.org Logic App, no jQuery)
+        ============================================ -->
+        <script defer src="contact-us.js"></script>
 
       
         <script>

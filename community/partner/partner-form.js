@@ -2,20 +2,22 @@
  * partner-form.js
  * Client-side submit handler for the INSTAR partner / sponsorship inquiry form.
  *
- * Posts to the same Azure Logic Apps endpoint used by fellowship/index.html.
- * A distinguishing inquiryType + source field routes the submission downstream.
- *
- * Endpoint:
- *   https://prod-43.eastus.logic.azure.com:443/workflows/0c62431847804140a55ca8da81632b74/...
+ * Posts to the shared Tao Learning door.taolearning.org Logic App endpoint —
+ * same front door as contact-us.js, newsletter.js, and intake.js, distinguished
+ * by the `topic` field. Replaces the previous direct Azure Logic Apps trigger
+ * URL, which was also shared byte-for-byte with fellowship/index.html and
+ * exposed a plaintext SAS signature in client-side JS (gh#269).
  *
  * No external dependencies — plain ES5-compatible JS only.
  */
 (function () {
     'use strict';
 
-    // Reuse the INSTAR fellowship Logic App — same org, same Azure subscription.
-    // inquiryType and source fields distinguish it from fellowship submissions.
-    var ENDPOINT = 'https://prod-43.eastus.logic.azure.com:443/workflows/0c62431847804140a55ca8da81632b74/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=U4M3zxOInH_qbBoZqkcSZOm6XgIlMTC0F9ZKULwg0y4';
+    var ENDPOINT = 'https://door.taolearning.org/api/form';
+    // TODO(owner): set to INSTAR Lab's Dynamics 365 "owner" GUID once provisioned
+    // by whoever administers the Tao Learning Azure/Dynamics 365 tenant — see the
+    // matching TODO in /contact-us.js for context.
+    var OWNER_GUID = '';
     var FALLBACK_EMAIL = 'info@instarlab.org';
 
     /** Simple email format check (RFC-permissive: must have @ with chars on both sides). */
@@ -97,6 +99,11 @@
             // ── Build payload ───────────────────────────────────────────────
             var payload = {
                 inquiryType:  'Partner / Sponsorship Inquiry',
+                topic:        'Partner / Sponsorship Inquiry',
+                _subject:     'Partner Inquiry: INSTAR Lab',
+                owner:        OWNER_GUID,
+                website:      'https://instarlab.org',
+                campaign:     'INSTAR Lab',
                 source:       'instarlab.org/community/partner',
                 submittedAt:  new Date().toISOString(),
                 name:         name,
@@ -106,7 +113,7 @@
                 message:      mess
             };
 
-            // ── POST to Azure Logic App ─────────────────────────────────────
+            // ── POST to the Tao Learning Logic App ───────────────────────────
             fetch(ENDPOINT, {
                 method:  'POST',
                 headers: { 'Content-Type': 'application/json' },

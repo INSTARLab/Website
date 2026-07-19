@@ -535,7 +535,7 @@
                                             <li>
                                                 <button type="button" class="nav-toggle" aria-expanded="false" aria-haspopup="true" aria-controls="submenu-community">Community <svg class="nav-chevron" width="10" height="6" viewBox="0 0 10 6" aria-hidden="true" focusable="false"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
                                                 <ul class="drop-menu" id="submenu-community">
-                                                    <li><a href="../community/fellowship/">Fellowship</a></li>
+                                                    <li><a href="/fellowship/">Fellowship</a></li>
                                                     <li><a href="../community/work-with-us/">Collaborate</a></li>
                                                     <li><a href="../community/careers/">Careers</a></li>
                                                     <li><a href="../community/contact/">Contact</a></li>
@@ -666,7 +666,7 @@
                             <svg class="mobile-nav__chevron" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" focusable="false" fill="none"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
                         </button>
                         <ul class="mobile-nav__sub" id="mob-sub-community">
-                            <li><a class="mobile-nav__sub-link" href="../community/fellowship/">Fellowship</a></li>
+                            <li><a class="mobile-nav__sub-link" href="/fellowship/">Fellowship</a></li>
                             <li><a class="mobile-nav__sub-link" href="../community/work-with-us/">Collaborate</a></li>
                             <li><a class="mobile-nav__sub-link" href="../community/careers/">Careers</a></li>
                             <li><a class="mobile-nav__sub-link" href="../community/contact/">Contact</a></li>
@@ -1251,10 +1251,19 @@
         <script defer src="../js/newsletter.min.js"></script>
 
         <script>document.addEventListener('DOMContentLoaded', function () { new WOW().init(); });</script>
-        <!-- Fellowship intake configuration -->
+        <!-- Fellowship intake configuration: shared Tao Learning door.taolearning.org
+        Logic App front door — same endpoint as contact-us.js/newsletter.js/intake.js/
+        partner-form.js, distinguished by the `topic`/`caseType` field. Replaces the
+        previous direct Azure Logic Apps trigger URL, which was shared byte-for-byte
+        with community/partner/partner-form.js and exposed a plaintext SAS signature
+        in client-side JS (gh#269). -->
         <script>
           window.INSTAR_FELLOWSHIP = {
-            endpoint: "https://prod-43.eastus.logic.azure.com:443/workflows/0c62431847804140a55ca8da81632b74/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=U4M3zxOInH_qbBoZqkcSZOm6XgIlMTC0F9ZKULwg0y4",
+            endpoint: "https://door.taolearning.org/api/form",
+            // TODO(owner): set to INSTAR Lab's Dynamics 365 "owner" GUID once
+            // provisioned by whoever administers the Tao Learning Azure/Dynamics
+            // 365 tenant — see the matching TODO in /contact-us.js for context.
+            ownerGuid: "",
             fallbackEmail: "fellowship@instarlab.org"
           };
         </script>
@@ -1287,6 +1296,11 @@
             var payload = {
               source:        'instarlab.org/fellowship',
               caseType:      'consortium-fellowship',
+              topic:         'Consortium Fellowship Application',
+              _subject:      'Fellowship Application: INSTAR Lab',
+              owner:         (window.INSTAR_FELLOWSHIP || {}).ownerGuid || '',
+              website:       'https://instarlab.org',
+              campaign:      'INSTAR Lab Fellowship',
               submittedAt:   new Date().toISOString(),
               firstName:     getValue('cf-first-name'),
               lastName:      getValue('cf-last-name'),

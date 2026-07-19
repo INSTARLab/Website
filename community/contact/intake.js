@@ -2,7 +2,10 @@
  * intake.js
  * Client-side submit handler for the INSTAR master intake / contact form.
  *
- * Posts to the instar-intake Azure Logic App endpoint.
+ * Posts to the shared Tao Learning door.taolearning.org Logic App endpoint —
+ * same front door as contact-us.js and newsletter.js, distinguished by the
+ * `topic` field. Replaces the previous direct Azure Logic Apps trigger URL,
+ * which exposed a plaintext SAS signature in client-side JS (gh#269).
  * The ?type= query parameter pre-selects the inquiry type dropdown on page load.
  *
  * No external dependencies — plain ES5-compatible JS only.
@@ -10,7 +13,11 @@
 (function () {
     'use strict';
 
-    var ENDPOINT = 'https://prod-87.eastus.logic.azure.com:443/workflows/fa1a05562d754082bdef43b1819699e5/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=dcENYzxiUTq13xh-CUAITxlZOXlbw8EMjhP2zQsriWM';
+    var ENDPOINT = 'https://door.taolearning.org/api/form';
+    // TODO(owner): set to INSTAR Lab's Dynamics 365 "owner" GUID once provisioned
+    // by whoever administers the Tao Learning Azure/Dynamics 365 tenant — see the
+    // matching TODO in /contact-us.js for context.
+    var OWNER_GUID = '';
     var FALLBACK_EMAIL = 'info@instarlab.org';
 
     /**
@@ -185,13 +192,18 @@
                 phone:        phone,
                 organization: org,
                 inquiryType:  inquiryType,
+                topic:        inquiryType,
                 message:      mess,
                 ndaWilling:   ndaWilling,
+                _subject:     'Inquiry: INSTAR Lab',
+                owner:        OWNER_GUID,
+                website:      'https://instarlab.org',
+                campaign:     'INSTAR Lab',
                 source:       'instarlab.org' + window.location.pathname,
                 submittedAt:  new Date().toISOString()
             };
 
-            // ── POST to Azure Logic App ───────────────────────────────────────
+            // ── POST to the Tao Learning Logic App ────────────────────────────
             fetch(ENDPOINT, {
                 method:  'POST',
                 headers: { 'Content-Type': 'application/json' },
