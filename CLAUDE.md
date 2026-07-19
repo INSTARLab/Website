@@ -26,7 +26,7 @@ Root pages: `index`, `about`, `mission`, `contact-us`, `privacy`, `terms`, `acce
 
 ## Forms / mail
 
-`mail.php` is a PHP contact mailer but **PHP does not run on GitHub Pages**, so it is dead on the live deploy. Live forms use JS: `js/ajax-mail.js`, `community/contact/intake.js`, `community/partner/partner-form.js`.
+All live forms use JS, not PHP (GitHub Pages can't run PHP): `js/ajax-mail.js`, `community/contact/intake.js`, `community/partner/partner-form.js`. The old orphaned `mail.php` mailer was removed (gh#249) — don't reintroduce a PHP-based form handler.
 
 ## Deploy
 
