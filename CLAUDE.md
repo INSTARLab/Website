@@ -26,7 +26,7 @@ Root pages: `index`, `about`, `mission`, `contact-us`, `privacy`, `terms`, `acce
 
 ## Forms / mail
 
-All live forms use JS, not PHP (GitHub Pages can't run PHP): `js/ajax-mail.js`, `community/contact/intake.js`, `community/partner/partner-form.js`. The old orphaned `mail.php` mailer was removed (gh#249) — don't reintroduce a PHP-based form handler.
+All live forms POST as JSON to the shared Tao Learning `door.taolearning.org` Logic App endpoint, distinguished by a `topic` field — not PHP (GitHub Pages can't run PHP): `contact-us.js`, `js/newsletter.js`, `community/contact/intake.js`, `community/partner/partner-form.js`, and the inline handler in `fellowship/index.html`. The old orphaned `mail.php` mailer and the old direct Azure Logic Apps SAS-signed URLs were both removed (gh#249, gh#269) — don't reintroduce a PHP-based form handler or a raw Logic Apps URL in client JS.
 
 ## Deploy
 
