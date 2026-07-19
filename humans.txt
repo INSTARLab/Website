@@ -1,0 +1,25 @@
+/* TEAM */
+Organization: INSTAR Lab Inc.
+Site: https://instarlab.org
+Status: Independent 501(c)(3) nonprofit research institute
+
+Suzanne Conejos, M.Sc. -- AI Lead Scientist, Board Member
+Sean Hackney -- Board Member, AI Researcher
+Dr. Spoogmay Khan -- Applied Scientist, Materials Physics
+Maha Khan -- Research Scientist
+
+Full leadership & board: https://instarlab.org/community/leadership/
+
+/* THANKS */
+The open-source communities behind the tools this site is built on:
+jQuery, Bootstrap, Owl Carousel, Nivo Slider, MeanMenu, Magnific Popup,
+WOW.js/animate.css.
+
+/* SITE */
+Last update: 2026/07/19
+Language: English
+Doctype: HTML5
+Components: Vanilla CSS/JS, no framework
+Software: None -- hand-authored static HTML/CSS/JS, no build system,
+          no bundler, no task runner
+Standards: HTML5, CSS3, RFC 9116 (see /.well-known/security.txt)
