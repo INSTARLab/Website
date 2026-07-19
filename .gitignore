@@ -7,3 +7,6 @@ issue-triage.html
 
 # Local-only working notes / task list
 NOTES.md
+
+# CI-generated site-health sweep report (gh#283) — an artifact, not source
+scripts/ci/site-health-report.output.json
