@@ -1,0 +1,9 @@
+# CODEOWNERS
+#
+# This is a single hand-authored static site with no per-directory
+# ownership split (see CONTRIBUTING.md). Route all review requests to
+# the INSTARLab org's core maintainer team.
+#
+# https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+
+* @INSTARLab/core
