@@ -82,6 +82,37 @@
         <link rel="stylesheet" href="../../css/nav-2026.css">
         <script defer src="../../js/nav-2026.min.js"></script>
         <!-- NAV-2026-HEAD:END -->
+        <!-- SPECULATION-RULES:START -->
+        <script type="speculationrules">
+        {
+            "prerender": [
+                {
+                    "source": "document",
+                    "where": {
+                        "and": [
+                            {
+                                "href_matches": "/*"
+                            },
+                            {
+                                "not": {
+                                    "href_matches": [
+                                        "/contact-us.html",
+                                        "/community/contact/*",
+                                        "/community/partner/*",
+                                        "/community/fellowship/*",
+                                        "/fellowship/*",
+                                        "/community/support/*"
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    "eagerness": "moderate"
+                }
+            ]
+        }
+        </script>
+        <!-- SPECULATION-RULES:END -->
     <style>.footer-widget.widget-two li::after { display: none; }</style>
 </head>
     <body>
