@@ -1,0 +1,30 @@
+{
+  "name": "instarlab-website",
+  "version": "0.1.0",
+  "private": true,
+  "description": "INSTAR Lab static website migration",
+  "packageManager": "pnpm@11.22.0",
+  "engines": {
+    "node": ">=22.12.0",
+    "pnpm": ">=11.22.0"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "tsc --noEmit",
+    "test": "pnpm run check"
+  },
+  "dependencies": {
+    "motion": "^13.1.0",
+    "three": "^0.185.1"
+  },
+  "devDependencies": {
+    "@astrojs/sitemap": "^3.7.3",
+    "@tailwindcss/vite": "^4.3.3",
+    "astro": "^7.2.4",
+    "tailwindcss": "^4.3.3",
+    "typescript": "^7.0.2",
+    "vite": "^8.2.1"
+  }
+}
