@@ -31,7 +31,7 @@ keyboard, reduced-motion, and no-JavaScript requirements.
 ## URL and deployment policy
 
 `astro.config.ts` uses `build.format: 'preserve'`. This lets Astro keep both
-legacy root files (`src/pages/about.html.astro` → `/about.html`) and clean
+legacy root files (`src/pages/about.astro` → `/about.html`) and clean
 directory routes (`src/pages/community/about-us/index.astro` →
 `/community/about-us/index.html`). `site` is set to `https://instarlab.org`;
 there is no subpath `base`.
@@ -39,8 +39,15 @@ there is no subpath `base`.
 Astro-generated CSS and JavaScript use `dist/assets/` instead of the default
 `dist/_astro/`, avoiding GitHub Pages/Jekyll underscore-path behavior. The
 deployment copies in `public/` keep `CNAME`, `.nojekyll`, and `robots.txt`
-available in a future `dist/` deployment. The original root `CNAME`, sitemap,
-and robots files remain untouched during this foundation pass.
+available in a future `dist/` deployment. The generated sitemap integration
+uses `sitemap-index.xml` and `sitemap-0.xml`; the `public/robots.txt` copy
+points to that index. The original root `CNAME`, sitemap, and robots files
+remain untouched during this foundation pass.
+
+Route workstreams must use the source filename that corresponds to the desired
+output. In particular, do not include `.html` in a non-index `.astro` source
+filename, or Astro will preserve it and append another `.html`. Use nested
+`index.astro` routes for clean directory URLs.
 
 ## Source organization
 
