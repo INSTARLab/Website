@@ -1,0 +1,1271 @@
+---
+import { coreRoutes } from '../data/core-routes';
+
+const meta = coreRoutes.home;
+---
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>{meta.title}</title>
+        <meta name="description" content={meta.description}>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="canonical" href={meta.canonical}>
+        <meta name="robots" content={meta.robots}>
+        <meta name="theme-color" content="#1072ba">
+
+        <!-- Favicon
+		============================================ -->
+		<link rel="icon" href="img/logo/instar.svg" type="image/svg+xml">
+		<link rel="icon" href="img/logo/fav/favicon.ico" sizes="any">
+		<link rel="apple-touch-icon" href="img/logo/fav/apple-touch-icon.png">
+        <link rel="manifest" href="img/logo/fav/site.webmanifest">
+
+        <!-- Open Graph
+        ============================================ -->
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://instarlab.org/">
+        <meta property="og:title" content="INSTAR Lab — Independent Nonprofit Research Institute">
+        <meta property="og:description" content="INSTAR Lab is a 501(c)(3) nonprofit advancing applied research in AI, quantum science, HPC, health, energy, and space through interdisciplinary collaboration.">
+        <meta property="og:image" content="https://instarlab.org/img/og/default.jpg">
+        <meta property="og:image:alt" content="Jupiter and stars — INSTAR Lab applied research in deep space, AI, and energy">
+        <meta property="og:site_name" content="INSTAR Lab">
+
+        <!-- Twitter Card
+        ============================================ -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:site" content="@INSTARLab">
+        <meta name="twitter:title" content="INSTAR Lab — Independent Nonprofit Research Institute">
+        <meta name="twitter:description" content="INSTAR Lab is a 501(c)(3) nonprofit advancing applied research in AI, quantum science, HPC, health, energy, and space through interdisciplinary collaboration.">
+        <meta name="twitter:image" content="https://instarlab.org/img/og/default.jpg">
+
+        <!-- JSON-LD Structured Data -->
+        <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": ["ResearchOrganization", "NGO"],
+          "name": "INSTAR Lab Inc.",
+          "alternateName": "INSTAR Lab",
+          "url": "https://instarlab.org",
+          "logo": "https://instarlab.org/img/logo/instar.svg",
+          "description": "INSTAR Lab Inc. is an independent 501(c)(3) nonprofit research institute advancing science through interdisciplinary collaboration, technological innovation, and partnership. Research domains include AI, quantum science, HPC systems, health sciences, energy, and space exploration.",
+          "nonprofitStatus": "Nonprofit501c3",
+          "foundingDate": "2020",
+          "areaServed": "US",
+          "knowsAbout": [
+            "Artificial Intelligence",
+            "Quantum Computing",
+            "High-Performance Computing",
+            "Health Sciences",
+            "Energy Research",
+            "Space Sciences"
+          ],
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Research Programs"
+          },
+          "identifier": [
+            { "@type": "PropertyValue", "name": "NonprofitStatus", "value": "501(c)(3)" }
+          ],
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "125 Frederick St",
+            "addressLocality": "Marietta",
+            "addressRegion": "OH",
+            "postalCode": "45750-3407",
+            "addressCountry": "US"
+          },
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "929-229-2918",
+            "email": "info@instarlab.org",
+            "contactType": "general inquiry"
+          },
+          "sameAs": []
+        }
+        </script>
+
+        <!-- master CSS
+        ============================================ -->
+        <link rel="preload" href="fonts/roboto-latin-400.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="stylesheet" href="master.css">
+
+        <!-- NAV-2026-HEAD:START -->
+        <script>document.documentElement.classList.replace('no-js','js');</script>
+        <link rel="stylesheet" href="css/nav-2026.css">
+        <script defer src="js/nav-2026.min.js"></script>
+        <!-- NAV-2026-HEAD:END -->
+        <!-- SPECULATION-RULES:START -->
+        <script type="speculationrules">
+        {
+            "prerender": [
+                {
+                    "source": "document",
+                    "where": {
+                        "and": [
+                            {
+                                "href_matches": "/*"
+                            },
+                            {
+                                "not": {
+                                    "href_matches": [
+                                        "/contact-us.html",
+                                        "/community/contact/*",
+                                        "/community/partner/*",
+                                        "/community/fellowship/*",
+                                        "/fellowship/*",
+                                        "/community/support/*"
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    "eagerness": "moderate"
+                }
+            ]
+        }
+        </script>
+        <!-- SPECULATION-RULES:END -->
+
+        <style>.footer-widget.widget-two li::after { display: none; }</style>
+</head>
+    <body>
+        <a class="skip-to-content" href="#main-content">Skip to main content</a>
+		<!-- Start main area -->
+        <div class="main-area">
+        	<!-- Start header -->
+        	<header>
+        		<!-- Start header top -->
+        		<div class="header-top">
+        			<div class="container">
+        				<div class="row">
+        					<div class="col-sm-5 col-md-6">
+	                            <div class="top-social"></div>
+	                        </div>
+	                        <div class="col-sm-7 col-md-6">
+	                            <!-- NAV-2026-TOPBAR:START -->
+                            <div class="call-to-action">
+                                <nav aria-label="Contact">
+                                	<ul>
+		                                	<li><a href="mailto:info@instarlab.org"><svg width="14" height="11" viewBox="0 0 14 11" aria-hidden="true" focusable="false"><rect x="1" y="1" width="12" height="9" rx="1.5" stroke="currentColor" stroke-width="1.5" fill="none"/><polyline points="1,1.5 7,6.5 13,1.5" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linejoin="round"/></svg> Email: info@instarlab.org</a></li>
+		                                	<li><a href="tel:9292292918"><svg width="12" height="13" viewBox="0 0 12 13" aria-hidden="true" focusable="false"><path d="M2.5 1.5h2.2l.9 2.6-1.7 1.2c.8 1.8 2.2 3.1 3.9 3.9L9.1 7.6l2.6.9v2.2a1 1 0 0 1-1 1C4.2 11.7.3 7.8.3 2.5a1 1 0 0 1 1-1h1.2z" stroke="currentColor" stroke-width="1.3" fill="none" stroke-linejoin="round"/></svg> Phone: 929-229-2918</a></li>
+		                                	<li><a href="research/current-programs/"><svg width="12" height="14" viewBox="0 0 12 14" aria-hidden="true" focusable="false"><path d="M4.5 1v5.5L1.5 12h9L7.5 6.5V1" stroke="currentColor" stroke-width="1.3" fill="none" stroke-linecap="round" stroke-linejoin="round"/><line x1="3" y1="1" x2="9" y2="1" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg> Research</a></li>
+		                                </ul>
+                                </nav>
+                            </div>
+                            <!-- NAV-2026-TOPBAR:END -->
+	                        </div>
+        				</div>
+        			</div>
+        		</div>
+        		<!-- End header top -->
+        		<!-- NAV-2026:START -->
+		<!-- Start main menu area -->
+		<div class="main-menu-area" id="sticker">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-3 col-12">
+						<div class="logo ptb-32">
+							<a href="index.html">
+								<img src="img/logo/instar.svg" alt="INSTAR Lab">
+							</a>
+						</div>
+                                <!-- Hamburger: visible on mobile ≤991px only -->
+                                <button type="button" class="mobile-menu-btn"
+                                        aria-expanded="false"
+                                        aria-controls="mobile-nav"
+                                        aria-label="Open navigation menu">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <line class="hb-line hb-top" x1="3" y1="6"  x2="21" y2="6"  stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                        <line class="hb-line hb-mid" x1="3" y1="12" x2="21" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                        <line class="hb-line hb-bot" x1="3" y1="18" x2="21" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                    </svg>
+                                </button>
+					</div>
+					<div class="col-sm-9 col-12">
+						<div class="donate-button ptb-32">
+							<a class="waves-effect waves-light" href="community/support/">Donate</a>
+						</div>
+						<div class="main-menu">
+							<nav aria-label="Main">
+								<ul>
+                                            <!-- 1. About -->
+                                            <li>
+                                                <button type="button" class="nav-toggle" aria-expanded="false" aria-haspopup="true" aria-controls="submenu-about">About <svg class="nav-chevron" width="10" height="6" viewBox="0 0 10 6" aria-hidden="true" focusable="false"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+                                                <ul class="drop-menu" id="submenu-about">
+                                                    <li><a href="mission.html">Mission</a></li>
+                                                    <li><a href="community/about-us/">About Us</a></li>
+                                                    <li><a href="community/leadership/">Leadership</a></li>
+                                                    <li><a href="research/consortium/">INSTAR Consortium</a></li>
+                                                    <li><a href="research/facilities/">Facilities</a></li>
+                                                </ul>
+                                            </li>
+                                            <!-- 2. Research -->
+                                            <li>
+                                                <button type="button" class="nav-toggle" aria-expanded="false" aria-haspopup="true" aria-controls="submenu-research">Research <svg class="nav-chevron" width="10" height="6" viewBox="0 0 10 6" aria-hidden="true" focusable="false"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+                                                <ul class="drop-menu" id="submenu-research">
+                                                    <li><a href="research/innovation/">Innovation</a></li>
+                                                    <li><a href="research/our-process/">Our Process</a></li>
+                                                    <li><a href="research/current-programs/">Current Programs</a></li>
+                                                    <li><a href="research/funding/">Funding</a></li>
+                                                    <li><a href="research/open-data/">Open Data</a></li>
+                                                    <li><a href="research/opportunities/">Opportunities</a></li>
+                                                </ul>
+                                            </li>
+                                            <!-- 3. Sciences — 4-column mega-menu -->
+                                            <li class="mega-menu">
+                                                <button type="button" class="nav-toggle" aria-expanded="false" aria-haspopup="true" aria-controls="submenu-sciences">Sciences <svg class="nav-chevron" width="10" height="6" viewBox="0 0 10 6" aria-hidden="true" focusable="false"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+                                                <div class="mega-menu-area" id="submenu-sciences">
+                                                    <ul class="single-mega-item">
+                                                        <li class="shortcode-title">Earth &amp; Space</li>
+                                                        <li><a href="sciences/agriculture/">Agriculture</a></li>
+                                                        <li><a href="sciences/geology/">Geology</a></li>
+                                                        <li><a href="sciences/ocean-science/">Ocean Science</a></li>
+                                                        <li><a href="sciences/outer-space/">Outer Space</a></li>
+                                                    </ul>
+                                                    <ul class="single-mega-item">
+                                                        <li class="shortcode-title">Social Sciences</li>
+                                                        <li><a href="sciences/anthropology/">Anthropology</a></li>
+                                                        <li><a href="sciences/archaeology/">Archaeology</a></li>
+                                                        <li><a href="sciences/economics/">Economics</a></li>
+                                                        <li><a href="sciences/law/">Law</a></li>
+                                                        <li><a href="sciences/linguistics/">Linguistics</a></li>
+                                                        <li><a href="sciences/psychology/">Psychology</a></li>
+                                                        <li><a href="sciences/sociology/">Sociology</a></li>
+                                                    </ul>
+                                                    <ul class="single-mega-item">
+                                                        <li class="shortcode-title">Life Sciences</li>
+                                                        <li><a href="sciences/biology/">Biology</a></li>
+                                                        <li><a href="sciences/genetics/">Genetics</a></li>
+                                                        <li><a href="sciences/medicine/">Medicine</a></li>
+                                                        <li><a href="sciences/cognitive-sciences/">Cognitive Sciences</a></li>
+                                                        <li><a href="sciences/neuroscience/">Neuroscience</a></li>
+                                                        <li><a href="sciences/physiology/">Physiology</a></li>
+                                                        <li><a href="sciences/kinesiology/">Kinesiology</a></li>
+                                                    </ul>
+                                                    <ul class="single-mega-item">
+                                                        <li class="shortcode-title">Physical Sciences</li>
+                                                        <li><a href="sciences/chemistry/">Chemistry</a></li>
+                                                        <li><a href="sciences/physics/">Physics</a></li>
+                                                        <li><a href="sciences/materials-science/">Materials Science</a></li>
+                                                        <li><a href="sciences/energy/">Energy</a></li>
+                                                    </ul>
+                                                </div>
+                                            </li>
+                                            <!-- 4. Technology -->
+                                            <li>
+                                                <button type="button" class="nav-toggle" aria-expanded="false" aria-haspopup="true" aria-controls="submenu-technology">Technology <svg class="nav-chevron" width="10" height="6" viewBox="0 0 10 6" aria-hidden="true" focusable="false"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+                                                <ul class="drop-menu" id="submenu-technology">
+                                                    <li><a href="technology/formal-methods/">Formal Methods</a></li>
+                                                    <li><a href="technology/data-science/">Data Science</a></li>
+                                                    <li><a href="technology/computer-science/">Computer Science</a></li>
+                                                    <li><a href="technology/machine-intelligence/">Machine Intelligence</a></li>
+                                                    <li><a href="technology/natural-language-processing/">Natural Language Processing</a></li>
+                                                    <li><a href="technology/augmented-reality/">Augmented Reality</a></li>
+                                                    <li><a href="technology/quantum-computing/">Quantum Computing</a></li>
+                                                </ul>
+                                            </li>
+                                            <!-- 5. Tech Transfer -->
+									<li>
+                                                <button type="button" class="nav-toggle" aria-expanded="false" aria-haspopup="true" aria-controls="submenu-tech-transfer">Tech Transfer <svg class="nav-chevron" width="10" height="6" viewBox="0 0 10 6" aria-hidden="true" focusable="false"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+                                                <ul class="drop-menu" id="submenu-tech-transfer">
+                                                    <li><a href="tech-transfer/sttr-programs/">STTR Programs</a></li>
+                                                    <li><a href="tech-transfer/enterprise-rd/">Enterprise R&amp;D</a></li>
+                                                    <li><a href="tech-transfer/portfolio/">Portfolio</a></li>
+                                                    <li><a href="tech-transfer/workshops-events/">Workshops &amp; Events</a></li>
+                                                </ul>
+                                            </li>
+                                            <!-- 6. Community -->
+                                            <li>
+                                                <button type="button" class="nav-toggle" aria-expanded="false" aria-haspopup="true" aria-controls="submenu-community">Community <svg class="nav-chevron" width="10" height="6" viewBox="0 0 10 6" aria-hidden="true" focusable="false"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+                                                <ul class="drop-menu" id="submenu-community">
+                                                    <li><a href="/fellowship/">Fellowship</a></li>
+                                                    <li><a href="community/work-with-us/">Collaborate</a></li>
+                                                    <li><a href="community/careers/">Careers</a></li>
+                                                    <li><a href="community/contact/">Contact</a></li>
+                                                </ul>
+                                            </li>
+                                            <!-- 7. News (direct link) -->
+                                            <li><a class="nav-link" href="news/">News</a></li>
+								</ul>
+							</nav>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- End main menu area -->
+        <!-- Mobile nav backdrop -->
+        <div class="mobile-nav-overlay" id="mobile-nav-overlay" aria-hidden="true"></div>
+        <!-- Mobile nav off-canvas drawer (vanilla JS, no meanmenu) -->
+        <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation" aria-hidden="true" inert>
+            <div class="mobile-nav__header">
+                <img src="img/logo/instar.svg" alt="INSTAR Lab" class="mobile-nav__logo">
+                <button type="button" class="mobile-nav__close" aria-label="Close navigation menu">
+                    <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true" focusable="false" fill="none">
+                        <line x1="3" y1="3" x2="17" y2="17" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                        <line x1="17" y1="3" x2="3" y2="17" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="mobile-nav__body">
+                <ul class="mobile-nav__list">
+                    <!-- 1. About -->
+                    <li class="mobile-nav__item">
+                        <button type="button" class="mobile-nav__toggle" aria-expanded="false" aria-controls="mob-sub-about">
+                            About
+                            <svg class="mobile-nav__chevron" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" focusable="false" fill="none"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </button>
+                        <ul class="mobile-nav__sub" id="mob-sub-about">
+                            <li><a class="mobile-nav__sub-link" href="mission.html">Mission</a></li>
+                            <li><a class="mobile-nav__sub-link" href="community/about-us/">About Us</a></li>
+                            <li><a class="mobile-nav__sub-link" href="community/leadership/">Leadership</a></li>
+                            <li><a class="mobile-nav__sub-link" href="research/consortium/">INSTAR Consortium</a></li>
+                            <li><a class="mobile-nav__sub-link" href="research/facilities/">Facilities</a></li>
+                        </ul>
+                    </li>
+                    <!-- 2. Research -->
+                    <li class="mobile-nav__item">
+                        <button type="button" class="mobile-nav__toggle" aria-expanded="false" aria-controls="mob-sub-research">
+                            Research
+                            <svg class="mobile-nav__chevron" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" focusable="false" fill="none"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </button>
+                        <ul class="mobile-nav__sub" id="mob-sub-research">
+                            <li><a class="mobile-nav__sub-link" href="research/innovation/">Innovation</a></li>
+                            <li><a class="mobile-nav__sub-link" href="research/our-process/">Our Process</a></li>
+                            <li><a class="mobile-nav__sub-link" href="research/current-programs/">Current Programs</a></li>
+                            <li><a class="mobile-nav__sub-link" href="research/funding/">Funding</a></li>
+                            <li><a class="mobile-nav__sub-link" href="research/open-data/">Open Data</a></li>
+                            <li><a class="mobile-nav__sub-link" href="research/opportunities/">Opportunities</a></li>
+                        </ul>
+                    </li>
+                    <!-- 3. Sciences (mega-menu flattened with category headings) -->
+                    <li class="mobile-nav__item">
+                        <button type="button" class="mobile-nav__toggle" aria-expanded="false" aria-controls="mob-sub-sciences">
+                            Sciences
+                            <svg class="mobile-nav__chevron" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" focusable="false" fill="none"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </button>
+                        <ul class="mobile-nav__sub" id="mob-sub-sciences">
+                            <li class="mobile-nav__sub-heading">Earth &amp; Space</li>
+                            <li><a class="mobile-nav__sub-link" href="sciences/agriculture/">Agriculture</a></li>
+                            <li><a class="mobile-nav__sub-link" href="sciences/geology/">Geology</a></li>
+                            <li><a class="mobile-nav__sub-link" href="sciences/ocean-science/">Ocean Science</a></li>
+                            <li><a class="mobile-nav__sub-link" href="sciences/outer-space/">Outer Space</a></li>
+                            <li class="mobile-nav__sub-heading">Social Sciences</li>
+                            <li><a class="mobile-nav__sub-link" href="sciences/anthropology/">Anthropology</a></li>
+                            <li><a class="mobile-nav__sub-link" href="sciences/archaeology/">Archaeology</a></li>
+                            <li><a class="mobile-nav__sub-link" href="sciences/economics/">Economics</a></li>
+                            <li><a class="mobile-nav__sub-link" href="sciences/law/">Law</a></li>
+                            <li><a class="mobile-nav__sub-link" href="sciences/linguistics/">Linguistics</a></li>
+                            <li><a class="mobile-nav__sub-link" href="sciences/psychology/">Psychology</a></li>
+                            <li><a class="mobile-nav__sub-link" href="sciences/sociology/">Sociology</a></li>
+                            <li class="mobile-nav__sub-heading">Life Sciences</li>
+                            <li><a class="mobile-nav__sub-link" href="sciences/biology/">Biology</a></li>
+                            <li><a class="mobile-nav__sub-link" href="sciences/genetics/">Genetics</a></li>
+                            <li><a class="mobile-nav__sub-link" href="sciences/medicine/">Medicine</a></li>
+                            <li><a class="mobile-nav__sub-link" href="sciences/cognitive-sciences/">Cognitive Sciences</a></li>
+                            <li><a class="mobile-nav__sub-link" href="sciences/neuroscience/">Neuroscience</a></li>
+                            <li><a class="mobile-nav__sub-link" href="sciences/physiology/">Physiology</a></li>
+                            <li><a class="mobile-nav__sub-link" href="sciences/kinesiology/">Kinesiology</a></li>
+                            <li class="mobile-nav__sub-heading">Physical Sciences</li>
+                            <li><a class="mobile-nav__sub-link" href="sciences/chemistry/">Chemistry</a></li>
+                            <li><a class="mobile-nav__sub-link" href="sciences/physics/">Physics</a></li>
+                            <li><a class="mobile-nav__sub-link" href="sciences/materials-science/">Materials Science</a></li>
+                            <li><a class="mobile-nav__sub-link" href="sciences/energy/">Energy</a></li>
+                        </ul>
+                    </li>
+                    <!-- 4. Technology -->
+                    <li class="mobile-nav__item">
+                        <button type="button" class="mobile-nav__toggle" aria-expanded="false" aria-controls="mob-sub-technology">
+                            Technology
+                            <svg class="mobile-nav__chevron" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" focusable="false" fill="none"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </button>
+                        <ul class="mobile-nav__sub" id="mob-sub-technology">
+                            <li><a class="mobile-nav__sub-link" href="technology/formal-methods/">Formal Methods</a></li>
+                            <li><a class="mobile-nav__sub-link" href="technology/data-science/">Data Science</a></li>
+                            <li><a class="mobile-nav__sub-link" href="technology/computer-science/">Computer Science</a></li>
+                            <li><a class="mobile-nav__sub-link" href="technology/machine-intelligence/">Machine Intelligence</a></li>
+                            <li><a class="mobile-nav__sub-link" href="technology/natural-language-processing/">Natural Language Processing</a></li>
+                            <li><a class="mobile-nav__sub-link" href="technology/augmented-reality/">Augmented Reality</a></li>
+                            <li><a class="mobile-nav__sub-link" href="technology/quantum-computing/">Quantum Computing</a></li>
+                        </ul>
+                    </li>
+                    <!-- 5. Tech Transfer -->
+                    <li class="mobile-nav__item">
+                        <button type="button" class="mobile-nav__toggle" aria-expanded="false" aria-controls="mob-sub-tech-transfer">
+                            Tech Transfer
+                            <svg class="mobile-nav__chevron" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" focusable="false" fill="none"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </button>
+                        <ul class="mobile-nav__sub" id="mob-sub-tech-transfer">
+                            <li><a class="mobile-nav__sub-link" href="tech-transfer/sttr-programs/">STTR Programs</a></li>
+                            <li><a class="mobile-nav__sub-link" href="tech-transfer/enterprise-rd/">Enterprise R&amp;D</a></li>
+                            <li><a class="mobile-nav__sub-link" href="tech-transfer/portfolio/">Portfolio</a></li>
+                            <li><a class="mobile-nav__sub-link" href="tech-transfer/workshops-events/">Workshops &amp; Events</a></li>
+                        </ul>
+                    </li>
+                    <!-- 6. Community -->
+                    <li class="mobile-nav__item">
+                        <button type="button" class="mobile-nav__toggle" aria-expanded="false" aria-controls="mob-sub-community">
+                            Community
+                            <svg class="mobile-nav__chevron" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" focusable="false" fill="none"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </button>
+                        <ul class="mobile-nav__sub" id="mob-sub-community">
+                            <li><a class="mobile-nav__sub-link" href="/fellowship/">Fellowship</a></li>
+                            <li><a class="mobile-nav__sub-link" href="community/work-with-us/">Collaborate</a></li>
+                            <li><a class="mobile-nav__sub-link" href="community/careers/">Careers</a></li>
+                            <li><a class="mobile-nav__sub-link" href="community/contact/">Contact</a></li>
+                        </ul>
+                    </li>
+                    <!-- 7. News -->
+                    <li class="mobile-nav__item">
+                        <a class="mobile-nav__link" href="news/">News</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="mobile-nav__donate">
+                <a href="community/support/">Donate</a>
+            </div>
+        </nav>
+        <!-- NAV-2026:END -->
+        	</header>
+        	<!-- End header -->
+            <main id="main-content">
+            <h1 class="sr-only">INSTAR Lab - Applied Research</h1>
+        	<!-- Start slider area -->
+        	<section class="slider-area">
+        		<!-- start enable -->
+				<div class="ma-banner7-container">
+		        	<div class="container-slider">
+						<div id="heroCarousel" class="carousel slide hero-carousel" data-bs-ride="carousel" data-bs-interval="false">
+							<div class="carousel-inner">
+								<div class="carousel-item active">
+									<img src="img/slider/jupiterstar.avif" class="d-block w-100 hero-carousel__img" alt="Jupiter and stars over deep space — exoplanet and interstellar research" width="1920" height="751">
+									<div class="hero-carousel__caption">
+										<div class="banner7-content slider-1 d-none d-sm-block">
+											<h2 class="title1 wow slideInRight" data-wow-duration="1s" data-wow-delay="300ms" style="color:#fff; text-shadow:2px 2px 6px rgba(0,0,0,0.9);">DEEP SPACE EXPLORATION</h2>
+											<p class="wow slideInRight" data-wow-duration="1s" data-wow-delay="600ms">Exoplanetary characterization, interstellar medium mapping, and multi-spectrum signal intelligence for deep-space observation beyond our solar system.</p>
+											<div class="slider-button-area wow slideInRight" data-wow-duration="1s" data-wow-delay="900ms">
+												<a href="mission.html" class="btn btn-outline-light btn-lg">OUR MISSION</a>
+												<a href="sciences/outer-space/" class="btn btn-outline-light btn-lg">LEARN MORE <span class="visually-hidden">about deep space exploration</span></a>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="carousel-item">
+									<img src="img/slider/bulb.avif" class="d-block w-100 hero-carousel__img" alt="Glowing light bulb representing energy research and scientific innovation" width="1920" height="750">
+									<div class="hero-carousel__caption">
+										<div class="banner7-content slider-1 d-none d-sm-block">
+											<h2 class="title1 wow slideInRight" data-wow-duration="1s" data-wow-delay="300ms" style="color:#fff; text-shadow:2px 2px 6px rgba(0,0,0,0.9);">FUTURE OF ENERGY RESEARCH</h2>
+											<p class="wow slideInRight" data-wow-duration="1s" data-wow-delay="600ms">Fusion plasma confinement, solid-state quantum batteries, and grid-scale superconducting storage systems for a post-carbon energy infrastructure.</p>
+											<div class="slider-button-area wow slideInRight" data-wow-duration="1s" data-wow-delay="900ms">
+												<a href="sciences/energy/" class="btn btn-outline-light btn-lg">ENERGY R&amp;D</a>
+												<a href="research/current-programs/" class="btn btn-outline-light btn-lg">LEARN MORE <span class="visually-hidden">about energy research programs</span></a>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="carousel-item">
+									<img src="img/slider/silicon.avif" class="d-block w-100 hero-carousel__img" alt="Silicon wafer circuitry — next-generation compute systems and HPC architecture" width="1920" height="750">
+									<div class="hero-carousel__caption">
+										<div class="banner7-content slider-1 d-none d-sm-block">
+											<h2 class="title1 wow slideInRight" data-wow-duration="1s" data-wow-delay="300ms" style="color:#fff; text-shadow:2px 2px 6px rgba(0,0,0,0.9);">NEXT-GEN COMPUTE SYSTEMS</h2>
+											<p class="wow slideInRight" data-wow-duration="1s" data-wow-delay="600ms">Post-quantum cryptography, formally verified secure kernels, and neuromorphic HPC architectures for resilient autonomous systems and exascale AI.</p>
+											<div class="slider-button-area wow slideInRight" data-wow-duration="1s" data-wow-delay="900ms">
+												<a href="technology/computer-science/" class="btn btn-outline-light btn-lg">COMPUTING</a>
+												<a href="technology/quantum-computing/" class="btn btn-outline-light btn-lg">LEARN MORE <span class="visually-hidden">about quantum computing</span></a>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="carousel-item">
+									<img src="img/slider/astro.avif" class="d-block w-100 hero-carousel__img" alt="Astronaut in orbit — orbital operations and space domain awareness research" width="1920" height="750">
+									<div class="hero-carousel__caption">
+										<div class="banner7-content slider-1 d-none d-sm-block">
+											<h2 class="title1 wow slideInRight" data-wow-duration="1s" data-wow-delay="300ms" style="color:#fff; text-shadow:2px 2px 6px rgba(0,0,0,0.9);">ORBITAL OPERATIONS</h2>
+											<p class="wow slideInRight" data-wow-duration="1s" data-wow-delay="600ms">Space-hardened embedded systems, autonomous orbital robotics, and real-time space domain awareness for sustained human presence in low Earth orbit.</p>
+											<div class="slider-button-area wow slideInRight" data-wow-duration="1s" data-wow-delay="900ms">
+												<a href="sciences/outer-space/" class="btn btn-outline-light btn-lg">LEO &amp; BEYOND</a>
+												<a href="tech-transfer/sttr-programs/" class="btn btn-outline-light btn-lg">LEARN MORE <span class="visually-hidden">about orbital operations programs</span></a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<button class="carousel-control-prev hero-carousel__nav hero-carousel__nav--prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+								<span class="left"><svg xmlns="http://www.w3.org/2000/svg" class="icon-fa" viewBox="0 0 640 1792" aria-hidden="true" focusable="false"><path fill="currentColor" d="M617 823 224 1216 617 1609Q627 1619 627.0 1632.0Q627 1645 617 1655L567 1705Q557 1715 544.0 1715.0Q531 1715 521 1705L55 1239Q45 1229 45.0 1216.0Q45 1203 55 1193L521 727Q531 717 544.0 717.0Q557 717 567 727L617 777Q627 787 627.0 800.0Q627 813 617 823Z"/></svg></span>
+								<span class="visually-hidden">Previous slide</span>
+							</button>
+							<button class="carousel-control-next hero-carousel__nav hero-carousel__nav--next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+								<span class="right"><svg xmlns="http://www.w3.org/2000/svg" class="icon-fa" viewBox="0 0 640 1792" aria-hidden="true" focusable="false"><path fill="currentColor" d="M585 1239 119 1705Q109 1715 96.0 1715.0Q83 1715 73 1705L23 1655Q13 1645 13.0 1632.0Q13 1619 23 1609L416 1216L23 823Q13 813 13.0 800.0Q13 787 23 777L73 727Q83 717 96.0 717.0Q109 717 119 727L585 1193Q595 1203 595.0 1216.0Q595 1229 585 1239Z"/></svg></span>
+								<span class="visually-hidden">Next slide</span>
+							</button>
+							<div class="carousel-indicators hero-carousel__indicators">
+								<button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Go to slide 1"></button>
+								<button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" aria-label="Go to slide 2"></button>
+								<button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2" aria-label="Go to slide 3"></button>
+								<button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="3" aria-label="Go to slide 4"></button>
+							</div>
+						</div>
+		    		</div>
+				</div>
+		    	<!-- end enable -->
+        	</section>
+        	<!-- End slider area -->
+            <!-- Start our projects area -->
+        	<section class="our-projects-area pt-90 pb-90">
+        		<div class="container">
+        			<div class="row">
+                        <!-- Start section title -->
+        				<div class="col-sm-12">
+        					<div class="section-title text-center">
+        						<h2>RESEARCH <span>PROGRAMS</span></h2>
+        						<p>Applied R&amp;D at the frontier of scientific discovery</p>
+        					</div>
+        				</div>
+                        <!-- End section title -->
+        				<div class="projects row">
+                            <!-- Start single projects -->
+        					<div class="col-sm-4">
+        						<div class="single-projects">
+        							<a href="labs/sovereign-ai/">
+                                        <div class="single-projects-image-text">
+                                            <div class="projects-image">
+                                                <img src="img/projects/homepage-sovereign-ai.avif" alt="Sovereign AI Laboratory — air-gapped private compute infrastructure" loading="lazy" decoding="async">
+                                            </div>
+                                            <div class="projects-text text-center">
+                                                <h3>Sovereign AI Laboratory</h3>
+                                                <p>Air-gapped frontier model training, secure inference, and autonomous reasoning on private infrastructure.</p>
+                                            </div>
+                                        </div>
+                                    </a>
+        						</div>
+        					</div>
+                            <!-- End single projects -->
+                            <!-- Start single projects -->
+                            <div class="col-sm-4">
+                                <div class="single-projects">
+                                    <a href="labs/biometric-security/">
+                                        <div class="single-projects-image-text">
+                                            <div class="projects-image">
+                                                <img src="img/projects/homepage-biometric-security.avif" alt="Biometric Security Systems — multi-modal authentication research" loading="lazy" decoding="async">
+                                            </div>
+                                            <div class="projects-text text-center">
+                                                <h3>Biometric Security Systems</h3>
+                                                <p>Multi-modal bioinformatic authentication fusing genomic markers, neural gait, and vascular topology.</p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <!-- End single projects -->
+                            <!-- Start single projects -->
+                            <div class="col-sm-4">
+                                <div class="single-projects">
+                                    <a href="labs/cognitive-ai/">
+                                        <div class="single-projects-image-text">
+                                            <div class="projects-image">
+                                                <img src="img/projects/homepage-cognitive-ai.avif" alt="Cognitive AI and Persona Systems — psycholinguistic research" loading="lazy" decoding="async">
+                                            </div>
+                                            <div class="projects-text text-center">
+                                                <h3>Cognitive AI &amp; Persona Systems</h3>
+                                                <p>Psycholinguistic modeling, personality architectures, and AI personification through inference shaping.</p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <!-- End single projects -->
+        				</div>
+        			</div>
+        		</div>
+        	</section>
+            <!-- End our projects area -->
+            <!-- Start help us area -->
+            <section class="help-us-area pt-80 pb-80">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="section-title-style-two text-center">
+                                <h2>The INSTAR Method</h2>
+                                <p><em>Chart. Explore. Transmit.</em></p>
+                                <p>We chart the scientific frontier, explore it through rigorous research, and transmit validated knowledge to the partners, agencies, journals, and technologies that carry it forward.</p>
+                            </div>
+                        </div>
+                        <div class="help-us-content-area row">
+                            <!-- Start single help -->
+                            <div class="col-sm-4">
+                                <div class="single-help">
+                                    <div class="help-icon">
+                                        <img src="img/icons/method-chart.svg" alt="" width="56" height="56" loading="lazy" decoding="async">
+                                    </div>
+                                    <div class="help-text">
+                                        <h3>Chart</h3>
+                                        <p>Define the scientific frontier, technical objectives, research risks, partner roles, and path of inquiry.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End single help -->
+                            <!-- Start single help -->
+                            <div class="col-sm-4">
+                                <div class="single-help">
+                                    <div class="help-icon">
+                                        <img src="img/icons/method-explore.svg" alt="" width="56" height="56" loading="lazy" decoding="async">
+                                    </div>
+                                    <div class="help-text">
+                                        <h3>Explore</h3>
+                                        <p>Conduct rigorous, PI-led research through experimentation, analysis, validation, modeling, field inquiry, and peer-informed scientific methods.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End single help -->
+                            <!-- Start single help -->
+                            <div class="col-sm-4">
+                                <div class="single-help">
+                                    <div class="help-icon">
+                                        <img src="img/icons/method-transmit.svg" alt="" width="56" height="56" loading="lazy" decoding="async">
+                                    </div>
+                                    <div class="help-text">
+                                        <h3>Transmit</h3>
+                                        <p>Transfer the knowledge forward through reports, journals, datasets, prototypes, IP support, technical documentation, partner handoff, and commercialization pathways.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End single help -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- End help us area -->
+            <!-- Start our gallery -->
+            <section class="our-gallery pt-90 pb-60">
+                <div class="container">
+                    <div class="row">
+                        <!-- Start section title -->
+                        <div class="col-sm-12">
+                            <div class="section-title text-center">
+                                <h2>OUR <span>RESEARCH</span></h2>
+                                <p>An independent 501(c)(3) research institute advancing science across AI, health, energy, quantum, HPC, space, and the broad sciences. <br>Explore our research areas and technical capabilities below.</p>
+                            </div>
+                        </div>
+                        <!-- End section title -->
+                        <div class="gallery-area">
+                            <div class="col-sm-12">
+                                <div class="gallery-menu text-center">
+                                    <nav aria-label="Filter research programs">
+                                        <ul>
+                                            <li class="filter"  data-filter="all">All</li>
+                                            <li class="filter"  data-filter="AI">AI</li>
+                                            <li class="filter"  data-filter="Health">Health</li>
+                                            <li class="filter"  data-filter="Quantum">Quantum</li>
+                                            <li class="filter"  data-filter="Energy">Energy</li>
+                                            <li class="filter"  data-filter="HPC">HPC</li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                            <div id="gallery-filter" class="row">
+                                <!-- Start single gallery -->
+                                <div class="col-sm-3 mb-30 single-gallery mix all AI Quantum">
+									<div class="gallery-image-and-text">
+										<img class="img-fluid" src="img/gallery/gallery-one.avif" alt="Quantum Systems research visualization — quantum computation and sensing" width="1024" height="1024" loading="lazy" decoding="async"/>
+										<a class="image-link text-center" href="#" role="button" data-bs-toggle="modal" data-bs-target="#research-popup-1">
+											<svg xmlns="http://www.w3.org/2000/svg" class="icon-fa" viewBox="0 0 1408 1792" aria-hidden="true" focusable="false"><path fill="currentColor" d="M1152 1056V1120Q1152 1134 1143.0 1143.0Q1134 1152 1120 1152H768V1504Q768 1518 759.0 1527.0Q750 1536 736 1536H672Q658 1536 649.0 1527.0Q640 1518 640 1504V1152H288Q274 1152 265.0 1143.0Q256 1134 256 1120V1056Q256 1042 265.0 1033.0Q274 1024 288 1024H640V672Q640 658 649.0 649.0Q658 640 672 640H736Q750 640 759.0 649.0Q768 658 768 672V1024H1120Q1134 1024 1143.0 1033.0Q1152 1042 1152 1056ZM1280 1504V672Q1280 606 1233.0 559.0Q1186 512 1120 512H288Q222 512 175.0 559.0Q128 606 128 672V1504Q128 1570 175.0 1617.0Q222 1664 288 1664H1120Q1186 1664 1233.0 1617.0Q1280 1570 1280 1504ZM1408 672V1504Q1408 1623 1323.5 1707.5Q1239 1792 1120 1792H288Q169 1792 84.5 1707.5Q0 1623 0 1504V672Q0 553 84.5 468.5Q169 384 288 384H1120Q1239 384 1323.5 468.5Q1408 553 1408 672Z"/></svg>
+											<p>Quantum Systems</p>
+										</a>
+									</div>
+                                </div>
+                                <!-- End single gallery -->
+                                <!-- Start single gallery -->
+                                <div class="col-sm-3 mb-30 single-gallery mix all Health Energy">
+									<div class="gallery-image-and-text">
+										<img class="img-fluid" src="img/gallery/gallery-two.avif" alt="Health AI clinical research — applying AI to medicine and patient safety" width="1024" height="1024" loading="lazy" decoding="async"/>
+										<a class="image-link text-center" href="#" role="button" data-bs-toggle="modal" data-bs-target="#research-popup-2">
+											<svg xmlns="http://www.w3.org/2000/svg" class="icon-fa" viewBox="0 0 1408 1792" aria-hidden="true" focusable="false"><path fill="currentColor" d="M1152 1056V1120Q1152 1134 1143.0 1143.0Q1134 1152 1120 1152H768V1504Q768 1518 759.0 1527.0Q750 1536 736 1536H672Q658 1536 649.0 1527.0Q640 1518 640 1504V1152H288Q274 1152 265.0 1143.0Q256 1134 256 1120V1056Q256 1042 265.0 1033.0Q274 1024 288 1024H640V672Q640 658 649.0 649.0Q658 640 672 640H736Q750 640 759.0 649.0Q768 658 768 672V1024H1120Q1134 1024 1143.0 1033.0Q1152 1042 1152 1056ZM1280 1504V672Q1280 606 1233.0 559.0Q1186 512 1120 512H288Q222 512 175.0 559.0Q128 606 128 672V1504Q128 1570 175.0 1617.0Q222 1664 288 1664H1120Q1186 1664 1233.0 1617.0Q1280 1570 1280 1504ZM1408 672V1504Q1408 1623 1323.5 1707.5Q1239 1792 1120 1792H288Q169 1792 84.5 1707.5Q0 1623 0 1504V672Q0 553 84.5 468.5Q169 384 288 384H1120Q1239 384 1323.5 468.5Q1408 553 1408 672Z"/></svg>
+											<p>Health AI</p>
+										</a>
+									</div>
+                                </div>
+                                <!-- End single gallery -->
+                                <!-- Start single gallery -->
+                                <div class="col-sm-3 mb-30 single-gallery mix all AI HPC">
+									<div class="gallery-image-and-text">
+										<img class="img-fluid" src="img/gallery/gallery-three.avif" alt="NLP Analytics — natural language processing and text intelligence research" width="1024" height="1024" loading="lazy" decoding="async"/>
+										<a class="image-link text-center" href="#" role="button" data-bs-toggle="modal" data-bs-target="#research-popup-3">
+											<svg xmlns="http://www.w3.org/2000/svg" class="icon-fa" viewBox="0 0 1408 1792" aria-hidden="true" focusable="false"><path fill="currentColor" d="M1152 1056V1120Q1152 1134 1143.0 1143.0Q1134 1152 1120 1152H768V1504Q768 1518 759.0 1527.0Q750 1536 736 1536H672Q658 1536 649.0 1527.0Q640 1518 640 1504V1152H288Q274 1152 265.0 1143.0Q256 1134 256 1120V1056Q256 1042 265.0 1033.0Q274 1024 288 1024H640V672Q640 658 649.0 649.0Q658 640 672 640H736Q750 640 759.0 649.0Q768 658 768 672V1024H1120Q1134 1024 1143.0 1033.0Q1152 1042 1152 1056ZM1280 1504V672Q1280 606 1233.0 559.0Q1186 512 1120 512H288Q222 512 175.0 559.0Q128 606 128 672V1504Q128 1570 175.0 1617.0Q222 1664 288 1664H1120Q1186 1664 1233.0 1617.0Q1280 1570 1280 1504ZM1408 672V1504Q1408 1623 1323.5 1707.5Q1239 1792 1120 1792H288Q169 1792 84.5 1707.5Q0 1623 0 1504V672Q0 553 84.5 468.5Q169 384 288 384H1120Q1239 384 1323.5 468.5Q1408 553 1408 672Z"/></svg>
+											<p>NLP Analytics</p>
+										</a>
+									</div>
+                                </div>
+                                <!-- End single gallery -->
+                                <!-- Start single gallery -->
+                                <div class="col-sm-3 mb-30 single-gallery mix all Energy Quantum">
+									<div class="gallery-image-and-text">
+										<img class="img-fluid" src="img/gallery/gallery-four.avif" alt="Energy Research — fusion, battery science, and grid-scale storage systems" width="1024" height="1024" loading="lazy" decoding="async"/>
+										<a class="image-link text-center" href="#" role="button" data-bs-toggle="modal" data-bs-target="#research-popup-4">
+											<svg xmlns="http://www.w3.org/2000/svg" class="icon-fa" viewBox="0 0 1408 1792" aria-hidden="true" focusable="false"><path fill="currentColor" d="M1152 1056V1120Q1152 1134 1143.0 1143.0Q1134 1152 1120 1152H768V1504Q768 1518 759.0 1527.0Q750 1536 736 1536H672Q658 1536 649.0 1527.0Q640 1518 640 1504V1152H288Q274 1152 265.0 1143.0Q256 1134 256 1120V1056Q256 1042 265.0 1033.0Q274 1024 288 1024H640V672Q640 658 649.0 649.0Q658 640 672 640H736Q750 640 759.0 649.0Q768 658 768 672V1024H1120Q1134 1024 1143.0 1033.0Q1152 1042 1152 1056ZM1280 1504V672Q1280 606 1233.0 559.0Q1186 512 1120 512H288Q222 512 175.0 559.0Q128 606 128 672V1504Q128 1570 175.0 1617.0Q222 1664 288 1664H1120Q1186 1664 1233.0 1617.0Q1280 1570 1280 1504ZM1408 672V1504Q1408 1623 1323.5 1707.5Q1239 1792 1120 1792H288Q169 1792 84.5 1707.5Q0 1623 0 1504V672Q0 553 84.5 468.5Q169 384 288 384H1120Q1239 384 1323.5 468.5Q1408 553 1408 672Z"/></svg>
+											<p>Energy Research</p>
+										</a>
+									</div>
+                                </div>
+                                <!-- End single gallery -->
+                                <!-- Start single gallery -->
+                                <div class="col-sm-3 mb-30 single-gallery mix all AI Quantum Energy">
+									<div class="gallery-image-and-text">
+										<img class="img-fluid" src="img/gallery/gallery-five.avif" alt="Data Science — high-dimensional analytics and insight extraction across research domains" loading="lazy" decoding="async"/>
+										<a class="image-link text-center" href="#" role="button" data-bs-toggle="modal" data-bs-target="#research-popup-5">
+											<svg xmlns="http://www.w3.org/2000/svg" class="icon-fa" viewBox="0 0 1408 1792" aria-hidden="true" focusable="false"><path fill="currentColor" d="M1152 1056V1120Q1152 1134 1143.0 1143.0Q1134 1152 1120 1152H768V1504Q768 1518 759.0 1527.0Q750 1536 736 1536H672Q658 1536 649.0 1527.0Q640 1518 640 1504V1152H288Q274 1152 265.0 1143.0Q256 1134 256 1120V1056Q256 1042 265.0 1033.0Q274 1024 288 1024H640V672Q640 658 649.0 649.0Q658 640 672 640H736Q750 640 759.0 649.0Q768 658 768 672V1024H1120Q1134 1024 1143.0 1033.0Q1152 1042 1152 1056ZM1280 1504V672Q1280 606 1233.0 559.0Q1186 512 1120 512H288Q222 512 175.0 559.0Q128 606 128 672V1504Q128 1570 175.0 1617.0Q222 1664 288 1664H1120Q1186 1664 1233.0 1617.0Q1280 1570 1280 1504ZM1408 672V1504Q1408 1623 1323.5 1707.5Q1239 1792 1120 1792H288Q169 1792 84.5 1707.5Q0 1623 0 1504V672Q0 553 84.5 468.5Q169 384 288 384H1120Q1239 384 1323.5 468.5Q1408 553 1408 672Z"/></svg>
+											<p>Data Science</p>
+										</a>
+									</div>
+                                </div>
+                                <!-- End single gallery -->
+                                <!-- Start single gallery -->
+                                <div class="col-sm-3 mb-30 single-gallery mix all HPC Health">
+									<div class="gallery-image-and-text">
+										<img class="img-fluid" src="img/gallery/gallery-six.avif" alt="HPC Simulation — high-performance computing for large-scale scientific modeling" loading="lazy" decoding="async"/>
+										<a class="image-link text-center" href="#" role="button" data-bs-toggle="modal" data-bs-target="#research-popup-6">
+											<svg xmlns="http://www.w3.org/2000/svg" class="icon-fa" viewBox="0 0 1408 1792" aria-hidden="true" focusable="false"><path fill="currentColor" d="M1152 1056V1120Q1152 1134 1143.0 1143.0Q1134 1152 1120 1152H768V1504Q768 1518 759.0 1527.0Q750 1536 736 1536H672Q658 1536 649.0 1527.0Q640 1518 640 1504V1152H288Q274 1152 265.0 1143.0Q256 1134 256 1120V1056Q256 1042 265.0 1033.0Q274 1024 288 1024H640V672Q640 658 649.0 649.0Q658 640 672 640H736Q750 640 759.0 649.0Q768 658 768 672V1024H1120Q1134 1024 1143.0 1033.0Q1152 1042 1152 1056ZM1280 1504V672Q1280 606 1233.0 559.0Q1186 512 1120 512H288Q222 512 175.0 559.0Q128 606 128 672V1504Q128 1570 175.0 1617.0Q222 1664 288 1664H1120Q1186 1664 1233.0 1617.0Q1280 1570 1280 1504ZM1408 672V1504Q1408 1623 1323.5 1707.5Q1239 1792 1120 1792H288Q169 1792 84.5 1707.5Q0 1623 0 1504V672Q0 553 84.5 468.5Q169 384 288 384H1120Q1239 384 1323.5 468.5Q1408 553 1408 672Z"/></svg>
+											<p>HPC Simulation</p>
+										</a>
+									</div>
+                                </div>
+                                <!-- End single gallery -->
+                                <!-- Start single gallery -->
+                                <div class="col-sm-3 mb-30 single-gallery mix all AI Quantum">
+									<div class="gallery-image-and-text">
+										<img class="img-fluid" src="img/gallery/gallery-seven.avif" alt="AI Platforms — machine intelligence models and agent architectures for applied research" loading="lazy" decoding="async"/>
+										<a class="image-link text-center" href="#" role="button" data-bs-toggle="modal" data-bs-target="#research-popup-7">
+											<svg xmlns="http://www.w3.org/2000/svg" class="icon-fa" viewBox="0 0 1408 1792" aria-hidden="true" focusable="false"><path fill="currentColor" d="M1152 1056V1120Q1152 1134 1143.0 1143.0Q1134 1152 1120 1152H768V1504Q768 1518 759.0 1527.0Q750 1536 736 1536H672Q658 1536 649.0 1527.0Q640 1518 640 1504V1152H288Q274 1152 265.0 1143.0Q256 1134 256 1120V1056Q256 1042 265.0 1033.0Q274 1024 288 1024H640V672Q640 658 649.0 649.0Q658 640 672 640H736Q750 640 759.0 649.0Q768 658 768 672V1024H1120Q1134 1024 1143.0 1033.0Q1152 1042 1152 1056ZM1280 1504V672Q1280 606 1233.0 559.0Q1186 512 1120 512H288Q222 512 175.0 559.0Q128 606 128 672V1504Q128 1570 175.0 1617.0Q222 1664 288 1664H1120Q1186 1664 1233.0 1617.0Q1280 1570 1280 1504ZM1408 672V1504Q1408 1623 1323.5 1707.5Q1239 1792 1120 1792H288Q169 1792 84.5 1707.5Q0 1623 0 1504V672Q0 553 84.5 468.5Q169 384 288 384H1120Q1239 384 1323.5 468.5Q1408 553 1408 672Z"/></svg>
+											<p>AI Platforms</p>
+										</a>
+									</div>
+                                </div>
+                                <!-- End single gallery -->
+                                <!-- Start single gallery -->
+                                <div class="col-sm-3 mb-30 single-gallery mix all HPC Energy">
+									<div class="gallery-image-and-text">
+										<img class="img-fluid" src="img/gallery/gallery-eight.avif" alt="Lab Systems — compute infrastructure and scientific instruments enabling reproducible research" loading="lazy" decoding="async"/>
+										<a class="image-link text-center" href="#" role="button" data-bs-toggle="modal" data-bs-target="#research-popup-8">
+											<svg xmlns="http://www.w3.org/2000/svg" class="icon-fa" viewBox="0 0 1408 1792" aria-hidden="true" focusable="false"><path fill="currentColor" d="M1152 1056V1120Q1152 1134 1143.0 1143.0Q1134 1152 1120 1152H768V1504Q768 1518 759.0 1527.0Q750 1536 736 1536H672Q658 1536 649.0 1527.0Q640 1518 640 1504V1152H288Q274 1152 265.0 1143.0Q256 1134 256 1120V1056Q256 1042 265.0 1033.0Q274 1024 288 1024H640V672Q640 658 649.0 649.0Q658 640 672 640H736Q750 640 759.0 649.0Q768 658 768 672V1024H1120Q1134 1024 1143.0 1033.0Q1152 1042 1152 1056ZM1280 1504V672Q1280 606 1233.0 559.0Q1186 512 1120 512H288Q222 512 175.0 559.0Q128 606 128 672V1504Q128 1570 175.0 1617.0Q222 1664 288 1664H1120Q1186 1664 1233.0 1617.0Q1280 1570 1280 1504ZM1408 672V1504Q1408 1623 1323.5 1707.5Q1239 1792 1120 1792H288Q169 1792 84.5 1707.5Q0 1623 0 1504V672Q0 553 84.5 468.5Q169 384 288 384H1120Q1239 384 1323.5 468.5Q1408 553 1408 672Z"/></svg>
+											<p>Lab Systems</p>
+										</a>
+									</div>
+                                </div>
+                                <!-- End single gallery -->
+                            </div>
+                            <!-- Research popup blurb cards (Bootstrap 5 modals) -->
+                            <div class="modal fade" id="research-popup-1" tabindex="-1" aria-labelledby="research-popup-1-label" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered">
+                                    <div class="modal-content" style="max-width:540px; margin:0 auto; padding:44px 40px; border-radius:10px; text-align:center;">
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="position:absolute; top:16px; right:16px;"></button>
+                                        <h3 id="research-popup-1-label" style="color:#1072ba; font-weight:700; margin-bottom:16px;">Quantum Systems</h3>
+                                        <p style="color:#444; font-size:16px; line-height:1.7; margin-bottom:26px;">Research into quantum computation and sensing — pushing toward practical advantage in problems classical systems struggle to solve.</p>
+                                        <a href="technology/quantum-computing/" style="display:inline-block; background:#1072ba; color:#fff; padding:13px 30px; border-radius:6px; font-weight:600; text-decoration:none;">Explore this research &rarr;</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal fade" id="research-popup-2" tabindex="-1" aria-labelledby="research-popup-2-label" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered">
+                                    <div class="modal-content" style="max-width:540px; margin:0 auto; padding:44px 40px; border-radius:10px; text-align:center;">
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="position:absolute; top:16px; right:16px;"></button>
+                                        <h3 id="research-popup-2-label" style="color:#1072ba; font-weight:700; margin-bottom:16px;">Health AI</h3>
+                                        <p style="color:#444; font-size:16px; line-height:1.7; margin-bottom:26px;">Applying AI to medicine and clinical science to improve patient safety, accelerate discovery, and support better outcomes — with rigorous, human-overseen evaluation.</p>
+                                        <a href="sciences/medicine/" style="display:inline-block; background:#1072ba; color:#fff; padding:13px 30px; border-radius:6px; font-weight:600; text-decoration:none;">Explore this research &rarr;</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal fade" id="research-popup-3" tabindex="-1" aria-labelledby="research-popup-3-label" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered">
+                                    <div class="modal-content" style="max-width:540px; margin:0 auto; padding:44px 40px; border-radius:10px; text-align:center;">
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="position:absolute; top:16px; right:16px;"></button>
+                                        <h3 id="research-popup-3-label" style="color:#1072ba; font-weight:700; margin-bottom:16px;">NLP Analytics</h3>
+                                        <p style="color:#444; font-size:16px; line-height:1.7; margin-bottom:26px;">Turning unstructured text and language into structured, actionable knowledge through advanced natural-language research.</p>
+                                        <a href="technology/natural-language-processing/" style="display:inline-block; background:#1072ba; color:#fff; padding:13px 30px; border-radius:6px; font-weight:600; text-decoration:none;">Explore this research &rarr;</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal fade" id="research-popup-4" tabindex="-1" aria-labelledby="research-popup-4-label" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered">
+                                    <div class="modal-content" style="max-width:540px; margin:0 auto; padding:44px 40px; border-radius:10px; text-align:center;">
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="position:absolute; top:16px; right:16px;"></button>
+                                        <h3 id="research-popup-4-label" style="color:#1072ba; font-weight:700; margin-bottom:16px;">Energy Research</h3>
+                                        <p style="color:#444; font-size:16px; line-height:1.7; margin-bottom:26px;">Advancing the science of energy generation, storage, and efficiency to support a sustainable and resilient future.</p>
+                                        <a href="sciences/energy/" style="display:inline-block; background:#1072ba; color:#fff; padding:13px 30px; border-radius:6px; font-weight:600; text-decoration:none;">Explore this research &rarr;</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal fade" id="research-popup-5" tabindex="-1" aria-labelledby="research-popup-5-label" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered">
+                                    <div class="modal-content" style="max-width:540px; margin:0 auto; padding:44px 40px; border-radius:10px; text-align:center;">
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="position:absolute; top:16px; right:16px;"></button>
+                                        <h3 id="research-popup-5-label" style="color:#1072ba; font-weight:700; margin-bottom:16px;">Data Science</h3>
+                                        <p style="color:#444; font-size:16px; line-height:1.7; margin-bottom:26px;">Extracting insight from complex, high-dimensional data — the analytical backbone connecting every INSTAR research domain.</p>
+                                        <a href="technology/data-science/" style="display:inline-block; background:#1072ba; color:#fff; padding:13px 30px; border-radius:6px; font-weight:600; text-decoration:none;">Explore this research &rarr;</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal fade" id="research-popup-6" tabindex="-1" aria-labelledby="research-popup-6-label" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered">
+                                    <div class="modal-content" style="max-width:540px; margin:0 auto; padding:44px 40px; border-radius:10px; text-align:center;">
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="position:absolute; top:16px; right:16px;"></button>
+                                        <h3 id="research-popup-6-label" style="color:#1072ba; font-weight:700; margin-bottom:16px;">HPC Simulation</h3>
+                                        <p style="color:#444; font-size:16px; line-height:1.7; margin-bottom:26px;">High-performance computing and large-scale simulation that let researchers model, predict, and explore systems too complex for the lab alone.</p>
+                                        <a href="technology/computer-science/" style="display:inline-block; background:#1072ba; color:#fff; padding:13px 30px; border-radius:6px; font-weight:600; text-decoration:none;">Explore this research &rarr;</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal fade" id="research-popup-7" tabindex="-1" aria-labelledby="research-popup-7-label" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered">
+                                    <div class="modal-content" style="max-width:540px; margin:0 auto; padding:44px 40px; border-radius:10px; text-align:center;">
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="position:absolute; top:16px; right:16px;"></button>
+                                        <h3 id="research-popup-7-label" style="color:#1072ba; font-weight:700; margin-bottom:16px;">AI Platforms</h3>
+                                        <p style="color:#444; font-size:16px; line-height:1.7; margin-bottom:26px;">Building the machine-intelligence foundations — models, agents, and platforms — that power applied research across the institute.</p>
+                                        <a href="technology/machine-intelligence/" style="display:inline-block; background:#1072ba; color:#fff; padding:13px 30px; border-radius:6px; font-weight:600; text-decoration:none;">Explore this research &rarr;</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal fade" id="research-popup-8" tabindex="-1" aria-labelledby="research-popup-8-label" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered">
+                                    <div class="modal-content" style="max-width:540px; margin:0 auto; padding:44px 40px; border-radius:10px; text-align:center;">
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="position:absolute; top:16px; right:16px;"></button>
+                                        <h3 id="research-popup-8-label" style="color:#1072ba; font-weight:700; margin-bottom:16px;">Lab Systems</h3>
+                                        <p style="color:#444; font-size:16px; line-height:1.7; margin-bottom:26px;">The infrastructure, instruments, and computing facilities that turn ambitious research questions into reproducible results.</p>
+                                        <a href="research/facilities/" style="display:inline-block; background:#1072ba; color:#fff; padding:13px 30px; border-radius:6px; font-weight:600; text-decoration:none;">Explore this research &rarr;</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- End our gallery -->
+            <!-- Start connect banner -->
+            <section class="countdown-area pt-60 pb-60">
+                <div class="container">
+                    <div class="row" style="align-items:center;">
+                        <div class="col-sm-5 col-md-4">
+                            <div class="countdown-side-area">
+                                <div class="countdown-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon-fa" viewBox="0 0 1792 1792" aria-hidden="true" focusable="false"><path fill="currentColor" d="M1664 1760V992Q1632 1028 1595 1058Q1327 1264 1169 1396Q1118 1439 1086.0 1463.0Q1054 1487 999.5 1511.5Q945 1536 897 1536H896H895Q847 1536 792.5 1511.5Q738 1487 706.0 1463.0Q674 1439 623 1396Q465 1264 197 1058Q160 1028 128 992V1760Q128 1773 137.5 1782.5Q147 1792 160 1792H1632Q1645 1792 1654.5 1782.5Q1664 1773 1664 1760ZM1664 709Q1664 707 1664.0 698.0Q1664 689 1664.0 684.5Q1664 680 1663.5 671.5Q1663 663 1660.5 659.0Q1658 655 1655.0 650.0Q1652 645 1646.0 642.5Q1640 640 1632 640H160Q147 640 137.5 649.5Q128 659 128 672Q128 840 275 956Q468 1108 676 1273Q682 1278 711.0 1302.5Q740 1327 757.0 1340.0Q774 1353 801.5 1371.5Q829 1390 852.0 1399.0Q875 1408 895 1408H896H897Q917 1408 940.0 1399.0Q963 1390 990.5 1371.5Q1018 1353 1035.0 1340.0Q1052 1327 1081.0 1302.5Q1110 1278 1116 1273Q1324 1108 1517 956Q1571 913 1617.5 840.5Q1664 768 1664 709ZM1792 672V1760Q1792 1826 1745.0 1873.0Q1698 1920 1632 1920H160Q94 1920 47.0 1873.0Q0 1826 0 1760V672Q0 606 47.0 559.0Q94 512 160 512H1632Q1698 512 1745.0 559.0Q1792 606 1792 672Z"/></svg>
+                                </div>
+                                <div class="countdown-text">
+                                    <h3>Stay Connected</h3>
+                                    <p>INSTAR LAB CONSORTIUM</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-7 col-md-8">
+                            <div class="count-down" style="display:flex; align-items:center; height:100%; padding:12px 0;">
+                                <p style="color:#fff; font-size:16px; line-height:1.7; margin:0;">
+                                    INSTAR Lab advances applied research across the natural sciences, technology, and social sciences. Subscribe to our newsletter or <a href="contact-us.html" style="color:#fff; text-decoration:underline; font-weight:600;">contact us</a> to learn how to partner with or support the institute.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- End connect banner -->
+            <!-- Start our volunteers area -->
+            <section class="our-volunteers-area pt-90 pb-90">
+                <div class="container">
+                    <div class="row">
+                        <!-- Start section title -->
+                        <div class="col-sm-12">
+                            <div class="section-title text-center">
+                                <h2>OUR <span>LEADERSHIP</span></h2>
+                                <p>INSTAR Lab is led by experienced scientists, engineers, and researchers whose work spans applied AI, physics, and technology transfer. Our leadership team brings decades of production research, federal R&amp;D, and scientific governance to every program we run.</p>
+                            </div>
+                        </div>
+                        <!-- End section title -->
+                        <div class="our-volunteers row">
+                            <!-- Start single volunteer -->
+                            <div class="col-sm-3">
+                                <div class="single-volunteer">
+                                    <div class="volunteer-image-and-social">
+                                        <img src="img/volunteers/suzanne-conejos.avif" alt="Suzanne Conejos, M.Sc." style="width:100%; height:auto; aspect-ratio:1/1; object-fit:cover;" loading="lazy" decoding="async">
+                                    </div>
+                                    <div class="volunteer-title text-center">
+                                        <h3>Suzanne Conejos, M.Sc.</h3>
+                                        <p>AI Lead Scientist &middot; Board Member</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End single volunteer -->
+                            <!-- Start single volunteer -->
+                            <div class="col-sm-3">
+                                <div class="single-volunteer">
+                                    <div class="volunteer-image-and-social">
+                                        <img src="img/volunteers/sean-hackney.avif" alt="Sean Hackney" style="width:100%; height:auto; aspect-ratio:1/1; object-fit:cover;" loading="lazy" decoding="async">
+                                    </div>
+                                    <div class="volunteer-title text-center">
+                                        <h3>Sean Hackney</h3>
+                                        <p>Board Member &middot; AI Researcher</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End single volunteer -->
+                            <!-- Start single volunteer -->
+                            <div class="col-sm-3">
+                                <div class="single-volunteer">
+                                    <div class="volunteer-image-and-social">
+                                        <img src="img/volunteers/spoogmay-khan.avif" alt="Dr. Spoogmay Khan" style="width:100%; height:auto; aspect-ratio:1/1; object-fit:cover;" loading="lazy" decoding="async">
+                                    </div>
+                                    <div class="volunteer-title text-center">
+                                        <h3>Dr. Spoogmay Khan</h3>
+                                        <p>Applied Scientist &middot; Materials Physics</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End single volunteer -->
+                            <!-- Start single volunteer -->
+                            <div class="col-sm-3">
+                                <div class="single-volunteer">
+                                    <div class="volunteer-image-and-social">
+                                        <img src="img/volunteers/maha-khan.avif" alt="Maha Khan" style="width:100%; height:auto; aspect-ratio:1/1; object-fit:cover;" loading="lazy" decoding="async">
+                                    </div>
+                                    <div class="volunteer-title text-center">
+                                        <h3>Maha Khan</h3>
+                                        <p>Research Scientist</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End single volunteer -->
+                        </div>
+                        <div class="col-sm-12 text-center" style="margin-top:30px;">
+                            <a class="waves-effect waves-light" href="community/leadership/">Meet our leadership</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- End our volunteers area -->
+            <!-- Start people says area -->
+            <section class="people-says-area pt-54 pb-20">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="people-asy-title text-center">
+                                <h2>OUR <span>FELLOWS</span></h2>
+                                <p>In their own words — reflections from past INSTAR Fellowship cohorts.</p>
+                            </div>
+                            <div id="fellowsCarousel" class="carousel slide people-say-slide" data-bs-ride="carousel" data-bs-interval="false">
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <div class="single-people text-center">
+                                            <div class="people-say-image">
+                                                <img src="img/testimonial-consortium-fellow.avif" alt="Maya R., INSTAR Fellow — Quantum Information" loading="lazy" decoding="async">
+                                            </div>
+                                            <div class="peoplp-say-text text-center">
+                                                <p>My INSTAR Fellowship gave me the time, mentorship, and compute to chase a hard quantum sensing problem I never could have tackled alone. I left with a published result and a research network I still lean on.</p>
+                                                <h3>Maya R.</h3>
+                                                <h4>Quantum Information — 2024 Cohort</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <div class="single-people text-center">
+                                            <div class="people-say-image">
+                                                <img src="img/testimonial-research-collaborator.avif" alt="Daniel O., INSTAR Fellow — Computational Health" loading="lazy" decoding="async">
+                                            </div>
+                                            <div class="peoplp-say-text text-center">
+                                                <p>As a fellow I worked shoulder-to-shoulder with researchers across disciplines. The lab pushed me to make my computational health models rigorous and reproducible — that habit reshaped how I do science.</p>
+                                                <h3>Daniel O.</h3>
+                                                <h4>Computational Health — 2023 Cohort</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="carousel-item">
+                                        <div class="single-people text-center">
+                                            <div class="people-say-image">
+                                                <img src="img/testimonial-consortium-partner.avif" alt="Priya N., INSTAR Fellow — Energy Systems" loading="lazy" decoding="async">
+                                            </div>
+                                            <div class="peoplp-say-text text-center">
+                                                <p>The fellowship treated me like an early-career scientist, not a student. The mentorship and freedom to explore energy-systems research opened doors I am still walking through today.</p>
+                                                <h3>Priya N.</h3>
+                                                <h4>Energy Systems — 2024 Cohort</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="carousel-control-prev people-say-nav people-say-nav--prev" type="button" data-bs-target="#fellowsCarousel" data-bs-slide="prev">
+                                    <span class="icon-left-open"><svg xmlns="http://www.w3.org/2000/svg" class="icon-fa" viewBox="0 0 1280 1792" aria-hidden="true" focusable="false"><path fill="currentColor" d="M1171 557 640 1088 1171 1619Q1190 1638 1190.0 1664.0Q1190 1690 1171 1709L1005 1875Q986 1894 960.0 1894.0Q934 1894 915 1875L173 1133Q154 1114 154.0 1088.0Q154 1062 173 1043L915 301Q934 282 960.0 282.0Q986 282 1005 301L1171 467Q1190 486 1190.0 512.0Q1190 538 1171 557Z"/></svg></span>
+                                    <span class="visually-hidden">Previous testimonial</span>
+                                </button>
+                                <button class="carousel-control-next people-say-nav people-say-nav--next" type="button" data-bs-target="#fellowsCarousel" data-bs-slide="next">
+                                    <span class="icon-right-open"><svg xmlns="http://www.w3.org/2000/svg" class="icon-fa" viewBox="0 0 1280 1792" aria-hidden="true" focusable="false"><path fill="currentColor" d="M1107 1133 365 1875Q346 1894 320.0 1894.0Q294 1894 275 1875L109 1709Q90 1690 90.0 1664.0Q90 1638 109 1619L640 1088L109 557Q90 538 90.0 512.0Q90 486 109 467L275 301Q294 282 320.0 282.0Q346 282 365 301L1107 1043Q1126 1062 1126.0 1088.0Q1126 1114 1107 1133Z"/></svg></span>
+                                    <span class="visually-hidden">Next testimonial</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- End people says area -->
+            <!-- Start blog area -->
+            <section class="blog-area pt-90 pb-90">
+                <div class="container">
+                    <div class="row">
+                        <!-- Start section title -->
+                        <div class="col-sm-12">
+                            <div class="section-title text-center">
+                                <h2>LATEST FROM <span>LABS</span></h2>
+                                <p>Technical briefs, STTR highlights, and research updates from INSTAR Lab <br>and the INSTAR Consortium — published as work matures.</p>
+                            </div>
+                        </div>
+                        <!-- End section title -->
+                        <!-- Start blog -->
+                        <div class="blog row">
+                            <!-- Start single blog -->
+                            <div class="col-sm-4">
+                                <div class="single-blog">
+                                    <div class="blo-image-and-date">
+                                        <img src="img/blog/blog-one.avif" alt="Blog post" loading="lazy" decoding="async">
+                                    </div>
+                                    <div class="blog-text">
+                                        <h3><a href="news/quantum-sensing-breakthroughs/">Quantum sensing breakthroughs</a></h3>
+                                        <p>New approaches to qubit coherence and quantum error correction are enabling practical advances in sensing and computation.</p>
+                                        <a href="news/quantum-sensing-breakthroughs/">Read More...</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End single blog -->
+                            <!-- Start single blog -->
+                            <div class="col-sm-4">
+                                <div class="single-blog">
+                                    <div class="blo-image-and-date">
+                                        <img src="img/blog/blog-two.avif" alt="Blog post" loading="lazy" decoding="async">
+                                    </div>
+                                    <div class="blog-text">
+                                        <h3><a href="news/hpc-infrastructure-for-ai/">HPC infrastructure for AI</a></h3>
+                                        <p>GPU-accelerated clusters and distributed compute architectures are reshaping how researchers train models and run simulations.</p>
+                                        <a href="news/hpc-infrastructure-for-ai/">Read More...</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End single blog -->
+                            <!-- Start single blog -->
+                            <div class="col-sm-4">
+                                <div class="single-blog">
+                                    <div class="blo-image-and-date">
+                                        <img src="img/blog/blog-three.avif" alt="Blog post" loading="lazy" decoding="async">
+                                    </div>
+                                    <div class="blog-text">
+                                        <h3><a href="news/clinical-ai-safety/">Clinical AI safety research</a></h3>
+                                        <p>Examining how artificial intelligence can improve patient safety, clinical workflows, and healthcare outcomes at national scale.</p>
+                                        <a href="news/clinical-ai-safety/">Read More...</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End single blog -->
+                        </div>
+                        <!-- End blog -->
+                    </div>
+                </div>
+            </section>
+            <!-- End blog area -->
+            <!-- Start brand logo area -->
+            <section class="brand-logo-area pb-90">
+                <div class="container">
+                    <div class="row">
+                        <!-- Start section title -->
+                        <div class="col-sm-12">
+                            <div class="section-title text-center">
+                                <h2>OUR <span>PARTNERS</span></h2>
+                            </div>
+                        </div>
+                        <!-- End section title -->
+                        <!-- Start brand logo -->
+                        <div class="brand-logo row justify-content-center">
+                            <div class="col-sm-2">
+                                <div class="b-logo">
+                                    <a href="https://focushive.com" target="_blank" rel="noopener noreferrer"><img src="img/brand-logo/focus-hive.svg" alt="Focus Hive Inc" loading="lazy" decoding="async"></a>
+                                </div>
+                            </div>
+                            <div class="col-sm-2">
+                                <div class="b-logo">
+                                    <a href="https://globalenterprise.com" target="_blank" rel="noopener noreferrer"><img src="img/brand-logo/global-enterprise.svg" alt="Global Enterprise" loading="lazy" decoding="async"></a>
+                                </div>
+                            </div>
+                            <div class="col-sm-2">
+                                <div class="b-logo">
+                                    <a href="https://ravonics.com" target="_blank" rel="noopener noreferrer"><img src="img/brand-logo/ravonics.svg" alt="Ravonics" loading="lazy" decoding="async"></a>
+                                </div>
+                            </div>
+                            <div class="col-sm-2">
+                                <div class="b-logo">
+                                    <a href="https://curiositycorp.org" target="_blank" rel="noopener noreferrer"><img src="img/brand-logo/curiosity-research.svg" alt="Curiosity Research Corporation" loading="lazy" decoding="async"></a>
+                                </div>
+                            </div>
+                            <div class="col-sm-2">
+                                <div class="b-logo">
+                                    <a href="https://taolearning.org" target="_blank" rel="noopener noreferrer"><img src="img/brand-logo/tao-learning.svg" alt="Tao Learning" loading="lazy" decoding="async"></a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End brand logo -->
+                    </div>
+                </div>
+            </section>
+            <!-- End brand logo area -->
+
+            <!-- CTA Band: Join the Fellowship -->
+            <section class="ip-cta-band ip-cta-band--dark">
+              <div class="container">
+                <p class="ip-cta-band__eyebrow">For Researchers</p>
+                <h2 class="ip-cta-band__heading">Join the INSTAR Fellowship</h2>
+                <p class="ip-cta-band__body">The INSTAR Fellowship is an open citizen-scientist program — no minimum degree required, selection based on fit with our research culture. Structured mentorship, interdisciplinary scope, and the freedom to pursue hard problems.</p>
+                <div class="ip-cta-band__actions">
+                  <a href="fellowship/" class="ip-cta-band__btn ip-cta-band__btn--outline-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon-fa" viewBox="0 0 2304 1792" aria-hidden="true" focusable="false"><path fill="currentColor" d="M1774 1092 1792 1408Q1796 1477 1710.0 1536.0Q1624 1595 1475.0 1629.5Q1326 1664 1152.0 1664.0Q978 1664 829.0 1629.5Q680 1595 594.0 1536.0Q508 1477 512 1408L530 1092L1104 1273Q1126 1280 1152.0 1280.0Q1178 1280 1200 1273ZM2282 799 1162 1151Q1158 1152 1152.0 1152.0Q1146 1152 1142 1151L490 945Q447 979 419.0 1056.5Q391 1134 385 1235Q448 1271 448 1344Q448 1413 390 1451L448 1884Q450 1898 440 1909Q431 1920 416 1920H224Q209 1920 200 1909Q190 1898 192 1884L250 1451Q192 1413 192 1344Q192 1271 257 1233Q268 1026 355 903L22 799Q0 791 0.0 768.0Q0 745 22 737L1142 385Q1146 384 1152.0 384.0Q1158 384 1162 385L2282 737Q2304 745 2304.0 768.0Q2304 791 2282 799Z"/></svg>&nbsp; Apply for Fellowship
+                  </a>
+                  <a href="research/opportunities/" class="ip-cta-band__btn ip-cta-band__btn--primary">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon-fa" viewBox="0 0 1664 1792" aria-hidden="true" focusable="false"><path fill="currentColor" d="M1020.5 1404.5Q1152 1273 1152.0 1088.0Q1152 903 1020.5 771.5Q889 640 704.0 640.0Q519 640 387.5 771.5Q256 903 256.0 1088.0Q256 1273 387.5 1404.5Q519 1536 704.0 1536.0Q889 1536 1020.5 1404.5ZM1664 1920Q1664 1972 1626.0 2010.0Q1588 2048 1536 2048Q1482 2048 1446 2010L1103 1668Q924 1792 704 1792Q561 1792 430.5 1736.5Q300 1681 205.5 1586.5Q111 1492 55.5 1361.5Q0 1231 0.0 1088.0Q0 945 55.5 814.5Q111 684 205.5 589.5Q300 495 430.5 439.5Q561 384 704.0 384.0Q847 384 977.5 439.5Q1108 495 1202.5 589.5Q1297 684 1352.5 814.5Q1408 945 1408 1088Q1408 1308 1284 1487L1627 1830Q1664 1867 1664 1920Z"/></svg>&nbsp; View Opportunities
+                  </a>
+                </div>
+              </div>
+            </section>
+            <!-- End CTA Band: Join the Fellowship -->
+
+            </main>
+            <!-- Start footer -->
+            <footer>
+                <div class="footer-top pt-50 pb-50">
+                    <div class="container">
+                        <div class="row">
+                            <div class="footer-widget-area row">
+                                <!-- Start footer widget -->
+                                <div class="col-sm-4">
+                                    <div class="footer-widget widget-one">
+                                        <div class="footer-widget-title">
+                                            <h3>ABOUT US</h3>
+                                        </div>
+                                        <div class="widget-about-content">
+                                            <p>INSTAR Lab is an independent 501(c)(3) nonprofit research institute advancing science through interdisciplinary collaboration, technological innovation, and partnership.</p>
+                                        </div>
+                                        <div class="widget-contact-content">
+                                            <h3>CONTACT US</h3>
+                                            <a href="tel:9292292918">Phone :  929-229-2918</a>
+                                            <a href="mailto:info@instarlab.org">Email :  info@instarlab.org</a>
+                                            <a href="https://maps.google.com/?q=125+Frederick+St+Marietta+OH+45750">Address: 125 Frederick St, Marietta, OH 45750-3407</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- End footer widget -->
+                                <!-- Start footer widget -->
+                                <div class="col-sm-2">
+                                    <div class="footer-widget widget-two">
+                                        <div class="footer-widget-title">
+                                            <h3>OUR RESEARCH</h3>
+                                        </div>
+                                        <nav aria-label="Our Research">
+                                            <ul>
+                                                <li><a href="technology/machine-intelligence/">AI &amp; ML</a></li>
+                                                <li><a href="technology/quantum-computing/">Quantum Science</a></li>
+                                                <li><a href="technology/data-science/">Data Analytics</a></li>
+                                                <li><a href="sciences/medicine/">Health Research</a></li>
+                                                <li><a href="sciences/energy/">Energy</a></li>
+                                                <li><a href="technology/computer-science/">HPC Systems</a></li>
+                                            </ul>
+                                        </nav>
+                                    </div>
+                                </div>
+                                <!-- End footer widget -->
+                                <!-- Start footer widget -->
+                                <div class="col-sm-2">
+                                    <div class="footer-widget widget-two">
+                                        <div class="footer-widget-title">
+                                            <h3>QUICK LINK</h3>
+                                        </div>
+                                        <nav aria-label="Quick Link">
+                                            <ul>
+                                                <li><a href="community/about-us/">About Us</a></li>
+                                                <li><a href="/fellowship/">Fellowship</a></li>
+                                                <li><a href="community/careers/">Careers</a></li>
+                                                <li><a href="terms.html">Terms of use</a></li>
+                                                <li><a href="accessibility.html">Accessibility</a></li>
+                                                <li><a href="privacy.html">Privacy policy</a></li>
+                                            </ul>
+                                        </nav>
+                                    </div>
+                                </div>
+                                <!-- End footer widget -->
+                                <!-- Start footer widget -->
+                                <div class="col-sm-4">
+                                    <div class="footer-widget widget-four">
+                                        <div class="footer-widget-title">
+                                            <h3>NEWSLETTER</h3>
+                                        </div>
+                                        <div class="widget-about-content">
+                                            <p>Select your newsletters, enter your email address, and click "Subscribe"</p>
+                                        </div>
+                                        <div class="newslater">
+                                            <form id="mc-form" class="mc-form form">
+                                                <input id="mc-email" type="email" autocomplete="off" placeholder="Email Address" aria-label="Email address for newsletter">
+                                                <button id="mc-submit" type="submit" aria-label="Subscribe to newsletter"><svg xmlns="http://www.w3.org/2000/svg" class="icon-fa" viewBox="0 0 1792 1792" aria-hidden="true" focusable="false"><path fill="currentColor" d="M1792 966V1760Q1792 1826 1745.0 1873.0Q1698 1920 1632 1920H160Q94 1920 47.0 1873.0Q0 1826 0 1760V966Q44 1015 101 1053Q463 1299 598 1398Q655 1440 690.5 1463.5Q726 1487 785.0 1511.5Q844 1536 895 1536H896H897Q948 1536 1007.0 1511.5Q1066 1487 1101.5 1463.5Q1137 1440 1194 1398Q1364 1275 1692 1053Q1749 1014 1792 966ZM1792 672Q1792 751 1743.0 823.0Q1694 895 1621 946Q1245 1207 1153 1271Q1143 1278 1110.5 1301.5Q1078 1325 1056.5 1339.5Q1035 1354 1004.5 1372.0Q974 1390 947.0 1399.0Q920 1408 897 1408H896H895Q872 1408 845.0 1399.0Q818 1390 787.5 1372.0Q757 1354 735.5 1339.5Q714 1325 681.5 1301.5Q649 1278 639 1271Q548 1207 377.0 1088.5Q206 970 172 946Q110 904 55.0 830.5Q0 757 0 694Q0 616 41.5 564.0Q83 512 160 512H1632Q1697 512 1744.5 559.0Q1792 606 1792 672Z"/></svg></button>
+                                            </form>
+                                            <!-- mailchimp-alerts Start -->
+                                            <div class="mailchimp-alerts text-center">
+                                                <div class="mailchimp-submitting"></div><!-- mailchimp-submitting end -->
+                                                <div class="mailchimp-success"></div><!-- mailchimp-success end -->
+                                                <div class="mailchimp-error"></div><!-- mailchimp-error end -->
+                                            </div><!-- mailchimp-alerts end -->
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- End footer widget -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-8">
+                                <div class="copyright">
+                                    <p>INSTAR Lab Inc. is a registered 501(c)(3) nonprofit. Copyright © 2026 INSTAR Lab Inc. All Rights Reserved.</p>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="footer-social"></div>
+                            </div>
+                        </div>
+                        <div class="d-none d-sm-block" id="back-top" style="display: block;" aria-label="Back to top" role="button" tabindex="0"></div>
+                    </div>
+                </div>
+            </footer>
+            <!-- End footer -->
+        </div>
+        <!-- End main area -->
+
+        
+
+		
+		<!-- bootstrap js
+		============================================ -->         
+        <script defer src="js/bootstrap.min.js"></script>
+		
+
+		<!-- wow js
+		============================================ -->       
+        <script defer src="js/wow.js"></script>
+
+		<!-- site-chrome js (sticky nav + back-to-top, no jQuery)
+		============================================ -->
+        <script defer src="js/site-chrome.min.js"></script>
+
+		<!-- newsletter js (footer signup, no jQuery)
+		============================================ -->
+        <script defer src="js/newsletter.min.js"></script>
+
+		
+        
+      
+        <script>
+        	document.addEventListener('DOMContentLoaded', function () { new WOW().init(); });
+        </script>
+
+   		<!-- main js
+		============================================ -->           
+        <script defer src="js/main.min.js"></script>
+    </body>
+</html>
+

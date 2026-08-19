@@ -1,0 +1,925 @@
+---
+import { coreRoutes } from '../data/core-routes';
+
+const meta = coreRoutes.mission;
+---
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>{meta.title}</title>
+        <meta name="description" content={meta.description}>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="canonical" href={meta.canonical}>
+        <meta name="robots" content={meta.robots}>
+        <meta name="theme-color" content="#1072ba">
+
+        <!-- Favicon
+		============================================ -->
+		<link rel="icon" href="img/logo/instar.svg" type="image/svg+xml">
+		<link rel="icon" href="img/logo/fav/favicon.ico" sizes="any">
+		<link rel="apple-touch-icon" href="img/logo/fav/apple-touch-icon.png">
+        <link rel="manifest" href="img/logo/fav/site.webmanifest">
+
+        <!-- Open Graph
+        ============================================ -->
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://instarlab.org/mission.html">
+        <meta property="og:title" content="Our Mission — INSTAR Lab">
+        <meta property="og:description" content="INSTAR Lab exists to expand human knowledge through rigorous, evidence-driven research and translate discoveries into public-benefit applications across science and technology.">
+        <meta property="og:image" content="https://instarlab.org/img/og/default.jpg">
+        <meta property="og:image:alt" content="INSTAR Lab researchers at work — mission-driven applied science and federal research readiness">
+        <meta property="og:site_name" content="INSTAR Lab">
+
+        <!-- Twitter Card
+        ============================================ -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:site" content="@INSTARLab">
+        <meta name="twitter:title" content="Our Mission — INSTAR Lab">
+        <meta name="twitter:description" content="INSTAR Lab exists to expand human knowledge through rigorous, evidence-driven research and translate discoveries into public-benefit applications across science and technology.">
+        <meta name="twitter:image" content="https://instarlab.org/img/og/default.jpg">
+
+        <!-- JSON-LD Structured Data -->
+        <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          "name": "Our Mission — INSTAR Lab",
+          "description": "INSTAR Lab exists to expand human knowledge through rigorous, evidence-driven research and translate discoveries into public-benefit applications across science and technology.",
+          "url": "https://instarlab.org/mission.html",
+          "inLanguage": "en-US",
+          "isPartOf": {
+            "@type": "WebSite",
+            "name": "INSTAR Lab",
+            "url": "https://instarlab.org/"
+          },
+          "about": {
+            "@type": "Thing",
+            "name": "Research Mission"
+          },
+          "breadcrumb": {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://instarlab.org/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Our Mission",
+                "item": "https://instarlab.org/mission.html"
+              }
+            ]
+          }
+        }
+        </script>
+        <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "ResearchOrganization",
+          "name": "INSTAR Lab Inc.",
+          "url": "https://instarlab.org/",
+          "logo": "https://instarlab.org/img/logo/instar.svg",
+          "description": "INSTAR Lab Inc. is an independent 501(c)(3) nonprofit research institute advancing science through interdisciplinary collaboration, technological innovation, and partnership.",
+          "nonprofitStatus": "Nonprofit501c3"
+        }
+        </script>
+
+        <!-- master CSS
+        ============================================ -->
+        <link rel="preload" href="fonts/roboto-latin-400.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="stylesheet" href="master.css">
+        <!-- NAV-2026-HEAD:START -->
+        <script>document.documentElement.classList.replace('no-js','js');</script>
+        <link rel="stylesheet" href="css/nav-2026.css">
+        <script defer src="js/nav-2026.min.js"></script>
+        <!-- NAV-2026-HEAD:END -->
+        <!-- SPECULATION-RULES:START -->
+        <script type="speculationrules">
+        {
+            "prerender": [
+                {
+                    "source": "document",
+                    "where": {
+                        "and": [
+                            {
+                                "href_matches": "/*"
+                            },
+                            {
+                                "not": {
+                                    "href_matches": [
+                                        "/contact-us.html",
+                                        "/community/contact/*",
+                                        "/community/partner/*",
+                                        "/community/fellowship/*",
+                                        "/fellowship/*",
+                                        "/community/support/*"
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    "eagerness": "moderate"
+                }
+            ]
+        }
+        </script>
+        <!-- SPECULATION-RULES:END -->
+    <style>.footer-widget.widget-two li::after { display: none; }</style>
+</head>
+    <body>
+        <a class="skip-to-content" href="#main-content">Skip to main content</a>
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+		<!-- Start main area -->
+        <div class="main-area">
+        	<!-- Start header -->
+            <header>
+                <!-- Start header top -->
+                <div class="header-top">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-5 col-md-6">
+                                <div class="top-social"></div>
+                            </div>
+                            <div class="col-sm-7 col-md-6">
+                                	                            <!-- NAV-2026-TOPBAR:START -->
+                            <div class="call-to-action">
+                                <nav aria-label="Contact">
+                                	<ul>
+	                                	<li><a href="mailto:info@instarlab.org"><svg width="14" height="11" viewBox="0 0 14 11" aria-hidden="true" focusable="false"><rect x="1" y="1" width="12" height="9" rx="1.5" stroke="currentColor" stroke-width="1.5" fill="none"/><polyline points="1,1.5 7,6.5 13,1.5" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linejoin="round"/></svg> Email: info@instarlab.org</a></li>
+	                                	<li><a href="tel:9292292918"><svg width="12" height="13" viewBox="0 0 12 13" aria-hidden="true" focusable="false"><path d="M2.5 1.5h2.2l.9 2.6-1.7 1.2c.8 1.8 2.2 3.1 3.9 3.9L9.1 7.6l2.6.9v2.2a1 1 0 0 1-1 1C4.2 11.7.3 7.8.3 2.5a1 1 0 0 1 1-1h1.2z" stroke="currentColor" stroke-width="1.3" fill="none" stroke-linejoin="round"/></svg> Phone: 929-229-2918</a></li>
+	                                	<li><a href="research/current-programs/"><svg width="12" height="14" viewBox="0 0 12 14" aria-hidden="true" focusable="false"><path d="M4.5 1v5.5L1.5 12h9L7.5 6.5V1" stroke="currentColor" stroke-width="1.3" fill="none" stroke-linecap="round" stroke-linejoin="round"/><line x1="3" y1="1" x2="9" y2="1" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg> Research</a></li>
+	                                </ul>
+                                </nav>
+                            </div>
+                            <!-- NAV-2026-TOPBAR:END -->
+                        </div>
+                    </div>
+                </div>
+                </div>
+                <!-- End header top -->
+                        		<!-- NAV-2026:START -->
+		<!-- Start main menu area -->
+		<div class="main-menu-area" id="sticker">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-3 col-12">
+						<div class="logo ptb-32">
+							<a href="index.html">
+								<img src="img/logo/instar.svg" alt="INSTAR Lab">
+							</a>
+						</div>
+                                <!-- Hamburger: visible on mobile ≤991px only -->
+                                <button type="button" class="mobile-menu-btn"
+                                        aria-expanded="false"
+                                        aria-controls="mobile-nav"
+                                        aria-label="Open navigation menu">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <line class="hb-line hb-top" x1="3" y1="6"  x2="21" y2="6"  stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                        <line class="hb-line hb-mid" x1="3" y1="12" x2="21" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                        <line class="hb-line hb-bot" x1="3" y1="18" x2="21" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                    </svg>
+                                </button>
+					</div>
+					<div class="col-sm-9 col-12">
+						<div class="donate-button ptb-32">
+							<a class="waves-effect waves-light" href="community/support/">Donate</a>
+						</div>
+						<div class="main-menu">
+							<nav aria-label="Main">
+								<ul>
+                                            <!-- 1. About -->
+                                            <li>
+                                                <button type="button" class="nav-toggle" aria-expanded="false" aria-haspopup="true" aria-controls="submenu-about">About <svg class="nav-chevron" width="10" height="6" viewBox="0 0 10 6" aria-hidden="true" focusable="false"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+                                                <ul class="drop-menu" id="submenu-about">
+                                                    <li><a href="mission.html" aria-current="page">Mission</a></li>
+                                                    <li><a href="community/about-us/">About Us</a></li>
+                                                    <li><a href="community/leadership/">Leadership</a></li>
+                                                    <li><a href="research/consortium/">INSTAR Consortium</a></li>
+                                                    <li><a href="research/facilities/">Facilities</a></li>
+                                                </ul>
+                                            </li>
+                                            <!-- 2. Research -->
+                                            <li>
+                                                <button type="button" class="nav-toggle" aria-expanded="false" aria-haspopup="true" aria-controls="submenu-research">Research <svg class="nav-chevron" width="10" height="6" viewBox="0 0 10 6" aria-hidden="true" focusable="false"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+                                                <ul class="drop-menu" id="submenu-research">
+                                                    <li><a href="research/innovation/">Innovation</a></li>
+                                                    <li><a href="research/our-process/">Our Process</a></li>
+                                                    <li><a href="research/current-programs/">Current Programs</a></li>
+                                                    <li><a href="research/funding/">Funding</a></li>
+                                                    <li><a href="research/open-data/">Open Data</a></li>
+                                                    <li><a href="research/opportunities/">Opportunities</a></li>
+                                                </ul>
+                                            </li>
+                                            <!-- 3. Sciences — 4-column mega-menu -->
+                                            <li class="mega-menu">
+                                                <button type="button" class="nav-toggle" aria-expanded="false" aria-haspopup="true" aria-controls="submenu-sciences">Sciences <svg class="nav-chevron" width="10" height="6" viewBox="0 0 10 6" aria-hidden="true" focusable="false"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+                                                <div class="mega-menu-area" id="submenu-sciences">
+                                                    <ul class="single-mega-item">
+                                                        <li class="shortcode-title">Earth &amp; Space</li>
+                                                        <li><a href="sciences/agriculture/">Agriculture</a></li>
+                                                        <li><a href="sciences/geology/">Geology</a></li>
+                                                        <li><a href="sciences/ocean-science/">Ocean Science</a></li>
+                                                        <li><a href="sciences/outer-space/">Outer Space</a></li>
+                                                    </ul>
+                                                    <ul class="single-mega-item">
+                                                        <li class="shortcode-title">Social Sciences</li>
+                                                        <li><a href="sciences/anthropology/">Anthropology</a></li>
+                                                        <li><a href="sciences/archaeology/">Archaeology</a></li>
+                                                        <li><a href="sciences/economics/">Economics</a></li>
+                                                        <li><a href="sciences/law/">Law</a></li>
+                                                        <li><a href="sciences/linguistics/">Linguistics</a></li>
+                                                        <li><a href="sciences/psychology/">Psychology</a></li>
+                                                        <li><a href="sciences/sociology/">Sociology</a></li>
+                                                    </ul>
+                                                    <ul class="single-mega-item">
+                                                        <li class="shortcode-title">Life Sciences</li>
+                                                        <li><a href="sciences/biology/">Biology</a></li>
+                                                        <li><a href="sciences/genetics/">Genetics</a></li>
+                                                        <li><a href="sciences/medicine/">Medicine</a></li>
+                                                        <li><a href="sciences/cognitive-sciences/">Cognitive Sciences</a></li>
+                                                        <li><a href="sciences/neuroscience/">Neuroscience</a></li>
+                                                        <li><a href="sciences/physiology/">Physiology</a></li>
+                                                        <li><a href="sciences/kinesiology/">Kinesiology</a></li>
+                                                    </ul>
+                                                    <ul class="single-mega-item">
+                                                        <li class="shortcode-title">Physical Sciences</li>
+                                                        <li><a href="sciences/chemistry/">Chemistry</a></li>
+                                                        <li><a href="sciences/physics/">Physics</a></li>
+                                                        <li><a href="sciences/materials-science/">Materials Science</a></li>
+                                                        <li><a href="sciences/energy/">Energy</a></li>
+                                                    </ul>
+                                                </div>
+                                            </li>
+                                            <!-- 4. Technology -->
+                                            <li>
+                                                <button type="button" class="nav-toggle" aria-expanded="false" aria-haspopup="true" aria-controls="submenu-technology">Technology <svg class="nav-chevron" width="10" height="6" viewBox="0 0 10 6" aria-hidden="true" focusable="false"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+                                                <ul class="drop-menu" id="submenu-technology">
+                                                    <li><a href="technology/formal-methods/">Formal Methods</a></li>
+                                                    <li><a href="technology/data-science/">Data Science</a></li>
+                                                    <li><a href="technology/computer-science/">Computer Science</a></li>
+                                                    <li><a href="technology/machine-intelligence/">Machine Intelligence</a></li>
+                                                    <li><a href="technology/natural-language-processing/">Natural Language Processing</a></li>
+                                                    <li><a href="technology/augmented-reality/">Augmented Reality</a></li>
+                                                    <li><a href="technology/quantum-computing/">Quantum Computing</a></li>
+                                                </ul>
+                                            </li>
+                                            <!-- 5. Tech Transfer -->
+									<li>
+                                                <button type="button" class="nav-toggle" aria-expanded="false" aria-haspopup="true" aria-controls="submenu-tech-transfer">Tech Transfer <svg class="nav-chevron" width="10" height="6" viewBox="0 0 10 6" aria-hidden="true" focusable="false"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+                                                <ul class="drop-menu" id="submenu-tech-transfer">
+                                                    <li><a href="tech-transfer/sttr-programs/">STTR Programs</a></li>
+                                                    <li><a href="tech-transfer/enterprise-rd/">Enterprise R&amp;D</a></li>
+                                                    <li><a href="tech-transfer/portfolio/">Portfolio</a></li>
+                                                    <li><a href="tech-transfer/workshops-events/">Workshops &amp; Events</a></li>
+                                                </ul>
+                                            </li>
+                                            <!-- 6. Community -->
+                                            <li>
+                                                <button type="button" class="nav-toggle" aria-expanded="false" aria-haspopup="true" aria-controls="submenu-community">Community <svg class="nav-chevron" width="10" height="6" viewBox="0 0 10 6" aria-hidden="true" focusable="false"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+                                                <ul class="drop-menu" id="submenu-community">
+                                                    <li><a href="/fellowship/">Fellowship</a></li>
+                                                    <li><a href="community/work-with-us/">Collaborate</a></li>
+                                                    <li><a href="community/careers/">Careers</a></li>
+                                                    <li><a href="community/contact/">Contact</a></li>
+                                                </ul>
+                                            </li>
+                                            <!-- 7. News (direct link) -->
+                                            <li><a class="nav-link" href="news/">News</a></li>
+								</ul>
+							</nav>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- End main menu area -->
+        <!-- Mobile nav backdrop -->
+        <div class="mobile-nav-overlay" id="mobile-nav-overlay" aria-hidden="true"></div>
+        <!-- Mobile nav off-canvas drawer (vanilla JS, no meanmenu) -->
+        <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation" aria-hidden="true" inert>
+            <div class="mobile-nav__header">
+                <img src="img/logo/instar.svg" alt="INSTAR Lab" class="mobile-nav__logo">
+                <button type="button" class="mobile-nav__close" aria-label="Close navigation menu">
+                    <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true" focusable="false" fill="none">
+                        <line x1="3" y1="3" x2="17" y2="17" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                        <line x1="17" y1="3" x2="3" y2="17" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="mobile-nav__body">
+                <ul class="mobile-nav__list">
+                    <!-- 1. About -->
+                    <li class="mobile-nav__item">
+                        <button type="button" class="mobile-nav__toggle" aria-expanded="false" aria-controls="mob-sub-about">
+                            About
+                            <svg class="mobile-nav__chevron" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" focusable="false" fill="none"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </button>
+                        <ul class="mobile-nav__sub" id="mob-sub-about">
+                            <li><a class="mobile-nav__sub-link" href="mission.html" aria-current="page">Mission</a></li>
+                            <li><a class="mobile-nav__sub-link" href="community/about-us/">About Us</a></li>
+                            <li><a class="mobile-nav__sub-link" href="community/leadership/">Leadership</a></li>
+                            <li><a class="mobile-nav__sub-link" href="research/consortium/">INSTAR Consortium</a></li>
+                            <li><a class="mobile-nav__sub-link" href="research/facilities/">Facilities</a></li>
+                        </ul>
+                    </li>
+                    <!-- 2. Research -->
+                    <li class="mobile-nav__item">
+                        <button type="button" class="mobile-nav__toggle" aria-expanded="false" aria-controls="mob-sub-research">
+                            Research
+                            <svg class="mobile-nav__chevron" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" focusable="false" fill="none"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </button>
+                        <ul class="mobile-nav__sub" id="mob-sub-research">
+                            <li><a class="mobile-nav__sub-link" href="research/innovation/">Innovation</a></li>
+                            <li><a class="mobile-nav__sub-link" href="research/our-process/">Our Process</a></li>
+                            <li><a class="mobile-nav__sub-link" href="research/current-programs/">Current Programs</a></li>
+                            <li><a class="mobile-nav__sub-link" href="research/funding/">Funding</a></li>
+                            <li><a class="mobile-nav__sub-link" href="research/open-data/">Open Data</a></li>
+                            <li><a class="mobile-nav__sub-link" href="research/opportunities/">Opportunities</a></li>
+                        </ul>
+                    </li>
+                    <!-- 3. Sciences (mega-menu flattened with category headings) -->
+                    <li class="mobile-nav__item">
+                        <button type="button" class="mobile-nav__toggle" aria-expanded="false" aria-controls="mob-sub-sciences">
+                            Sciences
+                            <svg class="mobile-nav__chevron" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" focusable="false" fill="none"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </button>
+                        <ul class="mobile-nav__sub" id="mob-sub-sciences">
+                            <li class="mobile-nav__sub-heading">Earth &amp; Space</li>
+                            <li><a class="mobile-nav__sub-link" href="sciences/agriculture/">Agriculture</a></li>
+                            <li><a class="mobile-nav__sub-link" href="sciences/geology/">Geology</a></li>
+                            <li><a class="mobile-nav__sub-link" href="sciences/ocean-science/">Ocean Science</a></li>
+                            <li><a class="mobile-nav__sub-link" href="sciences/outer-space/">Outer Space</a></li>
+                            <li class="mobile-nav__sub-heading">Social Sciences</li>
+                            <li><a class="mobile-nav__sub-link" href="sciences/anthropology/">Anthropology</a></li>
+                            <li><a class="mobile-nav__sub-link" href="sciences/archaeology/">Archaeology</a></li>
+                            <li><a class="mobile-nav__sub-link" href="sciences/economics/">Economics</a></li>
+                            <li><a class="mobile-nav__sub-link" href="sciences/law/">Law</a></li>
+                            <li><a class="mobile-nav__sub-link" href="sciences/linguistics/">Linguistics</a></li>
+                            <li><a class="mobile-nav__sub-link" href="sciences/psychology/">Psychology</a></li>
+                            <li><a class="mobile-nav__sub-link" href="sciences/sociology/">Sociology</a></li>
+                            <li class="mobile-nav__sub-heading">Life Sciences</li>
+                            <li><a class="mobile-nav__sub-link" href="sciences/biology/">Biology</a></li>
+                            <li><a class="mobile-nav__sub-link" href="sciences/genetics/">Genetics</a></li>
+                            <li><a class="mobile-nav__sub-link" href="sciences/medicine/">Medicine</a></li>
+                            <li><a class="mobile-nav__sub-link" href="sciences/cognitive-sciences/">Cognitive Sciences</a></li>
+                            <li><a class="mobile-nav__sub-link" href="sciences/neuroscience/">Neuroscience</a></li>
+                            <li><a class="mobile-nav__sub-link" href="sciences/physiology/">Physiology</a></li>
+                            <li><a class="mobile-nav__sub-link" href="sciences/kinesiology/">Kinesiology</a></li>
+                            <li class="mobile-nav__sub-heading">Physical Sciences</li>
+                            <li><a class="mobile-nav__sub-link" href="sciences/chemistry/">Chemistry</a></li>
+                            <li><a class="mobile-nav__sub-link" href="sciences/physics/">Physics</a></li>
+                            <li><a class="mobile-nav__sub-link" href="sciences/materials-science/">Materials Science</a></li>
+                            <li><a class="mobile-nav__sub-link" href="sciences/energy/">Energy</a></li>
+                        </ul>
+                    </li>
+                    <!-- 4. Technology -->
+                    <li class="mobile-nav__item">
+                        <button type="button" class="mobile-nav__toggle" aria-expanded="false" aria-controls="mob-sub-technology">
+                            Technology
+                            <svg class="mobile-nav__chevron" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" focusable="false" fill="none"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </button>
+                        <ul class="mobile-nav__sub" id="mob-sub-technology">
+                            <li><a class="mobile-nav__sub-link" href="technology/formal-methods/">Formal Methods</a></li>
+                            <li><a class="mobile-nav__sub-link" href="technology/data-science/">Data Science</a></li>
+                            <li><a class="mobile-nav__sub-link" href="technology/computer-science/">Computer Science</a></li>
+                            <li><a class="mobile-nav__sub-link" href="technology/machine-intelligence/">Machine Intelligence</a></li>
+                            <li><a class="mobile-nav__sub-link" href="technology/natural-language-processing/">Natural Language Processing</a></li>
+                            <li><a class="mobile-nav__sub-link" href="technology/augmented-reality/">Augmented Reality</a></li>
+                            <li><a class="mobile-nav__sub-link" href="technology/quantum-computing/">Quantum Computing</a></li>
+                        </ul>
+                    </li>
+                    <!-- 5. Tech Transfer -->
+                    <li class="mobile-nav__item">
+                        <button type="button" class="mobile-nav__toggle" aria-expanded="false" aria-controls="mob-sub-tech-transfer">
+                            Tech Transfer
+                            <svg class="mobile-nav__chevron" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" focusable="false" fill="none"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </button>
+                        <ul class="mobile-nav__sub" id="mob-sub-tech-transfer">
+                            <li><a class="mobile-nav__sub-link" href="tech-transfer/sttr-programs/">STTR Programs</a></li>
+                            <li><a class="mobile-nav__sub-link" href="tech-transfer/enterprise-rd/">Enterprise R&amp;D</a></li>
+                            <li><a class="mobile-nav__sub-link" href="tech-transfer/portfolio/">Portfolio</a></li>
+                            <li><a class="mobile-nav__sub-link" href="tech-transfer/workshops-events/">Workshops &amp; Events</a></li>
+                        </ul>
+                    </li>
+                    <!-- 6. Community -->
+                    <li class="mobile-nav__item">
+                        <button type="button" class="mobile-nav__toggle" aria-expanded="false" aria-controls="mob-sub-community">
+                            Community
+                            <svg class="mobile-nav__chevron" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" focusable="false" fill="none"><path d="M3 6l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </button>
+                        <ul class="mobile-nav__sub" id="mob-sub-community">
+                            <li><a class="mobile-nav__sub-link" href="/fellowship/">Fellowship</a></li>
+                            <li><a class="mobile-nav__sub-link" href="community/work-with-us/">Collaborate</a></li>
+                            <li><a class="mobile-nav__sub-link" href="community/careers/">Careers</a></li>
+                            <li><a class="mobile-nav__sub-link" href="community/contact/">Contact</a></li>
+                        </ul>
+                    </li>
+                    <!-- 7. News -->
+                    <li class="mobile-nav__item">
+                        <a class="mobile-nav__link" href="news/">News</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="mobile-nav__donate">
+                <a href="community/support/">Donate</a>
+            </div>
+        </nav>
+        <!-- NAV-2026:END -->
+            </header>
+            <!-- End header -->
+            <main id="main-content">
+            <!-- Start page title -->
+            <section class="page-title-area" style="background-image:url(img/banners/mission.avif);background-size:cover;background-position:center;background-repeat:no-repeat;">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="page-title text-center">
+                                <h1>Our Mission</h1>
+                            </div>
+                            <div class="breadcumb-area  text-center">
+                                <nav aria-label="breadcrumb"><ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">Our Mission</li>
+                                </ol></nav>
+                            </div>
+                            <div class="back-home">
+                                <a href="index.html"><svg xmlns="http://www.w3.org/2000/svg" class="icon-fa" viewBox="0 0 1536 1792" aria-hidden="true" focusable="false"><path fill="currentColor" d="M1536 1152V1280Q1536 1333 1503.5 1370.5Q1471 1408 1419 1408H715L1008 1702Q1046 1738 1046.0 1792.0Q1046 1846 1008 1882L933 1958Q896 1995 843 1995Q791 1995 752 1958L101 1306Q64 1269 64 1216Q64 1164 101 1125L752 475Q790 437 843 437Q895 437 933 475L1008 549Q1046 587 1046.0 640.0Q1046 693 1008 731L715 1024H1419Q1471 1024 1503.5 1061.5Q1536 1099 1536 1152Z"/></svg> BACK TO HOME</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- End page title -->
+
+            <!-- Start mission statement area -->
+            <section class="about-content-area pt-90 pb-60">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="about-content">
+                                <!-- Start section title -->
+                                <div class="section-title text-center">
+                                    <h2>Our <span>Mission</span></h2>
+                                </div>
+                                <!-- End section title -->
+                                <p>INSTAR Lab is an independent research institute advancing scientific discovery to enhance research, development, theory, education, innovation, and societal growth — translating those advances into real-world benefit through the INSTAR Consortium and direct technology transfer. Headquartered in Marietta, Ohio — Ohio's oldest town — and rooted in the Appalachian research community, we are a 501(c)(3) public charity accountable to the public interest, not to shareholders.</p>
+                                <p>INSTAR builds research programs around disciplined proposal development, reproducible methods, secure computational infrastructure, and accountable public-benefit outcomes. We draw on Appalachian scientific talent while collaborating with university researchers, industry partners, and public-sector stakeholders across disciplines, creating teams prepared for federally funded work from concept through publication and technology transfer.</p>
+                                <div class="about-button btn btn-primary">
+                                    <a href="research/current-programs/">Explore Research Programs</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="about-image">
+                                <img src="img/about/about-image.avif" alt="INSTAR Lab research mission" loading="lazy" decoding="async">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- End mission statement area -->
+
+            <!-- Start vision area -->
+            <section class="what-we-do-area pb-70">
+                <div class="container">
+                    <div class="row">
+                        <!-- Start section title -->
+                        <div class="col-sm-12">
+                            <div class="section-title text-center">
+                                <h2>Our <span>Vision</span></h2>                                <p>INSTAR is a research institute working at the genuine frontier of the possible — advancing applied science across AI, quantum, energy, health, and the broad sciences, then translating those advances into real-world impact through the INSTAR Consortium and direct technology transfer to partner companies in the region and beyond. The most important scientific questions are pursued by the most capable researchers, unconstrained by institutional inertia or commercial pressure, and the benefits of that science reach the public. Our north star is advancing civilization toward the Kardashev scale — we empower scientists and projects that move humanity up that ladder.</p>
+                            </div>
+                        </div>
+                        <!-- End section title -->
+                        <div class="what-we-do row">
+                            <!-- Start single we do -->
+                            <div class="col-sm-4">
+                                <div class="single-we-do">
+                                    <div class="we-do-image">
+                                        <img src="img/about/we-do-one.avif" alt="Applied research initiative" loading="lazy" decoding="async">
+                                    </div>
+                                    <div class="we-do-text">
+                                        <h3>FRONTIER SCIENCE</h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End single we do -->
+                            <!-- Start single we do -->
+                            <div class="col-sm-4">
+                                <div class="single-we-do">
+                                    <div class="we-do-image">
+                                        <img src="img/about/we-do-two.avif" alt="Consortium collaboration" loading="lazy" decoding="async">
+                                    </div>
+                                    <div class="we-do-text">
+                                        <h3>CONSORTIUM IMPACT</h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End single we do -->
+                            <!-- Start single we do -->
+                            <div class="col-sm-4">
+                                <div class="single-we-do">
+                                    <div class="we-do-image">
+                                        <img src="img/about/we-do-three.avif" alt="Technology transfer to public benefit" loading="lazy" decoding="async">
+                                    </div>
+                                    <div class="we-do-text">
+                                        <h3>PUBLIC BENEFIT</h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End single we do -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- End vision area -->
+
+            <!-- Start help us area -->
+            <section class="help-us-area pt-80 pb-80">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="section-title-style-two text-center">
+                                <h2>The INSTAR Method</h2>
+                                <p><em>Chart. Explore. Transmit.</em></p>
+                                <p>We chart the scientific frontier, explore it through rigorous research, and transmit validated knowledge to the partners, agencies, journals, and technologies that carry it forward.</p>
+                            </div>
+                        </div>
+                        <div class="help-us-content-area row">
+                            <!-- Start single help -->
+                            <div class="col-sm-4">
+                                <div class="single-help">
+                                    <div class="help-icon">
+                                        <img src="img/icons/method-chart.svg" alt="" width="56" height="56" loading="lazy" decoding="async">
+                                    </div>
+                                    <div class="help-text">
+                                        <h3>Chart</h3>
+                                        <p>Define the scientific frontier, technical objectives, research risks, partner roles, and path of inquiry.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End single help -->
+                            <!-- Start single help -->
+                            <div class="col-sm-4">
+                                <div class="single-help">
+                                    <div class="help-icon">
+                                        <img src="img/icons/method-explore.svg" alt="" width="56" height="56" loading="lazy" decoding="async">
+                                    </div>
+                                    <div class="help-text">
+                                        <h3>Explore</h3>
+                                        <p>Conduct rigorous, PI-led research through experimentation, analysis, validation, modeling, field inquiry, and peer-informed scientific methods.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End single help -->
+                            <!-- Start single help -->
+                            <div class="col-sm-4">
+                                <div class="single-help">
+                                    <div class="help-icon">
+                                        <img src="img/icons/method-transmit.svg" alt="" width="56" height="56" loading="lazy" decoding="async">
+                                    </div>
+                                    <div class="help-text">
+                                        <h3>Transmit</h3>
+                                        <p>Transfer the knowledge forward through reports, journals, datasets, prototypes, IP support, technical documentation, partner handoff, and commercialization pathways.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End single help -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- End help us area -->
+
+            <!-- Start principles area -->
+            <section class="our-volunteers-area pt-90 pb-90">
+                <div class="container">
+                    <div class="row">
+                        <!-- Start section title -->
+                        <div class="col-sm-12">
+                            <div class="section-title text-center">
+                                <h2>Our <span>Principles</span></h2>                                <p>These values are not aspirational — they are operational. They govern how we select research, how we work with partners, and how we steward resources entrusted to us by donors and the public.</p>
+                            </div>
+                        </div>
+                        <!-- End section title -->
+                        <div class="what-we-do row">
+                            <!-- Start single principle -->
+                            <div class="col-sm-3">
+                                <div class="single-volunteer">
+                                    <div class="volunteer-title text-center" style="padding:30px 15px;">
+                                        <div style="margin-bottom:12px;"><img src="img/icons/principle-intellectual-freedom.svg" alt="" width="48" height="48" loading="lazy" decoding="async"></div>
+                                        <h3>Intellectual Freedom</h3>
+                                        <p>Our researchers pursue questions they judge to be important. Research agendas are set by scientific merit, not by donor preference, departmental politics, or short-term commercial pressure.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End single principle -->
+                            <!-- Start single principle -->
+                            <div class="col-sm-3">
+                                <div class="single-volunteer">
+                                    <div class="volunteer-title text-center" style="padding:30px 15px;">
+                                        <div style="margin-bottom:12px;"><img src="img/icons/principle-scientific-rigor-reproducibility.svg" alt="" width="48" height="48" loading="lazy" decoding="async"></div>
+                                        <h3>Scientific Rigor &amp; Reproducibility</h3>
+                                        <p>Every research program is held to standards of methodological rigor and reproducibility. We do not publish results we cannot defend, and we do not overstate findings.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End single principle -->
+                            <!-- Start single principle -->
+                            <div class="col-sm-3">
+                                <div class="single-volunteer">
+                                    <div class="volunteer-title text-center" style="padding:30px 15px;">
+                                        <div style="margin-bottom:12px;"><img src="img/icons/principle-public-benefit-accountability.svg" alt="" width="48" height="48" loading="lazy" decoding="async"></div>
+                                        <h3>Public Benefit &amp; Accountability</h3>
+                                        <p>As a 501(c)(3) public charity, we are legally and ethically accountable to the public interest. Our work must ultimately benefit society, not merely advance careers or generate commercial returns.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End single principle -->
+                            <!-- Start single principle -->
+                            <div class="col-sm-3">
+                                <div class="single-volunteer">
+                                    <div class="volunteer-title text-center" style="padding:30px 15px;">
+                                        <div style="margin-bottom:12px;"><img src="img/icons/principle-interdisciplinary-collaboration.svg" alt="" width="48" height="48" loading="lazy" decoding="async"></div>
+                                        <h3>Interdisciplinary Collaboration</h3>
+                                        <p>The most significant advances come from the intersection of disciplines. INSTAR is intentionally structured to bring together investigators from different fields — because that is where non-obvious connections become genuine breakthroughs.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End single principle -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- End principles area -->
+
+            <!-- Start accountability area -->
+            <section class="video-and-skil-area pb-90">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="about-video">
+                                <img src="img/about/video-image.avif" alt="INSTAR Lab — Accountability and Transparency" loading="lazy" decoding="async">
+                                <a class="popup-youtube" href="#" role="button" data-bs-toggle="modal" data-bs-target="#youtubeModal" aria-label="Play video"><svg xmlns="http://www.w3.org/2000/svg" class="icon-fa" viewBox="0 0 1536 1792" aria-hidden="true" focusable="false"><path fill="currentColor" d="M382.5 487.0Q559 384 768.0 384.0Q977 384 1153.5 487.0Q1330 590 1433.0 766.5Q1536 943 1536.0 1152.0Q1536 1361 1433.0 1537.5Q1330 1714 1153.5 1817.0Q977 1920 768.0 1920.0Q559 1920 382.5 1817.0Q206 1714 103.0 1537.5Q0 1361 0.0 1152.0Q0 943 103.0 766.5Q206 590 382.5 487.0ZM1152 1207Q1184 1189 1184.0 1152.0Q1184 1115 1152 1097L608 777Q577 758 544 776Q512 795 512 832V1472Q512 1509 544 1528Q560 1536 576 1536Q593 1536 608 1527Z"/></svg></a>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="about-skill-text text-center">
+                                <h3>ACCOUNTABILITY &amp; TRANSPARENCY</h3>
+                                <p>INSTAR Lab Inc. is an independent 501(c)(3) nonprofit research organization, IRS-recognized since 2020 and headquartered in Marietta, Ohio. We operate as a 501(c)(3) public charity — and we run our own research programs rather than simply making grants. Donations are tax-deductible to the extent allowed by law under IRC §170.</p>
+                                <p>INSTAR Lab Inc.'s EIN is <strong>85-0845517</strong>. Public IRS annual filings, including Form 990-N e-Postcards where applicable, are available through the <a href="https://www.irs.gov/charities-non-profits/search-for-forms-990-n-filed-by-small-tax-exempt-organizations" target="_blank" rel="noopener noreferrer">IRS Form 990-N search</a> and the <a href="https://apps.irs.gov/app/eos/" target="_blank" rel="noopener noreferrer">IRS Tax Exempt Organization Search</a>.</p>
+                                <p>Our original IRS determination letter is available here: <a href="docs/irs-determination-letter-85-0845517.pdf" target="_blank" rel="noopener noreferrer">IRS 501(c)(3) Determination Letter</a>. Our nonprofit profile is listed on <a href="https://www.guidestar.org/profile/85-0845517" target="_blank" rel="noopener noreferrer">GuideStar / Candid Profile</a>.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- End accountability area -->
+
+            <!-- Start consortium partners area -->
+            <section class="brand-logo-area consortium-partners pb-90">
+                <div class="container">
+                    <div class="row">
+                        <!-- Start section title -->
+                        <div class="col-sm-12">
+                            <div class="section-title text-center">
+                                <h2>CONSORTIUM <span>PARTNERS</span></h2>                            </div>
+                        </div>
+                        <!-- End section title -->
+                    </div>
+                    <div class="consortium-partners__grid" role="group" aria-label="INSTAR Consortium partners">
+                        <a class="consortium-partners__logo consortium-partners__logo--focus-hive" href="https://focushive.com" target="_blank" rel="noopener noreferrer">
+                            <img src="img/brand-logo/focus-hive.svg" alt="Focus Hive Inc" loading="lazy" decoding="async">
+                        </a>
+                        <a class="consortium-partners__logo consortium-partners__logo--global-enterprise" href="https://globalenterprise.com" target="_blank" rel="noopener noreferrer">
+                            <img src="img/brand-logo/global-enterprise.svg" alt="Global Enterprise" loading="lazy" decoding="async">
+                        </a>
+                        <a class="consortium-partners__logo consortium-partners__logo--ravonics" href="https://ravonics.com" target="_blank" rel="noopener noreferrer">
+                            <img src="img/brand-logo/ravonics.svg" alt="Ravonics" loading="lazy" decoding="async">
+                        </a>
+                        <a class="consortium-partners__logo consortium-partners__logo--curiosity-research" href="https://curiositycorp.org" target="_blank" rel="noopener noreferrer">
+                            <img src="img/brand-logo/curiosity-research.svg" alt="Curiosity Research Corporation" loading="lazy" decoding="async">
+                        </a>
+                        <a class="consortium-partners__logo consortium-partners__logo--tao-learning" href="https://taolearning.org" target="_blank" rel="noopener noreferrer">
+                            <img src="img/brand-logo/tao-learning.svg" alt="Tao Learning" loading="lazy" decoding="async">
+                        </a>
+                        <div class="consortium-partners__logo consortium-partners__logo--world-enterprise-group">
+                            <img src="img/brand-logo/world-enterprise-group.svg" alt="World Enterprise Group" loading="lazy" decoding="async">
+                        </div>
+                        <div class="consortium-partners__logo consortium-partners__logo--dream-limited">
+                            <img src="img/brand-logo/dream-limited.svg" alt="Dream Limited" loading="lazy" decoding="async">
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- End consortium partners area -->
+
+            <!-- Start closing CTA area -->
+            <section class="finish-project ptb-114">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="section-title text-center">
+                                <h2>Join Us in Advancing <span>Science</span></h2>                                <p>Researchers, universities, public agencies, enterprise partners, and funders can work with INSTAR to advance rigorous public-benefit science with clear milestones, accountable stewardship, and credible paths from discovery to deployment.</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 text-center" style="margin-top:30px;">
+                            <div class="single-project text-center">
+                                <div style="font-size:2em; margin-bottom:12px;"><svg xmlns="http://www.w3.org/2000/svg" class="icon-fa" viewBox="0 0 2304 1792" aria-hidden="true" focusable="false"><path fill="currentColor" d="M136.0 1376.0Q152 1408 192.0 1408.0Q232 1408 248.0 1376.0Q264 1344 248.0 1312.0Q232 1280 192.0 1280.0Q152 1280 136.0 1312.0Q120 1344 136.0 1376.0ZM1665 1350Q1655 1337 1626.5 1300.0Q1598 1263 1585.0 1246.0Q1572 1229 1547.0 1197.0Q1522 1165 1504.5 1144.0Q1487 1123 1464.0 1097.0Q1441 1071 1419 1048L1294 1188Q1211 1282 1085.5 1280.0Q960 1278 880 1182Q823 1113 823.5 1024.0Q824 935 882 867L1059 661Q1037 650 1008.0 644.5Q979 639 960.5 638.5Q942 638 904.0 639.0Q866 640 855 640Q763 640 697 706L539 864H384V1408Q389 1408 405.0 1407.5Q421 1407 427.0 1407.5Q433 1408 446.5 1409.5Q460 1411 467.0 1414.0Q474 1417 484.5 1422.5Q495 1428 503 1436L800 1728Q915 1839 1027 1839Q1105 1839 1152 1792Q1209 1812 1264.5 1784.0Q1320 1756 1337 1699Q1411 1705 1464 1655Q1484 1637 1500.0 1609.5Q1516 1582 1514 1559Q1524 1569 1557 1569Q1600 1569 1634.0 1548.0Q1668 1527 1683.5 1495.0Q1699 1463 1695.5 1423.5Q1692 1384 1665 1350ZM1824 1408H1920V896H1827L1670 716Q1604 640 1501 640H1334Q1245 640 1188 707L979 950Q951 983 951.0 1025.0Q951 1067 978 1100Q1021 1151 1088.0 1152.0Q1155 1153 1199 1103L1392 885Q1417 862 1445.5 863.5Q1474 865 1492.5 890.5Q1511 916 1501 947Q1517 966 1557.0 1010.0Q1597 1054 1617 1078Q1646 1114 1699.5 1183.5Q1753 1253 1764 1268Q1816 1334 1824 1408ZM2056.0 1376.0Q2072 1408 2112.0 1408.0Q2152 1408 2168.0 1376.0Q2184 1344 2168.0 1312.0Q2152 1280 2112.0 1280.0Q2072 1280 2056.0 1312.0Q2040 1344 2056.0 1376.0ZM2304 832V1472Q2304 1498 2285.0 1517.0Q2266 1536 2240 1536H1806Q1779 1601 1724.0 1642.5Q1669 1684 1599 1694Q1566 1742 1518.5 1775.5Q1471 1809 1416 1821Q1374 1874 1311.5 1902.5Q1249 1931 1183 1927Q1123 1961 1057.0 1966.5Q991 1972 929.5 1952.5Q868 1933 812.5 1899.0Q757 1865 709 1818L422 1536H64Q38 1536 19.0 1517.0Q0 1498 0 1472V800Q0 774 19.0 755.0Q38 736 64 736H485Q499 722 532.0 688.0Q565 654 579.5 640.0Q594 626 623.5 600.0Q653 574 674.0 562.5Q695 551 725.0 537.0Q755 523 787.0 517.5Q819 512 855 512H972Q1071 512 1153 568Q1235 512 1334 512H1501Q1536 512 1568.0 518.0Q1600 524 1624.5 532.5Q1649 541 1676.0 559.0Q1703 577 1720.5 590.0Q1738 603 1763.5 629.5Q1789 656 1802.5 671.5Q1816 687 1843.5 719.5Q1871 752 1885 768H2240Q2266 768 2285.0 787.0Q2304 806 2304 832Z"/></svg></div>
+                                <h3>Partner with Us</h3>
+                                <p style="font-size:0.9em; margin:10px 0 20px;">Enterprise partners, government agencies, and institutional collaborators gain access to INSTAR's research capabilities and Consortium network for sponsored research, STTR-ready translation, and applied science engagements.</p>
+                                <a class="waves-effect waves-light donate-button" href="community/contact/" style="display:inline-block; padding:10px 28px; background:#1072ba; color:#fff; border-radius:3px; text-decoration:none; font-weight:600;">Get in Touch</a>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 text-center" style="margin-top:30px;">
+                            <div class="single-project text-center">
+                                <div style="font-size:2em; margin-bottom:12px;"><svg xmlns="http://www.w3.org/2000/svg" class="icon-fa" viewBox="0 0 2048 1792" aria-hidden="true" focusable="false"><path fill="currentColor" d="M2048 1792V1920H0V384H128V1792ZM1920 544V979Q1920 1000 1900.5 1008.5Q1881 1017 1865 1001L1744 880L1111 1513Q1101 1523 1088.0 1523.0Q1075 1523 1065 1513L832 1280L416 1696L224 1504L809 919Q819 909 832.0 909.0Q845 909 855 919L1088 1152L1552 688L1431 567Q1415 551 1423.5 531.5Q1432 512 1453 512H1888Q1902 512 1911.0 521.0Q1920 530 1920 544Z"/></svg></div>
+                                <h3>Research Opportunities</h3>
+                                <p style="font-size:0.9em; margin:10px 0 20px;">Researchers and collaborating teams can engage INSTAR's programs through current projects, proposal development, open-science planning, and publication-ready work aligned with federal research standards.</p>
+                                <a class="waves-effect waves-light donate-button" href="research/opportunities/" style="display:inline-block; padding:10px 28px; background:#1072ba; color:#fff; border-radius:3px; text-decoration:none; font-weight:600;">Explore Opportunities</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- End closing CTA area -->
+
+            <!-- CTA Band: Fund Our Research -->
+            <section class="ip-cta-band ip-cta-band--blue">
+              <div class="container">
+                <p class="ip-cta-band__eyebrow">Philanthropy &amp; Grants</p>
+                <h2 class="ip-cta-band__heading">Fund Independent Science</h2>
+                <p class="ip-cta-band__body">INSTAR Lab is a 501(c)(3) nonprofit. Your tax-deductible contribution directly supports public-benefit research in AI, quantum science, health, energy, and the broad sciences.</p>
+                <div class="ip-cta-band__actions">
+                  <a href="community/contact/" class="ip-cta-band__btn ip-cta-band__btn--outline-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon-fa" viewBox="0 0 1792 1792" aria-hidden="true" focusable="false"><path fill="currentColor" d="M852 1902 228 1300Q218 1292 200.5 1274.0Q183 1256 145.0 1208.5Q107 1161 77.0 1111.0Q47 1061 23.5 990.0Q0 919 0 852Q0 632 127.0 508.0Q254 384 478 384Q540 384 604.5 405.5Q669 427 724.5 463.5Q780 500 820.0 532.0Q860 564 896 600Q932 564 972.0 532.0Q1012 500 1067.5 463.5Q1123 427 1187.5 405.5Q1252 384 1314 384Q1538 384 1665.0 508.0Q1792 632 1792 852Q1792 1073 1563 1302L940 1902Q922 1920 896.0 1920.0Q870 1920 852 1902Z"/></svg>&nbsp; Grants &amp; Philanthropy
+                  </a>
+                  <a href="community/partner/" class="ip-cta-band__btn ip-cta-band__btn--outline-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon-fa" viewBox="0 0 1792 1792" aria-hidden="true" focusable="false"><path fill="currentColor" d="M640 512H1152V384H640ZM1792 1152V1632Q1792 1698 1745.0 1745.0Q1698 1792 1632 1792H160Q94 1792 47.0 1745.0Q0 1698 0 1632V1152H672V1312Q672 1338 691.0 1357.0Q710 1376 736 1376H1056Q1082 1376 1101.0 1357.0Q1120 1338 1120 1312V1152ZM1024 1152V1280H768V1152ZM1792 672V1056H0V672Q0 606 47.0 559.0Q94 512 160 512H512V352Q512 312 540.0 284.0Q568 256 608 256H1184Q1224 256 1252.0 284.0Q1280 312 1280 352V512H1632Q1698 512 1745.0 559.0Q1792 606 1792 672Z"/></svg>&nbsp; Sponsored Research
+                  </a>
+                </div>
+              </div>
+            </section>
+            <!-- End CTA Band: Fund Our Research -->
+
+            </main>
+            <!-- Start footer -->
+            <footer>
+                <div class="footer-top pt-50 pb-50">
+                    <div class="container">
+                        <div class="row">
+                            <div class="footer-widget-area row">
+                                <!-- Start footer widget -->
+                                <div class="col-sm-4">
+                                    <div class="footer-widget widget-one">
+                                        <div class="footer-widget-title">
+                                            <h3>ABOUT US</h3>
+                                        </div>
+                                        <div class="widget-about-content">
+                                            <p>INSTAR Lab is an independent 501(c)(3) nonprofit research institute advancing science through interdisciplinary collaboration, technological innovation, and partnership.</p>
+                                        </div>
+                                        <div class="widget-contact-content">
+                                            <h3>CONTACT US</h3>
+                                            <a href="tel:9292292918">Phone :  929-229-2918</a>
+                                            <a href="mailto:info@instarlab.org">Email :  info@instarlab.org</a>
+                                            <a href="https://maps.google.com/?q=125+Frederick+St+Marietta+OH+45750">Address: 125 Frederick St, Marietta, OH 45750</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- End footer widget -->
+                                <!-- Start footer widget -->
+                                <div class="col-sm-2">
+                                    <div class="footer-widget widget-two">
+                                        <div class="footer-widget-title">
+                                            <h3>OUR RESEARCH</h3>
+                                        </div>
+                                        <nav aria-label="Our Research">
+                                            <ul>
+                                                <li><a href="technology/machine-intelligence/">AI &amp; ML</a></li>
+                                                <li><a href="technology/quantum-computing/">Quantum Science</a></li>
+                                                <li><a href="technology/data-science/">Data Analytics</a></li>
+                                                <li><a href="sciences/medicine/">Health Research</a></li>
+                                                <li><a href="sciences/energy/">Energy</a></li>
+                                                <li><a href="technology/computer-science/">HPC Systems</a></li>
+                                            </ul>
+                                        </nav>
+                                    </div>
+                                </div>
+                                <!-- End footer widget -->
+                                <!-- Start footer widget -->
+                                <div class="col-sm-2">
+                                    <div class="footer-widget widget-two">
+                                        <div class="footer-widget-title">
+                                            <h3>QUICK LINK</h3>
+                                        </div>
+                                        <nav aria-label="Quick Link">
+                                            <ul>
+                                                <li><a href="community/about-us/">About Us</a></li>
+                                                <li><a href="/fellowship/">Fellowship</a></li>
+                                                <li><a href="community/careers/">Careers</a></li>
+                                                <li><a href="terms.html">Terms of use</a></li>
+                                                <li><a href="accessibility.html">Accessibility</a></li>
+                                                <li><a href="privacy.html">Privacy policy</a></li>
+                                            </ul>
+                                        </nav>
+                                    </div>
+                                </div>
+                                <!-- End footer widget -->
+                                <!-- Start footer widget -->
+                                <div class="col-sm-4">
+                                    <div class="footer-widget widget-four">
+                                        <div class="footer-widget-title">
+                                            <h3>NEWSLETTER</h3>
+                                        </div>
+                                        <div class="widget-about-content">
+                                            <p>Select your newsletters, enter your email address, and click "Subscribe"</p>
+                                        </div>
+                                        <div class="newslater">
+                                            <form id="mc-form" class="mc-form form">
+                                                <input id="mc-email" type="email" autocomplete="off" placeholder="Email Address" aria-label="Email address for newsletter">
+                                                <button id="mc-submit" type="submit" aria-label="Subscribe to newsletter"><svg xmlns="http://www.w3.org/2000/svg" class="icon-fa" viewBox="0 0 1792 1792" aria-hidden="true" focusable="false"><path fill="currentColor" d="M1792 966V1760Q1792 1826 1745.0 1873.0Q1698 1920 1632 1920H160Q94 1920 47.0 1873.0Q0 1826 0 1760V966Q44 1015 101 1053Q463 1299 598 1398Q655 1440 690.5 1463.5Q726 1487 785.0 1511.5Q844 1536 895 1536H896H897Q948 1536 1007.0 1511.5Q1066 1487 1101.5 1463.5Q1137 1440 1194 1398Q1364 1275 1692 1053Q1749 1014 1792 966ZM1792 672Q1792 751 1743.0 823.0Q1694 895 1621 946Q1245 1207 1153 1271Q1143 1278 1110.5 1301.5Q1078 1325 1056.5 1339.5Q1035 1354 1004.5 1372.0Q974 1390 947.0 1399.0Q920 1408 897 1408H896H895Q872 1408 845.0 1399.0Q818 1390 787.5 1372.0Q757 1354 735.5 1339.5Q714 1325 681.5 1301.5Q649 1278 639 1271Q548 1207 377.0 1088.5Q206 970 172 946Q110 904 55.0 830.5Q0 757 0 694Q0 616 41.5 564.0Q83 512 160 512H1632Q1697 512 1744.5 559.0Q1792 606 1792 672Z"/></svg></button>
+                                            </form>
+                                            <!-- mailchimp-alerts Start -->
+                                            <div class="mailchimp-alerts text-center">
+                                                <div class="mailchimp-submitting"></div><!-- mailchimp-submitting end -->
+                                                <div class="mailchimp-success"></div><!-- mailchimp-success end -->
+                                                <div class="mailchimp-error"></div><!-- mailchimp-error end -->
+                                            </div><!-- mailchimp-alerts end -->
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- End footer widget -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-8">
+                                <div class="copyright">
+                                    <p>INSTAR Lab Inc. is a registered 501(c)(3) nonprofit. Copyright &copy; 2026 INSTAR Lab Inc. All Rights Reserved.</p>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="footer-social"></div>
+                            </div>
+                        </div>
+                        <div class="d-none d-sm-block" id="back-top" style="display: block;" aria-label="Back to top" role="button" tabindex="0"></div>
+                    </div>
+                </div>
+            </footer>
+            <!-- End footer -->
+
+        </div>
+        <!-- End main area -->
+
+
+
+		<!-- bootstrap js
+		============================================ -->
+        <script defer src="js/bootstrap.min.js"></script>
+
+
+		<!-- wow js
+		============================================ -->
+        <script defer src="js/wow.js"></script>
+
+		<!-- site-chrome js (sticky nav + back-to-top, no jQuery)
+		============================================ -->
+        <script defer src="js/site-chrome.min.js"></script>
+
+		<!-- newsletter js (footer signup, no jQuery)
+		============================================ -->
+        <script defer src="js/newsletter.min.js"></script>
+
+
+        <script>
+        	document.addEventListener('DOMContentLoaded', function () { new WOW().init(); });
+        </script>
+
+   		<!-- main js
+		============================================ -->
+        <script defer src="js/main.min.js"></script>
+
+        <!-- YouTube video modal (Bootstrap 5, click-to-load facade) -->
+        <div class="modal fade" id="youtubeModal" tabindex="-1" aria-labelledby="youtubeModal-label" aria-hidden="true" data-video-src="https://www.youtube.com/embed/0O2aH4XLbto">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content bg-transparent border-0">
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close" style="position:absolute; top:-40px; right:0;"></button>
+                    <h2 id="youtubeModal-label" class="visually-hidden">INSTAR Lab video overview</h2>
+                    <div class="ratio ratio-16x9">
+                        <iframe id="youtubeModalIframe" src="about:blank" title="INSTAR Lab video overview" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
+
