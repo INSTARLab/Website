@@ -63,3 +63,16 @@ const year = new Date().getFullYear();
     </div>
   </div>
 </footer>
+
+<style>
+  /* Keep footer text above WCAG AA contrast even on legacy routes. */
+  .site-footer__panel p,
+  .site-footer__panel a {
+    color: #f0f4f8 !important;
+  }
+
+  .site-footer__bottom p,
+  .site-footer__bottom a {
+    color: #dbe7f0 !important;
+  }
+</style>

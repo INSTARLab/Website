@@ -1,0 +1,10 @@
+---
+import W5LegacyDocument from '../../components/workstream5/W5LegacyDocument.astro';
+import { routeAtPath } from '../../data/workstream5/manifest';
+
+export const prerender = true;
+
+const record = routeAtPath('/fellowship/');
+---
+
+<W5LegacyDocument record={record} />

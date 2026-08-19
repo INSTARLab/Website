@@ -1,0 +1,199 @@
+---
+import { legacyMainMarkup, legacyRedirectMarkup } from '../../data/workstream5/legacy';
+import type { W5RouteRecord } from '../../data/workstream5/types';
+import SiteLayout from '../../layouts/SiteLayout.astro';
+
+interface Props {
+  record: W5RouteRecord;
+}
+
+const { record } = Astro.props;
+const legacyMarkup = record.redirectTo
+  ? legacyRedirectMarkup(record.redirectTo)
+  : legacyMainMarkup(record.sourceFile);
+const isRedirect = Boolean(record.redirectTo);
+const signatureLabel = record.signature.join(' → ');
+const leadMedia = record.media.find((media) => media.role === 'orientation');
+---
+<SiteLayout
+  title={record.title}
+  description={record.description}
+  canonical={record.redirectTo ?? record.path}
+  type={record.family === 'news' ? 'article' : 'website'}
+  image={leadMedia?.src}
+  noindex={isRedirect}
+  bodyClass={`w5-document w5-family-${record.family}`}
+  mainClass="w5-route-content"
+>
+  {record.redirectTo && (
+    <Fragment slot="head">
+      <meta http-equiv="refresh" content={`0;url=${record.redirectTo}`} />
+    </Fragment>
+  )}
+  <div
+    class:list={['w5-route', `w5-route--${record.family}`]}
+    data-route-family={record.family}
+    data-route-path={record.path}
+    data-source-file={record.sourceFile}
+    data-page-signature={signatureLabel}
+    data-page-job={record.pageJob}
+    data-ready-action={record.readyAction}
+    data-early-action={record.earlyAction}
+    data-media-count={record.media.length}
+    data-primary-media={leadMedia?.src}
+  >
+      <div class="w5-route-ledger" aria-label="Route orientation">
+        <span>{record.family}</span>
+        <span aria-hidden="true">/</span>
+        <span>{record.signature.slice(0, 3).join(' · ')}</span>
+      </div>
+      <div class="w5-legacy-content" set:html={legacyMarkup} />
+      {!isRedirect && record.family === 'fellowship' && (
+        <noscript>
+          <p class="w5-noscript-note">The fellowship application can be reviewed without JavaScript. If you cannot submit the form, email <a href="mailto:info@instarlab.org">info@instarlab.org</a> with your research statement.</p>
+        </noscript>
+      )}
+  </div>
+  {record.legacyScripts?.map((src) => <script src={src} defer></script>)}
+</SiteLayout>
+
+<style is:global>
+  :root {
+    color-scheme: light;
+    --w5-ink: #172131;
+    --w5-muted: #526174;
+    --w5-paper: #f8fafc;
+    --w5-panel: #ffffff;
+    --w5-rule: #d8e0e9;
+    --w5-accent: #1072ba;
+    --w5-accent-dark: #0a4f82;
+    --w5-focus: #b45309;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  }
+
+  *,
+  *::before,
+  *::after { box-sizing: border-box; }
+
+  body.w5-document {
+    margin: 0;
+    color: var(--w5-ink);
+    background: var(--w5-paper);
+    line-height: 1.65;
+    text-rendering: optimizeLegibility;
+  }
+
+  .w5-skip-link {
+    position: absolute;
+    z-index: 100;
+    inset-block-start: 0.75rem;
+    inset-inline-start: 0.75rem;
+    padding: 0.65rem 0.85rem;
+    color: #fff;
+    background: var(--w5-accent-dark);
+    transform: translateY(-160%);
+  }
+
+  .w5-skip-link:focus { transform: translateY(0); }
+
+  .w5-skip-link:focus-visible,
+  .w5-document a:focus-visible,
+  .w5-document button:focus-visible,
+  .w5-document input:focus-visible,
+  .w5-document select:focus-visible,
+  .w5-document textarea:focus-visible {
+    outline: 3px solid var(--w5-focus);
+    outline-offset: 3px;
+  }
+
+  .w5-route-content { min-block-size: 60vh; }
+  .w5-route-ledger {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem 0.7rem;
+    align-items: center;
+    max-inline-size: 92rem;
+    margin-inline: auto;
+    padding: 0.7rem clamp(1rem, 4vw, 4rem);
+    color: var(--w5-muted);
+    border-block-end: 1px solid var(--w5-rule);
+    font: 700 0.72rem/1.2 ui-monospace, SFMono-Regular, Consolas, monospace;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .w5-legacy-content {
+    overflow-wrap: anywhere;
+    background: var(--w5-panel);
+  }
+
+  .w5-legacy-content img,
+  .w5-legacy-content video,
+  .w5-legacy-content svg { max-inline-size: 100%; height: auto; }
+  .w5-legacy-content p,
+  .w5-legacy-content li { max-inline-size: 75ch; }
+  .w5-legacy-content a {
+    color: #0a5a94 !important;
+    text-decoration: underline !important;
+    text-underline-offset: 0.14em;
+  }
+  .w5-legacy-content .ip-card-grid__intro p a,
+  .w5-legacy-content .ip-card__desc a {
+    color: #0a5a94;
+    text-decoration: underline;
+    text-decoration-thickness: 0.1em;
+  }
+
+  .w5-legacy-content h1,
+  .w5-legacy-content h2,
+  .w5-legacy-content h3,
+  .w5-legacy-content h4 { line-height: 1.12; text-wrap: balance; }
+  .w5-legacy-content table { display: block; max-inline-size: 100%; overflow-x: auto; border-collapse: collapse; }
+  .w5-legacy-content th,
+  .w5-legacy-content td { padding: 0.55rem; border: 1px solid var(--w5-rule); text-align: start; }
+  .w5-legacy-content input,
+  .w5-legacy-content select,
+  .w5-legacy-content textarea { max-inline-size: 100%; }
+  .w5-legacy-content button,
+  .w5-legacy-content input,
+  .w5-legacy-content select,
+  .w5-legacy-content textarea { font: inherit; }
+  .w5-legacy-content button { cursor: pointer; }
+
+  .w5-family-community { --w5-accent: #1072ba; --w5-accent-dark: #0a4f82; }
+  .w5-family-labs { --w5-accent: #5c3b8f; --w5-accent-dark: #38245b; }
+  .w5-family-news { --w5-accent: #8f3a2f; --w5-accent-dark: #5b241e; }
+  .w5-family-fellowship { --w5-accent: #0f766e; --w5-accent-dark: #0b4f4a; }
+  .w5-family-tech-transfer { --w5-accent: #9a5b13; --w5-accent-dark: #633b0c; }
+
+  .w5-family-news .w5-legacy-content > section:not(.page-title-area) { border-inline-start: 0.35rem solid color-mix(in srgb, var(--w5-accent) 55%, transparent); }
+  .w5-family-labs .w5-legacy-content > section:not(.page-title-area) { background: color-mix(in srgb, var(--w5-accent) 4%, white); }
+  .w5-family-fellowship .w5-legacy-content > section:not(.page-title-area) { border-block-start: 1px solid var(--w5-rule); }
+  .w5-family-tech-transfer .w5-legacy-content > section:not(.page-title-area) { background: color-mix(in srgb, var(--w5-accent) 3%, white); }
+
+  .w5-redirect {
+    max-inline-size: 58rem;
+    margin: 0 auto;
+    padding: clamp(4rem, 12vw, 9rem) clamp(1rem, 5vw, 4rem);
+  }
+  .w5-kicker { color: var(--w5-accent); font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; }
+  .w5-noscript-note { max-inline-size: 70ch; margin: 2rem auto; padding: 1rem; border: 2px solid var(--w5-rule); }
+
+  @media (max-width: 45rem) {
+    .w5-route-ledger { font-size: 0.68rem; }
+    .w5-legacy-content { overflow-x: hidden; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { scroll-behavior: auto !important; animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+  }
+
+  @media (forced-colors: active) {
+    .w5-skip-link:focus-visible,
+    .w5-document a:focus-visible,
+    .w5-document button:focus-visible,
+    .w5-document input:focus-visible,
+    .w5-document select:focus-visible,
+    .w5-document textarea:focus-visible { outline: 3px solid CanvasText; }
+  }
+</style>

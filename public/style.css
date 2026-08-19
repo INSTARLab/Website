@@ -1,0 +1,2745 @@
+/* -----------------------------------------------------------------------------------
+
+  Template Name: Grant foundation 
+  Template URI: http://bootexperts.com
+  Description: This is html5 template
+  Author: BootExperts
+  Author URI: http://bootexperts.com
+  Version: 1.0
+
+-----------------------------------------------------------------------------------
+    
+  CSS INDEX
+  ===================
+	
+	1. Theme default CSS
+	2. Header CSS
+	3. Slider CSS
+	4. Our projects area CSS
+	5. Help us area CSS
+	6. Our-gallery CSS
+	7. Countdown area CSS
+	8. Our volunteers area CSS
+	9. People says area CSS
+	10. Blog area CSS
+	11. Brand logo CSS
+	12. footer top CSS
+	13. About us CSS
+	14. Blog CSS
+	15. Contact CSS
+	16. Projects page CSS
+	17. Up comming events CSS
+	18. Error page area CSS
+	19. Blog details CSS
+	20. Blog details sidebar right CSS
+    
+----------------------------------------------------------------------------------- */
+
+/* ----------------------------------------------------------------------------------
+   Design tokens (gh#271) — frequently-repeated color/typography values
+   extracted into :root custom properties. Pure refactor: values below are
+   unchanged from their prior hardcoded literals; only usages are swapped
+   for var() references, so visual output is identical.
+----------------------------------------------------------------------------------- */
+:root {
+  --color-primary: #1072ba;    /* brand blue — links, CTAs, active states */
+  --color-focus: #1d4ed8;      /* keyboard focus ring — matches css/nav-2026.css --n-deep */
+  --color-white: #fff;
+  --color-heading: #1b1b1b;
+  --color-text: #333;
+  --color-text-secondary: #444;
+  --color-text-muted: #666;
+  --color-text-light: #767676;
+  --color-border-dark: #555;
+  --font-heading: Raleway, sans-serif;
+  --font-body: Roboto, sans-serif;
+  --font-size-base: 14px;
+  --font-size-md: 16px;
+  --font-size-lg: 18px;
+}
+
+/* ---------------------------------------- */
+
+/*  1. Theme default CSS
+/*---------------------------------------- */
+
+/* Lato/Raleway/Roboto self-hosted (fonts/) instead of fonts.googleapis.com —
+   third-party font CDNs leak visitor IPs to Google on every page load and
+   cost a full DNS+TLS+connection round trip no preconnect fully recovers.
+   Latin-subset WOFF2 only, sourced via @fontsource (canonical upstream
+   Google Fonts files, not the heavier Fonts web-UI export). See
+   optimize/self-hosted-fonts. */
+@font-face {
+    font-family: Lato;
+    src: url('fonts/lato-latin-400.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+    font-family: Lato;
+    src: url('fonts/lato-latin-700.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+    font-family: Raleway, sans-serif;
+    src: url('fonts/raleway-latin-400.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+    font-family: Raleway, sans-serif;
+    src: url('fonts/raleway-latin-700.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+    font-family: Roboto;
+    src: url('fonts/roboto-latin-400.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+    font-family: Roboto;
+    src: url('fonts/roboto-latin-700.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+    font-family: latomedium, sans-serif;
+    src: url('fonts/lato-medium-webfont.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Inline SVG icons — replaces the Font Awesome icon font. Sized like an
+   icon font glyph (1em square, slight baseline drop) so no other CSS
+   touching the old .fa/.fa-* selectors needed to change. */
+.icon-fa {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.125em;
+  fill: currentColor;
+}
+html, body {height: 100%;}
+.alignleft {float:left;margin-right:15px;margin-bottom: 15px}
+.alignright {float:right;margin-left:15px;margin-bottom: 15px}
+.aligncenter {display:block;margin:0 auto 15px}
+img {max-width:100%;height:auto}
+.fix {overflow:hidden}
+p {margin:0 0 15px;}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0 0 15px;
+  font-family: var(--font-heading);
+}
+a {transition: all 0.3s ease 0s;text-decoration:none;color:var(--color-text-light)}
+
+a:hover {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+a:active, a:hover {
+  color: var(--color-primary);
+}
+
+/* gh#247 — visible keyboard focus ring (WCAG 2.4.7 AA). :focus-visible only
+   matches keyboard/programmatic focus (browsers withhold it on mouse click),
+   so this adds a visible ring for keyboard users without reintroducing a
+   ring on every mouse click — same pattern as css/nav-2026.css. */
+a:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+.np{
+  padding: 0;
+}
+
+.npl{
+  padding-left: 0;
+}
+
+.npr{
+  padding-right: 0;
+}
+
+ul{
+list-style: outside none none;
+margin: 0;
+padding: 0
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--font-size-base);
+}
+
+/* section padding */
+.ptb-32{
+  padding: 27px 0;
+}
+.pt-170{padding-top: 170px;}
+.pb-170{padding-bottom: 170px;}
+.ptb-114{padding: 114px 0;}
+.pt-90{padding-top: 90px;}
+.pb-90{padding-bottom: 90px;}
+.pt-80{padding-top: 80px;}
+.pb-80{padding-bottom: 86px;}
+.pb-70{padding-bottom: 70px;}
+.pb-60{padding-bottom: 60px;}
+.pt-60{padding-top: 60px;}
+.pt-54{padding-top: 54px;}
+.pb-20{padding-bottom: 30px;}
+
+.pt-50{
+  padding-top: 50px;
+}
+
+.pb-50{
+  padding-bottom: 50px;
+}
+.clear{clear:both}
+
+/* margin */
+.mb-30{
+  margin-bottom: 30px;
+}
+
+.mb-90{
+  margin-bottom: 90px;
+}
+
+/* Theme button customizations */
+.btn:not(.btn-close) {
+  font-family: var(--font-heading);
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.btn-outline-light:hover,
+.btn-outline-secondary:hover {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.btn-primary:hover {
+  background-color: transparent;
+  border-color: var(--color-text-muted);
+  color: var(--color-text-muted);
+}
+
+/* ---------------------------------------- */
+
+/*  2. Header CSS
+/*---------------------------------------- */
+.header-top {
+  background: var(--color-primary) none repeat scroll 0 0;
+  line-height: 40px;
+}
+
+.top-social ul li {
+  float: left;
+  padding: 0 7.5px;
+}
+
+.top-social ul li:first-child {
+  padding-left: 0;
+}
+
+.top-social ul li a {
+  font-family: var(--font-body);
+  font-size: 12px;
+  color: var(--color-white);
+}
+
+.call-to-action {
+  float: right;
+}
+
+.call-to-action > ul {
+  float: right;
+}
+
+.call-to-action ul li {
+  float: left;
+}
+
+.call-to-action ul li:last-child {
+  float: right;
+}
+
+.call-to-action ul li a {
+  font-size: 12px;
+  padding: 0 10px;
+  color: var(--color-white);
+}
+
+.call-to-action ul li a i {
+  margin-right: 7px;
+}
+
+.call-to-action ul li:last-child a{
+  padding-right: 0;
+}
+
+.call-to-action ul li:last-child a i{
+  margin-right: 0;
+}
+
+.call-to-action ul li ul li {
+  border-bottom: 1px solid var(--color-white);
+  float: none;
+  line-height: 25px;
+}
+
+.call-to-action ul li ul li:last-child{
+  border-bottom: none;
+}
+
+.call-to-action ul li ul li a {
+  color: var(--color-white);
+  padding: 0;
+}
+
+.call-to-action ul li ul {
+  background: var(--color-primary) none repeat scroll 0 0;
+  opacity: 0;
+  padding: 0 10px;
+  position: absolute;
+  right: 15px;
+  top: 100%;
+  transition: all 0.3s ease 0s;
+  visibility: hidden;
+  z-index: 999;
+}
+
+.call-to-action ul li:hover ul{
+  opacity: 1;
+  visibility: visible;
+}
+
+/* main menu css */
+.main-menu-area {
+  background: var(--color-white) none repeat scroll 0 0;
+}
+
+.main-menu ul li {
+  float: left;
+  padding: 47px 23px;
+  position: relative;
+}
+
+.main-menu ul li.mega-menu {
+  position: static;
+}
+
+.main-menu ul li a {
+  color: var(--color-text-secondary);
+  font-family: var(--font-heading);
+  font-size: var(--font-size-base);
+  padding: 7px 0;
+  font-weight: 500;
+  transition: all 0.3s ease 0s;
+}
+
+.main-menu ul li:hover a{
+  color: var(--color-primary);
+  border-bottom: 2px solid var(--color-primary);
+}
+
+/* megamenu css */
+.mega-menu-area {
+  background: var(--color-white) none repeat scroll 0 0;
+  border-bottom: 2px solid var(--color-primary);
+  box-shadow: 0 1px 2px rgb(86 86 90 / 50%);
+  left: 0;
+  opacity: 0;
+  padding-bottom: 10px;
+  position: absolute;
+  text-align: left;
+  top: 130%;
+  transform-origin: 0 0 0;
+  transition: all 0.3s ease 0s;
+  visibility: hidden;
+  width: 100%;
+  z-index: 10;
+}
+
+.main-menu li:hover .mega-menu-area {
+  opacity: 1;
+  top: 100%;
+  visibility: visible;
+}
+
+.mega-menu .mega-menu-area .single-mega-item {
+  float: left;
+  padding: 0 15px;
+  width: 25%;
+}
+
+.main-menu li .mega-menu-area .single-mega-item li {
+  border-bottom: 1px solid #e5e5e5;
+  padding: 0;
+  width: 100%;
+}
+
+.single-mega-item li{
+  display: block;
+}
+
+.single-mega-item li a {
+  display: block;
+  padding: 13px 0;
+}
+
+.main-menu li:hover .single-mega-item li a{
+  border-bottom: medium none;
+  color: var(--color-text-secondary);
+}
+
+.main-menu li:hover .single-mega-item li:hover{
+  border-bottom: 1px solid var(--color-primary);
+}
+
+.main-menu li:hover .single-mega-item li a:hover {
+  color: var(--color-primary);
+}
+
+/* drop-menu menu css */
+.drop-menu {
+  background: var(--color-white) none repeat scroll 0 0;
+  border-bottom: 2px solid var(--color-primary);
+  box-shadow: 0 1px 2px rgb(86 86 90 / 50%);
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  text-align: left;
+  top: 130%;
+  transform-origin: 0 0 0;
+  transition: all 0.3s ease 0s;
+  visibility: hidden;
+  width: 250px;
+  z-index: 10;
+}
+
+.main-menu li .drop-menu li {
+  border-bottom: 1px solid #e5e5e5;
+  display: block;
+  float: none;
+  padding: 0;
+}
+
+.main-menu li:hover .drop-menu li a{
+  border-bottom: medium none;
+  color: var(--color-text-secondary);
+}
+
+.main-menu li:hover .drop-menu li:hover{
+  border-bottom: 1px solid var(--color-primary);
+}
+
+.main-menu li:hover .drop-menu li a:hover{
+  color: var(--color-primary);
+}
+
+.main-menu li .drop-menu li a {
+  display: block;
+  padding-left: 15px;
+}
+
+.drop-menu li a:hover{
+  border-bottom: 1px solid var(--color-primary);
+  color: var(--color-primary);
+}
+
+.main-menu li:hover .drop-menu li:last-child a:hover{
+  border-bottom: 0 solid var(--color-primary);
+}
+
+.main-menu li:hover .drop-menu {
+  opacity: 1;
+  top: 100%;
+  visibility: visible;
+}
+
+.main-menu ul li ul.single-mega-item li.shortcode-title {
+  font-weight: bold;
+  padding-bottom: 5px;
+  padding-top: 5px;
+  text-transform: uppercase;
+}
+
+/* domate button css */
+.donate-button {
+  float: right;
+  margin-top: 19px;
+}
+
+.donate-button > a {
+  background: var(--color-primary) none repeat scroll 0 0;
+  border: 1px solid var(--color-primary);
+  color: var(--color-white);
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-heading);
+  font-size: var(--font-size-base);
+  font-weight: bold;
+  padding: 10px 15px;
+  text-transform: uppercase;
+}
+
+.donate-button > a:hover{
+  border: 1px solid var(--color-border-dark);
+  background: transparent;
+  color: var(--color-text-secondary);
+}
+
+.stick {
+  animation: 300ms ease-in-out 0s normal none 1 running fadeInDown;
+  background: var(--color-white) none repeat scroll 0 0;
+  border-bottom: 1px solid #eee;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 9990;
+}
+
+.stick .main-menu ul li {
+  padding: 18px 23px;
+}
+
+.stick .main-menu ul li .drop-menu li{
+  padding: 0;
+}
+
+.stick .ptb-32 {
+  padding: 10px 0;
+}
+
+.stick .logo.ptb-32 img {
+  width: 130px;
+}
+
+.stick .donate-button {
+  margin-top: 9px;
+}
+
+.main-menu ul li.active a{
+  color: red;
+}
+
+/* ---------------------------------------- */
+
+/*  3. Slider CSS
+/*---------------------------------------- */
+.slider-area {
+  position: relative;
+}
+
+/* Hero carousel — Bootstrap 5 native, replaces jQuery nivoSlider */
+.hero-carousel__img {
+  filter: brightness(0.45);
+  object-fit: cover;
+  height: auto;
+}
+
+.hero-carousel__caption {
+  position: absolute;
+  top: 37%;
+  left: 15%;
+  width: 50%;
+  z-index: 8;
+}
+
+.hero-carousel__nav {
+  width: 8%;
+  opacity: 1;
+  background: transparent;
+}
+
+.hero-carousel__nav .left,
+.hero-carousel__nav .right {
+  color: var(--color-white);
+  font-size: 30px;
+  display: inline-block;
+}
+
+.hero-carousel__nav:hover .left,
+.hero-carousel__nav:hover .right {
+  color: var(--color-primary);
+}
+
+.hero-carousel__indicators {
+  bottom: 10px;
+  margin: 0;
+}
+
+.hero-carousel__indicators button {
+  background-color: #ebebeb;
+  border-radius: 100%;
+  box-shadow: 0 0 0 3px #acacac inset;
+  cursor: pointer;
+  display: inline-block;
+  height: 13px;
+  width: 13px;
+  margin: 0 3px;
+  padding: 0;
+  opacity: 1;
+  border: 0;
+}
+
+.hero-carousel__indicators button.active,
+.hero-carousel__indicators button:hover {
+  background-color: var(--color-white);
+  box-shadow: 0 0 0 3px var(--color-primary) inset;
+}
+
+.nivo-caption {
+  background: transparent none repeat scroll 0 0;
+  bottom: 0;
+  box-sizing: border-box;
+  color: #000;
+  display: none;
+  left: 15%;
+  opacity: 0.8;
+  overflow: hidden;
+  padding: 5px 10px;
+  position: absolute;
+  top: 37%;
+  width: 50%;
+  z-index: 8;
+}
+
+h1.title1 {
+  color: var(--color-white);
+  font-size: 40px;
+  font-weight: bold;
+  text-shadow: 2px 2px 6px rgb(0 0 0 / 90%);
+}
+
+.nivoSlider img,
+.ma-nivoslider .slides img {
+  filter: brightness(0.45);
+}
+
+.nivo-caption p {
+  color: var(--color-white);
+  font-family: var(--font-body);
+  font-size: 20px;
+  margin-bottom: 40px;
+  margin-top: 18px;
+  text-shadow: 1px 1px 4px rgb(0 0 0 / 80%);
+}
+
+.slider-button-area a {
+  margin-right: 15px;
+}
+
+.nivo-directionNav a {
+  cursor: pointer;
+  font-size: 30px;
+  position: absolute;
+  color: var(--color-white);
+  top: 52%;
+  z-index: 9;
+}
+
+.nivo-prevNav .left {
+  margin-left: 160px;
+}
+
+.nivo-prevNav .left:hover i{
+  color: var(--color-primary);
+}
+
+.nivo-nextNav .right {
+  margin-right: 160px;
+}
+
+.nivo-nextNav .right:hover i{
+  color: var(--color-primary);
+}
+
+.slider-area .nivo-controlNav {
+  bottom: 0;
+  left: 48%;
+  position: absolute;
+  z-index: 9;
+}
+
+.slider-area .nivo-controlNav a.active, .slider-area .nivo-controlNav a:hover {
+  background: var(--color-white) none repeat scroll 0 0;
+  box-shadow: 0 0 0 3px var(--color-primary) inset;
+}
+
+.slider-area .nivo-controlNav a {
+  background: #ebebeb none repeat scroll 0 0;
+  border-radius: 100%;
+  box-shadow: 0 0 0 3px #acacac inset;
+  color: #6a6a6a;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 0;
+  height: 13px;
+  margin: 0 3px;
+  width: 13px;
+}
+
+/* ---------------------------------------- */
+
+/*  4. Our projects area CSS
+/*---------------------------------------- */
+
+/* section title */
+.section-title {
+  margin-bottom: 40px;
+}
+
+.section-title h2 {
+  color: var(--color-heading);
+  font-family: var(--font-heading);
+  font-size: 36px;
+  font-weight: bold;
+  line-height: 25px;
+  margin-bottom: 11px;
+  text-transform: uppercase;
+}
+
+.section-title h2 span {
+  color: var(--color-primary);
+}
+
+.section-title.text-center > p {
+  color: var(--color-text);
+  font-size: 15px;
+  margin-top: 10px;
+}
+
+/* single projects */
+.single-projects {
+  display: block;
+  margin-bottom: -5px;
+  overflow: hidden;
+}
+
+.single-projects-image-text {
+  transition: all 0.3s ease 0s;
+}
+
+.single-projects:hover .single-projects-image-text {
+  box-shadow: 0 0 10px 0 #999;
+}
+
+.projects-text {
+  background: #f1f1f1 none repeat scroll 0 0;
+  display: block;
+  margin-bottom: 30px;
+  overflow: hidden;
+  padding: 40px 25px;
+}
+
+.projects-text h3 {
+  color: var(--color-heading);
+  font-size: var(--font-size-lg);
+  font-weight: bold;
+}
+
+.projects-text.text-center > p {
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: 13px;
+  margin-bottom: 0;
+}
+
+.projects-button {
+  float: left;
+  width: 40%;
+}
+
+.projects-price {
+  float: right;
+  width: 60%;
+}
+
+.projects-price h5 {
+  color: var(--color-border-dark);
+  float: right;
+  font-family: var(--font-body);
+  font-size: var(--font-size-md);
+  font-weight: bold;
+}
+
+/* ---------------------------------------- */
+
+/*  5. Help us area CSS
+/*---------------------------------------- */
+.help-us-area {
+  background: rgb(0 0 0 / 0%) url("img/help-us-bg.avif") repeat fixed 0 0;
+  color: var(--color-white);
+}
+
+.section-title-style-two.text-center {
+  margin-bottom: 75px;
+}
+
+.section-title-style-two.text-center > h2 {
+  font-size: 36px;
+  font-weight: bold;
+}
+
+/* help-icon */
+.help-icon {
+  border: 1px solid var(--color-primary);
+  float: left;
+  margin-right: 30px;
+  text-align: center;
+  width: 50px;
+}
+
+.help-icon i {
+  font-size: 25px;
+  line-height: 50px;
+}
+
+/* help-text */
+.help-text {
+  float: right;
+  width: 270px;
+}
+
+.help-text > h3 {
+  font-size: var(--font-size-lg);
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.help-text > p {
+  margin-bottom: 25px;
+}
+
+/* ---------------------------------------- */
+
+/*  6. Our-gallery CSS
+/*---------------------------------------- */
+
+/* gallery-menu */
+.gallery-menu {
+  margin-bottom: 17px;
+}
+
+.gallery-menu ul li {
+  color: var(--color-heading);
+  cursor: pointer;
+  display: inline-block;
+  font-family: var(--font-heading);
+  font-weight: bold;
+  padding: 10px;
+  transition: all 0.3s ease 0s;
+}
+
+.gallery-menu ul li:hover,
+.gallery-menu ul li.active{
+  color: var(--color-primary);
+}
+
+/* gallery-images */
+.mix{
+    display: none;
+}
+
+.gallery-image-and-text {
+  position: relative;
+}
+
+.image-link {
+  background: rgb(43 97 165 / 68%) none repeat scroll 0 0;
+  inset: 0;
+  opacity: 0;
+  position: absolute;
+  transition: all 0.3s ease 0s;
+}
+
+.image-link i {
+  color: var(--color-white);
+  font-size: 32px;
+  margin-top: 46%;
+}
+
+.image-link p {
+  color: var(--color-white);
+  font-family: var(--font-heading);
+  font-size: 15px;
+  font-weight: bold;
+  line-height: 31px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.gallery-image-and-text:hover .image-link{
+  opacity: 1;
+}
+
+/* ---------------------------------------- */
+
+/*  7. Countdown area CSS
+/*---------------------------------------- */
+.countdown-area {
+  background: rgb(0 0 0 / 0%) url("img/count-down-bg.avif") repeat scroll 0 0;
+}
+
+.countdown-side-area {
+  margin-top: 35px;
+}
+
+.countdown-icon {
+  color: var(--color-white);
+  float: left;
+  width: 50px;
+}
+
+.countdown-icon i {
+  font-size: 24px;
+  margin-top: 12px;
+}
+
+.countdown-text {
+  float: right;
+  width: 300px;
+}
+
+.countdown-text > h3 {
+  color: var(--color-white);
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 7px;
+}
+
+.countdown-text > p {
+  color: var(--color-white);
+  font-size: var(--font-size-lg);
+}
+
+.count-down .table-cell {
+  float: left;
+  margin: 0 42px;
+  text-align: center;
+}
+
+.count-down .tab-val {
+  background: var(--color-primary) none repeat scroll 0 0 padding-box content-box;
+  border: 2px solid var(--color-white);
+  color: var(--color-white);
+  font-family: var(--font-body);
+  font-size: 24px;
+  font-weight: bold;
+  height: 96px;
+  line-height: 85px;
+  padding: 3px;
+  width: 96px;
+}
+
+.count-down .tab-metr {
+  color: var(--color-white);
+  font-family: var(--font-body);
+  font-size: 15px;
+  margin-top: 8px;
+  text-transform: uppercase;
+}
+
+/* ---------------------------------------- */
+
+/*  8. Our volunteers area CSS
+/*---------------------------------------- */
+.volunteer-image-and-social {
+  position: relative;
+}
+
+.volunteer-social {
+  background: rgb(10 170 192 / 65%) none repeat scroll 0 0;
+  height: 0%;
+  left: 0;
+  line-height: 339px;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  transition: all 0.6s ease 0s;
+  width: 100%;
+  opacity: 0;
+}
+
+.volunteer-social > a i {
+  border: 1px solid var(--color-white);
+  color: var(--color-white);
+  display: inline-block;
+  height: 35px;
+  line-height: 35px;
+  margin: 0 8px;
+  transition: all 0.3s ease 0s;
+  width: 35px;
+}
+
+.volunteer-social > a i:hover{
+  color: var(--color-text);
+  border: 1px solid var(--color-text);
+}
+
+.single-volunteer:hover .volunteer-social{
+  opacity: 1;
+  height: 100%;
+}
+
+.volunteer-title.text-center {
+  margin-top: 15px;
+}
+
+.volunteer-title.text-center > h3 {
+  color: var(--color-text-secondary);
+  font-family: var(--font-body);
+  font-size: var(--font-size-lg);
+  margin-bottom: 0;
+}
+
+.volunteer-title.text-center > p {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-base);
+  margin: 0;
+}
+
+/* ---------------------------------------- */
+
+/*  9. People says area CSS
+/*---------------------------------------- */
+.people-says-area {
+  background: rgb(0 0 0 / 0%) url("img/peopule-say-bg.avif") repeat scroll 0 0 / cover ;
+}
+
+.single-people {
+  margin: auto;
+  width: 55%;
+}
+
+.people-asy-title > h2 {
+  color: var(--color-white);
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 2px;
+}
+
+.people-asy-title > h2 span {
+  color: var(--color-primary);
+}
+
+.people-asy-title > p {
+  color: #cfd8e3;
+  margin-bottom: 6px;
+}
+
+.people-say-image {
+  border-bottom: 1px solid var(--color-white);
+  margin-bottom: 25px;
+  margin-top: 70px;
+  padding-bottom: 15px;
+}
+
+.people-say-image > img {
+  border: 2px solid var(--color-primary);
+  border-radius: 100%;
+  height: 115px;
+  width: 115px;
+}
+
+.peoplp-say-text.text-center > p {
+  color: var(--color-white);
+  font-size: var(--font-size-base);
+}
+
+.peoplp-say-text.text-center > h3 {
+  color: var(--color-white);
+  font-family: var(--font-body);
+  font-size: var(--font-size-lg);
+  line-height: 18px;
+  margin-bottom: 10px;
+  margin-top: 23px;
+}
+
+.peoplp-say-text h4 {
+  color: var(--color-white);
+  font-family: var(--font-body);
+  font-size: var(--font-size-base);
+}
+
+.people-say-nav {
+  background: transparent;
+  border: 0;
+  opacity: 1;
+  top: 30%;
+  bottom: auto;
+  width: 40px;
+  height: 40px;
+}
+
+.people-say-nav--prev {
+  left: -40px;
+}
+
+.people-say-nav--next {
+  right: -40px;
+}
+
+.icon-left-open,
+.icon-right-open {
+  font-size: 30px;
+  color: var(--color-text-secondary);
+}
+
+.people-say-nav:hover .icon-left-open,
+.people-say-nav:hover .icon-right-open {
+  color: var(--color-primary);
+}
+
+/* home youtube background */
+.height-100vh {
+  height: 100vh;
+}
+
+.buttonBar {
+  display: none;
+}
+
+.youtube-bg-overlay {
+  background: rgb(0 0 0 / 68%); 
+  width: 100%;
+  height: 100%;
+}
+
+.youtube-text {
+  width: 50%;
+  margin: auto;
+  padding-top: 15%;
+}
+
+.youtube-text p {
+  color: var(--color-white);
+  font-size: var(--font-size-md);
+  margin-bottom: 35px;
+}
+
+.center-menu .main-menu {
+  margin: 0 auto;
+  width: 57%;
+}
+
+.center-menu .main-menu ul li {
+  display: inline;
+  padding: 0 23px 35px;
+}
+
+.center-menu .main-menu ul li .drop-menu li {
+  display: inline;
+  padding: 0;
+}
+
+.center-menu .donate-button {
+  display: none;
+}
+
+/* ---------------------------------------- */
+
+/*  10. Blog area CSS
+/*---------------------------------------- */
+.single-blog {
+  border: 1px solid #efefef;
+  overflow: hidden;
+  padding-bottom: 15px;
+  transition: all 0.3s ease 0s;
+}
+
+.single-blog:hover {
+  box-shadow: 0 8px 16px 1px #ccc;
+}
+
+.blo-image-and-date {
+  position: relative;
+}
+
+.blo-image-and-date > img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.blo-image-and-date > a {
+  background: var(--color-primary) none repeat scroll 0 0;
+  color: var(--color-white);
+  font-family: Lato,sans-serif;
+  font-size: var(--font-size-base);
+  font-weight: bold;
+  left: 0;
+  line-height: 70px;
+  position: absolute;
+  text-align: center;
+  text-transform: uppercase;
+  top: 0;
+  width: 75px;
+}
+
+.blog-info {
+  padding: 11px 15px 31px;
+}
+
+.admin {
+  width: 50%;
+  float: left;
+}
+
+.comment {
+  float: right;
+  text-align: right;
+  width: 50%;
+}
+
+.admin > a {
+  color: var(--color-text-light);
+  font-size: var(--font-size-base);
+}
+
+.admin a i,
+.comment a i {
+  margin-right: 4px;
+}
+
+.comment a:hover i,
+.admin > a:hover i{
+  color: var(--color-primary);
+}
+
+.comment > a {
+  border-right: 1px solid;
+  color: var(--color-text-light);
+  padding: 0 7.5px;
+}
+
+.comment > a:last-child{
+  border-right: 0 solid;
+  padding-right: 0;
+}
+
+.blog-text {
+  padding: 15px;
+}
+
+.blog-text h3 a {
+  color: var(--color-heading);
+  font-size: var(--font-size-lg);
+  font-weight: bold;
+}
+
+.blog-text h3 a:hover{
+  color: var(--color-primary);
+}
+
+.blog-text > p {
+  color: var(--color-text);
+  font-size: var(--font-size-base);
+}
+
+.blog-text > a {
+  border-bottom: 1px solid var(--color-text);
+  color: var(--color-text);
+  float: right;
+  font-family: Lato, sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 22px;
+}
+
+.blog-text > a:hover{
+  color: var(--color-primary);
+  border-bottom: 1px solid var(--color-primary);
+}
+
+/* ---------------------------------------- */
+
+/*  11. Brand logo CSS
+/*---------------------------------------- */
+.b-logo {
+  border: 1px solid #f2f2f2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 110px;
+  padding: 0 18px;
+  text-align: center;
+  transition: all 0.3s ease 0s;
+}
+
+.b-logo:hover {
+  box-shadow: 0 0 5px 3px #eaeaea;
+}
+
+.b-logo a {
+  display: block;
+  width: 100%;
+  min-width: 0;
+}
+
+/* ---------------------------------------- */
+
+/*  12. footer top CSS
+/*---------------------------------------- */
+.footer-top {
+  background: #232323 none repeat scroll 0 0;
+}
+
+/* widget title */
+.footer-widget-title > h3 {
+  color: var(--color-white);
+  font-size: var(--font-size-lg);
+  font-weight: bold;
+  margin-bottom: 45px;
+  position: relative;
+}
+
+.footer-widget-title > h3::after {
+  background: var(--color-primary) none repeat scroll 0 0;
+  content: "";
+  display: block;
+  height: 3px;
+  left: 0;
+  position: absolute;
+  top: 140%;
+  width: 30px;
+}
+
+/* widget one */
+.widget-about-content > p {
+  color: var(--color-white);
+}
+
+.widget-contact-content > h3 {
+  color: var(--color-white);
+  font-size: var(--font-size-lg);
+  font-weight: bold;
+}
+
+.widget-contact-content > a {
+  color: var(--color-white);
+  display: block;
+  line-height: 25pt;
+}
+
+.widget-contact-content > p {
+  color: var(--color-white);
+  font-size: var(--font-size-base);
+  margin-bottom: 0;
+}
+
+/* widget two */
+.footer-widget.widget-two li::after {
+  color: var(--color-white);
+  content: "\203A";
+  left: 0;
+  position: absolute;
+  padding-left: 15px;
+}
+
+.footer-widget.widget-two a {
+  color: var(--color-white);
+}
+
+.footer-widget.widget-two li {
+  margin-bottom: 12px;
+  margin-left: 15px;
+}
+
+.footer-widget.widget-two li:hover::after{
+  color: #0E9CB1;  
+}
+
+.footer-widget.widget-two a:hover{
+  color: #0E9CB1;
+}
+
+/* widget four */
+.newslater {
+  margin-top: 39px;
+}
+
+.newslater input {
+  border: medium none;
+  border-radius: 2px 0 0 2px;
+  padding: 5px 10px;
+}
+
+.newslater button {
+  background: var(--color-primary) none repeat scroll 0 0;
+  border: medium none;
+  border-radius: 0 2px 2px 0;
+  color: var(--color-white);
+  cursor: pointer;
+  display: inline-block;
+  font-size: var(--font-size-base);
+  margin-left: -5px;
+  padding: 5px;
+  text-align: center;
+  transition: all 0.3s ease 0s;
+  width: 45px;
+}
+
+.newslater button:hover{
+  opacity: 0.8;
+}
+
+/* footer bottom */
+.footer-bottom {
+  background: #191919 none repeat scroll 0 0;
+  padding: 16px 0;
+}
+
+.footer-social {
+  float: right;
+}
+
+.copyright > p {
+  color: #eee;
+  font-size: var(--font-size-base);
+  margin-bottom: 0;
+  text-align: center;
+}
+
+.footer-bottom .col-sm-8 {
+  width: 100%;
+}
+
+.footer-bottom .col-sm-4 {
+  display: none;
+}
+
+.copyright > p a{
+  color: var(--color-white);
+  font-weight: bold;
+}
+
+.footer-social ul li {
+  display: inline;
+  padding: 0 7.5px;
+}
+
+.footer-social ul li a {
+  color: #eee;
+  font-size: 12px;
+}
+
+/* home animated css */
+.slider-animate-area {
+  background: #0d0d0d none repeat scroll 0 0;
+  color: var(--color-white);
+}
+
+.slider-animate-area .slider-button-area {
+  margin-top: 50px;
+}
+
+#scrollUp {
+  background-color: var(--color-primary);
+  bottom: 5px;
+  cursor: pointer;
+  display: none;
+  height: 34px;
+  position: fixed;
+  right: 12px;
+  text-align: center;
+  width: 40px;
+  z-index: 9999;
+  transition: all 0.3s ease 0s;
+}
+
+#scrollUp:hover{
+  opacity: 0.7;
+}
+
+#scrollUp i {
+  color: var(--color-white);
+  font-size: 30px;
+  font-weight: bold;
+}
+
+/* ---------------------------------------- */
+
+/*  13. About us CSS
+/*---------------------------------------- */
+.page-title-area {
+  background: rgb(0 0 0 / 0%) url("img/about/page-banner.avif") repeat scroll 0 0 / cover ;
+  padding: 150px 0 90px;
+  position: relative;
+}
+
+.back-home {
+  bottom: -80px;
+  float: right;
+  position: absolute;
+  right: 0;
+}
+
+.back-home > a {
+  color: var(--color-white);
+  font-size: 13px;
+}
+
+.back-home a i {
+  color: var(--color-primary);
+  margin-right: 5px;
+}
+
+.page-title h1 {
+  color: var(--color-white);
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 0;
+  text-transform: uppercase;
+}
+
+.breadcrumb a {
+  color: var(--color-white);
+}
+
+.breadcumb-area .breadcrumb {
+  background-color: transparent;
+
+  --bs-breadcrumb-divider-color: rgb(255 255 255 / 75%);
+
+  margin-bottom: 0;
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+  color: inherit;
+}
+
+.breadcrumb a:hover,
+.breadcrumb .breadcrumb-item.active{
+  color: var(--color-primary);
+}
+
+/* about text */
+.about-button.btn {
+  margin-top: 30px;
+}
+
+.about-button.btn > a {
+  color: var(--color-white);
+  text-decoration: none;
+}
+
+.about-button.btn:hover > a {
+  color: var(--color-text-muted);
+}
+
+/* what we do */
+.single-we-do {
+  position: relative;
+}
+
+.we-do-text {
+  background: rgb(10 170 160 / 63%) none repeat scroll 0 0;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.we-do-text > h3 {
+  color: var(--color-white);
+  font-size: var(--font-size-lg);
+  font-weight: bold;
+  line-height: 260px;
+  text-align: center;
+}
+
+/* fiinish project */
+.finish-project {
+  background:
+    linear-gradient(rgb(5 14 24 / 55%), rgb(5 14 24 / 55%)),
+    url("img/about/finish-project.avif") center center / cover no-repeat;
+}
+
+.finish-project .section-title h2,
+.finish-project .single-project,
+.finish-project .single-project h3,
+.finish-project .single-project h3 a,
+.finish-project .single-project i {
+  color: var(--color-white);
+}
+
+.finish-project .section-title p,
+.finish-project .single-project p {
+  color: rgb(255 255 255 / 90%);
+}
+
+.single-project h2 {
+  color: var(--color-white);
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 30px;
+  font-weight: bold;
+  line-height: 30px;
+  padding-bottom: 15px;
+  position: relative;
+}
+
+.single-project h2::after {
+  background: var(--color-primary) none repeat scroll 0 0;
+  bottom: 0;
+  content: "";
+  height: 5px;
+  left: 0;
+  position: absolute;
+  width: 100%;
+}
+
+.single-project h3 {
+  font-size: 24px;
+  line-height: 24px;
+  margin-bottom: 0;
+  margin-top: 15px;
+  color: var(--color-white);
+}
+
+/* video and skill area */
+.about-video {
+  position: relative;
+}
+
+.about-video .image-link,
+ .about-video .popup-youtube{
+  inset: 40% auto auto 45%;
+  position: absolute;
+  opacity: inherit;
+  width: inherit;
+}
+
+.about-video .popup-youtube {
+  left: 45%;
+  position: absolute;
+  top: 40%;
+  opacity: inherit;
+  width: inherit;
+}
+
+.about-video .image-link i,
+.about-video .popup-youtube i {
+  font-size: 50px;
+  color: var(--color-border-dark);
+}
+
+.mfp-iframe-holder .mfp-close {
+  right: -30px;
+  top: -15px;
+}
+
+/* ------------------------------
+28.2 about-skill-area
+-------------------------------- */
+.knob {
+  background: rgb(0 0 0 / 0%) none repeat scroll 0 0;
+  border: 0 none;
+  color: #2bcdc1;
+  font: bold 20px Arial, sans-serif;
+  height: 33px;
+  margin-left: -48px !important;
+  margin-top: 33px;
+  padding: 0;
+  position: absolute;
+  text-align: center;
+  vertical-align: middle;
+  width: 60px;
+}
+
+.progress-h4 {
+  margin: 0 auto;
+  position: absolute;
+  top: 120px;
+  width: 90%;
+}
+.about-member-area{padding:90px 0;background:#F7F5F6}
+
+.newsletter-area {
+  background: rgb(0 0 0 / 0%) url("img/about/bg-3.avif") no-repeat scroll center center / cover ;
+  overflow: hidden;
+  padding: 145px 0;
+  text-align: center;
+}
+
+.newsletter-area h4{color: var(--color-white)!important;
+font-family: var(--font-heading) !important;
+font-size: 36px;
+line-height: 36px;}
+
+.newsletter-area .email-newslatter {
+  margin: 0 auto;
+  width: 30%;
+}
+
+.newsletter-area .email-newslatter input [type="text"]{
+  color: var(--color-white)!important;
+}
+
+.newsletter-area .email-newslatter p{
+  color: var(--color-white);
+}
+
+.knob-progress {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.knob-progress__ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: conic-gradient(var(--color-primary) calc(var(--pct, 0) * 1%), var(--color-text-secondary) 0);
+  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 10px), #000 calc(100% - 10px));
+  mask: radial-gradient(farthest-side, transparent calc(100% - 10px), #000 calc(100% - 10px));
+}
+
+.knob-progress__value {
+  position: relative;
+  font: bold 20px Arial, sans-serif;
+  color: #000;
+}
+
+/* ---------------------------------------- */
+
+/*  14. Blog CSS
+/*---------------------------------------- */
+.blog-pagination {
+  float: right;
+}
+
+.blog-pagination li {
+  float: left;
+}
+
+.blog-pagination li a {
+  border: 1px solid #efefef;
+  float: left;
+  margin: 5px;
+  padding: 6px 12px;
+}
+
+.blog-pagination li a:hover{
+  background: var(--color-primary);
+  border: 1px solid var(--color-primary);
+  color: var(--color-white);
+}
+
+.blog-pagination li:last-child a{
+  border: 0 solid #ccc;
+  padding-right: 0;
+  margin-right: 0;
+}
+
+.blog-pagination li:last-child a:hover{
+  background: transparent;
+  color: var(--color-primary);
+}
+
+/* ---------------------------------------- */
+
+/*  15. Contact CSS
+/*---------------------------------------- */
+.single-box {
+  border: 1px solid #f1f1f1;
+  min-height: 250px;
+  padding: 50px 0 20px;
+  transition: all 0.3s ease 0s;
+}
+
+.single-box:hover{
+  border: 1px solid var(--color-primary);
+}
+
+.single-box:hover i{
+  color: var(--color-primary);
+}
+
+.single-box i {
+  font-size: 40px;
+  margin-bottom: 36px;
+  transition: all 0.3s ease 0s;
+}
+
+.single-box h3 {
+  font-family: Lato, sans-serif;
+  font-size: var(--font-size-lg);
+  font-weight: bold;
+}
+
+.single-box p {
+  color: var(--color-text);
+  font-family: latomedium, sans-serif;
+  font-size: var(--font-size-base);
+  margin-bottom: 0;
+}
+
+/* form css */
+.contact-form-area {
+  background: #f1f1f1 none repeat scroll 0 0;
+}
+
+.form-fields {
+  float: left;
+  margin-right: 2.8%;
+  width: 31.45%;
+}
+
+.last{
+  margin-right: 0%;  
+}
+
+.form-fields label {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: var(--font-size-md);
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.form-fields > input {
+  border: medium none;
+  height: 50px;
+  padding: 0 15px;
+  width: 100%;
+}
+
+.message-fields {
+  clear: both;
+  padding-top: 20px;
+}
+
+.message-fields > label {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: var(--font-size-md);
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.message-fields textarea {
+  background: var(--color-white) none repeat scroll 0 0;
+  border: medium none;
+  padding: 20px;
+  width: 100%;
+}
+
+.form-button {
+  margin-top: 20px;
+}
+
+.form-button button {
+  border: 1px solid #8a8a8a;
+  border-radius: 3px;
+  color: var(--color-text);
+  font-size: 13px;
+  font-weight: bold;
+  margin-right: 10px;
+  padding: 10px 20px;
+  transition: all 0.3s ease 0s;
+}
+
+.form-button button:hover{
+  background: var(--color-primary);
+  border: 1px solid var(--color-primary);
+  color: var(--color-white);
+}
+
+#googleMap{
+  width: 100%;
+  height:500px;
+}
+
+/* ---------------------------------------- */
+
+/*  16. Projects page CSS
+/*---------------------------------------- */
+.projects-page-content .projects-button {
+  float: none;
+  margin: 30px 0;
+  width: 100%;
+}
+
+.projects-page-content .projects-text {
+  background: transparent none repeat scroll 0 0;
+}
+
+.projects-page-content .btn {
+  border: 1px solid transparent;
+}
+
+.projects-page-content .projects-price h5 {
+  float: none;
+}
+
+.projects-page-content .projects-price {
+  float: none;
+  width: 100%;
+}
+
+.projects-page-content .single-projects-image-text {
+  border: 1px solid #efefef;
+  transition: all 0.3s ease 0s;
+}
+
+.projects-page-content .projects-text {
+  padding: 40px 25px 0;
+}
+
+.projects-page-content .blog-pagination {
+  float: none;
+}
+
+/* causes sidebar */
+.search-box form {
+  margin-top: 0;
+  padding: 0;
+}
+
+.search-box .input-group.add-on {
+  width: 100%;
+}
+
+.search-box .form-control {
+  border: 1px solid #e6e6e6;
+  border-radius: 0;
+  height: 40px;
+}
+
+.search-box button {
+  border: 1px solid #e6e6e6 !important;
+  border-radius: 0 !important;
+  color: var(--color-text-muted);
+  height: 40px;
+}
+
+/* twitter widget */
+.twitter-widget-area {
+  margin-top: 34px;
+}
+
+.twitter-widget {
+  border-bottom: 1px solid #e6e6e6;
+  padding-bottom: 11px;
+  margin-top: 26px;
+}
+
+.sidebar-widget-title > h3 {
+  border-bottom: 1px solid #e6e6e6;
+  color: var(--color-border-dark);
+  display: block;
+  font-size: var(--font-size-md);
+  font-weight: bold;
+  line-height: 40px;
+  margin-bottom: 0;
+}
+
+.twitter-widget i {
+  float: left;
+  font-size: 40px;
+  margin-right: 15px;
+  color: var(--color-primary);
+}
+
+.twitter-widget > h5 {
+  color: var(--color-border-dark);
+  font-size: var(--font-size-base);
+  font-weight: bold;
+  margin-bottom: 28px;
+  position: relative;
+  top: 10px;
+}
+
+/* popular tags */
+.popular-tags-widget {
+  overflow: hidden;
+  padding-top: 35px;
+}
+
+.popular-tags {
+  margin-top: 30px;
+}
+
+.popular-tags ul {
+  margin-left: -5px;
+}
+
+.popular-tags li {
+  float: left;
+  margin: 5px;
+}
+
+.popular-tags nav ul li a {
+  background: #f1f1f1 none repeat scroll 0 0;
+  color: #595959;
+  display: inline-block;
+  padding: 10px 24px;
+}
+
+.popular-tags nav ul li a:hover{
+  background: var(--color-primary);
+  color: var(--color-white);
+}
+
+/* flicker widget */
+.flicker-widget-area {
+  padding-top: 50px;
+}
+
+.flicker-widget {
+  margin-top: 30px;
+}
+
+.flicker-widget li {
+  float: left;
+  margin-bottom: 15px;
+  margin-right: 15px;
+  width: 30.5%;
+}
+
+.flicker-widget li:nth-child(3),
+.flicker-widget li:nth-child(6){
+  margin-right: 0;
+}
+
+.flicker-widget ul li .image-link {
+  position: static;
+  opacity: inherit;
+}
+
+/* ---------------------------------------- */
+
+/*  17. Up comming events CSS
+/*---------------------------------------- */
+.event-image {
+  position: relative;
+}
+
+.event-image > img {
+  width: 100%;
+}
+
+.event-image > h3 {
+  background: var(--color-primary) none repeat scroll 0 0;
+  color: var(--color-white);
+  font-family: var(--font-body);
+  font-size: var(--font-size-lg);
+  font-weight: bold;
+  height: 60px;
+  padding-top: 9px;
+  position: absolute;
+  text-align: center;
+  text-transform: uppercase;
+  top: 0;
+  width: 50px;
+}
+
+.event-text h3 a:hover{
+  color: var(--color-primary);
+}
+
+.event-text > h3 {
+  font-size: var(--font-size-lg);
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.event-text > h3 a{
+  color: #1B1B1B;
+}
+
+.event-time-and-place {
+  margin-bottom: 20px;
+}
+
+.ev-time {
+  color: var(--color-text);
+  font-size: var(--font-size-base);
+  margin-right: 30px;
+}
+
+.event-time-and-place span i {
+  color: var(--color-primary);
+  margin-right: 11px;
+}
+
+.event-text > p {
+  margin-bottom: 40px;
+}
+
+/* eent sidebar */
+.event-sidt-title > h3 {
+  color: var(--color-heading);
+  font-size: var(--font-size-lg);
+  font-weight: bold;
+  padding-bottom: 15px;
+  position: relative;
+}
+
+.event-sidt-title > h3::after{
+  content: "";
+  background: var(--color-primary);
+  position: absolute;
+  width: 70px;
+  height: 3px;
+  left: 0;
+  top: 100%;
+}
+
+/* popular post */
+.ev-post-text > p {
+  color: #8a8a8a;
+  margin-bottom: 0;
+}
+
+/* event categoris */
+.event-categoris a {
+  display: block;
+  font-size: var(--font-size-md);
+  line-height: 20px;
+  padding: 13px 0;
+}
+
+.event-tags .popular-tags > nav {
+  margin-top: 28px;
+}
+
+/* ---------------------------------------- */
+
+/*  18. Error page area CSS
+/*---------------------------------------- */
+.error-page-area {
+  background: rgb(0 0 0 / 0%) url("img/404-bg.avif") repeat scroll 0 0;
+}
+
+.error-content h1 {
+  color: var(--color-white);
+  font-size: 150px;
+  font-weight: bold;
+  line-height: 150px;
+}
+
+.error-content h1 span {
+  color: var(--color-primary);
+}
+
+.error-content h2 {
+  color: var(--color-white);
+  font-family: Lato, sans-serif;
+  font-size: 50px;
+  font-weight: bold;
+}
+
+.error-content h2 span {
+  font-size: 24px;
+}
+
+.error-content p {
+  color: var(--color-white);
+  font-family: Lato, sans-serif;
+  font-size: var(--font-size-md);
+  font-weight: 400;
+  margin-bottom: 55px;
+}
+
+.error-content a {
+  border: 1px solid var(--color-white);
+  color: var(--color-white);
+  padding: 15px 25px;
+  text-decoration: none;
+}
+
+.donet-error-page h2 {
+  color: var(--color-text);
+  font-family: Lato, sans-serif;
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+.donet-error-page a {
+  border: 1px solid var(--color-text);
+  color: var(--color-text);
+  padding: 15px 25px;
+  text-decoration: none;
+}
+
+/* ---------------------------------------- */
+
+/*  19. Blog details CSS
+/*---------------------------------------- */
+.blog-details{
+  padding: 15px;
+}
+
+.blog-details-title > h3 {
+  margin-bottom: 0;
+}
+
+.blog-details .blog-info {
+  padding: 11px 15px 15px 0;
+}
+
+.blog-details .comment {
+  float: none;
+  text-align: inherit;
+  width: inherit;
+}
+
+.blog-details .admin {
+  float: left;
+  margin-right: 5px;
+  width: inherit;
+}
+
+.blog-details .blo-image-and-date > img {
+  width: 100%;
+}
+
+.blog-details .blog-text {
+  padding: 0;
+  margin-top: 15px;
+}
+
+/* blog details comment css */
+.single0blog-coment ul li {
+  float: left;
+  margin: 30px 0 0;
+  width: 100%;
+}
+
+.single0blog-coment ul li .coment-image {
+  float: left;
+}
+
+.single0blog-coment ul li .coment-image a {
+  color: var(--color-text-muted);
+  display: inline-block;
+  font-size: var(--font-size-md);
+  margin: 0 5px 0 0;
+}
+
+.single0blog-coment ul li .comment-heading {
+  margin: 0 0 0 30px;
+  padding: 0 0 5px 60px;
+}
+
+.single0blog-coment ul li .comment-heading h5 {
+  color: var(--color-text-muted);
+  display: inline-block;
+  font-size: var(--font-size-md);
+  margin: 0 5px 0 0;
+}
+
+.single0blog-coment ul li .comment-heading h5 a {
+  color: var(--color-text-muted);
+  display: inline-block;
+  font-size: var(--font-size-md);
+  margin: 0 5px 0 0;
+  transition: all 0.3s ease 0s;
+}
+
+.single0blog-coment ul li .comment-heading h5 a:hover {
+  color: var(--color-primary);
+}
+
+.single0blog-coment ul li .comment-heading p {
+  display: inline-block;
+  margin: 0;
+}
+
+.single0blog-coment ul li .comment-heading a.reply {
+  color: var(--color-text-muted);
+  float: right;
+  font-size: var(--font-size-base);
+  font-weight: bold;
+  transition: all 0.3s ease 0s;
+}
+
+.single0blog-coment ul li .comment-heading a.reply:hover {
+  color: var(--color-primary);
+}
+
+.single0blog-coment ul li .coment0-text {
+  background: #efefef none repeat scroll 0 0;
+  border-bottom: 3px solid rgb(0 0 0 / 10%);
+  display: block;
+  margin-left: 40px;
+  padding-left: 50px;
+  padding-top: 12px;
+}
+
+.single0blog-coment ul ul {
+  float: right;
+  width: 90%;
+}
+
+.single0blog-coment ul li {
+  float: left;
+  margin: 30px 0 0;
+  width: 100%;
+}
+
+/* comment reply css */
+.leave-reply {
+  float: left;
+  margin-bottom: 30px;
+  margin-top: 30px;
+  width: 100%;
+}
+
+.leave-reply h2 {
+  background-color: #363636;
+  color: var(--color-white);
+  font-size: 24px;
+  line-height: normal;
+  margin: 0;
+  padding: 10px 15px;
+}
+
+.leave-reply ul {
+  float: left;
+  list-style: outside none none;
+  margin: 30px 0 0;
+  width: 100%;
+}
+
+.leave-reply ul li {
+  margin: 0 0 20px;
+  position: relative;
+}
+
+.leave-reply input[type="text"], .leave-reply textarea {
+  background-color: var(--color-white);
+  border: 1px solid #ccc;
+  border-radius: 0;
+  box-shadow: 0 1px 1px rgb(0 0 0 / 7.5%) inset;
+  margin: 0;
+  min-height: 50px;
+  padding: 4px 60px 4px 6px;
+  transition: border 0.2s linear 0s, box-shadow 0.2s linear 0s;
+  width: 100%;
+}
+
+.leave-reply ul li i {
+  font-size: 20px;
+  height: 100%;
+  padding: 15px 0;
+  position: absolute;
+  right: 0;
+  text-align: center;
+  top: 0;
+  width: 50px;
+}
+
+.leave-reply input[type="text"], .leave-reply textarea {
+  background-color: var(--color-white);
+  border: 1px solid #ccc;
+  border-radius: 0;
+  box-shadow: 0 1px 1px rgb(0 0 0 / 7.5%) inset;
+  margin: 0;
+  min-height: 50px;
+  padding: 4px 60px 4px 6px;
+  transition: border 0.2s linear 0s, box-shadow 0.2s linear 0s;
+  width: 100%;
+}
+
+.leave-reply textarea {
+  height: 200px;
+  resize: none;
+}
+
+.leave-reply .btn-style {
+  float: right;
+}
+
+.leave-reply .btn-style:hover {
+  background: var(--color-primary) none repeat scroll 0 0;
+}
+
+/* ---------------------------------------- */
+
+/*  20. Blog details sidebar right CSS
+/*---------------------------------------- */
+.post-thum img {
+  width: 100%;
+}
+
+/* shortcode css */
+
+/* page title left */
+.page-title-left .breadcumb-area .breadcrumb {
+  background-color: rgb(0 0 0 / 0%);
+  padding-left: 0;
+}
+
+/* page title right */
+.page-title-right .page-title {
+  text-align: right;
+  width: 100%;
+}
+
+.page-title-right .breadcumb-area {
+  text-align: right;
+}
+
+.page-title-right .breadcumb-area .breadcrumb {
+  background-color: rgb(0 0 0 / 0%);
+  padding-right: 0;
+}
+
+/* page breadcumb right */
+.page-breadcumb-right .page-title {
+  float: left;
+}
+
+.page-breadcumb-right .breadcumb-area .breadcrumb {
+  background-color: rgb(0 0 0 / 0%);
+  padding-right: 0;
+}
+
+.page-damy-content p {
+  color: rgb(102 102 102);
+}
+
+/* hiro unit css */
+.hiro-unit-area {
+  background: rgb(0 0 0 / 0%) url("img/peopule-say-bg.avif") repeat fixed 0 0;
+  color: rgb(255 255 255);
+}
+
+.hiro-unit-area h1 {
+  font-size: 60px;
+  font-weight: bold;
+  line-height: 65px;
+}
+
+.hiro-unit-area p {
+  font-size: 15px;
+  margin-bottom: 40px;
+}
+
+/* video gallery css */
+.single-video-gallery iframe {
+  height: 100%;
+  width: 100%;
+}
+
+/* pagination css */
+.shortcode-area .section-title h2 {
+  border-bottom: 1px solid #d1d1d1;
+  color: var(--color-text-secondary);
+  font-size: 21px;
+  line-height: 30px;
+  padding-bottom: 8px;
+  text-transform: capitalize;
+}
+
+/* ---------------------------------------- */
+
+/*  21. Giving Page CSS (community/support)
+/*---------------------------------------- */
+
+/* ---- Amount buttons ---- */
+.give-amounts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 28px 0 8px;
+  justify-content: center;
+}
+
+.give-amounts__btn {
+  display: inline-block;
+  padding: 14px 32px;
+  background: var(--color-white);
+  border: 2px solid var(--ip-blue);
+  color: var(--ip-blue);
+  font-family: var(--font-heading);
+  font-size: var(--font-size-md);
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: all 0.25s ease;
+  text-align: center;
+  min-width: 110px;
+}
+
+.give-amounts__btn:hover,
+.give-amounts__btn:focus {
+  background: var(--ip-blue);
+  color: var(--color-white);
+}
+
+/* gh#247 — visible keyboard focus ring on the donation-amount CTAs. */
+.give-amounts__btn:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+/* Custom-amount button: dashed border signals "open-ended"; transparent
+   background intentional — secondary visual weight vs. preset amounts. */
+.give-amounts__btn--custom {
+  border-style: dashed;
+  background: transparent;
+}
+
+.give-amounts__btn--custom:hover {
+  border-style: solid;
+}
+
+/* ---- Tier table ---- */
+.give-tier-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0 8px;
+  font-size: var(--font-size-base);
+}
+
+.give-tier-table th {
+  background: var(--ip-blue);
+  color: var(--color-white);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  text-align: left;
+  padding: 12px 16px;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.give-tier-table td {
+  padding: 13px 16px;
+  border-bottom: 1px solid var(--ip-border);
+  vertical-align: top;
+  color: var(--ip-slate);
+  line-height: 1.55;
+}
+
+/* General rule first; terminal-row override second (correct cascade order). */
+.give-tier-table tr:nth-child(even) td {
+  background: #f0f4f8;
+}
+
+.give-tier-table tr:last-child td {
+  border-bottom: none;
+}
+
+.give-tier-table td:first-child {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--ip-navy);
+  white-space: nowrap;
+}
+
+.give-tier-table td:nth-child(2) {
+  font-weight: 600;
+  color: var(--ip-blue);
+  white-space: nowrap;
+}
+
+/* ---- Stripe embed wrapper ---- */
+.give-stripe-embed {
+  margin: 32px 0 0;
+}
+
+/* ---- Fine-print notice text ---- */
+.give-notice {
+  font-size: 13px;
+  color: var(--ip-text-light);
+  margin-top: 14px;
+  line-height: 1.65;
+}
+
+.give-notice a {
+  color: var(--ip-blue);
+}
+
+/* ---- Card layout variants used on this page ---- */
+.give-card--centered { padding: 32px 24px; text-align: center; }
+.give-card--flex     { padding: 32px 24px; display: flex; flex-direction: column; }
+.give-card--panel    { padding: 48px 40px; }
+
+/* Card inner elements */
+.give-card__icon           { font-size: 32px; color: var(--ip-blue); margin-bottom: 16px; }
+.give-card__heading        { font-family: var(--font-heading); font-size: 17px; font-weight: 700; color: var(--ip-navy); margin-bottom: 12px; }
+.give-card__heading--lg    { font-size: 24px; margin-bottom: 16px; }
+.give-card__body           { font-size: var(--font-size-base); line-height: 1.75; color: var(--ip-slate); }
+.give-card__body--grow     { flex: 1; }
+
+/* ---------------------------------------- */
+
+/*  22. Mission page: we-do overlay & CTA button fixes
+/*---------------------------------------- */
+
+/* Issue #3: Force we-do images to fill column width so the green overlay matches the
+   image exactly. Natural image size is 370×300 px but col-sm-4 content is wider at
+   typical desktop widths, so max-width:100% alone leaves ~46 px of overhang on each
+   side. Setting width:100% stretches the image to fill the container, eliminating the
+   mismatch. display:block removes the 4 px inline descender gap. */
+.we-do-image {
+  line-height: 0;
+}
+
+.we-do-image img {
+  width: 100%;
+  display: block;
+}
+
+/* Issue #7: CTA buttons in the "Join Us in Advancing Science" (finish-project) section.
+   The <a class="donate-button"> inherits float:right from the nav .donate-button rule,
+   pushing it out of the text-flow and to the far right. Reset the float so
+   text-align:center on the col/.single-project parent centres the button correctly. */
+.finish-project .donate-button {
+  float: none;
+  margin-top: 20px;
+}
+
+/* WOW.js scroll-triggered animations (hero text on index.html) — WOW.js
+   predates prefers-reduced-motion and only disables itself for mobile user
+   agents, not for this preference. It manages visibility/animation via
+   inline styles (js/wow.js resetStyle/applyStyle), so this needs !important
+   to actually win. */
+@media (prefers-reduced-motion: reduce) {
+  .wow {
+    visibility: visible !important;
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* .top-social / .footer-social are template slots for social-network icon
+   links; INSTAR Lab has none wired up yet. Collapse the empty containers
+   rather than reserving visible, blank space for them — this rule stops
+   applying on its own the moment real <a> icons are added inside. */
+.top-social:empty,
+.footer-social:empty {
+  display: none;
+}
+
+/* ---------------------------------------- */
+
+/*  23. Print stylesheet (gh#273)
+/*---------------------------------------- */
+
+/* css/main.css already carries vendored Bootstrap print resets (forces
+   black text / transparent backgrounds on everything, underlines links,
+   appends " (href)" after in-content links). That solves legibility and
+   reference-URL concerns generically but has no idea which parts of *this*
+   site's markup are chrome vs. content, so it still prints the sticky nav,
+   the off-canvas mobile drawer, and the footer's social/back-to-top/
+   newsletter widgets. This block hides that site-specific chrome and tunes
+   page-level typography/margins for a readable printout of the content
+   researchers actually want to cite or archive (sciences/research/news
+   article templates share this exact header+footer markup, so one
+   sitewide block covers all of them). */
+@media print {
+  /* Primary + mobile nav chrome */
+  header,
+  .mobile-nav,
+  .mobile-nav-overlay,
+  .mobile-menu-btn {
+    display: none !important;
+  }
+
+  /* Footer: keep the address/contact/quick-link content (real reference
+     value when archiving a page) but drop the social icons, the
+     newsletter signup form, and the floating back-to-top control. */
+  .footer-social,
+  .footer-widget.widget-four,
+  #back-top {
+    display: none !important;
+  }
+
+  /* Leftover vendored carousel/slider chrome (Owl Carousel arrows/dots) —
+     not used in current markup, but harmless to suppress defensively if a
+     slider is reintroduced on a content page. */
+  .owl-nav,
+  .owl-dots {
+    display: none !important;
+  }
+
+  /* Page-level typography/margins for print. Color/background handled by
+     the css/main.css reset above; this only sizes and spaces things for a
+     printed page rather than a screen viewport. */
+  @page {
+    margin: 2cm;
+  }
+
+  body {
+    font-size: 12pt;
+    line-height: 1.5;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    page-break-after: avoid;
+  }
+
+  img {
+    max-width: 100% !important;
+    page-break-inside: avoid;
+  }
+
+  /* Drop the fixed/sticky positioning the screen layout relies on for the
+     nav — irrelevant once header is hidden, but stops it reserving
+     phantom space or repeating on every printed page in browsers that
+     don't fully honor display:none on transformed ancestors. */
+  #sticker {
+    position: static !important;
+  }
+}

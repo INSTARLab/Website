@@ -1,0 +1,20 @@
+---
+import InstarResearchTechnologySciencesRoute from '../../../components/editorial/InstarResearchTechnologySciencesRoute.astro';
+import {
+  getInstarResearchTechnologySciencesRoutes,
+  type InstarResearchTechnologySciencesRoute as InstarRoute,
+} from '../../../data/instar-research-technology-sciences';
+
+export const prerender = true;
+
+export function getStaticPaths() {
+  return getInstarResearchTechnologySciencesRoutes('sciences').map((route) => ({
+    params: { slug: route.slug },
+    props: { route },
+  }));
+}
+
+const { route } = Astro.props as { route: InstarRoute };
+---
+
+<InstarResearchTechnologySciencesRoute route={route} />

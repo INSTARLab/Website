@@ -1,0 +1,99 @@
+{
+  "version": 1,
+  "project": {
+    "name": "instarlab-website",
+    "productType": "editorial research magazine",
+    "stack": [
+      "astro",
+      "tailwind-v4",
+      "vite"
+    ]
+  },
+  "sources": {
+    "tokens": ["src/styles/tokens.css"],
+    "components": ["src/components/chrome", "src/components/primitives"],
+    "assets": [],
+    "instructions": [
+      "CLAUDE.md"
+    ]
+  },
+  "design": {
+    "colorMode": "light",
+    "colors": {
+      "canvas": "#ffffff",
+      "ink": "#1b1b1b",
+      "brand": "#1072ba",
+      "brandDeep": "#0d5d98",
+      "cool": "#2dbee1",
+      "accent": "#ec2227",
+      "footer": "#232323"
+    },
+    "typography": {
+      "display": "Raleway",
+      "body": "Roboto",
+      "ui": "Lato"
+    },
+    "spacing": {
+      "gutter": "clamp(1rem, 2.6vw, 2.25rem)",
+      "section": "clamp(4rem, 8vw, 8rem)",
+      "content": "clamp(1.5rem, 3.5vw, 3.5rem)"
+    },
+    "radius": {
+      "control": "0.25rem",
+      "panel": "0.75rem",
+      "pill": "999px"
+    },
+    "shadows": {
+      "panel": "0 1rem 3rem rgb(21 37 76 / 0.12)"
+    },
+    "motion": {
+      "library": "motion",
+      "reducedMotion": "required"
+    },
+    "density": "airy"
+  },
+  "components": {
+    "installed": [],
+    "preferredPrimitives": ["Container", "EditorialGrid", "EditorialSection", "EditorialSplit"],
+    "patterns": ["shared site chrome", "typed editorial route", "progressive enhancement"]
+  },
+  "constraints": {
+    "must": [
+      "semantic HTML with one main and one primary h1",
+      "keyboard-visible focus and WCAG 2.2 AA contrast",
+      "respect prefers-reduced-motion",
+      "preserve approved nonprofit facts and AVIF-first media policy",
+      "keep WebGL optional and below-the-fold"
+    ],
+    "avoid": [
+      "duplicated navigation or footer markup",
+      "opaque client-side rendering for editorial content",
+      "fabricated facts or unlicensed creative assets",
+      "large above-the-fold JavaScript bundles"
+    ]
+  },
+  "decisions": [
+    "Tailwind CSS 4 is integrated with @tailwindcss/vite.",
+    "Motion is used for progressive reveals; Three.js is lazy-loaded only for the research constellation.",
+    "21st.dev is a component registry/reference workflow; copied components must live in src/components and meet the project quality contract."
+  ],
+  "evidence": [
+    {
+      "fact": "project.instructions",
+      "source": "CLAUDE.md"
+    },
+    {
+      "fact": "project.stack:astro",
+      "source": "package.json"
+    },
+    {
+      "fact": "project.stack:tailwind-v4",
+      "source": "package.json"
+    },
+    {
+      "fact": "project.stack:vite",
+      "source": "package.json"
+    }
+  ],
+  "generatedAt": "2026-08-19T20:50:35.949Z"
+}

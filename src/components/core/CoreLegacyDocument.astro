@@ -1,0 +1,86 @@
+---
+import { readFileSync } from 'node:fs';
+import { resolve } from 'node:path';
+import type { CoreRouteMeta } from '../../data/core-routes';
+import { dedupeCreativeImages } from '../../utils/legacy-markup';
+
+interface Props {
+  meta: CoreRouteMeta;
+  scripts?: readonly string[];
+}
+
+const { meta, scripts = [] } = Astro.props;
+const source = readFileSync(resolve(process.cwd(), meta.sourceFile), 'utf8');
+const mainMatch = source.match(/<main\b[^>]*>([\s\S]*?)<\/main>/i);
+
+if (!mainMatch) {
+  throw new Error(`Could not find a main landmark in ${meta.sourceFile}`);
+}
+
+// The root HTML files remain the approved copy/media source while the Astro
+// foundation is rolled out. Only their route-specific main content is
+// rendered here; SiteLayout owns the shared document chrome.
+const mainMarkup = dedupeCreativeImages(mainMatch[1]
+  .replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, '')
+  .trim());
+const structuredData = [...source.matchAll(/<script\s+type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi)]
+  .map((match) => match[1].trim())
+  .filter(Boolean);
+---
+
+<div
+  class="core-legacy-route"
+  data-route={meta.path}
+  data-page-signature={meta.pageSignature}
+  data-source-file={meta.sourceFile}
+  set:html={mainMarkup}
+></div>
+
+{structuredData.map((data) => <script type="application/ld+json" set:html={data}></script>)}
+{scripts.map((src) => <script src={src} defer></script>)}
+
+<style>
+  .core-legacy-route {
+    overflow-wrap: anywhere;
+  }
+
+  /* A legacy progress label is absolutely positioned; give it the intended
+     local containing block instead of letting it size against the viewport. */
+  .core-legacy-route :global(.progress-circular) {
+    position: relative;
+  }
+
+  .core-legacy-route :global(.ip-cta-band--blue .ip-cta-band__eyebrow),
+  .core-legacy-route :global(.ip-cta-band--blue .ip-cta-band__body) {
+    color: #fff !important;
+    opacity: 1 !important;
+  }
+
+  .core-legacy-route :global(p a) {
+    color: #0a5a94 !important;
+    text-decoration: underline !important;
+    text-underline-offset: 0.14em;
+  }
+
+  .core-legacy-route :global(.hero-carousel__caption p) {
+    color: #fff !important;
+    text-shadow: 1px 1px 4px rgb(0 0 0 / 0.9);
+  }
+
+  .core-legacy-route :global(img),
+  .core-legacy-route :global(video),
+  .core-legacy-route :global(svg) {
+    max-inline-size: 100%;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .core-legacy-route :global(*),
+    .core-legacy-route :global(*::before),
+    .core-legacy-route :global(*::after) {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      scroll-behavior: auto !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+</style>

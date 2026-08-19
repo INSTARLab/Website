@@ -1,0 +1,22 @@
+---
+import W5LegacyDocument from '../../../components/workstream5/W5LegacyDocument.astro';
+import { routesForFamily } from '../../../data/workstream5/manifest';
+import type { W5RouteRecord } from '../../../data/workstream5/types';
+
+export const prerender = true;
+
+interface Props {
+  record: W5RouteRecord;
+}
+
+export function getStaticPaths() {
+  return routesForFamily('community').map((record) => ({
+    params: { slug: record.path.replace(/^\/community\//, '').replace(/\/$/, '') },
+    props: { record },
+  }));
+}
+
+const { record } = Astro.props;
+---
+
+<W5LegacyDocument record={record} />

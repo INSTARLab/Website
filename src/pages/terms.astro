@@ -1,0 +1,25 @@
+---
+import CoreLegacyDocument from '../components/core/CoreLegacyDocument.astro';
+import SiteLayout from '../layouts/SiteLayout.astro';
+import { coreRoutes } from '../data/core-routes';
+
+const meta = coreRoutes.terms;
+const legacyScripts = ['/js/main.min.js'];
+---
+
+<SiteLayout
+  title={meta.title}
+  description={meta.description}
+  canonical={meta.canonical}
+  image="/img/og/default.jpg"
+  imageAlt="INSTAR Lab — Independent Nonprofit Research Institute"
+  noindex={false}
+  bodyClass="core-page core-page--terms"
+  mainClass="core-page__main"
+>
+  <Fragment slot="head">
+    <link rel="stylesheet" href="/master.css" />
+  </Fragment>
+  <CoreLegacyDocument meta={meta} scripts={legacyScripts} />
+</SiteLayout>
+

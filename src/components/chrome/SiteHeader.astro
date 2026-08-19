@@ -36,3 +36,20 @@ const { currentPath = Astro.url.pathname } = Astro.props;
     </div>
   </div>
 </header>
+
+<style>
+  /* Legacy page CSS is intentionally retained for approved content blocks;
+     keep the shared donation control accessible when that stylesheet is
+     present and unlayered. */
+  .site-header__donate {
+    color: #fff !important;
+  }
+
+  .site-utility a {
+    color: #f0f4f8 !important;
+  }
+
+  :global(.site-navigation a[aria-current="page"]) {
+    color: #0a5a94 !important;
+  }
+</style>

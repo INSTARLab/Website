@@ -11,6 +11,10 @@ NOTES.md
 # CI-generated site-health sweep report (gh#283) — an artifact, not source
 scripts/ci/site-health-report.output.json
 
+# Generated Astro migration quality artifacts and browser reports
+artifacts/
+test-results/
+
 # Astro build and local package-manager output
 node_modules/
 .astro/

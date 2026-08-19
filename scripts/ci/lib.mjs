@@ -12,7 +12,7 @@ export const REPO_ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..", 
 export const SITE_ORIGIN = "https://instarlab.org";
 
 // Directories that are never part of the deployed static site.
-const EXCLUDED_DIR_PARTS = new Set([".git", ".claude", "node_modules"]);
+const EXCLUDED_DIR_PARTS = new Set([".git", ".claude", ".astro", "artifacts", "dist", "node_modules"]);
 // Local-only gitignored mockups (see CLAUDE.md) — never production pages.
 const EXCLUDED_FILENAMES = new Set(["nav-preview.html", "issue-triage.html"]);
 // Pages that intentionally have no sitemap entry.

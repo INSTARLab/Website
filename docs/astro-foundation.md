@@ -14,6 +14,7 @@ and are pinned by `pnpm-lock.yaml` after installation:
 - TypeScript `7.0.2`
 - Tailwind CSS `4.3.3` with `@tailwindcss/vite` `4.3.3`
 - `@astrojs/sitemap` `3.7.3`
+- `@astrojs/check` `0.9.10` (installed for the v7 toolchain; see the TypeScript 7 note below)
 - Motion `13.1.0` (`motion`)
 - Three.js `0.185.1` (`three`)
 
@@ -24,9 +25,18 @@ keeps the requested TypeScript 7 and uses `tsc --noEmit` plus `astro build`
 until the check package publishes TypeScript 7-compatible peer metadata.
 
 21st.dev is treated as a component reference/registry rather than a runtime
-dependency. Future components can be ported into `src/components/` only when
-they provide a concrete reader benefit and meet this project’s semantic,
-keyboard, reduced-motion, and no-JavaScript requirements.
+dependency. The `@21st-dev/cli` `1.15.1` dev dependency and `.21st/` design
+context make the registry available to the team; future components can be
+ported into `src/components/` only when they provide a concrete reader benefit
+and meet this project’s semantic, keyboard, reduced-motion, and no-JavaScript
+requirements. Component retrieval requires a developer’s own 21st login or
+token and is not performed during builds.
+
+TypeScript 7 is intentionally retained. The current `@astrojs/check` language
+server refuses TypeScript 7 because the native compiler no longer exposes the
+programmatic API that `astro check` expects. `pnpm run check` therefore uses
+TypeScript’s strict `tsc --noEmit` gate; keep `astro check` in the upgrade
+matrix and re-enable it when the Astro language server supports TypeScript 7.
 
 ## URL and deployment policy
 
@@ -51,7 +61,7 @@ filename, or Astro will preserve it and append another `.html`. Use nested
 
 ## Source organization
 
-- `src/pages/` — file-based routes; existing route work remains untouched.
+- `src/pages/` — file-based routes and compatibility pages.
 - `src/content.config.ts` — strict build-time article and author collections.
 - `src/content/articles/` and `src/content/authors/` — future content entries.
 - `src/data/` — typed route and editorial data; media assignments belong here.
@@ -60,4 +70,5 @@ filename, or Astro will preserve it and append another `.html`. Use nested
 - `pnpm-workspace.yaml` — pnpm’s repository policy, including the explicit
   `esbuild` build-script allowlist required by this environment.
 
-No route or shared UI component is introduced by the foundation workstream.
+Route workstreams now build on this foundation through `SiteLayout`, typed
+route manifests, and the shared chrome/primitives components.
