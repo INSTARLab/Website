@@ -1,0 +1,12 @@
+---
+interface Props {
+  columns?: 2 | 3 | 4;
+  class?: string;
+}
+
+const { columns = 3, class: className } = Astro.props;
+---
+
+<div class:list={['editorial-grid', `editorial-grid--${columns}`, className]}>
+  <slot />
+</div>

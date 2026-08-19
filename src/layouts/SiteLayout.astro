@@ -1,0 +1,43 @@
+---
+import type { SeoProps } from '../components/seo/Seo.astro';
+import Seo from '../components/seo/Seo.astro';
+import SkipLink from '../components/chrome/SkipLink.astro';
+import SiteFooter from '../components/chrome/SiteFooter.astro';
+import SiteHeader from '../components/chrome/SiteHeader.astro';
+import '../styles/global.css';
+
+interface Props extends SeoProps {
+  lang?: string;
+  bodyClass?: string;
+  mainClass?: string;
+  newsletterAction?: string;
+  newsletterMethod?: 'get' | 'post';
+}
+
+const {
+  lang = 'en',
+  bodyClass,
+  mainClass,
+  newsletterAction,
+  newsletterMethod,
+  ...seoProps
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <Seo {...seoProps} />
+    <slot name="head" />
+  </head>
+  <body id="top" class={bodyClass}>
+    <SkipLink />
+    <SiteHeader currentPath={Astro.url.pathname} />
+    <main id="main-content" class={mainClass}>
+      <slot />
+    </main>
+    <SiteFooter newsletterAction={newsletterAction} newsletterMethod={newsletterMethod} />
+  </body>
+</html>

@@ -1,0 +1,14 @@
+---
+interface Props {
+  ratio?: 'balanced' | 'wide-content' | 'wide-media';
+  reverse?: boolean;
+  class?: string;
+}
+
+const { ratio = 'balanced', reverse = false, class: className } = Astro.props;
+---
+
+<div class:list={['editorial-split', `editorial-split--${ratio}`, { 'editorial-split--reverse': reverse }, className]}>
+  <div class="editorial-split__content"><slot name="content" /></div>
+  <div class="editorial-split__media"><slot name="media" /></div>
+</div>

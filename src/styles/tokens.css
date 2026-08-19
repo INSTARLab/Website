@@ -1,0 +1,94 @@
+@font-face {
+  font-family: 'Lato';
+  src: url('/fonts/lato-latin-400.woff2') format('woff2');
+  font-display: swap;
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Lato';
+  src: url('/fonts/lato-latin-700.woff2') format('woff2');
+  font-display: swap;
+  font-style: normal;
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: 'Raleway';
+  src: url('/fonts/raleway-latin-400.woff2') format('woff2');
+  font-display: swap;
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Raleway';
+  src: url('/fonts/raleway-latin-700.woff2') format('woff2');
+  font-display: swap;
+  font-style: normal;
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('/fonts/roboto-latin-400.woff2') format('woff2');
+  font-display: swap;
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('/fonts/roboto-latin-700.woff2') format('woff2');
+  font-display: swap;
+  font-style: normal;
+  font-weight: 700;
+}
+
+@theme {
+  --color-canvas: #ffffff;
+  --color-surface: #f7f5f6;
+  --color-surface-raised: #ffffff;
+  --color-ink: #1b1b1b;
+  --color-body: #333333;
+  --color-muted: #666666;
+  --color-muted-strong: #444444;
+  --color-brand: #1072ba;
+  --color-brand-deep: #0d5d98;
+  --color-brand-cool: #2dbee1;
+  --color-accent: #ec2227;
+  --color-footer: #232323;
+  --color-footer-deep: #191919;
+  --color-rule: #d9dde2;
+  --color-focus: #1d4ed8;
+  --color-on-brand: #ffffff;
+
+  --font-display: 'Raleway', ui-sans-serif, system-ui, sans-serif;
+  --font-body: 'Roboto', ui-sans-serif, system-ui, sans-serif;
+  --font-ui: 'Lato', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  --text-kicker: 0.75rem;
+  --text-kicker--line-height: 1.25;
+  --text-kicker--font-weight: 700;
+  --text-kicker--letter-spacing: 0.12em;
+  --text-body: clamp(1rem, 0.96rem + 0.2vw, 1.125rem);
+  --text-body--line-height: 1.65;
+  --text-lead: clamp(1.2rem, 1.06rem + 0.6vw, 1.55rem);
+  --text-lead--line-height: 1.45;
+  --text-display: clamp(2.5rem, 1.55rem + 4.5vw, 5.75rem);
+  --text-display--line-height: 0.98;
+  --text-display--letter-spacing: -0.04em;
+
+  --spacing-gutter: clamp(1rem, 2.6vw, 2.25rem);
+  --spacing-section: clamp(4rem, 8vw, 8rem);
+  --spacing-section-compact: clamp(2.5rem, 5vw, 5rem);
+  --spacing-content: clamp(1.5rem, 3.5vw, 3.5rem);
+  --spacing-grid: clamp(1rem, 2.5vw, 2rem);
+
+  --radius-control: 0.25rem;
+  --radius-panel: 0.75rem;
+  --radius-pill: 999px;
+  --shadow-panel: 0 1rem 3rem rgb(21 37 76 / 0.12);
+}

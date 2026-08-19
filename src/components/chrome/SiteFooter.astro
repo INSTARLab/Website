@@ -1,0 +1,65 @@
+---
+import { quickFooterLinks, researchFooterLinks } from '../../data/siteNavigation';
+
+interface Props {
+  newsletterAction?: string;
+  newsletterMethod?: 'get' | 'post';
+}
+
+const { newsletterAction, newsletterMethod = 'post' } = Astro.props;
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="site-footer__main">
+    <div class="site-container site-footer__grid">
+      <section class="site-footer__panel site-footer__panel--about" aria-labelledby="footer-about-title">
+        <h2 id="footer-about-title">About us</h2>
+        <p>INSTAR Lab is an independent 501(c)(3) nonprofit research institute advancing science through interdisciplinary collaboration, technological innovation, and partnership.</p>
+        <div class="site-footer__contact">
+          <h3>Contact us</h3>
+          <a href="tel:9292292918">Phone: 929-229-2918</a>
+          <a href="mailto:info@instarlab.org">Email: info@instarlab.org</a>
+          <a href="https://maps.google.com/?q=125+Frederick+St+Marietta+OH+45750">Address: 125 Frederick St, Marietta, OH 45750-3407</a>
+        </div>
+      </section>
+
+      <section class="site-footer__panel" aria-labelledby="footer-research-title">
+        <h2 id="footer-research-title">Our research</h2>
+        <nav aria-label="Our research">
+          <ul>
+            {researchFooterLinks.map((item) => <li><a href={item.href}>{item.label}</a></li>)}
+          </ul>
+        </nav>
+      </section>
+
+      <section class="site-footer__panel" aria-labelledby="footer-quick-title">
+        <h2 id="footer-quick-title">Quick link</h2>
+        <nav aria-label="Quick link">
+          <ul>
+            {quickFooterLinks.map((item) => <li><a href={item.href}>{item.label}</a></li>)}
+          </ul>
+        </nav>
+      </section>
+
+      <section class="site-footer__panel site-footer__panel--newsletter" aria-labelledby="footer-newsletter-title">
+        <h2 id="footer-newsletter-title">Newsletter</h2>
+        <p>Select your newsletters, enter your email address, and click &quot;Subscribe&quot;</p>
+        {newsletterAction ? (
+          <form class="site-footer__form" action={newsletterAction} method={newsletterMethod}>
+            <label class="sr-only" for="footer-email">Email address</label>
+            <input id="footer-email" name="email" type="email" autocomplete="email" placeholder="Email address" required />
+            <button type="submit">Subscribe</button>
+          </form>
+        ) : null}
+      </section>
+    </div>
+  </div>
+
+  <div class="site-footer__bottom">
+    <div class="site-container site-footer__bottom-inner">
+      <p>INSTAR Lab Inc. is a registered 501(c)(3) nonprofit. Copyright © {year} INSTAR Lab Inc. All Rights Reserved.</p>
+      <a href="#top">Back to top</a>
+    </div>
+  </div>
+</footer>

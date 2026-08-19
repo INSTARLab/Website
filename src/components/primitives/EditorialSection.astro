@@ -1,0 +1,14 @@
+---
+interface Props {
+  tone?: 'default' | 'muted' | 'dark';
+  spacing?: 'regular' | 'compact' | 'roomy';
+  id?: string;
+  class?: string;
+}
+
+const { tone = 'default', spacing = 'regular', id, class: className } = Astro.props;
+---
+
+<section id={id} class:list={['editorial-section', `editorial-section--${tone}`, `editorial-section--${spacing}`, className]}>
+  <slot />
+</section>
