@@ -1,5 +1,6 @@
 ---
 import ResearchConstellation from '../interactive/ResearchConstellation.astro';
+import HomeSlider from './HomeSlider.astro';
 import SiteLayout from '../../layouts/SiteLayout.astro';
 import EditorialMedia from './media/EditorialMedia.astro';
 import {
@@ -41,15 +42,97 @@ const technology = editorialRoutesForFamily('technology').slice(0, 3);
 const sciences = editorialRoutesForFamily('sciences').slice(0, 3);
 const briefs = editorialRoutesForFamily('news').filter((route) => route.path !== '/news/').slice(0, 4);
 
-const homeHero = homeMedia({
-  url: '/img/slider/jupiterstar.avif',
-  alt: 'Jupiter and its rings against deep space, an orientation image for INSTAR Lab research',
-  caption: '01 / Curiosity is a starting condition. Rigor is the direction.',
-  sizes: '100vw',
-  loading: 'eager',
-  fetchpriority: 'high',
-  focalPoint: '50% 50%',
-});
+const homeHeroSlides = [
+  {
+    image: {
+      src: '/img/slider/jupiterstar.avif',
+      alt: 'Jupiter and its rings against deep space, an orientation image for INSTAR Lab research',
+      caption: '01 / Curiosity is a starting condition. Rigor is the direction.',
+      width: 1920,
+      height: 751,
+      sizes: '100vw',
+      focalPoint: '50% 50%',
+    },
+    kicker: 'Independent / interdisciplinary / public benefit',
+    title: 'The next useful question is usually between fields.',
+    description: 'INSTAR Lab is a nonprofit research institute for people who want to understand a hard problem deeply enough to move it forward.',
+    actions: [
+      { href: '/research/current-programs/', label: 'Explore current programs', variant: 'primary' },
+      { href: '/mission/', label: 'Read the method', variant: 'secondary' },
+    ],
+  },
+  {
+    image: {
+      src: '/img/slider/astro.avif',
+      alt: 'A satellite crossing the edge of Earth at the start of an orbital pass',
+      caption: '02 / See the system from far enough away to notice what connects it.',
+      width: 1920,
+      height: 750,
+      sizes: '100vw',
+      focalPoint: '68% 50%',
+    },
+    kicker: 'Observation / systems / scale',
+    title: 'Look wide enough to find the hidden system.',
+    description: 'Our work moves between instruments, models, and the environments those tools are meant to change.',
+    actions: [
+      { href: '/sciences/outer-space/', label: 'See the wider field', variant: 'primary' },
+      { href: '/research/our-process/', label: 'Follow the process', variant: 'secondary' },
+    ],
+  },
+  {
+    image: {
+      src: '/img/slider/slide-two.avif',
+      alt: 'A luminous violet research instrument in a working laboratory',
+      caption: '03 / Translation is where a promising signal meets a real constraint.',
+      width: 1920,
+      height: 750,
+      sizes: '100vw',
+      focalPoint: '74% 50%',
+    },
+    kicker: 'Method / translation / public benefit',
+    title: 'Make the difficult visible enough to work on.',
+    description: 'We build shared language across disciplines so careful questions can become practical, public-facing work.',
+    actions: [
+      { href: '/research/our-process/', label: 'See how we work', variant: 'primary' },
+      { href: '/community/about-us/', label: 'Meet the collaborators', variant: 'secondary' },
+    ],
+  },
+  {
+    image: {
+      src: '/img/slider/silicon.avif',
+      alt: 'A computational chip and luminous network inside a server environment',
+      caption: '04 / Shared infrastructure turns a promising idea into a repeatable practice.',
+      width: 1920,
+      height: 750,
+      sizes: '100vw',
+      focalPoint: '54% 50%',
+    },
+    kicker: 'Compute / infrastructure / repeatability',
+    title: 'Build the stack that lets good questions travel.',
+    description: 'From secure compute to scientific simulation, the infrastructure shapes what a research team can test next.',
+    actions: [
+      { href: '/technology/computer-science/', label: 'Trace the compute stack', variant: 'primary' },
+      { href: '/research/facilities/', label: 'See our facilities', variant: 'secondary' },
+    ],
+  },
+] as const;
+
+const homeOrientationMedia = [
+  homeMedia({
+    url: '/img/projects/nlp-tech-conversational-agents.avif',
+    alt: 'Two researchers discussing a technical question at a shared workstation',
+    caption: 'Make the question shareable.',
+    sizes: '(min-width: 58rem) 30vw, 100vw',
+    focalPoint: '58% 47%',
+  }),
+  homeMedia({
+    url: '/img/slider/laboratory.avif',
+    alt: 'A bright laboratory with microscopes and analytical instruments ready for work',
+    caption: 'Then choose the right scale.',
+    sizes: '(min-width: 58rem) 22vw, 50vw',
+    focalPoint: '50% 50%',
+  }),
+] as const;
 
 const homeInvitationMedia = homeMedia({
   url: '/img/about/about-image.avif',
@@ -64,6 +147,7 @@ const homeProjects = [
     kicker: '01 / Secure compute',
     title: 'Sovereign AI Laboratory',
     summary: 'Air-gapped frontier model training, secure inference, and autonomous reasoning on private infrastructure.',
+    cta: 'Enter secure compute',
     media: homeMedia({
       url: '/img/projects/homepage-sovereign-ai.avif',
       alt: 'Server racks in a secure computing facility for sovereign AI research',
@@ -76,6 +160,7 @@ const homeProjects = [
     kicker: '02 / Human signals',
     title: 'Biometric Security Systems',
     summary: 'Multi-modal bioinformatic authentication across genomic markers, neural gait, and vascular topology.',
+    cta: 'Study the signal stack',
     media: homeMedia({
       url: '/img/projects/homepage-biometric-security.avif',
       alt: 'Biometric imaging instruments in a laboratory environment',
@@ -88,6 +173,7 @@ const homeProjects = [
     kicker: '03 / Machine intelligence',
     title: 'Cognitive AI & Persona Systems',
     summary: 'Psycholinguistic modeling, personality architectures, and AI personification through inference shaping.',
+    cta: 'Trace the reasoning system',
     media: homeMedia({
       url: '/img/projects/homepage-cognitive-ai.avif',
       alt: 'Researchers working with code and machine-intelligence systems in a laboratory',
@@ -97,9 +183,55 @@ const homeProjects = [
   },
 ] as const;
 
+const homePathways = [
+  {
+    href: '/research/current-programs/',
+    className: 'research',
+    number: '01 / Research',
+    title: 'Programs with a question at the center.',
+    summary: 'See what the Lab is working on now and where collaborators can add leverage.',
+    media: homeMedia({
+      url: '/img/projects/cognitive-ai.avif',
+      alt: 'A researcher working through a complex question at a warm-lit desk',
+      caption: 'Research / stay with the question',
+      sizes: '(min-width: 58rem) 30vw, 100vw',
+      focalPoint: '52% 48%',
+    }),
+  },
+  {
+    href: '/technology/computer-science/',
+    className: 'technology',
+    number: '02 / Technology',
+    title: 'Methods that make difficult work possible.',
+    summary: 'Trace the computing, sensing, formal, and machine-intelligence systems behind the questions.',
+    media: homeMedia({
+      url: '/img/projects/quantum-lab.avif',
+      alt: 'A high-performance computing room with illuminated racks and colorful cabling',
+      caption: 'Technology / make the mechanism inspectable',
+      sizes: '(min-width: 58rem) 30vw, 100vw',
+      focalPoint: '50% 50%',
+    }),
+  },
+  {
+    href: '/sciences/physics/',
+    className: 'sciences',
+    number: '03 / Sciences',
+    title: 'Disciplines that refuse to stay separate.',
+    summary: 'Move from a field of study to the evidence, tools, and public questions it can illuminate.',
+    media: homeMedia({
+      url: '/img/projects/health-ai.avif',
+      alt: 'An eye, hand, and fingerprint rendered as biometric research signals',
+      caption: 'Sciences / follow the pattern across scales',
+      sizes: '(min-width: 58rem) 30vw, 100vw',
+      focalPoint: '50% 50%',
+    }),
+  },
+] as const;
+
 const homeGallery = [
   {
     href: '/technology/quantum-computing/',
+    tone: 'quantum',
     media: homeMedia({
       url: '/img/gallery/gallery-one.avif',
       alt: 'Quantum processor with copper cooling lines in a close technical study',
@@ -110,74 +242,115 @@ const homeGallery = [
   },
   {
     href: '/sciences/genetics/',
+    tone: 'genetics',
     media: homeMedia({
       url: '/img/gallery/gallery-two.avif',
       alt: 'Illuminated DNA helix with cellular forms in the background',
-      caption: 'Health and life sciences',
+      caption: 'Genetics and life sciences',
       sizes: '(min-width: 58rem) 25vw, 50vw',
       focalPoint: '50% 50%',
     }),
   },
   {
     href: '/technology/natural-language-processing/',
+    tone: 'language',
     media: homeMedia({
-      url: '/img/gallery/gallery-three.avif',
-      alt: 'Connected points forming a bright network against a dark field',
-      caption: 'Language and networks',
+      url: '/img/projects/nlp-tech-language-understanding.avif',
+      alt: 'A researcher working across two monitors filled with language and systems notes',
+      caption: 'Language and understanding',
       sizes: '(min-width: 58rem) 25vw, 50vw',
-      focalPoint: '50% 50%',
+      focalPoint: '46% 50%',
     }),
   },
   {
     href: '/sciences/energy/',
+    tone: 'warm-instrument',
     media: homeMedia({
-      url: '/img/gallery/gallery-four.avif',
-      alt: 'A polished research apparatus framed by two solar panels',
+      url: '/img/projects/tesla.avif',
+      alt: 'A warm-lit electrical research apparatus on a laboratory workbench',
       caption: 'Energy systems',
       sizes: '(min-width: 58rem) 25vw, 50vw',
-      focalPoint: '50% 50%',
+      focalPoint: '50% 55%',
     }),
   },
   {
     href: '/technology/data-science/',
+    tone: 'secure-compute',
     media: homeMedia({
-      url: '/img/gallery/gallery-five.avif',
-      alt: 'Abstract data field suggesting high-dimensional analysis',
-      caption: 'Data science',
+      url: '/img/projects/devops.avif',
+      alt: 'A secure server rack with amber and green status lights',
+      caption: 'Data science and secure compute',
       sizes: '(min-width: 58rem) 25vw, 50vw',
-      focalPoint: '50% 50%',
+      focalPoint: '56% 50%',
     }),
   },
   {
     href: '/technology/computer-science/',
+    tone: 'robotic',
     media: homeMedia({
-      url: '/img/gallery/gallery-six.avif',
-      alt: 'A computational visualization for large-scale scientific simulation',
-      caption: 'HPC simulation',
+      url: '/img/projects/projects-seven.avif',
+      alt: 'A robotic arm beside a transparent AI interface in a bright lab',
+      caption: 'Robotics and applied AI',
       sizes: '(min-width: 58rem) 25vw, 50vw',
-      focalPoint: '50% 50%',
+      focalPoint: '55% 50%',
     }),
   },
   {
     href: '/technology/machine-intelligence/',
+    tone: 'network',
     media: homeMedia({
-      url: '/img/gallery/gallery-seven.avif',
-      alt: 'Glowing nodes and lines representing an AI platform architecture',
-      caption: 'AI platforms',
+      url: '/img/gallery/gallery-three.avif',
+      alt: 'Connected points forming a bright network against a dark field',
+      caption: 'Networks and inference',
       sizes: '(min-width: 58rem) 25vw, 50vw',
       focalPoint: '50% 50%',
     }),
   },
   {
     href: '/research/facilities/',
+    tone: 'orbital',
     media: homeMedia({
       url: '/img/gallery/gallery-eight.avif',
-      alt: 'A scientific instrument with solar panels in a dark laboratory setting',
-      caption: 'Lab systems',
+      alt: 'A polished scientific apparatus with solar panels against a dark field',
+      caption: 'Lab systems and instrumentation',
       sizes: '(min-width: 58rem) 25vw, 50vw',
       focalPoint: '50% 50%',
     }),
   },
+] as const;
+
+const homeBriefMedia = [
+  homeMedia({
+    url: '/img/blog/blog-three.avif',
+    alt: 'A machine-learning system visualized in a dark technical environment',
+    sizes: '(min-width: 58rem) 25vw, 50vw',
+    focalPoint: '58% 45%',
+  }),
+  homeMedia({
+    url: '/img/pages/formal-methods/hero.avif',
+    alt: 'A formal-methods workspace with equations and diagrams ready for inspection',
+    sizes: '(min-width: 58rem) 25vw, 50vw',
+    focalPoint: '50% 50%',
+  }),
+  homeMedia({
+    url: '/img/blog/blog-two.avif',
+    alt: 'Rows of servers carrying a high-performance computing workload',
+    sizes: '(min-width: 58rem) 25vw, 50vw',
+    focalPoint: '52% 50%',
+  }),
+  homeMedia({
+    url: '/img/pages/law/hero.avif',
+    alt: 'A law library and scales suggesting the governance questions around technology',
+    sizes: '(min-width: 58rem) 25vw, 50vw',
+    focalPoint: '50% 50%',
+  }),
+] as const;
+
+const homeBriefCtas = [
+  'Read the safety case',
+  'Follow the proof',
+  'See the compute constraints',
+  'Read the governance frame',
 ] as const;
 ---
 
@@ -191,28 +364,23 @@ const homeGallery = [
   mainClass="editorial-home-main"
 >
   <article class="home-editorial" data-route="/" data-page-signature="orientation → observation → participation → evidence → connection → action">
-    <section class="home-masthead" aria-labelledby="home-title">
-      <EditorialMedia asset={homeHero} figureClass="home-masthead__media" class="home-masthead__image" picture={false} />
-      <div class="home-container home-masthead__grid">
-        <div class="home-masthead__copy">
-          <p class="home-kicker">Independent / interdisciplinary / public benefit</p>
-          <h1 id="home-title">The next useful question is usually between fields.</h1>
-          <p class="home-masthead__dek">INSTAR Lab is a nonprofit research institute for people who want to understand a hard problem deeply enough to move it forward.</p>
-          <div class="home-masthead__actions">
-            <a class="home-button home-button--solid" href="/research/current-programs/">Explore current programs <span aria-hidden="true">↗</span></a>
-            <a class="home-button home-button--line" href="/mission/">Read the method</a>
-          </div>
-        </div>
-      </div>
-    </section>
+    <HomeSlider slides={homeHeroSlides} id="home-hero-slider" ariaLabel="INSTAR Lab research highlights" titleId="home-title" />
 
     <section class="home-orientation home-container" aria-labelledby="home-orientation-title">
       <div class="home-section-label"><span>01</span><span>Orientation</span></div>
       <div class="home-orientation__grid">
-        <h2 id="home-orientation-title">A lab for work that needs more than one lens.</h2>
-        <div>
+        <div class="home-orientation__copy">
+          <h2 id="home-orientation-title">A lab for work that needs more than one lens.</h2>
           <p class="home-lead">We connect scientific questions to methods, technologies, people, and public-benefit paths—without hiding the uncertainty between them.</p>
-          <a class="home-text-link" href="/community/about-us/">Understand who we are <span aria-hidden="true">→</span></a>
+          <a class="home-orientation__cta" href="/community/about-us/">
+            <span><small>Start with the posture</small>Understand who we are</span>
+            <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+        <div class="home-orientation__media-grid" aria-label="Two views of the research environment">
+          {homeOrientationMedia.map((asset, index) => (
+            <EditorialMedia asset={asset} figureClass={`home-orientation__media home-orientation__media--${index + 1}`} class="home-orientation__image" picture={false} />
+          ))}
         </div>
       </div>
     </section>
@@ -222,7 +390,6 @@ const homeGallery = [
         <div class="home-section-label"><span>02</span><span>Observation</span></div>
         <div class="home-observations__head">
           <h2 id="home-observations-title">Research, in the material world.</h2>
-          <p>Three active directions show how questions become instruments, systems, and careful work.</p>
         </div>
         <ul class="home-projects">
           {homeProjects.map((project) => (
@@ -233,7 +400,7 @@ const homeGallery = [
                   <span class="home-project__kicker">{project.kicker}</span>
                   <h3>{project.title}</h3>
                   <p>{project.summary}</p>
-                  <span class="home-project__arrow" aria-hidden="true">Open the lab ↗</span>
+                  <span class="home-project__arrow">{project.cta} <span aria-hidden="true">↗</span></span>
                 </div>
               </a>
             </li>
@@ -246,28 +413,20 @@ const homeGallery = [
       <div class="home-container">
         <div class="home-section-label home-section-label--light"><span>03</span><span>Choose a lens</span></div>
         <div class="home-pathways__head">
-          <h2 id="home-pathways-title">Start where your question is most alive.</h2>
-          <p>Three ways into the same commitment: open inquiry, careful method, useful transmission.</p>
+          <h2 id="home-pathways-title">Choose a lens.</h2>
         </div>
         <div class="home-pathways__grid">
-          <a class="home-pathway home-pathway--research" href="/research/current-programs/">
-            <span class="home-pathway__number">01 / Research</span>
-            <h3>Programs with a question at the center.</h3>
-            <p>See what the Lab is working on now and where collaborators can add leverage.</p>
-            <span class="home-pathway__arrow" aria-hidden="true">↗</span>
-          </a>
-          <a class="home-pathway home-pathway--technology" href="/technology/computer-science/">
-            <span class="home-pathway__number">02 / Technology</span>
-            <h3>Methods that make difficult work possible.</h3>
-            <p>Trace the computing, sensing, formal, and machine-intelligence systems behind the questions.</p>
-            <span class="home-pathway__arrow" aria-hidden="true">↗</span>
-          </a>
-          <a class="home-pathway home-pathway--sciences" href="/sciences/physics/">
-            <span class="home-pathway__number">03 / Sciences</span>
-            <h3>Disciplines that refuse to stay separate.</h3>
-            <p>Move from a field of study to the evidence, tools, and public questions it can illuminate.</p>
-            <span class="home-pathway__arrow" aria-hidden="true">↗</span>
-          </a>
+          {homePathways.map((pathway) => (
+            <a class={`home-pathway home-pathway--${pathway.className}`} href={pathway.href}>
+              <EditorialMedia asset={pathway.media} figureClass="home-pathway__media" class="home-pathway__image" picture={false} />
+              <div class="home-pathway__copy">
+                <span class="home-pathway__number">{pathway.number}</span>
+                <h3>{pathway.title}</h3>
+                <p>{pathway.summary}</p>
+                <span class="home-pathway__arrow" aria-hidden="true">↗</span>
+              </div>
+            </a>
+          ))}
         </div>
       </div>
     </section>
@@ -304,7 +463,7 @@ const homeGallery = [
         </div>
         <div class="home-gallery__grid">
           {homeGallery.map((item, index) => (
-            <a class={`home-gallery__link home-gallery__link--${index + 1}`} href={item.href} aria-label={`Explore ${item.media.caption ?? 'research'}`}>
+            <a class={`home-gallery__link home-gallery__link--${index + 1} home-gallery__link--tone-${item.tone}`} href={item.href} aria-label={`Explore ${item.media.caption ?? 'research'}`}>
               <EditorialMedia asset={item.media} figureClass="home-gallery__item" class="home-gallery__image" picture={false} />
             </a>
           ))}
@@ -323,10 +482,11 @@ const homeGallery = [
           {briefs.map((brief, index) => (
             <li>
               <a href={brief.path}>
+                <EditorialMedia asset={homeBriefMedia[index]} figureClass="home-briefs__media" class="home-briefs__image" picture={false} />
                 <span class="home-briefs__number">{String(index + 1).padStart(2, '0')}</span>
                 <span class="home-briefs__family">{familyLabel(brief.family)}</span>
                 <h3>{brief.title}</h3>
-                <span class="home-briefs__arrow" aria-hidden="true">↗</span>
+                <span class="home-briefs__arrow">{homeBriefCtas[index]} <span aria-hidden="true">↗</span></span>
               </a>
             </li>
           ))}
@@ -379,13 +539,25 @@ const homeGallery = [
   .home-orientation h2, .home-pathways h2, .home-index h2, .home-gallery h2, .home-briefs h2, .home-invitation h2 { margin: 0; font-size: clamp(2rem, 3.2vw, 3.7rem); letter-spacing: -0.045em; line-height: 1.02; }
   .home-orientation h2 { max-inline-size: 18ch; }
   .home-lead { max-inline-size: 50ch; margin: 0; color: var(--color-muted-strong); font-size: clamp(1.05rem, 1rem + 0.22vw, 1.24rem); line-height: 1.6; }
+  .home-orientation__copy { display: flex; flex-direction: column; align-items: flex-start; }
+  .home-orientation__cta { display: flex; align-items: center; justify-content: space-between; gap: 2rem; inline-size: min(100%, 22rem); margin-block-start: 2rem; padding: 1rem 1.1rem; border: 1px solid var(--color-brand); color: #fff; background: var(--color-brand); font: 700 0.84rem/1.2 var(--font-ui); text-decoration: none; transition: color 180ms ease, background-color 180ms ease, transform 180ms ease; }
+  .home-orientation__cta small { display: block; margin-block-end: 0.35rem; color: #fff; font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; }
+  .home-orientation__cta > span:last-child { color: #fff; font-size: 1.35rem; }
+  .home-orientation__cta:hover { color: #fff; background: var(--color-brand-deep); transform: translateY(-2px); }
+  .home-orientation__cta:hover small, .home-orientation__cta:hover > span:last-child { color: inherit; }
+  .home-orientation__media-grid { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(6rem, 0.85fr); gap: 0.75rem; align-items: end; }
+  :global(.home-orientation__media) { overflow: hidden; margin: 0; background: var(--home-dark); }
+  :global(.home-orientation__media--1) { grid-row: span 2; aspect-ratio: 0.86; }
+  :global(.home-orientation__media--2) { aspect-ratio: 1.05; margin-block-end: 2.6rem; }
+  :global(.home-orientation__image) { inline-size: 100%; block-size: 100%; object-fit: cover; transition: transform 280ms ease; }
+  :global(.home-orientation__media figcaption) { padding: 0.7rem 0.8rem; color: #fff; background: rgb(11 22 38 / 0.88); font: 0.68rem/1.3 var(--font-ui); }
+  :global(.home-orientation__media:hover .home-orientation__image) { transform: scale(1.04); }
   .home-text-link { display: inline-flex; gap: 0.65rem; margin-block-start: 1.25rem; color: var(--color-ink); font: 700 0.78rem/1 var(--font-ui); text-decoration: none; }
   .home-text-link:hover { color: var(--color-brand); }
 
   .home-observations { padding-block: clamp(4.5rem, 9vw, 7.5rem); border-block: 1px solid var(--color-rule); background: var(--color-surface); }
-  .home-observations__head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(14rem, 0.6fr); align-items: end; gap: 2rem; margin-block: 1.8rem 2.8rem; }
+  .home-observations__head { margin-block: 1.8rem 2.8rem; }
   .home-observations h2 { max-inline-size: 16ch; }
-  .home-observations__head p { max-inline-size: 34ch; margin: 0; color: var(--color-muted-strong); line-height: 1.55; }
   .home-projects { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(1rem, 2vw, 2rem); padding: 0; margin: 0; list-style: none; }
   .home-project { min-inline-size: 0; border: 1px solid var(--color-rule); background: var(--color-surface-raised); }
   .home-project__link { display: flex; flex-direction: column; block-size: 100%; color: inherit; text-decoration: none; }
@@ -402,15 +574,20 @@ const homeGallery = [
   .home-pathways, .home-briefs { padding-block: clamp(4.5rem, 9vw, 7.5rem); color: #fff; background: var(--home-dark); }
   .home-pathways__head, .home-briefs__head { display: flex; align-items: end; justify-content: space-between; gap: 2rem; margin-block: 1.8rem 3rem; }
   .home-pathways h2, .home-briefs h2 { max-inline-size: 16ch; color: #fff; }
-  .home-pathways__head p { max-inline-size: 30ch; margin: 0; color: rgb(255 255 255 / 0.68); }
+  .home-pathways h2 { max-inline-size: none; white-space: nowrap; font-size: clamp(2rem, 3vw, 3.2rem); }
   .home-pathways__grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; border-block-start: 1px solid rgb(255 255 255 / 0.2); }
-  .home-pathway { position: relative; min-block-size: 19rem; padding: 1.35rem; border-inline-end: 1px solid rgb(255 255 255 / 0.2); border-block-end: 1px solid rgb(255 255 255 / 0.2); color: #fff; text-decoration: none; }
+  .home-pathway { position: relative; min-inline-size: 0; border-inline-end: 1px solid rgb(255 255 255 / 0.2); border-block-end: 1px solid rgb(255 255 255 / 0.2); color: #fff; text-decoration: none; }
   .home-pathway:last-child { border-inline-end: 0; }
+  :global(.home-pathway__media) { aspect-ratio: 1.5; overflow: hidden; margin: 0; background: #0c1a2a; }
+  :global(.home-pathway__image) { inline-size: 100%; block-size: 100%; object-fit: cover; transition: transform 280ms ease, filter 280ms ease; }
+  :global(.home-pathway__media figcaption) { display: none; }
+  .home-pathway__copy { position: relative; min-block-size: 15rem; padding: 1.35rem; }
   .home-pathway__number { color: var(--home-teal); }
-  .home-pathway h3 { max-inline-size: 16ch; margin: 3.6rem 0 0; color: #fff; font-size: clamp(1.35rem, 1.8vw, 1.8rem); letter-spacing: -0.025em; line-height: 1.05; }
+  .home-pathway h3 { max-inline-size: 16ch; margin: 1.1rem 0 0; color: #fff; font-size: clamp(1.35rem, 1.8vw, 1.8rem); letter-spacing: -0.025em; line-height: 1.05; }
   .home-pathway p { max-inline-size: 30ch; margin-block: 1rem 0; color: rgb(255 255 255 / 0.66); font-size: 0.94rem; line-height: 1.5; }
   .home-pathway__arrow { position: absolute; inset-inline-end: 1.35rem; inset-block-end: 1.1rem; color: var(--home-teal); font-size: 1.25rem; }
   .home-pathway:hover { background: rgb(255 255 255 / 0.06); }
+  .home-pathway:hover .home-pathway__image { transform: scale(1.04); filter: saturate(1.08) brightness(1.08); }
 
   .home-index { padding-block: clamp(4.5rem, 9vw, 7.5rem); }
   .home-index__head { display: flex; align-items: end; justify-content: space-between; gap: 2rem; margin-block: 1.8rem 3rem; }
@@ -443,14 +620,21 @@ const homeGallery = [
   .home-text-link--light { margin: 0; color: #fff; }
   .home-text-link--light:hover { color: var(--home-teal); }
   .home-briefs__grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1px; padding: 0; margin: 0; list-style: none; border-block-start: 1px solid rgb(255 255 255 / 0.2); }
-  .home-briefs__grid li { min-block-size: 15rem; border-inline-end: 1px solid rgb(255 255 255 / 0.2); border-block-end: 1px solid rgb(255 255 255 / 0.2); }
+  .home-briefs__grid li { min-block-size: 21rem; border-inline-end: 1px solid rgb(255 255 255 / 0.2); border-block-end: 1px solid rgb(255 255 255 / 0.2); }
   .home-briefs__grid li:last-child { border-inline-end: 0; }
-  .home-briefs__grid a { position: relative; display: flex; flex-direction: column; block-size: 100%; padding: 1.2rem; color: #fff; text-decoration: none; }
+  .home-briefs__grid a { position: relative; display: flex; flex-direction: column; block-size: 100%; color: #fff; text-decoration: none; }
+  :global(.home-briefs__media) { aspect-ratio: 1.5; overflow: hidden; margin: 0; background: #0c1a2a; }
+  :global(.home-briefs__image) { inline-size: 100%; block-size: 100%; object-fit: cover; transition: transform 280ms ease, filter 280ms ease; }
+  :global(.home-briefs__media figcaption) { display: none; }
+  .home-briefs__number, .home-briefs__family, .home-briefs h3 { margin-inline: 1.2rem; }
+  .home-briefs__number { margin-block-start: 1.2rem; }
   .home-briefs__number { color: var(--home-teal); font: 700 0.78rem/1 var(--font-ui); }
   .home-briefs__family { margin-block-start: 0.9rem; color: rgb(255 255 255 / 0.52); font-size: 0.62rem; }
   .home-briefs h3 { max-inline-size: 18ch; margin-block: 1.2rem 0; color: #fff; font-size: 1.1rem; line-height: 1.12; }
-  .home-briefs__arrow { position: absolute; inset-inline-end: 1.1rem; inset-block-end: 1rem; color: var(--home-teal); font-size: 1.25rem; }
+  .home-briefs__arrow { display: inline-flex; align-items: center; gap: 0.45rem; margin: auto 1.2rem 1rem; color: var(--home-teal); font: 700 0.7rem/1 var(--font-ui); letter-spacing: 0.04em; text-transform: uppercase; }
+  .home-briefs__arrow > span { font-size: 1.1rem; }
   .home-briefs__grid a:hover { background: rgb(255 255 255 / 0.06); }
+  .home-briefs__grid a:hover .home-briefs__image { transform: scale(1.04); filter: saturate(1.08) brightness(1.08); }
 
   .home-invitation { display: grid; grid-template-columns: minmax(14rem, 0.7fr) minmax(0, 1fr); gap: clamp(2rem, 7vw, 8rem); align-items: center; padding-block: clamp(4.5rem, 9vw, 7.5rem); }
   :global(.home-invitation__media) { aspect-ratio: 1 / 0.88; overflow: hidden; margin: 0; background: #0c1a2a; }
@@ -492,7 +676,7 @@ const homeGallery = [
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .home-button, :global(.home-project__media img), :global(.home-gallery__image) { transition: none; }
-    .home-button:hover, :global(.home-project__link:hover .home-project__media img), :global(.home-gallery__link:hover .home-gallery__image) { transform: none; }
+    .home-button, .home-orientation__cta, :global(.home-orientation__image), :global(.home-project__media img), :global(.home-pathway__image), :global(.home-gallery__image), :global(.home-briefs__image) { transition: none; }
+    .home-button:hover, .home-orientation__cta:hover, :global(.home-orientation__media:hover .home-orientation__image), :global(.home-project__link:hover .home-project__media img), :global(.home-pathway:hover .home-pathway__image), :global(.home-gallery__link:hover .home-gallery__image), :global(.home-briefs__grid a:hover .home-briefs__image) { transform: none; }
   }
 </style>

@@ -21,21 +21,68 @@
       class="research-constellation__visual"
       data-research-constellation
       data-reveal
-      role="img"
-      aria-label="An interactive constellation linking research, science, technology, and public benefit"
+      aria-labelledby="research-constellation-map-title"
+      aria-describedby="research-constellation-map-description"
     >
       <canvas class="research-constellation__canvas" aria-hidden="true"></canvas>
-      <p class="research-constellation__fallback" data-visualization-fallback hidden>
-        The visual map is unavailable here. The pathway links remain available in the orientation text.
-      </p>
-      <div class="research-constellation__legend" aria-hidden="true">
-        <span><i class="research-constellation__dot research-constellation__dot--blue"></i> Research</span>
-        <span><i class="research-constellation__dot research-constellation__dot--red"></i> Application</span>
-        <span><i class="research-constellation__dot research-constellation__dot--gold"></i> Public benefit</span>
+      <div class="research-constellation__guide">
+        <div class="research-constellation__guide-intro">
+          <p class="research-constellation__guide-kicker">The research loop</p>
+          <h3 id="research-constellation-map-title">From signal to shared good.</h3>
+          <p id="research-constellation-map-description">
+            Text guide: a question begins with an observation, gains a method, meets a test, and becomes a public benefit.
+          </p>
+        </div>
+
+        <ol class="research-constellation__pathway" aria-label="Four-stage question-to-benefit pathway">
+          <li class="research-constellation__step">
+            <span class="research-constellation__step-number" aria-hidden="true">01</span>
+            <div class="research-constellation__step-copy">
+              <h4>Observation</h4>
+              <p>Find a signal, need, or possibility worth staying with.</p>
+            </div>
+            <span class="research-constellation__step-tag">Notice</span>
+          </li>
+          <li class="research-constellation__step">
+            <span class="research-constellation__step-number" aria-hidden="true">02</span>
+            <div class="research-constellation__step-copy">
+              <h4>Method</h4>
+              <p>Choose the lens, tool, or model that makes it legible.</p>
+            </div>
+            <span class="research-constellation__step-tag">Frame</span>
+          </li>
+          <li class="research-constellation__step">
+            <span class="research-constellation__step-number" aria-hidden="true">03</span>
+            <div class="research-constellation__step-copy">
+              <h4>Test</h4>
+              <p>Put the idea under pressure with evidence and iteration.</p>
+            </div>
+            <span class="research-constellation__step-tag">Learn</span>
+          </li>
+          <li class="research-constellation__step">
+            <span class="research-constellation__step-number" aria-hidden="true">04</span>
+            <div class="research-constellation__step-copy">
+              <h4>Public benefit</h4>
+              <p>Carry what holds up into decisions, tools, or care.</p>
+            </div>
+            <span class="research-constellation__step-tag">Share</span>
+          </li>
+        </ol>
+
+        <div class="research-constellation__legend" role="group" aria-label="Constellation layer key">
+          <span class="research-constellation__legend-label">Map layer</span>
+          <span><i class="research-constellation__dot research-constellation__dot--blue" aria-hidden="true"></i>Research</span>
+          <span><i class="research-constellation__dot research-constellation__dot--red" aria-hidden="true"></i>Application</span>
+          <span><i class="research-constellation__dot research-constellation__dot--gold" aria-hidden="true"></i>Public benefit</span>
+        </div>
+
+        <noscript>
+          <p class="research-constellation__noscript">The animated constellation is optional; this four-stage guide and the pathway links remain available without JavaScript.</p>
+        </noscript>
       </div>
-      <noscript>
-        <p class="research-constellation__noscript">The pathway links remain available above when motion and WebGL are unavailable.</p>
-      </noscript>
+      <p class="research-constellation__fallback" data-visualization-fallback hidden>
+        The animated map is unavailable here. The four-stage guide remains available above, and the pathway links remain available in the orientation text.
+      </p>
     </div>
   </div>
 </section>
@@ -235,19 +282,42 @@
   .research-constellation__links a { display: flex; justify-content: space-between; gap: 1rem; padding-block: 0.72rem; border-block-end: 1px solid var(--color-rule); color: var(--color-ink); font-family: var(--font-ui); font-weight: 700; text-decoration: none; }
   .research-constellation__links a:hover { color: var(--color-brand-deep); }
   .research-constellation__link-arrow { display: inline-block; flex: none; }
-  .research-constellation__visual { position: relative; min-block-size: 23rem; overflow: hidden; border: 1px solid color-mix(in srgb, var(--color-brand) 30%, transparent); border-radius: var(--radius-panel); background: radial-gradient(circle at 50% 45%, rgb(255 255 255 / 0.92), rgb(224 236 247 / 0.72)); box-shadow: var(--shadow-panel); }
-  .research-constellation__canvas { inline-size: 100%; block-size: 100%; min-block-size: 23rem; }
-  .research-constellation__legend { position: absolute; inset-inline: 1.25rem; inset-block-end: 1.1rem; display: flex; flex-wrap: wrap; gap: 0.75rem 1.1rem; color: var(--color-muted-strong); font-family: var(--font-ui); font-size: 0.75rem; }
+  .research-constellation__visual { position: relative; min-block-size: clamp(32rem, 50vw, 38rem); overflow: hidden; border: 1px solid color-mix(in srgb, var(--color-brand) 30%, transparent); border-radius: var(--radius-panel); background: radial-gradient(circle at 50% 45%, rgb(255 255 255 / 0.94), rgb(224 236 247 / 0.78)); box-shadow: var(--shadow-panel); }
+  .research-constellation__canvas { position: absolute; inset: 0; inline-size: 100%; block-size: 100%; opacity: 0.42; }
+  .research-constellation__guide { position: relative; z-index: 1; display: grid; gap: 1.2rem; min-block-size: 100%; padding: clamp(1.25rem, 3vw, 2.25rem); background: linear-gradient(115deg, rgb(243 247 251 / 0.96), rgb(243 247 251 / 0.78)); }
+  .research-constellation__guide-intro { display: grid; gap: 0.45rem; }
+  .research-constellation__guide-kicker { margin: 0; color: var(--color-brand-deep); font-family: var(--font-ui); font-size: var(--text-kicker); font-weight: 700; letter-spacing: 0.13em; text-transform: uppercase; }
+  .research-constellation__guide h3 { margin: 0; max-inline-size: 20ch; font-size: clamp(1.6rem, 2.7vw, 2.45rem); }
+  .research-constellation__guide-intro > p:last-child { margin: 0; max-inline-size: 52ch; color: var(--color-muted-strong); font-size: 0.92rem; line-height: 1.45; }
+  .research-constellation__pathway { display: grid; gap: 0.7rem; margin: 0; padding: 0; list-style: none; }
+  .research-constellation__step { position: relative; display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 0.8rem; min-block-size: 4.65rem; padding: 0.8rem 0.9rem; border: 1px solid color-mix(in srgb, var(--color-brand) 18%, var(--color-rule)); border-radius: 0.75rem; background: rgb(255 255 255 / 0.88); box-shadow: 0 0.45rem 1.2rem rgb(26 57 82 / 0.06); }
+  .research-constellation__step:not(:last-child)::after { content: "↓"; position: absolute; inset-block-end: -0.92rem; inset-inline-start: 1.35rem; z-index: 2; color: var(--color-brand-deep); font-family: var(--font-ui); font-size: 0.9rem; font-weight: 800; line-height: 1; }
+  .research-constellation__step-number { display: grid; place-items: center; inline-size: 2.2rem; block-size: 2.2rem; border-radius: 50%; background: var(--color-brand); color: #fff; font-family: var(--font-ui); font-size: 0.7rem; font-weight: 800; letter-spacing: 0.06em; }
+  .research-constellation__step:nth-child(2) .research-constellation__step-number { background: #a7191e; color: #fff; }
+  .research-constellation__step:nth-child(3) .research-constellation__step-number { background: #536f8b; }
+  .research-constellation__step:nth-child(4) .research-constellation__step-number { background: #c8972b; color: #172636; }
+  .research-constellation__step-copy { display: grid; gap: 0.15rem; min-inline-size: 0; }
+  .research-constellation__step h4 { margin: 0; color: var(--color-ink); font-family: var(--font-ui); font-size: 0.98rem; font-weight: 800; }
+  .research-constellation__step p { margin: 0; color: var(--color-muted-strong); font-size: 0.8rem; line-height: 1.35; }
+  .research-constellation__step-tag { align-self: start; padding-block: 0.2rem; color: var(--color-brand-deep); font-family: var(--font-ui); font-size: 0.65rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; }
+  .research-constellation__legend { display: flex; flex-wrap: wrap; align-items: center; gap: 0.55rem 1rem; padding-block-start: 0.25rem; color: var(--color-muted-strong); font-family: var(--font-ui); font-size: 0.72rem; }
+  .research-constellation__legend-label { color: var(--color-ink); font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }
   .research-constellation__dot { display: inline-block; inline-size: 0.55rem; block-size: 0.55rem; margin-inline-end: 0.3rem; border-radius: 50%; }
   .research-constellation__dot--blue { background: var(--color-brand); }
   .research-constellation__dot--red { background: var(--color-accent); }
   .research-constellation__dot--gold { background: #c8972b; }
-  .research-constellation__noscript { position: absolute; inset: auto 1rem 1rem; padding: 0.75rem; background: rgb(255 255 255 / 0.9); font-size: 0.85rem; }
-  .research-constellation__fallback { position: absolute; inset: 1rem; display: grid; place-items: center; padding: 1rem; border: 1px solid var(--color-rule); background: rgb(255 255 255 / 0.88); color: var(--color-muted-strong); font-size: 0.9rem; text-align: center; }
+  .research-constellation__noscript { margin: 0; padding: 0.65rem 0.8rem; border-inline-start: 3px solid var(--color-accent); background: rgb(255 255 255 / 0.78); color: var(--color-muted-strong); font-size: 0.8rem; line-height: 1.4; }
+  .research-constellation__fallback { position: absolute; inset: 1rem; z-index: 3; display: grid; place-items: center; padding: 1rem; border: 1px solid var(--color-rule); background: rgb(255 255 255 / 0.94); color: var(--color-muted-strong); font-size: 0.9rem; text-align: center; }
 
   @container (max-width: 52rem) {
     .research-constellation__inner { grid-template-columns: 1fr; }
     .research-constellation h2 { max-inline-size: 16ch; }
+    .research-constellation__visual { min-block-size: auto; }
+  }
+
+  @container (max-width: 34rem) {
+    .research-constellation__step { grid-template-columns: auto minmax(0, 1fr); }
+    .research-constellation__step-tag { grid-column: 2; margin-block-start: -0.25rem; }
   }
 
   @media (prefers-reduced-motion: reduce) {
