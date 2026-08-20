@@ -18,6 +18,7 @@ Maintained for the Astro v7 editorial research magazine and refreshed with
 - Components: `src/components/chrome`, `src/components/primitives`
 - Assets: None detected
 - Instructions: CLAUDE.md
+- Component workflow: `.21st/COMPONENT-WORKFLOW.md`
 
 ## Components
 
@@ -54,4 +55,5 @@ Maintained for the Astro v7 editorial research magazine and refreshed with
 - Motion is used for progressive reveals; Three.js is lazy-loaded only for
   the research constellation.
 - 21st.dev is a component registry/reference workflow; copied components
-  must live in `src/components` and meet the project quality contract.
+  must live in `src/components`, be adapted to Astro-native static HTML, and
+  meet the project quality contract in `.21st/COMPONENT-WORKFLOW.md`.
