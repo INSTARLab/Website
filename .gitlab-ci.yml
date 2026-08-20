@@ -40,11 +40,11 @@ quality:astro-artifact:
   script:
     - node scripts/quality/route-ledger.mjs --dist dist --strict
     - node scripts/quality/check-dist-links.mjs --dist dist
-      - node scripts/quality/check-dist-sitemap.mjs --dist dist --origin https://instarlab.org
-      - node scripts/quality/media-audit.mjs --dist dist --strict
-      - node scripts/quality/validate-dist-metadata.mjs --dist dist
-      - node tests/seo/structured-data.test.mjs
-      - test -f dist/rss.xml
-      - test -f dist/pagefind/pagefind.js
+    - node scripts/quality/check-dist-sitemap.mjs --dist dist --origin https://instarlab.org
+    - node scripts/quality/media-audit.mjs --dist dist --strict
+    - node scripts/quality/validate-dist-metadata.mjs --dist dist
+    - node tests/seo/structured-data.test.mjs
+    - test -f dist/rss.xml
+    - test -f dist/pagefind/pagefind.js
   rules:
     - if: '$CI_COMMIT_BRANCH == "demo"'
