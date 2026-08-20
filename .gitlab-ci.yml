@@ -39,7 +39,7 @@ quality:astro-artifact:
   stage: .post
   image: node:22-bookworm-slim
   needs:
-    - job: deploy:gitlab-pages
+    - job: pages
       artifacts: true
   script:
     - node scripts/quality/route-ledger.mjs --dist dist --strict
