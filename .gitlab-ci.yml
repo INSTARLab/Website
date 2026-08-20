@@ -2,134 +2,19 @@ include:
   - project: 'DroidOpsInc/launch-sequence'
     ref: v0.2.5
     file: '/pipelines/static-site.yml'
+
 variables:
   GITHUB_REPO: "INSTARLab/Website"
   SITE_DIR: "."
 
-# ---------------------------------------------------------------------------
-# gh#257 / gh#283 — additive QA jobs (HTML validation, broken-link check,
-# a11y scan, sitemap-vs-disk drift check, scheduled site-health sweep).
-#
-# These jobs are ADDITIVE alongside the DroidOpsInc/launch-sequence include
-# above, not a replacement for it. `DroidOpsInc/launch-sequence` is a
-# separate, access-controlled GitLab project whose pipeline source isn't
-# checked into (or fetchable from) this repo/environment, so its exact
-# stage list/job names couldn't be inspected before writing this — see
-# gh#257's acceptance criteria, which asked to confirm that first. To stay
-# safe regardless of what it defines, every job below runs in the `.pre`
-# stage, which is a GitLab-reserved stage name that always runs first and
-# never needs to be (and must not be) added to a `stages:` list — so it
-# can't collide with, shadow, or require knowledge of whatever stages the
-# included template declares. If a maintainer later confirms the include
-# already runs one of these checks, drop the duplicate here.
-#
-# All four gh#257 jobs use `allow_failure: true`. This repo has never had
-# a CI quality gate before (see CLAUDE.md: "no linters, formatters, or
-# tests"), and every one of these tools immediately surfaces real,
-# pre-existing findings against the current codebase — e.g. html-validate
-# reports findings against the generated Astro artifact while the remaining
-# advisory checks are tuned for the current editorial markup and media
-# corpus. None of that should suddenly start blocking every push/MR; the
-# point of this stage is visibility, not a hard gate. A follow-up issue can
-# flip `allow_failure` to `false` per-job once each check is fully enforced.
-#
-# All jobs use the `node:22` image (full Debian, not -alpine/-slim):
-#   - html-validate's CLI needs `fs.globSync`, unavailable before Node 20;
-#     Node 22 gives headroom above that floor.
-#   - the a11y/lighthouse jobs launch a Chromium binary (downloaded on
-#     demand by npx via puppeteer — no docker image or system Chrome
-#     install needed) that needs the shared libraries present on a full
-#     Debian image but missing from `-slim`/`-alpine` variants.
-# A small per-job cache keeps the downloaded npx packages and the
-# puppeteer-managed Chromium build across pipeline runs so this doesn't
-# re-download ~300MB of Chromium on every single push.
-# ---------------------------------------------------------------------------
-
-.qa-node-job:
-  stage: .pre
-  image: node:22
-  allow_failure: true
-  cache:
-    key: qa-node-tools
-    paths:
-      - .npm/
-      - .cache/puppeteer/
-  variables:
-    npm_config_cache: "$CI_PROJECT_DIR/.npm"
-    PUPPETEER_CACHE_DIR: "$CI_PROJECT_DIR/.cache/puppeteer"
-
-lint:html-validate:
-  extends: .qa-node-job
-  script:
-    - npx --yes html-validate@11 --config scripts/ci/htmlvalidate.config.json "**/*.html"
-
-lint:internal-links:
-  extends: .qa-node-job
-  script:
-    - node scripts/ci/check-internal-links.mjs
-
-lint:sitemap-consistency:
-  extends: .qa-node-job
-  script:
-    - node scripts/ci/check-sitemap.mjs
-
-lint:a11y-scan:
-  extends: .qa-node-job
-  script:
-    - node scripts/ci/run-a11y-scan.mjs
-
-# ---------------------------------------------------------------------------
-# gh#283 — scheduled automated site-health sweep.
-#
-# This job only runs on a GitLab *scheduled* pipeline (see `rules:`
-# below) — it never runs on a normal push/MR pipeline, so it adds no
-# time to the regular pipeline. It reruns the link checker + sitemap
-# drift check from gh#257 above, plus a one-page Lighthouse sample
-# (accessibility/SEO/best-practices) against the homepage, and writes a
-# single machine-readable JSON report (scripts/ci/lib.mjs has the shared
-# scan logic; see scripts/ci/site-health-report.mjs for the full sweep +
-# reporting logic). If a `SITE_HEALTH_GH_TOKEN` CI/CD variable is
-# configured (a GitHub token with `repo` scope on INSTARLab/Website), the
-# script also creates or updates a single tracking issue there with the
-# findings, so a human or an agent can act on it directly instead of
-# reading a CI job log. Without that token, the job still runs and still
-# prints/saves the JSON report as a job artifact — it just skips the
-# GitHub API call and says so in the log.
-#
-# IMPORTANT — two things a human maintainer still needs to do; neither
-# can be done from a commit in this repo:
-#   1. Create the actual recurring trigger: GitLab project ->
-#      Build > Pipeline schedules > New schedule, e.g. "Monthly site
-#      health sweep", cron `0 6 1 * *` (monthly), target branch `demo`.
-#      Until that schedule exists, `$CI_PIPELINE_SOURCE == "schedule"`
-#      is never true and this job never runs.
-#   2. (Optional, for auto-filed issues) add a `SITE_HEALTH_GH_TOKEN`
-#      CI/CD variable (Settings > CI/CD > Variables, masked + protected)
-#      holding a GitHub token with issue-write access to
-#      INSTARLab/Website.
-# ---------------------------------------------------------------------------
-scheduled:site-health-sweep:
-  extends: .qa-node-job
-  rules:
-    - if: '$CI_PIPELINE_SOURCE == "schedule"'
-  script:
-    - node scripts/ci/site-health-report.mjs
-  artifacts:
-    when: always
-    paths:
-      - scripts/ci/site-health-report.output.json
-    expire_in: 90 days
-
-# GitLab Pages preview for the active staging branch. Astro writes the fully
-# static site to dist/, including public/.nojekyll and the non-underscore
-# assets/ directory configured in astro.config.ts.
+# Astro owns the production artifact. The Pages job uses the same pinned
+# toolchain as local development and publishes the generated dist/ directory.
 deploy:gitlab-pages:
   stage: .post
   image: node:22-bookworm-slim
   before_script:
-    # The shared runner executes as an unprivileged user, so Corepack cannot
-    # create links under /usr/local/bin. Run the pinned package manager via
-    # npm's user-writable npx cache instead.
+    # Shared runners are unprivileged, so Corepack cannot write under
+    # /usr/local/bin. Run the pinned pnpm release from npx's user cache.
     - npx --yes --package=pnpm@11.22.0 pnpm --version
   script:
     - npx --yes --package=pnpm@11.22.0 pnpm install --frozen-lockfile
@@ -140,5 +25,22 @@ deploy:gitlab-pages:
     paths:
       - dist
     expire_in: 1 week
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "demo"'
+
+# Validate the artifact produced by the Pages job instead of re-scanning the
+# removed root static-site corpus. This keeps CI aligned with the same strict
+# route, link, sitemap, and media checks used before publication.
+quality:astro-artifact:
+  stage: .post
+  image: node:22-bookworm-slim
+  needs:
+    - job: deploy:gitlab-pages
+      artifacts: true
+  script:
+    - node scripts/quality/route-ledger.mjs --dist dist --strict
+    - node scripts/quality/check-dist-links.mjs --dist dist
+    - node scripts/quality/check-dist-sitemap.mjs --dist dist --origin https://instarlab.org
+    - node scripts/quality/media-audit.mjs --dist dist
   rules:
     - if: '$CI_COMMIT_BRANCH == "demo"'
