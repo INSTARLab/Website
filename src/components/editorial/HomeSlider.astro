@@ -148,7 +148,7 @@ const hasMultipleSlides = slides.length > 1;
       </div>
 
       <nav class="home-slider__indicators" aria-label={controlsLabel}>
-        <ol>
+        <ul>
           {slides.map((slide, index) => (
             <li>
               <button
@@ -159,11 +159,11 @@ const hasMultipleSlides = slides.length > 1;
                 aria-current={index === 0 ? 'true' : undefined}
                 aria-label={`Go to slide ${index + 1}: ${slide.title}`}
               >
-                <span aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
+                <span class="home-slider__indicator-dot" aria-hidden="true"></span>
               </button>
             </li>
           ))}
-        </ol>
+        </ul>
       </nav>
     </div>
   ) : null}
@@ -480,7 +480,7 @@ const hasMultipleSlides = slides.length > 1;
   }
 
   .home-slider__navigation,
-  .home-slider__indicators ol {
+  .home-slider__indicators ul {
     display: flex;
     align-items: center;
     gap: 0.55rem;
@@ -503,17 +503,37 @@ const hasMultipleSlides = slides.length > 1;
   }
 
   .home-slider__control:hover,
-  .home-slider__indicator:hover,
-  .home-slider__indicator[aria-current='true'] {
+  .home-slider__control:hover {
     border-color: var(--home-slider-accent);
     color: var(--home-slider-dark);
     background: var(--home-slider-accent);
   }
 
   .home-slider__indicator {
-    padding-inline: 0.65rem;
+    padding: 0;
     border-color: transparent;
     background: transparent;
+  }
+
+  .home-slider__indicator:hover,
+  .home-slider__indicator[aria-current='true'] {
+    border-color: transparent;
+    color: #fff;
+    background: transparent;
+  }
+
+  .home-slider__indicator-dot {
+    display: block;
+    inline-size: 0.55rem;
+    block-size: 0.55rem;
+    border: 1px solid currentColor;
+    border-radius: 50%;
+  }
+
+  .home-slider__indicator:hover .home-slider__indicator-dot,
+  .home-slider__indicator[aria-current='true'] .home-slider__indicator-dot {
+    border-color: var(--home-slider-accent);
+    background: var(--home-slider-accent);
   }
 
   .home-slider__live-region,
@@ -553,13 +573,12 @@ const hasMultipleSlides = slides.length > 1;
       align-items: flex-end;
     }
 
-    .home-slider__indicators ol {
+    .home-slider__indicators ul {
       gap: 0.2rem;
     }
 
     .home-slider__indicator {
       min-inline-size: 2.2rem;
-      padding-inline: 0.35rem;
     }
 
     :global(.home-slider__media figcaption) {
@@ -598,6 +617,10 @@ const hasMultipleSlides = slides.length > 1;
       border-color: Highlight;
       color: HighlightText;
       background: Highlight;
+    }
+
+    .home-slider__indicator[aria-current='true'] {
+      background: ButtonFace;
     }
   }
 </style>

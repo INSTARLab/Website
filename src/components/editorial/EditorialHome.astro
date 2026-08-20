@@ -47,7 +47,7 @@ const homeHeroSlides = [
     image: {
       src: '/img/slider/jupiterstar.avif',
       alt: 'Jupiter and its rings against deep space, an orientation image for INSTAR Lab research',
-      caption: '01 / Curiosity is a starting condition. Rigor is the direction.',
+      caption: 'Curiosity is a starting condition. Rigor is the direction.',
       width: 1920,
       height: 751,
       sizes: '100vw',
@@ -65,7 +65,7 @@ const homeHeroSlides = [
     image: {
       src: '/img/slider/astro.avif',
       alt: 'A satellite crossing the edge of Earth at the start of an orbital pass',
-      caption: '02 / See the system from far enough away to notice what connects it.',
+      caption: 'See the system from far enough away to notice what connects it.',
       width: 1920,
       height: 750,
       sizes: '100vw',
@@ -83,7 +83,7 @@ const homeHeroSlides = [
     image: {
       src: '/img/slider/slide-two.avif',
       alt: 'A luminous violet research instrument in a working laboratory',
-      caption: '03 / Translation is where a promising signal meets a real constraint.',
+      caption: 'Translation is where a promising signal meets a real constraint.',
       width: 1920,
       height: 750,
       sizes: '100vw',
@@ -101,7 +101,7 @@ const homeHeroSlides = [
     image: {
       src: '/img/slider/silicon.avif',
       alt: 'A computational chip and luminous network inside a server environment',
-      caption: '04 / Shared infrastructure turns a promising idea into a repeatable practice.',
+      caption: 'Shared infrastructure turns a promising idea into a repeatable practice.',
       width: 1920,
       height: 750,
       sizes: '100vw',
@@ -144,7 +144,7 @@ const homeInvitationMedia = homeMedia({
 const homeProjects = [
   {
     href: '/labs/sovereign-ai/',
-    kicker: '01 / Secure compute',
+    kicker: 'Secure compute',
     title: 'Sovereign AI Laboratory',
     summary: 'Air-gapped frontier model training, secure inference, and autonomous reasoning on private infrastructure.',
     cta: 'Enter secure compute',
@@ -157,7 +157,7 @@ const homeProjects = [
   },
   {
     href: '/labs/biometric-security/',
-    kicker: '02 / Human signals',
+    kicker: 'Human signals',
     title: 'Biometric Security Systems',
     summary: 'Multi-modal bioinformatic authentication across genomic markers, neural gait, and vascular topology.',
     cta: 'Study the signal stack',
@@ -170,7 +170,7 @@ const homeProjects = [
   },
   {
     href: '/labs/cognitive-ai/',
-    kicker: '03 / Machine intelligence',
+    kicker: 'Machine intelligence',
     title: 'Cognitive AI & Persona Systems',
     summary: 'Psycholinguistic modeling, personality architectures, and AI personification through inference shaping.',
     cta: 'Trace the reasoning system',
@@ -187,7 +187,7 @@ const homePathways = [
   {
     href: '/research/current-programs/',
     className: 'research',
-    number: '01 / Research',
+    label: 'Research',
     title: 'Programs with a question at the center.',
     summary: 'See what the Lab is working on now and where collaborators can add leverage.',
     media: homeMedia({
@@ -201,7 +201,7 @@ const homePathways = [
   {
     href: '/technology/computer-science/',
     className: 'technology',
-    number: '02 / Technology',
+    label: 'Technology',
     title: 'Methods that make difficult work possible.',
     summary: 'Trace the computing, sensing, formal, and machine-intelligence systems behind the questions.',
     media: homeMedia({
@@ -215,7 +215,7 @@ const homePathways = [
   {
     href: '/sciences/physics/',
     className: 'sciences',
-    number: '03 / Sciences',
+    label: 'Sciences',
     title: 'Disciplines that refuse to stay separate.',
     summary: 'Move from a field of study to the evidence, tools, and public questions it can illuminate.',
     media: homeMedia({
@@ -367,7 +367,7 @@ const homeBriefCtas = [
     <HomeSlider slides={homeHeroSlides} id="home-hero-slider" ariaLabel="INSTAR Lab research highlights" titleId="home-title" />
 
     <section class="home-orientation home-container" aria-labelledby="home-orientation-title">
-      <div class="home-section-label"><span>01</span><span>Orientation</span></div>
+      <div class="home-section-label">Orientation</div>
       <div class="home-orientation__grid">
         <div class="home-orientation__copy">
           <h2 id="home-orientation-title">A lab for work that needs more than one lens.</h2>
@@ -387,7 +387,7 @@ const homeBriefCtas = [
 
     <section class="home-observations" aria-labelledby="home-observations-title">
       <div class="home-container">
-        <div class="home-section-label"><span>02</span><span>Observation</span></div>
+        <div class="home-section-label">Observation</div>
         <div class="home-observations__head">
           <h2 id="home-observations-title">Research, in the material world.</h2>
         </div>
@@ -411,7 +411,7 @@ const homeBriefCtas = [
 
     <section class="home-pathways" aria-labelledby="home-pathways-title">
       <div class="home-container">
-        <div class="home-section-label home-section-label--light"><span>03</span><span>Choose a lens</span></div>
+        <div class="home-section-label home-section-label--light">Choose a lens</div>
         <div class="home-pathways__head">
           <h2 id="home-pathways-title">Choose a lens.</h2>
         </div>
@@ -420,7 +420,7 @@ const homeBriefCtas = [
             <a class={`home-pathway home-pathway--${pathway.className}`} href={pathway.href}>
               <EditorialMedia asset={pathway.media} figureClass="home-pathway__media" class="home-pathway__image" picture={false} />
               <div class="home-pathway__copy">
-                <span class="home-pathway__number">{pathway.number}</span>
+                <span class="home-pathway__label">{pathway.label}</span>
                 <h3>{pathway.title}</h3>
                 <p>{pathway.summary}</p>
                 <span class="home-pathway__arrow" aria-hidden="true">↗</span>
@@ -434,7 +434,7 @@ const homeBriefCtas = [
     <ResearchConstellation />
 
     <section class="home-index home-container" aria-labelledby="home-index-title">
-      <div class="home-section-label"><span>04</span><span>Field index</span></div>
+      <div class="home-section-label">Field index</div>
       <div class="home-index__head">
         <h2 id="home-index-title">Move laterally.</h2>
         <p>Use adjacent routes to turn a broad interest into a more exact next step.</p>
@@ -456,7 +456,7 @@ const homeBriefCtas = [
 
     <section class="home-gallery" aria-labelledby="home-gallery-title">
       <div class="home-container">
-        <div class="home-section-label home-section-label--light"><span>05</span><span>Research in view</span></div>
+        <div class="home-section-label home-section-label--light">Research in view</div>
         <div class="home-gallery__head">
           <h2 id="home-gallery-title">Eight ways into the same questions.</h2>
           <p>Look closely at the instruments, systems, and abstractions that give interdisciplinary work somewhere to begin.</p>
@@ -473,7 +473,7 @@ const homeBriefCtas = [
 
     <section class="home-briefs" aria-labelledby="home-briefs-title">
       <div class="home-container">
-        <div class="home-section-label home-section-label--light"><span>06</span><span>Research briefs</span></div>
+        <div class="home-section-label home-section-label--light">Research briefs</div>
         <div class="home-briefs__head">
           <h2 id="home-briefs-title">Ideas in motion.</h2>
           <a class="home-text-link home-text-link--light" href="/news/">View all briefs <span aria-hidden="true">→</span></a>
@@ -483,7 +483,6 @@ const homeBriefCtas = [
             <li>
               <a href={brief.path}>
                 <EditorialMedia asset={homeBriefMedia[index]} figureClass="home-briefs__media" class="home-briefs__image" picture={false} />
-                <span class="home-briefs__number">{String(index + 1).padStart(2, '0')}</span>
                 <span class="home-briefs__family">{familyLabel(brief.family)}</span>
                 <h3>{brief.title}</h3>
                 <span class="home-briefs__arrow">{homeBriefCtas[index]} <span aria-hidden="true">↗</span></span>
@@ -497,7 +496,7 @@ const homeBriefCtas = [
     <section class="home-invitation home-container" aria-labelledby="home-invitation-title">
       <EditorialMedia asset={homeInvitationMedia} figureClass="home-invitation__media" class="home-invitation__image" picture={false} />
       <div class="home-invitation__copy">
-        <div class="home-section-label"><span>07</span><span>Invitation</span></div>
+        <div class="home-section-label">Invitation</div>
         <h2 id="home-invitation-title">Bring the question that does not have a home yet.</h2>
         <p>Tell us what you are trying to learn, build, test, or make public. The first useful step is often a better framing.</p>
         <a class="home-button home-button--solid" href="/contact-us/">Start a conversation <span aria-hidden="true">↗</span></a>
@@ -518,7 +517,7 @@ const homeBriefCtas = [
   :global(.home-masthead__media figcaption::before) { inline-size: 1.8rem; block-size: 2px; flex: none; margin-block-start: 0.55rem; background: var(--home-teal); content: ''; }
   .home-masthead__grid { position: relative; z-index: 1; display: flex; align-items: center; min-block-size: inherit; }
   .home-masthead__copy { inline-size: min(100%, 44rem); padding-block: clamp(4.5rem, 9vw, 7rem); padding-inline-end: clamp(2rem, 6vw, 7rem); }
-  .home-kicker, .home-section-label, .home-pathway__number, .home-briefs__family, .home-project__kicker { font: 700 0.72rem/1.25 var(--font-ui); letter-spacing: 0.13em; text-transform: uppercase; }
+  .home-kicker, .home-section-label, .home-pathway__label, .home-briefs__family, .home-project__kicker { font: 700 0.72rem/1.25 var(--font-ui); letter-spacing: 0.13em; text-transform: uppercase; }
   .home-kicker { margin-block-end: 1.6rem; color: var(--home-teal); }
   .home-masthead h1 { max-inline-size: 15ch; margin: 0; color: #fff; font-size: clamp(2.55rem, 4.2vw, 4.75rem); letter-spacing: -0.045em; line-height: 0.99; }
   .home-masthead__dek { max-inline-size: 48ch; margin-block: 1.75rem 0; color: rgb(255 255 255 / 0.78); font-size: clamp(1rem, 0.96rem + 0.22vw, 1.2rem); line-height: 1.55; }
@@ -531,9 +530,8 @@ const homeBriefCtas = [
   .home-button--line:hover { color: var(--home-dark); background: #fff; }
 
   .home-section-label { display: flex; align-items: center; gap: 0.75rem; color: var(--color-brand); }
-  .home-section-label span:first-child { color: var(--color-muted); }
+  .home-section-label::before { inline-size: 1.4rem; block-size: 2px; background: currentColor; content: ''; }
   .home-section-label--light { color: var(--home-teal); }
-  .home-section-label--light span:first-child { color: rgb(255 255 255 / 0.55); }
   .home-orientation { padding-block: clamp(4.5rem, 9vw, 7.5rem); }
   .home-orientation__grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 0.78fr); gap: clamp(2rem, 8vw, 8rem); margin-block-start: 2rem; }
   .home-orientation h2, .home-pathways h2, .home-index h2, .home-gallery h2, .home-briefs h2, .home-invitation h2 { margin: 0; font-size: clamp(2rem, 3.2vw, 3.7rem); letter-spacing: -0.045em; line-height: 1.02; }
@@ -582,7 +580,7 @@ const homeBriefCtas = [
   :global(.home-pathway__image) { inline-size: 100%; block-size: 100%; object-fit: cover; transition: transform 280ms ease, filter 280ms ease; }
   :global(.home-pathway__media figcaption) { display: none; }
   .home-pathway__copy { position: relative; min-block-size: 15rem; padding: 1.35rem; }
-  .home-pathway__number { color: var(--home-teal); }
+  .home-pathway__label { color: var(--home-teal); }
   .home-pathway h3 { max-inline-size: 16ch; margin: 1.1rem 0 0; color: #fff; font-size: clamp(1.35rem, 1.8vw, 1.8rem); letter-spacing: -0.025em; line-height: 1.05; }
   .home-pathway p { max-inline-size: 30ch; margin-block: 1rem 0; color: rgb(255 255 255 / 0.66); font-size: 0.94rem; line-height: 1.5; }
   .home-pathway__arrow { position: absolute; inset-inline-end: 1.35rem; inset-block-end: 1.1rem; color: var(--home-teal); font-size: 1.25rem; }
@@ -626,10 +624,8 @@ const homeBriefCtas = [
   :global(.home-briefs__media) { aspect-ratio: 1.5; overflow: hidden; margin: 0; background: #0c1a2a; }
   :global(.home-briefs__image) { inline-size: 100%; block-size: 100%; object-fit: cover; transition: transform 280ms ease, filter 280ms ease; }
   :global(.home-briefs__media figcaption) { display: none; }
-  .home-briefs__number, .home-briefs__family, .home-briefs h3 { margin-inline: 1.2rem; }
-  .home-briefs__number { margin-block-start: 1.2rem; }
-  .home-briefs__number { color: var(--home-teal); font: 700 0.78rem/1 var(--font-ui); }
-  .home-briefs__family { margin-block-start: 0.9rem; color: rgb(255 255 255 / 0.52); font-size: 0.62rem; }
+  .home-briefs__family, .home-briefs h3 { margin-inline: 1.2rem; }
+  .home-briefs__family { margin-block-start: 1.2rem; color: rgb(255 255 255 / 0.52); font-size: 0.62rem; }
   .home-briefs h3 { max-inline-size: 18ch; margin-block: 1.2rem 0; color: #fff; font-size: 1.1rem; line-height: 1.12; }
   .home-briefs__arrow { display: inline-flex; align-items: center; gap: 0.45rem; margin: auto 1.2rem 1rem; color: var(--home-teal); font: 700 0.7rem/1 var(--font-ui); letter-spacing: 0.04em; text-transform: uppercase; }
   .home-briefs__arrow > span { font-size: 1.1rem; }

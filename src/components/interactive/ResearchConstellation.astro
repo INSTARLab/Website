@@ -36,7 +36,7 @@
 
         <ol class="research-constellation__pathway" aria-label="Four-stage question-to-benefit pathway">
           <li class="research-constellation__step">
-            <span class="research-constellation__step-number" aria-hidden="true">01</span>
+            <span class="research-constellation__step-marker" aria-hidden="true"></span>
             <div class="research-constellation__step-copy">
               <h4>Observation</h4>
               <p>Find a signal, need, or possibility worth staying with.</p>
@@ -44,7 +44,7 @@
             <span class="research-constellation__step-tag">Notice</span>
           </li>
           <li class="research-constellation__step">
-            <span class="research-constellation__step-number" aria-hidden="true">02</span>
+            <span class="research-constellation__step-marker" aria-hidden="true"></span>
             <div class="research-constellation__step-copy">
               <h4>Method</h4>
               <p>Choose the lens, tool, or model that makes it legible.</p>
@@ -52,7 +52,7 @@
             <span class="research-constellation__step-tag">Frame</span>
           </li>
           <li class="research-constellation__step">
-            <span class="research-constellation__step-number" aria-hidden="true">03</span>
+            <span class="research-constellation__step-marker" aria-hidden="true"></span>
             <div class="research-constellation__step-copy">
               <h4>Test</h4>
               <p>Put the idea under pressure with evidence and iteration.</p>
@@ -60,7 +60,7 @@
             <span class="research-constellation__step-tag">Learn</span>
           </li>
           <li class="research-constellation__step">
-            <span class="research-constellation__step-number" aria-hidden="true">04</span>
+            <span class="research-constellation__step-marker" aria-hidden="true"></span>
             <div class="research-constellation__step-copy">
               <h4>Public benefit</h4>
               <p>Carry what holds up into decisions, tools, or care.</p>
@@ -292,10 +292,10 @@
   .research-constellation__pathway { display: grid; gap: 0.7rem; margin: 0; padding: 0; list-style: none; }
   .research-constellation__step { position: relative; display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 0.8rem; min-block-size: 4.65rem; padding: 0.8rem 0.9rem; border: 1px solid color-mix(in srgb, var(--color-brand) 18%, var(--color-rule)); border-radius: 0.75rem; background: rgb(255 255 255 / 0.88); box-shadow: 0 0.45rem 1.2rem rgb(26 57 82 / 0.06); }
   .research-constellation__step:not(:last-child)::after { content: "↓"; position: absolute; inset-block-end: -0.92rem; inset-inline-start: 1.35rem; z-index: 2; color: var(--color-brand-deep); font-family: var(--font-ui); font-size: 0.9rem; font-weight: 800; line-height: 1; }
-  .research-constellation__step-number { display: grid; place-items: center; inline-size: 2.2rem; block-size: 2.2rem; border-radius: 50%; background: var(--color-brand); color: #fff; font-family: var(--font-ui); font-size: 0.7rem; font-weight: 800; letter-spacing: 0.06em; }
-  .research-constellation__step:nth-child(2) .research-constellation__step-number { background: #a7191e; color: #fff; }
-  .research-constellation__step:nth-child(3) .research-constellation__step-number { background: #536f8b; }
-  .research-constellation__step:nth-child(4) .research-constellation__step-number { background: #c8972b; color: #172636; }
+  .research-constellation__step-marker { display: block; inline-size: 0.8rem; block-size: 0.8rem; border-radius: 50%; background: var(--color-brand); }
+  .research-constellation__step:nth-child(2) .research-constellation__step-marker { background: #a7191e; }
+  .research-constellation__step:nth-child(3) .research-constellation__step-marker { background: #536f8b; }
+  .research-constellation__step:nth-child(4) .research-constellation__step-marker { background: #c8972b; }
   .research-constellation__step-copy { display: grid; gap: 0.15rem; min-inline-size: 0; }
   .research-constellation__step h4 { margin: 0; color: var(--color-ink); font-family: var(--font-ui); font-size: 0.98rem; font-weight: 800; }
   .research-constellation__step p { margin: 0; color: var(--color-muted-strong); font-size: 0.8rem; line-height: 1.35; }

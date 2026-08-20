@@ -107,15 +107,14 @@ const mapItems = article.data.readingMap.length > 0
       {mapItems.length > 0 ? (
         <aside class="article-document__map" aria-labelledby="article-map-title">
           <p class="article-document__label" id="article-map-title">Read this brief as</p>
-          <ol>
-            {mapItems.map((item, index) => (
+          <ul>
+            {mapItems.map((item) => (
               <li>
-                <span>{String(index + 1).padStart(2, '0')}</span>
-                {item.anchor ? <a href={`#${item.anchor}`}>{item.label}</a> : <span>{item.label}</span>}
+                {item.anchor ? <a href={`#${item.anchor}`}>{item.label}</a> : <span class="article-document__map-text">{item.label}</span>}
                 {item.summary ? <small>{item.summary}</small> : null}
               </li>
             ))}
-          </ol>
+          </ul>
         </aside>
       ) : null}
 
@@ -147,7 +146,7 @@ const mapItems = article.data.readingMap.length > 0
           <section class="article-document__sources" aria-labelledby="article-sources-title">
             <p class="article-document__label">Source notes</p>
             <h2 id="article-sources-title">Read the evidence trail</h2>
-            <ol>
+            <ul>
               {article.data.sources.map((source) => (
                 <li>
                   <a href={source.url} target="_blank" rel="noreferrer">{source.label}</a>
@@ -155,7 +154,7 @@ const mapItems = article.data.readingMap.length > 0
                   {source.accessedAt ? <time datetime={articleIsoDate(source.accessedAt)}>Accessed {formatArticleDate(source.accessedAt)}</time> : null}
                 </li>
               ))}
-            </ol>
+            </ul>
           </section>
         ) : null}
       </div>
@@ -312,25 +311,30 @@ const mapItems = article.data.readingMap.length > 0
     font-size: 0.72rem;
   }
 
-  .article-document__map ol {
+  .article-document__map ul {
     display: grid;
     gap: 0.9rem;
-    counter-reset: reading-map;
+    padding: 0;
+    margin: 0;
+    list-style: none;
   }
 
   .article-document__map li {
     display: grid;
-    grid-template-columns: 1.8rem minmax(0, 1fr);
-    gap: 0.5rem;
+    grid-template-columns: 0.5rem minmax(0, 1fr);
+    gap: 0.65rem;
     color: var(--color-muted-strong);
     font-family: var(--font-ui);
     font-size: 0.86rem;
   }
 
-  .article-document__map li > span:first-child {
-    color: var(--color-brand);
-    font-size: 0.7rem;
-    font-weight: 700;
+  .article-document__map li::before {
+    inline-size: 0.45rem;
+    block-size: 0.45rem;
+    margin-block-start: 0.35rem;
+    border-radius: 50%;
+    background: var(--color-brand);
+    content: '';
   }
 
   .article-document__map a {
@@ -448,14 +452,28 @@ const mapItems = article.data.readingMap.length > 0
     font-size: clamp(1.7rem, 3vw, 3rem);
   }
 
-  .article-document__sources ol {
+  .article-document__sources ul {
     display: grid;
     gap: 0.8rem;
-    padding-inline-start: 1.2rem;
+    padding: 0;
+    margin: 0;
+    list-style: none;
   }
 
   .article-document__sources li {
-    padding-inline-start: 0.25rem;
+    position: relative;
+    padding-inline-start: 1rem;
+  }
+
+  .article-document__sources li::before {
+    position: absolute;
+    inset-inline-start: 0;
+    inset-block-start: 0.55rem;
+    inline-size: 0.45rem;
+    block-size: 0.45rem;
+    border-radius: 50%;
+    background: var(--color-brand);
+    content: '';
   }
 
   .article-document__sources li span,
@@ -533,13 +551,13 @@ const mapItems = article.data.readingMap.length > 0
       position: static;
     }
 
-    .article-document__map ol {
+    .article-document__map ul {
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
   }
 
   @media (max-width: 42rem) {
-    .article-document__map ol,
+    .article-document__map ul,
     .article-document__related ul {
       grid-template-columns: 1fr;
     }

@@ -146,11 +146,10 @@ const heroAsset = publicMediaFor(heroUrl, {
     </header>
 
     <div class="core-editorial__container core-editorial__body">
-      <div class="core-editorial__rail" aria-hidden="true"><span>INSTAR</span><span>01—{String(page.blocks.length).padStart(2, '0')}</span></div>
+      <div class="core-editorial__rail" aria-hidden="true"><span>INSTAR</span></div>
       <div class="core-editorial__blocks">
         {page.blocks.map((block, index) => (
           <section class="core-editorial__block" aria-labelledby={`core-block-${index}`}>
-            <p class="core-editorial__index">{String(index + 1).padStart(2, '0')}</p>
             <div>
               <h2 id={`core-block-${index}`}>{block.title}</h2>
               <p>{block.body}</p>
@@ -180,8 +179,7 @@ const heroAsset = publicMediaFor(heroUrl, {
   .core-editorial__body { display: grid; grid-template-columns: 8rem minmax(0, 1fr); gap: clamp(2rem, 8vw, 9rem); padding-block: clamp(5rem, 11vw, 10rem); }
   .core-editorial__rail { display: flex; flex-direction: column; justify-content: space-between; color: var(--core-accent); font: 800 0.7rem/1.4 var(--font-ui); letter-spacing: 0.15em; text-transform: uppercase; }
   .core-editorial__blocks { max-inline-size: 62rem; }
-  .core-editorial__block { display: grid; grid-template-columns: 4rem minmax(0, 1fr); gap: 2rem; padding-block: 2.5rem; border-block-start: 1px solid var(--color-rule); }
-  .core-editorial__index { color: var(--core-accent); font: 800 0.75rem/1.4 var(--font-ui); }
+  .core-editorial__block { display: grid; grid-template-columns: minmax(0, 1fr); gap: 2rem; padding-block: 2.5rem; border-block-start: 1px solid var(--color-rule); }
   .core-editorial h2 { margin: 0; font-size: clamp(1.8rem, 3vw, 3.3rem); letter-spacing: -0.05em; }
   .core-editorial__block p { max-inline-size: 62ch; margin-block: 1rem 0; color: var(--color-muted-strong); white-space: pre-line; }
   .core-editorial__block ul { display: grid; gap: 0.55rem; margin-block: 1.25rem 0; padding: 0; list-style: none; }
@@ -197,6 +195,6 @@ const heroAsset = publicMediaFor(heroUrl, {
   @media (max-width: 42rem) {
     .core-editorial__body { grid-template-columns: 1fr; gap: 2rem; }
     .core-editorial__rail { flex-direction: row; }
-    .core-editorial__block { grid-template-columns: 2.5rem minmax(0, 1fr); gap: 1rem; }
+    .core-editorial__block { gap: 1rem; }
   }
 </style>

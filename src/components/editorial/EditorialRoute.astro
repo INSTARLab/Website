@@ -48,8 +48,6 @@ const heroAsset = publicMediaFor(heroUrl, {
   },
   caption: `${route.eyebrow}. A visual orientation point for the work ahead.`,
 });
-const nextActionNumber = modeSections.length + 2;
-const relatedNumber = nextActionNumber + (modeSections.includes('participation') ? 0 : 1);
 ---
 
 <SiteLayout
@@ -71,7 +69,7 @@ const relatedNumber = nextActionNumber + (modeSections.includes('participation')
       <div class="editorial-container editorial-hero__grid">
         <div class="editorial-hero__copy">
           <p class="editorial-eyebrow"><span>{familyLabel(route.family)}</span><span aria-hidden="true">/</span><span>{route.slug.replaceAll('-', ' ')}</span></p>
-          <p class="editorial-folio">INSTAR FIELD NOTE <span aria-hidden="true">·</span> {String(signature.length).padStart(2, '0')} views</p>
+          <p class="editorial-folio">INSTAR FIELD NOTE</p>
           <h1>{route.title}</h1>
           <p class="editorial-dek">{route.description}</p>
           <div class="editorial-actions">
@@ -86,16 +84,16 @@ const relatedNumber = nextActionNumber + (modeSections.includes('participation')
     <nav class="editorial-map" aria-label="Page map">
       <div class="editorial-container editorial-map__inner">
         <p class="editorial-map__label">Read this page as</p>
-        <ol>
-          {signature.map((mode, index) => (
-            <li><span>{String(index + 1).padStart(2, '0')}</span>{modeLabel(mode)}</li>
+        <ul>
+          {signature.map((mode) => (
+            <li>{modeLabel(mode)}</li>
           ))}
-        </ol>
+        </ul>
       </div>
     </nav>
 
     <section class="editorial-brief editorial-container" aria-labelledby="editorial-brief-title">
-      <div class="editorial-section-label"><span>01</span><span>Reader brief</span></div>
+      <div class="editorial-section-label">Reader brief</div>
       <div class="editorial-brief__grid">
         <h2 id="editorial-brief-title">{isArticle ? 'A question worth staying with.' : 'Make the next question sharper.'}</h2>
         <div class="editorial-brief__body">
@@ -105,15 +103,15 @@ const relatedNumber = nextActionNumber + (modeSections.includes('participation')
       </div>
     </section>
 
-    {modeSections.map((mode, index) => (
-      <RouteModeSection mode={mode} index={index + 2} route={route} />
+    {modeSections.map((mode) => (
+      <RouteModeSection mode={mode} route={route} />
     ))}
 
     {!modeSections.includes('participation') ? (
       <section class="editorial-decision editorial-container" aria-labelledby="editorial-decision-title">
         <div class="editorial-decision__stamp" aria-hidden="true">INSTAR<br />/ / /</div>
         <div class="editorial-decision__copy">
-          <div class="editorial-section-label"><span>{String(nextActionNumber).padStart(2, '0')}</span><span>Choose a direction</span></div>
+          <div class="editorial-section-label">Choose a direction</div>
           <h2 id="editorial-decision-title">{route.readyAction}</h2>
           <p>{route.earlyAction}</p>
         </div>
@@ -124,7 +122,7 @@ const relatedNumber = nextActionNumber + (modeSections.includes('participation')
     <section class="editorial-related editorial-container" aria-labelledby="editorial-related-title">
       <div class="editorial-related__head">
         <div>
-          <div class="editorial-section-label"><span>{String(relatedNumber).padStart(2, '0')}</span><span>Continue exploring</span></div>
+          <div class="editorial-section-label">Continue exploring</div>
           <h2 id="editorial-related-title">Adjacent questions</h2>
         </div>
         <a href={primaryHref}>View all {familyLabel(route.family).toLowerCase()} <span aria-hidden="true">→</span></a>
@@ -183,12 +181,12 @@ const relatedNumber = nextActionNumber + (modeSections.includes('participation')
   .editorial-map { color: var(--color-ink); border-block-end: 1px solid var(--color-rule); background: var(--color-surface); }
   .editorial-map__inner { display: flex; align-items: center; gap: 2rem; min-block-size: 4.5rem; }
   .editorial-map__label { flex: none; color: var(--route-accent); }
-  .editorial-map ol { display: flex; flex-wrap: wrap; gap: 0.45rem 1.25rem; padding: 0; margin: 0; list-style: none; }
+  .editorial-map ul { display: flex; flex-wrap: wrap; gap: 0.45rem 1.25rem; padding: 0; margin: 0; list-style: none; }
   .editorial-map li { display: flex; align-items: center; gap: 0.45rem; color: var(--color-muted-strong); }
-  .editorial-map li span { color: var(--route-accent); font-size: 0.65rem; }
+  .editorial-map li::before { inline-size: 0.4rem; block-size: 0.4rem; flex: none; border-radius: 50%; background: var(--route-accent); content: ''; }
   .editorial-brief { padding-block: clamp(5rem, 10vw, 9rem); }
   .editorial-section-label { display: flex; align-items: center; gap: 0.75rem; color: var(--route-accent); }
-  .editorial-section-label span:first-child { color: var(--color-muted); }
+  .editorial-section-label::before { inline-size: 1.4rem; block-size: 2px; background: currentColor; content: ''; }
   .editorial-brief__grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 0.75fr); gap: clamp(2rem, 8vw, 10rem); margin-block-start: 2.6rem; }
   .editorial-brief h2, .editorial-sequence h2, .editorial-decision h2, .editorial-related h2 { margin: 0; font-size: clamp(2.3rem, 4.5vw, 5rem); letter-spacing: -0.06em; line-height: 0.98; }
   .editorial-brief h2 { max-inline-size: 10ch; }
@@ -197,14 +195,12 @@ const relatedNumber = nextActionNumber + (modeSections.includes('participation')
   .editorial-brief__body .editorial-lead { margin-block-end: 1.4rem; color: var(--color-ink); font-size: clamp(1.2rem, 1.05rem + 0.4vw, 1.5rem); line-height: 1.45; }
   .editorial-sequence { padding-block: clamp(5rem, 10vw, 9rem); color: #fff; background: var(--route-dark); }
   .editorial-section-label--light { color: var(--route-accent-on-dark); }
-  .editorial-section-label--light span:first-child { color: rgb(255 255 255 / 0.55); }
   .editorial-sequence__intro { display: flex; align-items: end; justify-content: space-between; gap: 2rem; margin-block: 2.5rem 4rem; }
   .editorial-sequence h2 { max-inline-size: 11ch; color: #fff; }
   .editorial-sequence__intro p { max-inline-size: 28ch; margin: 0; color: rgb(255 255 255 / 0.65); }
   .editorial-mode-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; padding: 0; margin: 0; list-style: none; border-block-start: 1px solid rgb(255 255 255 / 0.2); }
   .editorial-mode-card { min-block-size: 13rem; padding: 1.4rem; border-inline-end: 1px solid rgb(255 255 255 / 0.2); border-block-end: 1px solid rgb(255 255 255 / 0.2); }
   .editorial-mode-card:nth-child(3n) { border-inline-end: 0; }
-  .editorial-mode-card__index { display: block; margin-block-end: 2.4rem; color: var(--route-accent-on-dark); font-family: var(--font-ui); font-size: 0.75rem; font-weight: 800; }
   .editorial-mode-card h3 { margin: 0 0 0.7rem; color: #fff; font-size: clamp(1.3rem, 2vw, 2rem); text-transform: capitalize; }
   .editorial-mode-card p { margin: 0; color: rgb(255 255 255 / 0.63); font-size: 0.94rem; }
   .editorial-decision { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: clamp(2rem, 6vw, 7rem); padding-block: clamp(5rem, 10vw, 9rem); }
@@ -240,7 +236,7 @@ const relatedNumber = nextActionNumber + (modeSections.includes('participation')
 
   @media (max-width: 42rem) {
     .editorial-map__inner { align-items: start; flex-direction: column; gap: 0.7rem; padding-block: 1.2rem; }
-    .editorial-map ol { gap: 0.35rem 0.8rem; }
+    .editorial-map ul { gap: 0.35rem 0.8rem; }
     .editorial-sequence__intro, .editorial-related__head { align-items: start; flex-direction: column; }
     .editorial-mode-grid, .editorial-related__grid { grid-template-columns: 1fr; }
     .editorial-mode-card, .editorial-mode-card:nth-child(2n), .editorial-mode-card:nth-child(3n) { border-inline-end: 0; }
