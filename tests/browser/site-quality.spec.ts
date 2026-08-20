@@ -102,6 +102,27 @@ test("the client router preserves the editorial shell across navigation", async 
   await expect(page.locator(".site-header")).toBeVisible();
 });
 
+test("primary navigation closes the previous dropdown", async ({ page }) => {
+  await page.goto("/", { waitUntil: "domcontentloaded" });
+
+  let navigation = page.locator('.site-nav__desktop');
+  if (!(await navigation.isVisible())) {
+    await page.locator('.site-nav__mobile-trigger').click();
+    navigation = page.locator('.site-nav__mobile-panel');
+  }
+
+  const summaries = navigation.locator('summary[data-nav-summary]');
+  const dropdowns = navigation.locator('details[data-nav-dropdown]');
+  await summaries.nth(0).click();
+  await expect(dropdowns.nth(0)).toHaveAttribute('open', '');
+  await summaries.nth(1).click();
+  await expect(dropdowns.nth(0)).not.toHaveAttribute('open');
+  await expect(dropdowns.nth(1)).toHaveAttribute('open', '');
+
+  await page.locator('main').click({ position: { x: 8, y: 8 } });
+  await expect(navigation.locator('details[open][data-nav-dropdown]')).toHaveCount(0);
+});
+
 function formatViolations(violations: Array<{ id: string; help: string; nodes: Array<{ target: unknown }> }>): string {
   return violations
     .map((violation) => `${violation.id}: ${violation.help} (${violation.nodes.map((node) => JSON.stringify(node.target)).join(" | ")})`)

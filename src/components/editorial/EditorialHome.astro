@@ -7,36 +7,178 @@ import {
   familyLabel,
 } from '../../data/editorialRoutes';
 import { publicMediaFor } from '../../data/media';
-import { createPublicMedia } from '../../utils/media/records';
+import type { MediaAsset } from '../../data/media/types';
+
+type HomeMediaInput = {
+  readonly url: `/${string}`;
+  readonly alt: string;
+  readonly caption?: string;
+  readonly sizes: string;
+  readonly loading?: 'eager' | 'lazy';
+  readonly fetchpriority?: 'auto' | 'high' | 'low';
+  readonly focalPoint?: `${number}% ${number}%`;
+};
+
+const homeMedia = (input: HomeMediaInput): MediaAsset => {
+  const asset = publicMediaFor(input.url, {
+    alt: { kind: 'contextual', status: 'approved', text: input.alt },
+    caption: input.caption,
+    sizes: input.sizes,
+    loading: input.loading,
+    fetchpriority: input.fetchpriority,
+    focalPoint: input.focalPoint,
+  });
+
+  if (!asset) {
+    throw new Error(`[EditorialHome] Missing public media policy for ${input.url}`);
+  }
+
+  return asset;
+};
 
 const research = editorialRoutesForFamily('research').slice(0, 4);
 const technology = editorialRoutesForFamily('technology').slice(0, 3);
 const sciences = editorialRoutesForFamily('sciences').slice(0, 3);
 const briefs = editorialRoutesForFamily('news').filter((route) => route.path !== '/news/').slice(0, 4);
-const homeHeroUrl = '/img/slider/jupiterstar.avif' as const;
-const homeHero = publicMediaFor(homeHeroUrl, {
-  alt: { kind: 'contextual', status: 'approved', text: 'A star field representing the scale of questions INSTAR studies' },
+
+const homeHero = homeMedia({
+  url: '/img/slider/jupiterstar.avif',
+  alt: 'Jupiter and its rings against deep space, an orientation image for INSTAR Lab research',
   caption: '01 / Curiosity is a starting condition. Rigor is the direction.',
-  sizes: '(min-width: 58rem) 54vw, 100vw',
+  sizes: '100vw',
   loading: 'eager',
   fetchpriority: 'high',
-}) ?? createPublicMedia({
-  id: 'media:home-jupiterstar',
-  url: homeHeroUrl,
-  type: 'photography-or-illustration',
-  role: 'orientation',
-  alt: { kind: 'contextual', status: 'approved', text: 'A star field representing the scale of questions INSTAR studies' },
-  dimensions: { width: 1920, height: 751 },
-  sizes: '(min-width: 58rem) 54vw, 100vw',
-  loading: 'eager',
-  fetchpriority: 'high',
-  provenance: {
-    status: 'unverified',
-    source: 'Repository asset; original source is not recorded.',
-    license: 'Unverified; confirm ownership or license before publication.',
-  },
-  caption: '01 / Curiosity is a starting condition. Rigor is the direction.',
+  focalPoint: '50% 50%',
 });
+
+const homeInvitationMedia = homeMedia({
+  url: '/img/about/about-image.avif',
+  alt: 'An optical instrument with a violet beam at the center of a laboratory setup',
+  sizes: '(min-width: 58rem) 30vw, 100vw',
+  focalPoint: '50% 50%',
+});
+
+const homeProjects = [
+  {
+    href: '/labs/sovereign-ai/',
+    kicker: '01 / Secure compute',
+    title: 'Sovereign AI Laboratory',
+    summary: 'Air-gapped frontier model training, secure inference, and autonomous reasoning on private infrastructure.',
+    media: homeMedia({
+      url: '/img/projects/homepage-sovereign-ai.avif',
+      alt: 'Server racks in a secure computing facility for sovereign AI research',
+      sizes: '(min-width: 58rem) 30vw, 100vw',
+      focalPoint: '50% 50%',
+    }),
+  },
+  {
+    href: '/labs/biometric-security/',
+    kicker: '02 / Human signals',
+    title: 'Biometric Security Systems',
+    summary: 'Multi-modal bioinformatic authentication across genomic markers, neural gait, and vascular topology.',
+    media: homeMedia({
+      url: '/img/projects/homepage-biometric-security.avif',
+      alt: 'Biometric imaging instruments in a laboratory environment',
+      sizes: '(min-width: 58rem) 30vw, 100vw',
+      focalPoint: '50% 50%',
+    }),
+  },
+  {
+    href: '/labs/cognitive-ai/',
+    kicker: '03 / Machine intelligence',
+    title: 'Cognitive AI & Persona Systems',
+    summary: 'Psycholinguistic modeling, personality architectures, and AI personification through inference shaping.',
+    media: homeMedia({
+      url: '/img/projects/homepage-cognitive-ai.avif',
+      alt: 'Researchers working with code and machine-intelligence systems in a laboratory',
+      sizes: '(min-width: 58rem) 30vw, 100vw',
+      focalPoint: '50% 50%',
+    }),
+  },
+] as const;
+
+const homeGallery = [
+  {
+    href: '/technology/quantum-computing/',
+    media: homeMedia({
+      url: '/img/gallery/gallery-one.avif',
+      alt: 'Quantum processor with copper cooling lines in a close technical study',
+      caption: 'Quantum systems',
+      sizes: '(min-width: 58rem) 25vw, 50vw',
+      focalPoint: '50% 50%',
+    }),
+  },
+  {
+    href: '/sciences/genetics/',
+    media: homeMedia({
+      url: '/img/gallery/gallery-two.avif',
+      alt: 'Illuminated DNA helix with cellular forms in the background',
+      caption: 'Health and life sciences',
+      sizes: '(min-width: 58rem) 25vw, 50vw',
+      focalPoint: '50% 50%',
+    }),
+  },
+  {
+    href: '/technology/natural-language-processing/',
+    media: homeMedia({
+      url: '/img/gallery/gallery-three.avif',
+      alt: 'Connected points forming a bright network against a dark field',
+      caption: 'Language and networks',
+      sizes: '(min-width: 58rem) 25vw, 50vw',
+      focalPoint: '50% 50%',
+    }),
+  },
+  {
+    href: '/sciences/energy/',
+    media: homeMedia({
+      url: '/img/gallery/gallery-four.avif',
+      alt: 'A polished research apparatus framed by two solar panels',
+      caption: 'Energy systems',
+      sizes: '(min-width: 58rem) 25vw, 50vw',
+      focalPoint: '50% 50%',
+    }),
+  },
+  {
+    href: '/technology/data-science/',
+    media: homeMedia({
+      url: '/img/gallery/gallery-five.avif',
+      alt: 'Abstract data field suggesting high-dimensional analysis',
+      caption: 'Data science',
+      sizes: '(min-width: 58rem) 25vw, 50vw',
+      focalPoint: '50% 50%',
+    }),
+  },
+  {
+    href: '/technology/computer-science/',
+    media: homeMedia({
+      url: '/img/gallery/gallery-six.avif',
+      alt: 'A computational visualization for large-scale scientific simulation',
+      caption: 'HPC simulation',
+      sizes: '(min-width: 58rem) 25vw, 50vw',
+      focalPoint: '50% 50%',
+    }),
+  },
+  {
+    href: '/technology/machine-intelligence/',
+    media: homeMedia({
+      url: '/img/gallery/gallery-seven.avif',
+      alt: 'Glowing nodes and lines representing an AI platform architecture',
+      caption: 'AI platforms',
+      sizes: '(min-width: 58rem) 25vw, 50vw',
+      focalPoint: '50% 50%',
+    }),
+  },
+  {
+    href: '/research/facilities/',
+    media: homeMedia({
+      url: '/img/gallery/gallery-eight.avif',
+      alt: 'A scientific instrument with solar panels in a dark laboratory setting',
+      caption: 'Lab systems',
+      sizes: '(min-width: 58rem) 25vw, 50vw',
+      focalPoint: '50% 50%',
+    }),
+  },
+] as const;
 ---
 
 <SiteLayout
@@ -48,8 +190,9 @@ const homeHero = publicMediaFor(homeHeroUrl, {
   bodyClass="editorial-home-page"
   mainClass="editorial-home-main"
 >
-  <article class="home-editorial" data-route="/" data-page-signature="orientation → evidence → observation → participation">
+  <article class="home-editorial" data-route="/" data-page-signature="orientation → observation → participation → evidence → connection → action">
     <section class="home-masthead" aria-labelledby="home-title">
+      <EditorialMedia asset={homeHero} figureClass="home-masthead__media" class="home-masthead__image" picture={false} />
       <div class="home-container home-masthead__grid">
         <div class="home-masthead__copy">
           <p class="home-kicker">Independent / interdisciplinary / public benefit</p>
@@ -60,7 +203,6 @@ const homeHero = publicMediaFor(homeHeroUrl, {
             <a class="home-button home-button--line" href="/mission/">Read the method</a>
           </div>
         </div>
-        <EditorialMedia asset={homeHero} figureClass="home-masthead__media" class="home-masthead__image" picture={false} />
       </div>
     </section>
 
@@ -75,9 +217,34 @@ const homeHero = publicMediaFor(homeHeroUrl, {
       </div>
     </section>
 
+    <section class="home-observations" aria-labelledby="home-observations-title">
+      <div class="home-container">
+        <div class="home-section-label"><span>02</span><span>Observation</span></div>
+        <div class="home-observations__head">
+          <h2 id="home-observations-title">Research, in the material world.</h2>
+          <p>Three active directions show how questions become instruments, systems, and careful work.</p>
+        </div>
+        <ul class="home-projects">
+          {homeProjects.map((project) => (
+            <li class="home-project">
+              <a class="home-project__link" href={project.href}>
+                <EditorialMedia asset={project.media} figureClass="home-project__media" class="home-project__image" picture={false} />
+                <div class="home-project__copy">
+                  <span class="home-project__kicker">{project.kicker}</span>
+                  <h3>{project.title}</h3>
+                  <p>{project.summary}</p>
+                  <span class="home-project__arrow" aria-hidden="true">Open the lab ↗</span>
+                </div>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+
     <section class="home-pathways" aria-labelledby="home-pathways-title">
       <div class="home-container">
-        <div class="home-section-label home-section-label--light"><span>02</span><span>Choose a lens</span></div>
+        <div class="home-section-label home-section-label--light"><span>03</span><span>Choose a lens</span></div>
         <div class="home-pathways__head">
           <h2 id="home-pathways-title">Start where your question is most alive.</h2>
           <p>Three ways into the same commitment: open inquiry, careful method, useful transmission.</p>
@@ -108,7 +275,7 @@ const homeHero = publicMediaFor(homeHeroUrl, {
     <ResearchConstellation />
 
     <section class="home-index home-container" aria-labelledby="home-index-title">
-      <div class="home-section-label"><span>03</span><span>Field index</span></div>
+      <div class="home-section-label"><span>04</span><span>Field index</span></div>
       <div class="home-index__head">
         <h2 id="home-index-title">Move laterally.</h2>
         <p>Use adjacent routes to turn a broad interest into a more exact next step.</p>
@@ -128,9 +295,26 @@ const homeHero = publicMediaFor(homeHeroUrl, {
       </div>
     </section>
 
+    <section class="home-gallery" aria-labelledby="home-gallery-title">
+      <div class="home-container">
+        <div class="home-section-label home-section-label--light"><span>05</span><span>Research in view</span></div>
+        <div class="home-gallery__head">
+          <h2 id="home-gallery-title">Eight ways into the same questions.</h2>
+          <p>Look closely at the instruments, systems, and abstractions that give interdisciplinary work somewhere to begin.</p>
+        </div>
+        <div class="home-gallery__grid">
+          {homeGallery.map((item, index) => (
+            <a class={`home-gallery__link home-gallery__link--${index + 1}`} href={item.href} aria-label={`Explore ${item.media.caption ?? 'research'}`}>
+              <EditorialMedia asset={item.media} figureClass="home-gallery__item" class="home-gallery__image" picture={false} />
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
     <section class="home-briefs" aria-labelledby="home-briefs-title">
       <div class="home-container">
-        <div class="home-section-label home-section-label--light"><span>04</span><span>Research briefs</span></div>
+        <div class="home-section-label home-section-label--light"><span>06</span><span>Research briefs</span></div>
         <div class="home-briefs__head">
           <h2 id="home-briefs-title">Ideas in motion.</h2>
           <a class="home-text-link home-text-link--light" href="/news/">View all briefs <span aria-hidden="true">→</span></a>
@@ -151,9 +335,9 @@ const homeHero = publicMediaFor(homeHeroUrl, {
     </section>
 
     <section class="home-invitation home-container" aria-labelledby="home-invitation-title">
-      <div class="home-invitation__mark" aria-hidden="true">INSTAR<br />/ / /</div>
-      <div>
-        <div class="home-section-label"><span>05</span><span>Invitation</span></div>
+      <EditorialMedia asset={homeInvitationMedia} figureClass="home-invitation__media" class="home-invitation__image" picture={false} />
+      <div class="home-invitation__copy">
+        <div class="home-section-label"><span>07</span><span>Invitation</span></div>
         <h2 id="home-invitation-title">Bring the question that does not have a home yet.</h2>
         <p>Tell us what you are trying to learn, build, test, or make public. The first useful step is often a better framing.</p>
         <a class="home-button home-button--solid" href="/contact-us/">Start a conversation <span aria-hidden="true">↗</span></a>
@@ -165,99 +349,150 @@ const homeHero = publicMediaFor(homeHeroUrl, {
 <style>
   .home-editorial { --home-dark: #0b1626; --home-teal: #7fd7ea; background: var(--color-canvas); }
   .home-container { width: min(100% - 2 * var(--spacing-gutter), 90rem); margin-inline: auto; }
-  .home-masthead { color: #fff; background: var(--home-dark); overflow: clip; }
-  .home-masthead__grid { display: grid; grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr); min-block-size: min(48rem, calc(100svh - 8.5rem)); }
-  .home-masthead__copy { display: flex; flex-direction: column; justify-content: center; padding-block: clamp(4rem, 10vw, 9rem); padding-inline-end: clamp(2rem, 6vw, 7rem); }
-  .home-kicker, .home-section-label, .home-pathway__number, .home-briefs__family { font: 800 0.74rem/1.2 var(--font-ui); letter-spacing: 0.13em; text-transform: uppercase; }
-  .home-kicker { margin-block-end: 2rem; color: var(--home-teal); }
-  .home-masthead h1 { max-inline-size: 10ch; margin: 0; color: #fff; font-size: clamp(3.4rem, 7vw, 8rem); letter-spacing: -0.085em; line-height: 0.87; }
-  .home-masthead__dek { max-inline-size: 43ch; margin-block: 2rem 0; color: rgb(255 255 255 / 0.72); font-size: clamp(1.15rem, 1rem + 0.5vw, 1.5rem); line-height: 1.5; }
-  .home-masthead__actions { display: flex; flex-wrap: wrap; gap: 0.7rem; margin-block-start: 2.2rem; }
-  .home-button { display: inline-flex; align-items: center; gap: 0.7rem; min-block-size: 3rem; padding: 0.9rem 1.1rem; font: 800 0.82rem/1 var(--font-ui); text-decoration: none; transition: transform 180ms ease, background-color 180ms ease, color 180ms ease; }
+
+  .home-masthead { position: relative; isolation: isolate; min-block-size: min(46rem, calc(100svh - 8rem)); overflow: clip; color: #fff; background: var(--home-dark); }
+  :global(.home-masthead__media) { position: absolute; z-index: -1; inset: 0; margin: 0; background: var(--home-dark); }
+  :global(.home-masthead__media::after) { position: absolute; inset: 0; background: linear-gradient(90deg, rgb(11 22 38 / 0.96) 0%, rgb(11 22 38 / 0.82) 32%, rgb(11 22 38 / 0.22) 72%, rgb(11 22 38 / 0.1) 100%), linear-gradient(0deg, rgb(11 22 38 / 0.48), transparent 38%); content: ''; }
+  :global(.home-masthead__media img) { inline-size: 100%; block-size: 100%; object-fit: cover; object-position: center; filter: saturate(0.86) contrast(1.06); }
+  :global(.home-masthead__media figcaption) { position: absolute; z-index: 1; inset-inline: var(--spacing-gutter); inset-block-end: 1.5rem; display: flex; gap: 0.7rem; max-inline-size: 30rem; color: #fff; font: 0.74rem/1.4 var(--font-ui); text-shadow: 0 1px 12px rgb(0 0 0 / 0.6); }
+  :global(.home-masthead__media figcaption::before) { inline-size: 1.8rem; block-size: 2px; flex: none; margin-block-start: 0.55rem; background: var(--home-teal); content: ''; }
+  .home-masthead__grid { position: relative; z-index: 1; display: flex; align-items: center; min-block-size: inherit; }
+  .home-masthead__copy { inline-size: min(100%, 44rem); padding-block: clamp(4.5rem, 9vw, 7rem); padding-inline-end: clamp(2rem, 6vw, 7rem); }
+  .home-kicker, .home-section-label, .home-pathway__number, .home-briefs__family, .home-project__kicker { font: 700 0.72rem/1.25 var(--font-ui); letter-spacing: 0.13em; text-transform: uppercase; }
+  .home-kicker { margin-block-end: 1.6rem; color: var(--home-teal); }
+  .home-masthead h1 { max-inline-size: 15ch; margin: 0; color: #fff; font-size: clamp(2.55rem, 4.2vw, 4.75rem); letter-spacing: -0.045em; line-height: 0.99; }
+  .home-masthead__dek { max-inline-size: 48ch; margin-block: 1.75rem 0; color: rgb(255 255 255 / 0.78); font-size: clamp(1rem, 0.96rem + 0.22vw, 1.2rem); line-height: 1.55; }
+  .home-masthead__actions { display: flex; flex-wrap: wrap; gap: 0.7rem; margin-block-start: 1.8rem; }
+  .home-button { display: inline-flex; align-items: center; gap: 0.7rem; min-block-size: 2.85rem; padding: 0.8rem 1rem; font: 700 0.78rem/1 var(--font-ui); text-decoration: none; transition: transform 180ms ease, background-color 180ms ease, color 180ms ease; }
   .home-button:hover { transform: translateY(-2px); }
   .home-button--solid { color: #06121c; background: var(--home-teal); }
   .home-button--solid:hover { color: #fff; background: var(--color-brand); }
-  .home-button--line { border: 1px solid rgb(255 255 255 / 0.3); color: #fff; }
+  .home-button--line { border: 1px solid rgb(255 255 255 / 0.42); color: #fff; }
   .home-button--line:hover { color: var(--home-dark); background: #fff; }
-  .home-masthead__media { position: relative; min-block-size: 100%; margin: 0; background: #14253a; }
-  .home-masthead__media::after { position: absolute; inset: 0; background: linear-gradient(90deg, rgb(11 22 38 / 0.5), transparent 45%); content: ''; }
-  .home-masthead__media img { inline-size: 100%; block-size: 100%; min-block-size: 30rem; object-fit: cover; filter: saturate(0.85) contrast(1.05); }
-  .home-masthead__media figcaption { position: absolute; z-index: 1; inset-inline: 1.5rem; inset-block-end: 1.5rem; display: flex; gap: 0.7rem; color: #fff; font: 0.74rem/1.4 var(--font-ui); text-shadow: 0 1px 12px rgb(0 0 0 / 0.6); }
-  .home-masthead__media figcaption::before { inline-size: 1.8rem; block-size: 2px; flex: none; margin-block-start: 0.55rem; background: var(--home-teal); content: ''; }
+
   .home-section-label { display: flex; align-items: center; gap: 0.75rem; color: var(--color-brand); }
   .home-section-label span:first-child { color: var(--color-muted); }
   .home-section-label--light { color: var(--home-teal); }
   .home-section-label--light span:first-child { color: rgb(255 255 255 / 0.55); }
-  .home-orientation { padding-block: clamp(5rem, 11vw, 10rem); }
-  .home-orientation__grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 0.75fr); gap: clamp(2rem, 8vw, 10rem); margin-block-start: 2.5rem; }
-  .home-orientation h2, .home-pathways h2, .home-index h2, .home-briefs h2, .home-invitation h2 { margin: 0; font-size: clamp(2.6rem, 5vw, 5.6rem); letter-spacing: -0.07em; line-height: 0.94; }
-  .home-orientation h2 { max-inline-size: 10ch; }
-  .home-lead { max-inline-size: 50ch; margin: 0; color: var(--color-muted-strong); font-size: clamp(1.2rem, 1.05rem + 0.45vw, 1.5rem); line-height: 1.5; }
-  .home-text-link { display: inline-flex; gap: 0.65rem; margin-block-start: 1.5rem; color: var(--color-ink); font: 800 0.82rem/1 var(--font-ui); text-decoration: none; }
+  .home-orientation { padding-block: clamp(4.5rem, 9vw, 7.5rem); }
+  .home-orientation__grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 0.78fr); gap: clamp(2rem, 8vw, 8rem); margin-block-start: 2rem; }
+  .home-orientation h2, .home-pathways h2, .home-index h2, .home-gallery h2, .home-briefs h2, .home-invitation h2 { margin: 0; font-size: clamp(2rem, 3.2vw, 3.7rem); letter-spacing: -0.045em; line-height: 1.02; }
+  .home-orientation h2 { max-inline-size: 18ch; }
+  .home-lead { max-inline-size: 50ch; margin: 0; color: var(--color-muted-strong); font-size: clamp(1.05rem, 1rem + 0.22vw, 1.24rem); line-height: 1.6; }
+  .home-text-link { display: inline-flex; gap: 0.65rem; margin-block-start: 1.25rem; color: var(--color-ink); font: 700 0.78rem/1 var(--font-ui); text-decoration: none; }
   .home-text-link:hover { color: var(--color-brand); }
-  .home-pathways, .home-briefs { padding-block: clamp(5rem, 11vw, 10rem); color: #fff; background: var(--home-dark); }
-  .home-pathways__head, .home-briefs__head { display: flex; align-items: end; justify-content: space-between; gap: 2rem; margin-block: 2.5rem 4rem; }
-  .home-pathways h2, .home-briefs h2 { max-inline-size: 11ch; color: #fff; }
-  .home-pathways__head p { max-inline-size: 30ch; margin: 0; color: rgb(255 255 255 / 0.65); }
+
+  .home-observations { padding-block: clamp(4.5rem, 9vw, 7.5rem); border-block: 1px solid var(--color-rule); background: var(--color-surface); }
+  .home-observations__head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(14rem, 0.6fr); align-items: end; gap: 2rem; margin-block: 1.8rem 2.8rem; }
+  .home-observations h2 { max-inline-size: 16ch; }
+  .home-observations__head p { max-inline-size: 34ch; margin: 0; color: var(--color-muted-strong); line-height: 1.55; }
+  .home-projects { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(1rem, 2vw, 2rem); padding: 0; margin: 0; list-style: none; }
+  .home-project { min-inline-size: 0; border: 1px solid var(--color-rule); background: var(--color-surface-raised); }
+  .home-project__link { display: flex; flex-direction: column; block-size: 100%; color: inherit; text-decoration: none; }
+  :global(.home-project__media) { aspect-ratio: 4 / 3; overflow: hidden; margin: 0; background: #0c1a2a; }
+  :global(.home-project__media img) { inline-size: 100%; block-size: 100%; object-fit: cover; transition: transform 240ms ease; }
+  :global(.home-project__media figcaption) { display: none; }
+  .home-project__copy { display: flex; flex: 1; flex-direction: column; align-items: flex-start; padding: 1.2rem 1.3rem 1.35rem; }
+  .home-project__kicker { color: var(--color-brand-deep); }
+  .home-project h3 { max-inline-size: 18ch; margin: 1rem 0 0; font-size: clamp(1.35rem, 1.7vw, 1.8rem); letter-spacing: -0.025em; line-height: 1.08; }
+  .home-project p { max-inline-size: 34ch; margin-block: 0.75rem 0; color: var(--color-muted-strong); font-size: 0.96rem; line-height: 1.5; }
+  .home-project__arrow { margin-block-start: auto; padding-block-start: 1.25rem; color: var(--color-brand-deep); font: 700 0.78rem/1 var(--font-ui); }
+  :global(.home-project__link:hover .home-project__media img) { transform: scale(1.035); }
+
+  .home-pathways, .home-briefs { padding-block: clamp(4.5rem, 9vw, 7.5rem); color: #fff; background: var(--home-dark); }
+  .home-pathways__head, .home-briefs__head { display: flex; align-items: end; justify-content: space-between; gap: 2rem; margin-block: 1.8rem 3rem; }
+  .home-pathways h2, .home-briefs h2 { max-inline-size: 16ch; color: #fff; }
+  .home-pathways__head p { max-inline-size: 30ch; margin: 0; color: rgb(255 255 255 / 0.68); }
   .home-pathways__grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; border-block-start: 1px solid rgb(255 255 255 / 0.2); }
-  .home-pathway { position: relative; min-block-size: 22rem; padding: 1.5rem; border-inline-end: 1px solid rgb(255 255 255 / 0.2); border-block-end: 1px solid rgb(255 255 255 / 0.2); color: #fff; text-decoration: none; }
+  .home-pathway { position: relative; min-block-size: 19rem; padding: 1.35rem; border-inline-end: 1px solid rgb(255 255 255 / 0.2); border-block-end: 1px solid rgb(255 255 255 / 0.2); color: #fff; text-decoration: none; }
   .home-pathway:last-child { border-inline-end: 0; }
   .home-pathway__number { color: var(--home-teal); }
-  .home-pathway h3 { max-inline-size: 10ch; margin: 4.5rem 0 0; color: #fff; font-size: clamp(1.6rem, 2.7vw, 2.8rem); letter-spacing: -0.05em; line-height: 0.98; }
-  .home-pathway p { max-inline-size: 30ch; margin-block: 1.2rem 0; color: rgb(255 255 255 / 0.62); }
-  .home-pathway__arrow { position: absolute; inset-inline-end: 1.5rem; inset-block-end: 1.25rem; color: var(--home-teal); font-size: 1.5rem; }
+  .home-pathway h3 { max-inline-size: 16ch; margin: 3.6rem 0 0; color: #fff; font-size: clamp(1.35rem, 1.8vw, 1.8rem); letter-spacing: -0.025em; line-height: 1.05; }
+  .home-pathway p { max-inline-size: 30ch; margin-block: 1rem 0; color: rgb(255 255 255 / 0.66); font-size: 0.94rem; line-height: 1.5; }
+  .home-pathway__arrow { position: absolute; inset-inline-end: 1.35rem; inset-block-end: 1.1rem; color: var(--home-teal); font-size: 1.25rem; }
   .home-pathway:hover { background: rgb(255 255 255 / 0.06); }
-  .home-index { padding-block: clamp(5rem, 11vw, 10rem); }
-  .home-index__head { display: flex; align-items: end; justify-content: space-between; gap: 2rem; margin-block: 2.5rem 4rem; }
-  .home-index h2 { max-inline-size: 8ch; }
+
+  .home-index { padding-block: clamp(4.5rem, 9vw, 7.5rem); }
+  .home-index__head { display: flex; align-items: end; justify-content: space-between; gap: 2rem; margin-block: 1.8rem 3rem; }
+  .home-index h2 { max-inline-size: 12ch; }
   .home-index__head p { max-inline-size: 28ch; margin: 0; color: var(--color-muted-strong); }
   .home-index__columns { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(1.5rem, 4vw, 4rem); }
   .home-index__column { border-block-start: 3px solid var(--color-brand); }
   .home-index__column:nth-child(2) { border-color: #07858d; }
   .home-index__column:nth-child(3) { border-color: #6254a4; }
-  .home-index__column h3 { margin-block: 1.2rem 1.5rem; font-size: 1.4rem; }
+  .home-index__column h3 { margin-block: 1rem 1.3rem; font-size: 1.2rem; }
   .home-index__column ul { padding: 0; margin: 0; list-style: none; }
   .home-index__column li { border-block-end: 1px solid var(--color-rule); }
-  .home-index__column li a { display: flex; justify-content: space-between; gap: 1rem; padding-block: 0.8rem; color: var(--color-ink); text-decoration: none; text-transform: capitalize; }
+  .home-index__column li a { display: flex; justify-content: space-between; gap: 1rem; padding-block: 0.72rem; color: var(--color-ink); font-size: 0.96rem; text-decoration: none; text-transform: capitalize; }
   .home-index__column li a:hover { color: var(--color-brand); }
-  .home-briefs__head { margin-block-end: 2.5rem; }
+
+  .home-gallery { padding-block: clamp(4.5rem, 9vw, 7.5rem); color: #fff; background: #07111d; }
+  .home-gallery__head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(15rem, 0.55fr); align-items: end; gap: 2rem; margin-block: 1.8rem 2.8rem; }
+  .home-gallery h2 { max-inline-size: 16ch; color: #fff; }
+  .home-gallery__head p { max-inline-size: 34ch; margin: 0; color: rgb(255 255 255 / 0.68); line-height: 1.55; }
+  .home-gallery__grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); grid-auto-rows: clamp(6rem, 9vw, 9rem); gap: 0.75rem; }
+  .home-gallery__link { display: block; min-block-size: 0; overflow: hidden; }
+  .home-gallery__link--1, .home-gallery__link--6 { grid-column: span 6; grid-row: span 2; }
+  .home-gallery__link--2, .home-gallery__link--3, .home-gallery__link--4, .home-gallery__link--5, .home-gallery__link--7, .home-gallery__link--8 { grid-column: span 3; }
+  :global(.home-gallery__item) { position: relative; block-size: 100%; overflow: hidden; margin: 0; background: #0c1a2a; }
+  :global(.home-gallery__image) { inline-size: 100%; block-size: 100%; object-fit: cover; transition: transform 280ms ease, filter 280ms ease; }
+  :global(.home-gallery__item figcaption) { position: absolute; inset-inline: 0; inset-block-end: 0; padding: 2.5rem 0.9rem 0.75rem; background: linear-gradient(0deg, rgb(0 0 0 / 0.78), transparent); color: #fff; font: 700 0.72rem/1.25 var(--font-ui); letter-spacing: 0.08em; text-transform: uppercase; }
+  :global(.home-gallery__link:hover .home-gallery__image) { transform: scale(1.04); filter: brightness(1.08); }
+
+  .home-briefs__head { margin-block-end: 2.2rem; }
   .home-text-link--light { margin: 0; color: #fff; }
   .home-text-link--light:hover { color: var(--home-teal); }
   .home-briefs__grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1px; padding: 0; margin: 0; list-style: none; border-block-start: 1px solid rgb(255 255 255 / 0.2); }
-  .home-briefs__grid li { min-block-size: 18rem; border-inline-end: 1px solid rgb(255 255 255 / 0.2); border-block-end: 1px solid rgb(255 255 255 / 0.2); }
+  .home-briefs__grid li { min-block-size: 15rem; border-inline-end: 1px solid rgb(255 255 255 / 0.2); border-block-end: 1px solid rgb(255 255 255 / 0.2); }
   .home-briefs__grid li:last-child { border-inline-end: 0; }
-  .home-briefs__grid a { position: relative; display: flex; flex-direction: column; block-size: 100%; padding: 1.35rem; color: #fff; text-decoration: none; }
-  .home-briefs__number { color: var(--home-teal); font: 800 0.8rem/1 var(--font-ui); }
-  .home-briefs__family { margin-block-start: 1rem; color: rgb(255 255 255 / 0.5); font-size: 0.64rem; }
-  .home-briefs h3 { max-inline-size: 13ch; margin-block: 1.4rem 0; color: #fff; font-size: 1.35rem; line-height: 1.05; }
-  .home-briefs__arrow { position: absolute; inset-inline-end: 1.25rem; inset-block-end: 1.1rem; color: var(--home-teal); font-size: 1.4rem; }
+  .home-briefs__grid a { position: relative; display: flex; flex-direction: column; block-size: 100%; padding: 1.2rem; color: #fff; text-decoration: none; }
+  .home-briefs__number { color: var(--home-teal); font: 700 0.78rem/1 var(--font-ui); }
+  .home-briefs__family { margin-block-start: 0.9rem; color: rgb(255 255 255 / 0.52); font-size: 0.62rem; }
+  .home-briefs h3 { max-inline-size: 18ch; margin-block: 1.2rem 0; color: #fff; font-size: 1.1rem; line-height: 1.12; }
+  .home-briefs__arrow { position: absolute; inset-inline-end: 1.1rem; inset-block-end: 1rem; color: var(--home-teal); font-size: 1.25rem; }
   .home-briefs__grid a:hover { background: rgb(255 255 255 / 0.06); }
-  .home-invitation { display: grid; grid-template-columns: 8rem minmax(0, 1fr); gap: clamp(2rem, 8vw, 10rem); padding-block: clamp(5rem, 11vw, 10rem); }
-  .home-invitation__mark { display: grid; place-items: center; inline-size: 7rem; block-size: 7rem; border: 1px solid var(--color-brand); border-radius: 50%; color: var(--color-brand); font: 800 0.68rem/1.6 var(--font-ui); letter-spacing: 0.12em; text-align: center; }
-  .home-invitation h2 { max-inline-size: 11ch; margin-block: 1.1rem 1.3rem; }
-  .home-invitation p { max-inline-size: 52ch; margin: 0; color: var(--color-muted-strong); }
-  .home-invitation .home-button { margin-block-start: 2rem; }
+
+  .home-invitation { display: grid; grid-template-columns: minmax(14rem, 0.7fr) minmax(0, 1fr); gap: clamp(2rem, 7vw, 8rem); align-items: center; padding-block: clamp(4.5rem, 9vw, 7.5rem); }
+  :global(.home-invitation__media) { aspect-ratio: 1 / 0.88; overflow: hidden; margin: 0; background: #0c1a2a; }
+  :global(.home-invitation__image) { inline-size: 100%; block-size: 100%; object-fit: cover; }
+  :global(.home-invitation__media figcaption) { display: none; }
+  .home-invitation h2 { max-inline-size: 15ch; margin-block: 1rem 1.15rem; }
+  .home-invitation p { max-inline-size: 52ch; margin: 0; color: var(--color-muted-strong); line-height: 1.55; }
+  .home-invitation .home-button { margin-block-start: 1.8rem; }
 
   @media (max-width: 58rem) {
-    .home-masthead__grid, .home-orientation__grid { grid-template-columns: 1fr; }
+    .home-masthead { min-block-size: min(44rem, calc(100svh - 6rem)); }
+    .home-masthead__grid { min-block-size: inherit; }
     .home-masthead__copy { padding-inline-end: 0; }
-    .home-masthead__media { min-block-size: auto; }
-    .home-masthead__media img { min-block-size: 22rem; max-block-size: 52svh; }
-    .home-pathways__grid, .home-briefs__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .home-pathway:nth-child(2), .home-briefs__grid li:nth-child(2) { border-inline-end: 0; }
+    :global(.home-masthead__media figcaption) { inset-inline: var(--spacing-gutter); }
+    .home-orientation__grid, .home-observations__head, .home-gallery__head { grid-template-columns: 1fr; }
+    .home-projects { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .home-project:last-child { grid-column: 1 / -1; max-inline-size: calc(50% - 0.5rem); }
+    .home-pathways__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .home-pathway:nth-child(2) { border-inline-end: 0; }
     .home-index__columns { grid-template-columns: 1fr; }
+    .home-gallery__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: clamp(8rem, 25vw, 13rem); }
+    .home-gallery__link--1, .home-gallery__link--6 { grid-column: span 2; grid-row: span 1; }
+    .home-gallery__link--2, .home-gallery__link--3, .home-gallery__link--4, .home-gallery__link--5, .home-gallery__link--7, .home-gallery__link--8 { grid-column: span 1; }
+    .home-briefs__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .home-briefs__grid li:nth-child(2) { border-inline-end: 0; }
   }
 
   @media (max-width: 42rem) {
+    .home-masthead h1 { max-inline-size: 13ch; font-size: clamp(2.3rem, 10vw, 3.25rem); }
+    .home-masthead__dek { max-inline-size: 34ch; font-size: 0.98rem; }
+    :global(.home-masthead__media figcaption) { max-inline-size: 16rem; font-size: 0.68rem; }
     .home-pathways__head, .home-briefs__head, .home-index__head { align-items: start; flex-direction: column; }
-    .home-pathways__grid, .home-briefs__grid { grid-template-columns: 1fr; }
+    .home-projects, .home-pathways__grid, .home-briefs__grid { grid-template-columns: 1fr; }
+    .home-project:last-child { grid-column: auto; max-inline-size: none; }
     .home-pathway, .home-pathway:nth-child(2), .home-briefs__grid li, .home-briefs__grid li:nth-child(2) { border-inline-end: 0; }
+    .home-gallery__grid { gap: 0.55rem; }
     .home-invitation { grid-template-columns: 1fr; }
-    .home-invitation__mark { inline-size: 5.5rem; block-size: 5.5rem; }
+    :global(.home-invitation__media) { max-inline-size: 30rem; }
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .home-button { transition: none; }
-    .home-button:hover { transform: none; }
+    .home-button, :global(.home-project__media img), :global(.home-gallery__image) { transition: none; }
+    .home-button:hover, :global(.home-project__link:hover .home-project__media img), :global(.home-gallery__link:hover .home-gallery__image) { transform: none; }
   }
 </style>

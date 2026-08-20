@@ -52,8 +52,8 @@ const chevron = '<path d="m1 1 4 4 4-4" fill="none" stroke="currentColor" stroke
               {entry.label}
             </a>
           ) : (
-            <details class="site-nav__details" data-current={hasCurrentChild(entry) ? 'true' : undefined}>
-              <summary class="site-nav__trigger">
+            <details class="site-nav__details" data-current={hasCurrentChild(entry) ? 'true' : undefined} data-nav-dropdown>
+              <summary class="site-nav__trigger" data-nav-summary>
                 {entry.label}
                 <svg class="site-nav__chevron" viewBox="0 0 10 6" aria-hidden="true"
                   set:html={chevron}></svg>
@@ -104,8 +104,8 @@ const chevron = '<path d="m1 1 4 4 4-4" fill="none" stroke="currentColor" stroke
               {'href' in entry ? (
                 <a href={entry.href} aria-current={isCurrent(entry) ? 'page' : undefined}>{entry.label}</a>
               ) : (
-                <details open={hasCurrentChild(entry) || undefined}>
-                  <summary>
+                <details open={hasCurrentChild(entry) || undefined} data-nav-dropdown>
+                  <summary data-nav-summary>
                     {entry.label}
                     <svg class="site-nav__chevron" viewBox="0 0 10 6" aria-hidden="true"
                       set:html={chevron}></svg>
@@ -139,3 +139,36 @@ const chevron = '<path d="m1 1 4 4 4-4" fill="none" stroke="currentColor" stroke
     </div>
   </details>
 </div>
+
+<script>
+  const navDropdownSelector = 'details[data-nav-dropdown]';
+
+  const closeNavDropdowns = (except?: HTMLDetailsElement) => {
+    document.querySelectorAll<HTMLDetailsElement>(`${navDropdownSelector}[open]`).forEach((details) => {
+      if (details !== except) details.removeAttribute('open');
+    });
+  };
+
+  document.addEventListener('click', (event) => {
+    const target = event.target;
+    if (!(target instanceof Element)) return;
+
+    const summary = target.closest<HTMLElement>('summary[data-nav-summary]');
+    if (summary) {
+      const details = summary.closest<HTMLDetailsElement>(navDropdownSelector);
+      if (details) closeNavDropdowns(details);
+      return;
+    }
+
+    if (!target.closest('.site-navigation')) closeNavDropdowns();
+  });
+
+  document.addEventListener('focusin', (event) => {
+    const target = event.target;
+    if (!(target instanceof Element)) return;
+    if (!target.closest('.site-navigation')) closeNavDropdowns();
+  });
+
+  document.addEventListener('astro:before-preparation', () => closeNavDropdowns());
+  document.addEventListener('astro:before-swap', () => closeNavDropdowns());
+</script>
