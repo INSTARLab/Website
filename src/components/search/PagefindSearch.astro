@@ -1,0 +1,416 @@
+---
+import SiteLayout from '../../layouts/SiteLayout.astro';
+import { editorialRoutes, familyLabel } from '../../data/editorialRoutes';
+import { coreRoutes } from '../../data/core-routes';
+
+type BrowseEntry = {
+  path: string;
+  title: string;
+  description: string;
+  label: string;
+};
+
+const coreBrowseEntries = [
+  { path: coreRoutes.home.path, title: 'INSTAR Lab', description: coreRoutes.home.description, label: 'Institution' },
+  { path: coreRoutes.about.path, title: 'About INSTAR Lab', description: coreRoutes.about.description, label: 'Institution' },
+  { path: coreRoutes.mission.path, title: 'Our mission', description: coreRoutes.mission.description, label: 'Institution' },
+  { path: coreRoutes.contact.path, title: 'Contact INSTAR Lab', description: coreRoutes.contact.description, label: 'Connect' },
+] satisfies readonly BrowseEntry[];
+
+const browseEntries = [
+  ...coreBrowseEntries,
+  ...editorialRoutes.map((route) => ({
+    path: route.path,
+    title: route.title,
+    description: route.description,
+    label: familyLabel(route.family),
+  })),
+] satisfies readonly BrowseEntry[];
+
+const initialQuery = Astro.url.searchParams.get('q')?.trim() ?? '';
+const baseUrl = import.meta.env.BASE_URL;
+const pagefindUrl = `${baseUrl}${baseUrl.endsWith('/') ? '' : '/'}pagefind/pagefind.js`;
+---
+
+<SiteLayout
+  title="Search — INSTAR Lab"
+  description="Search INSTAR Lab research, science, technology, fellowship, partnership, and community pages."
+  canonical="/search/"
+  noindex
+  bodyClass="search-page-body"
+  mainClass="search-page-main"
+>
+  <article class="search-page" data-search-root data-pagefind-ignore="all" data-pagefind-url={pagefindUrl}>
+    <header class="search-page__hero">
+      <div class="search-page__container">
+        <p class="search-page__kicker">INSTAR INDEX / SEARCH</p>
+        <h1>Find the question worth staying with.</h1>
+        <p class="search-page__intro">
+          Search across INSTAR Lab’s published research, programs, labs, and collaboration pathways.
+        </p>
+
+        <form class="search-page__form" id="site-search-form" method="get" action="/search/" role="search">
+          <label for="search-query">Search INSTAR Lab</label>
+          <div class="search-page__field">
+            <input
+              id="search-query"
+              name="q"
+              type="search"
+              value={initialQuery}
+              placeholder="Try “quantum sensing”"
+              autocomplete="off"
+              spellcheck="false"
+              enterkeyhint="search"
+              aria-describedby="search-hint"
+            />
+            <button type="submit">Search <span aria-hidden="true">↗</span></button>
+          </div>
+          <p class="search-page__hint" id="search-hint">Use a topic, method, program, or place.</p>
+        </form>
+      </div>
+    </header>
+
+    <div class="search-page__container search-page__body">
+      <p class="search-page__status" id="search-status" role="status" aria-live="polite" aria-atomic="true">
+        Browse the index or enter a search term.
+      </p>
+      <ol class="search-page__results" id="search-results" aria-label="Search results"></ol>
+      <p class="search-page__empty" id="search-empty" hidden>No matching pages found. Try a broader term or browse the index below.</p>
+      <p class="search-page__error" id="search-error" role="alert" hidden>
+        Search is temporarily unavailable. The browse index below remains available.
+      </p>
+
+      <section class="search-page__browse" id="search-browse" aria-labelledby="search-browse-title">
+        <div class="search-page__section-heading">
+          <p class="search-page__kicker">NO DEAD ENDS</p>
+          <h2 id="search-browse-title">Browse the research index.</h2>
+        </div>
+        <ul class="search-page__browse-list">
+          {browseEntries.map((entry) => (
+            <li>
+              <a href={entry.path}>
+                <span class="search-page__entry-label">{entry.label}</span>
+                <span class="search-page__entry-title">{entry.title}</span>
+                <span class="search-page__entry-description">{entry.description}</span>
+                <span class="search-page__entry-arrow" aria-hidden="true">↗</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <noscript>
+        <p class="search-page__no-script">JavaScript is disabled. Use the browse index above to explore the published site.</p>
+      </noscript>
+    </div>
+  </article>
+</SiteLayout>
+
+<script src="./pagefind-search.ts"></script>
+
+<style>
+  .search-page {
+    --search-ink: #152238;
+    --search-accent: #1072ba;
+    --search-rule: #d9dde2;
+    background: var(--color-canvas);
+  }
+
+  .search-page__container {
+    width: min(100% - 2 * var(--spacing-gutter), 78rem);
+    margin-inline: auto;
+  }
+
+  .search-page__hero {
+    padding-block: clamp(4rem, 10vw, 8rem);
+    color: #fff;
+    background: var(--search-ink);
+  }
+
+  .search-page__kicker {
+    margin: 0;
+    color: var(--search-accent);
+    font-family: var(--font-ui);
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    line-height: 1.3;
+    text-transform: uppercase;
+  }
+
+  .search-page__hero .search-page__kicker {
+    color: #7bdcf0;
+  }
+
+  .search-page h1 {
+    max-inline-size: 13ch;
+    margin: 1.4rem 0 0;
+    color: inherit;
+    font-size: clamp(3rem, 7vw, 7rem);
+    letter-spacing: -0.07em;
+    line-height: 0.92;
+  }
+
+  .search-page__intro {
+    max-inline-size: 48ch;
+    margin-block-start: 2rem;
+    color: rgb(255 255 255 / 0.76);
+    font-size: clamp(1.1rem, 1rem + 0.4vw, 1.35rem);
+  }
+
+  .search-page__form {
+    max-inline-size: 62rem;
+    margin-block-start: clamp(2.5rem, 5vw, 4rem);
+  }
+
+  .search-page__form label {
+    display: block;
+    margin-block-end: 0.65rem;
+    color: rgb(255 255 255 / 0.78);
+    font-family: var(--font-ui);
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .search-page__field {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 0.65rem;
+  }
+
+  .search-page__field input {
+    min-block-size: 3.5rem;
+    padding-inline: 1rem;
+    border: 1px solid rgb(255 255 255 / 0.35);
+    border-radius: 0;
+    background: #fff;
+    color: var(--search-ink);
+    font-size: 1.05rem;
+  }
+
+  .search-page__field button {
+    min-block-size: 3.5rem;
+    padding-inline: 1.25rem;
+    border: 1px solid #7bdcf0;
+    border-radius: 0;
+    background: #7bdcf0;
+    color: var(--search-ink);
+    font-family: var(--font-ui);
+    font-weight: 800;
+  }
+
+  .search-page__field button:hover {
+    background: #fff;
+  }
+
+  .search-page__hint {
+    margin-block-start: 0.7rem;
+    color: rgb(255 255 255 / 0.58);
+    font-size: 0.9rem;
+  }
+
+  .search-page__body {
+    padding-block: clamp(3rem, 7vw, 6rem) clamp(5rem, 10vw, 9rem);
+  }
+
+  .search-page__status,
+  .search-page__empty,
+  .search-page__error,
+  .search-page__no-script {
+    padding: 1rem 1.1rem;
+    border-inline-start: 3px solid var(--search-accent);
+    background: var(--color-surface);
+    color: var(--color-muted-strong);
+  }
+
+  .search-page__error {
+    border-inline-start-color: var(--color-accent);
+  }
+
+  .search-page__results {
+    display: grid;
+    gap: 0.75rem;
+    padding: 0;
+    margin: 1.5rem 0 0;
+    list-style: none;
+  }
+
+  .search-page__result {
+    padding: 1.25rem 1.35rem;
+    border: 1px solid var(--search-rule);
+    border-block-start: 3px solid var(--search-accent);
+    background: var(--color-surface-raised);
+  }
+
+  .search-page__result a {
+    display: block;
+    color: var(--color-ink);
+    text-decoration: none;
+  }
+
+  .search-page__result a:hover .search-page__result-title {
+    color: var(--search-accent);
+  }
+
+  .search-page__result-title {
+    display: block;
+    font-family: var(--font-display);
+    font-size: clamp(1.3rem, 1.1rem + 0.5vw, 1.8rem);
+    font-weight: 700;
+    line-height: 1.1;
+  }
+
+  .search-page__result-url {
+    display: block;
+    margin-block-start: 0.5rem;
+    color: var(--search-accent);
+    font-family: var(--font-mono);
+    font-size: 0.76rem;
+    overflow-wrap: anywhere;
+  }
+
+  .search-page__result-excerpt {
+    max-inline-size: 70ch;
+    margin-block-start: 0.75rem;
+    color: var(--color-muted-strong);
+    font-size: 0.96rem;
+  }
+
+  .search-page__result-excerpt mark {
+    padding-inline: 0.1em;
+    background: #fff0a8;
+    color: inherit;
+  }
+
+  .search-page__section-heading {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 2rem;
+    margin-block: clamp(4rem, 8vw, 8rem) 2rem;
+  }
+
+  .search-page h2 {
+    max-inline-size: 12ch;
+    margin: 0.8rem 0 0;
+    color: var(--search-ink);
+    font-size: clamp(2.2rem, 4.5vw, 4.8rem);
+    letter-spacing: -0.06em;
+    line-height: 0.98;
+  }
+
+  .search-page__browse-list {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    border-block-start: 1px solid var(--search-rule);
+  }
+
+  .search-page__browse-list li {
+    min-inline-size: 0;
+    border-inline-end: 1px solid var(--search-rule);
+    border-block-end: 1px solid var(--search-rule);
+    background: var(--color-surface);
+  }
+
+  .search-page__browse-list li:nth-child(3n) {
+    border-inline-end: 0;
+  }
+
+  .search-page__browse-list a {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-block-size: 12rem;
+    padding: 1.25rem;
+    color: var(--color-ink);
+    text-decoration: none;
+  }
+
+  .search-page__browse-list a:hover {
+    background: var(--color-surface-raised);
+  }
+
+  .search-page__entry-label {
+    color: var(--search-accent);
+    font-family: var(--font-ui);
+    font-size: 0.66rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .search-page__entry-title {
+    max-inline-size: 18ch;
+    margin-block-start: 1.25rem;
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 1.1;
+  }
+
+  .search-page__entry-description {
+    margin-block-start: 0.7rem;
+    color: var(--color-muted-strong);
+    font-size: 0.9rem;
+    line-height: 1.45;
+  }
+
+  .search-page__entry-arrow {
+    align-self: flex-end;
+    margin-block-start: auto;
+    color: var(--search-accent);
+    font-family: var(--font-ui);
+    font-size: 1.2rem;
+  }
+
+  @media (max-width: 60rem) {
+    .search-page__browse-list {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .search-page__browse-list li:nth-child(3n) {
+      border-inline-end: 1px solid var(--search-rule);
+    }
+
+    .search-page__browse-list li:nth-child(2n) {
+      border-inline-end: 0;
+    }
+  }
+
+  @media (max-width: 38rem) {
+    .search-page__field {
+      grid-template-columns: 1fr;
+    }
+
+    .search-page__field button {
+      inline-size: 100%;
+    }
+
+    .search-page__section-heading {
+      display: block;
+    }
+
+    .search-page__browse-list {
+      grid-template-columns: 1fr;
+    }
+
+    .search-page__browse-list li,
+    .search-page__browse-list li:nth-child(2n),
+    .search-page__browse-list li:nth-child(3n) {
+      border-inline-end: 0;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .search-page * {
+      scroll-behavior: auto !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+</style>
