@@ -11,14 +11,13 @@ export type W5VisualMode =
 
 export interface W5MediaReference {
   readonly src: string;
-  readonly role: 'orientation' | 'observation' | 'system-mark' | 'legacy-inline';
-  readonly altDecision: 'preserved-in-legacy-markup';
+  readonly role: 'orientation' | 'observation' | 'system-mark';
+  readonly altDecision: 'editorial-description';
   readonly reuseReason?: 'shared-consortium-mark';
 }
 
 export interface W5RouteRecord {
   readonly path: `/${string}/`;
-  readonly sourceFile: string;
   readonly family: W5Family;
   readonly title: string;
   readonly description: string;
@@ -27,6 +26,4 @@ export interface W5RouteRecord {
   readonly readyAction: string;
   readonly earlyAction: string;
   readonly media: readonly W5MediaReference[];
-  readonly legacyScripts?: readonly string[];
-  readonly redirectTo?: `/${string}/`;
 }

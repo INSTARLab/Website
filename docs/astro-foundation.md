@@ -1,13 +1,14 @@
 # Astro foundation
 
-This migration foundation is intentionally static-first. Existing root HTML
-and directory URLs remain the source of truth while the remaining routes move
-into `src/pages/`.
+This site is static-first and Astro-owned. The production artifact is built
+from `src/pages/`, typed manifests, content collections, and shared Astro
+components; the former root HTML/CSS/JS corpus is not part of the site.
 
 ## Verified package choices
 
-The package versions below were checked against the npm registry on 2026-08-19
-and are pinned by `pnpm-lock.yaml` after installation:
+The package versions below were checked against the npm registry on 2026-08-20
+with `pnpm outdated` returning no pending updates, and are pinned by
+`pnpm-lock.yaml`:
 
 - Astro `7.2.4` with its Vite 8 toolchain
 - Vite `8.2.1`
@@ -40,33 +41,32 @@ matrix and re-enable it when the Astro language server supports TypeScript 7.
 
 ## URL and deployment policy
 
-`astro.config.ts` uses `build.format: 'preserve'`. This lets Astro keep both
-legacy root files (`src/pages/about.astro` → `/about.html`) and clean
-directory routes (`src/pages/community/about-us/index.astro` →
-`/community/about-us/index.html`). `site` is set to `https://instarlab.org`;
-there is no subpath `base`.
+`astro.config.ts` uses `build.format: 'directory'` with
+`trailingSlash: 'always'`. Astro therefore emits clean directory URLs such as
+`/about/` and `/research/current-programs/`; the special static 404 document is
+the only root `.html` output required by the host. `site` is set to
+`https://instarlab.org`; there is no subpath `base`.
 
 Astro-generated CSS and JavaScript use `dist/assets/` instead of the default
 `dist/_astro/`, avoiding GitHub Pages/Jekyll underscore-path behavior. The
-deployment copies in `public/` keep `CNAME`, `.nojekyll`, and `robots.txt`
-available in a future `dist/` deployment. The generated sitemap integration
-uses `sitemap-index.xml` and `sitemap-0.xml`; the `public/robots.txt` copy
-points to that index. The original root `CNAME`, sitemap, and robots files
-remain untouched during this foundation pass.
+deployment copies in `public/` keep `CNAME`, `.nojekyll`, `robots.txt`, and
+`llms.txt` available in both GitLab Pages and a future GitHub Pages publish.
+The generated sitemap integration uses `sitemap-index.xml` and
+`sitemap-0.xml`; `public/robots.txt` points to that index.
 
-Route workstreams must use the source filename that corresponds to the desired
-output. In particular, do not include `.html` in a non-index `.astro` source
-filename, or Astro will preserve it and append another `.html`. Use nested
-`index.astro` routes for clean directory URLs.
+Route workstreams use nested `index.astro` files for clean directory URLs and
+typed route keys rather than filesystem-era filenames. The route ledger and
+production quality checks enforce the same policy.
 
 ## Source organization
 
-- `src/pages/` — file-based routes and compatibility pages.
+- `src/pages/` — file-based Astro routes.
 - `src/content.config.ts` — strict build-time article and author collections.
 - `src/content/articles/` and `src/content/authors/` — future content entries.
 - `src/data/` — typed route and editorial data; media assignments belong here.
 - `src/styles/global.css` — Tailwind 4 entrypoint, tokens, and accessibility base.
-- `public/` — exact-URL deployment files that should bypass Astro processing.
+- `public/` — exact-URL deployment files that should bypass Astro processing,
+  including `.nojekyll`, `CNAME`, `robots.txt`, `llms.txt`, and media assets.
 - `pnpm-workspace.yaml` — pnpm’s repository policy, including the explicit
   `esbuild` build-script allowlist required by this environment.
 

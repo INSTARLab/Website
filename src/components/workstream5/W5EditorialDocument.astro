@@ -1,0 +1,32 @@
+---
+import EditorialRoute from '../editorial/EditorialRoute.astro';
+import {
+  editorialRelatedRoutes,
+  type EditorialRoute as EditorialRouteData,
+} from '../../data/editorialRoutes';
+import type { W5RouteRecord } from '../../data/workstream5/types';
+
+interface Props {
+  record: W5RouteRecord;
+}
+
+const { record } = Astro.props;
+const hero = record.media.find((media) => media.role === 'orientation')?.src ?? '/img/banners/news.avif';
+const source = {
+  path: record.path,
+  slug: record.path.split('/').filter(Boolean).at(-1) ?? 'index',
+  family: record.family,
+  title: record.title,
+  description: record.description,
+  eyebrow: `${record.family} / ${record.path.split('/').filter(Boolean).at(-1)?.replaceAll('-', ' ') ?? 'index'}`,
+  hero,
+  heroAlt: `${record.title} — INSTAR Lab editorial image`,
+  signature: record.signature,
+  pageJob: record.pageJob,
+  readyAction: record.readyAction,
+  earlyAction: record.earlyAction,
+  type: record.family === 'news' ? 'article' : 'website',
+} satisfies EditorialRouteData;
+---
+
+<EditorialRoute route={source} related={editorialRelatedRoutes(source)} />

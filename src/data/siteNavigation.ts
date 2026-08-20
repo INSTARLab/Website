@@ -26,7 +26,7 @@ export const primaryNavigation = [
   {
     label: 'About',
     items: [
-      { label: 'Mission', href: '/mission.html' },
+      { label: 'Mission', href: '/mission/' },
       { label: 'About Us', href: '/community/about-us/' },
       { label: 'Leadership', href: '/community/leadership/' },
       { label: 'INSTAR Consortium', href: '/research/consortium/' },
@@ -137,7 +137,7 @@ export const quickFooterLinks = [
   { label: 'About Us', href: '/community/about-us/' },
   { label: 'Fellowship', href: '/fellowship/' },
   { label: 'Careers', href: '/community/careers/' },
-  { label: 'Terms of use', href: '/terms.html' },
-  { label: 'Accessibility', href: '/accessibility.html' },
-  { label: 'Privacy policy', href: '/privacy.html' },
+  { label: 'Terms of use', href: '/terms/' },
+  { label: 'Accessibility', href: '/accessibility/' },
+  { label: 'Privacy policy', href: '/privacy/' },
 ] as const satisfies readonly NavigationItem[];

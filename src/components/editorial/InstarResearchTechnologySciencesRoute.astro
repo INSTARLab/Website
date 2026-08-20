@@ -1,173 +1,31 @@
 ---
-import { readFileSync } from 'node:fs';
-import { resolve } from 'node:path';
-import { fileURLToPath } from 'node:url';
-import type { InstarResearchTechnologySciencesRoute } from '../../data/instar-research-technology-sciences';
-import SiteLayout from '../../layouts/SiteLayout.astro';
-import { dedupeCreativeImages } from '../../utils/legacy-markup';
+import EditorialRoute from './EditorialRoute.astro';
+import {
+  editorialRelatedRoutes,
+  type EditorialRoute as EditorialRouteData,
+} from '../../data/editorialRoutes';
+import type { InstarResearchTechnologySciencesRoute as SourceRoute } from '../../data/instar-research-technology-sciences';
 
 interface Props {
-  route: InstarResearchTechnologySciencesRoute;
+  route: SourceRoute;
 }
 
 const { route } = Astro.props;
-const projectRoot = fileURLToPath(new URL('../../../', import.meta.url));
-const sourcePath = resolve(projectRoot, route.sourceFile);
-const sourceHtml = readFileSync(sourcePath, 'utf8');
-const mainMatch = sourceHtml.match(/<main\b[^>]*>([\s\S]*?)<\/main>/i);
-
-if (!mainMatch) {
-  throw new Error(`Could not find a main region in ${route.sourceFile}`);
-}
-
-// The checked-in HTML is trusted editorial source for this migration. Keeping
-// the main region intact preserves approved copy, media, and inline links;
-// SiteLayout supplies the shared Astro chrome without duplicating it here.
-const partnerLabels: Record<string, string> = {
-  'focus-hive': 'Focus Hive Inc.',
-  'global-enterprise': 'Global Enterprise',
-  ravonics: 'Ravonics',
-  'curiosity-research': 'Curiosity Research Corporation',
-  'tao-learning': 'Tao Learning',
-  'dream-limited': 'Dream Limited',
-};
-
-const mainMarkup = dedupeCreativeImages(mainMatch[1].trim()).replace(
-  /<a\b([^>]*class=["'][^"']*consortium-partners__logo[^"']*["'][^>]*)>/gi,
-  (tag, attributes: string) => {
-    if (/\baria-label\s*=/.test(attributes)) return tag;
-    const className = attributes.match(/class=["']([^"']+)["']/i)?.[1] ?? '';
-    const label = Object.entries(partnerLabels).find(([key]) => className.includes(`consortium-partners__logo--${key}`))?.[1];
-    return label ? `<a${attributes} aria-label="${label}">` : tag;
-  },
-);
-const sourceMedia = [...mainMarkup.matchAll(/<img\b[^>]*\bsrc=["']([^"']+)["'][^>]*>/gi)].map(
-  (match) => match[1],
-);
-const uniqueSourceMedia = [...new Set(sourceMedia)];
-const sourceDescription = (sourceHtml.match(/<meta[^>]+name=["']description["'][^>]+content=["']([^"']*)["']/i) || [])[1];
-const firstParagraph = (mainMarkup.match(/<p\b[^>]*>([\s\S]*?)<\/p>/i) || [])[1]
-  ?.replace(/<[^>]+>/g, ' ')
-  .replace(/&amp;/g, '&')
-  .replace(/&quot;/g, '"')
-  .replace(/&#39;/g, "'")
-  .replace(/&nbsp;/g, ' ')
-  .replace(/\s+/g, ' ')
-  .trim();
-const description = route.description || (sourceDescription && sourceDescription !== 'INSTAR Lab' ? sourceDescription : firstParagraph) || route.title;
-
-const compositionFrame =
-  route.composition === 'data-atlas'
-    ? 'rts-frame--atlas'
-    : route.composition === 'evidence-index' || route.composition === 'opportunity-index' || route.composition === 'technology-index' || route.composition === 'science-index'
-      ? 'rts-frame--index'
-      : route.composition === 'consortium-network'
-        ? 'rts-frame--network'
-        : 'rts-frame--narrative';
+const source = {
+  path: route.path,
+  slug: route.slug,
+  family: route.family,
+  title: route.title,
+  description: route.description ?? `Explore INSTAR Lab's ${route.heading.toLowerCase()} work through an evidence-led, interdisciplinary lens.`,
+  eyebrow: `${route.family} / ${route.heading}`,
+  hero: `/${route.banner.replace(/^\//, '')}`,
+  heroAlt: `${route.title} — INSTAR Lab editorial image`,
+  signature: route.pageSignature.split(' → '),
+  pageJob: `Help a reader understand what ${route.heading.toLowerCase()} makes possible, what to examine, and where a serious next question begins.`,
+  readyAction: route.family === 'research' ? 'Discuss a research pathway with INSTAR.' : 'Explore the adjacent research pathway.',
+  earlyAction: `Start with the ${route.heading.toLowerCase()} orientation and follow the evidence.`,
+  composition: route.composition,
+} satisfies EditorialRouteData;
 ---
 
-<SiteLayout
-  title={route.title}
-  description={description}
-  canonical={route.path}
-  image={`/${route.banner}`}
-  bodyClass={`rts-document rts-family-${route.family} rts-composition-${route.composition}`}
-  mainClass="rts-route-content"
->
-  <div
-    class:list={['rts-route', `rts-route--${route.family}`, `rts-composition--${route.composition}`, compositionFrame]}
-    data-route-family={route.family}
-    data-route-slug={route.slug}
-    data-route-composition={route.composition}
-    data-page-signature={route.pageSignature}
-    data-source-file={route.sourceFile}
-    data-media-count={sourceMedia.length}
-    data-media-unique-count={uniqueSourceMedia.length}
-    data-primary-media={route.primaryMedia ?? undefined}
-  >
-    <div class="rts-legacy-content" set:html={mainMarkup}></div>
-  </div>
-</SiteLayout>
-
-<style is:global>
-  .rts-document {
-    --rts-route-accent: #1072ba;
-    --rts-route-ink: #15283b;
-  }
-
-  .rts-document.rts-family-research {
-    --rts-route-accent: #1072ba;
-    --rts-route-ink: #12324b;
-  }
-
-  .rts-document.rts-family-technology {
-    --rts-route-accent: #0c7489;
-    --rts-route-ink: #123b45;
-  }
-
-  .rts-document.rts-family-sciences {
-    --rts-route-accent: #5a58a6;
-    --rts-route-ink: #2b294f;
-  }
-
-  .rts-route-content {
-    overflow-x: clip;
-  }
-
-  .rts-legacy-content {
-    overflow-wrap: anywhere;
-  }
-
-  .rts-legacy-content img,
-  .rts-legacy-content svg,
-  .rts-legacy-content video {
-    max-inline-size: 100%;
-    block-size: auto;
-  }
-
-  .rts-legacy-content table {
-    display: block;
-    max-inline-size: 100%;
-    overflow-x: auto;
-  }
-
-  .rts-route .page-title-area {
-    border-block-end: 4px solid var(--rts-route-accent);
-  }
-
-  .rts-route .page-title-area .page-title h1,
-  .rts-route .ip-section-title__bar {
-    color: var(--rts-route-accent);
-  }
-
-  .rts-route .ip-section-title__bar {
-    background-color: var(--rts-route-accent);
-  }
-
-  .rts-frame--atlas .ip-card-grid,
-  .rts-frame--network .brand-logo-area,
-  .rts-frame--index .ip-card-grid {
-    border-block-start: 1px solid color-mix(in srgb, var(--rts-route-accent) 32%, transparent);
-  }
-
-  .rts-frame--atlas .ip-card-grid__intro,
-  .rts-frame--index .ip-card-grid__intro {
-    max-inline-size: 72ch;
-  }
-
-  .rts-frame--narrative .ip-content-block__heading,
-  .rts-frame--network .ip-content-block__heading {
-    color: var(--rts-route-ink);
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .rts-route *,
-    .rts-route *::before,
-    .rts-route *::after {
-      scroll-behavior: auto !important;
-      animation-duration: 0.01ms !important;
-      animation-iteration-count: 1 !important;
-      transition-duration: 0.01ms !important;
-    }
-  }
-</style>
+<EditorialRoute route={source} related={editorialRelatedRoutes(source)} />
