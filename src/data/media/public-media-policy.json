@@ -1,0 +1,301 @@
+[
+  {
+    "match": "^/img/logo/instar\\.svg$",
+    "idPrefix": "media:brand-",
+    "type": "icon-or-mark",
+    "role": "system-mark",
+    "alt": {
+      "kind": "descriptive",
+      "status": "approved",
+      "text": "INSTAR Lab"
+    },
+    "dimensions": {
+      "width": 188,
+      "height": 52
+    },
+    "sizes": "188px",
+    "loading": "eager",
+    "fetchpriority": "high",
+    "focalPoint": "50% 50%",
+    "provenance": {
+      "status": "not-applicable",
+      "source": "Repository brand asset; exact public URL is intentional.",
+      "license": "Usage terms are not recorded; preserve only in approved INSTAR brand contexts.",
+      "note": "System mark exception; this is not editorial photography."
+    },
+    "reuseReason": "Shared navigation brand mark."
+  },
+  {
+    "match": "^/img/404-bg\\.avif$",
+    "idPrefix": "media:utility-",
+    "type": "photography-or-illustration",
+    "role": "orientation",
+    "alt": {
+      "kind": "contextual",
+      "status": "review-required"
+    },
+    "dimensions": {
+      "width": 1920,
+      "height": 650
+    },
+    "sizes": "100vw",
+    "loading": "eager",
+    "fetchpriority": "high",
+    "focalPoint": "50% 50%",
+    "provenance": {
+      "status": "unverified",
+      "source": "Repository asset; original source is not recorded.",
+      "license": "Unverified; confirm ownership or license before publication.",
+      "note": "Inherited public asset. Do not present it as externally sourced evidence."
+    }
+  },
+  {
+    "match": "^/img/logo/instar_icon\\.svg$",
+    "idPrefix": "media:brand-",
+    "type": "icon-or-mark",
+    "role": "system-mark",
+    "alt": {
+      "kind": "descriptive",
+      "status": "approved",
+      "text": "INSTAR Lab mark"
+    },
+    "dimensions": {
+      "width": 28,
+      "height": 40
+    },
+    "sizes": "40px",
+    "loading": "lazy",
+    "fetchpriority": "auto",
+    "focalPoint": "50% 50%",
+    "provenance": {
+      "status": "not-applicable",
+      "source": "Repository brand asset; exact public URL is intentional.",
+      "license": "Usage terms are not recorded; preserve only in approved INSTAR brand contexts.",
+      "note": "System mark exception; this is not editorial photography."
+    },
+    "reuseReason": "Shared brand mark."
+  },
+  {
+    "match": "^/img/slider/jupiterstar\\.avif$",
+    "idPrefix": "media:home-",
+    "type": "photography-or-illustration",
+    "role": "orientation",
+    "alt": {
+      "kind": "contextual",
+      "status": "review-required"
+    },
+    "dimensions": {
+      "width": 1920,
+      "height": 751
+    },
+    "sizes": "(min-width: 58rem) 54vw, 100vw",
+    "loading": "eager",
+    "fetchpriority": "high",
+    "focalPoint": "50% 50%",
+    "provenance": {
+      "status": "unverified",
+      "source": "Repository asset; original source is not recorded.",
+      "license": "Unverified; confirm ownership or license before publication.",
+      "note": "Inherited public asset. Do not present it as externally sourced evidence."
+    }
+  },
+  {
+    "match": "^/img/banners/news\\.avif$",
+    "idPrefix": "media:banner-",
+    "type": "photography-or-illustration",
+    "role": "orientation",
+    "alt": {
+      "kind": "contextual",
+      "status": "review-required"
+    },
+    "dimensions": {
+      "width": 1920,
+      "height": 600
+    },
+    "sizes": "(min-width: 58rem) 54vw, 100vw",
+    "loading": "eager",
+    "fetchpriority": "high",
+    "focalPoint": "50% 50%",
+    "provenance": {
+      "status": "unverified",
+      "source": "Repository asset; original source is not recorded.",
+      "license": "Unverified; confirm ownership or license before publication.",
+      "note": "Inherited public asset. Do not present it as externally sourced evidence."
+    },
+    "reuseReason": "Shared news-section orientation image; replace with route-specific art direction when an approved asset exists."
+  },
+  {
+    "match": "^/img/banners/[^/]+\\.avif$",
+    "idPrefix": "media:banner-",
+    "type": "photography-or-illustration",
+    "role": "orientation",
+    "alt": {
+      "kind": "contextual",
+      "status": "review-required"
+    },
+    "dimensions": {
+      "width": 1920,
+      "height": 600
+    },
+    "sizes": "(min-width: 58rem) 54vw, 100vw",
+    "loading": "eager",
+    "fetchpriority": "high",
+    "focalPoint": "50% 50%",
+    "provenance": {
+      "status": "unverified",
+      "source": "Repository asset; original source is not recorded.",
+      "license": "Unverified; confirm ownership or license before publication.",
+      "note": "Inherited public asset. Do not present it as externally sourced evidence."
+    }
+  },
+  {
+    "match": "^/img/blog/blog-(?:one|two|three)\\.avif$",
+    "idPrefix": "media:article-",
+    "type": "photography-or-illustration",
+    "role": "hero",
+    "alt": {
+      "kind": "contextual",
+      "status": "review-required"
+    },
+    "dimensions": {
+      "width": 1280,
+      "height": 720
+    },
+    "sizes": "(min-width: 96rem) 96rem, 100vw",
+    "loading": "eager",
+    "fetchpriority": "high",
+    "focalPoint": "50% 50%",
+    "provenance": {
+      "status": "unverified",
+      "source": "Repository asset; original source is not recorded.",
+      "license": "Unverified; confirm ownership or license before publication.",
+      "note": "Inherited public article asset. Do not present it as externally sourced evidence."
+    },
+    "reuseReason": "Shared article hero between the newsroom index and its canonical brief detail."
+  },
+  {
+    "match": "^/img/slider/geospatial\\.avif$",
+    "idPrefix": "media:article-",
+    "type": "photography-or-illustration",
+    "role": "hero",
+    "alt": {
+      "kind": "contextual",
+      "status": "review-required"
+    },
+    "dimensions": {
+      "width": 1920,
+      "height": 800
+    },
+    "sizes": "(min-width: 96rem) 96rem, 100vw",
+    "loading": "eager",
+    "fetchpriority": "high",
+    "focalPoint": "50% 50%",
+    "provenance": {
+      "status": "unverified",
+      "source": "Repository asset; original source is not recorded.",
+      "license": "Unverified; confirm ownership or license before publication.",
+      "note": "Inherited public article asset. Do not present it as externally sourced evidence."
+    },
+    "reuseReason": "Shared article hero between the newsroom index and its canonical brief detail."
+  },
+  {
+    "match": "^/img/pages/formal-methods/hero\\.avif$",
+    "idPrefix": "media:article-",
+    "type": "photography-or-illustration",
+    "role": "hero",
+    "alt": {
+      "kind": "contextual",
+      "status": "review-required"
+    },
+    "dimensions": {
+      "width": 1170,
+      "height": 400
+    },
+    "sizes": "(min-width: 96rem) 96rem, 100vw",
+    "loading": "eager",
+    "fetchpriority": "high",
+    "focalPoint": "50% 50%",
+    "provenance": {
+      "status": "unverified",
+      "source": "Repository asset; original source is not recorded.",
+      "license": "Unverified; confirm ownership or license before publication.",
+      "note": "Inherited public article asset. Do not present it as externally sourced evidence."
+    },
+    "reuseReason": "Shared article hero between the newsroom index and its canonical brief detail."
+  },
+  {
+    "match": "^/img/pages/law/hero\\.avif$",
+    "idPrefix": "media:article-",
+    "type": "photography-or-illustration",
+    "role": "hero",
+    "alt": {
+      "kind": "contextual",
+      "status": "review-required"
+    },
+    "dimensions": {
+      "width": 770,
+      "height": 400
+    },
+    "sizes": "(min-width: 96rem) 96rem, 100vw",
+    "loading": "eager",
+    "fetchpriority": "high",
+    "focalPoint": "50% 50%",
+    "provenance": {
+      "status": "unverified",
+      "source": "Repository asset; original source is not recorded.",
+      "license": "Unverified; confirm ownership or license before publication.",
+      "note": "Inherited public article asset. Do not present it as externally sourced evidence."
+    },
+    "reuseReason": "Shared article hero between the newsroom index and its canonical brief detail."
+  },
+  {
+    "match": "^/img/pages/materials-science/hero\\.avif$",
+    "idPrefix": "media:article-",
+    "type": "photography-or-illustration",
+    "role": "hero",
+    "alt": {
+      "kind": "contextual",
+      "status": "review-required"
+    },
+    "dimensions": {
+      "width": 770,
+      "height": 400
+    },
+    "sizes": "(min-width: 96rem) 96rem, 100vw",
+    "loading": "eager",
+    "fetchpriority": "high",
+    "focalPoint": "50% 50%",
+    "provenance": {
+      "status": "unverified",
+      "source": "Repository asset; original source is not recorded.",
+      "license": "Unverified; confirm ownership or license before publication.",
+      "note": "Inherited public article asset. Do not present it as externally sourced evidence."
+    },
+    "reuseReason": "Shared article hero between the newsroom index and its canonical brief detail."
+  },
+  {
+    "match": "^/img/pages/agriculture/card-1\\.avif$",
+    "idPrefix": "media:article-",
+    "type": "photography-or-illustration",
+    "role": "hero",
+    "alt": {
+      "kind": "contextual",
+      "status": "review-required"
+    },
+    "dimensions": {
+      "width": 370,
+      "height": 200
+    },
+    "sizes": "(min-width: 96rem) 96rem, 100vw",
+    "loading": "eager",
+    "fetchpriority": "high",
+    "focalPoint": "50% 50%",
+    "provenance": {
+      "status": "unverified",
+      "source": "Repository asset; original source is not recorded.",
+      "license": "Unverified; confirm ownership or license before publication.",
+      "note": "Inherited public article asset. Do not present it as externally sourced evidence."
+    },
+    "reuseReason": "Shared article hero between the newsroom index and its canonical brief detail."
+  }
+]
