@@ -1,0 +1,171 @@
+---
+import type { CoreRouteMeta } from '../../data/core-routes';
+import SiteLayout from '../../layouts/SiteLayout.astro';
+
+interface Props {
+  meta: CoreRouteMeta;
+}
+
+interface ContentBlock {
+  readonly title: string;
+  readonly body: string;
+  readonly bullets?: readonly string[];
+}
+
+const { meta } = Astro.props;
+const key = meta.key;
+const content: Record<string, { eyebrow: string; hero: string; lead: string; blocks: readonly ContentBlock[] }> = {
+  about: {
+    eyebrow: 'The institution / context',
+    hero: '/img/banners/about.avif',
+    lead: 'INSTAR is an independent research institute for questions that do not fit neatly inside one discipline, one funder, or one product cycle.',
+    blocks: [
+      { title: 'A long-horizon posture', body: 'The Lab connects scientists, engineers, researchers, and partners around public-benefit work in AI, quantum science, computing, health, energy, and space.' },
+      { title: 'Independent by design', body: 'As a nonprofit institute, INSTAR can follow questions for their importance, make the reasoning visible, and build partnerships around shared standards rather than short-term attention.' },
+      { title: 'Find your way in', body: 'Readers can enter through a research program, a science or technology discipline, a fellowship, a partnership, or a direct conversation.', bullets: ['Explore current programs', 'Meet the research community', 'Work with INSTAR'] },
+    ],
+  },
+  mission: {
+    eyebrow: 'The method / public benefit',
+    hero: '/img/banners/mission.avif',
+    lead: 'Expand human knowledge through rigorous, evidence-driven research—and translate discovery into useful public-benefit applications.',
+    blocks: [
+      { title: 'Chart', body: 'Name the question, its context, and the evidence needed to make progress. A clear map is a precondition for useful collaboration.' },
+      { title: 'Explore', body: 'Work across methods and disciplines without losing rigor. Open data, reproducible practice, and explicit limits keep curiosity accountable.' },
+      { title: 'Transmit', body: 'Move what has been learned into public understanding, new research, and responsible application. Translation is part of the work, not an afterthought.' },
+    ],
+  },
+  'contact-us': {
+    eyebrow: 'Begin / contact',
+    hero: '/img/banners/contact-us.avif',
+    lead: 'Bring a research question, a partnership idea, a fellowship inquiry, or a practical need. We will route it to the right conversation.',
+    blocks: [
+      { title: 'Research and partnerships', body: 'For collaboration, sponsored programs, technology transfer, or federal and grant-related questions, email info@instarlab.org with enough context for a useful first response.' },
+      { title: 'Direct channels', body: 'INSTAR Lab Inc.\n125 Frederick St\nMarietta, OH 45750-3407\n929-229-2918', bullets: ['info@instarlab.org', '929-229-2918'] },
+      { title: 'What to include', body: 'A concise description of the question, the people or organization involved, the relevant timeline, and the next decision you are trying to make.' },
+    ],
+  },
+  privacy: {
+    eyebrow: 'Policy / privacy',
+    hero: '/img/banners/privacy.avif',
+    lead: 'This page explains the information practices that apply to the public INSTAR website. We aim to collect the minimum information needed to respond and operate the service.',
+    blocks: [
+      { title: 'Information you choose to share', body: 'If you contact INSTAR by email or through a form, use the channel for the purpose stated. Do not send sensitive personal information unless it is necessary and the recipient has asked for it.' },
+      { title: 'Essential operations', body: 'The site may process technical information required to deliver pages, protect the service, and understand failures. Nonessential tracking should not be required to read public content.' },
+      { title: 'Questions and requests', body: 'For privacy questions or a request about information you submitted, contact info@instarlab.org. This page should be reviewed with the organization’s current legal and data-retention policy before production publication.' },
+    ],
+  },
+  terms: {
+    eyebrow: 'Policy / terms',
+    hero: '/img/banners/terms.avif',
+    lead: 'Use this site to learn, inspect research context, and begin legitimate conversations. The information is provided for general educational and organizational purposes.',
+    blocks: [
+      { title: 'Use the work responsibly', body: 'Respect intellectual property, attribution, privacy, and the limits stated alongside research materials. Do not use the site to interfere with service operation or misrepresent INSTAR’s work.' },
+      { title: 'Research context is not a guarantee', body: 'Research descriptions, perspectives, and public materials are not a substitute for professional, legal, medical, financial, or safety advice. Verify time-sensitive information with the responsible source.' },
+      { title: 'Contact', body: 'Questions about these terms or permission to reuse material can be directed to info@instarlab.org.' },
+    ],
+  },
+  accessibility: {
+    eyebrow: 'Commitment / access',
+    hero: '/img/banners/accessibility.avif',
+    lead: 'INSTAR is committed to making this site usable across devices, input methods, assistive technologies, and different ways of perceiving information.',
+    blocks: [
+      { title: 'How we build', body: 'We use semantic HTML, visible focus, keyboard paths, readable type, responsive media, reduced-motion treatments, and accessible alternatives for interactive visualizations.' },
+      { title: 'Where we are improving', body: 'A site with a large content surface needs continuous review. We test the production build with automated WCAG checks and browser journeys, then prioritize issues that block understanding or action.' },
+      { title: 'Tell us what failed', body: 'If a page, document, form, or visualization creates a barrier, email info@instarlab.org with the URL, the task you were trying to complete, and the assistive technology or browser involved.' },
+    ],
+  },
+  '404': {
+    eyebrow: 'Signal lost / recover',
+    hero: '/img/404-bg.avif',
+    lead: 'The route is not in the current map. Use the research pathways below to continue exploring.',
+    blocks: [
+      { title: 'Try a known path', body: 'Return to the home page, browse current programs, or open the research index.', bullets: ['Return home', 'Explore research', 'Read the latest briefs'] },
+    ],
+  },
+};
+const page = content[key] ?? content['404'];
+const isNotFound = key === '404';
+---
+
+<SiteLayout
+  title={meta.title}
+  description={meta.description}
+  canonical={meta.path}
+  image={page.hero}
+  imageAlt={`${meta.title} — INSTAR Lab`}
+  noindex={isNotFound || meta.robots.startsWith('noindex')}
+  bodyClass={`core-editorial-page core-editorial-page--${key}`}
+  mainClass="core-editorial-main"
+>
+  <article class="core-editorial" data-route={meta.path}>
+    <header class="core-editorial__hero">
+      <div class="core-editorial__hero-copy">
+        <div class="core-editorial__container">
+          <p class="core-editorial__eyebrow">{page.eyebrow}</p>
+          <h1>{meta.title}</h1>
+          <p class="core-editorial__lead">{page.lead}</p>
+          <a class="core-editorial__button" href={isNotFound ? '/' : '/contact-us/'}>{isNotFound ? 'Return to home' : 'Begin a conversation'} <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+      <figure class="core-editorial__hero-media">
+        <img src={page.hero} alt={`${meta.title} — INSTAR Lab`} width="1600" height="1000" loading="eager" fetchpriority="high" decoding="async" />
+        <figcaption>INSTAR Lab / {page.eyebrow}</figcaption>
+      </figure>
+    </header>
+
+    <div class="core-editorial__container core-editorial__body">
+      <div class="core-editorial__rail" aria-hidden="true"><span>INSTAR</span><span>01—{String(page.blocks.length).padStart(2, '0')}</span></div>
+      <div class="core-editorial__blocks">
+        {page.blocks.map((block, index) => (
+          <section class="core-editorial__block" aria-labelledby={`core-block-${index}`}>
+            <p class="core-editorial__index">{String(index + 1).padStart(2, '0')}</p>
+            <div>
+              <h2 id={`core-block-${index}`}>{block.title}</h2>
+              <p>{block.body}</p>
+              {block.bullets ? <ul>{block.bullets.map((item) => <li>{item}</li>)}</ul> : null}
+            </div>
+          </section>
+        ))}
+      </div>
+    </div>
+  </article>
+</SiteLayout>
+
+<style>
+  .core-editorial { --core-accent: var(--color-brand); background: var(--color-canvas); }
+  .core-editorial__container { width: min(100% - 2 * var(--spacing-gutter), 90rem); margin-inline: auto; }
+  .core-editorial__hero { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); min-block-size: min(44rem, calc(100svh - 8.5rem)); color: #fff; background: #0b1626; }
+  .core-editorial__hero-copy { display: flex; align-items: center; padding-block: clamp(4rem, 10vw, 9rem); }
+  .core-editorial__eyebrow { margin-block-end: 1.8rem; color: #7fd7ea; font: 800 0.74rem/1.2 var(--font-ui); letter-spacing: 0.14em; text-transform: uppercase; }
+  .core-editorial h1 { max-inline-size: 9ch; margin: 0; color: #fff; font-size: clamp(3.4rem, 6vw, 7.2rem); letter-spacing: -0.08em; line-height: 0.9; }
+  .core-editorial__lead { max-inline-size: 47ch; margin-block: 2rem 0; color: rgb(255 255 255 / 0.73); font-size: clamp(1.15rem, 1rem + 0.45vw, 1.45rem); line-height: 1.5; }
+  .core-editorial__button { display: inline-flex; align-items: center; gap: 0.7rem; margin-block-start: 2rem; padding: 0.9rem 1.1rem; color: #06121c; background: #7fd7ea; font: 800 0.82rem/1 var(--font-ui); text-decoration: none; }
+  .core-editorial__button:hover { color: #fff; background: var(--core-accent); }
+  .core-editorial__hero-media { position: relative; min-block-size: 100%; margin: 0; overflow: hidden; background: #132339; }
+  .core-editorial__hero-media img { inline-size: 100%; block-size: 100%; min-block-size: 30rem; object-fit: cover; filter: saturate(0.82) contrast(1.06); }
+  .core-editorial__hero-media::after { position: absolute; inset: 0; background: linear-gradient(90deg, rgb(11 22 38 / 0.5), transparent 42%); content: ''; }
+  .core-editorial__hero-media figcaption { position: absolute; z-index: 1; inset-inline: 1.5rem; inset-block-end: 1.5rem; color: #fff; font: 0.72rem/1.4 var(--font-ui); letter-spacing: 0.08em; text-transform: uppercase; }
+  .core-editorial__body { display: grid; grid-template-columns: 8rem minmax(0, 1fr); gap: clamp(2rem, 8vw, 9rem); padding-block: clamp(5rem, 11vw, 10rem); }
+  .core-editorial__rail { display: flex; flex-direction: column; justify-content: space-between; color: var(--core-accent); font: 800 0.7rem/1.4 var(--font-ui); letter-spacing: 0.15em; text-transform: uppercase; }
+  .core-editorial__blocks { max-inline-size: 62rem; }
+  .core-editorial__block { display: grid; grid-template-columns: 4rem minmax(0, 1fr); gap: 2rem; padding-block: 2.5rem; border-block-start: 1px solid var(--color-rule); }
+  .core-editorial__index { color: var(--core-accent); font: 800 0.75rem/1.4 var(--font-ui); }
+  .core-editorial h2 { margin: 0; font-size: clamp(1.8rem, 3vw, 3.3rem); letter-spacing: -0.05em; }
+  .core-editorial__block p { max-inline-size: 62ch; margin-block: 1rem 0; color: var(--color-muted-strong); white-space: pre-line; }
+  .core-editorial__block ul { display: grid; gap: 0.55rem; margin-block: 1.25rem 0; padding: 0; list-style: none; }
+  .core-editorial__block li { display: flex; align-items: center; gap: 0.65rem; color: var(--color-ink); font-weight: 700; }
+  .core-editorial__block li::before { inline-size: 0.55rem; block-size: 0.55rem; border-radius: 50%; background: var(--core-accent); content: ''; }
+
+  @media (max-width: 58rem) {
+    .core-editorial__hero { grid-template-columns: 1fr; }
+    .core-editorial__hero-media { min-block-size: auto; }
+    .core-editorial__hero-media img { min-block-size: 22rem; max-block-size: 52svh; }
+  }
+
+  @media (max-width: 42rem) {
+    .core-editorial__body { grid-template-columns: 1fr; gap: 2rem; }
+    .core-editorial__rail { flex-direction: row; }
+    .core-editorial__block { grid-template-columns: 2.5rem minmax(0, 1fr); gap: 1rem; }
+  }
+</style>

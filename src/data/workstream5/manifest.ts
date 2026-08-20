@@ -1,57 +1,33 @@
-import { readFileSync } from 'node:fs';
-import { resolve } from 'node:path';
-
 import type { W5Family, W5MediaReference, W5RouteRecord } from './types';
 
-const projectRoot = process.cwd();
-
-function readLegacySource(sourceFile: string): string {
-  return readFileSync(resolve(projectRoot, sourceFile), 'utf8');
-}
-
-function normalizeAssetPath(source: string): string {
-  return source.replace(/^(?:\.\.\/)+/, '/').replace(/^\/img\//, '/img/');
-}
-
-function mediaRole(src: string): W5MediaReference['role'] {
-  if (src.includes('/brand-logo/')) return 'system-mark';
-  if (src.includes('/banners/') || /\/hero\./.test(src)) return 'orientation';
-  return 'legacy-inline';
-}
-
-export function mediaFromLegacy(sourceFile: string): readonly W5MediaReference[] {
-  const source = readLegacySource(sourceFile);
-  const seen = new Set<string>();
-  const references: W5MediaReference[] = [];
-
-  for (const match of source.matchAll(/<img\b[^>]*\bsrc=["']([^"']+)["']/gi)) {
-    const rawSrc = match[1];
-    if (!rawSrc || !rawSrc.includes('/img/')) continue;
-    const src = normalizeAssetPath(rawSrc);
-    if (seen.has(src)) continue;
-    seen.add(src);
-    const role = mediaRole(src);
-    references.push({
-      src,
-      role,
-      altDecision: 'preserved-in-legacy-markup',
-      ...(role === 'system-mark' ? { reuseReason: 'shared-consortium-mark' } : {}),
-    });
+function bannerSlug(path: string): string {
+  const segments = path.split('/').filter(Boolean);
+  if (segments[0] === 'fellowship') return 'fellowship';
+  if (segments[0] === 'community' && segments[1] === 'fellowship') return 'fellowship';
+  if (segments[0] === 'news' && segments.length > 1) {
+    const specific = new Set(['clinical-ai-safety', 'hpc-infrastructure-for-ai', 'quantum-sensing-breakthroughs']);
+    return specific.has(segments[1]) ? `news-${segments[1]}` : 'news';
   }
+  return segments.length > 1 ? `${segments[0]}-${segments[1]}` : segments[0];
+}
 
-  return references;
+function mediaForRoute(path: string): readonly W5MediaReference[] {
+  return [{
+    src: `/img/banners/${bannerSlug(path)}.avif`,
+    role: 'orientation',
+    altDecision: 'editorial-description',
+  }];
 }
 
 function route(
   record: Omit<W5RouteRecord, 'media'>,
 ): W5RouteRecord {
-  return { ...record, media: mediaFromLegacy(record.sourceFile) };
+  return { ...record, media: mediaForRoute(record.path) };
 }
 
 export const workstream5Routes = [
   route({
     path: '/community/about-us/',
-    sourceFile: 'community/about-us/index.html',
     family: 'community',
     title: 'About Us — INSTAR Lab Community',
     description: 'Learn who we are: INSTAR Lab is an independent 501(c)(3) nonprofit research institute in Marietta, Ohio, led by scientists, engineers, and researchers advancing public-benefit science.',
@@ -62,7 +38,6 @@ export const workstream5Routes = [
   }),
   route({
     path: '/community/careers/',
-    sourceFile: 'community/careers/index.html',
     family: 'community',
     title: 'Careers at INSTAR Lab — Research & Science Jobs',
     description: 'Explore career and research opportunities at INSTAR Lab, an independent nonprofit research institute advancing AI, quantum science, health, energy, and space exploration.',
@@ -73,7 +48,6 @@ export const workstream5Routes = [
   }),
   route({
     path: '/community/contact/',
-    sourceFile: 'community/contact/index.html',
     family: 'community',
     title: 'Contact INSTAR Lab — Partnerships, Giving & Inquiries',
     description: 'Contact INSTAR Lab about research partnerships, sponsored programs, philanthropic giving, fellowship applications, or general inquiries. Based in Marietta, Ohio.',
@@ -81,23 +55,9 @@ export const workstream5Routes = [
     pageJob: 'Route a reader’s question to the right INSTAR contact path with clear expectations and a usable form.',
     readyAction: 'Send a message with the relevant inquiry type.',
     earlyAction: 'Use the direct phone, email, or address details.',
-    legacyScripts: ['/community/contact/intake.js'],
-  }),
-  route({
-    path: '/community/fellowship/',
-    sourceFile: 'community/fellowship/index.html',
-    family: 'community',
-    title: 'Research Fellowship — INSTAR Lab Community',
-    description: 'This page has moved to the INSTAR Fellowship.',
-    signature: ['orientation', 'connection', 'participation'],
-    pageJob: 'Preserve the established community URL while directing readers to the canonical fellowship application route.',
-    readyAction: 'Continue to the canonical INSTAR Fellowship page.',
-    earlyAction: 'Read the move notice and follow the destination link.',
-    redirectTo: '/fellowship/',
   }),
   route({
     path: '/community/leadership/',
-    sourceFile: 'community/leadership/index.html',
     family: 'community',
     title: 'Leadership — INSTAR Lab',
     description: 'Meet the scientists, engineers, and researchers who lead INSTAR Lab — an independent nonprofit research institute in Marietta, Ohio advancing applied science across multiple domains.',
@@ -108,7 +68,6 @@ export const workstream5Routes = [
   }),
   route({
     path: '/community/partner/',
-    sourceFile: 'community/partner/index.html',
     family: 'community',
     title: 'Partner With INSTAR Lab — Research & Philanthropy',
     description: 'Partner with INSTAR Lab, a 501(c)(3) nonprofit. Explore sponsored research, institutional partnerships, and tax-deductible giving to advance public-benefit science.',
@@ -116,11 +75,9 @@ export const workstream5Routes = [
     pageJob: 'Explain partnership and giving pathways so an institution can decide how to begin a conversation.',
     readyAction: 'Send a partnership or sponsorship inquiry.',
     earlyAction: 'Compare the partnership, giving, and research pathways.',
-    legacyScripts: ['/community/partner/partner-form.js'],
   }),
   route({
     path: '/community/support/',
-    sourceFile: 'community/support/index.html',
     family: 'community',
     title: 'Give to INSTAR Lab — One-Time Gifts & Friends Membership',
     description: 'Support INSTAR Lab, a 501(c)(3) nonprofit. Make a tax-deductible one-time donation or join the Friends of INSTAR recurring membership — your support sustains independent public-benefit science.',
@@ -131,7 +88,6 @@ export const workstream5Routes = [
   }),
   route({
     path: '/community/work-with-us/',
-    sourceFile: 'community/work-with-us/index.html',
     family: 'community',
     title: 'Work With INSTAR Lab — Collaboration Opportunities',
     description: 'Explore ways to work with INSTAR Lab: from research collaborations and STTR partnerships to enterprise R&D engagements and co-investigation on sponsored programs.',
@@ -142,7 +98,6 @@ export const workstream5Routes = [
   }),
   route({
     path: '/fellowship/',
-    sourceFile: 'fellowship/index.html',
     family: 'fellowship',
     title: 'INSTAR Fellowship — Open Citizen-Scientist Program',
     description: 'Apply for the INSTAR Fellowship — an open citizen-scientist program for curious researchers at every level. No minimum degree required; selection is based on fit with INSTAR’s research culture.',
@@ -153,7 +108,6 @@ export const workstream5Routes = [
   }),
   route({
     path: '/labs/biometric-security/',
-    sourceFile: 'labs/biometric-security/index.html',
     family: 'labs',
     title: 'Biometric Security Systems — INSTAR Lab',
     description: 'INSTAR Lab researches multi-modal biometric authentication fusing genomic markers, neural gait analysis, and vascular topology for high-assurance identity verification systems.',
@@ -164,7 +118,6 @@ export const workstream5Routes = [
   }),
   route({
     path: '/labs/cognitive-ai/',
-    sourceFile: 'labs/cognitive-ai/index.html',
     family: 'labs',
     title: 'Cognitive AI & Persona Systems — INSTAR Lab',
     description: 'INSTAR Lab investigates psycholinguistic modeling, personality architectures, and AI personification through inference shaping — advancing human-aligned cognitive AI systems.',
@@ -175,7 +128,6 @@ export const workstream5Routes = [
   }),
   route({
     path: '/labs/sovereign-ai/',
-    sourceFile: 'labs/sovereign-ai/index.html',
     family: 'labs',
     title: 'Sovereign AI Laboratory — INSTAR Lab',
     description: 'INSTAR Lab’s Sovereign AI Laboratory researches air-gapped frontier model training, secure inference, and autonomous reasoning on private infrastructure for government and defense partners.',
@@ -186,7 +138,6 @@ export const workstream5Routes = [
   }),
   route({
     path: '/news/',
-    sourceFile: 'news/index.html',
     family: 'news',
     title: 'News — INSTAR Lab',
     description: 'Updates, announcements, and research highlights from INSTAR Lab — an independent 501(c)(3) nonprofit research institute.',
@@ -197,7 +148,6 @@ export const workstream5Routes = [
   }),
   route({
     path: '/news/clinical-ai-safety/',
-    sourceFile: 'news/clinical-ai-safety/index.html',
     family: 'news',
     title: 'Clinical AI Safety Research — INSTAR Lab',
     description: 'An INSTAR Lab research brief on how AI can improve patient safety and clinical workflows — and why rigorous safety evaluation and human oversight are essential before clinical deployment.',
@@ -208,7 +158,6 @@ export const workstream5Routes = [
   }),
   route({
     path: '/news/formal-methods-safety-critical-trust/',
-    sourceFile: 'news/formal-methods-safety-critical-trust/index.html',
     family: 'news',
     title: 'Formal Methods and Trust in Safety-Critical Software — INSTAR Lab',
     description: 'An INSTAR Lab research brief on formal verification for safety-critical and high-assurance software — why testing alone cannot establish correctness, and how mathematical proof closes the gap.',
@@ -219,7 +168,6 @@ export const workstream5Routes = [
   }),
   route({
     path: '/news/hpc-infrastructure-for-ai/',
-    sourceFile: 'news/hpc-infrastructure-for-ai/index.html',
     family: 'news',
     title: 'HPC Infrastructure for AI — INSTAR Lab',
     description: 'An INSTAR Lab research brief on GPU-accelerated computing, sovereign on-premises AI infrastructure, and INSTAR’s applied research into accessible frontier AI capability.',
@@ -230,7 +178,6 @@ export const workstream5Routes = [
   }),
   route({
     path: '/news/legal-foundations-tech-governance/',
-    sourceFile: 'news/legal-foundations-tech-governance/index.html',
     family: 'news',
     title: 'Legal Foundations for Emerging Technology Governance — INSTAR Lab',
     description: 'An INSTAR Lab research brief on how legal and regulatory systems govern fast-moving technologies such as AI, biotechnology, and quantum computing.',
@@ -241,7 +188,6 @@ export const workstream5Routes = [
   }),
   route({
     path: '/news/materials-science-energy-transition/',
-    sourceFile: 'news/materials-science-energy-transition/index.html',
     family: 'news',
     title: 'Materials Science and the Energy Transition — INSTAR Lab',
     description: 'An INSTAR Lab research brief on the materials science underlying energy storage and generation — battery chemistries, catalysts, photovoltaics, and computational materials discovery.',
@@ -252,7 +198,6 @@ export const workstream5Routes = [
   }),
   route({
     path: '/news/open-data-research-philosophy/',
-    sourceFile: 'news/open-data-research-philosophy/index.html',
     family: 'news',
     title: 'Why an Independent Research Institute Commits to Open Data — INSTAR Lab',
     description: 'An INSTAR Lab research brief on why open, reproducible datasets are a research philosophy rather than a formality — and why that commitment matters most for an independent nonprofit institute.',
@@ -263,7 +208,6 @@ export const workstream5Routes = [
   }),
   route({
     path: '/news/precision-agriculture-open-data/',
-    sourceFile: 'news/precision-agriculture-open-data/index.html',
     family: 'news',
     title: 'Precision Agriculture and Open Agricultural Data — INSTAR Lab',
     description: 'An INSTAR Lab research brief on sensor networks, remote sensing, and soil microbiome research in precision agriculture — and why open agricultural datasets from USDA and FAO are foundational to credible research.',
@@ -274,7 +218,6 @@ export const workstream5Routes = [
   }),
   route({
     path: '/news/quantum-sensing-breakthroughs/',
-    sourceFile: 'news/quantum-sensing-breakthroughs/index.html',
     family: 'news',
     title: 'Quantum Sensing Breakthroughs — INSTAR Lab',
     description: 'An INSTAR Lab research perspective on advances in qubit coherence, quantum error correction, and the path toward practical quantum sensing and computation.',
@@ -285,7 +228,6 @@ export const workstream5Routes = [
   }),
   route({
     path: '/tech-transfer/enterprise-rd/',
-    sourceFile: 'tech-transfer/enterprise-rd/index.html',
     family: 'tech-transfer',
     title: 'Enterprise R&D — INSTAR Lab Technology Transfer',
     description: 'INSTAR Lab is a 501(c)(3) research institute that matures applied research in AI, secure software, sensing, simulation, and learning science — then transitions it to partner companies who commercialize it. A repeatable research-to-product pipeline aligned with the intent of SBIR/STTR programs.',
@@ -296,7 +238,6 @@ export const workstream5Routes = [
   }),
   route({
     path: '/tech-transfer/portfolio/',
-    sourceFile: 'tech-transfer/portfolio/index.html',
     family: 'tech-transfer',
     title: 'Research Portfolio — INSTAR Lab Technology Transfer',
     description: 'INSTAR Lab’s research-to-commercialization portfolio — INSTAR-affiliated researchers contribute the applied R&D behind partner-company products spanning autonomous software engineering, multi-domain sensing, generative AI inference, decision intelligence, and learning science. Several programs at SBIR/STTR readiness.',
@@ -307,7 +248,6 @@ export const workstream5Routes = [
   }),
   route({
     path: '/tech-transfer/sttr-programs/',
-    sourceFile: 'tech-transfer/sttr-programs/index.html',
     family: 'tech-transfer',
     title: 'STTR Programs — INSTAR Lab Technology Transfer',
     description: 'INSTAR Lab is a qualified STTR research institution partner. We bring 501(c)(3) nonprofit standing, multidisciplinary research depth, and a registered SAM/CAGE entity to small-business STTR proposals across AI, quantum, health, HPC, energy, space, and materials.',
@@ -318,7 +258,6 @@ export const workstream5Routes = [
   }),
   route({
     path: '/tech-transfer/workshops-events/',
-    sourceFile: 'tech-transfer/workshops-events/index.html',
     family: 'tech-transfer',
     title: 'Workshops & Events — INSTAR Lab Technology Transfer',
     description: 'INSTAR convenes researchers, industry partners, federal program officers, and policy stakeholders through workshops, technical seminars, and knowledge-transfer events that accelerate translational R&D and build collaborative ecosystems.',

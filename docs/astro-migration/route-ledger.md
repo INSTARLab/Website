@@ -15,25 +15,23 @@ description, one canonical URL, one primary `h1`, and one `main` landmark.
 404, 500, offline, and explicit `noindex` documents are recorded but are not
 treated as indexable content.
 
-The current production build passes this audit with 70 rendered documents.
-Root compatibility pages intentionally retain `.html` URLs (`about.html`,
-`mission.html`, legal pages, and `404.html`); migrated section pages use clean
-trailing-slash URLs such as `/research/consortium/`. The historical
-`/community/fellowship/` path is emitted as an explicit noindex redirect to
-`/fellowship/` and is not added as a second indexable content page.
+The current production build passes this audit with 69 rendered documents and
+68 indexable sitemap routes. Canonical content uses clean trailing-slash URLs
+such as `/about/` and `/research/consortium/`; the generated `404.html` is the
+host-specific not-found document and is not indexable. There are no legacy URL
+redirects or compatibility pages in the deployed artifact.
 
 ## Legacy baseline and Astro ownership
 
-The legacy baseline at the start of this workstream contained 70 HTML
-documents across these route families. Root `.html` URLs are listed as the
-current source shape; the migration owner must decide and test whether each
-becomes a clean route, a redirect, or an intentional compatibility URL.
+The route families below remain the editorial planning ledger. The implementation
+now renders them through typed Astro route data and shared compositions rather
+than preserving the former static source shape.
 
 | Family | Current source set | Reader job | Proposed Astro ownership | Page signature / visual modes | Responsive risk |
 | --- | --- | --- | --- | --- | --- |
 | Home | `/` | Establish INSTAR Lab's point of view and offer a path into the work. | `src/pages/index.astro` plus shared shell | orientation → evidence → observation → action | Hero crop, dense navigation, first viewport |
-| Core | `/about.html`, `/mission.html`, `/contact-us.html` | Understand identity, mission, and how to begin contact. | Explicit core pages with shared content data | thesis → proof/values → invitation | Long inline legacy markup and forms |
-| Legal / utility | `/privacy.html`, `/terms.html`, `/accessibility.html`, `/404.html` | Complete a compliance or recovery task with minimal friction. | Legal templates plus `src/pages/404.astro` | summary → stable anchors → return path | Readability, focus, print, no-JS behavior |
+| Core | `/about/`, `/mission/`, `/contact-us/` | Understand identity, mission, and how to begin contact. | Explicit core pages with shared content data | thesis → proof/values → invitation | Long-form reading and intake clarity |
+| Legal / utility | `/privacy/`, `/terms/`, `/accessibility/`, `/404.html` | Complete a compliance or recovery task with minimal friction. | Legal templates plus `src/pages/404.astro` | summary → stable anchors → return path | Readability, focus, print, no-JS behavior |
 | Fellowship | `/fellowship/`, `/community/fellowship/` | Decide whether the fellowship path is relevant and what to do next. | One canonical route plus explicit redirect/alias policy | orientation → requirements → action | Duplicate URL intent and sitemap coverage |
 | Community | `/community/*` (8 routes) | Find a people, participation, support, or contact path. | Community route family and typed data | wayfinding → field note → participation → action | Forms, menu depth, touch targets |
 | Research | `/research/*` (8 routes) | Understand research practice, programs, facilities, funding, or opportunity. | Research route family and editorial evidence modules | thesis → method/sequence → evidence → next question | Diagrams/tables and long copy |

@@ -2,22 +2,13 @@ import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
 import { defineConfig } from 'astro/config';
 
-const legacyHtmlRoutes = new Set([
-  '/about',
-  '/accessibility',
-  '/contact-us',
-  '/mission',
-  '/privacy',
-  '/terms',
-]);
-
 export default defineConfig({
   site: 'https://instarlab.org',
   output: 'static',
-  trailingSlash: 'ignore',
+  trailingSlash: 'always',
   build: {
-    // Preserve legacy .html pages and directory index pages in one build.
-    format: 'preserve',
+    // Clean directory URLs are the only supported public route policy.
+    format: 'directory',
     // GitHub Pages/Jekyll can mishandle underscore-prefixed asset paths.
     assets: 'assets',
   },
@@ -25,9 +16,7 @@ export default defineConfig({
     sitemap({
       serialize(item) {
         const url = new URL(item.url);
-        if (legacyHtmlRoutes.has(url.pathname)) {
-          url.pathname = `${url.pathname}.html`;
-        } else if (url.pathname !== '/' && !url.pathname.endsWith('/') && !url.pathname.endsWith('.html')) {
+        if (url.pathname !== '/' && !url.pathname.endsWith('/')) {
           url.pathname = `${url.pathname}/`;
         }
         return { ...item, url: url.href };

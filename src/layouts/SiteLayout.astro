@@ -1,6 +1,7 @@
 ---
 import type { SeoProps } from '../components/seo/Seo.astro';
 import Seo from '../components/seo/Seo.astro';
+import { ClientRouter } from 'astro:transitions';
 import SkipLink from '../components/chrome/SkipLink.astro';
 import SiteFooter from '../components/chrome/SiteFooter.astro';
 import SiteHeader from '../components/chrome/SiteHeader.astro';
@@ -29,6 +30,7 @@ const {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <ClientRouter />
     <Seo {...seoProps} />
     <slot name="head" />
   </head>

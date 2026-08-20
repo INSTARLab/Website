@@ -12,7 +12,7 @@ interface Props {
 const { currentPath = Astro.url.pathname } = Astro.props;
 
 const normalizePath = (path: string) => {
-  const normalized = path.split('?')[0].replace(/index\.html$/, '').replace(/\/+$/, '');
+  const normalized = path.split('?')[0].replace(/\/+$/, '');
   return normalized || '/';
 };
 

@@ -5,7 +5,10 @@ import { join, relative, resolve, sep } from "node:path";
 
 const distDirectory = resolve(process.env.ASTRO_DIST_DIR ?? "dist");
 
-test.setTimeout(180_000);
+// The full WCAG sweep intentionally analyzes every rendered route in both
+// viewport projects; keep the budget above the constrained CI runner's 3m
+// default while retaining a finite upper bound.
+test.setTimeout(420_000);
 
 function listHtmlFiles(directory: string, result: string[] = []): string[] {
   for (const entry of readdirSync(directory, { withFileTypes: true })) {
@@ -89,6 +92,14 @@ test("the home route keeps keyboard focus in the document", async ({ page }) => 
   await page.keyboard.press("Tab");
   const focusedElement = await page.evaluate(() => document.activeElement?.tagName ?? "");
   expect(focusedElement).not.toBe("BODY");
+});
+
+test("the client router preserves the editorial shell across navigation", async ({ page }) => {
+  await page.goto("/", { waitUntil: "domcontentloaded" });
+  await page.locator('.home-masthead__actions a[href="/research/current-programs/"]').click();
+  await expect(page).toHaveURL(/\/research\/current-programs\/$/);
+  await expect(page.locator("h1")).toContainText("Current Research Programs");
+  await expect(page.locator(".site-header")).toBeVisible();
 });
 
 function formatViolations(violations: Array<{ id: string; help: string; nodes: Array<{ target: unknown }> }>): string {

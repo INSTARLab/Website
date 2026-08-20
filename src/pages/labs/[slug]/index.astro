@@ -1,5 +1,5 @@
 ---
-import W5LegacyDocument from '../../../components/workstream5/W5LegacyDocument.astro';
+import W5EditorialDocument from '../../../components/workstream5/W5EditorialDocument.astro';
 import { routesForFamily } from '../../../data/workstream5/manifest';
 import type { W5RouteRecord } from '../../../data/workstream5/types';
 
@@ -19,4 +19,4 @@ export function getStaticPaths() {
 const { record } = Astro.props;
 ---
 
-<W5LegacyDocument record={record} />
+<W5EditorialDocument record={record} />
