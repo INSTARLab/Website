@@ -131,11 +131,13 @@ deploy:gitlab-pages:
   stage: .post
   image: node:22-bookworm-slim
   before_script:
-    - corepack enable
-    - corepack prepare pnpm@11.22.0 --activate
+    # The shared runner executes as an unprivileged user, so Corepack cannot
+    # create links under /usr/local/bin. Run the pinned package manager via
+    # npm's user-writable npx cache instead.
+    - npx --yes --package=pnpm@11.22.0 pnpm --version
   script:
-    - pnpm install --frozen-lockfile
-    - pnpm run build
+    - npx --yes --package=pnpm@11.22.0 pnpm install --frozen-lockfile
+    - npx --yes --package=pnpm@11.22.0 pnpm run build
   pages:
     publish: dist
   artifacts:
