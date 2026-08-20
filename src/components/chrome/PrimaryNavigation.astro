@@ -40,7 +40,11 @@ const chevron = '<path d="m1 1 4 4 4-4" fill="none" stroke="currentColor" stroke
         <li
           class:list={[
             'site-nav__item',
-            { 'site-nav__item--group': !('href' in entry), 'site-nav__item--mega': 'sections' in entry },
+            {
+              'site-nav__item--group': !('href' in entry),
+              'site-nav__item--mega': 'sections' in entry,
+              'site-nav__item--current': !('href' in entry) && hasCurrentChild(entry),
+            },
           ]}
         >
           {'href' in entry ? (
@@ -48,7 +52,7 @@ const chevron = '<path d="m1 1 4 4 4-4" fill="none" stroke="currentColor" stroke
               {entry.label}
             </a>
           ) : (
-            <details class="site-nav__details" open={hasCurrentChild(entry) || undefined}>
+            <details class="site-nav__details" data-current={hasCurrentChild(entry) ? 'true' : undefined}>
               <summary class="site-nav__trigger">
                 {entry.label}
                 <svg class="site-nav__chevron" viewBox="0 0 10 6" aria-hidden="true"

@@ -264,7 +264,8 @@
 
   .site-nav__link:hover,
   .site-nav__link[aria-current='page'],
-  .site-nav__details[open] > .site-nav__trigger {
+  .site-nav__details[open] > .site-nav__trigger,
+  .site-nav__item--current > .site-nav__details > .site-nav__trigger {
     border-color: var(--color-brand);
     color: var(--color-brand);
   }

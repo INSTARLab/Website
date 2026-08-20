@@ -1,6 +1,9 @@
 ---
 import type { CoreRouteMeta } from '../../data/core-routes';
+import { publicMediaFor } from '../../data/media';
 import SiteLayout from '../../layouts/SiteLayout.astro';
+import EditorialMedia from '../editorial/media/EditorialMedia.astro';
+import { createPublicMedia } from '../../utils/media/records';
 
 interface Props {
   meta: CoreRouteMeta;
@@ -86,6 +89,37 @@ const content: Record<string, { eyebrow: string; hero: string; lead: string; blo
 };
 const page = content[key] ?? content['404'];
 const isNotFound = key === '404';
+const pageSignature = isNotFound
+  ? 'orientation → connection → participation'
+  : key === 'contact-us'
+    ? 'orientation → evidence → participation'
+    : ['privacy', 'terms', 'accessibility'].includes(key)
+      ? 'orientation → evidence → connection'
+      : 'orientation → evidence → participation';
+const heroUrl = page.hero as `/${string}`;
+const heroAsset = publicMediaFor(heroUrl, {
+  alt: { kind: 'contextual', status: 'approved', text: `${meta.title} — INSTAR Lab` },
+  caption: `INSTAR Lab / ${page.eyebrow}`,
+  sizes: '(min-width: 58rem) 55vw, 100vw',
+  loading: 'eager',
+  fetchpriority: 'high',
+}) ?? createPublicMedia({
+  id: `media:core-${key}` as `media:${string}`,
+  url: heroUrl,
+  type: 'photography-or-illustration',
+  role: 'orientation',
+  alt: { kind: 'contextual', status: 'approved', text: `${meta.title} — INSTAR Lab` },
+  dimensions: { width: 1920, height: 600 },
+  sizes: '(min-width: 58rem) 55vw, 100vw',
+  loading: 'eager',
+  fetchpriority: 'high',
+  provenance: {
+    status: 'unverified',
+    source: 'Repository asset; original source is not recorded.',
+    license: 'Unverified; confirm ownership or license before publication.',
+  },
+  caption: `INSTAR Lab / ${page.eyebrow}`,
+});
 ---
 
 <SiteLayout
@@ -98,7 +132,7 @@ const isNotFound = key === '404';
   bodyClass={`core-editorial-page core-editorial-page--${key}`}
   mainClass="core-editorial-main"
 >
-  <article class="core-editorial" data-route={meta.path}>
+  <article class="core-editorial" data-route={meta.path} data-page-signature={pageSignature}>
     <header class="core-editorial__hero">
       <div class="core-editorial__hero-copy">
         <div class="core-editorial__container">
@@ -108,10 +142,7 @@ const isNotFound = key === '404';
           <a class="core-editorial__button" href={isNotFound ? '/' : '/contact-us/'}>{isNotFound ? 'Return to home' : 'Begin a conversation'} <span aria-hidden="true">↗</span></a>
         </div>
       </div>
-      <figure class="core-editorial__hero-media">
-        <img src={page.hero} alt={`${meta.title} — INSTAR Lab`} width="1600" height="1000" loading="eager" fetchpriority="high" decoding="async" />
-        <figcaption>INSTAR Lab / {page.eyebrow}</figcaption>
-      </figure>
+      <EditorialMedia asset={heroAsset} figureClass="core-editorial__hero-media" class="core-editorial__hero-image" picture={false} />
     </header>
 
     <div class="core-editorial__container core-editorial__body">

@@ -1,6 +1,7 @@
 import {
   getInstarResearchTechnologySciencesRoutes,
   type InstarResearchTechnologySciencesRoute,
+  type InstarResearchTechnologySciencesComposition,
 } from './instar-research-technology-sciences';
 import { workstream5Routes } from './workstream5/manifest';
 import type { W5Family, W5RouteRecord, W5VisualMode } from './workstream5/types';
@@ -11,6 +12,17 @@ export type EditorialFamily =
   | 'sciences'
   | W5Family;
 
+export type EditorialVisualMode = W5VisualMode;
+
+export interface EditorialRouteMedia {
+  readonly src: `/${string}`;
+  readonly alt: string;
+  readonly caption: string;
+  readonly width: number;
+  readonly height: number;
+  readonly focalPoint: `${number}% ${number}%`;
+}
+
 export interface EditorialRoute {
   readonly path: `/${string}`;
   readonly slug: string;
@@ -20,11 +32,12 @@ export interface EditorialRoute {
   readonly eyebrow: string;
   readonly hero: string;
   readonly heroAlt: string;
-  readonly signature: readonly string[];
+  readonly signature: readonly [EditorialVisualMode, EditorialVisualMode, EditorialVisualMode, ...EditorialVisualMode[]];
   readonly pageJob: string;
   readonly readyAction: string;
   readonly earlyAction: string;
   readonly composition?: string;
+  readonly primaryMedia?: EditorialRouteMedia;
   readonly type?: 'website' | 'article';
 }
 
@@ -59,6 +72,97 @@ function normalizeAssetPath(path: string): string {
   return normalized.startsWith('/') ? normalized : `/${normalized}`;
 }
 
+const routeMediaDimensions: Readonly<Record<string, Pick<EditorialRouteMedia, 'width' | 'height'>>> = {
+  '/img/pages/consortium/hero.avif': { width: 1170, height: 400 },
+  '/img/pages/current-programs/card-1-current.avif': { width: 370, height: 250 },
+  '/img/pages/facilities/card-1.avif': { width: 370, height: 250 },
+  '/img/pages/innovation/section-1.avif': { width: 570, height: 370 },
+  '/img/slider/geospatial.avif': { width: 1920, height: 800 },
+  '/img/pages/opportunities/card-1.avif': { width: 370, height: 200 },
+  '/img/pages/our-process/hero.avif': { width: 1170, height: 400 },
+  '/img/pages/augmented-reality/showcase-1.avif': { width: 570, height: 370 },
+  '/img/pages/computer-science/card-1.avif': { width: 370, height: 200 },
+  '/img/pages/data-science/card-1.avif': { width: 370, height: 250 },
+  '/img/pages/formal-methods/hero.avif': { width: 1170, height: 400 },
+  '/img/pages/machine-intelligence/section-1.avif': { width: 570, height: 370 },
+  '/img/projects/nlp-tech-language-understanding.avif': { width: 800, height: 600 },
+  '/img/pages/quantum-computing/hero.avif': { width: 770, height: 400 },
+  '/img/pages/agriculture/card-1.avif': { width: 370, height: 200 },
+  '/img/pages/anthropology/hero.avif': { width: 770, height: 400 },
+  '/img/pages/archaeology/card-1.avif': { width: 555, height: 370 },
+  '/img/pages/biology/card-1.avif': { width: 370, height: 250 },
+  '/img/pages/chemistry/card-1.avif': { width: 370, height: 250 },
+  '/img/pages/cognitive-sciences/hero.avif': { width: 1170, height: 400 },
+  '/img/pages/economics/card-1.avif': { width: 370, height: 250 },
+  '/img/pages/energy/section-1.avif': { width: 570, height: 370 },
+  '/img/pages/genetics/hero.avif': { width: 770, height: 400 },
+  '/img/pages/geology/card-1.avif': { width: 555, height: 370 },
+  '/img/pages/kinesiology/card-1.avif': { width: 555, height: 370 },
+  '/img/pages/law/hero.avif': { width: 770, height: 400 },
+  '/img/pages/linguistics/card-1.avif': { width: 370, height: 200 },
+  '/img/pages/materials-science/hero.avif': { width: 770, height: 400 },
+  '/img/pages/medicine/section-1.avif': { width: 570, height: 370 },
+  '/img/pages/neuroscience/card-1.avif': { width: 370, height: 200 },
+  '/img/pages/ocean-science/hero.avif': { width: 1170, height: 400 },
+  '/img/pages/outer-space/section-1.avif': { width: 570, height: 370 },
+  '/img/pages/physics/section-1.avif': { width: 570, height: 370 },
+  '/img/pages/physiology/card-1.avif': { width: 370, height: 200 },
+  '/img/pages/psychology/section-1.avif': { width: 570, height: 370 },
+  '/img/pages/sociology/card-1.avif': { width: 370, height: 200 },
+  '/img/pages/about-us/section-1-aboutus.avif': { width: 570, height: 370 },
+  '/img/pages/careers/card-1.avif': { width: 555, height: 370 },
+  '/img/pages/leadership/hero.avif': { width: 1170, height: 400 },
+  '/img/pages/fellowship/inline-1.avif': { width: 570, height: 370 },
+  '/img/help-us-bg.avif': { width: 1920, height: 530 },
+  '/img/pages/enterprise-rd/card-1.avif': { width: 370, height: 250 },
+  '/img/pages/portfolio/card-1.avif': { width: 370, height: 250 },
+  '/img/pages/sttr-programs/section-1.avif': { width: 570, height: 370 },
+  '/img/pages/workshops-events/card-1.avif': { width: 555, height: 370 },
+};
+
+const supportingMediaByRoute: Readonly<Record<string, string>> = {
+  '/community/about-us/': '/img/pages/about-us/section-1-aboutus.avif',
+  '/community/careers/': '/img/pages/careers/card-1.avif',
+  '/community/leadership/': '/img/pages/leadership/hero.avif',
+  '/community/support/': '/img/help-us-bg.avif',
+  '/fellowship/': '/img/pages/fellowship/inline-1.avif',
+  '/tech-transfer/enterprise-rd/': '/img/pages/enterprise-rd/card-1.avif',
+  '/tech-transfer/portfolio/': '/img/pages/portfolio/card-1.avif',
+  '/tech-transfer/sttr-programs/': '/img/pages/sttr-programs/section-1.avif',
+  '/tech-transfer/workshops-events/': '/img/pages/workshops-events/card-1.avif',
+};
+
+const visualModesByComposition: Record<
+  InstarResearchTechnologySciencesComposition,
+  readonly [EditorialVisualMode, EditorialVisualMode, EditorialVisualMode, ...EditorialVisualMode[]]
+> = {
+  'consortium-network': ['orientation', 'observation', 'connection', 'participation'],
+  'evidence-index': ['orientation', 'evidence', 'observation', 'connection'],
+  'funding-pathway': ['orientation', 'sequence', 'contrast', 'participation'],
+  'research-narrative': ['orientation', 'observation', 'evidence', 'contrast', 'connection'],
+  'data-atlas': ['orientation', 'evidence', 'observation', 'participation', 'connection'],
+  'opportunity-index': ['orientation', 'evidence', 'sequence', 'participation'],
+  'research-method': ['orientation', 'sequence', 'evidence', 'contrast', 'participation'],
+  'technology-narrative': ['orientation', 'observation', 'evidence', 'contrast', 'connection'],
+  'technology-index': ['orientation', 'evidence', 'sequence', 'connection'],
+  'science-narrative': ['orientation', 'observation', 'evidence', 'contrast', 'connection'],
+  'science-index': ['orientation', 'evidence', 'observation', 'connection'],
+};
+
+function mediaForRoute(src: string, title: string): EditorialRouteMedia | undefined {
+  const normalized = normalizeAssetPath(src) as `/${string}`;
+  const dimensions = routeMediaDimensions[normalized];
+  if (!dimensions) return undefined;
+
+  return {
+    src: normalized,
+    alt: `${title}: a supporting visual for the research question described on this page.`,
+    caption: 'Supporting visual from the repository asset library. Read the adjacent text for the claim and its limits.',
+    ...dimensions,
+    focalPoint: '50% 50%',
+  };
+}
+
 function mediaAlt(title: string): string {
   return `${title} — INSTAR Lab editorial image`;
 }
@@ -74,17 +178,18 @@ function routeFromRts(route: InstarResearchTechnologySciencesRoute): EditorialRo
     eyebrow: `${familyLabels[route.family]} / ${route.heading}`,
     hero: `/${route.banner.replace(/^\//, '')}`,
     heroAlt: mediaAlt(route.title),
-    signature: route.pageSignature.split(' → '),
+    signature: visualModesByComposition[route.composition],
     pageJob: `Help a reader understand what ${route.heading.toLowerCase()} makes possible, what to examine, and where a serious next question begins.`,
     readyAction: route.family === 'research' ? 'Discuss a research pathway with INSTAR.' : 'Explore the adjacent research pathway.',
     earlyAction: `Start with the ${route.heading.toLowerCase()} orientation and follow the evidence.`,
     composition: route.composition,
+    primaryMedia: route.primaryMedia ? mediaForRoute(route.primaryMedia, route.title) : undefined,
   };
 }
 
 function routeFromW5(route: W5RouteRecord): EditorialRoute {
   const hero = route.media.find((media) => media.role === 'orientation')?.src ?? '/img/banners/news.avif';
-  const signature = route.signature as readonly W5VisualMode[];
+  const signature = route.signature;
   return {
     path: route.path,
     slug: slugFromPath(route.path),
@@ -98,6 +203,10 @@ function routeFromW5(route: W5RouteRecord): EditorialRoute {
     pageJob: route.pageJob,
     readyAction: route.readyAction,
     earlyAction: route.earlyAction,
+    primaryMedia: supportingMediaByRoute[route.path]
+      ? mediaForRoute(supportingMediaByRoute[route.path], route.title)
+      : undefined,
+    composition: `${route.family}-${route.signature.find((mode) => mode !== 'orientation') ?? 'orientation'}`,
     type: route.family === 'news' ? 'article' : 'website',
   };
 }
@@ -121,7 +230,11 @@ export function editorialRoutesForFamily(family: EditorialFamily): readonly Edit
 
 export function editorialRelatedRoutes(route: EditorialRoute, limit = 4): readonly EditorialRoute[] {
   const sameFamily = editorialRoutes.filter((entry) => entry.family === route.family && entry.path !== route.path);
-  return sameFamily.slice(0, limit);
+  const sameComposition = route.composition
+    ? sameFamily.filter((entry) => entry.composition === route.composition)
+    : [];
+  const remaining = sameFamily.filter((entry) => !sameComposition.includes(entry));
+  return [...sameComposition, ...remaining].slice(0, limit);
 }
 
 export function familyLabel(family: EditorialFamily): string {

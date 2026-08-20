@@ -2,6 +2,7 @@
 import EditorialRoute from './EditorialRoute.astro';
 import {
   editorialRelatedRoutes,
+  editorialRouteAtPath,
   type EditorialRoute as EditorialRouteData,
 } from '../../data/editorialRoutes';
 import type { InstarResearchTechnologySciencesRoute as SourceRoute } from '../../data/instar-research-technology-sciences';
@@ -11,21 +12,7 @@ interface Props {
 }
 
 const { route } = Astro.props;
-const source = {
-  path: route.path,
-  slug: route.slug,
-  family: route.family,
-  title: route.title,
-  description: route.description ?? `Explore INSTAR Lab's ${route.heading.toLowerCase()} work through an evidence-led, interdisciplinary lens.`,
-  eyebrow: `${route.family} / ${route.heading}`,
-  hero: `/${route.banner.replace(/^\//, '')}`,
-  heroAlt: `${route.title} — INSTAR Lab editorial image`,
-  signature: route.pageSignature.split(' → '),
-  pageJob: `Help a reader understand what ${route.heading.toLowerCase()} makes possible, what to examine, and where a serious next question begins.`,
-  readyAction: route.family === 'research' ? 'Discuss a research pathway with INSTAR.' : 'Explore the adjacent research pathway.',
-  earlyAction: `Start with the ${route.heading.toLowerCase()} orientation and follow the evidence.`,
-  composition: route.composition,
-} satisfies EditorialRouteData;
+const source = editorialRouteAtPath(route.path) satisfies EditorialRouteData;
 ---
 
 <EditorialRoute route={source} related={editorialRelatedRoutes(source)} />

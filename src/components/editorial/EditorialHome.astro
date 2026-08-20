@@ -1,15 +1,42 @@
 ---
 import ResearchConstellation from '../interactive/ResearchConstellation.astro';
 import SiteLayout from '../../layouts/SiteLayout.astro';
+import EditorialMedia from './media/EditorialMedia.astro';
 import {
   editorialRoutesForFamily,
   familyLabel,
 } from '../../data/editorialRoutes';
+import { publicMediaFor } from '../../data/media';
+import { createPublicMedia } from '../../utils/media/records';
 
 const research = editorialRoutesForFamily('research').slice(0, 4);
 const technology = editorialRoutesForFamily('technology').slice(0, 3);
 const sciences = editorialRoutesForFamily('sciences').slice(0, 3);
 const briefs = editorialRoutesForFamily('news').filter((route) => route.path !== '/news/').slice(0, 4);
+const homeHeroUrl = '/img/slider/jupiterstar.avif' as const;
+const homeHero = publicMediaFor(homeHeroUrl, {
+  alt: { kind: 'contextual', status: 'approved', text: 'A star field representing the scale of questions INSTAR studies' },
+  caption: '01 / Curiosity is a starting condition. Rigor is the direction.',
+  sizes: '(min-width: 58rem) 54vw, 100vw',
+  loading: 'eager',
+  fetchpriority: 'high',
+}) ?? createPublicMedia({
+  id: 'media:home-jupiterstar',
+  url: homeHeroUrl,
+  type: 'photography-or-illustration',
+  role: 'orientation',
+  alt: { kind: 'contextual', status: 'approved', text: 'A star field representing the scale of questions INSTAR studies' },
+  dimensions: { width: 1920, height: 751 },
+  sizes: '(min-width: 58rem) 54vw, 100vw',
+  loading: 'eager',
+  fetchpriority: 'high',
+  provenance: {
+    status: 'unverified',
+    source: 'Repository asset; original source is not recorded.',
+    license: 'Unverified; confirm ownership or license before publication.',
+  },
+  caption: '01 / Curiosity is a starting condition. Rigor is the direction.',
+});
 ---
 
 <SiteLayout
@@ -21,7 +48,7 @@ const briefs = editorialRoutesForFamily('news').filter((route) => route.path !==
   bodyClass="editorial-home-page"
   mainClass="editorial-home-main"
 >
-  <article class="home-editorial">
+  <article class="home-editorial" data-route="/" data-page-signature="orientation → evidence → observation → participation">
     <section class="home-masthead" aria-labelledby="home-title">
       <div class="home-container home-masthead__grid">
         <div class="home-masthead__copy">
@@ -33,10 +60,7 @@ const briefs = editorialRoutesForFamily('news').filter((route) => route.path !==
             <a class="home-button home-button--line" href="/mission/">Read the method</a>
           </div>
         </div>
-        <div class="home-masthead__media">
-          <img src="/img/slider/jupiterstar.avif" alt="A star field representing the scale of questions INSTAR studies" width="1800" height="1200" loading="eager" fetchpriority="high" decoding="async" />
-          <div class="home-masthead__caption"><span aria-hidden="true">01</span><span>Curiosity is a starting condition. Rigor is the direction.</span></div>
-        </div>
+        <EditorialMedia asset={homeHero} figureClass="home-masthead__media" class="home-masthead__image" picture={false} />
       </div>
     </section>
 
@@ -158,8 +182,8 @@ const briefs = editorialRoutesForFamily('news').filter((route) => route.path !==
   .home-masthead__media { position: relative; min-block-size: 100%; margin: 0; background: #14253a; }
   .home-masthead__media::after { position: absolute; inset: 0; background: linear-gradient(90deg, rgb(11 22 38 / 0.5), transparent 45%); content: ''; }
   .home-masthead__media img { inline-size: 100%; block-size: 100%; min-block-size: 30rem; object-fit: cover; filter: saturate(0.85) contrast(1.05); }
-  .home-masthead__caption { position: absolute; z-index: 1; inset-inline: 1.5rem; inset-block-end: 1.5rem; display: flex; gap: 0.7rem; color: #fff; font: 0.74rem/1.4 var(--font-ui); }
-  .home-masthead__caption span:first-child { color: var(--home-teal); font-weight: 800; }
+  .home-masthead__media figcaption { position: absolute; z-index: 1; inset-inline: 1.5rem; inset-block-end: 1.5rem; display: flex; gap: 0.7rem; color: #fff; font: 0.74rem/1.4 var(--font-ui); text-shadow: 0 1px 12px rgb(0 0 0 / 0.6); }
+  .home-masthead__media figcaption::before { inline-size: 1.8rem; block-size: 2px; flex: none; margin-block-start: 0.55rem; background: var(--home-teal); content: ''; }
   .home-section-label { display: flex; align-items: center; gap: 0.75rem; color: var(--color-brand); }
   .home-section-label span:first-child { color: var(--color-muted); }
   .home-section-label--light { color: var(--home-teal); }

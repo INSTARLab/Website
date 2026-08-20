@@ -1,5 +1,6 @@
 ---
 import { render } from 'astro:content';
+import { publicMediaFor } from '../../../data/media';
 import type { ArticleEntry, AuthorEntry } from '../../../data/articles';
 import {
   articleIsoDate,
@@ -9,6 +10,8 @@ import {
   readingTimeMinutes,
 } from '../../../data/articles';
 import SiteLayout from '../../../layouts/SiteLayout.astro';
+import EditorialMedia from '../media/EditorialMedia.astro';
+import { createPublicMedia } from '../../../utils/media/records';
 
 interface Props {
   article: ArticleEntry;
@@ -21,6 +24,35 @@ const { Content, headings } = await render(article);
 const hero = article.data.hero;
 const articleAuthors = authorNames(article, authors);
 const modifiedAt = article.data.updatedAt ?? article.data.publishedAt;
+const heroAsset = hero
+  ? publicMediaFor(hero.src as `/${string}`, {
+      alt: { kind: 'contextual', status: 'approved', text: hero.alt },
+      caption: hero.caption,
+      credit: hero.credit,
+      focalPoint: hero.focalPoint as `${number}% ${number}%` | undefined,
+      sizes: '(min-width: 96rem) 96rem, 100vw',
+      loading: 'eager',
+      fetchpriority: 'high',
+    }) ?? createPublicMedia({
+      id: `media:article-${articleSlug(article)}` as `media:${string}`,
+      url: hero.src as `/${string}`,
+      type: 'photography-or-illustration',
+      role: 'hero',
+      alt: { kind: 'contextual', status: 'approved', text: hero.alt },
+      dimensions: { width: 1600, height: 900 },
+      sizes: '(min-width: 96rem) 96rem, 100vw',
+      loading: 'eager',
+      fetchpriority: 'high',
+      focalPoint: hero.focalPoint as `${number}% ${number}%` | undefined,
+      provenance: {
+        status: 'unverified',
+        source: 'Repository asset; original source is not recorded.',
+        license: 'Unverified; confirm ownership or license before publication.',
+      },
+      caption: hero.caption,
+      credit: hero.credit,
+    })
+  : undefined;
 const mapItems = article.data.readingMap.length > 0
   ? article.data.readingMap
   : headings
@@ -42,7 +74,7 @@ const mapItems = article.data.readingMap.length > 0
   keywords={article.data.topics}
   noindex={article.data.noindex}
 >
-  <article class="article-document">
+  <article class="article-document" data-page-signature="orientation → evidence → observation → contrast → connection">
     <header class="article-document__header">
       <div class="article-document__header-inner">
         <nav class="article-document__breadcrumb" aria-label="Breadcrumb">
@@ -69,26 +101,7 @@ const mapItems = article.data.readingMap.length > 0
       </div>
     </header>
 
-    {hero ? (
-      <figure class="article-document__hero">
-        <img
-          src={hero.src}
-          alt={hero.alt}
-          width="1600"
-          height="1000"
-          loading="eager"
-          fetchpriority="high"
-          decoding="async"
-          style={hero.focalPoint ? `object-position: ${hero.focalPoint}` : undefined}
-        />
-        {hero.caption || hero.credit ? (
-          <figcaption>
-            {hero.caption ? <span>{hero.caption}</span> : null}
-            {hero.credit ? <span>{hero.credit}</span> : null}
-          </figcaption>
-        ) : null}
-      </figure>
-    ) : null}
+    {heroAsset ? <EditorialMedia asset={heroAsset} figureClass="article-document__hero" class="article-document__hero-image" picture={false} /> : null}
 
     <div class="article-document__layout site-container">
       {mapItems.length > 0 ? (

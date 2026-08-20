@@ -3,8 +3,13 @@ import SiteLayout from '../../layouts/SiteLayout.astro';
 import {
   familyLabel,
   familyRoot,
+  type EditorialVisualMode,
   type EditorialRoute as EditorialRouteData,
 } from '../../data/editorialRoutes';
+import { publicMediaFor } from '../../data/media';
+import { createPublicMedia } from '../../utils/media/records';
+import EditorialMedia from './media/EditorialMedia.astro';
+import RouteModeSection from './RouteModeSection.astro';
 
 interface Props {
   route: EditorialRouteData;
@@ -12,20 +17,39 @@ interface Props {
 }
 
 const { route, related } = Astro.props;
-const signature = route.signature.slice(0, 5);
-const modeDescriptions: Record<string, string> = {
-  orientation: 'Establish the question, vocabulary, and point of view before the reader chooses a path.',
-  evidence: 'Make the claim inspectable through sources, mechanisms, comparisons, or a clearly marked unknown.',
-  observation: 'Give the reader a concrete scene, artifact, experiment, or field detail to hold in mind.',
-  sequence: 'Show how the work unfolds over time, from a first question to a decision or next experiment.',
-  contrast: 'Create a pause for limits, trade-offs, risk, or the question that changes the conclusion.',
-  participation: 'Offer a practical way to compare, choose, contribute, or begin a conversation.',
-  connection: 'Open the next route through adjacent questions, methods, people, or public-benefit work.',
-};
 const modeLabel = (mode: string) => mode.replaceAll('-', ' ');
-const modeDescription = (mode: string) => modeDescriptions[mode] ?? 'A deliberate editorial view into the work.';
 const primaryHref = familyRoot(route.family);
 const isArticle = route.type === 'article';
+const signature = route.signature.slice(0, 5);
+const modeSections = route.signature.filter(
+  (mode): mode is Exclude<EditorialVisualMode, 'orientation' | 'connection'> => mode !== 'orientation' && mode !== 'connection',
+);
+const heroUrl = route.hero as `/${string}`;
+const heroAsset = publicMediaFor(heroUrl, {
+  alt: { kind: 'contextual', status: 'approved', text: route.heroAlt },
+  caption: `${route.eyebrow}. A visual orientation point for the work ahead.`,
+  sizes: '(min-width: 58rem) 54vw, 100vw',
+  loading: 'eager',
+  fetchpriority: 'high',
+}) ?? createPublicMedia({
+  id: `media:hero-${route.slug}` as `media:${string}`,
+  url: heroUrl,
+  type: 'photography-or-illustration',
+  role: 'orientation',
+  alt: { kind: 'contextual', status: 'approved', text: route.heroAlt },
+  dimensions: { width: 1920, height: 600 },
+  sizes: '(min-width: 58rem) 54vw, 100vw',
+  loading: 'eager',
+  fetchpriority: 'high',
+  provenance: {
+    status: 'unverified',
+    source: 'Repository asset; original source is not recorded.',
+    license: 'Unverified; confirm ownership or license before publication.',
+  },
+  caption: `${route.eyebrow}. A visual orientation point for the work ahead.`,
+});
+const nextActionNumber = modeSections.length + 2;
+const relatedNumber = nextActionNumber + (modeSections.includes('participation') ? 0 : 1);
 ---
 
 <SiteLayout
@@ -55,10 +79,7 @@ const isArticle = route.type === 'article';
             <a class="editorial-button editorial-button--quiet" href="/contact-us/">Start a conversation</a>
           </div>
         </div>
-        <figure class="editorial-hero__media">
-          <img src={route.hero} alt={route.heroAlt} width="1600" height="1000" loading="eager" fetchpriority="high" decoding="async" />
-          <figcaption><span class="editorial-caption-mark" aria-hidden="true"></span>{route.eyebrow}. A visual orientation point for the work ahead.</figcaption>
-        </figure>
+        <EditorialMedia asset={heroAsset} figureClass="editorial-hero__media" class="editorial-hero__image" picture={false} />
       </div>
     </header>
 
@@ -84,39 +105,26 @@ const isArticle = route.type === 'article';
       </div>
     </section>
 
-    <section class="editorial-sequence" aria-labelledby="editorial-sequence-title">
-      <div class="editorial-container">
-        <div class="editorial-section-label editorial-section-label--light"><span>02</span><span>The reading sequence</span></div>
-        <div class="editorial-sequence__intro">
-          <h2 id="editorial-sequence-title">A field guide, not a brochure.</h2>
-          <p>Each view earns its place by helping the reader understand, inspect, compare, or act.</p>
-        </div>
-        <ol class="editorial-mode-grid">
-          {signature.map((mode, index) => (
-            <li class="editorial-mode-card">
-              <span class="editorial-mode-card__index">{String(index + 1).padStart(2, '0')}</span>
-              <h3>{modeLabel(mode)}</h3>
-              <p>{modeDescription(mode)}</p>
-            </li>
-          ))}
-        </ol>
-      </div>
-    </section>
+    {modeSections.map((mode, index) => (
+      <RouteModeSection mode={mode} index={index + 2} route={route} />
+    ))}
 
-    <section class="editorial-decision editorial-container" aria-labelledby="editorial-decision-title">
-      <div class="editorial-decision__stamp" aria-hidden="true">INSTAR<br />/ / /</div>
-      <div class="editorial-decision__copy">
-        <div class="editorial-section-label"><span>03</span><span>Choose a direction</span></div>
-        <h2 id="editorial-decision-title">{route.readyAction}</h2>
-        <p>{route.earlyAction}</p>
-      </div>
-      <a class="editorial-button editorial-button--primary" href="/contact-us/">Take the next step <span aria-hidden="true">↗</span></a>
-    </section>
+    {!modeSections.includes('participation') ? (
+      <section class="editorial-decision editorial-container" aria-labelledby="editorial-decision-title">
+        <div class="editorial-decision__stamp" aria-hidden="true">INSTAR<br />/ / /</div>
+        <div class="editorial-decision__copy">
+          <div class="editorial-section-label"><span>{String(nextActionNumber).padStart(2, '0')}</span><span>Choose a direction</span></div>
+          <h2 id="editorial-decision-title">{route.readyAction}</h2>
+          <p>{route.earlyAction}</p>
+        </div>
+        <a class="editorial-button editorial-button--primary" href="/contact-us/">Take the next step <span aria-hidden="true">↗</span></a>
+      </section>
+    ) : null}
 
     <section class="editorial-related editorial-container" aria-labelledby="editorial-related-title">
       <div class="editorial-related__head">
         <div>
-          <div class="editorial-section-label"><span>04</span><span>Continue exploring</span></div>
+          <div class="editorial-section-label"><span>{String(relatedNumber).padStart(2, '0')}</span><span>Continue exploring</span></div>
           <h2 id="editorial-related-title">Adjacent questions</h2>
         </div>
         <a href={primaryHref}>View all {familyLabel(route.family).toLowerCase()} <span aria-hidden="true">→</span></a>

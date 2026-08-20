@@ -142,6 +142,10 @@ export function firstMatch(html, pattern) {
 
 export function pageMetadata(html, route) {
   const title = textContent(firstMatch(html, /<title\b[^>]*>([\s\S]*?)<\/title>/i));
+  const pageSignature = firstMatch(html, /data-page-signature=["']([^"']*)["']/i);
+  const visualModes = pageSignature
+    ? pageSignature.split(/\s*→\s*/).map((mode) => mode.trim()).filter(Boolean)
+    : [];
   const descriptionTag = openingTags(html, ["meta"]).find(
     ({ attributes }) => attributes.name?.toLowerCase() === "description"
   );
@@ -166,6 +170,8 @@ export function pageMetadata(html, route) {
     mainCount,
     robots,
     indexable,
+    pageSignature,
+    visualModes,
   };
 }
 

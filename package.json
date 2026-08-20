@@ -27,8 +27,7 @@
   },
   "dependencies": {
     "@astrojs/rss": "^4.0.19",
-    "motion": "^13.1.0",
-    "three": "^0.185.1"
+    "motion": "^13.1.0"
   },
   "devDependencies": {
     "@21st-dev/cli": "1.15.1",
@@ -37,7 +36,6 @@
     "@axe-core/playwright": "4.13.0",
     "@playwright/test": "1.62.1",
     "@tailwindcss/vite": "^4.3.3",
-    "@types/three": "^0.185.4",
     "astro": "^7.2.4",
     "pagefind": "1.5.2",
     "tailwindcss": "^4.3.3",

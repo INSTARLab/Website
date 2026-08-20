@@ -64,6 +64,9 @@ const metadataFindings = routes.flatMap((route) => {
   if (!route.canonical) findings.push("missing-canonical");
   if (route.h1Count !== 1) findings.push(`expected-one-h1-found-${route.h1Count}`);
   if (route.mainCount !== 1) findings.push(`expected-one-main-found-${route.mainCount}`);
+  if (route.visualModes.length < 3) {
+    findings.push(route.pageSignature ? `expected-at-least-three-visual-modes-found-${route.visualModes.length}` : "missing-page-signature");
+  }
   return findings.length > 0 ? [{ route: route.route, file: route.file, findings }] : [];
 });
 

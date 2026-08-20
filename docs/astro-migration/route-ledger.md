@@ -15,11 +15,18 @@ description, one canonical URL, one primary `h1`, and one `main` landmark.
 404, 500, offline, and explicit `noindex` documents are recorded but are not
 treated as indexable content.
 
-The current production build passes this audit with 69 rendered documents and
-68 indexable sitemap routes. Canonical content uses clean trailing-slash URLs
+The current production build passes this audit with 70 HTML documents (including
+the host-specific `404.html`) and 68 indexable sitemap routes. Canonical content uses clean trailing-slash URLs
 such as `/about/` and `/research/consortium/`; the generated `404.html` is the
 host-specific not-found document and is not indexable. There are no legacy URL
 redirects or compatibility pages in the deployed artifact.
+
+Research, technology, science, community, fellowship, lab, and tech-transfer
+editorial routes expose a typed `data-page-signature` with at least three visual
+modes. The shared renderer turns those modes into distinct evidence, observation,
+sequence, contrast, participation, and connection sections instead of treating
+the signature as display-only metadata. Core, legal, utility, and article routes
+retain their specialized templates.
 
 ## Legacy baseline and Astro ownership
 
