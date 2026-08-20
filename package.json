@@ -10,7 +10,9 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
+    "build": "astro build && pnpm run build:search",
+    "build:astro": "astro build",
+    "build:search": "node scripts/search/build-pagefind.mjs",
     "preview": "astro preview",
     "check": "tsc --noEmit",
     "test": "pnpm run check",
@@ -24,6 +26,7 @@
     "verify": "pnpm run check && pnpm run build && pnpm run quality:routes && pnpm run quality:media && pnpm run quality:links && pnpm run quality:sitemap && pnpm run quality:browser"
   },
   "dependencies": {
+    "@astrojs/rss": "^4.0.19",
     "motion": "^13.1.0",
     "three": "^0.185.1"
   },
@@ -36,6 +39,7 @@
     "@tailwindcss/vite": "^4.3.3",
     "@types/three": "^0.185.4",
     "astro": "^7.2.4",
+    "pagefind": "1.5.2",
     "tailwindcss": "^4.3.3",
     "typescript": "^7.0.2",
     "vite": "^8.2.1"

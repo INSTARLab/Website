@@ -1,0 +1,104 @@
+---
+import { Image, Picture } from 'astro:assets';
+import type { MediaAsset, MediaOutputFormat } from '../../../data/media/types';
+
+interface Props {
+  readonly asset: MediaAsset;
+  readonly alt?: string;
+  readonly caption?: string;
+  readonly credit?: string;
+  readonly class?: string;
+  readonly figureClass?: string;
+  readonly picture?: boolean;
+}
+
+const {
+  asset,
+  alt,
+  caption = asset.caption,
+  credit = asset.credit,
+  class: className,
+  figureClass,
+  picture = true,
+} = Astro.props;
+
+const isDecorative = asset.alt.kind === 'decorative';
+const resolvedAlt = isDecorative ? '' : alt ?? asset.alt.text;
+
+if (!isDecorative && !resolvedAlt) {
+  throw new Error(`[EditorialMedia] ${asset.id} requires contextual alt text before it can render.`);
+}
+
+const dataAttributes = {
+  'data-media-id': asset.id,
+  'data-media-type': asset.type,
+  'data-media-role': asset.role,
+  'data-media-alt-status': asset.alt.status,
+  'data-source': asset.provenance.source,
+  'data-license': asset.provenance.license,
+  'data-reuse-reason': asset.reuseReason,
+  'aria-hidden': isDecorative ? 'true' : undefined,
+};
+
+const imageWidths = asset.widths ? [...asset.widths] : undefined;
+const imageFormats: MediaOutputFormat[] = asset.formats ? [...asset.formats] : ['avif', 'webp'];
+---
+
+<figure class={figureClass} data-media-id={asset.id} data-media-role={asset.role}>
+  {
+    asset.source.kind === 'astro' ? (
+      picture ? (
+        <Picture
+          src={asset.source.image}
+          formats={imageFormats}
+          widths={imageWidths}
+          alt={resolvedAlt}
+          width={asset.dimensions.width}
+          height={asset.dimensions.height}
+          sizes={asset.sizes}
+          loading={asset.loading}
+          fetchpriority={asset.fetchpriority}
+          position={asset.focalPoint}
+          decoding="async"
+          class={className}
+          {...dataAttributes}
+        />
+      ) : (
+        <Image
+          src={asset.source.image}
+          alt={resolvedAlt}
+          width={asset.dimensions.width}
+          height={asset.dimensions.height}
+          widths={imageWidths}
+          sizes={asset.sizes}
+          loading={asset.loading}
+          fetchpriority={asset.fetchpriority}
+          position={asset.focalPoint}
+          decoding="async"
+          class={className}
+          {...dataAttributes}
+        />
+      )
+    ) : (
+      <img
+        src={asset.source.url}
+        alt={resolvedAlt}
+        width={asset.dimensions.width}
+        height={asset.dimensions.height}
+        sizes={asset.sizes}
+        loading={asset.loading}
+        fetchpriority={asset.fetchpriority}
+        decoding="async"
+        class={className}
+        style={`object-position: ${asset.focalPoint};`}
+        {...dataAttributes}
+      />
+    )
+  }
+  {caption || credit ? (
+    <figcaption>
+      {caption}
+      {credit ? <span class="editorial-media__credit">Credit: {credit}</span> : null}
+    </figcaption>
+  ) : null}
+</figure>

@@ -1,4 +1,4 @@
-<section class="research-constellation" aria-labelledby="research-constellation-title">
+<section class="research-constellation @container" aria-labelledby="research-constellation-title">
   <div class="site-container research-constellation__inner">
     <div class="research-constellation__copy" data-reveal>
       <p class="research-constellation__eyebrow">A field guide to the work</p>
@@ -9,10 +9,10 @@
       </p>
       <nav aria-label="Research pathways">
         <ul class="research-constellation__links">
-          <li><a href="/research/current-programs/">Current programs <span aria-hidden="true">↗</span></a></li>
-          <li><a href="/sciences/outer-space/">Space science <span aria-hidden="true">↗</span></a></li>
-          <li><a href="/technology/quantum-computing/">Quantum computing <span aria-hidden="true">↗</span></a></li>
-          <li><a href="/community/support/">Support the work <span aria-hidden="true">↗</span></a></li>
+          <li><a class="touch-target" data-prefetch-intent href="/research/current-programs/">Current programs <span class="research-constellation__link-arrow" aria-hidden="true">↗</span></a></li>
+          <li><a class="touch-target" data-prefetch-intent href="/sciences/outer-space/">Space science <span class="research-constellation__link-arrow" aria-hidden="true">↗</span></a></li>
+          <li><a class="touch-target" data-prefetch-intent href="/technology/quantum-computing/">Quantum computing <span class="research-constellation__link-arrow" aria-hidden="true">↗</span></a></li>
+          <li><a class="touch-target" data-prefetch-intent href="/community/support/">Support the work <span class="research-constellation__link-arrow" aria-hidden="true">↗</span></a></li>
         </ul>
       </nav>
     </div>
@@ -25,6 +25,9 @@
       aria-label="An interactive constellation linking research, science, technology, and public benefit"
     >
       <canvas class="research-constellation__canvas" aria-hidden="true"></canvas>
+      <p class="research-constellation__fallback" data-visualization-fallback hidden>
+        The visual map is unavailable here. The pathway links remain available in the orientation text.
+      </p>
       <div class="research-constellation__legend" aria-hidden="true">
         <span><i class="research-constellation__dot research-constellation__dot--blue"></i> Research</span>
         <span><i class="research-constellation__dot research-constellation__dot--red"></i> Application</span>
@@ -38,29 +41,43 @@
 </section>
 
 <script>
-  import { animate, inView } from 'motion';
+  import { animate, hover, inView, press } from 'motion';
 
   let disposeCurrent: (() => void) | undefined;
+  let currentRoot: HTMLElement | undefined;
 
   const mount = () => {
+    const root = document.querySelector<HTMLElement>('[data-research-constellation]');
+    if (root && root === currentRoot) return;
+
     disposeCurrent?.();
     disposeCurrent = undefined;
+    currentRoot = root ?? undefined;
 
-    const root = document.querySelector<HTMLElement>('[data-research-constellation]');
     const canvas = root?.querySelector<HTMLCanvasElement>('canvas');
-    const revealItems = document.querySelectorAll<HTMLElement>('[data-reveal]');
+    const section = root?.closest<HTMLElement>('.research-constellation');
+    const revealItems = section?.querySelectorAll<HTMLElement>('[data-reveal]') ?? [];
+    const pathwayLinks = section?.querySelectorAll<HTMLAnchorElement>('[data-prefetch-intent]') ?? [];
     const cleanups: Array<() => void> = [];
 
     if (root && canvas) {
       const boot = async () => {
         let disposed = false;
+        cleanups.push(() => { disposed = true; });
         const THREE = await import('../../utils/three-constellation');
         if (disposed || !root.isConnected) return;
         const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
         const scene = new THREE.Scene();
         const camera = new THREE.PerspectiveCamera(34, 1, 0.1, 20);
         camera.position.z = 4.8;
-        const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true, powerPreference: 'low-power' });
+        let renderer: THREE.WebGLRenderer;
+        try {
+          renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true, powerPreference: 'low-power' });
+        } catch {
+          const fallback = root.querySelector<HTMLElement>('[data-visualization-fallback]');
+          if (fallback) fallback.hidden = false;
+          return;
+        }
         renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
         renderer.setClearColor(0x000000, 0);
 
@@ -104,17 +121,20 @@
 
         let frame = 0;
         const render = () => {
-          if (!reducedMotion) {
-            constellation.rotation.y += 0.0018;
-            constellation.rotation.x = Math.sin(performance.now() * 0.00025) * 0.05;
-          }
           renderer.render(scene, camera);
-          frame = window.requestAnimationFrame(render);
         };
         render();
+        if (!reducedMotion) {
+          const animateFrame = () => {
+            constellation.rotation.y += 0.0018;
+            constellation.rotation.x = Math.sin(performance.now() * 0.00025) * 0.05;
+            render();
+            frame = window.requestAnimationFrame(animateFrame);
+          };
+          frame = window.requestAnimationFrame(animateFrame);
+        }
 
         cleanups.push(() => {
-          disposed = true;
           window.cancelAnimationFrame(frame);
           observer.disconnect();
           lineGeometry.dispose();
@@ -141,10 +161,40 @@
       cleanups.push(stopReveal);
     }
 
+    if (pathwayLinks.length && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      pathwayLinks.forEach((link) => {
+        const arrow = link.querySelector<HTMLElement>('.research-constellation__link-arrow');
+        if (arrow) {
+          cleanups.push(hover(link, () => {
+            const enter = animate(arrow, { x: 4 }, { duration: 0.16, ease: 'easeOut' });
+            return () => {
+              enter.stop();
+              animate(arrow, { x: 0 }, { duration: 0.16, ease: 'easeOut' });
+            };
+          }));
+        }
+
+        cleanups.push(press(link, (element) => {
+          const down = animate(element, { scale: 0.985 }, { duration: 0.12, ease: 'easeOut' });
+          return () => {
+            down.stop();
+            animate(element, { scale: 1 }, { duration: 0.18, ease: 'easeOut' });
+          };
+        }));
+      });
+    }
+
     disposeCurrent = () => cleanups.splice(0).forEach((cleanup) => cleanup());
   };
 
+  const dispose = () => {
+    disposeCurrent?.();
+    disposeCurrent = undefined;
+    currentRoot = undefined;
+  };
+
   mount();
+  document.addEventListener('astro:before-swap', dispose);
   document.addEventListener('astro:page-load', mount);
 </script>
 
@@ -177,6 +227,7 @@
   .research-constellation__links { display: grid; gap: 0.2rem; max-inline-size: 31rem; }
   .research-constellation__links a { display: flex; justify-content: space-between; gap: 1rem; padding-block: 0.72rem; border-block-end: 1px solid var(--color-rule); color: var(--color-ink); font-family: var(--font-ui); font-weight: 700; text-decoration: none; }
   .research-constellation__links a:hover { color: var(--color-brand-deep); }
+  .research-constellation__link-arrow { display: inline-block; flex: none; }
   .research-constellation__visual { position: relative; min-block-size: 23rem; overflow: hidden; border: 1px solid color-mix(in srgb, var(--color-brand) 30%, transparent); border-radius: var(--radius-panel); background: radial-gradient(circle at 50% 45%, rgb(255 255 255 / 0.92), rgb(224 236 247 / 0.72)); box-shadow: var(--shadow-panel); }
   .research-constellation__canvas { inline-size: 100%; block-size: 100%; min-block-size: 23rem; }
   .research-constellation__legend { position: absolute; inset-inline: 1.25rem; inset-block-end: 1.1rem; display: flex; flex-wrap: wrap; gap: 0.75rem 1.1rem; color: var(--color-muted-strong); font-family: var(--font-ui); font-size: 0.75rem; }
@@ -185,8 +236,9 @@
   .research-constellation__dot--red { background: var(--color-accent); }
   .research-constellation__dot--gold { background: #c8972b; }
   .research-constellation__noscript { position: absolute; inset: auto 1rem 1rem; padding: 0.75rem; background: rgb(255 255 255 / 0.9); font-size: 0.85rem; }
+  .research-constellation__fallback { position: absolute; inset: 1rem; display: grid; place-items: center; padding: 1rem; border: 1px solid var(--color-rule); background: rgb(255 255 255 / 0.88); color: var(--color-muted-strong); font-size: 0.9rem; text-align: center; }
 
-  @media (max-width: 52rem) {
+  @container (max-width: 52rem) {
     .research-constellation__inner { grid-template-columns: 1fr; }
     .research-constellation h2 { max-inline-size: 16ch; }
   }

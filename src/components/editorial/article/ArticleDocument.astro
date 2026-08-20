@@ -1,0 +1,538 @@
+---
+import { render } from 'astro:content';
+import type { ArticleEntry, AuthorEntry } from '../../../data/articles';
+import {
+  articleIsoDate,
+  articlePath,
+  authorNames,
+  formatArticleDate,
+  readingTimeMinutes,
+} from '../../../data/articles';
+import SiteLayout from '../../../layouts/SiteLayout.astro';
+
+interface Props {
+  article: ArticleEntry;
+  authors: readonly AuthorEntry[];
+  related: readonly ArticleEntry[];
+}
+
+const { article, authors, related } = Astro.props;
+const { Content, headings } = await render(article);
+const hero = article.data.hero;
+const articleAuthors = authorNames(article, authors);
+const modifiedAt = article.data.updatedAt ?? article.data.publishedAt;
+const mapItems = article.data.readingMap.length > 0
+  ? article.data.readingMap
+  : headings
+      .filter((heading) => heading.depth === 2)
+      .map((heading) => ({ label: heading.text, summary: '', anchor: heading.slug }));
+---
+
+<SiteLayout
+  title={`${article.data.title} — INSTAR Lab`}
+  description={article.data.description}
+  canonical={article.data.canonicalUrl ?? articlePath(article)}
+  image={hero?.src}
+  imageAlt={hero?.alt}
+  type="article"
+  publishedAt={article.data.publishedAt}
+  modifiedAt={article.data.updatedAt}
+  author={articleAuthors.join(', ')}
+  section="Research brief"
+  keywords={article.data.topics}
+  noindex={article.data.noindex}
+>
+  <article class="article-document">
+    <header class="article-document__header">
+      <div class="article-document__header-inner">
+        <nav class="article-document__breadcrumb" aria-label="Breadcrumb">
+          <a href="/">Home</a>
+          <span aria-hidden="true">/</span>
+          <a href="/news/">News</a>
+          <span aria-hidden="true">/</span>
+          <span aria-current="page">Brief</span>
+        </nav>
+        <p class="article-document__kicker">INSTAR / Research brief</p>
+        <h1>{article.data.title}</h1>
+        <p class="article-document__dek">{article.data.description}</p>
+        <div class="article-document__meta" aria-label="Article metadata">
+          <span>Published {formatArticleDate(article.data.publishedAt)}</span>
+          {article.data.updatedAt ? <span>Updated {formatArticleDate(article.data.updatedAt)}</span> : null}
+          <span>{readingTimeMinutes(article)} min read</span>
+          <span>By {articleAuthors.join(' · ')}</span>
+        </div>
+        {article.data.topics.length > 0 ? (
+          <ul class="article-document__topics" aria-label="Topics">
+            {article.data.topics.map((topic) => <li>{topic}</li>)}
+          </ul>
+        ) : null}
+      </div>
+    </header>
+
+    {hero ? (
+      <figure class="article-document__hero">
+        <img
+          src={hero.src}
+          alt={hero.alt}
+          width="1600"
+          height="1000"
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
+          style={hero.focalPoint ? `object-position: ${hero.focalPoint}` : undefined}
+        />
+        {hero.caption || hero.credit ? (
+          <figcaption>
+            {hero.caption ? <span>{hero.caption}</span> : null}
+            {hero.credit ? <span>{hero.credit}</span> : null}
+          </figcaption>
+        ) : null}
+      </figure>
+    ) : null}
+
+    <div class="article-document__layout site-container">
+      {mapItems.length > 0 ? (
+        <aside class="article-document__map" aria-labelledby="article-map-title">
+          <p class="article-document__label" id="article-map-title">Read this brief as</p>
+          <ol>
+            {mapItems.map((item, index) => (
+              <li>
+                <span>{String(index + 1).padStart(2, '0')}</span>
+                {item.anchor ? <a href={`#${item.anchor}`}>{item.label}</a> : <span>{item.label}</span>}
+                {item.summary ? <small>{item.summary}</small> : null}
+              </li>
+            ))}
+          </ol>
+        </aside>
+      ) : null}
+
+      <div class="article-document__body">
+        {article.data.takeaways.length > 0 ? (
+          <aside class="article-document__takeaways" aria-labelledby="article-takeaways-title">
+            <p class="article-document__label" id="article-takeaways-title">The short version</p>
+            <ul>
+              {article.data.takeaways.map((takeaway) => <li>{takeaway}</li>)}
+            </ul>
+          </aside>
+        ) : null}
+
+        <div class="article-body">
+          <Content />
+        </div>
+
+        {article.data.limitations.length > 0 ? (
+          <section class="article-document__limits" aria-labelledby="article-limits-title">
+            <p class="article-document__label">Keep the boundary visible</p>
+            <h2 id="article-limits-title">Limitations and open questions</h2>
+            <ul>
+              {article.data.limitations.map((limitation) => <li>{limitation}</li>)}
+            </ul>
+          </section>
+        ) : null}
+
+        {article.data.sources.length > 0 ? (
+          <section class="article-document__sources" aria-labelledby="article-sources-title">
+            <p class="article-document__label">Source notes</p>
+            <h2 id="article-sources-title">Read the evidence trail</h2>
+            <ol>
+              {article.data.sources.map((source) => (
+                <li>
+                  <a href={source.url} target="_blank" rel="noreferrer">{source.label}</a>
+                  {source.publisher ? <span>{source.publisher}</span> : null}
+                  {source.accessedAt ? <time datetime={articleIsoDate(source.accessedAt)}>Accessed {formatArticleDate(source.accessedAt)}</time> : null}
+                </li>
+              ))}
+            </ol>
+          </section>
+        ) : null}
+      </div>
+    </div>
+
+    {related.length > 0 ? (
+      <section class="article-document__related" aria-labelledby="article-related-title">
+        <div class="site-container">
+          <p class="article-document__label">Continue the question</p>
+          <h2 id="article-related-title">Related briefs</h2>
+          <ul>
+            {related.map((candidate) => (
+              <li>
+                <a href={articlePath(candidate)}>
+                  <span>{candidate.data.topics[0] ?? 'Research brief'}</span>
+                  <strong>{candidate.data.title}</strong>
+                  <em aria-hidden="true">↗</em>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+    ) : null}
+  </article>
+</SiteLayout>
+
+<style>
+  .article-document {
+    background: var(--color-canvas);
+  }
+
+  .article-document__header {
+    color: var(--color-on-brand);
+    background: var(--color-footer-deep);
+  }
+
+  .article-document__header-inner {
+    width: min(100% - 2 * var(--spacing-gutter), 78rem);
+    margin-inline: auto;
+    padding-block: 1.5rem clamp(4rem, 9vw, 7rem);
+  }
+
+  .article-document__breadcrumb {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-block-end: clamp(3rem, 7vw, 6rem);
+    color: rgb(255 255 255 / 0.64);
+    font-family: var(--font-ui);
+    font-size: 0.78rem;
+  }
+
+  .article-document__breadcrumb a:hover {
+    color: var(--color-brand-cool);
+  }
+
+  .article-document__kicker,
+  .article-document__label,
+  .article-document__meta,
+  .article-document__topics {
+    font-family: var(--font-ui);
+    font-size: var(--text-kicker);
+    font-weight: 700;
+    letter-spacing: var(--text-kicker--letter-spacing);
+    text-transform: uppercase;
+  }
+
+  .article-document__kicker {
+    color: var(--color-brand-cool);
+  }
+
+  .article-document h1 {
+    max-inline-size: 13ch;
+    margin-block: 1.2rem 1.5rem;
+    color: var(--color-on-brand);
+    font-size: clamp(2.7rem, 7vw, 7.2rem);
+    letter-spacing: -0.06em;
+    line-height: 0.95;
+  }
+
+  .article-document__dek {
+    max-inline-size: 54ch;
+    color: rgb(255 255 255 / 0.78);
+    font-size: var(--text-lead);
+  }
+
+  .article-document__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem 1rem;
+    margin-block-start: 2rem;
+    color: rgb(255 255 255 / 0.58);
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+  }
+
+  .article-document__topics {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    margin-block-start: 1.35rem;
+  }
+
+  .article-document__topics li {
+    padding: 0.3rem 0.55rem;
+    border: 1px solid rgb(255 255 255 / 0.24);
+    border-radius: var(--radius-pill);
+    color: rgb(255 255 255 / 0.74);
+    font-size: 0.68rem;
+  }
+
+  .article-document__hero {
+    width: min(100%, 96rem);
+    margin: 0 auto;
+    background: var(--color-footer-deep);
+  }
+
+  .article-document__hero img {
+    inline-size: 100%;
+    max-block-size: min(70svh, 50rem);
+    object-fit: cover;
+  }
+
+  .article-document__hero figcaption {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.8rem var(--spacing-gutter);
+    color: #c7c7c7;
+    background: var(--color-footer-deep);
+    font-family: var(--font-ui);
+    font-size: 0.75rem;
+  }
+
+  .article-document__layout {
+    display: grid;
+    grid-template-columns: minmax(13rem, 0.32fr) minmax(0, 0.95fr);
+    gap: clamp(2rem, 8vw, 8rem);
+    padding-block: var(--spacing-section-compact) var(--spacing-section);
+  }
+
+  .article-document__map {
+    align-self: start;
+    position: sticky;
+    inset-block-start: 7.5rem;
+    padding-block-start: 0.25rem;
+  }
+
+  .article-document__label {
+    margin-block-end: 1rem;
+    color: var(--color-brand-deep);
+    font-size: 0.72rem;
+  }
+
+  .article-document__map ol {
+    display: grid;
+    gap: 0.9rem;
+    counter-reset: reading-map;
+  }
+
+  .article-document__map li {
+    display: grid;
+    grid-template-columns: 1.8rem minmax(0, 1fr);
+    gap: 0.5rem;
+    color: var(--color-muted-strong);
+    font-family: var(--font-ui);
+    font-size: 0.86rem;
+  }
+
+  .article-document__map li > span:first-child {
+    color: var(--color-brand);
+    font-size: 0.7rem;
+    font-weight: 700;
+  }
+
+  .article-document__map a {
+    text-decoration: none;
+  }
+
+  .article-document__map a:hover {
+    color: var(--color-brand-deep);
+    text-decoration: underline;
+  }
+
+  .article-document__map small {
+    grid-column: 2;
+    color: var(--color-muted);
+    font-family: var(--font-body);
+    font-size: 0.82rem;
+    line-height: 1.45;
+  }
+
+  .article-document__body {
+    min-inline-size: 0;
+  }
+
+  .article-document__takeaways {
+    padding: clamp(1.25rem, 3vw, 2rem);
+    border-inline-start: 0.3rem solid var(--color-accent);
+    background: var(--color-surface);
+  }
+
+  .article-document__takeaways ul,
+  .article-document__limits ul {
+    display: grid;
+    gap: 0.7rem;
+    padding-inline-start: 1.2rem;
+    list-style: disc;
+  }
+
+  .article-document__takeaways li,
+  .article-document__limits li {
+    padding-inline-start: 0.25rem;
+  }
+
+  .article-body {
+    max-inline-size: 70ch;
+    margin-block-start: clamp(2rem, 5vw, 4.5rem);
+  }
+
+  .article-body :global(p) {
+    margin-block: 1.35em;
+  }
+
+  .article-body :global(p:first-child) {
+    margin-block-start: 0;
+    color: var(--color-ink);
+    font-size: var(--text-lead);
+    line-height: 1.5;
+  }
+
+  .article-body :global(h2) {
+    margin-block: clamp(3rem, 7vw, 5.5rem) 1.15rem;
+    color: var(--color-ink);
+    font-size: clamp(1.8rem, 3.4vw, 3.3rem);
+    letter-spacing: -0.04em;
+    scroll-margin-block-start: 8rem;
+  }
+
+  .article-body :global(h3) {
+    margin-block: 2.5rem 0.8rem;
+    color: var(--color-ink);
+    font-size: clamp(1.35rem, 2.2vw, 2rem);
+  }
+
+  .article-body :global(ul),
+  .article-body :global(ol) {
+    padding-inline-start: 1.4rem;
+    list-style: disc;
+  }
+
+  .article-body :global(li) {
+    margin-block: 0.5rem;
+  }
+
+  .article-body :global(blockquote) {
+    margin-block: 2.5rem;
+    padding: 1.2rem 1.5rem;
+    border-inline-start: 0.3rem solid var(--color-brand);
+    color: var(--color-ink);
+    font-family: var(--font-display);
+    font-size: clamp(1.35rem, 2.4vw, 2.1rem);
+    line-height: 1.25;
+  }
+
+  .article-body :global(a) {
+    color: var(--color-brand-deep);
+    text-decoration-thickness: 0.12em;
+  }
+
+  .article-body :global(img) {
+    inline-size: 100%;
+    block-size: auto;
+    margin-block: 2rem;
+  }
+
+  .article-document__limits,
+  .article-document__sources {
+    margin-block-start: clamp(3rem, 6vw, 5rem);
+    padding-block-start: 1.5rem;
+    border-block-start: 1px solid var(--color-rule);
+  }
+
+  .article-document__limits h2,
+  .article-document__sources h2,
+  .article-document__related h2 {
+    margin-block: 0 1rem;
+    font-size: clamp(1.7rem, 3vw, 3rem);
+  }
+
+  .article-document__sources ol {
+    display: grid;
+    gap: 0.8rem;
+    padding-inline-start: 1.2rem;
+  }
+
+  .article-document__sources li {
+    padding-inline-start: 0.25rem;
+  }
+
+  .article-document__sources li span,
+  .article-document__sources li time {
+    display: block;
+    color: var(--color-muted);
+    font-family: var(--font-ui);
+    font-size: 0.8rem;
+  }
+
+  .article-document__related {
+    padding-block: var(--spacing-section-compact);
+    background: var(--color-surface);
+  }
+
+  .article-document__related ul {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1px;
+    margin-block-start: 2rem;
+    background: var(--color-rule);
+  }
+
+  .article-document__related li {
+    min-block-size: 12rem;
+    background: var(--color-canvas);
+  }
+
+  .article-document__related a {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    block-size: 100%;
+    padding: 1.25rem;
+    text-decoration: none;
+  }
+
+  .article-document__related a:hover {
+    background: var(--color-surface-raised);
+  }
+
+  .article-document__related a span {
+    color: var(--color-brand-deep);
+    font-family: var(--font-ui);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .article-document__related strong {
+    max-inline-size: 18ch;
+    margin-block-start: 1.5rem;
+    color: var(--color-ink);
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    line-height: 1.1;
+  }
+
+  .article-document__related em {
+    position: absolute;
+    inset-inline-end: 1.25rem;
+    inset-block-end: 1rem;
+    color: var(--color-brand);
+    font-size: 1.4rem;
+    font-style: normal;
+  }
+
+  @media (max-width: 58rem) {
+    .article-document__layout {
+      grid-template-columns: 1fr;
+    }
+
+    .article-document__map {
+      position: static;
+    }
+
+    .article-document__map ol {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 42rem) {
+    .article-document__map ol,
+    .article-document__related ul {
+      grid-template-columns: 1fr;
+    }
+
+    .article-document__hero img {
+      max-block-size: 55svh;
+    }
+  }
+</style>

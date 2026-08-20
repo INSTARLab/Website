@@ -1,16 +1,32 @@
 ---
+import {
+  absoluteSeoUrl,
+  buildBreadcrumbs,
+  siteIdentity,
+  withFragment,
+  type SeoBreadcrumbItem,
+} from '../../data/seo/site';
+
+type JsonLdNode = { readonly [key: string]: unknown };
+
 export interface SeoProps {
   title: string;
   description: string;
   canonical?: string | URL;
   image?: string | URL;
   imageAlt?: string;
+  imageWidth?: number;
+  imageHeight?: number;
   type?: 'website' | 'article';
   noindex?: boolean;
   publishedAt?: string | Date;
   modifiedAt?: string | Date;
   author?: string;
-  jsonLd?: Record<string, unknown> | readonly Record<string, unknown>[];
+  section?: string;
+  keywords?: readonly string[];
+  breadcrumbs?: readonly SeoBreadcrumbItem[];
+  locale?: string;
+  jsonLd?: JsonLdNode | readonly JsonLdNode[];
 }
 
 const {
@@ -19,21 +35,122 @@ const {
   canonical,
   image,
   imageAlt,
+  imageWidth,
+  imageHeight,
   type = 'website',
   noindex = false,
   publishedAt,
   modifiedAt,
   author,
+  section,
+  keywords,
+  breadcrumbs,
+  locale = 'en_US',
   jsonLd,
 } = Astro.props;
 
-const siteOrigin = Astro.site ?? new URL('https://instarlab.org/');
-const canonicalUrl = new URL(canonical ?? Astro.url.pathname, siteOrigin).href;
-const imageUrl = image ? new URL(image, siteOrigin).href : undefined;
+const siteUrl = new URL(Astro.site ?? 'https://instarlab.org/');
+const canonicalUrl = absoluteSeoUrl(canonical ?? Astro.url.pathname, siteUrl);
+const canonicalObject = new URL(canonicalUrl);
+const imageUrl = image ? absoluteSeoUrl(image, siteUrl) : undefined;
+const sitemapUrl = absoluteSeoUrl('/sitemap-index.xml', siteUrl);
 const robots = noindex ? 'noindex, nofollow' : 'index, follow';
 const toIso = (value?: string | Date) => value instanceof Date ? value.toISOString() : value;
-const jsonLdText = jsonLd
-  ? JSON.stringify(jsonLd).replace(/</g, '\\u003c')
+const publishedIso = toIso(publishedAt);
+const modifiedIso = toIso(modifiedAt);
+const pageId = withFragment(canonicalUrl, 'webpage');
+const organizationId = withFragment(absoluteSeoUrl('/', siteUrl), 'organization');
+const websiteId = withFragment(absoluteSeoUrl('/', siteUrl), 'website');
+
+const derivedBreadcrumbs = breadcrumbs ?? (
+  noindex || canonicalObject.origin !== siteUrl.origin
+    ? []
+    : buildBreadcrumbs(canonicalObject.pathname, title)
+);
+
+const breadcrumbNode: JsonLdNode | undefined = derivedBreadcrumbs.length > 1 && !noindex
+  ? {
+      '@type': 'BreadcrumbList',
+      '@id': withFragment(canonicalUrl, 'breadcrumb'),
+      itemListElement: derivedBreadcrumbs.map((item, index) => ({
+        '@type': 'ListItem',
+        position: index + 1,
+        name: item.name,
+        ...(item.href ? { item: absoluteSeoUrl(item.href, siteUrl) } : {}),
+      })),
+    }
+  : undefined;
+
+const organizationNode: JsonLdNode = {
+  '@type': 'Organization',
+  '@id': organizationId,
+  name: siteIdentity.name,
+  legalName: siteIdentity.legalName,
+  description: siteIdentity.description,
+  url: absoluteSeoUrl('/', siteUrl),
+  logo: absoluteSeoUrl(siteIdentity.logoPath, siteUrl),
+  email: siteIdentity.email,
+  telephone: siteIdentity.telephone,
+  address: {
+    '@type': 'PostalAddress',
+    ...siteIdentity.address,
+  },
+  contactPoint: {
+    '@type': 'ContactPoint',
+    contactType: 'general inquiries',
+    email: siteIdentity.email,
+    telephone: siteIdentity.telephone,
+  },
+};
+
+const websiteNode: JsonLdNode = {
+  '@type': 'WebSite',
+  '@id': websiteId,
+  url: absoluteSeoUrl('/', siteUrl),
+  name: siteIdentity.name,
+  description: siteIdentity.description,
+  publisher: { '@id': organizationId },
+  inLanguage: 'en-US',
+};
+
+const pageNode: JsonLdNode = {
+  '@type': type === 'article' ? 'Article' : 'WebPage',
+  '@id': pageId,
+  url: canonicalUrl,
+  name: title,
+  ...(type === 'article' ? { headline: title } : {}),
+  description,
+  isPartOf: { '@id': websiteId },
+  publisher: { '@id': organizationId },
+  mainEntityOfPage: { '@id': pageId },
+  inLanguage: 'en-US',
+  ...(imageUrl ? { image: imageUrl } : {}),
+  ...(publishedIso ? { datePublished: publishedIso } : {}),
+  ...(modifiedIso ? { dateModified: modifiedIso } : {}),
+  ...(author ? { author: { '@type': 'Person', name: author } } : {}),
+  ...(section && type === 'article' ? { articleSection: section } : {}),
+  ...(keywords && keywords.length > 0 ? { keywords: keywords.join(', ') } : {}),
+};
+
+const customNodes = (jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : []).flatMap((node) => {
+  const graph = node['@graph'];
+  if (Array.isArray(graph)) return graph as JsonLdNode[];
+  return [Object.fromEntries(Object.entries(node).filter(([key]) => key !== '@context'))];
+});
+
+const graph = [organizationNode, websiteNode, pageNode, breadcrumbNode, ...customNodes].filter(
+  (node): node is JsonLdNode => Boolean(node),
+);
+const jsonLdDocument = { '@context': 'https://schema.org', '@graph': graph };
+const jsonLdText = JSON.stringify(jsonLdDocument)
+  .replace(/</g, '\\u003c')
+  .replace(/>/g, '\\u003e')
+  .replace(/&/g, '\\u0026')
+  .replace(/\u2028/g, '\\u2028')
+  .replace(/\u2029/g, '\\u2029');
+const imageExtension = imageUrl?.match(/\.([a-z0-9]+)(?:[?#].*)?$/i)?.[1]?.toLowerCase();
+const imageMimeType = imageExtension
+  ? ({ avif: 'image/avif', jpg: 'image/jpeg', jpeg: 'image/jpeg', png: 'image/png', webp: 'image/webp', svg: 'image/svg+xml' } as Record<string, string>)[imageExtension]
   : undefined;
 ---
 
@@ -41,18 +158,24 @@ const jsonLdText = jsonLd
 <meta name="description" content={description} />
 <meta name="robots" content={robots} />
 <link rel="canonical" href={canonicalUrl} />
+<link rel="sitemap" href={sitemapUrl} />
 <meta name="theme-color" content="#1072ba" />
 <link rel="icon" href="/img/logo/instar.svg" type="image/svg+xml" />
 <link rel="icon" href="/img/logo/fav/favicon.ico" sizes="any" />
 <link rel="apple-touch-icon" href="/img/logo/fav/apple-touch-icon.png" />
 <link rel="manifest" href="/img/logo/fav/site.webmanifest" />
 
+<meta property="og:locale" content={locale} />
 <meta property="og:type" content={type} />
 <meta property="og:url" content={canonicalUrl} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
-<meta property="og:site_name" content="INSTAR Lab" />
+<meta property="og:site_name" content={siteIdentity.name} />
 {imageUrl ? <meta property="og:image" content={imageUrl} /> : null}
+{imageUrl?.startsWith('https://') ? <meta property="og:image:secure_url" content={imageUrl} /> : null}
+{imageMimeType ? <meta property="og:image:type" content={imageMimeType} /> : null}
+{imageWidth ? <meta property="og:image:width" content={String(imageWidth)} /> : null}
+{imageHeight ? <meta property="og:image:height" content={String(imageHeight)} /> : null}
 {imageUrl && imageAlt ? <meta property="og:image:alt" content={imageAlt} /> : null}
 
 <meta name="twitter:card" content={imageUrl ? 'summary_large_image' : 'summary'} />
@@ -60,8 +183,13 @@ const jsonLdText = jsonLd
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
 {imageUrl ? <meta name="twitter:image" content={imageUrl} /> : null}
+{imageUrl && imageAlt ? <meta name="twitter:image:alt" content={imageAlt} /> : null}
 
-{type === 'article' && publishedAt ? <meta property="article:published_time" content={toIso(publishedAt)} /> : null}
-{type === 'article' && modifiedAt ? <meta property="article:modified_time" content={toIso(modifiedAt)} /> : null}
+{type === 'article' && publishedIso ? <meta property="article:published_time" content={publishedIso} /> : null}
+{type === 'article' && modifiedIso ? <meta property="article:modified_time" content={modifiedIso} /> : null}
 {type === 'article' && author ? <meta property="article:author" content={author} /> : null}
-{jsonLdText ? <script type="application/ld+json" set:html={jsonLdText}></script> : null}
+{type === 'article' && section ? <meta property="article:section" content={section} /> : null}
+{author ? <meta name="author" content={author} /> : null}
+{keywords && keywords.length > 0 ? <meta name="keywords" content={keywords.join(', ')} /> : null}
+
+<script type="application/ld+json" set:html={jsonLdText}></script>

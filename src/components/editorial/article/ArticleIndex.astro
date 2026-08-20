@@ -1,0 +1,177 @@
+---
+import type { ArticleEntry, AuthorEntry } from '../../../data/articles';
+import SiteLayout from '../../../layouts/SiteLayout.astro';
+import ArticleCard from './ArticleCard.astro';
+
+interface Props {
+  articles: readonly ArticleEntry[];
+  authors: readonly AuthorEntry[];
+}
+
+const { articles, authors } = Astro.props;
+const featured = articles[0];
+const rest = featured ? articles.slice(1) : [];
+---
+
+<SiteLayout
+  title="News — INSTAR Lab"
+  description="Research briefs, methods, and public-benefit questions from INSTAR Lab."
+  canonical="/news/"
+>
+  <div class="article-index">
+    <header class="article-index__header">
+      <div class="article-index__header-inner">
+        <p class="article-index__kicker">INSTAR / Newsroom</p>
+        <h1>Research, in the open.</h1>
+        <p class="article-index__dek">
+          Briefs from the questions, methods, and limits shaping INSTAR’s public-benefit research.
+        </p>
+      </div>
+    </header>
+
+    <div class="article-index__main site-container">
+      <div class="article-index__intro">
+        <div>
+          <p class="article-index__label">The latest field notes</p>
+          <h2>Follow the question, not just the headline.</h2>
+        </div>
+        <p>
+          Each brief names its point of view, the evidence it rests on, and what remains unresolved.
+        </p>
+      </div>
+
+      {featured ? (
+        <ArticleCard article={featured} authors={authors} featured />
+      ) : (
+        <p class="article-index__empty">No published briefs are available yet.</p>
+      )}
+
+      {rest.length > 0 ? (
+        <section class="article-index__archive" aria-labelledby="article-archive-title">
+          <div class="article-index__archive-heading">
+            <p class="article-index__label">The archive</p>
+            <h2 id="article-archive-title">Keep reading</h2>
+          </div>
+          <div class="article-index__grid">
+            {rest.map((article) => <ArticleCard article={article} authors={authors} />)}
+          </div>
+        </section>
+      ) : null}
+    </div>
+  </div>
+</SiteLayout>
+
+<style>
+  .article-index {
+    background: var(--color-canvas);
+  }
+
+  .article-index__header {
+    color: var(--color-on-brand);
+    background: var(--color-footer-deep);
+  }
+
+  .article-index__header-inner {
+    width: min(100% - 2 * var(--spacing-gutter), 78rem);
+    margin-inline: auto;
+    padding-block: clamp(4.5rem, 11vw, 9rem) clamp(3.5rem, 8vw, 6.5rem);
+  }
+
+  .article-index__kicker,
+  .article-index__label {
+    font-family: var(--font-ui);
+    font-size: var(--text-kicker);
+    font-weight: 700;
+    letter-spacing: var(--text-kicker--letter-spacing);
+    text-transform: uppercase;
+  }
+
+  .article-index__kicker {
+    color: var(--color-brand-cool);
+  }
+
+  .article-index h1 {
+    max-inline-size: 9ch;
+    margin-block: 1.3rem 1rem;
+    color: var(--color-on-brand);
+    font-size: var(--text-display);
+  }
+
+  .article-index__dek {
+    max-inline-size: 44ch;
+    color: rgb(255 255 255 / 0.76);
+    font-size: var(--text-lead);
+  }
+
+  .article-index__main {
+    padding-block: var(--spacing-section-compact) var(--spacing-section);
+  }
+
+  .article-index__intro {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(18rem, 0.65fr);
+    gap: clamp(2rem, 7vw, 7rem);
+    align-items: end;
+    margin-block-end: clamp(2rem, 5vw, 4rem);
+  }
+
+  .article-index__label {
+    margin-block-end: 0.9rem;
+    color: var(--color-brand-deep);
+  }
+
+  .article-index h2 {
+    max-inline-size: 16ch;
+    margin: 0;
+    font-size: clamp(2rem, 4vw, 4rem);
+    letter-spacing: -0.04em;
+  }
+
+  .article-index__intro > p {
+    max-inline-size: 36ch;
+    color: var(--color-muted-strong);
+  }
+
+  .article-index__archive {
+    margin-block-start: clamp(4rem, 9vw, 8rem);
+  }
+
+  .article-index__archive-heading {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 2rem;
+    margin-block-end: 1.5rem;
+    padding-block-end: 1rem;
+    border-block-end: 1px solid var(--color-rule);
+  }
+
+  .article-index__archive-heading h2 {
+    font-size: clamp(1.8rem, 3vw, 3rem);
+  }
+
+  .article-index__grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--spacing-grid);
+  }
+
+  .article-index__empty {
+    padding: 2rem;
+    border: 1px solid var(--color-rule);
+    background: var(--color-surface);
+  }
+
+  @media (max-width: 48rem) {
+    .article-index__intro,
+    .article-index__grid {
+      grid-template-columns: 1fr;
+    }
+
+    .article-index__archive-heading {
+      align-items: start;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+  }
+</style>

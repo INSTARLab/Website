@@ -37,9 +37,91 @@ const {
   <body id="top" class={bodyClass}>
     <SkipLink />
     <SiteHeader currentPath={Astro.url.pathname} />
-    <main id="main-content" class={mainClass}>
+    <main id="main-content" class:list={[mainClass, 'focus-target']} tabindex="-1">
       <slot />
     </main>
     <SiteFooter newsletterAction={newsletterAction} newsletterMethod={newsletterMethod} />
   </body>
 </html>
+
+<script>
+  /**
+   * Keep the static document as the source of truth. These enhancements only
+   * run when Astro's client router is available and leave ordinary links and
+   * form submissions untouched when JavaScript is disabled.
+   */
+  let hasHandledInitialPageLoad = false;
+  let shouldRestoreFocus = false;
+
+  const getMainContent = () => document.querySelector<HTMLElement>('#main-content');
+
+  const setMainBusy = (busy: boolean) => {
+    const main = getMainContent();
+    if (!main) return;
+    if (busy) main.setAttribute('aria-busy', 'true');
+    else main.removeAttribute('aria-busy');
+  };
+
+  const isInternalDocumentLink = (link: HTMLAnchorElement) => {
+    if (link.hasAttribute('download') || link.target === '_blank' || link.target === '_parent' || link.target === '_top') {
+      return false;
+    }
+
+    const url = new URL(link.href, window.location.href);
+    return url.origin === window.location.origin && url.protocol === window.location.protocol;
+  };
+
+  const applyPrefetchPolicy = () => {
+    for (const link of document.querySelectorAll<HTMLAnchorElement>('a[href]')) {
+      if (!isInternalDocumentLink(link)) continue;
+
+      // Preserve a deliberate page/component-level choice. The marker lets
+      // this policy be recalculated after a client-routed DOM swap.
+      if (link.hasAttribute('data-astro-prefetch') && !link.hasAttribute('data-instar-prefetch-policy')) continue;
+
+      const isHighIntent = link.matches('.site-header a[href], [data-prefetch-intent]');
+      link.dataset.astroPrefetch = isHighIntent ? 'hover' : 'false';
+      link.dataset.instarPrefetchPolicy = 'true';
+    }
+  };
+
+  const focusRouteTarget = () => {
+    const hash = window.location.hash.slice(1);
+    if (hash) {
+      const target = document.getElementById(decodeURIComponent(hash));
+      if (target instanceof HTMLElement) {
+        const hadTabIndex = target.hasAttribute('tabindex');
+        if (!hadTabIndex) target.setAttribute('tabindex', '-1');
+        target.focus({ preventScroll: true });
+        if (!hadTabIndex) window.requestAnimationFrame(() => target.removeAttribute('tabindex'));
+        return;
+      }
+    }
+
+    getMainContent()?.focus({ preventScroll: true });
+  };
+
+  document.addEventListener('astro:before-preparation', () => {
+    shouldRestoreFocus = true;
+    setMainBusy(true);
+  });
+
+  document.addEventListener('astro:after-swap', () => setMainBusy(true));
+
+  document.addEventListener('astro:page-load', () => {
+    applyPrefetchPolicy();
+    setMainBusy(false);
+
+    // Do not steal the initial tab stop from the skip link. Subsequent
+    // client-routed navigations land on the new fragment or main landmark.
+    if (!hasHandledInitialPageLoad) {
+      hasHandledInitialPageLoad = true;
+      return;
+    }
+
+    if (shouldRestoreFocus) focusRouteTarget();
+    shouldRestoreFocus = false;
+  });
+
+  applyPrefetchPolicy();
+</script>

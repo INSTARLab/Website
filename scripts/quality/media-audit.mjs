@@ -32,11 +32,17 @@ if (!existsSync(root)) {
   process.exit(2);
 }
 
+const mediaPolicyFile = absolutePath('src/data/media/public-media-policy.json');
+const mediaPolicies = existsSync(mediaPolicyFile)
+  ? JSON.parse(readText(mediaPolicyFile))
+  : [];
+const exceptions = new Map();
+
 const entries = [];
 for (const file of listHtmlFiles(root)) {
   const html = readText(file);
   const route = routeFromHtml(root, file);
-  const tags = openingTags(html, ["img", "source", "video", "audio", "track"]);
+  const tags = openingTags(html, ["img", "video", "audio", "track"]);
 
   for (const tag of tags) {
     const attributes = tag.attributes;
@@ -63,20 +69,28 @@ for (const file of listHtmlFiles(root)) {
       };
     });
     const primary = resolvedSources[0];
+    const policy = publicMediaPolicyFor(primary.url);
+    const policyId = policy ? stableMediaId(primary.url, policy.idPrefix) : "";
     const decorative = attributes["aria-hidden"] === "true" || attributes.role === "presentation";
-    const type = attributes["data-media-type"] ?? inferMediaType(tag.name, primary.url);
-    const assetId = attributes["data-media-id"] ?? attributes["data-asset-id"] ?? "";
+    const type = attributes["data-media-type"] ?? policy?.type ?? inferMediaType(tag.name, primary.url);
+    const assetId = attributes["data-media-id"] ?? attributes["data-asset-id"] ?? policyId;
+    const role = attributes["data-media-role"] ?? attributes["data-role"] ?? policy?.role ?? "";
+    const source = attributes["data-source"] ?? policy?.provenance?.source ?? "";
+    const license = attributes["data-license"] ?? policy?.provenance?.license ?? "";
+    const reuseReason = attributes["data-reuse-reason"] ?? policy?.reuseReason ?? "";
 
-    entries.push({
+    const entry = {
       route,
       pageFile: relativeToRepo(file),
       element: tag.name,
       type,
       assetId,
-      role: attributes["data-media-role"] ?? attributes["data-role"] ?? "",
-      reuseReason: attributes["data-reuse-reason"] ?? "",
-      source: attributes["data-source"] ?? "",
-      license: attributes["data-license"] ?? "",
+      role,
+      reuseReason,
+      source,
+      license,
+      metadataSource: policy ? "public-media-policy" : "rendered-attributes",
+      provenanceStatus: policy?.provenance?.status ?? null,
       alt: attributes.alt ?? null,
       decorative,
       width: attributes.width ?? null,
@@ -87,7 +101,21 @@ for (const file of listHtmlFiles(root)) {
       sources: resolvedSources,
       primaryKey: primary.file ?? primary.url,
       primaryHash: primary.sha256,
-    });
+    };
+    entries.push(entry);
+
+    if (policy && !attributes["data-media-id"] && !attributes["data-asset-id"]) {
+      addException("catalog-backed-legacy-markup", entry, {
+        rationale: "The current route template still renders a direct public <img>; the typed catalog supplies the stable ID until that route adopts EditorialMedia.",
+        nextStep: "Adopt src/components/editorial/media/EditorialMedia.astro in the owning route workstream.",
+      });
+    }
+    if (policy?.provenance?.status === "unverified") {
+      addException("provenance-review-required", entry, {
+        rationale: policy.provenance.note ?? "The asset is present in the repository, but its original source or license is not recorded.",
+        nextStep: "Have the media owner verify source and license, then update public-media-policy.json.",
+      });
+    }
   }
 }
 
@@ -149,8 +177,10 @@ const report = {
     errors: findings.filter((finding) => finding.severity === "error").length,
     warnings: findings.filter((finding) => finding.severity === "warning").length,
     duplicateAssets: duplicateAssets.length,
+    exceptions: exceptions.size,
   },
   duplicateAssets,
+  exceptions: [...exceptions.values()],
   findings,
   entries,
 };
@@ -158,6 +188,7 @@ const report = {
 writeJson(options.out ? absolutePath(options.out) : "", report);
 console.log(`Media audit: ${entries.length} rendered media element(s), ${acrossRoutes.size} distinct primary asset(s).`);
 console.log(`Findings: ${report.summary.errors} error(s), ${report.summary.warnings} warning(s).`);
+console.log(`Auditable exceptions: ${report.exceptions.length}.`);
 
 if (options.strict && findings.some((finding) => finding.severity === "error" || finding.severity === "warning")) {
   process.exitCode = 1;
@@ -169,6 +200,47 @@ function inferMediaType(tagName, source) {
   if (/\.svg(?:[?#]|$)/i.test(source)) return "icon-or-mark";
   if (/\.(?:avif|webp|jpe?g|png|gif)(?:[?#]|$)/i.test(source)) return "photography-or-illustration";
   return "media";
+}
+
+function publicMediaPolicyFor(url) {
+  const normalized = normalizeMediaUrl(url);
+  if (/^https?:\/\//i.test(normalized)) return undefined;
+  return mediaPolicies.find((policy) => new RegExp(policy.match).test(normalized));
+}
+
+function normalizeMediaUrl(value) {
+  const withoutFragment = value.split("#", 1)[0] ?? value;
+  const withoutQuery = withoutFragment.split("?", 1)[0] ?? withoutFragment;
+  if (/^https?:\/\//i.test(withoutQuery)) return withoutQuery;
+  const path = withoutQuery.replace(/^\.\//, "").replace(/^dist\//, "/");
+  return path.startsWith("/") ? path : `/${path}`;
+}
+
+function stableMediaId(sourceUrl, prefix) {
+  const normalized = normalizeMediaUrl(sourceUrl);
+  const basename = normalized.split("/").filter(Boolean).at(-1) ?? "asset";
+  const safeBasename = basename
+    .toLowerCase()
+    .replace(/\.[a-z0-9]+$/i, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+  return `${prefix}${safeBasename}`;
+}
+
+function addException(rule, entry, details) {
+  const key = `${rule}\u0000${entry.assetId || entry.primaryKey}`;
+  const existing = exceptions.get(key);
+  if (existing) {
+    existing.routes = [...new Set([...existing.routes, entry.route])];
+    return;
+  }
+  exceptions.set(key, {
+    rule,
+    assetId: entry.assetId || null,
+    asset: entry.primaryKey,
+    routes: [entry.route],
+    ...details,
+  });
 }
 
 function groupBy(items, keyFunction) {

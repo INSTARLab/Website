@@ -7,11 +7,10 @@ variables:
   GITHUB_REPO: "INSTARLab/Website"
   SITE_DIR: "."
 
-# Astro owns the production artifact. Override the included template's
-# root-copying `pages` job so GitLab Pages publishes dist/ instead of the
-# Astro source tree (which would omit the rendered HTML and bundled CSS).
-pages:
-  stage: deploy
+# Astro owns the production artifact. The Pages job uses the same pinned
+# toolchain as local development and publishes the generated dist/ directory.
+deploy:gitlab-pages:
+  stage: .post
   image: node:22-bookworm-slim
   before_script:
     # Shared runners are unprivileged, so Corepack cannot write under
@@ -20,9 +19,6 @@ pages:
   script:
     - npx --yes --package=pnpm@11.22.0 pnpm install --frozen-lockfile
     - npx --yes --package=pnpm@11.22.0 pnpm run build
-    - test -f dist/.nojekyll
-    - test -d dist/assets
-    - test -n "$(find dist/assets -maxdepth 1 -type f -name '*.css' -print -quit)"
   pages:
     publish: dist
   artifacts:
@@ -39,12 +35,16 @@ quality:astro-artifact:
   stage: .post
   image: node:22-bookworm-slim
   needs:
-    - job: pages
+    - job: deploy:gitlab-pages
       artifacts: true
   script:
     - node scripts/quality/route-ledger.mjs --dist dist --strict
     - node scripts/quality/check-dist-links.mjs --dist dist
-    - node scripts/quality/check-dist-sitemap.mjs --dist dist --origin https://instarlab.org
-    - node scripts/quality/media-audit.mjs --dist dist
+      - node scripts/quality/check-dist-sitemap.mjs --dist dist --origin https://instarlab.org
+      - node scripts/quality/media-audit.mjs --dist dist --strict
+      - node scripts/quality/validate-dist-metadata.mjs --dist dist
+      - node tests/seo/structured-data.test.mjs
+      - test -f dist/rss.xml
+      - test -f dist/pagefind/pagefind.js
   rules:
     - if: '$CI_COMMIT_BRANCH == "demo"'

@@ -1,0 +1,33 @@
+---
+import type { SeoBreadcrumbItem } from '../../data/seo/site';
+
+interface Props {
+  items: readonly SeoBreadcrumbItem[];
+  label?: string;
+}
+
+const { items, label = 'Breadcrumb' } = Astro.props;
+---
+
+{items.length > 0 ? (
+  <nav class="breadcrumbs" aria-label={label}>
+    <ol>
+      {items.map((item, index) => {
+        const isCurrent = index === items.length - 1;
+        return (
+          <li>
+            {index > 0 ? <span class="breadcrumbs__separator" aria-hidden="true">/</span> : null}
+            {item.href && !isCurrent ? <a href={item.href}>{item.name}</a> : <span aria-current={isCurrent ? 'page' : undefined}>{item.name}</span>}
+          </li>
+        );
+      })}
+    </ol>
+  </nav>
+) : null}
+
+<style>
+  .breadcrumbs ol { display: flex; flex-wrap: wrap; align-items: center; gap: 0.4rem; padding: 0; margin: 0; list-style: none; }
+  .breadcrumbs li { display: inline-flex; align-items: center; gap: 0.4rem; }
+  .breadcrumbs a { text-underline-offset: 0.16em; }
+  .breadcrumbs__separator { color: currentColor; opacity: 0.55; }
+</style>
