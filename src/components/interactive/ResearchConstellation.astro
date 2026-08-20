@@ -54,7 +54,7 @@
     if (root && canvas) {
       const boot = async () => {
         let disposed = false;
-        const THREE = await import('three');
+        const THREE = await import('../../utils/three-constellation');
         if (disposed || !root.isConnected) return;
         const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
         const scene = new THREE.Scene();
