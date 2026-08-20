@@ -7,10 +7,11 @@ variables:
   GITHUB_REPO: "INSTARLab/Website"
   SITE_DIR: "."
 
-# Astro owns the production artifact. The Pages job uses the same pinned
-# toolchain as local development and publishes the generated dist/ directory.
-deploy:gitlab-pages:
-  stage: .post
+# Astro owns the production artifact. Override the included template's
+# root-copying `pages` job so GitLab Pages publishes dist/ instead of the
+# Astro source tree (which would omit the rendered HTML and bundled CSS).
+pages:
+  stage: deploy
   image: node:22-bookworm-slim
   before_script:
     # Shared runners are unprivileged, so Corepack cannot write under
@@ -19,6 +20,9 @@ deploy:gitlab-pages:
   script:
     - npx --yes --package=pnpm@11.22.0 pnpm install --frozen-lockfile
     - npx --yes --package=pnpm@11.22.0 pnpm run build
+    - test -f dist/.nojekyll
+    - test -d dist/assets
+    - test -n "$(find dist/assets -maxdepth 1 -type f -name '*.css' -print -quit)"
   pages:
     publish: dist
   artifacts:

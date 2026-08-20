@@ -87,6 +87,20 @@ test("every rendered route passes the WCAG 2.2 AA automated scan", async ({ page
   }
 });
 
+test("the production artifact serves stylesheets as CSS", async ({ page, request }) => {
+  await page.goto("/", { waitUntil: "domcontentloaded" });
+  const stylesheetHrefs = await page.locator('link[rel~="stylesheet"]').evaluateAll((links) =>
+    links.map((link) => (link as HTMLLinkElement).href),
+  );
+
+  expect(stylesheetHrefs.length, "the home route should emit at least one stylesheet").toBeGreaterThan(0);
+  for (const stylesheetHref of stylesheetHrefs) {
+    const response = await request.get(stylesheetHref);
+    expect(response.status(), `${stylesheetHref} should return HTTP 200`).toBe(200);
+    expect(response.headers()["content-type"], `${stylesheetHref} should have a CSS MIME type`).toMatch(/^text\/css\b/i);
+  }
+});
+
 test("the home route keeps keyboard focus in the document", async ({ page }) => {
   await page.goto("/", { waitUntil: "domcontentloaded" });
   await page.keyboard.press("Tab");
