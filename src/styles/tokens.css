@@ -69,6 +69,14 @@
   --font-ui: 'Lato', ui-sans-serif, system-ui, sans-serif;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 
+  /* Tailwind 4 theme namespaces: reusable layout and interaction contracts. */
+  --container-editorial: 78rem;
+  --container-reading: 68ch;
+  --spacing-touch: 2.75rem;
+  --duration-quick: 160ms;
+  --ease-editorial: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --layout-chrome-offset: 7rem;
+
   --text-kicker: 0.75rem;
   --text-kicker--line-height: 1.25;
   --text-kicker--font-weight: 700;

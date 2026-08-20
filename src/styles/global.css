@@ -10,7 +10,7 @@
 
   html {
     min-width: 320px;
-    scroll-padding-block-start: 7rem;
+    scroll-padding-block-start: var(--layout-chrome-offset);
   }
 
   body {
@@ -97,8 +97,23 @@
   }
 
   :target {
-    scroll-margin-block-start: 7rem;
+    scroll-margin-block-start: var(--layout-chrome-offset);
   }
+}
+
+/* Small Tailwind 4 utilities for primitives that recur across route families.
+   Editorial compositions remain authored in component-scoped CSS. */
+@utility focus-target {
+  scroll-margin-block-start: var(--layout-chrome-offset);
+}
+
+@utility reading-measure {
+  max-inline-size: var(--container-reading);
+}
+
+@utility touch-target {
+  min-inline-size: var(--spacing-touch);
+  min-block-size: var(--spacing-touch);
 }
 
 @layer components {
