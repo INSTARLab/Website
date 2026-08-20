@@ -80,12 +80,14 @@ export const coreRoutes = {
     pageSignature: 'commitment → current practices → feedback path → contact',
   },
   notFound: {
-    path: '/404/',
+    // Astro emits the special not-found entry point as 404.html for static
+    // hosts, including GitHub Pages and GitLab Pages.
+    path: '/404.html',
     key: '404',
     title: 'Page Not Found — INSTAR Lab',
     description:
       'The page you requested could not be found. Return to the INSTAR Lab homepage to explore our research programs, fellowship, and partnership opportunities.',
-    canonical: 'https://instarlab.org/404/',
+    canonical: 'https://instarlab.org/404.html',
     robots: 'noindex, follow',
     pageSignature: 'orientation → recovery path → research destinations',
   },
