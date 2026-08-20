@@ -1,10 +1,12 @@
 ---
-import W5LegacyDocument from '../../components/workstream5/W5LegacyDocument.astro';
-import { routeAtPath } from '../../data/workstream5/manifest';
+import { getCollection } from 'astro:content';
+import ArticleIndex from '../../components/editorial/article/ArticleIndex.astro';
+import { publishedArticles } from '../../data/articles';
 
 export const prerender = true;
 
-const record = routeAtPath('/news/');
+const articles = publishedArticles(await getCollection('articles', ({ data }) => !data.draft));
+const authors = await getCollection('authors');
 ---
 
-<W5LegacyDocument record={record} />
+<ArticleIndex articles={articles} authors={authors} />

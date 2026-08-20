@@ -26,6 +26,7 @@
     "verify": "pnpm run check && pnpm run build && pnpm run quality:routes && pnpm run quality:media && pnpm run quality:links && pnpm run quality:sitemap && pnpm run quality:browser"
   },
   "dependencies": {
+    "@astrojs/rss": "^4.0.19",
     "motion": "^13.1.0",
     "three": "^0.185.1"
   },

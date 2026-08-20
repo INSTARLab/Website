@@ -1,0 +1,174 @@
+---
+import type { ArticleEntry, AuthorEntry } from '../../../data/articles';
+import { articlePath, authorNames, formatArticleDate, readingTimeMinutes } from '../../../data/articles';
+
+interface Props {
+  article: ArticleEntry;
+  authors: readonly AuthorEntry[];
+  featured?: boolean;
+}
+
+const { article, authors, featured = false } = Astro.props;
+const authorLabel = authorNames(article, authors).join(' · ');
+const hero = article.data.hero;
+---
+
+<article class:list={['article-card', { 'article-card--featured': featured }]}>
+  {hero ? (
+    <a class="article-card__media" href={articlePath(article)} aria-label={`Read ${article.data.title}`}>
+      <img
+        src={hero.src}
+        alt={hero.alt}
+        width="1600"
+        height="1000"
+        loading={featured ? 'eager' : 'lazy'}
+        decoding="async"
+      />
+    </a>
+  ) : null}
+  <div class="article-card__body">
+    <div class="article-card__meta">
+      <span>{formatArticleDate(article.data.publishedAt)}</span>
+      <span aria-hidden="true">·</span>
+      <span>{readingTimeMinutes(article)} min read</span>
+    </div>
+    <h2><a href={articlePath(article)}>{article.data.title}</a></h2>
+    <p>{article.data.description}</p>
+    <div class="article-card__footer">
+      <span>{authorLabel}</span>
+      <a href={articlePath(article)}>Read brief <span aria-hidden="true">↗</span></a>
+    </div>
+    {article.data.topics.length > 0 ? (
+      <ul class="article-card__topics" aria-label="Topics">
+        {article.data.topics.slice(0, 3).map((topic) => <li>{topic}</li>)}
+      </ul>
+    ) : null}
+  </div>
+</article>
+
+<style>
+  .article-card {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    border-block-start: 0.25rem solid var(--color-brand);
+    background: var(--color-surface-raised);
+  }
+
+  .article-card--featured {
+    grid-template-columns: minmax(0, 1.15fr) minmax(18rem, 0.85fr);
+    grid-template-rows: 1fr;
+    border-block-start: 0;
+    border-inline-start: 0.35rem solid var(--color-accent);
+  }
+
+  .article-card__media {
+    display: block;
+    overflow: hidden;
+    background: var(--color-footer-deep);
+  }
+
+  .article-card__media img {
+    inline-size: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    transition: transform 240ms ease;
+  }
+
+  .article-card__media:hover img,
+  .article-card__media:focus-visible img {
+    transform: scale(1.025);
+  }
+
+  .article-card__body {
+    display: flex;
+    flex-direction: column;
+    min-inline-size: 0;
+    padding: clamp(1.25rem, 2.4vw, 2rem);
+  }
+
+  .article-card__meta,
+  .article-card__footer,
+  .article-card__topics {
+    font-family: var(--font-ui);
+    font-size: 0.76rem;
+  }
+
+  .article-card__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    color: var(--color-muted);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .article-card h2 {
+    margin-block: 1rem 0.8rem;
+    font-size: clamp(1.6rem, 2.6vw, 2.5rem);
+    line-height: 1.05;
+  }
+
+  .article-card h2 a {
+    text-decoration: none;
+  }
+
+  .article-card h2 a:hover {
+    color: var(--color-brand-deep);
+    text-decoration: underline;
+  }
+
+  .article-card p {
+    max-inline-size: 58ch;
+    color: var(--color-muted-strong);
+  }
+
+  .article-card__footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-block-start: auto;
+    padding-block-start: 1.5rem;
+    color: var(--color-muted-strong);
+  }
+
+  .article-card__footer a {
+    color: var(--color-brand-deep);
+    font-weight: 700;
+    text-decoration-thickness: 0.12em;
+  }
+
+  .article-card__topics {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    margin-block-start: 1rem;
+  }
+
+  .article-card__topics li {
+    padding: 0.3rem 0.55rem;
+    border: 1px solid var(--color-rule);
+    border-radius: var(--radius-pill);
+    color: var(--color-muted-strong);
+  }
+
+  @media (max-width: 48rem) {
+    .article-card--featured {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto 1fr;
+      border-inline-start: 0;
+      border-block-start: 0.35rem solid var(--color-accent);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .article-card__media img {
+      transition: none;
+    }
+
+    .article-card__media:hover img,
+    .article-card__media:focus-visible img {
+      transform: none;
+    }
+  }
+</style>
