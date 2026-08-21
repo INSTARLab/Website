@@ -353,6 +353,78 @@ const homeBriefCtas = [
   'See the compute constraints',
   'Read the governance frame',
 ] as const;
+
+type HomePartnerInput = {
+  readonly url: `/${string}`;
+  readonly name: string;
+  readonly alt: string;
+  readonly href?: string;
+};
+
+const homePartner = (input: HomePartnerInput) => {
+  const media = publicMediaFor(input.url, {
+    alt: { kind: 'descriptive', status: 'approved', text: input.alt },
+  });
+
+  if (!media) {
+    throw new Error(`[EditorialHome] Missing public media policy for ${input.url}`);
+  }
+
+  return { ...input, media };
+};
+
+const homePartnerMarks = [
+  homePartner({ url: '/img/brand-logo/focus-hive.svg', name: 'Focus Hive', alt: 'Focus Hive Inc.', href: 'https://focushive.com' }),
+  homePartner({ url: '/img/brand-logo/global-enterprise.svg', name: 'Global Enterprise', alt: 'Global Enterprise', href: 'https://globalenterprise.com' }),
+  homePartner({ url: '/img/brand-logo/ravonics.svg', name: 'Ravonics', alt: 'Ravonics', href: 'https://ravonics.com' }),
+  homePartner({ url: '/img/brand-logo/curiosity-research.svg', name: 'Curiosity Research', alt: 'Curiosity Research Corporation', href: 'https://curiositycorp.org' }),
+  homePartner({ url: '/img/brand-logo/tao-learning.svg', name: 'Tao Learning', alt: 'Tao Learning', href: 'https://taolearning.org' }),
+  homePartner({ url: '/img/brand-logo/dream-limited.svg', name: 'Dream Limited', alt: 'Dream Limited' }),
+  homePartner({ url: '/img/brand-logo/world-enterprise-group.svg', name: 'World Enterprise Group', alt: 'World Enterprise Group' }),
+] as const;
+
+const homeLeadership = [
+  {
+    name: 'Suzanne Conejos',
+    role: 'AI Lead Scientist · Board Member',
+    media: homeMedia({
+      url: '/img/volunteers/suzanne-conejos.avif',
+      alt: 'Suzanne Conejos, AI Lead Scientist and Board Member',
+      sizes: '(min-width: 58rem) 16vw, 50vw',
+      focalPoint: '50% 50%',
+    }),
+  },
+  {
+    name: 'Sean Hackney',
+    role: 'Board Member · AI Researcher',
+    media: homeMedia({
+      url: '/img/volunteers/sean-hackney.avif',
+      alt: 'Sean Hackney, Board Member and AI Researcher',
+      sizes: '(min-width: 58rem) 16vw, 50vw',
+      focalPoint: '50% 50%',
+    }),
+  },
+  {
+    name: 'Dr. Spoogmay Khan',
+    role: 'Applied Scientist · Materials Physics',
+    media: homeMedia({
+      url: '/img/volunteers/spoogmay-khan.avif',
+      alt: 'Dr. Spoogmay Khan, Applied Scientist in Materials Physics',
+      sizes: '(min-width: 58rem) 16vw, 50vw',
+      focalPoint: '50% 50%',
+    }),
+  },
+  {
+    name: 'Maha Khan',
+    role: 'Research Scientist',
+    media: homeMedia({
+      url: '/img/volunteers/maha-khan.avif',
+      alt: 'Maha Khan, Research Scientist',
+      sizes: '(min-width: 58rem) 16vw, 50vw',
+      focalPoint: '50% 50%',
+    }),
+  },
+] as const;
 ---
 
 <SiteLayout
@@ -492,6 +564,79 @@ const homeBriefCtas = [
             </li>
           ))}
         </ul>
+      </div>
+    </section>
+
+    <section class="home-partners" aria-labelledby="home-partners-title">
+      <div class="home-container">
+        <div class="home-partners__head">
+          <div>
+            <div class="home-section-label">Research network</div>
+            <h2 id="home-partners-title">OUR PARTNERS</h2>
+          </div>
+          <div class="home-partners__intro">
+            <p>The INSTAR Consortium connects specialized organizations across AI, federal technology, education, infrastructure, and delivery. That network gives a sponsored research program the complementary capacity it needs while keeping the scientific question, methods, and deliverables clear.</p>
+            <a class="home-text-link" href="/research/consortium/">Review the INSTAR Consortium <Icon name="arrow-right" size="1rem" /></a>
+          </div>
+        </div>
+        <div class="home-partners__grid" aria-label="INSTAR Consortium partner organizations">
+          {homePartnerMarks.map((partner) => (
+            partner.href ? (
+              <a class="home-partner" href={partner.href} target="_blank" rel="noopener noreferrer" aria-label={`Visit ${partner.name} (opens in a new tab)`}>
+                <EditorialMedia asset={partner.media} figureClass="home-partner__mark" class="home-partner__image" picture={false} />
+                <span class="home-partner__name">{partner.name}<Icon name="external-link" size="0.9rem" /></span>
+              </a>
+            ) : (
+              <div class="home-partner" aria-label={partner.name}>
+                <EditorialMedia asset={partner.media} figureClass="home-partner__mark" class="home-partner__image" picture={false} />
+                <span class="home-partner__name">{partner.name}</span>
+              </div>
+            )
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="home-fellowship" aria-labelledby="home-fellowship-title">
+      <div class="home-container home-fellowship__grid">
+        <div class="home-fellowship__copy">
+          <div class="home-section-label home-section-label--light">For researchers</div>
+          <h2 id="home-fellowship-title">Join the INSTAR Fellowship</h2>
+          <p>The INSTAR Fellowship is an open citizen-scientist program for people who want to work on difficult questions across AI, quantum science, and the broader sciences. Fellows receive structured mentorship, interdisciplinary scope, and room to pursue a serious research problem.</p>
+          <div class="home-fellowship__actions">
+            <a class="home-button home-button--solid" href="/fellowship/">Apply for Fellowship <Icon name="spark" size="1rem" /></a>
+            <a class="home-text-link home-text-link--light" href="/research/opportunities/">Review research opportunities <Icon name="arrow-right" size="1rem" /></a>
+          </div>
+        </div>
+        <ul class="home-fellowship__signals" aria-label="INSTAR Fellowship features">
+          <li><Icon name="check" size="1.1rem" /><span>Structured mentorship</span></li>
+          <li><Icon name="check" size="1.1rem" /><span>Interdisciplinary research scope</span></li>
+          <li><Icon name="check" size="1.1rem" /><span>No minimum degree requirement</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="home-leadership" aria-labelledby="home-leadership-title">
+      <div class="home-container">
+        <div class="home-leadership__head">
+          <div>
+            <div class="home-section-label">Accountability and expertise</div>
+            <h2 id="home-leadership-title">OUR LEADERSHIP</h2>
+          </div>
+          <p>INSTAR’s research direction is accountable to scientists, engineers, and board members with experience across applied AI, materials physics, federal R&amp;D, and research governance.</p>
+        </div>
+        <div class="home-leadership__grid">
+          {homeLeadership.map((leader) => (
+            <article class="home-leader">
+              <EditorialMedia asset={leader.media} figureClass="home-leader__media" class="home-leader__image" picture={false} />
+              <div class="home-leader__copy">
+                <h3>{leader.name}</h3>
+                <p>{leader.role}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+        <a class="home-text-link home-leadership__cta" href="/community/leadership/">Meet the full leadership team <Icon name="arrow-right" size="1rem" /></a>
       </div>
     </section>
 
@@ -635,6 +780,44 @@ const homeBriefCtas = [
   .home-briefs__grid a:hover { background: rgb(255 255 255 / 0.06); }
   .home-briefs__grid a:hover .home-briefs__image { transform: scale(1.04); filter: saturate(1.08) brightness(1.08); }
 
+  .home-partners { padding-block: clamp(4rem, 8vw, 7rem); border-block: 1px solid var(--color-rule); background: var(--color-surface); }
+  .home-partners__head, .home-leadership__head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(18rem, 0.72fr); align-items: end; gap: clamp(2rem, 7vw, 7rem); }
+  .home-partners h2, .home-leadership h2 { margin-block-start: 1.2rem; font-size: clamp(2.2rem, 4vw, 4.5rem); letter-spacing: -0.05em; line-height: 0.98; }
+  .home-partners__intro p, .home-leadership__head p { max-inline-size: 40ch; margin: 0; color: var(--color-muted-strong); line-height: 1.55; }
+  .home-partners__intro .home-text-link { margin-block-start: 1.35rem; }
+  .home-partners__grid { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 1px; margin-block-start: 3.25rem; border-block-start: 1px solid var(--color-rule); border-inline-start: 1px solid var(--color-rule); background: var(--color-rule); }
+  .home-partner { display: flex; min-inline-size: 0; min-block-size: 9rem; flex-direction: column; justify-content: space-between; padding: 1rem; color: var(--color-ink); background: var(--color-surface-raised); text-decoration: none; transition: background-color 180ms ease, color 180ms ease; }
+  .home-partner:hover, .home-partner:focus-visible { color: var(--color-brand-deep); background: #fff; }
+  :global(.home-partner__mark) { display: grid; place-items: center; block-size: 5rem; margin: 0; }
+  :global(.home-partner__image) { inline-size: 100%; block-size: 100%; object-fit: contain; }
+  :global(.home-partner__mark figcaption) { display: none; }
+  .home-partner__name { display: inline-flex; align-items: center; justify-content: space-between; gap: 0.5rem; margin-block-start: 0.85rem; font: 700 0.66rem/1.25 var(--font-ui); letter-spacing: 0.05em; text-transform: uppercase; }
+  .home-partner__name > .icon { flex: none; }
+
+  .home-fellowship { padding-block: clamp(4.5rem, 9vw, 7.5rem); color: #fff; background: var(--home-dark); }
+  .home-fellowship__grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(18rem, 0.58fr); align-items: center; gap: clamp(2.5rem, 8vw, 8rem); }
+  .home-fellowship h2 { max-inline-size: 14ch; margin-block: 1.2rem 1.25rem; color: #fff; font-size: clamp(2.3rem, 4vw, 4.5rem); letter-spacing: -0.05em; line-height: 0.98; }
+  .home-fellowship__copy > p { max-inline-size: 58ch; margin: 0; color: rgb(255 255 255 / 0.72); font-size: 1.05rem; line-height: 1.6; }
+  .home-fellowship__actions { display: flex; align-items: center; flex-wrap: wrap; gap: 1.25rem 1.75rem; margin-block-start: 2rem; }
+  .home-fellowship__actions .home-button { margin: 0; }
+  .home-fellowship__signals { display: grid; gap: 0; padding: 0; margin: 0; list-style: none; border-block-start: 1px solid rgb(255 255 255 / 0.24); }
+  .home-fellowship__signals li { display: flex; align-items: center; gap: 0.85rem; padding-block: 1.15rem; border-block-end: 1px solid rgb(255 255 255 / 0.24); color: rgb(255 255 255 / 0.9); font: 700 0.83rem/1.3 var(--font-ui); letter-spacing: 0.04em; text-transform: uppercase; }
+  .home-fellowship__signals .icon { flex: none; color: var(--home-teal); }
+
+  .home-leadership { padding-block: clamp(4.5rem, 9vw, 7.5rem); }
+  .home-leadership__head { align-items: end; }
+  .home-leadership__head p { margin-block-end: 0.25rem; }
+  .home-leadership__grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(0.8rem, 2vw, 1.5rem); margin-block-start: 3rem; }
+  .home-leader { min-inline-size: 0; border: 1px solid var(--color-rule); background: var(--color-surface-raised); }
+  :global(.home-leader__media) { aspect-ratio: 1; overflow: hidden; margin: 0; background: var(--home-dark); }
+  :global(.home-leader__image) { inline-size: 100%; block-size: 100%; object-fit: cover; transition: transform 240ms ease; }
+  :global(.home-leader__media figcaption) { display: none; }
+  .home-leader:hover :global(.home-leader__image) { transform: scale(1.035); }
+  .home-leader__copy { padding: 1.15rem 1.15rem 1.25rem; }
+  .home-leader h3 { margin: 0; font-size: clamp(1.05rem, 1.35vw, 1.35rem); letter-spacing: -0.02em; line-height: 1.1; }
+  .home-leader p { margin-block: 0.5rem 0; color: var(--color-muted-strong); font: 700 0.68rem/1.35 var(--font-ui); letter-spacing: 0.06em; text-transform: uppercase; }
+  .home-leadership__cta { margin-block-start: 1.5rem; }
+
   .home-invitation { display: grid; grid-template-columns: minmax(14rem, 0.7fr) minmax(0, 1fr); gap: clamp(2rem, 7vw, 8rem); align-items: center; padding-block: clamp(4.5rem, 9vw, 7.5rem); }
   :global(.home-invitation__media) { aspect-ratio: 1 / 0.88; overflow: hidden; margin: 0; background: #0c1a2a; }
   :global(.home-invitation__image) { inline-size: 100%; block-size: 100%; object-fit: cover; }
@@ -648,12 +831,13 @@ const homeBriefCtas = [
     .home-masthead__grid { min-block-size: inherit; }
     .home-masthead__copy { padding-inline-end: 0; }
     :global(.home-masthead__media figcaption) { inset-inline: var(--spacing-gutter); }
-    .home-orientation__grid, .home-observations__head, .home-gallery__head { grid-template-columns: 1fr; }
+    .home-orientation__grid, .home-observations__head, .home-gallery__head, .home-partners__head, .home-leadership__head, .home-fellowship__grid { grid-template-columns: 1fr; }
     .home-projects { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .home-project:last-child { grid-column: 1 / -1; max-inline-size: calc(50% - 0.5rem); }
     .home-pathways__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .home-pathway:nth-child(2) { border-inline-end: 0; }
     .home-index__columns { grid-template-columns: 1fr; }
+    .home-partners__grid, .home-leadership__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .home-gallery__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: none; grid-auto-rows: clamp(8rem, 25vw, 13rem); }
     .home-gallery__link--1, .home-gallery__link--6 { grid-column: span 2; grid-row: span 1; }
     .home-gallery__link--2, .home-gallery__link--3, .home-gallery__link--4, .home-gallery__link--5, .home-gallery__link--7, .home-gallery__link--8 { grid-column: span 1; grid-row: span 1; }
@@ -670,12 +854,16 @@ const homeBriefCtas = [
     .home-project:last-child { grid-column: auto; max-inline-size: none; }
     .home-pathway, .home-pathway:nth-child(2), .home-briefs__grid li, .home-briefs__grid li:nth-child(2) { border-inline-end: 0; }
     .home-gallery__grid { gap: 0.55rem; }
+    .home-partners__grid, .home-leadership__grid { grid-template-columns: 1fr 1fr; }
+    .home-partner { min-block-size: 7.75rem; padding: 0.75rem; }
+    :global(.home-partner__mark) { block-size: 4.25rem; }
+    .home-fellowship__actions { align-items: flex-start; flex-direction: column; }
     .home-invitation { grid-template-columns: 1fr; }
     :global(.home-invitation__media) { max-inline-size: 30rem; }
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .home-button, .home-orientation__cta, :global(.home-orientation__image), :global(.home-project__media img), :global(.home-pathway__image), :global(.home-gallery__image), :global(.home-briefs__image) { transition: none; }
+    .home-button, .home-orientation__cta, :global(.home-orientation__image), :global(.home-project__media img), :global(.home-pathway__image), :global(.home-gallery__image), :global(.home-briefs__image), :global(.home-partner__image), :global(.home-leader__image) { transition: none; }
     .home-button:hover, .home-orientation__cta:hover, :global(.home-orientation__media:hover .home-orientation__image), :global(.home-project__link:hover .home-project__media img), :global(.home-pathway:hover .home-pathway__image), :global(.home-gallery__link:hover .home-gallery__image), :global(.home-briefs__grid a:hover .home-briefs__image) { transform: none; }
   }
 </style>

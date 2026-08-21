@@ -921,5 +921,212 @@
       "license": "Unverified; confirm ownership or license before publication.",
       "note": "Inherited public asset. Do not present it as externally sourced evidence."
     }
+  },
+  {
+    "match": "^/img/brand-logo/curiosity-research\\.svg$",
+    "idPrefix": "media:partner-",
+    "type": "icon-or-mark",
+    "role": "connection",
+    "alt": {
+      "kind": "descriptive",
+      "status": "approved",
+      "text": "Curiosity Research Corporation"
+    },
+    "dimensions": {
+      "width": 226,
+      "height": 42
+    },
+    "sizes": "(min-width: 58rem) 12rem, 38vw",
+    "loading": "lazy",
+    "fetchpriority": "auto",
+    "focalPoint": "50% 50%",
+    "provenance": {
+      "status": "unverified",
+      "source": "Repository partner mark; partner-provided source record is not attached.",
+      "license": "Partner mark usage terms require confirmation before external redistribution.",
+      "note": "Rendered only in the INSTAR Consortium partner-network context."
+    },
+    "reuseReason": "Partner-network mark; use is limited to the INSTAR Consortium context."
+  },
+  {
+    "match": "^/img/brand-logo/dream-limited\\.svg$",
+    "idPrefix": "media:partner-",
+    "type": "icon-or-mark",
+    "role": "connection",
+    "alt": {
+      "kind": "descriptive",
+      "status": "approved",
+      "text": "Dream Limited"
+    },
+    "dimensions": {
+      "width": 280,
+      "height": 80
+    },
+    "sizes": "(min-width: 58rem) 12rem, 38vw",
+    "loading": "lazy",
+    "fetchpriority": "auto",
+    "focalPoint": "50% 50%",
+    "provenance": {
+      "status": "unverified",
+      "source": "Repository partner mark; partner-provided source record is not attached.",
+      "license": "Partner mark usage terms require confirmation before external redistribution.",
+      "note": "Rendered only in the INSTAR Consortium partner-network context."
+    },
+    "reuseReason": "Partner-network mark; use is limited to the INSTAR Consortium context."
+  },
+  {
+    "match": "^/img/brand-logo/focus-hive\\.svg$",
+    "idPrefix": "media:partner-",
+    "type": "icon-or-mark",
+    "role": "connection",
+    "alt": {
+      "kind": "descriptive",
+      "status": "approved",
+      "text": "Focus Hive Inc."
+    },
+    "dimensions": {
+      "width": 1366,
+      "height": 157
+    },
+    "sizes": "(min-width: 58rem) 12rem, 38vw",
+    "loading": "lazy",
+    "fetchpriority": "auto",
+    "focalPoint": "50% 50%",
+    "provenance": {
+      "status": "unverified",
+      "source": "Repository partner mark; partner-provided source record is not attached.",
+      "license": "Partner mark usage terms require confirmation before external redistribution.",
+      "note": "Rendered only in the INSTAR Consortium partner-network context."
+    },
+    "reuseReason": "Partner-network mark; use is limited to the INSTAR Consortium context."
+  },
+  {
+    "match": "^/img/brand-logo/global-enterprise\\.svg$",
+    "idPrefix": "media:partner-",
+    "type": "icon-or-mark",
+    "role": "connection",
+    "alt": {
+      "kind": "descriptive",
+      "status": "approved",
+      "text": "Global Enterprise"
+    },
+    "dimensions": {
+      "width": 280,
+      "height": 86
+    },
+    "sizes": "(min-width: 58rem) 12rem, 38vw",
+    "loading": "lazy",
+    "fetchpriority": "auto",
+    "focalPoint": "50% 50%",
+    "provenance": {
+      "status": "unverified",
+      "source": "Repository partner mark; partner-provided source record is not attached.",
+      "license": "Partner mark usage terms require confirmation before external redistribution.",
+      "note": "Rendered only in the INSTAR Consortium partner-network context."
+    },
+    "reuseReason": "Partner-network mark; use is limited to the INSTAR Consortium context."
+  },
+  {
+    "match": "^/img/brand-logo/ravonics\\.svg$",
+    "idPrefix": "media:partner-",
+    "type": "icon-or-mark",
+    "role": "connection",
+    "alt": {
+      "kind": "descriptive",
+      "status": "approved",
+      "text": "Ravonics"
+    },
+    "dimensions": {
+      "width": 1829,
+      "height": 296
+    },
+    "sizes": "(min-width: 58rem) 12rem, 38vw",
+    "loading": "lazy",
+    "fetchpriority": "auto",
+    "focalPoint": "50% 50%",
+    "provenance": {
+      "status": "unverified",
+      "source": "Repository partner mark; partner-provided source record is not attached.",
+      "license": "Partner mark usage terms require confirmation before external redistribution.",
+      "note": "Rendered only in the INSTAR Consortium partner-network context."
+    },
+    "reuseReason": "Partner-network mark; use is limited to the INSTAR Consortium context."
+  },
+  {
+    "match": "^/img/brand-logo/tao-learning\\.svg$",
+    "idPrefix": "media:partner-",
+    "type": "icon-or-mark",
+    "role": "connection",
+    "alt": {
+      "kind": "descriptive",
+      "status": "approved",
+      "text": "Tao Learning"
+    },
+    "dimensions": {
+      "width": 855,
+      "height": 253
+    },
+    "sizes": "(min-width: 58rem) 12rem, 38vw",
+    "loading": "lazy",
+    "fetchpriority": "auto",
+    "focalPoint": "50% 50%",
+    "provenance": {
+      "status": "unverified",
+      "source": "Repository partner mark; partner-provided source record is not attached.",
+      "license": "Partner mark usage terms require confirmation before external redistribution.",
+      "note": "Rendered only in the INSTAR Consortium partner-network context."
+    },
+    "reuseReason": "Partner-network mark; use is limited to the INSTAR Consortium context."
+  },
+  {
+    "match": "^/img/brand-logo/world-enterprise-group\\.svg$",
+    "idPrefix": "media:partner-",
+    "type": "icon-or-mark",
+    "role": "connection",
+    "alt": {
+      "kind": "descriptive",
+      "status": "approved",
+      "text": "World Enterprise Group"
+    },
+    "dimensions": {
+      "width": 400,
+      "height": 80
+    },
+    "sizes": "(min-width: 58rem) 12rem, 38vw",
+    "loading": "lazy",
+    "fetchpriority": "auto",
+    "focalPoint": "50% 50%",
+    "provenance": {
+      "status": "unverified",
+      "source": "Repository partner mark; partner-provided source record is not attached.",
+      "license": "Partner mark usage terms require confirmation before external redistribution.",
+      "note": "Rendered only in the INSTAR Consortium partner-network context."
+    },
+    "reuseReason": "Partner-network mark; use is limited to the INSTAR Consortium context."
+  },
+  {
+    "match": "^/img/volunteers/(?:maha-khan|sean-hackney|spoogmay-khan|suzanne-conejos)\\.avif$",
+    "idPrefix": "media:leadership-",
+    "type": "photography-or-illustration",
+    "role": "observation",
+    "alt": {
+      "kind": "contextual",
+      "status": "review-required"
+    },
+    "dimensions": {
+      "width": 600,
+      "height": 600
+    },
+    "sizes": "(min-width: 58rem) 16vw, 50vw",
+    "loading": "lazy",
+    "fetchpriority": "auto",
+    "focalPoint": "50% 50%",
+    "provenance": {
+      "status": "unverified",
+      "source": "Repository leadership portrait; original capture and permission record are not attached.",
+      "license": "INSTAR Lab internal editorial use pending confirmation by the media owner.",
+      "note": "Displayed as a leadership preview and linked to the canonical leadership page."
+    },
+    "reuseReason": "Leadership preview portrait reused to connect the homepage to the canonical leadership profiles."
   }
 ]
