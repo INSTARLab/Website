@@ -19,33 +19,33 @@ const { meta } = Astro.props;
 const key = meta.key;
 const content: Record<string, { eyebrow: string; hero: string; lead: string; blocks: readonly ContentBlock[] }> = {
   about: {
-    eyebrow: 'The institution / context',
+    eyebrow: 'Institution / capability',
     hero: '/img/banners/about.avif',
-    lead: 'INSTAR is an independent research institute for questions that do not fit neatly inside one discipline, one funder, or one product cycle.',
+    lead: 'INSTAR Lab is a 501(c)(3) nonprofit research institute organized to pursue technically difficult questions across AI, quantum science, high-performance computing, health, energy, space, and the sciences.',
     blocks: [
-      { title: 'A long-horizon posture', body: 'The Lab connects scientists, engineers, researchers, and partners around public-benefit work in AI, quantum science, computing, health, energy, and space.' },
-      { title: 'Independent by design', body: 'As a nonprofit institute, INSTAR can follow questions for their importance, make the reasoning visible, and build partnerships around shared standards rather than short-term attention.' },
-      { title: 'Find your way in', body: 'Readers can enter through a research program, a science or technology discipline, a fellowship, a partnership, or a direct conversation.', bullets: ['Explore current programs', 'Meet the research community', 'Work with INSTAR'] },
+      { title: 'Research at the frontier', body: 'We combine advanced AI with quantum research, computation, sensing, formal methods, and domain science. The result is a research portfolio designed for ambitious questions that require more than one technical capability.' },
+      { title: 'Built for sponsored research', body: 'As a nonprofit research institute, INSTAR can align program design with scientific merit, mission need, reproducibility, data stewardship, and clear reporting—not only with a product roadmap.' },
+      { title: 'What a sponsor can review', body: 'Start with current programs, technical capabilities, facilities, the research process, or a direct conversation about a solicitation or contract requirement.', bullets: ['Review current programs', 'Review technical capabilities', 'Discuss a federal research need'] },
     ],
   },
   mission: {
-    eyebrow: 'The method / public benefit',
+    eyebrow: 'Mission / research standard',
     hero: '/img/banners/mission.avif',
-    lead: 'Expand human knowledge through rigorous, evidence-driven research—and translate discovery into useful public-benefit applications.',
+    lead: 'Advance human knowledge through rigorous research in AI, quantum science, and the full range of scientific domains—and turn validated results into useful knowledge, tools, and partnerships.',
     blocks: [
-      { title: 'Chart', body: 'Name the question, its context, and the evidence needed to make progress. A clear map is a precondition for useful collaboration.' },
-      { title: 'Explore', body: 'Work across methods and disciplines without losing rigor. Open data, reproducible practice, and explicit limits keep curiosity accountable.' },
-      { title: 'Transmit', body: 'Move what has been learned into public understanding, new research, and responsible application. Translation is part of the work, not an afterthought.' },
+      { title: 'Define', body: 'Frame the scientific question, its mission relevance, and the evidence needed to evaluate it.' },
+      { title: 'Develop', body: 'Use advanced AI, quantum methods, high-performance computing, sensing, formal verification, and domain expertise where they materially improve the work.' },
+      { title: 'Validate and transfer', body: 'Test assumptions, document limitations, and deliver results in forms that researchers, agencies, and implementation partners can evaluate and build on.' },
     ],
   },
   'contact-us': {
-    eyebrow: 'Begin / contact',
+    eyebrow: 'Federal research / contact',
     hero: '/img/banners/contact-us.avif',
-    lead: 'Bring a research question, a partnership idea, a fellowship inquiry, or a practical need. We will route it to the right conversation.',
+    lead: 'Bring a solicitation, contract requirement, research question, or partnership proposal. We will route it to the appropriate research or administrative conversation.',
     blocks: [
-      { title: 'Research and partnerships', body: 'For collaboration, sponsored programs, technology transfer, or federal and grant-related questions, email info@instarlab.org with enough context for a useful first response.' },
+      { title: 'Federal and sponsored research', body: 'For NSF, NASA, DOE, USDA, or other federal research questions, include the program, solicitation, technical area, and desired outcome when available.' },
       { title: 'Direct channels', body: 'INSTAR Lab Inc.\n125 Frederick St\nMarietta, OH 45750-3407\n929-229-2918', bullets: ['info@instarlab.org', '929-229-2918'] },
-      { title: 'What to include', body: 'A concise description of the question, the people or organization involved, the relevant timeline, and the next decision you are trying to make.' },
+      { title: 'What to include', body: 'Share the technical question, scope, timeline, data or facility constraints, and the decision the work must support.' },
     ],
   },
   privacy: {
@@ -139,7 +139,7 @@ const heroAsset = publicMediaFor(heroUrl, {
           <p class="core-editorial__eyebrow">{page.eyebrow}</p>
           <h1>{meta.title}</h1>
           <p class="core-editorial__lead">{page.lead}</p>
-          <a class="core-editorial__button" href={isNotFound ? '/' : '/contact-us/'}>{isNotFound ? 'Return to home' : 'Begin a conversation'} <span aria-hidden="true">↗</span></a>
+          <a class="core-editorial__button" href={isNotFound ? '/' : '/contact-us/'}>{isNotFound ? 'Return to home' : 'Discuss a research need'} <span aria-hidden="true">↗</span></a>
         </div>
       </div>
       <EditorialMedia asset={heroAsset} figureClass="core-editorial__hero-media" class="core-editorial__hero-image" picture={false} />

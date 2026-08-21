@@ -46,73 +46,73 @@ const homeHeroSlides = [
   {
     image: {
       src: '/img/slider/jupiterstar.avif',
-      alt: 'Jupiter and its rings against deep space, an orientation image for INSTAR Lab research',
-      caption: 'Curiosity is a starting condition. Rigor is the direction.',
+      alt: 'Jupiter and stars over deep space — exoplanet and interstellar research',
+      caption: 'Deep-space observation / research domain',
       width: 1920,
       height: 751,
       sizes: '100vw',
       focalPoint: '50% 50%',
     },
-    kicker: 'Independent / interdisciplinary / public benefit',
-    title: 'The next useful question is usually between fields.',
-    description: 'INSTAR Lab is a nonprofit research institute for people who want to understand a hard problem deeply enough to move it forward.',
+    kicker: 'Deep-space research',
+    title: 'DEEP SPACE EXPLORATION',
+    description: 'Exoplanetary characterization, interstellar medium mapping, and multi-spectrum signal intelligence for deep-space observation beyond our solar system.',
     actions: [
-      { href: '/research/current-programs/', label: 'Explore current programs', variant: 'primary' },
-      { href: '/mission/', label: 'Read the method', variant: 'secondary' },
+      { href: '/mission/', label: 'Our mission', variant: 'primary' },
+      { href: '/research/current-programs/', label: 'Review current programs', variant: 'secondary' },
     ],
   },
   {
     image: {
-      src: '/img/slider/astro.avif',
-      alt: 'A satellite crossing the edge of Earth at the start of an orbital pass',
-      caption: 'See the system from far enough away to notice what connects it.',
+      src: '/img/slider/bulb.avif',
+      alt: 'Glowing light bulb representing energy research and scientific innovation',
+      caption: 'Energy systems / research at the infrastructure scale',
       width: 1920,
       height: 750,
       sizes: '100vw',
-      focalPoint: '68% 50%',
+      focalPoint: '50% 50%',
     },
-    kicker: 'Observation / systems / scale',
-    title: 'Look wide enough to find the hidden system.',
-    description: 'Our work moves between instruments, models, and the environments those tools are meant to change.',
+    kicker: 'Energy research',
+    title: 'FUTURE OF ENERGY RESEARCH',
+    description: 'Fusion plasma confinement, solid-state quantum batteries, and grid-scale superconducting storage systems for a post-carbon energy infrastructure.',
     actions: [
-      { href: '/sciences/outer-space/', label: 'See the wider field', variant: 'primary' },
-      { href: '/research/our-process/', label: 'Follow the process', variant: 'secondary' },
-    ],
-  },
-  {
-    image: {
-      src: '/img/slider/slide-two.avif',
-      alt: 'A luminous violet research instrument in a working laboratory',
-      caption: 'Translation is where a promising signal meets a real constraint.',
-      width: 1920,
-      height: 750,
-      sizes: '100vw',
-      focalPoint: '74% 50%',
-    },
-    kicker: 'Method / translation / public benefit',
-    title: 'Make the difficult visible enough to work on.',
-    description: 'We build shared language across disciplines so careful questions can become practical, public-facing work.',
-    actions: [
-      { href: '/research/our-process/', label: 'See how we work', variant: 'primary' },
-      { href: '/community/about-us/', label: 'Meet the collaborators', variant: 'secondary' },
+      { href: '/sciences/energy/', label: 'Energy R&D', variant: 'primary' },
+      { href: '/research/funding/', label: 'Review energy funding', variant: 'secondary' },
     ],
   },
   {
     image: {
       src: '/img/slider/silicon.avif',
-      alt: 'A computational chip and luminous network inside a server environment',
-      caption: 'Shared infrastructure turns a promising idea into a repeatable practice.',
+      alt: 'Silicon wafer circuitry — next-generation compute systems and HPC architecture',
+      caption: 'AI compute / quantum systems / high-performance infrastructure',
       width: 1920,
       height: 750,
       sizes: '100vw',
-      focalPoint: '54% 50%',
+      focalPoint: '50% 50%',
     },
-    kicker: 'Compute / infrastructure / repeatability',
-    title: 'Build the stack that lets good questions travel.',
-    description: 'From secure compute to scientific simulation, the infrastructure shapes what a research team can test next.',
+    kicker: 'AI / quantum / HPC',
+    title: 'NEXT-GEN COMPUTE SYSTEMS',
+    description: 'Post-quantum cryptography, formally verified secure kernels, and neuromorphic HPC architectures for resilient autonomous systems and exascale AI.',
     actions: [
-      { href: '/technology/computer-science/', label: 'Trace the compute stack', variant: 'primary' },
-      { href: '/research/facilities/', label: 'See our facilities', variant: 'secondary' },
+      { href: '/technology/computer-science/', label: 'Computing research', variant: 'primary' },
+      { href: '/technology/quantum-computing/', label: 'Explore quantum computing', variant: 'secondary' },
+    ],
+  },
+  {
+    image: {
+      src: '/img/slider/astro.avif',
+      alt: 'Astronaut in orbit — orbital operations and space domain awareness research',
+      caption: 'Orbital systems / autonomy / space domain awareness',
+      width: 1920,
+      height: 750,
+      sizes: '100vw',
+      focalPoint: '68% 50%',
+    },
+    kicker: 'Space systems',
+    title: 'ORBITAL OPERATIONS',
+    description: 'Space-hardened embedded systems, autonomous orbital robotics, and real-time space domain awareness for sustained human presence in low Earth orbit.',
+    actions: [
+      { href: '/sciences/outer-space/', label: 'LEO and beyond', variant: 'primary' },
+      { href: '/tech-transfer/sttr-programs/', label: 'Explore STTR pathways', variant: 'secondary' },
     ],
   },
 ] as const;
@@ -121,14 +121,14 @@ const homeOrientationMedia = [
   homeMedia({
     url: '/img/projects/nlp-tech-conversational-agents.avif',
     alt: 'Two researchers discussing a technical question at a shared workstation',
-    caption: 'Make the question shareable.',
+    caption: 'Frame the question for review.',
     sizes: '(min-width: 58rem) 30vw, 100vw',
     focalPoint: '58% 47%',
   }),
   homeMedia({
     url: '/img/slider/laboratory.avif',
     alt: 'A bright laboratory with microscopes and analytical instruments ready for work',
-    caption: 'Then choose the right scale.',
+    caption: 'Match the method to the scale.',
     sizes: '(min-width: 58rem) 22vw, 50vw',
     focalPoint: '50% 50%',
   }),
@@ -146,8 +146,8 @@ const homeProjects = [
     href: '/labs/sovereign-ai/',
     kicker: 'Secure compute',
     title: 'Sovereign AI Laboratory',
-    summary: 'Air-gapped frontier model training, secure inference, and autonomous reasoning on private infrastructure.',
-    cta: 'Enter secure compute',
+    summary: 'Secure, private compute for frontier-model training, evaluation, and inference where data governance and mission assurance are part of the research problem.',
+    cta: 'Review the capability',
     media: homeMedia({
       url: '/img/projects/homepage-sovereign-ai.avif',
       alt: 'Server racks in a secure computing facility for sovereign AI research',
@@ -159,8 +159,8 @@ const homeProjects = [
     href: '/labs/biometric-security/',
     kicker: 'Human signals',
     title: 'Biometric Security Systems',
-    summary: 'Multi-modal bioinformatic authentication across genomic markers, neural gait, and vascular topology.',
-    cta: 'Study the signal stack',
+    summary: 'Multimodal identity and biosignal research spanning genomic markers, gait, and vascular signals for high-assurance sensing.',
+    cta: 'Review the research area',
     media: homeMedia({
       url: '/img/projects/homepage-biometric-security.avif',
       alt: 'Biometric imaging instruments in a laboratory environment',
@@ -172,8 +172,8 @@ const homeProjects = [
     href: '/labs/cognitive-ai/',
     kicker: 'Machine intelligence',
     title: 'Cognitive AI & Persona Systems',
-    summary: 'Psycholinguistic modeling, personality architectures, and AI personification through inference shaping.',
-    cta: 'Trace the reasoning system',
+    summary: 'Research in language, cognition, and model behavior to improve reasoning, evaluation, and human-aligned AI systems.',
+    cta: 'Review the research area',
     media: homeMedia({
       url: '/img/projects/homepage-cognitive-ai.avif',
       alt: 'Researchers working with code and machine-intelligence systems in a laboratory',
@@ -188,12 +188,12 @@ const homePathways = [
     href: '/research/current-programs/',
     className: 'research',
     label: 'Research',
-    title: 'Programs with a question at the center.',
-    summary: 'See what the Lab is working on now and where collaborators can add leverage.',
+    title: 'Active programs and proposed directions.',
+    summary: 'Review research questions, methods, and current areas where federal or institutional support can add capacity.',
     media: homeMedia({
       url: '/img/projects/cognitive-ai.avif',
       alt: 'A researcher working through a complex question at a warm-lit desk',
-      caption: 'Research / stay with the question',
+      caption: 'Research / review the program',
       sizes: '(min-width: 58rem) 30vw, 100vw',
       focalPoint: '52% 48%',
     }),
@@ -202,8 +202,8 @@ const homePathways = [
     href: '/technology/computer-science/',
     className: 'technology',
     label: 'Technology',
-    title: 'Methods that make difficult work possible.',
-    summary: 'Trace the computing, sensing, formal, and machine-intelligence systems behind the questions.',
+    title: 'Advanced methods and infrastructure.',
+    summary: 'Examine AI, quantum, HPC, formal methods, and sensing capabilities that support ambitious science.',
     media: homeMedia({
       url: '/img/projects/quantum-lab.avif',
       alt: 'A high-performance computing room with illuminated racks and colorful cabling',
@@ -216,8 +216,8 @@ const homePathways = [
     href: '/sciences/physics/',
     className: 'sciences',
     label: 'Sciences',
-    title: 'Disciplines that refuse to stay separate.',
-    summary: 'Move from a field of study to the evidence, tools, and public questions it can illuminate.',
+    title: 'Applications across scientific domains.',
+    summary: 'See how advanced AI and quantitative methods are applied across life, physical, earth, space, and social sciences.',
     media: homeMedia({
       url: '/img/projects/health-ai.avif',
       alt: 'An eye, hand, and fingerprint rendered as biometric research signals',
@@ -355,8 +355,8 @@ const homeBriefCtas = [
 ---
 
 <SiteLayout
-  title="INSTAR Lab — Independent Nonprofit Research Institute"
-  description="INSTAR Lab is an independent 501(c)(3) nonprofit research institute advancing applied research in AI, quantum science, HPC, health, energy, and space through interdisciplinary collaboration."
+  title="INSTAR Lab — Research Institute"
+  description="INSTAR Lab is a 501(c)(3) nonprofit research institute conducting applied research in artificial intelligence, quantum science, high-performance computing, health, energy, space, and the sciences for federal and institutional research partners."
   canonical="/"
   image="/img/slider/jupiterstar.avif"
   imageAlt="A deep-space field used as an orientation image for INSTAR Lab"
@@ -367,13 +367,13 @@ const homeBriefCtas = [
     <HomeSlider slides={homeHeroSlides} id="home-hero-slider" ariaLabel="INSTAR Lab research highlights" titleId="home-title" />
 
     <section class="home-orientation home-container" aria-labelledby="home-orientation-title">
-      <div class="home-section-label">Orientation</div>
+        <div class="home-section-label">For research sponsors</div>
       <div class="home-orientation__grid">
         <div class="home-orientation__copy">
-          <h2 id="home-orientation-title">A lab for work that needs more than one lens.</h2>
-          <p class="home-lead">We connect scientific questions to methods, technologies, people, and public-benefit paths—without hiding the uncertainty between them.</p>
+          <h2 id="home-orientation-title">A 501(c)(3) research institute for high-risk, high-reward questions in AI, quantum science, and the sciences.</h2>
+          <p class="home-lead">INSTAR Lab is a 501(c)(3) nonprofit research institute advancing AI, quantum science, high-performance computing, health, energy, space, and the sciences. We turn high-risk questions into disciplined research programs with clear methods, milestones, and technical outputs.</p>
           <a class="home-orientation__cta" href="/community/about-us/">
-            <span><small>Start with the posture</small>Understand who we are</span>
+            <span><small>Review the institution</small>Read about INSTAR Lab</span>
             <span aria-hidden="true">↗</span>
           </a>
         </div>
@@ -387,9 +387,9 @@ const homeBriefCtas = [
 
     <section class="home-observations" aria-labelledby="home-observations-title">
       <div class="home-container">
-        <div class="home-section-label">Observation</div>
+        <div class="home-section-label">Research capacity</div>
         <div class="home-observations__head">
-          <h2 id="home-observations-title">Research, in the material world.</h2>
+          <h2 id="home-observations-title">Capabilities at the research frontier.</h2>
         </div>
         <ul class="home-projects">
           {homeProjects.map((project) => (
@@ -411,9 +411,9 @@ const homeBriefCtas = [
 
     <section class="home-pathways" aria-labelledby="home-pathways-title">
       <div class="home-container">
-        <div class="home-section-label home-section-label--light">Choose a lens</div>
+        <div class="home-section-label home-section-label--light">Review the work by decision</div>
         <div class="home-pathways__head">
-          <h2 id="home-pathways-title">Choose a lens.</h2>
+          <h2 id="home-pathways-title">Find the evidence a funding decision requires.</h2>
         </div>
         <div class="home-pathways__grid">
           {homePathways.map((pathway) => (
@@ -434,10 +434,10 @@ const homeBriefCtas = [
     <ResearchConstellation />
 
     <section class="home-index home-container" aria-labelledby="home-index-title">
-      <div class="home-section-label">Field index</div>
+        <div class="home-section-label">Research portfolio</div>
       <div class="home-index__head">
-        <h2 id="home-index-title">Move laterally.</h2>
-        <p>Use adjacent routes to turn a broad interest into a more exact next step.</p>
+        <h2 id="home-index-title">Move from domain to program.</h2>
+        <p>Browse by research area, technical method, or scientific application, then review the program or capability behind it.</p>
       </div>
       <div class="home-index__columns">
         {[['Research', research], ['Technology', technology], ['Sciences', sciences]].map(([label, entries]) => (
@@ -448,7 +448,7 @@ const homeBriefCtas = [
                 <li><a href={entry.path}><span>{entry.slug.replaceAll('-', ' ')}</span><span aria-hidden="true">↗</span></a></li>
               ))}
             </ul>
-            <a class="home-text-link" href={label === 'Research' ? '/research/current-programs/' : label === 'Technology' ? '/technology/computer-science/' : '/sciences/physics/'}>Open {String(label).toLowerCase()} index <span aria-hidden="true">→</span></a>
+            <a class="home-text-link" href={label === 'Research' ? '/research/current-programs/' : label === 'Technology' ? '/technology/computer-science/' : '/sciences/physics/'}>Review {String(label).toLowerCase()} portfolio <span aria-hidden="true">→</span></a>
           </section>
         ))}
       </div>
@@ -456,10 +456,10 @@ const homeBriefCtas = [
 
     <section class="home-gallery" aria-labelledby="home-gallery-title">
       <div class="home-container">
-        <div class="home-section-label home-section-label--light">Research in view</div>
+        <div class="home-section-label home-section-label--light">Advanced tools in the research stack</div>
         <div class="home-gallery__head">
-          <h2 id="home-gallery-title">Eight ways into the same questions.</h2>
-          <p>Look closely at the instruments, systems, and abstractions that give interdisciplinary work somewhere to begin.</p>
+          <h2 id="home-gallery-title">AI, quantum systems, data, and instrumentation.</h2>
+          <p>These are working methods for questions across the sciences—not technology claims detached from the research they are meant to support.</p>
         </div>
         <div class="home-gallery__grid">
           {homeGallery.map((item, index) => (
@@ -473,10 +473,10 @@ const homeBriefCtas = [
 
     <section class="home-briefs" aria-labelledby="home-briefs-title">
       <div class="home-container">
-        <div class="home-section-label home-section-label--light">Research briefs</div>
+        <div class="home-section-label home-section-label--light">Research notes for sponsors and collaborators</div>
         <div class="home-briefs__head">
-          <h2 id="home-briefs-title">Ideas in motion.</h2>
-          <a class="home-text-link home-text-link--light" href="/news/">View all briefs <span aria-hidden="true">→</span></a>
+          <h2 id="home-briefs-title">Methods, risks, and findings in progress.</h2>
+          <a class="home-text-link home-text-link--light" href="/news/">Read all research briefs <span aria-hidden="true">→</span></a>
         </div>
         <ul class="home-briefs__grid">
           {briefs.map((brief, index) => (
@@ -496,10 +496,10 @@ const homeBriefCtas = [
     <section class="home-invitation home-container" aria-labelledby="home-invitation-title">
       <EditorialMedia asset={homeInvitationMedia} figureClass="home-invitation__media" class="home-invitation__image" picture={false} />
       <div class="home-invitation__copy">
-        <div class="home-section-label">Invitation</div>
-        <h2 id="home-invitation-title">Bring the question that does not have a home yet.</h2>
-        <p>Tell us what you are trying to learn, build, test, or make public. The first useful step is often a better framing.</p>
-        <a class="home-button home-button--solid" href="/contact-us/">Start a conversation <span aria-hidden="true">↗</span></a>
+        <div class="home-section-label">Research inquiry</div>
+        <h2 id="home-invitation-title">Discuss a research need or funding opportunity.</h2>
+        <p>Tell us the solicitation, contract requirement, mission need, or scientific question you are evaluating. We can point you to the relevant program, capability, or technical conversation.</p>
+        <a class="home-button home-button--solid" href="/contact-us/">Discuss a research need <span aria-hidden="true">↗</span></a>
       </div>
     </section>
   </article>

@@ -19,7 +19,7 @@ export type PrimaryNavigationEntry = NavigationItem | NavigationGroup;
 export const utilityNavigation = [
   { label: 'Email: info@instarlab.org', href: 'mailto:info@instarlab.org' },
   { label: 'Phone: 929-229-2918', href: 'tel:9292292918' },
-  { label: 'Research', href: '/research/current-programs/' },
+  { label: 'Review research programs', href: '/research/current-programs/' },
 ] as const satisfies readonly NavigationItem[];
 
 export const primaryNavigation = [
@@ -104,7 +104,7 @@ export const primaryNavigation = [
     ],
   },
   {
-    label: 'Tech Transfer',
+    label: 'Technology Transfer',
     items: [
       { label: 'STTR Programs', href: '/tech-transfer/sttr-programs/' },
       { label: 'Enterprise R&D', href: '/tech-transfer/enterprise-rd/' },
@@ -121,7 +121,7 @@ export const primaryNavigation = [
       { label: 'Contact', href: '/community/contact/' },
     ],
   },
-  { label: 'News', href: '/news/' },
+  { label: 'Research Briefs', href: '/news/' },
 ] as const satisfies readonly PrimaryNavigationEntry[];
 
 export const researchFooterLinks = [
@@ -135,6 +135,9 @@ export const researchFooterLinks = [
 
 export const quickFooterLinks = [
   { label: 'About Us', href: '/community/about-us/' },
+  { label: 'Research process', href: '/research/our-process/' },
+  { label: 'Federal research inquiries', href: '/contact-us/' },
+  { label: 'Funding and sponsorship', href: '/research/funding/' },
   { label: 'Fellowship', href: '/fellowship/' },
   { label: 'Careers', href: '/community/careers/' },
   { label: 'Terms of use', href: '/terms/' },

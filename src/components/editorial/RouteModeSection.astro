@@ -41,19 +41,19 @@ const media = route.primaryMedia
   : undefined;
 
 const modeLabels: Record<Exclude<EditorialVisualMode, 'orientation' | 'connection'>, string> = {
-  evidence: 'Evidence board',
-  observation: 'Field note',
-  sequence: 'Working sequence',
-  contrast: 'Boundary check',
-  participation: 'Choose a next move',
+  evidence: 'Evidence for review',
+  observation: 'Research setting',
+  sequence: 'Program sequence',
+  contrast: 'Limits and risk',
+  participation: 'Choose an engagement path',
 };
 
 const modeDescriptions: Record<Exclude<EditorialVisualMode, 'orientation' | 'connection'>, string> = {
-  evidence: 'A claim is more useful when the reader can see the question, the context, and the limit together.',
-  observation: 'A concrete visual gives the question a place to land before the reader moves into interpretation.',
-  sequence: 'Use this order as a practical way to move from a broad question to a more specific decision.',
-  contrast: 'The most credible route names what still needs evidence, context, or a different kind of conversation.',
-  participation: 'Choose the next action that matches how much context you have and what you are ready to do.',
+  evidence: 'A credible program states the question, method, evidence, and limit together.',
+  observation: 'A concrete instrument, dataset, or domain gives the research question a testable setting.',
+  sequence: 'Move from scope to method, validation, and an output a sponsor can evaluate.',
+  contrast: 'State what is known, what remains uncertain, and what would change the conclusion.',
+  participation: 'Choose the next action based on the decision, solicitation, or technical need you are evaluating.',
 };
 
 const subject = route.title.replace(/\s+—.*$/, '').trim();
@@ -79,8 +79,8 @@ const subject = route.title.replace(/\s+—.*$/, '').trim();
           </div>
         )}
         <div class="route-mode__copy">
-          <p class="route-mode__eyebrow">Observation / {familyLabel(route.family)}</p>
-          <h2 id={headingId}>Hold the question in view.</h2>
+          <p class="route-mode__eyebrow">Research setting / {familyLabel(route.family)}</p>
+          <h2 id={headingId}>What the work must explain.</h2>
           <p>{modeDescriptions[mode]}</p>
           <p class="route-mode__lead">{route.pageJob}</p>
         </div>
@@ -89,23 +89,23 @@ const subject = route.title.replace(/\s+—.*$/, '').trim();
       <div class="route-mode__evidence">
         <div class="route-mode__intro">
           <p class="route-mode__eyebrow">Evidence / {subject}</p>
-          <h2 id={headingId}>Make the reasoning inspectable.</h2>
+          <h2 id={headingId}>Make the research reviewable.</h2>
           <p>{modeDescriptions[mode]}</p>
         </div>
         <ul class="route-mode__evidence-grid">
           <li>
             <span>Question</span>
-            <strong>What brought you here?</strong>
+            <strong>What must be learned?</strong>
             <p>{route.pageJob}</p>
           </li>
           <li>
-            <span>Context</span>
-            <strong>What context should shape the examination?</strong>
+            <span>Method</span>
+            <strong>How will it be tested?</strong>
             <p>{route.description}</p>
           </li>
           <li>
-            <span>Boundary</span>
-            <strong>What needs a closer conversation?</strong>
+            <span>Risk</span>
+            <strong>What needs a closer review?</strong>
             <p>{route.earlyAction}</p>
           </li>
         </ul>
@@ -114,40 +114,40 @@ const subject = route.title.replace(/\s+—.*$/, '').trim();
       <div class="route-mode__sequence">
         <div class="route-mode__intro">
           <p class="route-mode__eyebrow">Sequence / a usable approach</p>
-          <h2 id={headingId}>Move from question to next step.</h2>
+          <h2 id={headingId}>From research question to deliverable.</h2>
           <p>{modeDescriptions[mode]}</p>
         </div>
         <ul class="route-mode__steps">
-          <li><div><strong>Frame</strong><p>{route.pageJob}</p></div></li>
-          <li><div><strong>Examine</strong><p>{route.description}</p></div></li>
-          <li><div><strong>Move</strong><p>{route.readyAction}</p></div></li>
+          <li><div><strong>Scope</strong><p>{route.pageJob}</p></div></li>
+          <li><div><strong>Validate</strong><p>{route.description}</p></div></li>
+          <li><div><strong>Deliver</strong><p>{route.readyAction}</p></div></li>
         </ul>
       </div>
     ) : mode === 'contrast' ? (
       <div class="route-mode__contrast">
         <p class="route-mode__eyebrow">Boundary / keep the limit visible</p>
-        <h2 id={headingId}>A useful page does not close the question too early.</h2>
+        <h2 id={headingId}>Credible research names its uncertainty.</h2>
         <div class="route-mode__contrast-copy">
           <p>{modeDescriptions[mode]}</p>
-          <p><strong>Still exploring?</strong> {route.earlyAction}</p>
-          <p><strong>Ready to act?</strong> {route.readyAction}</p>
+          <p><strong>Reviewing fit?</strong> {route.earlyAction}</p>
+          <p><strong>Ready to engage?</strong> {route.readyAction}</p>
         </div>
       </div>
     ) : (
       <div class="route-mode__participation">
         <div class="route-mode__intro">
-          <p class="route-mode__eyebrow">Participation / choose a direction</p>
-          <h2 id={headingId}>Leave with a move you can actually make.</h2>
+          <p class="route-mode__eyebrow">Engagement / choose a path</p>
+          <h2 id={headingId}>Choose the right way to engage.</h2>
           <p>{modeDescriptions[mode]}</p>
         </div>
         <div class="route-mode__choices">
           <a href="/contact-us/">
-            <span>Ready</span>
+            <span>Ready to discuss scope</span>
             <strong>{route.readyAction}</strong>
             <em aria-hidden="true">↗</em>
           </a>
           <a href={familyRoot(route.family)}>
-            <span>Exploring</span>
+            <span>Reviewing the portfolio</span>
             <strong>{route.earlyAction}</strong>
             <em aria-hidden="true">→</em>
           </a>

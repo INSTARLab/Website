@@ -28,7 +28,7 @@ export const siteIdentity = {
   name: 'INSTAR Lab',
   legalName: 'INSTAR Lab Inc.',
   description:
-    'INSTAR Lab is an independent 501(c)(3) nonprofit research institute advancing science through interdisciplinary collaboration, technological innovation, and partnership.',
+    'INSTAR Lab is a 501(c)(3) nonprofit research institute conducting applied research in artificial intelligence, quantum science, high-performance computing, health, energy, space, and the sciences for federal and institutional research partners.',
   logoPath: '/img/logo/instar.svg',
   email: 'info@instarlab.org',
   telephone: '929-229-2918',

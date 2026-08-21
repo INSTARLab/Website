@@ -12,19 +12,19 @@ export const coreRoutes = {
   home: {
     path: '/',
     key: 'home',
-    title: 'INSTAR Lab — Independent Nonprofit Research Institute',
+    title: 'INSTAR Lab — Research Institute',
     description:
-      'INSTAR Lab is a 501(c)(3) nonprofit advancing applied research in AI, quantum science, HPC, health, energy, and space through interdisciplinary collaboration.',
+      'INSTAR Lab is a 501(c)(3) nonprofit research institute conducting applied research in artificial intelligence, quantum science, high-performance computing, health, energy, space, and the sciences for federal and institutional research partners.',
     canonical: 'https://instarlab.org/',
     robots: 'index, follow',
-    pageSignature: 'orientation → field of inquiry → research pathways → invitation',
+    pageSignature: 'orientation → research portfolio → technical capabilities → invitation',
   },
   about: {
     path: '/about/',
     key: 'about',
-    title: 'INSTAR Lab || About Us',
+    title: 'About INSTAR Lab — Nonprofit Research Institute',
     description:
-      'About INSTAR Lab — an independent 501(c)(3) nonprofit research institute advancing science through AI, quantum science, HPC, health, energy, and space research.',
+      'About INSTAR Lab, a 501(c)(3) nonprofit research institute applying advanced AI, quantum research, high-performance computing, and domain science to ambitious research programs.',
     canonical: 'https://instarlab.org/about/',
     robots: 'index, follow',
     pageSignature: 'orientation → institutional story → ways of working → invitation',
@@ -34,17 +34,17 @@ export const coreRoutes = {
     key: 'mission',
     title: 'Our Mission — INSTAR Lab',
     description:
-      'INSTAR Lab exists to expand human knowledge through rigorous, evidence-driven research and translate discoveries into public-benefit applications across science and technology.',
+      'INSTAR Lab advances human knowledge through rigorous research in AI, quantum science, and the full range of scientific domains, with methods and outputs that sponsors and collaborators can evaluate.',
     canonical: 'https://instarlab.org/mission/',
     robots: 'index, follow',
-    pageSignature: 'thesis → operating principles → public benefit → participation',
+    pageSignature: 'thesis → operating principles → scientific outputs → participation',
   },
   contact: {
     path: '/contact-us/',
     key: 'contact-us',
     title: 'INSTAR Lab || Contact Us',
     description:
-      'Contact INSTAR Lab — reach us for research collaboration, partnership proposals, media requests, federal and grant-related questions, or donor inquiries.',
+      'Contact INSTAR Lab about federal research, grants, contracts, sponsored programs, technical partnerships, or a scientific question in AI, quantum, computing, health, energy, space, or another field.',
     canonical: 'https://instarlab.org/contact-us/',
     robots: 'index, follow',
     pageSignature: 'orientation → contact paths → intake form → expectations',

@@ -10,7 +10,7 @@ export async function GET(context: APIContext) {
 
   return rss({
     title: 'INSTAR Lab News',
-    description: 'Research briefs, methods, and public-benefit questions from INSTAR Lab.',
+    description: 'Research briefs, methods, and evidence from INSTAR Lab’s work in AI, quantum science, computing, health, energy, space, and the sciences.',
     site: context.site ?? new URL('https://instarlab.org/'),
     items: articles.map((article) => ({
       title: article.data.title,

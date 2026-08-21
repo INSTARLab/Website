@@ -69,12 +69,12 @@ const heroAsset = publicMediaFor(heroUrl, {
       <div class="editorial-container editorial-hero__grid">
         <div class="editorial-hero__copy">
           <p class="editorial-eyebrow"><span>{familyLabel(route.family)}</span><span aria-hidden="true">/</span><span>{route.slug.replaceAll('-', ' ')}</span></p>
-          <p class="editorial-folio">INSTAR FIELD NOTE</p>
+          <p class="editorial-folio">INSTAR RESEARCH PORTFOLIO</p>
           <h1>{route.title}</h1>
           <p class="editorial-dek">{route.description}</p>
           <div class="editorial-actions">
-            <a class="editorial-button editorial-button--primary" href={primaryHref}>Explore {familyLabel(route.family).toLowerCase()} <span aria-hidden="true">↗</span></a>
-            <a class="editorial-button editorial-button--quiet" href="/contact-us/">Start a conversation</a>
+            <a class="editorial-button editorial-button--primary" href={primaryHref}>Review {familyLabel(route.family).toLowerCase()} portfolio <span aria-hidden="true">↗</span></a>
+            <a class="editorial-button editorial-button--quiet" href="/contact-us/">Discuss a research need</a>
           </div>
         </div>
         <EditorialMedia asset={heroAsset} figureClass="editorial-hero__media" class="editorial-hero__image" picture={false} />
@@ -93,12 +93,12 @@ const heroAsset = publicMediaFor(heroUrl, {
     </nav>
 
     <section class="editorial-brief editorial-container" aria-labelledby="editorial-brief-title">
-      <div class="editorial-section-label">Reader brief</div>
+      <div class="editorial-section-label">Decision brief</div>
       <div class="editorial-brief__grid">
-        <h2 id="editorial-brief-title">{isArticle ? 'A question worth staying with.' : 'Make the next question sharper.'}</h2>
+        <h2 id="editorial-brief-title">{isArticle ? 'What the evidence supports.' : 'What a sponsor should be able to evaluate.'}</h2>
         <div class="editorial-brief__body">
           <p class="editorial-lead">{route.pageJob}</p>
-          <p>INSTAR treats a page as an instrument: orient first, make the reasoning visible, name the limits, and leave the reader with a meaningful next move.</p>
+          <p>INSTAR states the question, the method, the evidence, the limitations, and the next decision so a researcher, program officer, or contracting team can assess fit.</p>
         </div>
       </div>
     </section>
@@ -111,21 +111,21 @@ const heroAsset = publicMediaFor(heroUrl, {
       <section class="editorial-decision editorial-container" aria-labelledby="editorial-decision-title">
         <div class="editorial-decision__stamp" aria-hidden="true">INSTAR<br />/ / /</div>
         <div class="editorial-decision__copy">
-          <div class="editorial-section-label">Choose a direction</div>
+          <div class="editorial-section-label">Sponsor or collaborator</div>
           <h2 id="editorial-decision-title">{route.readyAction}</h2>
           <p>{route.earlyAction}</p>
         </div>
-        <a class="editorial-button editorial-button--primary" href="/contact-us/">Take the next step <span aria-hidden="true">↗</span></a>
+        <a class="editorial-button editorial-button--primary" href="/contact-us/">Discuss a research need <span aria-hidden="true">↗</span></a>
       </section>
     ) : null}
 
     <section class="editorial-related editorial-container" aria-labelledby="editorial-related-title">
       <div class="editorial-related__head">
         <div>
-          <div class="editorial-section-label">Continue exploring</div>
-          <h2 id="editorial-related-title">Adjacent questions</h2>
+          <div class="editorial-section-label">Related research</div>
+          <h2 id="editorial-related-title">Review the surrounding portfolio.</h2>
         </div>
-        <a href={primaryHref}>View all {familyLabel(route.family).toLowerCase()} <span aria-hidden="true">→</span></a>
+        <a href={primaryHref}>Review all {familyLabel(route.family).toLowerCase()} <span aria-hidden="true">→</span></a>
       </div>
       <ul class="editorial-related__grid">
         {related.map((entry) => (

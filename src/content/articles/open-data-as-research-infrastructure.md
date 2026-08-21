@@ -1,6 +1,6 @@
 ---
 title: "Open data is part of the research infrastructure"
-description: "Why transparent datasets, reproducible methods, and clear limits matter to public-benefit science."
+description: "Why transparent datasets, reproducible methods, and clear limits matter to credible nonprofit research."
 publishedAt: 2026-08-20
 draft: false
 authors:
@@ -8,7 +8,7 @@ authors:
 topics:
   - open data
   - reproducibility
-  - public benefit
+  - research integrity
 slug: open-data-research-philosophy
 hero:
   src: /img/slider/geospatial.avif
@@ -22,7 +22,7 @@ readingMap:
     summary: How mission and method reinforce each other.
     anchor: open-data-as-institutional-design
   - label: What INSTAR means by open
-    summary: The practical standard a public-benefit institute can set.
+    summary: The practical standard a nonprofit research institute can set.
     anchor: what-instar-means-by-open
 takeaways:
   - A transparent dataset lets another researcher retrieve, rerun, and challenge a result.
@@ -47,7 +47,7 @@ Open data does not eliminate every source of irreproducibility on its own, but i
 
 ## Open data as institutional design
 
-A commitment to open data is easier to sustain for some kinds of organizations than others. An independent 501(c)(3) nonprofit research institute has no proprietary product whose value depends on data exclusivity and is accountable to donors and the public rather than shareholders. In that structure, open data is not a concession—it is a natural expression of the institution’s purpose.
+A commitment to open data is easier to sustain for some kinds of organizations than others. A 501(c)(3) nonprofit research institute can choose to make appropriate data and methods available without treating every research output as a proprietary product. In that structure, open data is a practical expression of scientific accountability.
 
 When one research program’s output—a cleaned dataset, a documented analysis pipeline, or a validated model—is released as a public artifact, it becomes raw material for the next program, inside or outside the organization that produced it. Treating open data as a philosophy rather than a compliance requirement lets that cycle compound over time.
 
