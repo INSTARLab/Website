@@ -70,7 +70,7 @@
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 
   /* Tailwind 4 theme namespaces: reusable layout and interaction contracts. */
-  --container-editorial: 78rem;
+  --container-editorial: 100%;
   --container-reading: 68ch;
   --spacing-touch: 2.75rem;
   --duration-quick: 160ms;
@@ -89,7 +89,7 @@
   --text-display--line-height: 0.98;
   --text-display--letter-spacing: -0.04em;
 
-  --spacing-gutter: clamp(1rem, 2.6vw, 2.25rem);
+  --spacing-gutter: 1.25rem;
   --spacing-section: clamp(4rem, 8vw, 8rem);
   --spacing-section-compact: clamp(2.5rem, 5vw, 5rem);
   --spacing-content: clamp(1.5rem, 3.5vw, 3.5rem);

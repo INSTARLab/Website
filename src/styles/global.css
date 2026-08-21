@@ -152,7 +152,7 @@
   }
 
   .site-container {
-    width: min(100%, 78rem);
+    width: 100%;
     margin-inline: auto;
     padding-inline: var(--spacing-gutter);
   }
@@ -557,7 +557,7 @@
   }
 
   .editorial-container {
-    width: min(100% - 2 * var(--spacing-gutter), 78rem);
+    width: calc(100% - 2 * var(--spacing-gutter));
     margin-inline: auto;
   }
 
@@ -566,7 +566,7 @@
   }
 
   .editorial-container--wide {
-    max-inline-size: 78rem;
+    max-inline-size: none;
   }
 
   .editorial-container--full {

@@ -117,12 +117,12 @@ const pagefindUrl = `${baseUrl}${baseUrl.endsWith('/') ? '' : '/'}pagefind/pagef
   }
 
   .search-page__container {
-    width: min(100% - 2 * var(--spacing-gutter), 78rem);
+    width: calc(100% - 2 * var(--spacing-gutter));
     margin-inline: auto;
   }
 
   .search-page__hero {
-    padding-block: clamp(4rem, 10vw, 8rem);
+    padding-block: clamp(3.5rem, 7vw, 6.5rem);
     color: #fff;
     background: var(--search-ink);
   }
@@ -146,9 +146,9 @@ const pagefindUrl = `${baseUrl}${baseUrl.endsWith('/') ? '' : '/'}pagefind/pagef
     max-inline-size: 13ch;
     margin: 1.4rem 0 0;
     color: inherit;
-    font-size: clamp(3rem, 7vw, 7rem);
-    letter-spacing: -0.07em;
-    line-height: 0.92;
+    font-size: clamp(2.7rem, 4.8vw, 5.5rem);
+    letter-spacing: -0.055em;
+    line-height: 0.98;
   }
 
   .search-page__intro {
@@ -296,8 +296,8 @@ const pagefindUrl = `${baseUrl}${baseUrl.endsWith('/') ? '' : '/'}pagefind/pagef
     max-inline-size: 12ch;
     margin: 0.8rem 0 0;
     color: var(--search-ink);
-    font-size: clamp(2.2rem, 4.5vw, 4.8rem);
-    letter-spacing: -0.06em;
+    font-size: clamp(2rem, 3.6vw, 4rem);
+    letter-spacing: -0.055em;
     line-height: 0.98;
   }
 

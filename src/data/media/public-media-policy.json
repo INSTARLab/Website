@@ -125,6 +125,30 @@
     "reuseReason": "Shared news-section orientation image; replace with route-specific art direction when an approved asset exists."
   },
   {
+    "match": "^/img/banners/labs-biometric-security\\.avif$",
+    "idPrefix": "media:banner-",
+    "type": "photography-or-illustration",
+    "role": "orientation",
+    "alt": {
+      "kind": "contextual",
+      "status": "review-required"
+    },
+    "dimensions": {
+      "width": 1920,
+      "height": 600
+    },
+    "sizes": "(min-width: 58rem) 54vw, 100vw",
+    "loading": "eager",
+    "fetchpriority": "high",
+    "focalPoint": "50% 50%",
+    "provenance": {
+      "status": "verified",
+      "source": "AI-generated replacement asset commissioned for the INSTAR Lab biometric and drone sensing route on 2026-08-21.",
+      "license": "INSTAR Lab-created website asset; permitted for INSTAR Lab communications.",
+      "note": "Wide crop of the approved homepage sensing visual; contains no readable interface text or external claims."
+    }
+  },
+  {
     "match": "^/img/banners/[^/]+\\.avif$",
     "idPrefix": "media:banner-",
     "type": "photography-or-illustration",
@@ -364,10 +388,10 @@
     "fetchpriority": "auto",
     "focalPoint": "50% 50%",
     "provenance": {
-      "status": "unverified",
-      "source": "Repository asset; original source is not recorded.",
-      "license": "Unverified; confirm ownership or license before publication.",
-      "note": "Inherited public asset. Do not present it as externally sourced evidence."
+      "status": "verified",
+      "source": "AI-generated replacement asset commissioned for the INSTAR Lab homepage on 2026-08-21.",
+      "license": "INSTAR Lab-created website asset; permitted for INSTAR Lab communications.",
+      "note": "Generated to represent current phone, laptop, and drone sensing capabilities; contains no external claims or readable interface text."
     }
   },
   {
@@ -779,7 +803,31 @@
     }
   },
   {
-    "match": "^/img/projects/(?:nlp-tech-conversational-agents|nlp-tech-language-understanding|cognitive-ai)\\.avif$",
+    "match": "^/img/projects/nlp-tech-conversational-agents\\.avif$",
+    "idPrefix": "media:home-",
+    "type": "photography-or-illustration",
+    "role": "observation",
+    "alt": {
+      "kind": "contextual",
+      "status": "review-required"
+    },
+    "dimensions": {
+      "width": 800,
+      "height": 1000
+    },
+    "sizes": "(min-width: 58rem) 30vw, 100vw",
+    "loading": "lazy",
+    "fetchpriority": "auto",
+    "focalPoint": "66% 45%",
+    "provenance": {
+      "status": "unverified",
+      "source": "Repository asset; original source is not recorded.",
+      "license": "Unverified; confirm ownership or license before publication.",
+      "note": "Inherited public asset. Do not present it as externally sourced evidence."
+    }
+  },
+  {
+    "match": "^/img/projects/(?:nlp-tech-language-understanding|cognitive-ai)\\.avif$",
     "idPrefix": "media:home-",
     "type": "photography-or-illustration",
     "role": "observation",

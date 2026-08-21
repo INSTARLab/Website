@@ -193,9 +193,9 @@ const mapItems = article.data.readingMap.length > 0
   }
 
   .article-document__header-inner {
-    width: min(100% - 2 * var(--spacing-gutter), 78rem);
+    width: calc(100% - 2 * var(--spacing-gutter));
     margin-inline: auto;
-    padding-block: 1.5rem clamp(4rem, 9vw, 7rem);
+    padding-block: 1.5rem clamp(3.5rem, 7vw, 6rem);
   }
 
   .article-document__breadcrumb {
@@ -231,9 +231,9 @@ const mapItems = article.data.readingMap.length > 0
     max-inline-size: 13ch;
     margin-block: 1.2rem 1.5rem;
     color: var(--color-on-brand);
-    font-size: clamp(2.7rem, 7vw, 7.2rem);
-    letter-spacing: -0.06em;
-    line-height: 0.95;
+    font-size: clamp(2.6rem, 4.8vw, 5.5rem);
+    letter-spacing: -0.055em;
+    line-height: 0.98;
   }
 
   .article-document__dek {

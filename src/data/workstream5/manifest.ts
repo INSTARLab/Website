@@ -109,12 +109,12 @@ export const workstream5Routes = [
   route({
     path: '/labs/biometric-security/',
     family: 'labs',
-    title: 'Biometric Security Systems — INSTAR Lab',
-    description: 'INSTAR Lab researches multimodal biometric authentication across genomic markers, gait analysis, and vascular signals for high-assurance identity and sensing systems.',
+    title: 'Biometrics & Drone Sensing — INSTAR Lab',
+    description: 'INSTAR Lab researches advanced biometric sensing on phones and laptops without specialized hardware, alongside advanced drone sensing developed with a Department of War (DoW) federal contractor. The program is structured around clear methods, validation requirements, data-governance constraints, and sponsor-reviewable next steps.',
     signature: ['orientation', 'evidence', 'contrast', 'connection'],
-    pageJob: 'Explain the lab’s research question, sensing methods, assurance requirements, constraints, and collaboration path.',
-    readyAction: 'Discuss a biometric or sensing research requirement.',
-    earlyAction: 'Review the research approach and evidence requirements.',
+    pageJob: 'Help program officers and technical sponsors assess the feasibility, assurance requirements, validation plan, and collaboration path for phone/laptop biometrics and contractor-developed drone sensing.',
+    readyAction: 'Discuss a sponsored biometrics or drone-sensing program.',
+    earlyAction: 'Review the sensing methods, deployment constraints, validation evidence, and public-release boundaries.',
   }),
   route({
     path: '/labs/cognitive-ai/',

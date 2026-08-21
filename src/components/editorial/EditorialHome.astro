@@ -120,10 +120,10 @@ const homeHeroSlides = [
 const homeOrientationMedia = [
   homeMedia({
     url: '/img/projects/nlp-tech-conversational-agents.avif',
-    alt: 'Two researchers discussing a technical question at a shared workstation',
-    caption: 'Frame the question for review.',
+    alt: 'A precision optical and quantum computing apparatus in a dark research laboratory',
+    caption: 'Frontier instrumentation / inspect the method.',
     sizes: '(min-width: 58rem) 30vw, 100vw',
-    focalPoint: '58% 47%',
+    focalPoint: '66% 45%',
   }),
   homeMedia({
     url: '/img/slider/laboratory.avif',
@@ -157,13 +157,13 @@ const homeProjects = [
   },
   {
     href: '/labs/biometric-security/',
-    kicker: 'Human signals',
-    title: 'Biometric Security Systems',
-    summary: 'Multimodal identity and biosignal research spanning genomic markers, gait, and vascular signals for high-assurance sensing.',
-    cta: 'Review the research area',
+    kicker: 'Applied sensing',
+    title: 'Biometrics & drone sensing',
+    summary: 'INSTAR researches advanced biometric sensing on phones and laptops without specialized hardware, alongside advanced drone sensing developed with a Department of War (DoW) federal contractor.',
+    cta: 'Review the sensing program',
     media: homeMedia({
       url: '/img/projects/homepage-biometric-security.avif',
-      alt: 'Biometric imaging instruments in a laboratory environment',
+      alt: 'A modern smartphone and laptop with subtle biometric sensing cues beside a compact drone sensor platform in a dark laboratory',
       sizes: '(min-width: 58rem) 30vw, 100vw',
       focalPoint: '50% 50%',
     }),
@@ -367,17 +367,18 @@ const homeBriefCtas = [
     <HomeSlider slides={homeHeroSlides} id="home-hero-slider" ariaLabel="INSTAR Lab research highlights" titleId="home-title" />
 
     <section class="home-orientation home-container" aria-labelledby="home-orientation-title">
-        <div class="home-section-label">For research sponsors</div>
+      <div class="home-section-label">For federal research partners</div>
       <div class="home-orientation__grid">
         <div class="home-orientation__copy">
-          <h2 id="home-orientation-title">A 501(c)(3) research institute for high-risk, high-reward questions in AI, quantum science, and the sciences.</h2>
-          <p class="home-lead">INSTAR Lab is a 501(c)(3) nonprofit research institute advancing AI, quantum science, high-performance computing, health, energy, space, and the sciences. We turn high-risk questions into disciplined research programs with clear methods, milestones, and technical outputs.</p>
-          <a class="home-orientation__cta" href="/community/about-us/">
-            <span><small>Review the institution</small>Read about INSTAR Lab</span>
+          <h2 id="home-orientation-title">Put frontier science behind the question that matters.</h2>
+          <p class="home-lead">INSTAR combines advanced AI, quantum research, high-performance computing, and domain science to turn ambitious objectives into testable programs. From energy and space to health, agriculture, and fundamental physics, we define the question, engineer the method, measure uncertainty, and deliver evidence, models, prototypes, or data a sponsor can evaluate.</p>
+          <a class="home-orientation__cta" href="/research/our-process/">
+            <span><small>Review the method</small>See how a program earns confidence</span>
             <span aria-hidden="true">↗</span>
           </a>
+          <a class="home-text-link" href="/contact-us/">Discuss a funding opportunity <span aria-hidden="true">→</span></a>
         </div>
-        <div class="home-orientation__media-grid" aria-label="Two views of the research environment">
+        <div class="home-orientation__media-grid" aria-label="Views of the research environment">
           {homeOrientationMedia.map((asset, index) => (
             <EditorialMedia asset={asset} figureClass={`home-orientation__media home-orientation__media--${index + 1}`} class="home-orientation__image" picture={false} />
           ))}
@@ -434,7 +435,7 @@ const homeBriefCtas = [
     <ResearchConstellation />
 
     <section class="home-index home-container" aria-labelledby="home-index-title">
-        <div class="home-section-label">Research portfolio</div>
+      <div class="home-section-label">Research portfolio</div>
       <div class="home-index__head">
         <h2 id="home-index-title">Move from domain to program.</h2>
         <p>Browse by research area, technical method, or scientific application, then review the program or capability behind it.</p>
@@ -497,9 +498,9 @@ const homeBriefCtas = [
       <EditorialMedia asset={homeInvitationMedia} figureClass="home-invitation__media" class="home-invitation__image" picture={false} />
       <div class="home-invitation__copy">
         <div class="home-section-label">Research inquiry</div>
-        <h2 id="home-invitation-title">Discuss a research need or funding opportunity.</h2>
+        <h2 id="home-invitation-title">Bring a funding or contract requirement to the research frontier.</h2>
         <p>Tell us the solicitation, contract requirement, mission need, or scientific question you are evaluating. We can point you to the relevant program, capability, or technical conversation.</p>
-        <a class="home-button home-button--solid" href="/contact-us/">Discuss a research need <span aria-hidden="true">↗</span></a>
+        <a class="home-button home-button--solid" href="/contact-us/">Discuss a funding or contract requirement <span aria-hidden="true">↗</span></a>
       </div>
     </section>
   </article>
@@ -507,7 +508,7 @@ const homeBriefCtas = [
 
 <style>
   .home-editorial { --home-dark: #0b1626; --home-teal: #7fd7ea; background: var(--color-canvas); }
-  .home-container { width: min(100% - 2 * var(--spacing-gutter), 90rem); margin-inline: auto; }
+  .home-container { width: calc(100% - 2 * var(--spacing-gutter)); margin-inline: auto; }
 
   .home-masthead { position: relative; isolation: isolate; min-block-size: min(46rem, calc(100svh - 8rem)); overflow: clip; color: #fff; background: var(--home-dark); }
   :global(.home-masthead__media) { position: absolute; z-index: -1; inset: 0; margin: 0; background: var(--home-dark); }
@@ -605,10 +606,11 @@ const homeBriefCtas = [
   .home-gallery__head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(15rem, 0.55fr); align-items: end; gap: 2rem; margin-block: 1.8rem 2.8rem; }
   .home-gallery h2 { max-inline-size: 16ch; color: #fff; }
   .home-gallery__head p { max-inline-size: 34ch; margin: 0; color: rgb(255 255 255 / 0.68); line-height: 1.55; }
-  .home-gallery__grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); grid-auto-rows: clamp(6rem, 9vw, 9rem); gap: 0.75rem; }
+  .home-gallery__grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); grid-template-rows: repeat(4, clamp(6rem, 9vw, 9rem)); gap: 0.75rem; }
   .home-gallery__link { display: block; min-block-size: 0; overflow: hidden; }
   .home-gallery__link--1, .home-gallery__link--6 { grid-column: span 6; grid-row: span 2; }
-  .home-gallery__link--2, .home-gallery__link--3, .home-gallery__link--4, .home-gallery__link--5, .home-gallery__link--7, .home-gallery__link--8 { grid-column: span 3; }
+  .home-gallery__link--2, .home-gallery__link--3, .home-gallery__link--4, .home-gallery__link--5 { grid-column: span 3; grid-row: span 1; }
+  .home-gallery__link--7, .home-gallery__link--8 { grid-column: span 3; grid-row: span 2; }
   :global(.home-gallery__item) { position: relative; block-size: 100%; overflow: hidden; margin: 0; background: #0c1a2a; }
   :global(.home-gallery__image) { inline-size: 100%; block-size: 100%; object-fit: cover; transition: transform 280ms ease, filter 280ms ease; }
   :global(.home-gallery__item figcaption) { position: absolute; inset-inline: 0; inset-block-end: 0; padding: 2.5rem 0.9rem 0.75rem; background: linear-gradient(0deg, rgb(0 0 0 / 0.78), transparent); color: #fff; font: 700 0.72rem/1.25 var(--font-ui); letter-spacing: 0.08em; text-transform: uppercase; }
@@ -651,9 +653,9 @@ const homeBriefCtas = [
     .home-pathways__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .home-pathway:nth-child(2) { border-inline-end: 0; }
     .home-index__columns { grid-template-columns: 1fr; }
-    .home-gallery__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: clamp(8rem, 25vw, 13rem); }
+    .home-gallery__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: none; grid-auto-rows: clamp(8rem, 25vw, 13rem); }
     .home-gallery__link--1, .home-gallery__link--6 { grid-column: span 2; grid-row: span 1; }
-    .home-gallery__link--2, .home-gallery__link--3, .home-gallery__link--4, .home-gallery__link--5, .home-gallery__link--7, .home-gallery__link--8 { grid-column: span 1; }
+    .home-gallery__link--2, .home-gallery__link--3, .home-gallery__link--4, .home-gallery__link--5, .home-gallery__link--7, .home-gallery__link--8 { grid-column: span 1; grid-row: span 1; }
     .home-briefs__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .home-briefs__grid li:nth-child(2) { border-inline-end: 0; }
   }

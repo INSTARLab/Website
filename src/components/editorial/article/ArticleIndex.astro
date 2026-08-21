@@ -72,9 +72,9 @@ const rest = featured ? articles.slice(1) : [];
   }
 
   .article-index__header-inner {
-    width: min(100% - 2 * var(--spacing-gutter), 78rem);
+    width: calc(100% - 2 * var(--spacing-gutter));
     margin-inline: auto;
-    padding-block: clamp(4.5rem, 11vw, 9rem) clamp(3.5rem, 8vw, 6.5rem);
+    padding-block: clamp(3.5rem, 7vw, 6.5rem) clamp(3rem, 6vw, 5rem);
   }
 
   .article-index__kicker,
@@ -94,7 +94,9 @@ const rest = featured ? articles.slice(1) : [];
     max-inline-size: 9ch;
     margin-block: 1.3rem 1rem;
     color: var(--color-on-brand);
-    font-size: var(--text-display);
+    font-size: clamp(2.5rem, 4.2vw, 4.75rem);
+    letter-spacing: -0.045em;
+    line-height: 0.99;
   }
 
   .article-index__dek {

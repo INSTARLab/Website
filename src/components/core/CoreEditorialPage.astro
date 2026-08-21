@@ -139,7 +139,7 @@ const heroAsset = publicMediaFor(heroUrl, {
           <p class="core-editorial__eyebrow">{page.eyebrow}</p>
           <h1>{meta.title}</h1>
           <p class="core-editorial__lead">{page.lead}</p>
-          <a class="core-editorial__button" href={isNotFound ? '/' : '/contact-us/'}>{isNotFound ? 'Return to home' : 'Discuss a research need'} <span aria-hidden="true">↗</span></a>
+          <a class="core-editorial__button" href={isNotFound ? '/' : '/contact-us/'}>{isNotFound ? 'Return to home' : 'Discuss a research requirement'} <span aria-hidden="true">↗</span></a>
         </div>
       </div>
       <EditorialMedia asset={heroAsset} figureClass="core-editorial__hero-media" class="core-editorial__hero-image" picture={false} />
@@ -164,19 +164,19 @@ const heroAsset = publicMediaFor(heroUrl, {
 
 <style>
   .core-editorial { --core-accent: var(--color-brand); background: var(--color-canvas); }
-  .core-editorial__container { width: min(100% - 2 * var(--spacing-gutter), 90rem); margin-inline: auto; }
-  .core-editorial__hero { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); min-block-size: min(44rem, calc(100svh - 8.5rem)); color: #fff; background: #0b1626; }
-  .core-editorial__hero-copy { display: flex; align-items: center; padding-block: clamp(4rem, 10vw, 9rem); }
+  .core-editorial__container { width: calc(100% - 2 * var(--spacing-gutter)); margin-inline: auto; }
+  .core-editorial__hero { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); block-size: min(40rem, calc(100svh - var(--layout-chrome-offset))); min-block-size: min(40rem, calc(100svh - var(--layout-chrome-offset))); color: #fff; background: #0b1626; }
+  .core-editorial__hero-copy { display: flex; align-items: center; padding-block: clamp(3.5rem, 7vw, 6rem); }
   .core-editorial__eyebrow { margin-block-end: 1.8rem; color: #7fd7ea; font: 800 0.74rem/1.2 var(--font-ui); letter-spacing: 0.14em; text-transform: uppercase; }
-  .core-editorial h1 { max-inline-size: 9ch; margin: 0; color: #fff; font-size: clamp(3.4rem, 6vw, 7.2rem); letter-spacing: -0.08em; line-height: 0.9; }
-  .core-editorial__lead { max-inline-size: 47ch; margin-block: 2rem 0; color: rgb(255 255 255 / 0.73); font-size: clamp(1.15rem, 1rem + 0.45vw, 1.45rem); line-height: 1.5; }
+  .core-editorial h1 { max-inline-size: 13ch; margin: 0; color: #fff; font-size: clamp(2.35rem, 4vw, 4.75rem); letter-spacing: -0.045em; line-height: 0.99; }
+  .core-editorial__lead { max-inline-size: 47ch; margin-block: 1.5rem 0; color: rgb(255 255 255 / 0.73); font-size: clamp(1rem, 0.96rem + 0.22vw, 1.2rem); line-height: 1.55; }
   .core-editorial__button { display: inline-flex; align-items: center; gap: 0.7rem; margin-block-start: 2rem; padding: 0.9rem 1.1rem; color: #06121c; background: #7fd7ea; font: 800 0.82rem/1 var(--font-ui); text-decoration: none; }
   .core-editorial__button:hover { color: #fff; background: var(--core-accent); }
-  .core-editorial__hero-media { position: relative; min-block-size: 100%; margin: 0; overflow: hidden; background: #132339; }
-  .core-editorial__hero-media img { inline-size: 100%; block-size: 100%; min-block-size: 30rem; object-fit: cover; filter: saturate(0.82) contrast(1.06); }
-  .core-editorial__hero-media::after { position: absolute; inset: 0; background: linear-gradient(90deg, rgb(11 22 38 / 0.5), transparent 42%); content: ''; }
-  .core-editorial__hero-media figcaption { position: absolute; z-index: 1; inset-inline: 1.5rem; inset-block-end: 1.5rem; color: #fff; font: 0.72rem/1.4 var(--font-ui); letter-spacing: 0.08em; text-transform: uppercase; }
-  .core-editorial__body { display: grid; grid-template-columns: 8rem minmax(0, 1fr); gap: clamp(2rem, 8vw, 9rem); padding-block: clamp(5rem, 11vw, 10rem); }
+  :global(.core-editorial__hero-media) { position: relative; block-size: 100%; min-block-size: 100%; margin: 0; overflow: hidden; background: #132339; }
+  :global(.core-editorial__hero-media img) { inline-size: 100%; block-size: 100%; min-block-size: 26rem; object-fit: cover; filter: saturate(0.82) contrast(1.06); }
+  :global(.core-editorial__hero-media::after) { position: absolute; inset: 0; background: linear-gradient(90deg, rgb(11 22 38 / 0.5), transparent 42%); content: ''; }
+  :global(.core-editorial__hero-media figcaption) { position: absolute; z-index: 1; inset-inline: 1.5rem; inset-block-end: 1.5rem; color: #fff; font: 0.72rem/1.4 var(--font-ui); letter-spacing: 0.08em; text-transform: uppercase; }
+  .core-editorial__body { display: grid; grid-template-columns: 8rem minmax(0, 1fr); gap: clamp(2rem, 5vw, 5rem); padding-block: clamp(4rem, 7vw, 6.5rem); }
   .core-editorial__rail { display: flex; flex-direction: column; justify-content: space-between; color: var(--core-accent); font: 800 0.7rem/1.4 var(--font-ui); letter-spacing: 0.15em; text-transform: uppercase; }
   .core-editorial__blocks { max-inline-size: 62rem; }
   .core-editorial__block { display: grid; grid-template-columns: minmax(0, 1fr); gap: 2rem; padding-block: 2.5rem; border-block-start: 1px solid var(--color-rule); }
@@ -188,8 +188,9 @@ const heroAsset = publicMediaFor(heroUrl, {
 
   @media (max-width: 58rem) {
     .core-editorial__hero { grid-template-columns: 1fr; }
-    .core-editorial__hero-media { min-block-size: auto; }
-    .core-editorial__hero-media img { min-block-size: 22rem; max-block-size: 52svh; }
+    .core-editorial__hero { block-size: auto; }
+    :global(.core-editorial__hero-media) { block-size: auto; min-block-size: auto; }
+    :global(.core-editorial__hero-media img) { min-block-size: 22rem; max-block-size: 52svh; }
   }
 
   @media (max-width: 42rem) {
