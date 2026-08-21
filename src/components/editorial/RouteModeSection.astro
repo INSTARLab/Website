@@ -3,6 +3,7 @@ import type { EditorialRoute, EditorialVisualMode } from '../../data/editorialRo
 import { familyLabel, familyRoot } from '../../data/editorialRoutes';
 import EditorialMedia from './media/EditorialMedia.astro';
 import { createPublicMedia } from '../../utils/media/records';
+import Icon from '../primitives/Icon.astro';
 
 interface Props {
   readonly mode: Exclude<EditorialVisualMode, 'orientation' | 'connection'>;
@@ -94,17 +95,17 @@ const subject = route.title.replace(/\s+—.*$/, '').trim();
         </div>
         <ul class="route-mode__evidence-grid">
           <li>
-            <span>Question</span>
+            <span class="route-mode__evidence-label"><Icon name="search" size="0.95rem" /><span>Question</span></span>
             <strong>What must be learned?</strong>
             <p>{route.pageJob}</p>
           </li>
           <li>
-            <span>Method</span>
+            <span class="route-mode__evidence-label"><Icon name="spark" size="0.95rem" /><span>Method</span></span>
             <strong>How will it be tested?</strong>
             <p>{route.description}</p>
           </li>
           <li>
-            <span>Risk</span>
+            <span class="route-mode__evidence-label"><Icon name="check" size="0.95rem" /><span>Risk</span></span>
             <strong>What needs a closer review?</strong>
             <p>{route.earlyAction}</p>
           </li>
@@ -144,12 +145,12 @@ const subject = route.title.replace(/\s+—.*$/, '').trim();
           <a href="/contact-us/">
             <span>Ready to discuss scope</span>
             <strong>{route.readyAction}</strong>
-            <em aria-hidden="true">↗</em>
+            <Icon name="arrow-up-right" size="1rem" />
           </a>
           <a href={familyRoot(route.family)}>
             <span>Reviewing the portfolio</span>
             <strong>{route.earlyAction}</strong>
-            <em aria-hidden="true">→</em>
+            <Icon name="arrow-right" size="1rem" />
           </a>
         </div>
       </div>
@@ -184,6 +185,8 @@ const subject = route.title.replace(/\s+—.*$/, '').trim();
   .route-mode__evidence-grid li { min-block-size: 16rem; padding: 1.25rem; background: var(--color-surface); }
   .route-mode__evidence-grid strong { display: block; margin-block-start: 2.5rem; color: var(--color-ink); font-family: var(--font-display); font-size: 1.45rem; line-height: 1.05; }
   .route-mode__evidence-grid p { margin-block-start: 1rem; font-size: 0.94rem; }
+  .route-mode__evidence-label { display: flex; align-items: center; gap: 0.45rem; }
+  .route-mode__evidence-label .icon { flex: none; }
 
   .route-mode--sequence { background: var(--color-canvas); }
   .route-mode__sequence { display: grid; grid-template-columns: minmax(16rem, 0.7fr) minmax(0, 1.3fr); gap: clamp(2rem, 5vw, 5rem); }
@@ -209,7 +212,7 @@ const subject = route.title.replace(/\s+—.*$/, '').trim();
   .route-mode__choices a { position: relative; display: flex; flex-direction: column; min-block-size: 14rem; padding: 1.4rem; color: var(--color-ink); background: var(--color-canvas); text-decoration: none; }
   .route-mode__choices a:hover { background: var(--color-surface-raised); }
   .route-mode__choices strong { max-inline-size: 18ch; margin-block-start: 2.6rem; font-family: var(--font-display); font-size: clamp(1.3rem, 2vw, 2rem); line-height: 1.05; }
-  .route-mode__choices em { position: absolute; inset-inline-end: 1.25rem; inset-block-end: 1rem; color: var(--route-accent); font-size: 1.4rem; font-style: normal; }
+  .route-mode__choices > a > .icon { position: absolute; inset-inline-end: 1.25rem; inset-block-end: 1rem; color: var(--route-accent); }
 
   @media (max-width: 58rem) {
     .route-mode__observation, .route-mode__evidence, .route-mode__sequence, .route-mode__participation, .route-mode__contrast { grid-template-columns: 1fr; gap: 2.5rem; }

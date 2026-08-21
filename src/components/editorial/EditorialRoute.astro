@@ -10,6 +10,7 @@ import { publicMediaFor } from '../../data/media';
 import { createPublicMedia } from '../../utils/media/records';
 import EditorialMedia from './media/EditorialMedia.astro';
 import RouteModeSection from './RouteModeSection.astro';
+import Icon from '../primitives/Icon.astro';
 
 interface Props {
   route: EditorialRouteData;
@@ -75,8 +76,8 @@ const heroAsset = publicMediaFor(heroUrl, {
           <h1>{route.title}</h1>
           <p class="editorial-dek">{route.description}</p>
           <div class="editorial-actions">
-            <a class="editorial-button editorial-button--primary" href={primaryHref}>Review {familyLabel(route.family).toLowerCase()} portfolio <span aria-hidden="true">↗</span></a>
-            <a class="editorial-button editorial-button--quiet" href="/contact-us/">Discuss a research requirement</a>
+            <a class="editorial-button editorial-button--primary" href={primaryHref}>Review {familyLabel(route.family).toLowerCase()} portfolio <Icon name="arrow-up-right" size="1rem" /></a>
+            <a class="editorial-button editorial-button--quiet" href="/contact-us/">Discuss a research requirement <Icon name="arrow-right" size="1rem" /></a>
           </div>
         </div>
         <EditorialMedia asset={heroAsset} figureClass="editorial-hero__media" class="editorial-hero__image" picture={false} />
@@ -117,17 +118,18 @@ const heroAsset = publicMediaFor(heroUrl, {
           <h2 id="editorial-decision-title">{route.readyAction}</h2>
           <p>{route.earlyAction}</p>
         </div>
-        <a class="editorial-button editorial-button--primary" href="/contact-us/">Discuss a research requirement <span aria-hidden="true">↗</span></a>
+        <a class="editorial-button editorial-button--primary" href="/contact-us/">Discuss a research requirement <Icon name="arrow-up-right" size="1rem" /></a>
       </section>
     ) : null}
 
+    {related.length > 0 ? (
     <section class="editorial-related editorial-container" aria-labelledby="editorial-related-title">
       <div class="editorial-related__head">
         <div>
           <div class="editorial-section-label">Related research</div>
           <h2 id="editorial-related-title">Review the surrounding portfolio.</h2>
         </div>
-        <a href={primaryHref}>Review all {familyLabel(route.family).toLowerCase()} <span aria-hidden="true">→</span></a>
+        <a href={primaryHref}>Review all {familyLabel(route.family).toLowerCase()} <Icon name="arrow-right" size="1rem" /></a>
       </div>
       <ul class="editorial-related__grid">
         {related.map((entry) => (
@@ -141,6 +143,7 @@ const heroAsset = publicMediaFor(heroUrl, {
         ))}
       </ul>
     </section>
+    ) : null}
   </article>
 </SiteLayout>
 
@@ -213,9 +216,9 @@ const heroAsset = publicMediaFor(heroUrl, {
   .editorial-related { padding-block: 0 clamp(4rem, 7vw, 6.5rem); }
   .editorial-related__head { display: flex; align-items: end; justify-content: space-between; gap: 2rem; margin-block-end: 1.8rem; }
   .editorial-related h2 { margin-block-start: 1rem; }
-  .editorial-related__head > a { color: var(--color-ink); font-family: var(--font-ui); font-size: 0.82rem; font-weight: 800; text-decoration: none; }
+  .editorial-related__head > a { display: inline-flex; align-items: center; gap: 0.45rem; color: var(--color-ink); font-family: var(--font-ui); font-size: 0.82rem; font-weight: 800; text-decoration: none; }
   .editorial-related__head > a:hover { color: var(--route-accent); }
-  .editorial-related__grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; padding: 0; margin: 0; list-style: none; }
+  .editorial-related__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr)); gap: 1rem; padding: 0; margin: 0; list-style: none; }
   .editorial-related__grid li { min-block-size: 15rem; border-block-start: 3px solid var(--route-accent); background: var(--color-surface); }
   .editorial-related__grid a { position: relative; display: flex; flex-direction: column; block-size: 100%; padding: 1.25rem; color: var(--color-ink); text-decoration: none; }
   .editorial-related__eyebrow { color: var(--route-accent); font-size: 0.65rem; }

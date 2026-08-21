@@ -1,6 +1,7 @@
 ---
 import { utilityNavigation } from '../../data/siteNavigation';
 import PrimaryNavigation from './PrimaryNavigation.astro';
+import Icon from '../primitives/Icon.astro';
 
 interface Props {
   currentPath?: string;
@@ -15,7 +16,12 @@ const { currentPath = Astro.url.pathname } = Astro.props;
       <nav aria-label="Contact">
         <ul>
           {utilityNavigation.map((item) => (
-            <li><a href={item.href}>{item.label}</a></li>
+            <li>
+              <a href={item.href}>
+                <Icon name={item.label.startsWith('Email') ? 'mail' : item.label.startsWith('Phone') ? 'phone' : 'file-check'} size="0.9rem" />
+                <span>{item.label}</span>
+              </a>
+            </li>
           ))}
         </ul>
       </nav>
@@ -49,5 +55,14 @@ const { currentPath = Astro.url.pathname } = Astro.props;
 
   :global(.site-navigation a[aria-current="page"]) {
     color: #0a5a94 !important;
+  }
+
+  .site-utility a {
+    gap: 0.4rem;
+  }
+
+  .site-utility .icon {
+    flex: none;
+    color: var(--color-brand-cool);
   }
 </style>

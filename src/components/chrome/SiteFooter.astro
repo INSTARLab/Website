@@ -1,5 +1,6 @@
 ---
 import { quickFooterLinks, researchFooterLinks } from '../../data/siteNavigation';
+import Icon from '../primitives/Icon.astro';
 
 interface Props {
   newsletterAction?: string;
@@ -18,9 +19,9 @@ const year = new Date().getFullYear();
         <p>INSTAR Lab is a 501(c)(3) nonprofit research institute conducting applied research in AI, quantum science, high-performance computing, health, energy, space, and the sciences for federal and institutional research partners.</p>
         <div class="site-footer__contact">
           <h3>Contact us</h3>
-          <a href="tel:9292292918">Phone: 929-229-2918</a>
-          <a href="mailto:info@instarlab.org">Email: info@instarlab.org</a>
-          <a href="https://maps.google.com/?q=125+Frederick+St+Marietta+OH+45750">Address: 125 Frederick St, Marietta, OH 45750-3407</a>
+          <a href="tel:9292292918"><Icon name="phone" size="1rem" /><span>Phone: 929-229-2918</span></a>
+          <a href="mailto:info@instarlab.org"><Icon name="mail" size="1rem" /><span>Email: info@instarlab.org</span></a>
+          <a href="https://maps.google.com/?q=125+Frederick+St+Marietta+OH+45750"><Icon name="map-pin" size="1rem" /><span>Address: 125 Frederick St, Marietta, OH 45750-3407</span></a>
         </div>
       </section>
 
@@ -49,7 +50,7 @@ const year = new Date().getFullYear();
           <form class="site-footer__form" action={newsletterAction} method={newsletterMethod}>
             <label class="sr-only" for="footer-email">Email address</label>
             <input id="footer-email" name="email" type="email" autocomplete="email" placeholder="Email address" required />
-            <button type="submit">Subscribe</button>
+            <button type="submit">Subscribe <Icon name="arrow-right" size="0.95rem" /></button>
           </form>
         ) : null}
       </section>
@@ -59,7 +60,7 @@ const year = new Date().getFullYear();
   <div class="site-footer__bottom">
     <div class="site-container site-footer__bottom-inner">
       <p>INSTAR Lab Inc. is a registered 501(c)(3) nonprofit. Copyright © {year} INSTAR Lab Inc. All Rights Reserved.</p>
-      <a href="#top">Back to top</a>
+      <a href="#top">Back to top <Icon name="arrow-up-right" size="0.9rem" /></a>
     </div>
   </div>
 </footer>
@@ -74,5 +75,26 @@ const year = new Date().getFullYear();
   .site-footer__bottom p,
   .site-footer__bottom a {
     color: #dbe7f0 !important;
+  }
+
+  .site-footer__contact a,
+  .site-footer__bottom a,
+  .site-footer__form button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .site-footer__contact a {
+    width: auto;
+  }
+
+  .site-footer__contact .icon {
+    flex: none;
+    color: var(--color-brand-cool);
+  }
+
+  .site-footer__form button {
+    justify-content: center;
   }
 </style>

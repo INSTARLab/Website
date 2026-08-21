@@ -1,0 +1,57 @@
+---
+type IconName =
+  | 'arrow-left'
+  | 'arrow-right'
+  | 'arrow-up-right'
+  | 'calendar'
+  | 'check'
+  | 'clock'
+  | 'external-link'
+  | 'file-check'
+  | 'mail'
+  | 'map-pin'
+  | 'phone'
+  | 'search'
+  | 'spark'
+  | 'user';
+
+interface Props {
+  name: IconName;
+  size?: string;
+  class?: string;
+}
+
+const { name, size = '1em', class: className } = Astro.props;
+
+const iconPaths: Record<IconName, string> = {
+  'arrow-left': '<path d="M20 12H4M11 5l-7 7 7 7" />',
+  'arrow-right': '<path d="M4 12h16M13 5l7 7-7 7" />',
+  'arrow-up-right': '<path d="M5 19 19 5M8 5h11v11" />',
+  calendar: '<rect x="3.5" y="5" width="17" height="15" rx="2" /><path d="M7 3v4M17 3v4M3.5 9h17" />',
+  check: '<path d="m5 12 4.5 4.5L19 7" />',
+  clock: '<circle cx="12" cy="12" r="8.5" /><path d="M12 7v5l3.5 2" />',
+  'external-link': '<path d="M14 5h5v5M19 5l-8 8" /><path d="M18 13v5a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5" />',
+  'file-check': '<path d="M6 3.5h8l4 4V20a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4.5a1 1 0 0 1 1-1Z" /><path d="M14 3.5V8h4M8 14l2.2 2.2L15 11.5" />',
+  mail: '<rect x="3.5" y="5.5" width="17" height="13" rx="2" /><path d="m4 7 8 6 8-6" />',
+  'map-pin': '<path d="M19 10.5c0 5-7 10-7 10s-7-5-7-10a7 7 0 1 1 14 0Z" /><circle cx="12" cy="10.5" r="2.2" />',
+  phone: '<path d="M7.2 4.5 5 6.2c-.8.6-.9 1.7-.5 2.6 1.9 4.2 5.5 8 9.8 10 .9.4 2 .2 2.6-.5l1.7-2.2-3.1-2.7-2 1.3c-1.7-.8-3.4-2.5-4.2-4.2l1.3-2-2.7-3.1Z" />',
+  search: '<circle cx="10.5" cy="10.5" r="6.5" /><path d="m16 16 4.5 4.5" />',
+  spark: '<path d="m12 3 1.5 6.5L20 11l-6.5 1.5L12 19l-1.5-6.5L4 11l6.5-1.5L12 3Z" />',
+  user: '<circle cx="12" cy="8" r="3.5" /><path d="M5 20c.6-3.3 2.9-5.2 7-5.2s6.4 1.9 7 5.2" />',
+};
+---
+
+<svg
+  class:list={['icon', className]}
+  width={size}
+  height={size}
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.7"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  aria-hidden="true"
+  focusable="false"
+  set:html={iconPaths[name]}
+></svg>

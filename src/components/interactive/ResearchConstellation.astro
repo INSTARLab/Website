@@ -1,3 +1,7 @@
+---
+import Icon from '../primitives/Icon.astro';
+---
+
 <section class="research-constellation @container" aria-labelledby="research-constellation-title">
   <div class="site-container research-constellation__inner">
     <div class="research-constellation__copy" data-reveal>
@@ -9,10 +13,10 @@
       </p>
       <nav aria-label="Research pathways">
         <ul class="research-constellation__links">
-          <li><a class="touch-target" data-prefetch-intent href="/research/current-programs/">Review current programs <span class="research-constellation__link-arrow" aria-hidden="true">↗</span></a></li>
-          <li><a class="touch-target" data-prefetch-intent href="/sciences/outer-space/">Review space science <span class="research-constellation__link-arrow" aria-hidden="true">↗</span></a></li>
-          <li><a class="touch-target" data-prefetch-intent href="/technology/quantum-computing/">Review quantum computing <span class="research-constellation__link-arrow" aria-hidden="true">↗</span></a></li>
-          <li><a class="touch-target" data-prefetch-intent href="/contact-us/">Discuss a funding or contract need <span class="research-constellation__link-arrow" aria-hidden="true">↗</span></a></li>
+          <li><a class="touch-target" data-prefetch-intent href="/research/current-programs/">Review current programs <Icon name="arrow-up-right" size="1rem" /></a></li>
+          <li><a class="touch-target" data-prefetch-intent href="/sciences/outer-space/">Review space science <Icon name="arrow-up-right" size="1rem" /></a></li>
+          <li><a class="touch-target" data-prefetch-intent href="/technology/quantum-computing/">Review quantum computing <Icon name="arrow-up-right" size="1rem" /></a></li>
+          <li><a class="touch-target" data-prefetch-intent href="/contact-us/">Discuss a funding or contract need <Icon name="arrow-up-right" size="1rem" /></a></li>
         </ul>
       </nav>
     </div>
@@ -281,7 +285,7 @@
   .research-constellation__links { display: grid; gap: 0.2rem; max-inline-size: 31rem; }
   .research-constellation__links a { display: flex; justify-content: space-between; gap: 1rem; padding-block: 0.72rem; border-block-end: 1px solid var(--color-rule); color: var(--color-ink); font-family: var(--font-ui); font-weight: 700; text-decoration: none; }
   .research-constellation__links a:hover { color: var(--color-brand-deep); }
-  .research-constellation__link-arrow { display: inline-block; flex: none; }
+  .research-constellation__links .icon { flex: none; }
   .research-constellation__visual { position: relative; min-block-size: clamp(32rem, 50vw, 38rem); overflow: hidden; border: 1px solid color-mix(in srgb, var(--color-brand) 30%, transparent); border-radius: var(--radius-panel); background: radial-gradient(circle at 50% 45%, rgb(255 255 255 / 0.94), rgb(224 236 247 / 0.78)); box-shadow: var(--shadow-panel); }
   .research-constellation__canvas { position: absolute; inset: 0; inline-size: 100%; block-size: 100%; opacity: 0.42; }
   .research-constellation__guide { position: relative; z-index: 1; display: grid; gap: 1.2rem; min-block-size: 100%; padding: clamp(1.25rem, 3vw, 2.25rem); background: linear-gradient(115deg, rgb(243 247 251 / 0.96), rgb(243 247 251 / 0.78)); }

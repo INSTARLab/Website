@@ -12,6 +12,7 @@ import {
 import SiteLayout from '../../../layouts/SiteLayout.astro';
 import EditorialMedia from '../media/EditorialMedia.astro';
 import { createPublicMedia } from '../../../utils/media/records';
+import Icon from '../../primitives/Icon.astro';
 
 interface Props {
   article: ArticleEntry;
@@ -88,10 +89,10 @@ const mapItems = article.data.readingMap.length > 0
         <h1>{article.data.title}</h1>
         <p class="article-document__dek">{article.data.description}</p>
         <div class="article-document__meta" aria-label="Article metadata">
-          <span>Published {formatArticleDate(article.data.publishedAt)}</span>
-          {article.data.updatedAt ? <span>Updated {formatArticleDate(article.data.updatedAt)}</span> : null}
-          <span>{readingTimeMinutes(article)} min read</span>
-          <span>By {articleAuthors.join(' · ')}</span>
+          <span><Icon name="calendar" size="0.9rem" />Published {formatArticleDate(article.data.publishedAt)}</span>
+          {article.data.updatedAt ? <span><Icon name="calendar" size="0.9rem" />Updated {formatArticleDate(article.data.updatedAt)}</span> : null}
+          <span><Icon name="clock" size="0.9rem" />{readingTimeMinutes(article)} min read</span>
+          <span><Icon name="user" size="0.9rem" />By {articleAuthors.join(' · ')}</span>
         </div>
         {article.data.topics.length > 0 ? (
           <ul class="article-document__topics" aria-label="Topics">
@@ -149,7 +150,7 @@ const mapItems = article.data.readingMap.length > 0
             <ul>
               {article.data.sources.map((source) => (
                 <li>
-                  <a href={source.url} target="_blank" rel="noreferrer">{source.label}</a>
+                  <a href={source.url} target="_blank" rel="noreferrer">{source.label} <Icon name="external-link" size="0.9rem" /></a>
                   {source.publisher ? <span>{source.publisher}</span> : null}
                   {source.accessedAt ? <time datetime={articleIsoDate(source.accessedAt)}>Accessed {formatArticleDate(source.accessedAt)}</time> : null}
                 </li>
@@ -250,6 +251,17 @@ const mapItems = article.data.readingMap.length > 0
     color: rgb(255 255 255 / 0.58);
     font-size: 0.72rem;
     letter-spacing: 0.06em;
+  }
+
+  .article-document__meta span {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .article-document__meta .icon,
+  .article-document__sources a .icon {
+    flex: none;
   }
 
   .article-document__topics {
@@ -482,6 +494,12 @@ const mapItems = article.data.readingMap.length > 0
     color: var(--color-muted);
     font-family: var(--font-ui);
     font-size: 0.8rem;
+  }
+
+  .article-document__sources li > a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
   }
 
   .article-document__related {

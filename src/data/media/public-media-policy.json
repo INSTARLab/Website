@@ -692,18 +692,18 @@
       "status": "review-required"
     },
     "dimensions": {
-      "width": 1920,
-      "height": 800
+      "width": 1200,
+      "height": 1000
     },
-    "sizes": "(min-width: 58rem) 36vw, 100vw",
+    "sizes": "(min-width: 58rem) 22vw, 50vw",
     "loading": "lazy",
     "fetchpriority": "auto",
     "focalPoint": "50% 50%",
     "provenance": {
-      "status": "unverified",
-      "source": "Repository asset; original source is not recorded.",
-      "license": "Unverified; confirm ownership or license before publication.",
-      "note": "Inherited public asset. Do not present it as externally sourced evidence."
+      "status": "verified",
+      "source": "AI-generated replacement asset commissioned for the INSTAR Lab homepage on 2026-08-21.",
+      "license": "INSTAR Lab-created website asset; permitted for INSTAR Lab communications.",
+      "note": "Generated to represent autonomous experimentation across quantum, materials, and energy research; contains no readable interface text or external claims."
     }
   },
   {
@@ -818,12 +818,12 @@
     "sizes": "(min-width: 58rem) 30vw, 100vw",
     "loading": "lazy",
     "fetchpriority": "auto",
-    "focalPoint": "66% 45%",
+    "focalPoint": "50% 46%",
     "provenance": {
-      "status": "unverified",
-      "source": "Repository asset; original source is not recorded.",
-      "license": "Unverified; confirm ownership or license before publication.",
-      "note": "Inherited public asset. Do not present it as externally sourced evidence."
+      "status": "verified",
+      "source": "AI-generated replacement asset commissioned for the INSTAR Lab homepage on 2026-08-21.",
+      "license": "INSTAR Lab-created website asset; permitted for INSTAR Lab communications.",
+      "note": "Generated to represent quantum-photonic instrumentation and high-performance research computing; contains no readable interface text or external claims."
     }
   },
   {

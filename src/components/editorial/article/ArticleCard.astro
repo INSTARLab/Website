@@ -1,6 +1,7 @@
 ---
 import type { ArticleEntry, AuthorEntry } from '../../../data/articles';
 import { articlePath, authorNames, formatArticleDate, readingTimeMinutes } from '../../../data/articles';
+import Icon from '../../primitives/Icon.astro';
 
 interface Props {
   article: ArticleEntry;
@@ -36,7 +37,7 @@ const hero = article.data.hero;
     <p>{article.data.description}</p>
     <div class="article-card__footer">
       <span>{authorLabel}</span>
-      <a href={articlePath(article)}>Read brief <span aria-hidden="true">↗</span></a>
+      <a href={articlePath(article)}>Read brief <Icon name="arrow-up-right" size="0.95rem" /></a>
     </div>
     {article.data.topics.length > 0 ? (
       <ul class="article-card__topics" aria-label="Topics">
@@ -133,6 +134,9 @@ const hero = article.data.hero;
   }
 
   .article-card__footer a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
     color: var(--color-brand-deep);
     font-weight: 700;
     text-decoration-thickness: 0.12em;

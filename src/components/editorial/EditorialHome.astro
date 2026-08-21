@@ -1,5 +1,6 @@
 ---
 import ResearchConstellation from '../interactive/ResearchConstellation.astro';
+import Icon from '../primitives/Icon.astro';
 import HomeSlider from './HomeSlider.astro';
 import SiteLayout from '../../layouts/SiteLayout.astro';
 import EditorialMedia from './media/EditorialMedia.astro';
@@ -120,15 +121,15 @@ const homeHeroSlides = [
 const homeOrientationMedia = [
   homeMedia({
     url: '/img/projects/nlp-tech-conversational-agents.avif',
-    alt: 'A precision optical and quantum computing apparatus in a dark research laboratory',
-    caption: 'Frontier instrumentation / inspect the method.',
+    alt: 'A cryogenic quantum processor and photonic instrument surrounded by optical research hardware',
+    caption: 'Quantum photonics / inspect the instrument.',
     sizes: '(min-width: 58rem) 30vw, 100vw',
-    focalPoint: '66% 45%',
+    focalPoint: '50% 46%',
   }),
   homeMedia({
     url: '/img/slider/laboratory.avif',
-    alt: 'A bright laboratory with microscopes and analytical instruments ready for work',
-    caption: 'Match the method to the scale.',
+    alt: 'An autonomous experimental platform with robotic instruments for repeatable materials and energy research',
+    caption: 'Autonomous experimentation / accelerate the loop.',
     sizes: '(min-width: 58rem) 22vw, 50vw',
     focalPoint: '50% 50%',
   }),
@@ -374,9 +375,9 @@ const homeBriefCtas = [
           <p class="home-lead">INSTAR combines advanced AI, quantum research, high-performance computing, and domain science to turn ambitious objectives into testable programs. From energy and space to health, agriculture, and fundamental physics, we define the question, engineer the method, measure uncertainty, and deliver evidence, models, prototypes, or data a sponsor can evaluate.</p>
           <a class="home-orientation__cta" href="/research/our-process/">
             <span><small>Review the method</small>See how a program earns confidence</span>
-            <span aria-hidden="true">↗</span>
+            <Icon name="arrow-up-right" size="1.15rem" />
           </a>
-          <a class="home-text-link" href="/contact-us/">Discuss a funding opportunity <span aria-hidden="true">→</span></a>
+          <a class="home-text-link" href="/contact-us/">Discuss a funding opportunity <Icon name="arrow-right" size="1rem" /></a>
         </div>
         <div class="home-orientation__media-grid" aria-label="Views of the research environment">
           {homeOrientationMedia.map((asset, index) => (
@@ -401,7 +402,7 @@ const homeBriefCtas = [
                   <span class="home-project__kicker">{project.kicker}</span>
                   <h3>{project.title}</h3>
                   <p>{project.summary}</p>
-                  <span class="home-project__arrow">{project.cta} <span aria-hidden="true">↗</span></span>
+                  <span class="home-project__arrow">{project.cta} <Icon name="arrow-up-right" size="1rem" /></span>
                 </div>
               </a>
             </li>
@@ -424,7 +425,7 @@ const homeBriefCtas = [
                 <span class="home-pathway__label">{pathway.label}</span>
                 <h3>{pathway.title}</h3>
                 <p>{pathway.summary}</p>
-                <span class="home-pathway__arrow" aria-hidden="true">↗</span>
+                <Icon name="arrow-up-right" size="1.15rem" class="home-pathway__arrow" />
               </div>
             </a>
           ))}
@@ -446,10 +447,10 @@ const homeBriefCtas = [
             <h3 id={`home-index-${String(label).toLowerCase()}`}>{label}</h3>
             <ul>
               {entries.map((entry) => (
-                <li><a href={entry.path}><span>{entry.slug.replaceAll('-', ' ')}</span><span aria-hidden="true">↗</span></a></li>
+                <li><a href={entry.path}><span>{entry.slug.replaceAll('-', ' ')}</span><Icon name="arrow-up-right" size="0.95rem" /></a></li>
               ))}
             </ul>
-            <a class="home-text-link" href={label === 'Research' ? '/research/current-programs/' : label === 'Technology' ? '/technology/computer-science/' : '/sciences/physics/'}>Review {String(label).toLowerCase()} portfolio <span aria-hidden="true">→</span></a>
+            <a class="home-text-link" href={label === 'Research' ? '/research/current-programs/' : label === 'Technology' ? '/technology/computer-science/' : '/sciences/physics/'}>Review {String(label).toLowerCase()} portfolio <Icon name="arrow-right" size="1rem" /></a>
           </section>
         ))}
       </div>
@@ -477,7 +478,7 @@ const homeBriefCtas = [
         <div class="home-section-label home-section-label--light">Research notes for sponsors and collaborators</div>
         <div class="home-briefs__head">
           <h2 id="home-briefs-title">Methods, risks, and findings in progress.</h2>
-          <a class="home-text-link home-text-link--light" href="/news/">Read all research briefs <span aria-hidden="true">→</span></a>
+          <a class="home-text-link home-text-link--light" href="/news/">Read all research briefs <Icon name="arrow-right" size="1rem" /></a>
         </div>
         <ul class="home-briefs__grid">
           {briefs.map((brief, index) => (
@@ -486,7 +487,7 @@ const homeBriefCtas = [
                 <EditorialMedia asset={homeBriefMedia[index]} figureClass="home-briefs__media" class="home-briefs__image" picture={false} />
                 <span class="home-briefs__family">{familyLabel(brief.family)}</span>
                 <h3>{brief.title}</h3>
-                <span class="home-briefs__arrow">{homeBriefCtas[index]} <span aria-hidden="true">↗</span></span>
+                <span class="home-briefs__arrow">{homeBriefCtas[index]} <Icon name="arrow-up-right" size="1rem" /></span>
               </a>
             </li>
           ))}
@@ -500,7 +501,7 @@ const homeBriefCtas = [
         <div class="home-section-label">Research inquiry</div>
         <h2 id="home-invitation-title">Bring a funding or contract requirement to the research frontier.</h2>
         <p>Tell us the solicitation, contract requirement, mission need, or scientific question you are evaluating. We can point you to the relevant program, capability, or technical conversation.</p>
-        <a class="home-button home-button--solid" href="/contact-us/">Discuss a funding or contract requirement <span aria-hidden="true">↗</span></a>
+        <a class="home-button home-button--solid" href="/contact-us/">Discuss a funding or contract requirement <Icon name="arrow-up-right" size="1rem" /></a>
       </div>
     </section>
   </article>
@@ -541,13 +542,13 @@ const homeBriefCtas = [
   .home-orientation__copy { display: flex; flex-direction: column; align-items: flex-start; }
   .home-orientation__cta { display: flex; align-items: center; justify-content: space-between; gap: 2rem; inline-size: min(100%, 22rem); margin-block-start: 2rem; padding: 1rem 1.1rem; border: 1px solid var(--color-brand); color: #fff; background: var(--color-brand); font: 700 0.84rem/1.2 var(--font-ui); text-decoration: none; transition: color 180ms ease, background-color 180ms ease, transform 180ms ease; }
   .home-orientation__cta small { display: block; margin-block-end: 0.35rem; color: #fff; font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; }
-  .home-orientation__cta > span:last-child { color: #fff; font-size: 1.35rem; }
+  .home-orientation__cta > .icon { color: #fff; }
   .home-orientation__cta:hover { color: #fff; background: var(--color-brand-deep); transform: translateY(-2px); }
-  .home-orientation__cta:hover small, .home-orientation__cta:hover > span:last-child { color: inherit; }
+  .home-orientation__cta:hover small, .home-orientation__cta:hover > .icon { color: inherit; }
   .home-orientation__media-grid { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(6rem, 0.85fr); gap: 0.75rem; align-items: end; }
   :global(.home-orientation__media) { overflow: hidden; margin: 0; background: var(--home-dark); }
-  :global(.home-orientation__media--1) { grid-row: span 2; aspect-ratio: 0.86; }
-  :global(.home-orientation__media--2) { aspect-ratio: 1.05; margin-block-end: 2.6rem; }
+  :global(.home-orientation__media--1) { grid-column: 1; grid-row: 1 / span 2; aspect-ratio: 0.86; }
+  :global(.home-orientation__media--2) { grid-column: 2; grid-row: 2; aspect-ratio: 1.05; margin-block-end: 0; }
   :global(.home-orientation__image) { inline-size: 100%; block-size: 100%; object-fit: cover; transition: transform 280ms ease; }
   :global(.home-orientation__media figcaption) { padding: 0.7rem 0.8rem; color: #fff; background: rgb(11 22 38 / 0.88); font: 0.68rem/1.3 var(--font-ui); }
   :global(.home-orientation__media:hover .home-orientation__image) { transform: scale(1.04); }
@@ -567,7 +568,7 @@ const homeBriefCtas = [
   .home-project__kicker { color: var(--color-brand-deep); }
   .home-project h3 { max-inline-size: 18ch; margin: 1rem 0 0; font-size: clamp(1.35rem, 1.7vw, 1.8rem); letter-spacing: -0.025em; line-height: 1.08; }
   .home-project p { max-inline-size: 34ch; margin-block: 0.75rem 0; color: var(--color-muted-strong); font-size: 0.96rem; line-height: 1.5; }
-  .home-project__arrow { margin-block-start: auto; padding-block-start: 1.25rem; color: var(--color-brand-deep); font: 700 0.78rem/1 var(--font-ui); }
+  .home-project__arrow { display: inline-flex; align-items: center; gap: 0.45rem; margin-block-start: auto; padding-block-start: 1.25rem; color: var(--color-brand-deep); font: 700 0.78rem/1 var(--font-ui); }
   :global(.home-project__link:hover .home-project__media img) { transform: scale(1.035); }
 
   .home-pathways, .home-briefs { padding-block: clamp(4.5rem, 9vw, 7.5rem); color: #fff; background: var(--home-dark); }
@@ -630,7 +631,7 @@ const homeBriefCtas = [
   .home-briefs__family { margin-block-start: 1.2rem; color: rgb(255 255 255 / 0.52); font-size: 0.62rem; }
   .home-briefs h3 { max-inline-size: 18ch; margin-block: 1.2rem 0; color: #fff; font-size: 1.1rem; line-height: 1.12; }
   .home-briefs__arrow { display: inline-flex; align-items: center; gap: 0.45rem; margin: auto 1.2rem 1rem; color: var(--home-teal); font: 700 0.7rem/1 var(--font-ui); letter-spacing: 0.04em; text-transform: uppercase; }
-  .home-briefs__arrow > span { font-size: 1.1rem; }
+  .home-briefs__arrow > .icon { flex: none; }
   .home-briefs__grid a:hover { background: rgb(255 255 255 / 0.06); }
   .home-briefs__grid a:hover .home-briefs__image { transform: scale(1.04); filter: saturate(1.08) brightness(1.08); }
 
