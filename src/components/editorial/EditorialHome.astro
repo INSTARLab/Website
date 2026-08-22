@@ -10,6 +10,7 @@ import {
 } from '../../data/editorialRoutes';
 import { publicMediaFor } from '../../data/media';
 import type { MediaAsset } from '../../data/media/types';
+import { createPublicMedia } from '../../utils/media/records';
 
 type HomeMediaInput = {
   readonly url: `/${string}`;
@@ -118,22 +119,28 @@ const homeHeroSlides = [
   },
 ] as const;
 
-const homeOrientationMedia = [
-  homeMedia({
-    url: '/img/projects/nlp-tech-conversational-agents.avif',
-    alt: 'A cryogenic quantum processor and photonic instrument surrounded by optical research hardware',
-    caption: 'Quantum photonics / inspect the instrument.',
-    sizes: '(min-width: 58rem) 30vw, 100vw',
-    focalPoint: '50% 46%',
-  }),
-  homeMedia({
-    url: '/img/slider/laboratory.avif',
-    alt: 'An autonomous experimental platform with robotic instruments for repeatable materials and energy research',
-    caption: 'Autonomous experimentation / accelerate the loop.',
-    sizes: '(min-width: 58rem) 22vw, 50vw',
-    focalPoint: '50% 50%',
-  }),
-] as const;
+const homeOrientationMedia = createPublicMedia({
+  id: 'media:home-federal-research',
+  url: '/img/projects/sovereign-ai.avif',
+  type: 'photography-or-illustration',
+  role: 'observation',
+  alt: {
+    kind: 'contextual',
+    status: 'approved',
+    text: 'A researcher checks cabling inside a server rack in a controlled computing facility.',
+  },
+  caption: 'Secure compute / make the method inspectable.',
+  sizes: '(min-width: 58rem) 52vw, 100vw',
+  focalPoint: '56% 50%',
+  dimensions: { width: 800, height: 600 },
+  provenance: {
+    status: 'unverified',
+    source: 'Existing repository asset at public/img/projects/sovereign-ai.avif; original source is not recorded.',
+    license: 'Unverified; confirm ownership or license before publication.',
+    note: 'Reused as a single homepage observation image; it contains no readable external claims.',
+  },
+  reuseReason: 'Homepage federal research orientation: connect the abstract question to mission-ready compute infrastructure.',
+});
 
 const homeInvitationMedia = homeMedia({
   url: '/img/about/about-image.avif',
@@ -451,10 +458,8 @@ const homeLeadership = [
           </a>
           <a class="home-text-link" href="/contact-us/">Discuss a funding opportunity <Icon name="arrow-right" size="1rem" /></a>
         </div>
-        <div class="home-orientation__media-grid" aria-label="Views of the research environment">
-          {homeOrientationMedia.map((asset, index) => (
-            <EditorialMedia asset={asset} figureClass={`home-orientation__media home-orientation__media--${index + 1}`} class="home-orientation__image" picture={false} />
-          ))}
+        <div class="home-orientation__media-shell">
+          <EditorialMedia asset={homeOrientationMedia} figureClass="home-orientation__media" class="home-orientation__image" picture={false} />
         </div>
       </div>
     </section>
@@ -547,7 +552,7 @@ const homeLeadership = [
 
     <section class="home-briefs" aria-labelledby="home-briefs-title">
       <div class="home-container">
-        <div class="home-section-label home-section-label--light">Research notes for sponsors and collaborators</div>
+        <div class="home-section-label home-section-label--light">Research briefs</div>
         <div class="home-briefs__head">
           <h2 id="home-briefs-title">Methods, risks, and findings in progress.</h2>
           <a class="home-text-link home-text-link--light" href="/news/">Read all research briefs <Icon name="arrow-right" size="1rem" /></a>
@@ -575,7 +580,6 @@ const homeLeadership = [
             <h2 id="home-partners-title">OUR PARTNERS</h2>
           </div>
           <div class="home-partners__intro">
-            <p>The INSTAR Consortium connects specialized organizations across AI, federal technology, education, infrastructure, and delivery. That network gives a sponsored research program the complementary capacity it needs while keeping the scientific question, methods, and deliverables clear.</p>
             <a class="home-text-link" href="/research/consortium/">Review the INSTAR Consortium <Icon name="arrow-right" size="1rem" /></a>
           </div>
         </div>
@@ -599,9 +603,11 @@ const homeLeadership = [
 
     <section class="home-fellowship" aria-labelledby="home-fellowship-title">
       <div class="home-container home-fellowship__grid">
-        <div class="home-fellowship__copy">
+        <div class="home-fellowship__heading">
           <div class="home-section-label home-section-label--light">For researchers</div>
           <h2 id="home-fellowship-title">Join the INSTAR Fellowship</h2>
+        </div>
+        <div class="home-fellowship__copy">
           <p>The INSTAR Fellowship is an open citizen-scientist program for people who want to work on difficult questions across AI, quantum science, and the broader sciences. Fellows receive structured mentorship, interdisciplinary scope, and room to pursue a serious research problem.</p>
           <div class="home-fellowship__actions">
             <a class="home-button home-button--solid" href="/fellowship/">Apply for Fellowship <Icon name="spark" size="1rem" /></a>
@@ -680,7 +686,7 @@ const homeLeadership = [
   .home-section-label::before { inline-size: 1.4rem; block-size: 2px; background: currentColor; content: ''; }
   .home-section-label--light { color: var(--home-teal); }
   .home-orientation { padding-block: clamp(4.5rem, 9vw, 7.5rem); }
-  .home-orientation__grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 0.78fr); gap: clamp(2rem, 8vw, 8rem); margin-block-start: 2rem; }
+  .home-orientation__grid { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(20rem, 1.1fr); gap: clamp(2.5rem, 7vw, 7rem); align-items: center; margin-block-start: 2rem; }
   .home-orientation h2, .home-pathways h2, .home-index h2, .home-gallery h2, .home-briefs h2, .home-invitation h2 { margin: 0; font-size: clamp(2rem, 3.2vw, 3.7rem); letter-spacing: -0.045em; line-height: 1.02; }
   .home-orientation h2 { max-inline-size: 18ch; }
   .home-lead { max-inline-size: 50ch; margin: 0; color: var(--color-muted-strong); font-size: clamp(1.05rem, 1rem + 0.22vw, 1.24rem); line-height: 1.6; }
@@ -690,11 +696,9 @@ const homeLeadership = [
   .home-orientation__cta > .icon { color: #fff; }
   .home-orientation__cta:hover { color: #fff; background: var(--color-brand-deep); transform: translateY(-2px); }
   .home-orientation__cta:hover small, .home-orientation__cta:hover > .icon { color: inherit; }
-  .home-orientation__media-grid { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(6rem, 0.85fr); gap: 0.75rem; align-items: end; }
-  :global(.home-orientation__media) { overflow: hidden; margin: 0; background: var(--home-dark); }
-  :global(.home-orientation__media--1) { grid-column: 1; grid-row: 1 / span 2; aspect-ratio: 0.86; }
-  :global(.home-orientation__media--2) { grid-column: 2; grid-row: 2; aspect-ratio: 1.05; margin-block-end: 0; }
-  :global(.home-orientation__image) { inline-size: 100%; block-size: 100%; object-fit: cover; transition: transform 280ms ease; }
+  .home-orientation__media-shell { min-inline-size: 0; }
+  :global(.home-orientation__media) { display: grid; grid-template-rows: minmax(0, 1fr) auto; overflow: hidden; aspect-ratio: 4 / 3; margin: 0; background: var(--home-dark); }
+  :global(.home-orientation__image) { display: block; min-block-size: 0; inline-size: 100%; block-size: 100%; object-fit: cover; transition: transform 280ms ease; }
   :global(.home-orientation__media figcaption) { padding: 0.7rem 0.8rem; color: #fff; background: rgb(11 22 38 / 0.88); font: 0.68rem/1.3 var(--font-ui); }
   :global(.home-orientation__media:hover .home-orientation__image) { transform: scale(1.04); }
   .home-text-link { display: inline-flex; gap: 0.65rem; margin-block-start: 1.25rem; color: var(--color-ink); font: 700 0.78rem/1 var(--font-ui); text-decoration: none; }
@@ -718,8 +722,10 @@ const homeLeadership = [
 
   .home-pathways, .home-briefs { padding-block: clamp(4.5rem, 9vw, 7.5rem); color: #fff; background: var(--home-dark); }
   .home-pathways__head, .home-briefs__head { display: flex; align-items: end; justify-content: space-between; gap: 2rem; margin-block: 1.8rem 3rem; }
+  .home-briefs__head { display: grid; grid-template-columns: minmax(0, 1fr) auto; }
   .home-pathways h2, .home-briefs h2 { max-inline-size: 16ch; color: #fff; }
-  .home-pathways h2 { max-inline-size: none; white-space: nowrap; font-size: clamp(2rem, 3vw, 3.2rem); }
+  .home-pathways h2 { max-inline-size: none; font-size: clamp(2rem, 3vw, 3.2rem); }
+  .home-briefs h2 { max-inline-size: 28ch; }
   .home-pathways__grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; border-block-start: 1px solid rgb(255 255 255 / 0.2); }
   .home-pathway { position: relative; min-inline-size: 0; border-inline-end: 1px solid rgb(255 255 255 / 0.2); border-block-end: 1px solid rgb(255 255 255 / 0.2); color: #fff; text-decoration: none; }
   .home-pathway:last-child { border-inline-end: 0; }
@@ -735,9 +741,9 @@ const homeLeadership = [
   .home-pathway:hover .home-pathway__image { transform: scale(1.04); filter: saturate(1.08) brightness(1.08); }
 
   .home-index { padding-block: clamp(4.5rem, 9vw, 7.5rem); }
-  .home-index__head { display: flex; align-items: end; justify-content: space-between; gap: 2rem; margin-block: 1.8rem 3rem; }
-  .home-index h2 { max-inline-size: 12ch; }
-  .home-index__head p { max-inline-size: 28ch; margin: 0; color: var(--color-muted-strong); }
+  .home-index__head { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(18rem, 0.7fr); align-items: end; gap: clamp(2rem, 4vw, 4rem); margin-block: 1.8rem 3rem; }
+  .home-index h2 { max-inline-size: 20ch; }
+  .home-index__head p { max-inline-size: 38ch; margin: 0; color: var(--color-muted-strong); }
   .home-index__columns { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(1.5rem, 4vw, 4rem); }
   .home-index__column { border-block-start: 3px solid var(--color-brand); }
   .home-index__column:nth-child(2) { border-color: #07858d; }
@@ -749,9 +755,9 @@ const homeLeadership = [
   .home-index__column li a:hover { color: var(--color-brand); }
 
   .home-gallery { padding-block: clamp(4.5rem, 9vw, 7.5rem); color: #fff; background: #07111d; }
-  .home-gallery__head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(15rem, 0.55fr); align-items: end; gap: 2rem; margin-block: 1.8rem 2.8rem; }
-  .home-gallery h2 { max-inline-size: 16ch; color: #fff; }
-  .home-gallery__head p { max-inline-size: 34ch; margin: 0; color: rgb(255 255 255 / 0.68); line-height: 1.55; }
+  .home-gallery__head { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(20rem, 0.65fr); align-items: end; gap: clamp(2rem, 4vw, 4rem); margin-block: 1.8rem 2.8rem; }
+  .home-gallery h2 { max-inline-size: 20ch; color: #fff; }
+  .home-gallery__head p { max-inline-size: 38ch; margin: 0; color: rgb(255 255 255 / 0.68); line-height: 1.55; }
   .home-gallery__grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); grid-template-rows: repeat(4, clamp(6rem, 9vw, 9rem)); gap: 0.75rem; }
   .home-gallery__link { display: block; min-block-size: 0; overflow: hidden; }
   .home-gallery__link--1, .home-gallery__link--6 { grid-column: span 6; grid-row: span 2; }
@@ -782,9 +788,10 @@ const homeLeadership = [
 
   .home-partners { padding-block: clamp(4rem, 8vw, 7rem); border-block: 1px solid var(--color-rule); background: var(--color-surface); }
   .home-partners__head, .home-leadership__head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(18rem, 0.72fr); align-items: end; gap: clamp(2rem, 7vw, 7rem); }
+  .home-partners__head { grid-template-columns: minmax(0, 1.15fr) minmax(20rem, 0.75fr); gap: clamp(2rem, 4vw, 4rem); }
   .home-partners h2, .home-leadership h2 { margin-block-start: 1.2rem; font-size: clamp(2.2rem, 4vw, 4.5rem); letter-spacing: -0.05em; line-height: 0.98; }
   .home-partners__intro p, .home-leadership__head p { max-inline-size: 40ch; margin: 0; color: var(--color-muted-strong); line-height: 1.55; }
-  .home-partners__intro .home-text-link { margin-block-start: 1.35rem; }
+  .home-partners__intro .home-text-link { margin: 0; }
   .home-partners__grid { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 1px; margin-block-start: 3.25rem; border-block-start: 1px solid var(--color-rule); border-inline-start: 1px solid var(--color-rule); background: var(--color-rule); }
   .home-partner { display: flex; min-inline-size: 0; min-block-size: 9rem; flex-direction: column; justify-content: space-between; padding: 1rem; color: var(--color-ink); background: var(--color-surface-raised); text-decoration: none; transition: background-color 180ms ease, color 180ms ease; }
   .home-partner:hover, .home-partner:focus-visible { color: var(--color-brand-deep); background: #fff; }
@@ -794,14 +801,16 @@ const homeLeadership = [
   .home-partner__name { display: inline-flex; align-items: center; justify-content: space-between; gap: 0.5rem; margin-block-start: 0.85rem; font: 700 0.66rem/1.25 var(--font-ui); letter-spacing: 0.05em; text-transform: uppercase; }
   .home-partner__name > .icon { flex: none; }
 
-  .home-fellowship { padding-block: clamp(4.5rem, 9vw, 7.5rem); color: #fff; background: var(--home-dark); }
-  .home-fellowship__grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(18rem, 0.58fr); align-items: center; gap: clamp(2.5rem, 8vw, 8rem); }
+  .home-fellowship { padding-block: clamp(3.5rem, 6vw, 5.5rem); color: #fff; background: var(--home-dark); }
+  .home-fellowship__grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(20rem, 0.8fr); align-items: start; column-gap: clamp(2rem, 6vw, 6rem); row-gap: clamp(2.25rem, 4vw, 4rem); }
+  .home-fellowship__heading { min-inline-size: 0; }
   .home-fellowship h2 { max-inline-size: 14ch; margin-block: 1.2rem 1.25rem; color: #fff; font-size: clamp(2.3rem, 4vw, 4.5rem); letter-spacing: -0.05em; line-height: 0.98; }
-  .home-fellowship__copy > p { max-inline-size: 58ch; margin: 0; color: rgb(255 255 255 / 0.72); font-size: 1.05rem; line-height: 1.6; }
-  .home-fellowship__actions { display: flex; align-items: center; flex-wrap: wrap; gap: 1.25rem 1.75rem; margin-block-start: 2rem; }
+  .home-fellowship__copy > p { max-inline-size: 46ch; margin: 0; color: rgb(255 255 255 / 0.72); font-size: 1.05rem; line-height: 1.6; }
+  .home-fellowship__actions { display: flex; align-items: center; flex-wrap: wrap; gap: 1rem 1.5rem; margin-block-start: 1.5rem; }
   .home-fellowship__actions .home-button { margin: 0; }
-  .home-fellowship__signals { display: grid; gap: 0; padding: 0; margin: 0; list-style: none; border-block-start: 1px solid rgb(255 255 255 / 0.24); }
-  .home-fellowship__signals li { display: flex; align-items: center; gap: 0.85rem; padding-block: 1.15rem; border-block-end: 1px solid rgb(255 255 255 / 0.24); color: rgb(255 255 255 / 0.9); font: 700 0.83rem/1.3 var(--font-ui); letter-spacing: 0.04em; text-transform: uppercase; }
+  .home-fellowship__signals { display: grid; grid-column: 1 / -1; grid-template-columns: repeat(3, minmax(0, 1fr)); padding: 0; margin: 0; list-style: none; border-block: 1px solid rgb(255 255 255 / 0.24); }
+  .home-fellowship__signals li { display: flex; align-items: center; gap: 0.85rem; min-block-size: 5.75rem; padding: 1rem 1.25rem; color: rgb(255 255 255 / 0.9); font: 700 0.78rem/1.35 var(--font-ui); letter-spacing: 0.04em; text-transform: uppercase; }
+  .home-fellowship__signals li + li { border-inline-start: 1px solid rgb(255 255 255 / 0.24); }
   .home-fellowship__signals .icon { flex: none; color: var(--home-teal); }
 
   .home-leadership { padding-block: clamp(4.5rem, 9vw, 7.5rem); }
@@ -831,13 +840,17 @@ const homeLeadership = [
     .home-masthead__grid { min-block-size: inherit; }
     .home-masthead__copy { padding-inline-end: 0; }
     :global(.home-masthead__media figcaption) { inset-inline: var(--spacing-gutter); }
-    .home-orientation__grid, .home-observations__head, .home-gallery__head, .home-partners__head, .home-leadership__head, .home-fellowship__grid { grid-template-columns: 1fr; }
+    .home-orientation__grid, .home-observations__head, .home-gallery__head, .home-partners__head, .home-leadership__head, .home-index__head, .home-fellowship__grid { grid-template-columns: 1fr; }
+    .home-briefs__head { grid-template-columns: 1fr; }
+    .home-fellowship__signals { grid-column: 1; }
     .home-projects { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .home-project:last-child { grid-column: 1 / -1; max-inline-size: calc(50% - 0.5rem); }
+    .home-project:last-child { grid-column: 1 / -1; max-inline-size: none; }
     .home-pathways__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .home-pathway:nth-child(2) { border-inline-end: 0; }
+    .home-pathway:nth-child(3) { grid-column: 1 / -1; border-inline-end: 0; }
     .home-index__columns { grid-template-columns: 1fr; }
     .home-partners__grid, .home-leadership__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .home-partners__grid .home-partner:last-child { grid-column: 1 / -1; }
     .home-gallery__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: none; grid-auto-rows: clamp(8rem, 25vw, 13rem); }
     .home-gallery__link--1, .home-gallery__link--6 { grid-column: span 2; grid-row: span 1; }
     .home-gallery__link--2, .home-gallery__link--3, .home-gallery__link--4, .home-gallery__link--5, .home-gallery__link--7, .home-gallery__link--8 { grid-column: span 1; grid-row: span 1; }
@@ -849,7 +862,7 @@ const homeLeadership = [
     .home-masthead h1 { max-inline-size: 13ch; font-size: clamp(2.3rem, 10vw, 3.25rem); }
     .home-masthead__dek { max-inline-size: 34ch; font-size: 0.98rem; }
     :global(.home-masthead__media figcaption) { max-inline-size: 16rem; font-size: 0.68rem; }
-    .home-pathways__head, .home-briefs__head, .home-index__head { align-items: start; flex-direction: column; }
+    .home-pathways__head, .home-briefs__head, .home-index__head { display: flex; align-items: start; flex-direction: column; }
     .home-projects, .home-pathways__grid, .home-briefs__grid { grid-template-columns: 1fr; }
     .home-project:last-child { grid-column: auto; max-inline-size: none; }
     .home-pathway, .home-pathway:nth-child(2), .home-briefs__grid li, .home-briefs__grid li:nth-child(2) { border-inline-end: 0; }
@@ -857,7 +870,10 @@ const homeLeadership = [
     .home-partners__grid, .home-leadership__grid { grid-template-columns: 1fr 1fr; }
     .home-partner { min-block-size: 7.75rem; padding: 0.75rem; }
     :global(.home-partner__mark) { block-size: 4.25rem; }
+    :global(.home-orientation__media) { aspect-ratio: 5 / 4; }
     .home-fellowship__actions { align-items: flex-start; flex-direction: column; }
+    .home-fellowship__signals { grid-template-columns: 1fr; }
+    .home-fellowship__signals li + li { border-inline-start: 0; border-block-start: 1px solid rgb(255 255 255 / 0.24); }
     .home-invitation { grid-template-columns: 1fr; }
     :global(.home-invitation__media) { max-inline-size: 30rem; }
   }
