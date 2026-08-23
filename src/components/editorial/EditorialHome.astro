@@ -843,6 +843,21 @@ const homeLeadership = [
   .home-invitation p { max-inline-size: 70ch; margin: 0; color: var(--color-muted-strong); line-height: 1.55; }
   .home-invitation .home-button { margin-block-start: 1.8rem; }
 
+  @media (min-width: 58.01rem) {
+    .home-orientation, .home-observations, .home-index, .home-gallery, .home-leadership, .home-invitation { padding-block: clamp(4.5rem, 6vw, 6rem); }
+    .home-pathways, .home-briefs { padding-block: clamp(4.5rem, 6vw, 6rem); }
+    .home-partners { padding-block: clamp(4rem, 6vw, 6rem); }
+    .home-fellowship { padding-block: clamp(4rem, 5vw, 5.5rem); }
+
+    .home-observations__head, .home-pathways__head { margin-block: 1.4rem 2.25rem; }
+    .home-index__head { margin-block-end: 2.25rem; }
+    .home-gallery__head { margin-block-end: 2.25rem; }
+    .home-briefs__head { margin-block-end: 1.75rem; }
+    .home-partners__grid { margin-block-start: 2.5rem; }
+    .home-fellowship__grid { row-gap: 2.5rem; }
+    .home-leadership__grid { margin-block-start: 2.25rem; }
+  }
+
   @media (max-width: 58rem) {
     .home-masthead { min-block-size: min(44rem, calc(100svh - 6rem)); }
     .home-masthead__grid { min-block-size: inherit; }
