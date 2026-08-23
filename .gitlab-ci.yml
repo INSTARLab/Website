@@ -22,7 +22,7 @@ pages:
     # local builds at /, but make every generated asset and route URL point at
     # the actual GitLab Pages mount so fonts are not requested from the GitLab
     # instance root (which redirects protected paths to OAuth).
-    - export ASTRO_BASE="$(node -e 'const value = process.env.CI_PAGES_URL; const pathname = value ? new URL(value).pathname.replace(/\/+$/, "") : ""; process.stdout.write(pathname ? pathname + "/" : "/")')"
+    - export ASTRO_BASE="$(node scripts/quality/resolve-pages-base.mjs)"
     - echo "Building GitLab Pages with base ${ASTRO_BASE}"
     - npx --yes --package=pnpm@11.22.0 pnpm install --frozen-lockfile
     - npx --yes --package=pnpm@11.22.0 pnpm run build
@@ -49,7 +49,7 @@ quality:astro-artifact:
       artifacts: true
   before_script:
     # Recreate the Pages build's base in this separate artifact-quality job.
-    - export ASTRO_BASE="$(node -e 'const value = process.env.CI_PAGES_URL; const pathname = value ? new URL(value).pathname.replace(/\/+$/, "") : ""; process.stdout.write(pathname ? pathname + "/" : "/")')"
+    - export ASTRO_BASE="$(node scripts/quality/resolve-pages-base.mjs)"
   script:
     - node scripts/quality/route-ledger.mjs --dist dist --strict
     - node scripts/quality/check-dist-links.mjs --dist dist --base "${ASTRO_BASE}"
