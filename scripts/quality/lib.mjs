@@ -220,7 +220,22 @@ function decodePath(value) {
   }
 }
 
-export function resolveDistReference(reference, htmlFile, root, origin = "") {
+export function normalizeBasePath(value = "") {
+  const raw = String(value ?? "").trim();
+  if (!raw || raw === "/") return "";
+  const pathname = raw.includes("://") ? new URL(raw).pathname : raw;
+  const trimmed = pathname.replace(/^\/+|\/+$/g, "");
+  return trimmed ? `/${trimmed}` : "";
+}
+
+export function stripBasePath(pathname, base = "") {
+  const normalizedBase = normalizeBasePath(base);
+  if (!normalizedBase) return pathname || "/";
+  if (pathname === normalizedBase) return "/";
+  return pathname.startsWith(`${normalizedBase}/`) ? pathname.slice(normalizedBase.length) || "/" : pathname;
+}
+
+export function resolveDistReference(reference, htmlFile, root, origin = "", base = "") {
   if (isSkippableReference(reference)) return { skipped: true };
   if (isExternalReference(reference, origin)) return { external: true };
 
@@ -233,6 +248,7 @@ export function resolveDistReference(reference, htmlFile, root, origin = "") {
       return { external: true };
     }
   }
+  pathname = stripBasePath(pathname, base);
 
   const htmlRelative = relative(root, htmlFile).split(sep).join("/");
   const baseDirectory = dirname(htmlRelative) === "." ? "" : dirname(htmlRelative);

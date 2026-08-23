@@ -11,14 +11,15 @@ import {
   relativeToRepo,
   routeFromHtml,
   readText,
+  stripBasePath,
 } from "./lib.mjs";
 
-const options = parseArgs(process.argv.slice(2), { dist: "dist", sitemap: "", origin: "" });
+const options = parseArgs(process.argv.slice(2), { dist: "dist", sitemap: "", origin: "", base: process.env.ASTRO_BASE ?? "" });
 
 if (options.help) {
   printHelp([
     "Compare the generated sitemap route set with rendered HTML routes.",
-    "Usage: node scripts/quality/check-dist-sitemap.mjs --dist dist --origin https://example.test [--sitemap dist/sitemap-index.xml]",
+    "Usage: node scripts/quality/check-dist-sitemap.mjs --dist dist --origin https://example.test [--base /Website/] [--sitemap dist/sitemap-index.xml]",
   ]);
   process.exit(0);
 }
@@ -47,7 +48,7 @@ if (!sitemapFile || !existsSync(sitemapFile)) {
 function routeFromSitemapUrl(value) {
   try {
     const parsed = new URL(value, options.origin || "https://astro.invalid");
-    const pathname = parsed.pathname || "/";
+    const pathname = stripBasePath(parsed.pathname || "/", options.base);
     if (pathname === "/") return "/";
     if (pathname.endsWith("/index.html")) return pathname.slice(0, -"index.html".length);
     if (!pathname.slice(1).includes("/") && pathname.endsWith(".html")) return pathname;
@@ -70,7 +71,8 @@ function readSitemap(file, visited = new Set()) {
       let nestedFile = "";
       try {
         const parsed = new URL(loc, options.origin || "https://astro.invalid");
-        nestedFile = join(root, parsed.pathname.replace(/^\//, ""));
+        const pathname = stripBasePath(parsed.pathname || "/", options.base);
+        nestedFile = join(root, pathname.replace(/^\//, ""));
       } catch {
         nestedFile = join(dirname(absolute), loc);
       }
