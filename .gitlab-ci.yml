@@ -68,7 +68,8 @@ quality:astro-artifact:
 mirror:
   extends: []
   stage: mirror
-  image: node:22-bookworm-slim
+  # The slim image has no git, and shared runners cannot apt-install it.
+  image: node:22-bookworm
   variables:
     ASTRO_BASE: "/"
   before_script:
