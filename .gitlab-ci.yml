@@ -18,6 +18,12 @@ pages:
     # /usr/local/bin. Run the pinned pnpm release from npx's user cache.
     - npx --yes --package=pnpm@11.22.0 pnpm --version
   script:
+    # Project Pages is served below /Website/. Keep the custom-domain and
+    # local builds at /, but make every generated asset and route URL point at
+    # the actual GitLab Pages mount so fonts are not requested from the GitLab
+    # instance root (which redirects protected paths to OAuth).
+    - export ASTRO_BASE="$(node scripts/quality/resolve-pages-base.mjs)"
+    - echo "Building GitLab Pages with base ${ASTRO_BASE}"
     - npx --yes --package=pnpm@11.22.0 pnpm install --frozen-lockfile
     - npx --yes --package=pnpm@11.22.0 pnpm run build
     - test -f dist/.nojekyll
@@ -41,10 +47,13 @@ quality:astro-artifact:
   needs:
     - job: pages
       artifacts: true
+  before_script:
+    # Recreate the Pages build's base in this separate artifact-quality job.
+    - export ASTRO_BASE="$(node scripts/quality/resolve-pages-base.mjs)"
   script:
     - node scripts/quality/route-ledger.mjs --dist dist --strict
-    - node scripts/quality/check-dist-links.mjs --dist dist
-    - node scripts/quality/check-dist-sitemap.mjs --dist dist --origin https://instarlab.org
+    - node scripts/quality/check-dist-links.mjs --dist dist --base "${ASTRO_BASE}"
+    - node scripts/quality/check-dist-sitemap.mjs --dist dist --origin https://instarlab.org --base "${ASTRO_BASE}"
     - node scripts/quality/media-audit.mjs --dist dist --strict
     - node scripts/quality/validate-dist-metadata.mjs --dist dist
     - node tests/seo/structured-data.test.mjs
@@ -52,3 +61,51 @@ quality:astro-artifact:
     - test -f dist/pagefind/pagefind.js
   rules:
     - if: '$CI_COMMIT_BRANCH == "demo"'
+
+# The included mirror copied the GitLab checkout, so GitHub Pages received
+# Astro source files instead of the generated dist/ artifact.
+# Build in GitLab, then mirror only a fresh orphan publish tree.
+mirror:
+  extends: []
+  stage: mirror
+  image: node:22-bookworm-slim
+  variables:
+    ASTRO_BASE: "/"
+  before_script:
+    - |
+      if [ -z "${GITHUB_TOKEN:-}" ]; then
+        echo "GITHUB_TOKEN is required for the GitHub mirror" >&2
+        exit 1
+      fi
+    - |
+      if ! command -v git >/dev/null 2>&1; then
+        apt-get update
+        apt-get install -y --no-install-recommends git
+        rm -rf /var/lib/apt/lists/*
+      fi
+    - npx --yes --package=pnpm@11.22.0 pnpm --version
+  script:
+    - npx --yes --package=pnpm@11.22.0 pnpm install --frozen-lockfile
+    - echo "Building GitHub Pages artifact with ASTRO_BASE=${ASTRO_BASE}"
+    - ASTRO_BASE=/ npx --yes --package=pnpm@11.22.0 pnpm run build
+    - |
+      set -eu
+      test -d dist
+      test -f dist/.nojekyll
+      test -f dist/CNAME
+      publish_dir="$(mktemp -d)"
+      cp -a dist/. "${publish_dir}/"
+      test -f "${publish_dir}/.nojekyll"
+      test -f "${publish_dir}/CNAME"
+      cd "${publish_dir}"
+      git init
+      git checkout --orphan gh-pages
+      git config user.name "GitLab CI"
+      git config user.email "gitlab-ci@${CI_SERVER_HOST}"
+      git add --all
+      git commit -m "Deploy ${CI_COMMIT_SHA}"
+      git remote add github \
+        "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPO}.git"
+      git push --force github gh-pages
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "gh-pages"'

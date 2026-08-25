@@ -45,7 +45,11 @@ matrix and re-enable it when the Astro language server supports TypeScript 7.
 `trailingSlash: 'always'`. Astro therefore emits clean directory URLs such as
 `/about/` and `/research/current-programs/`; the special static 404 document is
 the only root `.html` output required by the host. `site` is set to
-`https://instarlab.org`; there is no subpath `base`.
+`https://instarlab.org`; local and custom-domain builds use the root `/` base.
+The GitLab project Pages job derives `ASTRO_BASE` from `CI_PAGES_URL`, which
+currently mounts the staging site at `/Website/`. This keeps generated route,
+asset, and font URLs inside the Pages project instead of sending them to the
+GitLab instance root.
 
 Astro-generated CSS and JavaScript use `dist/assets/` instead of the default
 `dist/_astro/`, avoiding GitHub Pages/Jekyll underscore-path behavior. The

@@ -14,12 +14,12 @@ import {
   readText,
 } from "./lib.mjs";
 
-const options = parseArgs(process.argv.slice(2), { dist: "dist", origin: "" });
+const options = parseArgs(process.argv.slice(2), { dist: "dist", origin: "", base: process.env.ASTRO_BASE ?? "" });
 
 if (options.help) {
   printHelp([
     "Check internal href/src references and same-page fragments in rendered HTML.",
-    "Usage: node scripts/quality/check-dist-links.mjs --dist dist [--origin https://example.test]",
+    "Usage: node scripts/quality/check-dist-links.mjs --dist dist [--origin https://example.test] [--base /Website/]",
   ]);
   process.exit(0);
 }
@@ -37,7 +37,7 @@ let checked = 0;
 for (const file of files) {
   const html = readText(file);
   for (const reference of internalReferences(html)) {
-    const resolution = resolveDistReference(reference.value, file, root, options.origin);
+    const resolution = resolveDistReference(reference.value, file, root, options.origin, options.base);
     if (resolution.skipped || resolution.external) continue;
     checked += 1;
     if (!resolution.file) {
