@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="28" stroke-linecap="round">
+  <path d="M160 40c0 100 192 100 192 200s-192 100-192 200"/>
+  <path d="M352 40c0 100-192 100-192 200s192 100 192 200"/>
+  <line x1="176" y1="120" x2="336" y2="120"/>
+  <line x1="160" y1="200" x2="352" y2="200"/>
+  <line x1="160" y1="312" x2="352" y2="312"/>
+  <line x1="176" y1="392" x2="336" y2="392"/>
+</svg>

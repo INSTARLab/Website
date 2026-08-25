@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" stroke="#1072ba" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+  <!-- 8-ray sparkle above book (4 lines through center at 32,13) -->
+  <line x1="32" y1="9"  x2="32" y2="17"/>
+  <line x1="28" y1="13" x2="36" y2="13"/>
+  <line x1="29" y1="10" x2="35" y2="16"/>
+  <line x1="35" y1="10" x2="29" y2="16"/>
+  <!-- Left page -->
+  <rect x="8" y="22" width="22" height="32" rx="2"/>
+  <!-- Right page -->
+  <rect x="34" y="22" width="22" height="32" rx="2"/>
+  <!-- Spine binding arc (top) -->
+  <path d="M30 22 Q32 18 34 22"/>
+  <!-- Spine bottom -->
+  <path d="M30 54 Q32 56 34 54"/>
+</svg>

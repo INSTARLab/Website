@@ -1,0 +1,22 @@
+# INSTAR Lab
+
+> INSTAR Lab Inc. is a 501(c)(3) nonprofit research institute conducting applied research in AI, quantum science, high-performance computing, health sciences, energy, space exploration, and the sciences for federal and institutional research partners.
+
+## Key pages
+- [About](https://instarlab.org/community/about-us/): Organization overview, research capacity, and governance
+- [Mission](https://instarlab.org/mission/): How INSTAR frames rigorous, interdisciplinary research
+- [Research](https://instarlab.org/research/current-programs/): Active research programs and translational approach
+- [Sciences](https://instarlab.org/sciences/physics/): Scientific domains and AI-enabled research methods
+- [Technology](https://instarlab.org/technology/computer-science/): Technical methods and capabilities
+- [Tech Transfer](https://instarlab.org/tech-transfer/portfolio/): Enterprise R&D, portfolio, and STTR programs
+- [Community](https://instarlab.org/community/about-us/): Leadership, careers, partnerships, and support
+- [News](https://instarlab.org/news/): Research updates and editorial briefs
+- [Contact](https://instarlab.org/contact-us/): Federal research, contracts, partnerships, and general inquiries
+
+## Organization facts
+- Legal name: INSTAR Lab Inc.
+- Status: 501(c)(3) nonprofit research institute
+- Founded: 2020
+- Location: 125 Frederick St, Marietta, OH 45750-3407, USA
+- Contact: info@instarlab.org, 929-229-2918
+- Research domains: Artificial Intelligence, Quantum Computing, High-Performance Computing, Health Sciences, Energy Research, Space Sciences
