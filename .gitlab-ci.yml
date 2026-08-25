@@ -68,6 +68,7 @@ quality:astro-artifact:
 mirror:
   extends: []
   stage: mirror
+  resource_group: instarlab-github-pages
   # The slim image has no git, and shared runners cannot apt-install it.
   image: node:22-bookworm
   variables:
@@ -86,9 +87,10 @@ mirror:
       fi
     - npx --yes --package=pnpm@11.22.0 pnpm --version
   script:
-    - npx --yes --package=pnpm@11.22.0 pnpm install --frozen-lockfile
+    # Do not expose the GitHub write token to dependency or build scripts.
+    - env -u GITHUB_TOKEN npx --yes --package=pnpm@11.22.0 pnpm install --frozen-lockfile
     - echo "Building GitHub Pages artifact with ASTRO_BASE=${ASTRO_BASE}"
-    - ASTRO_BASE=/ npx --yes --package=pnpm@11.22.0 pnpm run build
+    - env -u GITHUB_TOKEN ASTRO_BASE=/ npx --yes --package=pnpm@11.22.0 pnpm run build
     - |
       set -eu
       test -d dist
@@ -105,6 +107,8 @@ mirror:
       git config user.email "gitlab-ci@${CI_SERVER_HOST}"
       git add --all
       git commit -m "Deploy ${CI_COMMIT_SHA}"
+      gitlab_pages_sha="$(git ls-remote "${CI_REPOSITORY_URL}" refs/heads/gh-pages | awk '{print $1}')"
+      test "${gitlab_pages_sha}" = "${CI_COMMIT_SHA}"
       git remote add github \
         "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPO}.git"
       git push --force github gh-pages
