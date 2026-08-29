@@ -63,28 +63,29 @@ quality:astro-artifact:
     - if: '$CI_COMMIT_BRANCH == "demo"'
 
 # The included mirror copied the GitLab checkout, so GitHub Pages received
-# Astro source files instead of the generated dist/ artifact.
-# Build in GitLab, then mirror only a fresh orphan publish tree.
+# Astro source files instead of the generated dist/ artifact. Build in GitLab,
+# then publish only the generated artifact on top of GitHub's existing history.
 mirror:
   extends: []
   stage: mirror
   resource_group: instarlab-github-pages
-  # The slim image has no git, and shared runners cannot apt-install it.
+  # This image includes git. Do not fall back to apt: shared Kubernetes
+  # runners are unprivileged and cannot install packages at job time.
   image: node:22-bookworm
   variables:
     ASTRO_BASE: "/"
   before_script:
     - |
+      set -eu
       if [ -z "${GITHUB_TOKEN:-}" ]; then
         echo "GITHUB_TOKEN is required for the GitHub mirror" >&2
         exit 1
       fi
-    - |
       if ! command -v git >/dev/null 2>&1; then
-        apt-get update
-        apt-get install -y --no-install-recommends git
-        rm -rf /var/lib/apt/lists/*
+        echo "The mirror image must provide git; refusing an in-job package install" >&2
+        exit 1
       fi
+      git --version
     - npx --yes --package=pnpm@11.22.0 pnpm --version
   script:
     # Do not expose the GitHub write token to dependency or build scripts.
@@ -92,25 +93,123 @@ mirror:
     - echo "Building GitHub Pages artifact with ASTRO_BASE=${ASTRO_BASE}"
     - env -u GITHUB_TOKEN ASTRO_BASE=/ npx --yes --package=pnpm@11.22.0 pnpm run build
     - |
-      set -eu
+      set -euo pipefail
       test -d dist
       test -f dist/.nojekyll
       test -f dist/CNAME
+      test -z "$(find dist -type l -print -quit)"
+
+      artifact_dir="$(mktemp -d)"
+      cp -a dist/. "${artifact_dir}/"
+      test ! -e "${artifact_dir}/.git"
+
+      write_manifest() {
+        manifest_root="$1"
+        (
+          cd "${manifest_root}"
+          find . -path './.git' -prune -o -type f -print | LC_ALL=C sort |
+            while IFS= read -r path; do
+              printf '%s  %s\n' \
+                "$(sha256sum -- "${path}" | awk '{print $1}')" \
+                "${path#./}"
+            done
+        )
+      }
+
+      write_index_manifest() {
+        manifest_root="$1"
+        (
+          cd "${manifest_root}"
+          git ls-files | LC_ALL=C sort |
+            while IFS= read -r path; do
+              printf '%s  %s\n' \
+                "$(sha256sum -- "${path}" | awk '{print $1}')" \
+                "${path}"
+            done
+        )
+      }
+
+      artifact_manifest="$(mktemp)"
+      write_manifest "${artifact_dir}" > "${artifact_manifest}"
+
+      # GitLab gh-pages is authoritative for what this pipeline may release.
+      # This is intentionally independent of the GitHub artifact commit ID.
+      gitlab_pages_sha="$(git ls-remote "${CI_REPOSITORY_URL}" refs/heads/gh-pages | awk 'NF {print $1; exit}')"
+      if [ "${gitlab_pages_sha}" != "${CI_COMMIT_SHA}" ]; then
+        echo "Refusing to mirror: GitLab gh-pages moved from ${CI_COMMIT_SHA} to ${gitlab_pages_sha:-<missing>}" >&2
+        exit 1
+      fi
+
+      # Keep the token out of the remote URL, logs, and git config. Git uses
+      # this helper only for the authenticated GitHub clone/fetch/push.
+      github_repo_url="https://github.com/${GITHUB_REPO}.git"
+      askpass="$(mktemp)"
+      trap 'rm -f "${askpass}" "${artifact_manifest}"' EXIT
+      cat > "${askpass}" <<'ASKPASS'
+      #!/bin/sh
+      case "$1" in
+        *Username*) printf '%s\n' 'x-access-token' ;;
+        *Password*) printf '%s\n' "${GITHUB_TOKEN}" ;;
+        *) exit 1 ;;
+      esac
+      ASKPASS
+      chmod 700 "${askpass}"
+
+      github_pages_sha="$(GIT_ASKPASS="${askpass}" GIT_TERMINAL_PROMPT=0 git ls-remote "${github_repo_url}" refs/heads/gh-pages | awk 'NF {print $1; exit}')"
+      if [ -z "${github_pages_sha}" ]; then
+        echo "Refusing to mirror: GitHub gh-pages does not exist or is unreadable" >&2
+        exit 1
+      fi
+
       publish_dir="$(mktemp -d)"
-      cp -a dist/. "${publish_dir}/"
+      GIT_ASKPASS="${askpass}" GIT_TERMINAL_PROMPT=0 git clone \
+        --branch gh-pages "${github_repo_url}" "${publish_dir}"
+      cloned_pages_sha="$(git -C "${publish_dir}" rev-parse HEAD)"
+      if [ "${cloned_pages_sha}" != "${github_pages_sha}" ]; then
+        echo "Refusing to mirror: GitHub gh-pages changed during clone" >&2
+        exit 1
+      fi
+
+      git -C "${publish_dir}" remote rename origin github
+      git -C "${publish_dir}" config user.name "GitLab CI"
+      git -C "${publish_dir}" config user.email "gitlab-ci@${CI_SERVER_HOST}"
+      git -C "${publish_dir}" rm -r --ignore-unmatch -- .
+      git -C "${publish_dir}" clean -fdx
+      cp -a "${artifact_dir}/." "${publish_dir}/"
       test -f "${publish_dir}/.nojekyll"
       test -f "${publish_dir}/CNAME"
-      cd "${publish_dir}"
-      git init
-      git checkout --orphan gh-pages
-      git config user.name "GitLab CI"
-      git config user.email "gitlab-ci@${CI_SERVER_HOST}"
-      git add --all
-      git commit -m "Deploy ${CI_COMMIT_SHA}"
-      gitlab_pages_sha="$(git ls-remote "${CI_REPOSITORY_URL}" refs/heads/gh-pages | awk '{print $1}')"
-      test "${gitlab_pages_sha}" = "${CI_COMMIT_SHA}"
-      git remote add github \
-        "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPO}.git"
-      git push --force github gh-pages
+      git -C "${publish_dir}" add --all -- .
+
+      published_manifest="$(mktemp)"
+      write_index_manifest "${publish_dir}" > "${published_manifest}"
+      if ! cmp -s "${artifact_manifest}" "${published_manifest}"; then
+        echo "Refusing to mirror: staged GitHub tree differs from generated dist artifact" >&2
+        exit 1
+      fi
+
+      github_head_before_release="$(GIT_ASKPASS="${askpass}" GIT_TERMINAL_PROMPT=0 git ls-remote "${github_repo_url}" refs/heads/gh-pages | awk 'NF {print $1; exit}')"
+      if [ "${github_head_before_release}" != "${github_pages_sha}" ]; then
+        echo "Refusing to mirror: GitHub gh-pages diverged before release" >&2
+        exit 1
+      fi
+
+      if git -C "${publish_dir}" diff --cached --quiet; then
+        echo "GitHub gh-pages already contains the verified artifact"
+        exit 0
+      fi
+
+      git -C "${publish_dir}" commit -m "Deploy ${CI_COMMIT_SHA}"
+      test "$(git -C "${publish_dir}" rev-parse HEAD^)" = "${github_pages_sha}"
+
+      # Re-check both authorities immediately before the non-fast-forward-safe
+      # push. A concurrent GitLab promotion or GitHub update fails closed.
+      gitlab_pages_sha_after="$(git ls-remote "${CI_REPOSITORY_URL}" refs/heads/gh-pages | awk 'NF {print $1; exit}')"
+      test "${gitlab_pages_sha_after}" = "${CI_COMMIT_SHA}"
+      github_head_before_push="$(GIT_ASKPASS="${askpass}" GIT_TERMINAL_PROMPT=0 git ls-remote "${github_repo_url}" refs/heads/gh-pages | awk 'NF {print $1; exit}')"
+      test "${github_head_before_push}" = "${github_pages_sha}"
+      GIT_ASKPASS="${askpass}" GIT_TERMINAL_PROMPT=0 git -C "${publish_dir}" push github HEAD:gh-pages
+
+      github_pages_sha_after="$(GIT_ASKPASS="${askpass}" GIT_TERMINAL_PROMPT=0 git ls-remote "${github_repo_url}" refs/heads/gh-pages | awk 'NF {print $1; exit}')"
+      test "${github_pages_sha_after}" = "$(git -C "${publish_dir}" rev-parse HEAD)"
   rules:
     - if: '$CI_COMMIT_BRANCH == "gh-pages"'

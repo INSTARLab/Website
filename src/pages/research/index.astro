@@ -1,0 +1,660 @@
+---
+import Icon from '../../components/primitives/Icon.astro';
+import SiteLayout from '../../layouts/SiteLayout.astro';
+import { getInstarResearchTechnologySciencesRoutes } from '../../data/instar-research-technology-sciences';
+
+export const prerender = true;
+
+const researchRoutes = getInstarResearchTechnologySciencesRoutes('research');
+const researchSummaryBySlug: Record<string, string> = {
+  consortium: 'Review the consortium route for its network-oriented research context.',
+  'current-programs': 'Start with the canonical portfolio entry and its research-area overview.',
+  facilities: 'Review the facilities route and the infrastructure context it provides.',
+  funding: 'Review the route for federal research and sponsored-program context.',
+  innovation: 'Explore the research-innovation route and its applied-research context.',
+  'open-data': 'Review the open-data and public-dataset route.',
+  opportunities: 'Explore the research engagement pathways described by the portfolio.',
+  'our-process': 'See how questions, methods, evidence, and limitations are kept visible.',
+};
+
+function routeFor(slug: string) {
+  const route = researchRoutes.find((entry) => entry.slug === slug);
+  if (!route) throw new Error(`Unknown research route: ${slug}`);
+  return {
+    ...route,
+    summary: researchSummaryBySlug[slug],
+  };
+}
+
+const routeGroups = [
+  {
+    id: 'portfolio',
+    label: 'Portfolio starting points',
+    description: 'Begin with the research areas and context that help you decide where to read next.',
+    slugs: ['current-programs', 'innovation', 'facilities'],
+  },
+  {
+    id: 'practice',
+    label: 'Research practice',
+    description: 'Use these routes to examine process, evidence, and public data.',
+    slugs: ['our-process', 'open-data'],
+  },
+  {
+    id: 'engagement',
+    label: 'Research engagement',
+    description: 'Review the routes that explain research funding context and possible ways to engage.',
+    slugs: ['funding', 'opportunities'],
+  },
+  {
+    id: 'network',
+    label: 'Research network',
+    description: 'Read the network-oriented route when you need broader institutional context.',
+    slugs: ['consortium'],
+  },
+].map((group) => ({
+  ...group,
+  routes: group.slugs.map(routeFor),
+}));
+
+const description = 'Orient yourself in the INSTAR Lab research portfolio, methods, data, facilities, and engagement routes.';
+---
+
+<SiteLayout
+  title="Research — INSTAR Lab"
+  description={description}
+  canonical="/research/"
+  bodyClass="editorial-page editorial-page--research"
+  mainClass="research-overview-main"
+>
+  <article
+    class="research-overview"
+    data-route="/research/"
+    data-page-signature="orientation → portfolio → research practice → engagement"
+  >
+    <header class="research-overview__hero">
+      <div class="research-overview__container research-overview__hero-inner">
+        <div class="research-overview__hero-copy">
+          <p class="research-overview__eyebrow"><span>Research</span><span aria-hidden="true">/</span><span>orientation</span></p>
+          <p class="research-overview__folio">INSTAR RESEARCH</p>
+          <h1>Find the research route that fits your question.</h1>
+          <p class="research-overview__dek">Use this page as a map of the INSTAR Lab research section: start with the portfolio, then move to the methods, data, facilities, and engagement context you need.</p>
+          <div class="research-overview__actions">
+            <a class="research-overview__button research-overview__button--primary" href="/research/current-programs/">
+              Open the canonical portfolio <Icon name="arrow-up-right" size="1rem" />
+            </a>
+            <a class="research-overview__button research-overview__button--quiet" href="#research-routes">
+              Explore all research routes <Icon name="arrow-right" size="1rem" />
+            </a>
+          </div>
+        </div>
+        <div class="research-overview__hero-note" aria-label="Research section note">
+          <span class="research-overview__hero-note-mark" aria-hidden="true">R / 01</span>
+          <p>This is a navigation page. It points to the existing research routes; it is not a live program register.</p>
+        </div>
+      </div>
+    </header>
+
+    <nav class="research-overview__map" aria-label="Research page map">
+      <div class="research-overview__container research-overview__map-inner">
+        <p>Read this page as</p>
+        <ul>
+          <li>orientation</li>
+          <li>portfolio</li>
+          <li>research practice</li>
+          <li>engagement</li>
+        </ul>
+      </div>
+    </nav>
+
+    <section class="research-overview__brief research-overview__container" aria-labelledby="research-brief-title">
+      <div class="research-overview__section-label">Section brief</div>
+      <div class="research-overview__brief-grid">
+        <h2 id="research-brief-title">Start with the question you need to answer.</h2>
+        <div class="research-overview__brief-body">
+          <p class="research-overview__lead">The research section is organized as a set of routes, each with a different job.</p>
+          <p>Choose the portfolio entry for research-area context. Choose a practice route when you need to understand process or data. Choose an engagement route when you are clarifying how to continue the conversation.</p>
+          <p class="research-overview__boundary">This orientation does not establish project status, dates, funding awards, availability, or partner commitments. Read the linked route for its stated scope and limits.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="research-routes" class="research-overview__routes" aria-labelledby="research-routes-title">
+      <div class="research-overview__container">
+        <div class="research-overview__section-label">Research routes</div>
+        <div class="research-overview__section-intro">
+          <h2 id="research-routes-title">Choose where to go next.</h2>
+          <p>These links are drawn from the existing research route manifest. The portfolio entry remains the canonical place to begin reviewing research areas.</p>
+        </div>
+
+        <div class="research-overview__groups">
+          {routeGroups.map((group) => (
+            <section class="research-overview__group" aria-labelledby={`research-group-${group.id}`}>
+              <div class="research-overview__group-heading">
+                <h3 id={`research-group-${group.id}`}>{group.label}</h3>
+                <p>{group.description}</p>
+              </div>
+              <ul class="research-overview__route-grid">
+                {group.routes.map((route, index) => (
+                  <li>
+                    <a href={route.path}>
+                      <span class="research-overview__ordinal" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
+                      <span class="research-overview__route-label">{route.heading}</span>
+                      <strong>{route.title}</strong>
+                      <span class="research-overview__route-summary">{route.summary}</span>
+                      <span class="research-overview__route-action">Open research route <Icon name="arrow-up-right" size="1rem" /></span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="research-overview__next" aria-labelledby="research-next-title">
+      <div class="research-overview__container research-overview__next-grid">
+        <div>
+          <div class="research-overview__section-label research-overview__section-label--light">Next step</div>
+          <h2 id="research-next-title">Keep the evidence and the question together.</h2>
+          <p>After reviewing the route that matches your question, use the process page to understand how research questions, methods, evidence, and limitations are documented.</p>
+        </div>
+        <nav aria-label="Research next steps">
+          <a href="/research/our-process/"><span>Review the method</span><strong>See our research process</strong><Icon name="arrow-right" size="1rem" /></a>
+          <a href="/contact-us/"><span>Have a research question?</span><strong>Share the context you are evaluating</strong><Icon name="arrow-up-right" size="1rem" /></a>
+        </nav>
+      </div>
+    </section>
+  </article>
+</SiteLayout>
+
+<style>
+  .research-overview {
+    --route-accent: #0a5a78;
+    --route-accent-on-dark: #54c9ed;
+    --route-dark: #0b1626;
+    background: var(--color-canvas);
+  }
+
+  .research-overview__container {
+    width: calc(100% - 2 * var(--spacing-gutter));
+    margin-inline: auto;
+  }
+
+  .research-overview__hero {
+    color: #fff;
+    background: var(--route-dark);
+  }
+
+  .research-overview__hero-inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(16rem, 0.85fr);
+    gap: clamp(2rem, 8vw, 9rem);
+    min-block-size: min(39rem, calc(100svh - var(--layout-chrome-offset)));
+    padding-block: clamp(4rem, 9vw, 8rem);
+  }
+
+  .research-overview__hero-copy {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .research-overview__eyebrow,
+  .research-overview__folio,
+  .research-overview__map,
+  .research-overview__section-label,
+  .research-overview__route-label,
+  .research-overview__route-action,
+  .research-overview__next nav span {
+    font-family: var(--font-ui);
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    line-height: 1.3;
+    text-transform: uppercase;
+  }
+
+  .research-overview__eyebrow {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-block-end: 2.2rem;
+    color: var(--route-accent-on-dark);
+  }
+
+  .research-overview__folio {
+    margin-block-end: 1.1rem;
+    color: rgb(255 255 255 / 0.55);
+    font-size: 0.68rem;
+    letter-spacing: 0.18em;
+  }
+
+  .research-overview__hero h1 {
+    max-inline-size: 12ch;
+    margin: 0;
+    color: #fff;
+    font-size: clamp(2.6rem, 5.5vw, 6rem);
+    letter-spacing: -0.055em;
+    line-height: 0.98;
+    text-wrap: balance;
+  }
+
+  .research-overview__dek {
+    max-inline-size: 49ch;
+    margin-block-start: clamp(1.5rem, 3vw, 2.5rem);
+    color: rgb(255 255 255 / 0.75);
+    font-size: clamp(1.05rem, 1rem + 0.28vw, 1.25rem);
+    line-height: 1.55;
+  }
+
+  .research-overview__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-block-start: 1.8rem;
+  }
+
+  .research-overview__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.65rem;
+    min-block-size: 3rem;
+    padding: 0.8rem 1.1rem;
+    border: 1px solid transparent;
+    color: #fff;
+    font-family: var(--font-ui);
+    font-size: 0.82rem;
+    font-weight: 800;
+    text-decoration: none;
+    transition: transform 180ms ease, background-color 180ms ease, color 180ms ease;
+  }
+
+  .research-overview__button:hover {
+    transform: translateY(-2px);
+  }
+
+  .research-overview__button--primary {
+    background: var(--route-accent);
+  }
+
+  .research-overview__button--primary:hover {
+    color: var(--route-dark);
+    background: #fff;
+  }
+
+  .research-overview__button--quiet {
+    border-color: rgb(255 255 255 / 0.28);
+  }
+
+  .research-overview__button--quiet:hover {
+    color: var(--route-dark);
+    border-color: #fff;
+    background: #fff;
+  }
+
+  .research-overview__hero-note {
+    display: flex;
+    align-self: end;
+    justify-content: space-between;
+    gap: 2rem;
+    padding-block-start: 1.4rem;
+    border-block-start: 1px solid rgb(255 255 255 / 0.25);
+  }
+
+  .research-overview__hero-note-mark {
+    flex: none;
+    color: var(--route-accent-on-dark);
+    font: 800 0.72rem/1.3 var(--font-ui);
+    letter-spacing: 0.12em;
+  }
+
+  .research-overview__hero-note p {
+    max-inline-size: 24ch;
+    margin: 0;
+    color: rgb(255 255 255 / 0.65);
+    font-size: 0.96rem;
+  }
+
+  .research-overview__map {
+    color: var(--color-ink);
+    border-block-end: 1px solid var(--color-rule);
+    background: var(--color-surface);
+  }
+
+  .research-overview__map-inner {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    min-block-size: 4.5rem;
+  }
+
+  .research-overview__map p {
+    flex: none;
+    margin: 0;
+    color: var(--route-accent);
+  }
+
+  .research-overview__map ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem 1.25rem;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  .research-overview__map li {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    color: var(--color-muted-strong);
+  }
+
+  .research-overview__map li::before {
+    inline-size: 0.4rem;
+    block-size: 0.4rem;
+    flex: none;
+    border-radius: 50%;
+    background: var(--route-accent);
+    content: '';
+  }
+
+  .research-overview__brief {
+    padding-block: clamp(4rem, 8vw, 8rem);
+  }
+
+  .research-overview__section-label {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--route-accent);
+  }
+
+  .research-overview__section-label::before {
+    inline-size: 1.4rem;
+    block-size: 2px;
+    background: currentColor;
+    content: '';
+  }
+
+  .research-overview__section-label--light {
+    color: var(--route-accent-on-dark);
+  }
+
+  .research-overview__brief-grid,
+  .research-overview__next-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 0.8fr);
+    gap: clamp(2rem, 6vw, 6rem);
+    margin-block-start: 2rem;
+  }
+
+  .research-overview h2 {
+    max-inline-size: 14ch;
+    margin: 0;
+    color: var(--color-ink);
+    font-size: clamp(2rem, 3.7vw, 4rem);
+    letter-spacing: -0.055em;
+    line-height: 1;
+    text-wrap: balance;
+  }
+
+  .research-overview__brief-body {
+    max-inline-size: 52ch;
+  }
+
+  .research-overview__brief-body p {
+    color: var(--color-muted-strong);
+  }
+
+  .research-overview__brief-body .research-overview__lead {
+    margin-block-end: 1.4rem;
+    color: var(--color-ink);
+    font-size: clamp(1.2rem, 1.05rem + 0.4vw, 1.5rem);
+    line-height: 1.45;
+  }
+
+  .research-overview__brief-body .research-overview__boundary {
+    padding-block-start: 1.2rem;
+    margin-block-start: 1.5rem;
+    border-block-start: 1px solid var(--color-rule);
+    font-size: 0.94rem;
+  }
+
+  .research-overview__routes {
+    padding-block: clamp(4rem, 8vw, 8rem);
+    border-block-start: 1px solid var(--color-rule);
+    background: var(--color-surface);
+  }
+
+  .research-overview__section-intro {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 2rem;
+    margin-block: 1.8rem 4rem;
+  }
+
+  .research-overview__section-intro p {
+    max-inline-size: 38rem;
+    margin: 0;
+    color: var(--color-muted-strong);
+  }
+
+  .research-overview__groups {
+    display: grid;
+    gap: clamp(3rem, 6vw, 6rem);
+  }
+
+  .research-overview__group {
+    display: grid;
+    grid-template-columns: minmax(11rem, 0.34fr) minmax(0, 1fr);
+    gap: clamp(1.5rem, 5vw, 5rem);
+  }
+
+  .research-overview__group-heading {
+    align-self: start;
+    position: sticky;
+    inset-block-start: calc(var(--layout-chrome-offset) + 1rem);
+  }
+
+  .research-overview__group-heading h3 {
+    margin: 0;
+    color: var(--color-ink);
+    font-size: clamp(1.35rem, 1.2rem + 0.6vw, 2rem);
+    line-height: 1.1;
+  }
+
+  .research-overview__group-heading p {
+    max-inline-size: 22ch;
+    margin-block-start: 0.8rem;
+    color: var(--color-muted-strong);
+    font-size: 0.95rem;
+  }
+
+  .research-overview__route-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: var(--color-rule);
+  }
+
+  .research-overview__route-grid li {
+    min-block-size: 16rem;
+    background: var(--color-canvas);
+  }
+
+  .research-overview__route-grid a {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    block-size: 100%;
+    padding: 1.35rem;
+    color: var(--color-ink);
+    text-decoration: none;
+  }
+
+  .research-overview__route-grid a:hover {
+    background: var(--color-surface-raised);
+  }
+
+  .research-overview__ordinal {
+    color: var(--route-accent);
+    font: 800 0.74rem/1 var(--font-ui);
+    letter-spacing: 0.1em;
+  }
+
+  .research-overview__route-label {
+    margin-block-start: 1.4rem;
+    color: var(--route-accent);
+    font-size: 0.65rem;
+  }
+
+  .research-overview__route-grid strong {
+    max-inline-size: 24ch;
+    margin-block-start: 0.65rem;
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    line-height: 1.08;
+  }
+
+  .research-overview__route-summary {
+    max-inline-size: 34ch;
+    margin-block-start: 0.85rem;
+    color: var(--color-muted-strong);
+    font-size: 0.94rem;
+    line-height: 1.5;
+  }
+
+  .research-overview__route-action {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    margin-block-start: auto;
+    padding-block-start: 1.2rem;
+    color: var(--route-accent);
+    font-size: 0.65rem;
+  }
+
+  .research-overview__next {
+    padding-block: clamp(4rem, 8vw, 8rem);
+    color: #fff;
+    background: var(--route-dark);
+  }
+
+  .research-overview__next h2 {
+    color: #fff;
+  }
+
+  .research-overview__next p {
+    max-inline-size: 44ch;
+    margin-block-start: 1.4rem;
+    color: rgb(255 255 255 / 0.68);
+  }
+
+  .research-overview__next nav {
+    display: grid;
+    gap: 1px;
+    align-self: center;
+    background: rgb(255 255 255 / 0.22);
+  }
+
+  .research-overview__next nav a {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+    padding: 1.2rem 3rem 1.2rem 1.25rem;
+    color: #fff;
+    background: rgb(255 255 255 / 0.06);
+    text-decoration: none;
+  }
+
+  .research-overview__next nav a:hover {
+    background: rgb(255 255 255 / 0.14);
+  }
+
+  .research-overview__next nav strong {
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    line-height: 1.1;
+  }
+
+  .research-overview__next nav .icon {
+    position: absolute;
+    inset-inline-end: 1.25rem;
+    inset-block-end: 1.2rem;
+    color: var(--route-accent-on-dark);
+  }
+
+  @media (max-width: 58rem) {
+    .research-overview__hero-inner,
+    .research-overview__brief-grid,
+    .research-overview__next-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .research-overview__hero-inner {
+      min-block-size: auto;
+    }
+
+    .research-overview__hero-note {
+      align-self: auto;
+      margin-block-start: 2rem;
+    }
+
+    .research-overview__group {
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+
+    .research-overview__group-heading {
+      position: static;
+    }
+
+    .research-overview__group-heading p {
+      max-inline-size: 42ch;
+    }
+  }
+
+  @media (max-width: 42rem) {
+    .research-overview__map-inner {
+      align-items: start;
+      flex-direction: column;
+      gap: 0.7rem;
+      padding-block: 1.2rem;
+    }
+
+    .research-overview__map ul {
+      gap: 0.35rem 0.8rem;
+    }
+
+    .research-overview__section-intro {
+      align-items: start;
+      flex-direction: column;
+    }
+
+    .research-overview__route-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .research-overview__hero h1 {
+      max-inline-size: 13ch;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .research-overview__button {
+      transition: none;
+    }
+
+    .research-overview__button:hover {
+      transform: none;
+    }
+  }
+</style>
