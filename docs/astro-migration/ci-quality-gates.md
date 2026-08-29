@@ -1,9 +1,9 @@
 # CI quality gates
 
-The repository is GitLab-first and is mirrored to GitHub Pages. This note is
-guidance for the Astro cutover; it does not alter the existing
-`.gitlab-ci.yml`, which currently contains additive, non-blocking checks for
-the legacy static site.
+The repository is GitLab-first and is mirrored to GitHub Pages. GitLab
+`gh-pages` is the release authority: CI builds and validates the generated
+`dist/` artifact there, and the mirror publishes that artifact rather than
+the source checkout.
 
 ## Migration pipeline shape
 
@@ -56,6 +56,14 @@ deployment's `.nojekyll` marker according to the deployment owner’s plan.
 Assert that CSS returns `200` with `text/css`, media requests do not fail, and
 the browser console has no MIME-type errors. A matching commit SHA is not
 proof that the CDN has served the new asset paths.
+
+The `mirror` job runs only for the GitLab `gh-pages` pipeline. It confirms that
+the authoritative GitLab ref still equals the pipeline SHA, clones the
+existing GitHub `gh-pages` history, replaces that worktree with `dist/`, and
+compares file manifests before committing. It rechecks both remotes and uses a
+normal fast-forward push, so a concurrent GitHub update or GitLab promotion
+fails closed. GitLab and GitHub commit IDs intentionally differ because the
+GitHub commit contains the generated artifact.
 
 ## Required browser matrix
 
