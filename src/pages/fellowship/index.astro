@@ -1,10 +1,216 @@
 ---
-import W5EditorialDocument from '../../components/workstream5/W5EditorialDocument.astro';
+import EditorialMedia from '../../components/editorial/media/EditorialMedia.astro';
+import Icon from '../../components/primitives/Icon.astro';
+import { publicMediaFor } from '../../data/media';
 import { routeAtPath } from '../../data/workstream5/manifest';
+import { createPublicMedia } from '../../utils/media/records';
+import SiteLayout from '../../layouts/SiteLayout.astro';
 
 export const prerender = true;
 
 const record = routeAtPath('/fellowship/');
+const description = 'Review the INSTAR Fellowship program portfolio and the questions to clarify before making an application inquiry.';
+const heroUrl = '/img/banners/fellowship.avif' as `/${string}`;
+const heroAlt = 'A visual orientation for the INSTAR Fellowship program.';
+const heroAsset = publicMediaFor(heroUrl, {
+  alt: { kind: 'contextual', status: 'review-required', text: heroAlt },
+  caption: 'INSTAR Lab / Fellowship program',
+  sizes: '(min-width: 58rem) 54vw, 100vw',
+  loading: 'eager',
+  fetchpriority: 'high',
+}) ?? createPublicMedia({
+  id: 'media:fellowship-hero' as `media:${string}`,
+  url: heroUrl,
+  type: 'photography-or-illustration',
+  role: 'orientation',
+  alt: { kind: 'contextual', status: 'review-required', text: heroAlt },
+  dimensions: { width: 1920, height: 600 },
+  sizes: '(min-width: 58rem) 54vw, 100vw',
+  loading: 'eager',
+  fetchpriority: 'high',
+  provenance: {
+    status: 'unverified',
+    source: 'Repository asset; original source is not recorded.',
+    license: 'Unverified; confirm ownership or license before publication.',
+  },
+  caption: 'INSTAR Lab / Fellowship program',
+});
 ---
 
-<W5EditorialDocument record={record} />
+<SiteLayout
+  title={record.title}
+  description={description}
+  canonical={record.path}
+  image={heroUrl}
+  imageAlt={heroAlt}
+  bodyClass="editorial-page editorial-page--fellowship"
+  mainClass="fellowship-applicant-main"
+>
+  <article
+    class="fellowship-applicant"
+    data-route={record.path}
+    data-page-signature="applicant orientation → program questions → application path → next step"
+  >
+    <header class="fellowship-applicant__hero">
+      <div class="fellowship-applicant__hero-grid fellowship-applicant__container">
+        <div class="fellowship-applicant__hero-copy">
+          <p class="fellowship-applicant__eyebrow"><span>Fellowship</span><span aria-hidden="true">/</span><span>applicant overview</span></p>
+          <p class="fellowship-applicant__folio">INSTAR FELLOWSHIP</p>
+          <h1>{record.title}</h1>
+          <p class="fellowship-applicant__dek">{description}</p>
+          <div class="fellowship-applicant__actions">
+            <a class="fellowship-applicant__button fellowship-applicant__button--primary" href="#fellowship-overview">Review the program overview <Icon name="arrow-up-right" size="1rem" /></a>
+            <a class="fellowship-applicant__button fellowship-applicant__button--quiet" href="/contact-us/">Ask about applying <Icon name="arrow-right" size="1rem" /></a>
+          </div>
+        </div>
+        <EditorialMedia asset={heroAsset} figureClass="fellowship-applicant__hero-media" class="fellowship-applicant__hero-image" picture={false} />
+      </div>
+    </header>
+
+    <nav class="fellowship-applicant__map" aria-label="Page map">
+      <div class="fellowship-applicant__container fellowship-applicant__map-inner">
+        <p>Read this page as</p>
+        <ul>
+          <li>applicant orientation</li>
+          <li>program questions</li>
+          <li>application path</li>
+          <li>next step</li>
+        </ul>
+      </div>
+    </nav>
+
+    <section id="fellowship-overview" class="fellowship-applicant__brief fellowship-applicant__container" aria-labelledby="fellowship-brief-title">
+      <div class="fellowship-applicant__section-label">Applicant brief</div>
+      <div class="fellowship-applicant__brief-grid">
+        <h2 id="fellowship-brief-title">What a prospective fellow should know before applying.</h2>
+        <div class="fellowship-applicant__brief-body">
+          <p class="fellowship-applicant__lead">Start with the research context, then identify the details you need to confirm before making an application inquiry.</p>
+          <p>This page is an applicant-oriented portfolio overview. The current public source does not specify dates, time commitment, format, selection steps, or compensation; confirm those details directly before relying on this page as an application notice.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="fellowship-questions" class="fellowship-applicant__section fellowship-applicant__section--questions" aria-labelledby="fellowship-questions-title">
+      <div class="fellowship-applicant__container">
+        <div class="fellowship-applicant__section-label">Program questions</div>
+        <div class="fellowship-applicant__section-intro">
+          <h2 id="fellowship-questions-title">What to look for in a fellowship program.</h2>
+          <p>Use these questions to distinguish a promising research fit from details that still need a current answer.</p>
+        </div>
+        <ul class="fellowship-applicant__question-grid">
+          <li><span>Program fit</span><strong>Which questions and fields match your interests?</strong><p>Begin with the research areas you want to explore and the contribution you hope to make.</p></li>
+          <li><span>Expectations</span><strong>What should you confirm before committing?</strong><p>Ask about time, format, supervision, participation, and the support available for the work.</p></li>
+          <li><span>Application details</span><strong>Which requirements are current?</strong><p>Confirm dates, materials, selection steps, and any compensation directly with INSTAR.</p></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="fellowship-sequence" class="fellowship-applicant__section fellowship-applicant__section--sequence" aria-labelledby="fellowship-sequence-title">
+      <div class="fellowship-applicant__container fellowship-applicant__sequence-grid">
+        <div>
+          <div class="fellowship-applicant__section-label">Application path</div>
+          <h2 id="fellowship-sequence-title">From interest to application.</h2>
+          <p>Three checks can take a prospective fellow from curiosity to a focused application inquiry.</p>
+        </div>
+        <ol class="fellowship-applicant__steps">
+          <li><strong>Review</strong><p>Start with the research areas on this page and identify the questions you want to explore.</p></li>
+          <li><strong>Clarify</strong><p>Confirm current eligibility, time commitment, format, selection steps, and any compensation; these details are not specified in the current portfolio record.</p></li>
+          <li><strong>Inquire</strong><p>Use the contact path for current application guidance; do not treat this portfolio page as a dated application notice.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="fellowship-next-step" class="fellowship-applicant__engagement" aria-labelledby="fellowship-next-step-title">
+      <div class="fellowship-applicant__container fellowship-applicant__engagement-grid">
+        <div>
+          <div class="fellowship-applicant__section-label fellowship-applicant__section-label--light">Engagement path</div>
+          <h2 id="fellowship-next-step-title">Two paths depending on where you are in the process.</h2>
+        </div>
+        <nav aria-label="Fellowship next steps">
+          <a href="/contact-us/"><span>Have questions first?</span><strong>Ask for current application guidance.</strong><Icon name="arrow-up-right" size="1rem" /></a>
+          <a href="#fellowship-overview"><span>Ready to apply?</span><strong>Review the program questions before you make an inquiry.</strong><Icon name="arrow-right" size="1rem" /></a>
+        </nav>
+      </div>
+    </section>
+  </article>
+</SiteLayout>
+
+<style>
+  .fellowship-applicant { --route-accent: #067061; --route-accent-on-dark: #63e3c9; --route-dark: #0b1626; background: var(--color-canvas); }
+  .fellowship-applicant__container { width: calc(100% - 2 * var(--spacing-gutter)); margin-inline: auto; }
+  .fellowship-applicant__hero { color: #fff; background: var(--route-dark); overflow: clip; }
+  .fellowship-applicant__hero-grid { display: grid; grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr); block-size: min(42rem, calc(100svh - var(--layout-chrome-offset))); min-block-size: min(42rem, calc(100svh - var(--layout-chrome-offset))); }
+  .fellowship-applicant__hero-copy { display: flex; flex-direction: column; justify-content: center; padding-block: clamp(3.5rem, 7vw, 6rem); padding-inline-end: clamp(2rem, 4vw, 5rem); }
+  .fellowship-applicant__eyebrow, .fellowship-applicant__folio, .fellowship-applicant__map, .fellowship-applicant__section-label, .fellowship-applicant__question-grid span, .fellowship-applicant__engagement nav span { font-family: var(--font-ui); font-size: 0.72rem; font-weight: 800; letter-spacing: 0.12em; line-height: 1.3; text-transform: uppercase; }
+  .fellowship-applicant__eyebrow { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-block-end: 2.2rem; color: var(--route-accent-on-dark); }
+  .fellowship-applicant__folio { margin-block-end: 1.1rem; color: rgb(255 255 255 / 0.55); font-size: 0.68rem; letter-spacing: 0.18em; }
+  .fellowship-applicant__hero h1 { max-inline-size: 13ch; margin: 0; color: #fff; font-size: clamp(2.35rem, 4vw, 4.75rem); letter-spacing: -0.045em; line-height: 0.99; text-wrap: balance; }
+  .fellowship-applicant__dek { max-inline-size: 48ch; margin-block: clamp(1.4rem, 2.5vw, 2.2rem) 0; color: rgb(255 255 255 / 0.75); font-size: clamp(1.05rem, 1rem + 0.28vw, 1.25rem); line-height: 1.55; }
+  .fellowship-applicant__actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-block-start: 1.8rem; }
+  .fellowship-applicant__button { display: inline-flex; align-items: center; justify-content: center; gap: 0.65rem; min-block-size: 3rem; padding: 0.8rem 1.1rem; border: 1px solid transparent; color: #fff; font-family: var(--font-ui); font-size: 0.82rem; font-weight: 800; text-decoration: none; transition: transform 180ms ease, background-color 180ms ease, color 180ms ease; }
+  .fellowship-applicant__button:hover { transform: translateY(-2px); }
+  .fellowship-applicant__button--primary { background: var(--route-accent); }
+  .fellowship-applicant__button--primary:hover { color: var(--route-dark); background: #fff; }
+  .fellowship-applicant__button--quiet { border-color: rgb(255 255 255 / 0.28); }
+  .fellowship-applicant__button--quiet:hover { color: var(--route-dark); border-color: #fff; background: #fff; }
+  :global(.fellowship-applicant__hero-media) { position: relative; block-size: 100%; min-block-size: 100%; margin: 0; background: #132339; }
+  :global(.fellowship-applicant__hero-media::after) { position: absolute; inset: 0; background: linear-gradient(90deg, rgb(11 22 38 / 0.45), transparent 35%, rgb(11 22 38 / 0.08)); content: ''; pointer-events: none; }
+  :global(.fellowship-applicant__hero-media img) { inline-size: 100%; block-size: 100%; min-block-size: 26rem; object-fit: cover; object-position: center; filter: saturate(0.85) contrast(1.06); }
+  :global(.fellowship-applicant__hero-media figcaption) { position: absolute; z-index: 1; inset-inline: 1.5rem; inset-block-end: 1.5rem; color: #fff; font-family: var(--font-ui); font-size: 0.72rem; text-shadow: 0 1px 12px rgb(0 0 0 / 0.6); }
+  .fellowship-applicant__map { color: var(--color-ink); border-block-end: 1px solid var(--color-rule); background: var(--color-surface); }
+  .fellowship-applicant__map-inner { display: flex; align-items: center; gap: 2rem; min-block-size: 4.5rem; }
+  .fellowship-applicant__map p { flex: none; margin: 0; color: var(--route-accent); }
+  .fellowship-applicant__map ul { display: flex; flex-wrap: wrap; gap: 0.45rem 1.25rem; padding: 0; margin: 0; list-style: none; }
+  .fellowship-applicant__map li { display: flex; align-items: center; gap: 0.45rem; color: var(--color-muted-strong); }
+  .fellowship-applicant__map li::before { inline-size: 0.4rem; block-size: 0.4rem; flex: none; border-radius: 50%; background: var(--route-accent); content: ''; }
+  .fellowship-applicant__brief { padding-block: clamp(4rem, 7vw, 6.5rem); }
+  .fellowship-applicant__section-label { display: flex; align-items: center; gap: 0.75rem; color: var(--route-accent); }
+  .fellowship-applicant__section-label::before { inline-size: 1.4rem; block-size: 2px; background: currentColor; content: ''; }
+  .fellowship-applicant__section-label--light { color: var(--route-accent-on-dark); }
+  .fellowship-applicant__brief-grid, .fellowship-applicant__sequence-grid, .fellowship-applicant__engagement-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 0.75fr); gap: clamp(2rem, 5vw, 5rem); margin-block-start: 2rem; }
+  .fellowship-applicant h2 { max-inline-size: 14ch; margin: 0; color: var(--color-ink); font-size: clamp(2rem, 3.6vw, 4rem); letter-spacing: -0.055em; line-height: 1; text-wrap: balance; }
+  .fellowship-applicant__brief-body { max-inline-size: 50ch; }
+  .fellowship-applicant__brief-body p { color: var(--color-muted-strong); }
+  .fellowship-applicant__brief-body .fellowship-applicant__lead { margin-block-end: 1.4rem; color: var(--color-ink); font-size: clamp(1.2rem, 1.05rem + 0.4vw, 1.5rem); line-height: 1.45; }
+  .fellowship-applicant__section { border-block-start: 1px solid var(--color-rule); }
+  .fellowship-applicant__section > .fellowship-applicant__container { padding-block: clamp(4rem, 7vw, 6.5rem); }
+  .fellowship-applicant__section-intro { display: flex; align-items: end; justify-content: space-between; gap: 2rem; margin-block: 1.8rem 2.8rem; }
+  .fellowship-applicant__section-intro p { max-inline-size: 34rem; margin: 0; color: var(--color-muted-strong); }
+  .fellowship-applicant__question-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; padding: 0; margin: 0; list-style: none; background: var(--color-rule); }
+  .fellowship-applicant__question-grid li { min-block-size: 16rem; padding: 1.35rem; background: var(--color-surface); }
+  .fellowship-applicant__question-grid span { color: var(--route-accent); font-size: 0.65rem; }
+  .fellowship-applicant__question-grid strong { display: block; margin-block: 2.5rem 0.8rem; font-family: var(--font-display); font-size: 1.35rem; line-height: 1.08; }
+  .fellowship-applicant__question-grid p { margin: 0; color: var(--color-muted-strong); font-size: 0.94rem; }
+  .fellowship-applicant__sequence-grid { padding-block: clamp(4rem, 7vw, 6.5rem); }
+  .fellowship-applicant__sequence-grid > div > p { max-inline-size: 34rem; margin-block-start: 1.4rem; color: var(--color-muted-strong); }
+  .fellowship-applicant__steps { padding: 0; margin: 0; list-style: none; border-block-start: 1px solid var(--color-rule); }
+  .fellowship-applicant__steps li { display: grid; grid-template-columns: 9rem minmax(0, 1fr); gap: 1.25rem; padding-block: 1.35rem; border-block-end: 1px solid var(--color-rule); }
+  .fellowship-applicant__steps strong { color: var(--route-accent); font: 800 0.74rem/1.3 var(--font-ui); letter-spacing: 0.12em; text-transform: uppercase; }
+  .fellowship-applicant__steps p { margin: 0; color: var(--color-muted-strong); }
+  .fellowship-applicant__engagement { padding-block: clamp(4rem, 7vw, 6.5rem); color: #fff; background: var(--route-dark); }
+  .fellowship-applicant__engagement h2 { color: #fff; }
+  .fellowship-applicant__engagement nav { display: grid; gap: 1px; background: rgb(255 255 255 / 0.22); }
+  .fellowship-applicant__engagement nav a { position: relative; display: flex; flex-direction: column; gap: 0.55rem; padding: 1.2rem 3rem 1.2rem 1.25rem; color: #fff; background: rgb(255 255 255 / 0.06); text-decoration: none; }
+  .fellowship-applicant__engagement nav a:hover { background: rgb(255 255 255 / 0.14); }
+  .fellowship-applicant__engagement nav strong { font-family: var(--font-display); font-size: 1.35rem; line-height: 1.1; }
+  .fellowship-applicant__engagement nav .icon { position: absolute; inset-inline-end: 1.25rem; inset-block-end: 1.2rem; color: var(--route-accent-on-dark); }
+  @media (max-width: 58rem) {
+    .fellowship-applicant__hero-grid, .fellowship-applicant__brief-grid, .fellowship-applicant__sequence-grid, .fellowship-applicant__engagement-grid { grid-template-columns: 1fr; }
+    .fellowship-applicant__hero-grid { block-size: auto; }
+    .fellowship-applicant__hero-copy { padding-inline-end: 0; }
+    :global(.fellowship-applicant__hero-media) { block-size: auto; min-block-size: auto; }
+    :global(.fellowship-applicant__hero-media img) { min-block-size: 24rem; max-block-size: 50svh; }
+    .fellowship-applicant__question-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  @media (max-width: 42rem) {
+    .fellowship-applicant__map-inner { align-items: start; flex-direction: column; gap: 0.7rem; padding-block: 1.2rem; }
+    .fellowship-applicant__map ul { gap: 0.35rem 0.8rem; }
+    .fellowship-applicant__section-intro { align-items: start; flex-direction: column; }
+    .fellowship-applicant__question-grid { grid-template-columns: 1fr; }
+    .fellowship-applicant__steps li { grid-template-columns: 1fr; gap: 0.55rem; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .fellowship-applicant__button { transition: none; }
+    .fellowship-applicant__button:hover { transform: none; }
+  }
+</style>

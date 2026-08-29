@@ -49,9 +49,9 @@ export const instarResearchTechnologySciencesRoutes = [
   {
     family: 'research', slug: 'current-programs', path: '/research/current-programs/', key: 'current-programs',
     title: 'Current Research Programs — INSTAR Lab',
-    description: 'Review active INSTAR Lab research programs spanning AI, quantum science, high-performance computing, health, energy, space, and the sciences, with advanced AI and computational methods used across the portfolio.',
+    description: 'Review the INSTAR Lab research portfolio across AI, quantum science, high-performance computing, health, energy, space, and the sciences. This index describes research areas; individual program status, outputs, schedules, and partner assignments are not listed here.',
     heading: 'CURRENT PROGRAMS', banner: 'img/banners/research-current-programs.avif', primaryMedia: '../../img/pages/current-programs/card-1-current.avif',
-    composition: 'evidence-index', pageSignature: 'featured index → evidence rail → partner context → action',
+    composition: 'evidence-index', pageSignature: 'portfolio index → research areas → evidence path → action',
   },
   {
     family: 'research', slug: 'facilities', path: '/research/facilities/', key: 'facilities',
@@ -88,8 +88,8 @@ export const instarResearchTechnologySciencesRoutes = [
   },
   {
     family: 'research', slug: 'our-process', path: '/research/our-process/', key: 'our-process',
-    title: 'Our Research Process — INSTAR Lab', description: 'See how INSTAR Lab defines research questions, selects advanced methods, validates results, documents limitations, and prepares technical outputs for review.', heading: 'OUR PROCESS', banner: 'img/banners/research-our-process.avif', primaryMedia: '../../img/pages/our-process/hero.avif',
-    composition: 'research-method', pageSignature: 'orientation → method sequence → evidence → open-data guardrail → invitation',
+    title: 'Our Research Process — INSTAR Lab', description: 'Review how INSTAR Lab frames research questions, selects methods, examines evidence, and documents limitations before sharing a result.', heading: 'OUR PROCESS', banner: 'img/banners/research-our-process.avif', primaryMedia: '../../img/pages/our-process/hero.avif',
+    composition: 'research-method', pageSignature: 'research method → documented sequence → evidence path → engagement',
   },
   {
     family: 'technology', slug: 'augmented-reality', path: '/technology/augmented-reality/', key: 'augmented-reality',

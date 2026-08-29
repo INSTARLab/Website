@@ -42,7 +42,7 @@ export const coreRoutes = {
   contact: {
     path: '/contact-us/',
     key: 'contact-us',
-    title: 'INSTAR Lab || Contact Us',
+    title: 'Contact INSTAR Lab — Federal Research, Contracts & Partnerships',
     description:
       'Contact INSTAR Lab about federal research, grants, contracts, sponsored programs, technical partnerships, or a scientific question in AI, quantum, computing, health, energy, space, or another field.',
     canonical: 'https://instarlab.org/contact-us/',

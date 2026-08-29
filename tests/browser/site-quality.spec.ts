@@ -102,6 +102,36 @@ test("the client router preserves the editorial shell across navigation", async 
   await expect(page.locator(".site-header")).toBeVisible();
 });
 
+test("applicant and research routes keep route-appropriate framing", async ({ page }) => {
+  const routes = [
+    {
+      path: "/fellowship/",
+      heading: "What a prospective fellow should know before applying.",
+      required: "Two paths depending on where you are in the process.",
+    },
+    {
+      path: "/research/current-programs/",
+      heading: "Research areas, not a status claim.",
+      required: "Research areas",
+    },
+    {
+      path: "/research/our-process/",
+      heading: "What a researcher or collaborator should know about our process.",
+      required: "Two ways to engage depending on where you are in the process.",
+    },
+  ];
+
+  for (const route of routes) {
+    await test.step(route.path, async () => {
+      await page.goto(route.path, { waitUntil: "domcontentloaded" });
+      await expect(page.locator("main")).toContainText(route.heading);
+      await expect(page.locator("main")).toContainText(route.required);
+      const mainText = await page.locator("main").innerText();
+      expect(mainText).not.toMatch(/what a sponsor should be able to evaluate|program officer|contracting team|solicitation|output a sponsor can evaluate/i);
+    });
+  }
+});
+
 test("primary navigation closes the previous dropdown", async ({ page }) => {
   await page.goto("/", { waitUntil: "domcontentloaded" });
 
