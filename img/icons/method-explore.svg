@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" stroke="#1072ba" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Flask neck top rim -->
+  <line x1="24" y1="10" x2="40" y2="10"/>
+  <!-- Flask outline: neck sides → widening body → base -->
+  <path d="M24 10 L24 26 L10 54 L54 54 L40 26 L40 10"/>
+  <!-- Liquid level inside -->
+  <line x1="18" y1="42" x2="46" y2="42"/>
+  <!-- Bubble dots in liquid -->
+  <circle cx="26" cy="47" r="2" fill="#1072ba" stroke="none"/>
+  <circle cx="36" cy="48" r="2.5" fill="#1072ba" stroke="none"/>
+</svg>
