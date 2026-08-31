@@ -99,12 +99,12 @@ export const workstream5Routes = [
   route({
     path: '/fellowship/',
     family: 'fellowship',
-    title: 'INSTAR Fellowship — Open Citizen-Scientist Program',
-    description: 'Apply for the INSTAR Fellowship — an open citizen-scientist program for curious researchers at every level. No minimum degree required; selection is based on fit with INSTAR’s research culture.',
+    title: 'INSTAR Lab R&D Fellowships — International and Resident Scholars',
+    description: 'Compare the International and Resident R&D Scholar pathways associated with INSTAR Lab, then apply through the corresponding US Fellows program route.',
     signature: ['orientation', 'evidence', 'sequence', 'participation'],
     pageJob: 'Give a prospective fellow enough program detail to assess fit, expectations, and the application decision.',
-    readyAction: 'Complete the fellowship application.',
-    earlyAction: 'Review eligibility, time commitment, fields, and program structure.',
+    readyAction: 'Start the selected R&D Scholar application through US Fellows.',
+    earlyAction: 'Compare the International and Resident pathways, commitment, and preparation.',
   }),
   route({
     path: '/labs/biometric-security/',

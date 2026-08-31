@@ -107,7 +107,7 @@ test("applicant and research routes keep route-appropriate framing", async ({ pa
     {
       path: "/fellowship/",
       heading: "What a prospective fellow should know before applying.",
-      required: "Two paths depending on where you are in the process.",
+      required: "Choose the commitment that matches your present capacity.",
     },
     {
       path: "/research/current-programs/",
@@ -131,6 +131,40 @@ test("applicant and research routes keep route-appropriate framing", async ({ pa
     });
   }
 });
+
+test("fellowship paths expose the matching US Fellows application handoff", async ({ page }) => {
+  await page.goto("/fellowship/", { waitUntil: "domcontentloaded" });
+
+  const applications = [
+    {
+      id: "international",
+      href: "https://usfellows.org/apply.html?program=International%20R%26D%20Scholar",
+      commitment: "No fixed weekly commitment",
+    },
+    {
+      id: "resident",
+      href: "https://usfellows.org/apply.html?program=Resident%20R%26D%20Scholar",
+      commitment: "At least 20 hours per week",
+    },
+  ];
+
+  for (const application of applications) {
+    await test.step(application.id, async () => {
+      const link = page.locator(`[data-fellowship-apply="${application.id}"]`);
+      await expect(link).toHaveCount(1);
+      await expect(link).toHaveAttribute("href", application.href);
+      await expect(link).toHaveAttribute("target", "_blank");
+      await expect(page.locator(`#fellowship-program-${application.id}`)).toContainText(application.commitment);
+    });
+  }
+});
+
+test("fellowship route passes the WCAG 2.2 AA automated scan", async ({ page }) => {
+  await page.goto("/fellowship/", { waitUntil: "domcontentloaded" });
+  const results = await new AxeBuilder({ page }).withTags(["wcag2a", "wcag2aa"]).analyze();
+  expect(results.violations, formatViolations(results.violations)).toEqual([]);
+});
+
 
 test("primary navigation closes the previous dropdown", async ({ page }) => {
   await page.goto("/", { waitUntil: "domcontentloaded" });
