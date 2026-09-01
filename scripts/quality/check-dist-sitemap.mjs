@@ -45,6 +45,14 @@ if (!sitemapFile || !existsSync(sitemapFile)) {
   process.exit(2);
 }
 
+const compatibilitySitemap = join(root, 'sitemap.xml');
+const compatibilityErrors = [];
+if (!existsSync(compatibilitySitemap)) {
+  compatibilityErrors.push('missing-conventional-sitemap-alias');
+} else if (!/<urlset\b/i.test(readFileSync(compatibilitySitemap, 'utf8'))) {
+  compatibilityErrors.push('conventional-sitemap-alias-is-not-a-urlset');
+}
+
 function routeFromSitemapUrl(value) {
   try {
     const parsed = new URL(value, options.origin || "https://astro.invalid");
@@ -109,14 +117,17 @@ const missingFromSitemap = [...renderedRoutes].filter((route) => !sitemapRoutes.
 const sitemapNotRendered = [...sitemapRoutes]
   .filter((route) => !renderedRoutes.has(route) && !nonIndexableRoutes.has(route))
   .sort();
+const sitemapNonIndexable = [...sitemapRoutes].filter((route) => nonIndexableRoutes.has(route)).sort();
 
 console.log(`Rendered indexable routes: ${renderedRoutes.size}; sitemap URLs: ${sitemapRoutes.size}.`);
-if (missingFromSitemap.length === 0 && sitemapNotRendered.length === 0 && duplicates.length === 0 && sitemapResult.errors.length === 0) {
+if (missingFromSitemap.length === 0 && sitemapNotRendered.length === 0 && sitemapNonIndexable.length === 0 && duplicates.length === 0 && sitemapResult.errors.length === 0 && compatibilityErrors.length === 0) {
   console.log("Generated sitemap is consistent with rendered indexable routes.");
 } else {
   for (const route of missingFromSitemap) console.error(`  rendered route missing from sitemap: ${route}`);
   for (const route of sitemapNotRendered) console.error(`  sitemap route missing from rendered output: ${route}`);
+  for (const route of sitemapNonIndexable) console.error(`  sitemap includes non-indexable route: ${route}`);
   for (const route of duplicates) console.error(`  duplicate sitemap route: ${route}`);
   for (const error of sitemapResult.errors) console.error(`  ${error.sitemap}: ${error.reason} (${error.loc})`);
+  for (const error of compatibilityErrors) console.error(`  ${error}`);
   process.exitCode = 1;
 }

@@ -45,7 +45,7 @@ errors close to the input source.
 After a production build, run:
 
 ```sh
-node scripts/quality/validate-dist-metadata.mjs --dist dist --origin https://instarlab.org
+node scripts/quality/validate-dist-metadata.mjs --dist dist --origin https://www.instarlab.org
 ```
 
 The validator deterministically checks every generated HTML document for a
@@ -55,7 +55,7 @@ of JSON-LD as a warning while the site is being migrated. Once structured data
 is emitted for every indexable route, make it blocking with:
 
 ```sh
-node scripts/quality/validate-dist-metadata.mjs --dist dist --origin https://instarlab.org --require-jsonld --strict
+node scripts/quality/validate-dist-metadata.mjs --dist dist --origin https://www.instarlab.org --require-jsonld --strict
 ```
 
 The validator uses only Node's standard library and is safe to run against a

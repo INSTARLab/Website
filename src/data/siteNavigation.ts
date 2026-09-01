@@ -118,10 +118,11 @@ export const primaryNavigation = [
       { label: 'Fellowship', href: '/fellowship/' },
       { label: 'Collaborate', href: '/community/work-with-us/' },
       { label: 'Careers', href: '/community/careers/' },
-      { label: 'Contact', href: '/community/contact/' },
+      { label: 'Contact', href: '/contact-us/' },
     ],
   },
   { label: 'Research Briefs', href: '/news/' },
+  { label: 'Search', href: '/search/' },
 ] as const satisfies readonly PrimaryNavigationEntry[];
 
 export const researchFooterLinks = [

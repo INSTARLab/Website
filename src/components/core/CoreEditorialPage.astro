@@ -9,10 +9,15 @@ interface Props {
   meta: CoreRouteMeta;
 }
 
+interface ContentLink {
+  readonly label: string;
+  readonly href: string;
+}
+
 interface ContentBlock {
   readonly title: string;
   readonly body: string;
-  readonly bullets?: readonly string[];
+  readonly bullets?: readonly (string | ContentLink)[];
 }
 
 const { meta } = Astro.props;
@@ -44,7 +49,14 @@ const content: Record<string, { eyebrow: string; hero: string; lead: string; blo
     lead: 'Bring a solicitation, contract requirement, research question, or partnership proposal. We will route it to the appropriate research or administrative conversation.',
     blocks: [
       { title: 'Federal and sponsored research', body: 'For NSF, NASA, DOE, USDA, or other federal research questions, include the program, solicitation, technical area, and desired outcome when available.' },
-      { title: 'Direct channels', body: 'INSTAR Lab Inc.\n125 Frederick St\nMarietta, OH 45750-3407\n929-229-2918', bullets: ['info@instarlab.org', '929-229-2918'] },
+      {
+        title: 'Direct channels',
+        body: 'INSTAR Lab Inc.\n125 Frederick St\nMarietta, OH 45750-3407\n929-229-2918',
+        bullets: [
+          { label: 'Email info@instarlab.org', href: 'mailto:info@instarlab.org' },
+          { label: 'Call 929-229-2918', href: 'tel:9292292918' },
+        ],
+      },
       { title: 'What to include', body: 'Share the technical question, scope, timeline, data or facility constraints, and the decision the work must support.' },
     ],
   },
@@ -83,7 +95,16 @@ const content: Record<string, { eyebrow: string; hero: string; lead: string; blo
     hero: '/img/404-bg.avif',
     lead: 'The route is not in the current map. Use the research pathways below to continue exploring.',
     blocks: [
-      { title: 'Try a known path', body: 'Return to the home page, browse current programs, or open the research index.', bullets: ['Return home', 'Explore research', 'Read the latest briefs'] },
+      {
+        title: 'Try a known path',
+        body: 'Return to the home page, browse current programs, search the site, or open the latest research briefs.',
+        bullets: [
+          { label: 'Return home', href: '/' },
+          { label: 'Explore current programs', href: '/research/current-programs/' },
+          { label: 'Search the site', href: '/search/' },
+          { label: 'Read the latest briefs', href: '/news/' },
+        ],
+      },
     ],
   },
 };
@@ -97,6 +118,11 @@ const pageSignature = isNotFound
       ? 'orientation → evidence → connection'
       : 'orientation → evidence → participation';
 const heroUrl = page.hero as `/${string}`;
+const heroAction = isNotFound
+  ? { href: '/', label: 'Return to home' }
+  : key === 'contact-us'
+    ? { href: 'mailto:info@instarlab.org', label: 'Email INSTAR directly' }
+    : { href: '/contact-us/', label: 'Discuss a research requirement' };
 const heroAsset = publicMediaFor(heroUrl, {
   alt: { kind: 'contextual', status: 'approved', text: `${meta.title} — INSTAR Lab` },
   caption: `INSTAR Lab / ${page.eyebrow}`,
@@ -139,7 +165,7 @@ const heroAsset = publicMediaFor(heroUrl, {
           <p class="core-editorial__eyebrow">{page.eyebrow}</p>
           <h1>{meta.title}</h1>
           <p class="core-editorial__lead">{page.lead}</p>
-          <a class="core-editorial__button" href={isNotFound ? '/' : '/contact-us/'}>{isNotFound ? 'Return to home' : 'Discuss a research requirement'} <span aria-hidden="true">↗</span></a>
+          <a class="core-editorial__button" href={heroAction.href}>{heroAction.label} <span aria-hidden="true">↗</span></a>
         </div>
       </div>
       <EditorialMedia asset={heroAsset} figureClass="core-editorial__hero-media" class="core-editorial__hero-image" picture={false} />
@@ -153,7 +179,7 @@ const heroAsset = publicMediaFor(heroUrl, {
             <div>
               <h2 id={`core-block-${index}`}>{block.title}</h2>
               <p>{block.body}</p>
-              {block.bullets ? <ul>{block.bullets.map((item) => <li>{item}</li>)}</ul> : null}
+              {block.bullets ? <ul>{block.bullets.map((item) => <li>{typeof item === 'string' ? item : <a href={item.href}>{item.label}</a>}</li>)}</ul> : null}
             </div>
           </section>
         ))}
@@ -185,6 +211,7 @@ const heroAsset = publicMediaFor(heroUrl, {
   .core-editorial__block ul { display: grid; gap: 0.55rem; margin-block: 1.25rem 0; padding: 0; list-style: none; }
   .core-editorial__block li { display: flex; align-items: center; gap: 0.65rem; color: var(--color-ink); font-weight: 700; }
   .core-editorial__block li::before { inline-size: 0.55rem; block-size: 0.55rem; border-radius: 50%; background: var(--core-accent); content: ''; }
+  .core-editorial__block li a { color: var(--core-accent); text-decoration-thickness: 0.08em; text-underline-offset: 0.14em; }
 
   @media (max-width: 58rem) {
     .core-editorial__hero { grid-template-columns: 1fr; }

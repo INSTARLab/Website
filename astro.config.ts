@@ -1,6 +1,7 @@
 import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
 import { defineConfig } from 'astro/config';
+import { siteOrigin } from './src/data/seo/site';
 
 function normalizeBase(value: string | undefined): string {
   if (!value || value === '/') return '/';
@@ -10,11 +11,13 @@ function normalizeBase(value: string | undefined): string {
   return trimmed ? `/${trimmed}/` : '/';
 }
 
+const basePath = normalizeBase(process.env.ASTRO_BASE);
+
 export default defineConfig({
-  site: 'https://instarlab.org',
+  site: siteOrigin,
   // GitLab project Pages is mounted at /Website/, while the custom domain
   // and local preview are mounted at /. The Pages job supplies ASTRO_BASE.
-  base: normalizeBase(process.env.ASTRO_BASE),
+  base: basePath,
   output: 'static',
   trailingSlash: 'always',
   build: {
@@ -25,6 +28,16 @@ export default defineConfig({
   },
   integrations: [
     sitemap({
+      filter(page) {
+        const pathname = new URL(page).pathname.replace(/\/+$/, '') || '/';
+        const relativePath = basePath !== '/' && pathname.startsWith(basePath)
+          ? pathname.slice(basePath.length - 1) || '/'
+          : pathname;
+        // Search is intentionally noindex and must not be advertised as a
+        // crawl destination. Keep this filter beside the sitemap contract so
+        // future noindex utility routes are considered at build time.
+        return relativePath !== '/search';
+      },
       serialize(item) {
         const url = new URL(item.url);
         if (url.pathname !== '/' && !url.pathname.endsWith('/')) {

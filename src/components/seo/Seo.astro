@@ -2,6 +2,7 @@
 import {
   absoluteSeoUrl,
   buildBreadcrumbs,
+  siteOrigin,
   siteIdentity,
   withFragment,
   type SeoBreadcrumbItem,
@@ -49,10 +50,11 @@ const {
   jsonLd,
 } = Astro.props;
 
-const siteUrl = new URL(Astro.site ?? 'https://instarlab.org/');
+const siteUrl = new URL(Astro.site ?? `${siteOrigin}/`);
 const canonicalUrl = absoluteSeoUrl(canonical ?? Astro.url.pathname, siteUrl);
 const canonicalObject = new URL(canonicalUrl);
 const imageUrl = image ? absoluteSeoUrl(image, siteUrl) : undefined;
+const imagePreloadHref = image instanceof URL ? image.href : image;
 const sitemapUrl = absoluteSeoUrl('/sitemap-index.xml', siteUrl);
 const robots = noindex ? 'noindex, nofollow' : 'index, follow';
 const toIso = (value?: string | Date) => value instanceof Date ? value.toISOString() : value;
@@ -159,6 +161,7 @@ const imageMimeType = imageExtension
 <meta name="robots" content={robots} />
 <link rel="canonical" href={canonicalUrl} />
 <link rel="sitemap" href={sitemapUrl} />
+{imagePreloadHref ? <link rel="preload" as="image" href={imagePreloadHref} type={imageMimeType} fetchpriority="high" /> : null}
 <meta name="theme-color" content="#1072ba" />
 <link rel="icon" href="/img/logo/instar.svg" type="image/svg+xml" />
 <link rel="icon" href="/img/logo/fav/favicon.ico" sizes="any" />

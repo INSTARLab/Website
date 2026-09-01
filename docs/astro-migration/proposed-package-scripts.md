@@ -12,7 +12,7 @@ and CI:
     "quality:routes": "node scripts/quality/route-ledger.mjs --dist dist --strict",
     "quality:media": "node scripts/quality/media-audit.mjs --dist dist",
     "quality:links": "node scripts/quality/check-dist-links.mjs --dist dist",
-    "quality:sitemap": "node scripts/quality/check-dist-sitemap.mjs --dist dist --origin https://instarlab.org",
+    "quality:sitemap": "node scripts/quality/check-dist-sitemap.mjs --dist dist --origin https://www.instarlab.org",
     "quality:browser": "pnpm run test:browser",
     "verify": "pnpm run check && pnpm run build && pnpm run quality:routes && pnpm run quality:media && pnpm run quality:links && pnpm run quality:sitemap && pnpm run quality:browser"
   }

@@ -1,6 +1,6 @@
 # Contributing to instarlab.org
 
-This repo is the source for [instarlab.org](https://instarlab.org), the
+This repo is the source for [instarlab.org](https://www.instarlab.org), the
 website of INSTAR Lab Inc., a real 501(c)(3) nonprofit research
 institute. It is an **Astro v7 static-first site** with a typed shared shell
 and a staged legacy-content bridge — please read this whole document before
@@ -100,8 +100,9 @@ This repo is **GitLab-first**, mirrored to GitHub Pages.
 (`/pipelines/static-site.yml`, `SITE_DIR="."`,
 `GITHUB_REPO="INSTARLab/Website"`), which publishes to GitHub. GitHub
 Pages then serves the `gh-pages` branch at instarlab.org via `CNAME`.
-Astro generates `sitemap-index.xml`; keep `public/robots.txt` pointed at the
-generated sitemap index.
+Astro generates `sitemap-index.xml` and `sitemap-0.xml`; the production build
+also publishes `sitemap.xml` as a conventional compatibility alias. Keep
+`public/robots.txt` pointed at the generated sitemap index.
 
 ## Opening an issue or PR
 

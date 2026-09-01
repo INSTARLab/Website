@@ -348,7 +348,8 @@
     color: currentColor;
   }
 
-  .site-nav__section h2 {
+  .site-nav__section-heading {
+    display: block;
     margin-block: 0.25rem 0.4rem;
     padding-inline: 0.6rem;
     color: var(--color-muted-strong);
@@ -455,7 +456,7 @@
   }
 
   .site-nav__mobile-panel .site-nav__section-heading {
-    display: block;
+    margin-block: 0;
     padding: 0.8rem 0.65rem 0.25rem;
     color: var(--color-muted-strong);
     font-family: var(--font-ui);

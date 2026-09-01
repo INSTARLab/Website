@@ -165,6 +165,15 @@ test("fellowship route passes the WCAG 2.2 AA automated scan", async ({ page }) 
   expect(results.violations, formatViolations(results.violations)).toEqual([]);
 });
 
+test("search stays discoverable and recoverable when there are no matches", async ({ page }) => {
+  await page.goto("/search/", { waitUntil: "domcontentloaded" });
+
+  await expect(page.locator('.site-header a[href="/search/"]')).toHaveCount(2);
+
+  await page.locator("#search-query").fill("zzzzzzzzzzzzzzzzzzzzzzzzzz");
+  await expect(page.locator("#search-empty")).toBeVisible();
+  await expect(page.locator("#search-browse")).toBeVisible();
+});
 
 test("primary navigation closes the previous dropdown", async ({ page }) => {
   await page.goto("/", { waitUntil: "domcontentloaded" });

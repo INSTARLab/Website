@@ -53,7 +53,7 @@ quality:astro-artifact:
   script:
     - node scripts/quality/route-ledger.mjs --dist dist --strict
     - node scripts/quality/check-dist-links.mjs --dist dist --base "${ASTRO_BASE}"
-    - node scripts/quality/check-dist-sitemap.mjs --dist dist --origin https://instarlab.org --base "${ASTRO_BASE}"
+    - node scripts/quality/check-dist-sitemap.mjs --dist dist --origin https://www.instarlab.org --base "${ASTRO_BASE}"
     - node scripts/quality/media-audit.mjs --dist dist --strict
     - node scripts/quality/validate-dist-metadata.mjs --dist dist
     - node tests/seo/structured-data.test.mjs

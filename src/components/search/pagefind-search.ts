@@ -121,7 +121,7 @@ function setupSearch(root: HTMLElement): void {
     resultsList.hidden = count === 0;
     empty.hidden = count !== 0;
     error.hidden = true;
-    browse.hidden = true;
+    browse.hidden = count !== 0;
     status.textContent = count === 0
       ? `No results for “${query}”.`
       : `${count} result${count === 1 ? '' : 's'} for “${query}”.`;
