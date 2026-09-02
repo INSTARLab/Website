@@ -1,3 +1,5 @@
+import { siteOrigin } from './seo/site';
+
 export type CoreRouteMeta = {
   path: string;
   key: string;
@@ -14,8 +16,8 @@ export const coreRoutes = {
     key: 'home',
     title: 'INSTAR Lab — Research Institute',
     description:
-      'INSTAR Lab is a 501(c)(3) nonprofit research institute conducting applied research in artificial intelligence, quantum science, high-performance computing, health, energy, space, and the sciences for federal and institutional research partners.',
-    canonical: 'https://instarlab.org/',
+      'INSTAR Lab is a 501(c)(3) nonprofit research institute applying AI, quantum science, computing, health, energy, and space research to federal and institutional challenges.',
+    canonical: `${siteOrigin}/`,
     robots: 'index, follow',
     pageSignature: 'orientation → research portfolio → technical capabilities → invitation',
   },
@@ -25,7 +27,7 @@ export const coreRoutes = {
     title: 'About INSTAR Lab — Nonprofit Research Institute',
     description:
       'About INSTAR Lab, a 501(c)(3) nonprofit research institute applying advanced AI, quantum research, high-performance computing, and domain science to ambitious research programs.',
-    canonical: 'https://instarlab.org/about/',
+    canonical: `${siteOrigin}/about/`,
     robots: 'index, follow',
     pageSignature: 'orientation → institutional story → ways of working → invitation',
   },
@@ -35,7 +37,7 @@ export const coreRoutes = {
     title: 'Our Mission — INSTAR Lab',
     description:
       'INSTAR Lab advances human knowledge through rigorous research in AI, quantum science, and the full range of scientific domains, with methods and outputs that sponsors and collaborators can evaluate.',
-    canonical: 'https://instarlab.org/mission/',
+    canonical: `${siteOrigin}/mission/`,
     robots: 'index, follow',
     pageSignature: 'thesis → operating principles → scientific outputs → participation',
   },
@@ -45,7 +47,7 @@ export const coreRoutes = {
     title: 'Contact INSTAR Lab — Federal Research, Contracts & Partnerships',
     description:
       'Contact INSTAR Lab about federal research, grants, contracts, sponsored programs, technical partnerships, or a scientific question in AI, quantum, computing, health, energy, space, or another field.',
-    canonical: 'https://instarlab.org/contact-us/',
+    canonical: `${siteOrigin}/contact-us/`,
     robots: 'index, follow',
     pageSignature: 'orientation → contact paths → intake form → expectations',
   },
@@ -55,7 +57,7 @@ export const coreRoutes = {
     title: 'Privacy Policy — INSTAR Lab',
     description:
       "INSTAR Lab's privacy policy explains how we collect, use, and protect information on this website and through our research programs.",
-    canonical: 'https://instarlab.org/privacy/',
+    canonical: `${siteOrigin}/privacy/`,
     robots: 'index, follow',
     pageSignature: 'plain-language summary → policy sections → user choices → contact',
   },
@@ -65,7 +67,7 @@ export const coreRoutes = {
     title: 'Terms of Use — INSTAR Lab',
     description:
       'Terms governing use of the INSTAR Lab website, including intellectual property, disclaimers, and acceptable use of our research content.',
-    canonical: 'https://instarlab.org/terms/',
+    canonical: `${siteOrigin}/terms/`,
     robots: 'index, follow',
     pageSignature: 'scope → responsibilities → rights and disclaimers → contact',
   },
@@ -75,7 +77,7 @@ export const coreRoutes = {
     title: 'Accessibility Statement — INSTAR Lab',
     description:
       'INSTAR Lab is committed to making its website accessible to all users. Read our accessibility statement and report issues.',
-    canonical: 'https://instarlab.org/accessibility/',
+    canonical: `${siteOrigin}/accessibility/`,
     robots: 'index, follow',
     pageSignature: 'commitment → current practices → feedback path → contact',
   },
@@ -87,7 +89,7 @@ export const coreRoutes = {
     title: 'Page Not Found — INSTAR Lab',
     description:
       'The page you requested could not be found. Return to the INSTAR Lab homepage to explore our research programs, fellowship, and partnership opportunities.',
-    canonical: 'https://instarlab.org/404.html',
+    canonical: `${siteOrigin}/404.html`,
     robots: 'noindex, follow',
     pageSignature: 'orientation → recovery path → research destinations',
   },

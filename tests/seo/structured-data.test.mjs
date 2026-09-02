@@ -4,6 +4,7 @@ import { join, relative } from 'node:path';
 import test from 'node:test';
 
 const distRoot = join(process.cwd(), 'dist');
+const expectedOrigin = 'https://www.instarlab.org';
 
 async function htmlFiles(directory) {
   const entries = await readdir(directory, { withFileTypes: true });
@@ -26,6 +27,23 @@ function meta(html, name, attribute = 'name') {
   const expression = new RegExp(`<meta\\s+[^>]*${attribute}=["']${name}["'][^>]*>`, 'i');
   const tag = html.match(expression)?.[0] ?? '';
   return tag.match(/content=["']([^"']*)["']/i)?.[1] ?? '';
+}
+
+function linkTag(html, rel, as) {
+  return [...html.matchAll(/<link\s+[^>]*>/gi)]
+    .map((match) => match[0])
+    .find((tag) => new RegExp(`rel=["']${rel}["']`, 'i').test(tag) && new RegExp(`as=["']${as}["']`, 'i').test(tag)) ?? '';
+}
+
+function attribute(tag, name) {
+  return tag.match(new RegExp(`${name}=["']([^"']*)["']`, 'i'))?.[1] ?? '';
+}
+
+function linkAttribute(html, rel, name) {
+  const tag = [...html.matchAll(/<link\s+[^>]*>/gi)]
+    .map((match) => match[0])
+    .find((candidate) => new RegExp(`rel=["']${rel}["']`, 'i').test(candidate));
+  return tag ? attribute(tag, name) : '';
 }
 
 function structuredData(html, route) {
@@ -57,6 +75,20 @@ test('built routes expose truthful, parseable SEO structured data', async () => 
   for (const file of files) {
     const html = await readFile(file, 'utf8');
     const route = routeFor(file);
+    const canonical = linkAttribute(html, 'canonical', 'href');
+    assert.equal(new URL(canonical).origin, expectedOrigin, `${route}: canonical must use the preferred www origin`);
+    const image = meta(html, 'og:image', 'property');
+    const preload = linkTag(html, 'preload', 'image');
+    if (image) {
+      assert.ok(preload, `${route}: pages with an image should preload it`);
+      assert.equal(
+        new URL(attribute(preload, 'href'), `${expectedOrigin}/`).href,
+        image,
+        `${route}: image preload must match the page image`,
+      );
+    } else {
+      assert.equal(preload, '', `${route}: pages without an image must not preload one`);
+    }
     const document = structuredData(html, route);
     const graph = document['@graph'];
     assert.equal(document['@context'], 'https://schema.org', `${route}: schema context`);

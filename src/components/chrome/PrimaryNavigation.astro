@@ -89,7 +89,7 @@ const scienceIconFor = (label: string) => scienceIcons[label] ?? '<circle cx="12
                 <div class="site-nav__mega">
                   {entry.sections.map((section) => (
                     <div class="site-nav__section">
-                      <h2>{section.label}</h2>
+                      <span class="site-nav__section-heading">{section.label}</span>
                       <ul>
                         {section.items.map((item) => (
                           <li>

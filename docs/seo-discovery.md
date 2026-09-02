@@ -1,6 +1,6 @@
 # SEO and discovery contract
 
-`src/components/seo/Seo.astro` is the single head-level SEO contract. It preserves the configured `https://instarlab.org` canonical URL and directory-style trailing slash policy, emits `noindex, nofollow` for routes that explicitly pass `noindex`, and links crawlers to the generated sitemap index.
+`src/components/seo/Seo.astro` is the single head-level SEO contract. It preserves the configured `https://www.instarlab.org` canonical URL and directory-style trailing slash policy, emits `noindex, nofollow` for routes that explicitly pass `noindex`, and links crawlers to the generated sitemap index.
 
 The component emits one JSON-LD document containing:
 

@@ -3,15 +3,15 @@
 > INSTAR Lab Inc. is a 501(c)(3) nonprofit research institute conducting applied research in AI, quantum science, high-performance computing, health sciences, energy, space exploration, and the sciences for federal and institutional research partners.
 
 ## Key pages
-- [About](https://instarlab.org/community/about-us/): Organization overview, research capacity, and governance
-- [Mission](https://instarlab.org/mission/): How INSTAR frames rigorous, interdisciplinary research
-- [Research](https://instarlab.org/research/current-programs/): Active research programs and translational approach
-- [Sciences](https://instarlab.org/sciences/physics/): Scientific domains and AI-enabled research methods
-- [Technology](https://instarlab.org/technology/computer-science/): Technical methods and capabilities
-- [Tech Transfer](https://instarlab.org/tech-transfer/portfolio/): Enterprise R&D, portfolio, and STTR programs
-- [Community](https://instarlab.org/community/about-us/): Leadership, careers, partnerships, and support
-- [News](https://instarlab.org/news/): Research updates and editorial briefs
-- [Contact](https://instarlab.org/contact-us/): Federal research, contracts, partnerships, and general inquiries
+- [About](https://www.instarlab.org/community/about-us/): Organization overview, research capacity, and governance
+- [Mission](https://www.instarlab.org/mission/): How INSTAR frames rigorous, interdisciplinary research
+- [Research](https://www.instarlab.org/research/current-programs/): Active research programs and translational approach
+- [Sciences](https://www.instarlab.org/sciences/physics/): Scientific domains and AI-enabled research methods
+- [Technology](https://www.instarlab.org/technology/computer-science/): Technical methods and capabilities
+- [Tech Transfer](https://www.instarlab.org/tech-transfer/portfolio/): Enterprise R&D, portfolio, and STTR programs
+- [Community](https://www.instarlab.org/community/about-us/): Leadership, careers, partnerships, and support
+- [News](https://www.instarlab.org/news/): Research updates and editorial briefs
+- [Contact](https://www.instarlab.org/contact-us/): Federal research, contracts, partnerships, and general inquiries
 
 ## Organization facts
 - Legal name: INSTAR Lab Inc.

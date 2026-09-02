@@ -3,7 +3,7 @@
 import { readFile, readdir } from 'node:fs/promises';
 import { join, relative, resolve } from 'node:path';
 
-const DEFAULT_ORIGIN = 'https://instarlab.org';
+const DEFAULT_ORIGIN = 'https://www.instarlab.org';
 
 function parseArgs(argv) {
   const args = { dist: 'dist', origin: DEFAULT_ORIGIN, strict: false, requireJsonLd: false };
@@ -15,7 +15,7 @@ function parseArgs(argv) {
     else if (argument === '--strict') args.strict = true;
     else if (argument === '--require-jsonld') args.requireJsonLd = true;
     else if (argument === '--help' || argument === '-h') {
-      console.log('Usage: node scripts/quality/validate-dist-metadata.mjs [--dist dist] [--origin https://instarlab.org] [--strict] [--require-jsonld]');
+      console.log('Usage: node scripts/quality/validate-dist-metadata.mjs [--dist dist] [--origin https://www.instarlab.org] [--strict] [--require-jsonld]');
       process.exit(0);
     } else {
       throw new Error(`Unknown argument: ${argument}`);

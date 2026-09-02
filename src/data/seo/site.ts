@@ -20,6 +20,12 @@ export interface SeoSiteIdentity {
 }
 
 /**
+ * The custom domain redirects the apex host to www. Keep absolute discovery
+ * URLs on the host visitors and crawlers actually receive.
+ */
+export const siteOrigin = 'https://www.instarlab.org' as const;
+
+/**
  * Facts already published in the site's footer and public discovery metadata.
  * Keep this deliberately small: structured data must not introduce claims
  * that a reader cannot verify on the site.

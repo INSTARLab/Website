@@ -3,6 +3,12 @@ import type { CollectionEntry } from 'astro:content';
 export type ArticleEntry = CollectionEntry<'articles'>;
 export type AuthorEntry = CollectionEntry<'authors'>;
 
+// Keep the small amount of reference data used here explicit. Astro's
+// generated collection declarations currently lose callback inference under
+// TypeScript 7 even though the content schema is validated at build time.
+type ArticleAuthorReference = string | { readonly id: string };
+type ArticleTopic = string;
+
 export function articleSlug(article: ArticleEntry): string {
   return article.data.slug ?? article.id;
 }
@@ -22,7 +28,7 @@ export function authorNames(
   authors: readonly AuthorEntry[],
 ): string[] {
   const names = new Map(authors.map((author) => [author.id, author.data.name]));
-  return article.data.authors.map((authorReference) => {
+  return article.data.authors.map((authorReference: ArticleAuthorReference) => {
     const authorId = typeof authorReference === 'string' ? authorReference : authorReference.id;
     return names.get(authorId) ?? authorId;
   });
@@ -33,14 +39,14 @@ export function relatedArticles(
   articles: readonly ArticleEntry[],
   limit = 3,
 ): ArticleEntry[] {
-  const topics = new Set(article.data.topics.map((topic) => topic.toLocaleLowerCase()));
+  const topics = new Set(article.data.topics.map((topic: ArticleTopic) => topic.toLocaleLowerCase()));
 
   return publishedArticles(articles)
     .filter((candidate) => candidate.id !== article.id)
     .map((candidate) => ({
       article: candidate,
-      overlap: candidate.data.topics.reduce(
-        (score, topic) => score + (topics.has(topic.toLocaleLowerCase()) ? 1 : 0),
+      overlap: candidate.data.topics.reduce<number>(
+        (score: number, topic: ArticleTopic) => score + (topics.has(topic.toLocaleLowerCase()) ? 1 : 0),
         0,
       ),
     }))
