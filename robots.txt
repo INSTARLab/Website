@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://instarlab.org/sitemap-index.xml
+Sitemap: https://www.instarlab.org/sitemap-index.xml
