@@ -1,0 +1,702 @@
+[
+  {
+    "file": "about",
+    "number": 1,
+    "redirect": null,
+    "title": "About INSTAR Lab \u2014 Nonprofit Research Institute",
+    "captureUrl": "https://www.instarlab.org/about/",
+    "image": "shots/01-about.jpg",
+    "ok": true,
+    "url": "https://www.instarlab.org/about/"
+  },
+  {
+    "file": "accessibility",
+    "number": 2,
+    "redirect": null,
+    "title": "Accessibility Statement \u2014 INSTAR Lab",
+    "captureUrl": "https://www.instarlab.org/accessibility/",
+    "image": "shots/02-accessibility.jpg",
+    "ok": true,
+    "url": "https://www.instarlab.org/accessibility/"
+  },
+  {
+    "file": "community/about-us",
+    "number": 3,
+    "redirect": null,
+    "title": "About Us \u2014 INSTAR Lab Community",
+    "captureUrl": "https://www.instarlab.org/community/about-us/",
+    "image": "shots/03-community-about-us.jpg",
+    "ok": true,
+    "url": "https://www.instarlab.org/community/about-us/"
+  },
+  {
+    "file": "community/careers",
+    "number": 4,
+    "redirect": null,
+    "title": "Careers at INSTAR Lab \u2014 Research & Science Jobs",
+    "captureUrl": "https://www.instarlab.org/community/careers/",
+    "image": "shots/04-community-careers.jpg",
+    "ok": true,
+    "url": "https://www.instarlab.org/community/careers/"
+  },
+  {
+    "file": "community/contact",
+    "number": 5,
+    "redirect": null,
+    "title": "Contact INSTAR Lab \u2014 Federal Research, Contracts & Partnerships",
+    "captureUrl": "https://www.instarlab.org/community/contact/",
+    "image": "shots/05-community-contact.jpg",
+    "ok": true,
+    "url": "https://www.instarlab.org/community/contact/"
+  },
+  {
+    "file": "community/leadership",
+    "number": 6,
+    "redirect": null,
+    "title": "Leadership \u2014 INSTAR Lab",
+    "captureUrl": "https://www.instarlab.org/community/leadership/",
+    "image": "shots/06-community-leadership.jpg",
+    "ok": true,
+    "url": "https://www.instarlab.org/community/leadership/"
+  },
+  {
+    "file": "community/partner",
+    "number": 7,
+    "redirect": null,
+    "title": "Partner With INSTAR Lab \u2014 Research & Philanthropy",
+    "captureUrl": "https://www.instarlab.org/community/partner/",
+    "image": "shots/07-community-partner.jpg",
+    "ok": true,
+    "url": "https://www.instarlab.org/community/partner/"
+  },
+  {
+    "file": "community/support",
+    "number": 8,
+    "redirect": null,
+    "title": "Give to INSTAR Lab \u2014 One-Time Gifts & Friends Membership",
+    "captureUrl": "https://www.instarlab.org/community/support/",
+    "image": "shots/08-community-support.jpg",
+    "ok": true,
+    "url": "https://www.instarlab.org/community/support/"
+  },
+  {
+    "file": "community/work-with-us",
+    "number": 9,
+    "redirect": null,
+    "title": "Work With INSTAR Lab \u2014 Collaboration Opportunities",
+    "captureUrl": "https://www.instarlab.org/community/work-with-us/",
+    "image": "shots/09-community-work-with-us.jpg",
+    "ok": true,
+    "url": "https://www.instarlab.org/community/work-with-us/"
+  },
+  {
+    "file": "contact-us",
+    "number": 10,
+    "redirect": null,
+    "title": "Contact INSTAR Lab \u2014 Federal Research, Contracts & Partnerships",
+    "captureUrl": "https://www.instarlab.org/contact-us/",
+    "image": "shots/10-contact-us.jpg",
+    "ok": true,
+    "url": "https://www.instarlab.org/contact-us/"
+  },
+  {
+    "file": "fellowship",
+    "number": 11,
+    "redirect": null,
+    "title": "INSTAR Lab R&D Fellowships \u2014 International and Resident Scholars",
+    "captureUrl": "https://www.instarlab.org/fellowship/",
+    "image": "shots/11-fellowship.jpg",
+    "ok": true,
+    "url": "https://www.instarlab.org/fellowship/"
+  },
+  {
+    "file": "index",
+    "number": 12,
+    "redirect": null,
+    "title": "INSTAR Lab \u2014 Research Institute",
+    "captureUrl": "https://www.instarlab.org/",
+    "image": "shots/12-index.jpg",
+    "ok": true,
+    "url": "https://www.instarlab.org/"
+  },
+  {
+    "file": "labs/biometric-security",
+    "number": 13,
+    "redirect": null,
+    "title": "Biometrics & Drone Sensing \u2014 INSTAR Lab",
+    "captureUrl": "https://www.instarlab.org/labs/biometric-security/",
+    "image": "shots/13-labs-biometric-security.jpg",
+    "ok": true,
+    "url": "https://www.instarlab.org/labs/biometric-security/"
+  },
+  {
+    "file": "labs/cognitive-ai",
+    "number": 14,
+    "redirect": null,
+    "title": "Cognitive AI & Persona Systems \u2014 INSTAR Lab",
+    "captureUrl": "https://www.instarlab.org/labs/cognitive-ai/",
+    "image": "shots/14-labs-cognitive-ai.jpg",
+    "ok": true,
+    "url": "https://www.instarlab.org/labs/cognitive-ai/"
+  },
+  {
+    "file": "labs/sovereign-ai",
+    "number": 15,
+    "redirect": null,
+    "title": "Sovereign AI Laboratory \u2014 INSTAR Lab",
+    "captureUrl": "https://www.instarlab.org/labs/sovereign-ai/",
+    "image": "shots/15-labs-sovereign-ai.jpg",
+    "ok": true,
+    "url": "https://www.instarlab.org/labs/sovereign-ai/"
+  },
+  {
+    "file": "mission",
+    "number": 16,
+    "redirect": null,
+    "title": "Our Mission \u2014 INSTAR Lab",
+    "captureUrl": "https://www.instarlab.org/mission/",
+    "image": "shots/16-mission.jpg",
+    "ok": true,
+    "url": "https://www.instarlab.org/mission/"
+  },
+  {
+    "file": "news/clinical-ai-safety",
+    "number": 17,
+    "redirect": null,
+    "title": "Clinical AI Safety Research \u2014 INSTAR Lab",
+    "captureUrl": "https://www.instarlab.org/news/clinical-ai-safety/",
+    "image": "shots/17-news-clinical-ai-safety.jpg",
+    "ok": true,
+    "url": "https://www.instarlab.org/news/clinical-ai-safety/"
+  },
+  {
+    "file": "news/formal-methods-safety-critical-trust",
+    "number": 18,
+    "redirect": null,
+    "title": "Formal Methods and Trust in Safety-Critical Software \u2014 INSTAR Lab",
+    "captureUrl": "https://www.instarlab.org/news/formal-methods-safety-critical-trust/",
+    "image": "shots/18-news-formal-methods-safety-critical-trust.jpg",
+    "ok": true,
+    "url": "https://www.instarlab.org/news/formal-methods-safety-critical-trust/"
+  },
+  {
+    "file": "news/hpc-infrastructure-for-ai",
+    "number": 19,
+    "redirect": null,
+    "title": "HPC Infrastructure for AI \u2014 INSTAR Lab",
+    "captureUrl": "https://www.instarlab.org/news/hpc-infrastructure-for-ai/",
+    "image": "shots/19-news-hpc-infrastructure-for-ai.jpg",
+    "ok": true,
+    "url": "https://www.instarlab.org/news/hpc-infrastructure-for-ai/"
+  },
+  {
+    "file": "news",
+    "number": 20,
+    "redirect": null,
+    "title": "News \u2014 INSTAR Lab",
+    "captureUrl": "https://www.instarlab.org/news/",
+    "image": "shots/20-news.jpg",
+    "ok": true,
+    "url": "https://www.instarlab.org/news/"
+  },
+  {
+    "file": "news/legal-foundations-tech-governance",
+    "number": 21,
+    "redirect": null,
+    "title": "Legal Foundations for Emerging Technology Governance \u2014 INSTAR Lab",
+    "captureUrl": "https://www.instarlab.org/news/legal-foundations-tech-governance/",
+    "image": "shots/21-news-legal-foundations-tech-governance.jpg",
+    "ok": true,
+    "url": "https://www.instarlab.org/news/legal-foundations-tech-governance/"
+  },
+  {
+    "file": "news/materials-science-energy-transition",
+    "number": 22,
+    "redirect": null,
+    "title": "Materials Science and the Energy Transition \u2014 INSTAR Lab",
+    "captureUrl": "https://www.instarlab.org/news/materials-science-energy-transition/",
+    "image": "shots/22-news-materials-science-energy-transition.jpg",
+    "ok": true,
+    "url": "https://www.instarlab.org/news/materials-science-energy-transition/"
+  },
+  {
+    "file": "news/open-data-research-philosophy",
+    "number": 23,
+    "redirect": null,
+    "title": "Open data is part of the research infrastructure \u2014 INSTAR Lab",
+    "captureUrl": "https://www.instarlab.org/news/open-data-research-philosophy/",
+    "image": "shots/23-news-open-data-research-philosophy.jpg",
+    "ok": true,
+    "url": "https://www.instarlab.org/news/open-data-research-philosophy/"
+  },
+  {
+    "file": "news/precision-agriculture-open-data",
+    "number": 24,
+    "redirect": null,
+    "title": "Precision Agriculture and Open Agricultural Data \u2014 INSTAR Lab",
+    "captureUrl": "https://www.instarlab.org/news/precision-agriculture-open-data/",
+    "image": "shots/24-news-precision-agriculture-open-data.jpg",
+    "ok": true,
+    "url": "https://www.instarlab.org/news/precision-agriculture-open-data/"
+  },
+  {
+    "file": "news/quantum-sensing-breakthroughs",
+    "number": 25,
+    "redirect": null,
+    "title": "Quantum Sensing Breakthroughs \u2014 INSTAR Lab",
+    "captureUrl": "https://www.instarlab.org/news/quantum-sensing-breakthroughs/",
+    "image": "shots/25-news-quantum-sensing-breakthroughs.jpg",
+    "ok": true,
+    "url": "https://www.instarlab.org/news/quantum-sensing-breakthroughs/"
+  },
+  {
+    "file": "privacy",
+    "number": 26,
+    "redirect": null,
+    "title": "Privacy Policy \u2014 INSTAR Lab",
+    "captureUrl": "https://www.instarlab.org/privacy/",
+    "image": "shots/26-privacy.jpg",
+    "ok": true,
+    "url": "https://www.instarlab.org/privacy/"
+  },
+  {
+    "file": "research/consortium",
+    "number": 27,
+    "redirect": null,
+    "title": "INSTAR Consortium \u2014 Collaborative Research Network",
+    "captureUrl": "https://www.instarlab.org/research/consortium/",
+    "image": "shots/27-research-consortium.jpg",
+    "ok": true,
+    "url": "https://www.instarlab.org/research/consortium/"
+  },
+  {
+    "file": "research/current-programs",
+    "number": 28,
+    "redirect": null,
+    "title": "Current Research Programs \u2014 INSTAR Lab",
+    "captureUrl": "https://www.instarlab.org/research/current-programs/",
+    "image": "shots/28-research-current-programs.jpg",
+    "ok": true,
+    "url": "https://www.instarlab.org/research/current-programs/"
+  },
+  {
+    "file": "research/facilities",
+    "number": 29,
+    "redirect": null,
+    "title": "Research Facilities \u2014 INSTAR Lab",
+    "captureUrl": "https://www.instarlab.org/research/facilities/",
+    "image": "shots/29-research-facilities.jpg",
+    "ok": true,
+    "url": "https://www.instarlab.org/research/facilities/"
+  },
+  {
+    "file": "research/funding",
+    "number": 30,
+    "redirect": null,
+    "title": "Federal Research & Sponsored Programs \u2014 INSTAR Lab",
+    "captureUrl": "https://www.instarlab.org/research/funding/",
+    "image": "shots/30-research-funding.jpg",
+    "ok": true,
+    "url": "https://www.instarlab.org/research/funding/"
+  },
+  {
+    "file": "research",
+    "number": 31,
+    "redirect": null,
+    "title": "Research \u2014 INSTAR Lab",
+    "captureUrl": "https://www.instarlab.org/research/",
+    "image": "shots/31-research.jpg",
+    "ok": true,
+    "url": "https://www.instarlab.org/research/"
+  },
+  {
+    "file": "research/innovation",
+    "number": 32,
+    "redirect": null,
+    "title": "Research Innovation \u2014 INSTAR Lab",
+    "captureUrl": "https://www.instarlab.org/research/innovation/",
+    "image": "shots/32-research-innovation.jpg",
+    "ok": true,
+    "url": "https://www.instarlab.org/research/innovation/"
+  },
+  {
+    "file": "research/open-data",
+    "number": 33,
+    "redirect": null,
+    "title": "Open Data & Public Datasets \u2014 INSTAR Lab",
+    "captureUrl": "https://www.instarlab.org/research/open-data/",
+    "image": "shots/33-research-open-data.jpg",
+    "ok": true,
+    "url": "https://www.instarlab.org/research/open-data/"
+  },
+  {
+    "file": "research/opportunities",
+    "number": 34,
+    "redirect": null,
+    "title": "Research Opportunities \u2014 INSTAR Lab",
+    "captureUrl": "https://www.instarlab.org/research/opportunities/",
+    "image": "shots/34-research-opportunities.jpg",
+    "ok": true,
+    "url": "https://www.instarlab.org/research/opportunities/"
+  },
+  {
+    "file": "research/our-process",
+    "number": 35,
+    "redirect": null,
+    "title": "Our Research Process \u2014 INSTAR Lab",
+    "captureUrl": "https://www.instarlab.org/research/our-process/",
+    "image": "shots/35-research-our-process.jpg",
+    "ok": true,
+    "url": "https://www.instarlab.org/research/our-process/"
+  },
+  {
+    "file": "sciences/agriculture",
+    "number": 36,
+    "redirect": null,
+    "title": "Agriculture Research \u2014 INSTAR Lab Sciences",
+    "captureUrl": "https://www.instarlab.org/sciences/agriculture/",
+    "image": "shots/36-sciences-agriculture.jpg",
+    "ok": true,
+    "url": "https://www.instarlab.org/sciences/agriculture/"
+  },
+  {
+    "file": "sciences/anthropology",
+    "number": 37,
+    "redirect": null,
+    "title": "Anthropology Research \u2014 INSTAR Lab Sciences",
+    "captureUrl": "https://www.instarlab.org/sciences/anthropology/",
+    "image": "shots/37-sciences-anthropology.jpg",
+    "ok": true,
+    "url": "https://www.instarlab.org/sciences/anthropology/"
+  },
+  {
+    "file": "sciences/archaeology",
+    "number": 38,
+    "redirect": null,
+    "title": "Archaeology Research \u2014 INSTAR Lab Sciences",
+    "captureUrl": "https://www.instarlab.org/sciences/archaeology/",
+    "image": "shots/38-sciences-archaeology.jpg",
+    "ok": true,
+    "url": "https://www.instarlab.org/sciences/archaeology/"
+  },
+  {
+    "file": "sciences/biology",
+    "number": 39,
+    "redirect": null,
+    "title": "Biology Research \u2014 INSTAR Lab Sciences",
+    "captureUrl": "https://www.instarlab.org/sciences/biology/",
+    "image": "shots/39-sciences-biology.jpg",
+    "ok": true,
+    "url": "https://www.instarlab.org/sciences/biology/"
+  },
+  {
+    "file": "sciences/chemistry",
+    "number": 40,
+    "redirect": null,
+    "title": "Chemistry Research \u2014 INSTAR Lab Sciences",
+    "captureUrl": "https://www.instarlab.org/sciences/chemistry/",
+    "image": "shots/40-sciences-chemistry.jpg",
+    "ok": true,
+    "url": "https://www.instarlab.org/sciences/chemistry/"
+  },
+  {
+    "file": "sciences/cognitive-sciences",
+    "number": 41,
+    "redirect": null,
+    "title": "Cognitive Sciences Research \u2014 INSTAR Lab",
+    "captureUrl": "https://www.instarlab.org/sciences/cognitive-sciences/",
+    "image": "shots/41-sciences-cognitive-sciences.jpg",
+    "ok": true,
+    "url": "https://www.instarlab.org/sciences/cognitive-sciences/"
+  },
+  {
+    "file": "sciences/economics",
+    "number": 42,
+    "redirect": null,
+    "title": "Economics Research \u2014 INSTAR Lab Sciences",
+    "captureUrl": "https://www.instarlab.org/sciences/economics/",
+    "image": "shots/42-sciences-economics.jpg",
+    "ok": true,
+    "url": "https://www.instarlab.org/sciences/economics/"
+  },
+  {
+    "file": "sciences/energy",
+    "number": 43,
+    "redirect": null,
+    "title": "Energy Research \u2014 INSTAR Lab Sciences",
+    "captureUrl": "https://www.instarlab.org/sciences/energy/",
+    "image": "shots/43-sciences-energy.jpg",
+    "ok": true,
+    "url": "https://www.instarlab.org/sciences/energy/"
+  },
+  {
+    "file": "sciences/genetics",
+    "number": 44,
+    "redirect": null,
+    "title": "Genetics Research \u2014 INSTAR Lab Sciences",
+    "captureUrl": "https://www.instarlab.org/sciences/genetics/",
+    "image": "shots/44-sciences-genetics.jpg",
+    "ok": true,
+    "url": "https://www.instarlab.org/sciences/genetics/"
+  },
+  {
+    "file": "sciences/geology",
+    "number": 45,
+    "redirect": null,
+    "title": "Geology Research \u2014 INSTAR Lab Sciences",
+    "captureUrl": "https://www.instarlab.org/sciences/geology/",
+    "image": "shots/45-sciences-geology.jpg",
+    "ok": true,
+    "url": "https://www.instarlab.org/sciences/geology/"
+  },
+  {
+    "file": "sciences/kinesiology",
+    "number": 46,
+    "redirect": null,
+    "title": "Kinesiology Research \u2014 INSTAR Lab Sciences",
+    "captureUrl": "https://www.instarlab.org/sciences/kinesiology/",
+    "image": "shots/46-sciences-kinesiology.jpg",
+    "ok": true,
+    "url": "https://www.instarlab.org/sciences/kinesiology/"
+  },
+  {
+    "file": "sciences/law",
+    "number": 47,
+    "redirect": null,
+    "title": "Law & Legal Research \u2014 INSTAR Lab Sciences",
+    "captureUrl": "https://www.instarlab.org/sciences/law/",
+    "image": "shots/47-sciences-law.jpg",
+    "ok": true,
+    "url": "https://www.instarlab.org/sciences/law/"
+  },
+  {
+    "file": "sciences/linguistics",
+    "number": 48,
+    "redirect": null,
+    "title": "Linguistics Research \u2014 INSTAR Lab Sciences",
+    "captureUrl": "https://www.instarlab.org/sciences/linguistics/",
+    "image": "shots/48-sciences-linguistics.jpg",
+    "ok": true,
+    "url": "https://www.instarlab.org/sciences/linguistics/"
+  },
+  {
+    "file": "sciences/materials-science",
+    "number": 49,
+    "redirect": null,
+    "title": "Materials Science Research \u2014 INSTAR Lab",
+    "captureUrl": "https://www.instarlab.org/sciences/materials-science/",
+    "image": "shots/49-sciences-materials-science.jpg",
+    "ok": true,
+    "url": "https://www.instarlab.org/sciences/materials-science/"
+  },
+  {
+    "file": "sciences/medicine",
+    "number": 50,
+    "redirect": null,
+    "title": "Medicine & Health Research \u2014 INSTAR Lab Sciences",
+    "captureUrl": "https://www.instarlab.org/sciences/medicine/",
+    "image": "shots/50-sciences-medicine.jpg",
+    "ok": true,
+    "url": "https://www.instarlab.org/sciences/medicine/"
+  },
+  {
+    "file": "sciences/neuroscience",
+    "number": 51,
+    "redirect": null,
+    "title": "Neuroscience Research \u2014 INSTAR Lab Sciences",
+    "captureUrl": "https://www.instarlab.org/sciences/neuroscience/",
+    "image": "shots/51-sciences-neuroscience.jpg",
+    "ok": true,
+    "url": "https://www.instarlab.org/sciences/neuroscience/"
+  },
+  {
+    "file": "sciences/ocean-science",
+    "number": 52,
+    "redirect": null,
+    "title": "Ocean Science Research \u2014 INSTAR Lab Sciences",
+    "captureUrl": "https://www.instarlab.org/sciences/ocean-science/",
+    "image": "shots/52-sciences-ocean-science.jpg",
+    "ok": true,
+    "url": "https://www.instarlab.org/sciences/ocean-science/"
+  },
+  {
+    "file": "sciences/outer-space",
+    "number": 53,
+    "redirect": null,
+    "title": "Outer Space Research \u2014 INSTAR Lab Sciences",
+    "captureUrl": "https://www.instarlab.org/sciences/outer-space/",
+    "image": "shots/53-sciences-outer-space.jpg",
+    "ok": true,
+    "url": "https://www.instarlab.org/sciences/outer-space/"
+  },
+  {
+    "file": "sciences/physics",
+    "number": 54,
+    "redirect": null,
+    "title": "Physics Research \u2014 INSTAR Lab Sciences",
+    "captureUrl": "https://www.instarlab.org/sciences/physics/",
+    "image": "shots/54-sciences-physics.jpg",
+    "ok": true,
+    "url": "https://www.instarlab.org/sciences/physics/"
+  },
+  {
+    "file": "sciences/physiology",
+    "number": 55,
+    "redirect": null,
+    "title": "Physiology Research \u2014 INSTAR Lab Sciences",
+    "captureUrl": "https://www.instarlab.org/sciences/physiology/",
+    "image": "shots/55-sciences-physiology.jpg",
+    "ok": true,
+    "url": "https://www.instarlab.org/sciences/physiology/"
+  },
+  {
+    "file": "sciences/psychology",
+    "number": 56,
+    "redirect": null,
+    "title": "Psychology Research \u2014 INSTAR Lab Sciences",
+    "captureUrl": "https://www.instarlab.org/sciences/psychology/",
+    "image": "shots/56-sciences-psychology.jpg",
+    "ok": true,
+    "url": "https://www.instarlab.org/sciences/psychology/"
+  },
+  {
+    "file": "sciences/sociology",
+    "number": 57,
+    "redirect": null,
+    "title": "Sociology Research \u2014 INSTAR Lab Sciences",
+    "captureUrl": "https://www.instarlab.org/sciences/sociology/",
+    "image": "shots/57-sciences-sociology.jpg",
+    "ok": true,
+    "url": "https://www.instarlab.org/sciences/sociology/"
+  },
+  {
+    "file": "search",
+    "number": 58,
+    "redirect": null,
+    "title": "Search \u2014 INSTAR Lab",
+    "captureUrl": "https://www.instarlab.org/search/",
+    "image": "shots/58-search.jpg",
+    "ok": true,
+    "url": "https://www.instarlab.org/search/"
+  },
+  {
+    "file": "tech-transfer/enterprise-rd",
+    "number": 59,
+    "redirect": null,
+    "title": "Enterprise R&D \u2014 INSTAR Lab Technology Transfer",
+    "captureUrl": "https://www.instarlab.org/tech-transfer/enterprise-rd/",
+    "image": "shots/59-tech-transfer-enterprise-rd.jpg",
+    "ok": true,
+    "url": "https://www.instarlab.org/tech-transfer/enterprise-rd/"
+  },
+  {
+    "file": "tech-transfer/portfolio",
+    "number": 60,
+    "redirect": null,
+    "title": "Research Portfolio \u2014 INSTAR Lab Technology Transfer",
+    "captureUrl": "https://www.instarlab.org/tech-transfer/portfolio/",
+    "image": "shots/60-tech-transfer-portfolio.jpg",
+    "ok": true,
+    "url": "https://www.instarlab.org/tech-transfer/portfolio/"
+  },
+  {
+    "file": "tech-transfer/sttr-programs",
+    "number": 61,
+    "redirect": null,
+    "title": "STTR Programs \u2014 INSTAR Lab Technology Transfer",
+    "captureUrl": "https://www.instarlab.org/tech-transfer/sttr-programs/",
+    "image": "shots/61-tech-transfer-sttr-programs.jpg",
+    "ok": true,
+    "url": "https://www.instarlab.org/tech-transfer/sttr-programs/"
+  },
+  {
+    "file": "tech-transfer/workshops-events",
+    "number": 62,
+    "redirect": null,
+    "title": "Workshops & Events \u2014 INSTAR Lab Technology Transfer",
+    "captureUrl": "https://www.instarlab.org/tech-transfer/workshops-events/",
+    "image": "shots/62-tech-transfer-workshops-events.jpg",
+    "ok": true,
+    "url": "https://www.instarlab.org/tech-transfer/workshops-events/"
+  },
+  {
+    "file": "technology/augmented-reality",
+    "number": 63,
+    "redirect": null,
+    "title": "Augmented Reality Research \u2014 INSTAR Lab Technology",
+    "captureUrl": "https://www.instarlab.org/technology/augmented-reality/",
+    "image": "shots/63-technology-augmented-reality.jpg",
+    "ok": true,
+    "url": "https://www.instarlab.org/technology/augmented-reality/"
+  },
+  {
+    "file": "technology/computer-science",
+    "number": 64,
+    "redirect": null,
+    "title": "Computer Science Research \u2014 INSTAR Lab Technology",
+    "captureUrl": "https://www.instarlab.org/technology/computer-science/",
+    "image": "shots/64-technology-computer-science.jpg",
+    "ok": true,
+    "url": "https://www.instarlab.org/technology/computer-science/"
+  },
+  {
+    "file": "technology/data-science",
+    "number": 65,
+    "redirect": null,
+    "title": "Data Science Research \u2014 INSTAR Lab Technology",
+    "captureUrl": "https://www.instarlab.org/technology/data-science/",
+    "image": "shots/65-technology-data-science.jpg",
+    "ok": true,
+    "url": "https://www.instarlab.org/technology/data-science/"
+  },
+  {
+    "file": "technology/formal-methods",
+    "number": 66,
+    "redirect": null,
+    "title": "Formal Methods Research \u2014 INSTAR Lab Technology",
+    "captureUrl": "https://www.instarlab.org/technology/formal-methods/",
+    "image": "shots/66-technology-formal-methods.jpg",
+    "ok": true,
+    "url": "https://www.instarlab.org/technology/formal-methods/"
+  },
+  {
+    "file": "technology/machine-intelligence",
+    "number": 67,
+    "redirect": null,
+    "title": "Machine Intelligence Research \u2014 INSTAR Lab Technology",
+    "captureUrl": "https://www.instarlab.org/technology/machine-intelligence/",
+    "image": "shots/67-technology-machine-intelligence.jpg",
+    "ok": true,
+    "url": "https://www.instarlab.org/technology/machine-intelligence/"
+  },
+  {
+    "file": "technology/natural-language-processing",
+    "number": 68,
+    "redirect": null,
+    "title": "Natural Language Processing Research \u2014 INSTAR Lab Technology",
+    "captureUrl": "https://www.instarlab.org/technology/natural-language-processing/",
+    "image": "shots/68-technology-natural-language-processing.jpg",
+    "ok": true,
+    "url": "https://www.instarlab.org/technology/natural-language-processing/"
+  },
+  {
+    "file": "technology/quantum-computing",
+    "number": 69,
+    "redirect": null,
+    "title": "Quantum Computing Research \u2014 INSTAR Lab Technology",
+    "captureUrl": "https://www.instarlab.org/technology/quantum-computing/",
+    "image": "shots/69-technology-quantum-computing.jpg",
+    "ok": true,
+    "url": "https://www.instarlab.org/technology/quantum-computing/"
+  },
+  {
+    "file": "terms",
+    "number": 70,
+    "redirect": null,
+    "title": "Terms of Use \u2014 INSTAR Lab",
+    "captureUrl": "https://www.instarlab.org/terms/",
+    "image": "shots/70-terms.jpg",
+    "ok": true,
+    "url": "https://www.instarlab.org/terms/"
+  }
+]
