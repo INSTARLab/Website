@@ -1,0 +1,108 @@
+---
+interface Props {
+  readonly title: string;
+  readonly description?: string;
+  readonly source?: string;
+  readonly sourceHref?: string;
+  readonly period?: string;
+  readonly id?: string;
+}
+
+const { title, description, source, sourceHref, period, id } = Astro.props;
+const panelId = id ?? `record-panel-${title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')}`;
+---
+
+<section class="record-chart-panel card" id={panelId} aria-labelledby={`${panelId}-title`}>
+  <div class="card-body">
+    <header class="record-chart-panel__header">
+      <div>
+        <h2 id={`${panelId}-title`} class="record-chart-panel__title">{title}</h2>
+        {description && <p class="record-chart-panel__description">{description}</p>}
+      </div>
+      {period && <p class="record-chart-panel__period">{period}</p>}
+    </header>
+    <div class="record-chart-panel__content">
+      <slot />
+    </div>
+    {(source || period) && (
+      <footer class="record-chart-panel__footer">
+        {source && <span>Source: {sourceHref ? <a href={sourceHref}>{source}</a> : source}</span>}
+        {period && <span>As of {period}</span>}
+      </footer>
+    )}
+  </div>
+</section>
+
+<style>
+  .record-chart-panel {
+    --record-panel-border: #d6e1e8;
+    --record-panel-ink: #122535;
+    --record-panel-muted: #526675;
+    border: 1px solid var(--record-panel-border);
+    border-radius: 0.65rem;
+    background: #fff;
+    box-shadow: 0 0.25rem 1rem rgb(18 37 53 / 0.06);
+  }
+
+  .record-chart-panel .card-body {
+    padding: clamp(1rem, 2.5vw, 1.6rem);
+  }
+
+  .record-chart-panel__header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: start;
+    justify-content: space-between;
+    gap: 0.75rem 1.25rem;
+    margin-bottom: 1rem;
+  }
+
+  .record-chart-panel__title {
+    margin: 0;
+    color: var(--record-panel-ink);
+    font-family: var(--font-display, system-ui, sans-serif);
+    font-size: clamp(1.1rem, 1.6vw, 1.45rem);
+    letter-spacing: -0.025em;
+    line-height: 1.15;
+  }
+
+  .record-chart-panel__description,
+  .record-chart-panel__period,
+  .record-chart-panel__footer {
+    color: var(--record-panel-muted);
+    font-family: var(--font-ui, system-ui, sans-serif);
+    font-size: 0.78rem;
+    line-height: 1.5;
+  }
+
+  .record-chart-panel__description {
+    max-width: 68ch;
+    margin: 0.45rem 0 0;
+  }
+
+  .record-chart-panel__period {
+    flex: 0 0 auto;
+    margin: 0;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  .record-chart-panel__content {
+    min-width: 0;
+  }
+
+  .record-chart-panel__footer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem 1rem;
+    margin-top: 1.15rem;
+    padding-top: 0.8rem;
+    border-top: 1px solid #e4ebef;
+  }
+
+  .record-chart-panel__footer a {
+    color: #14627d;
+    text-underline-offset: 0.18em;
+  }
+</style>

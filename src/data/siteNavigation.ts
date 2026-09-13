@@ -29,6 +29,7 @@ export const primaryNavigation = [
       { label: 'Mission', href: '/mission/' },
       { label: 'About Us', href: '/community/about-us/' },
       { label: 'Leadership', href: '/community/leadership/' },
+      { label: 'Public Record', href: '/record/' },
       { label: 'INSTAR Consortium', href: '/research/consortium/' },
       { label: 'Facilities', href: '/research/facilities/' },
     ],

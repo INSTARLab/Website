@@ -6,6 +6,7 @@ const distDirectory = process.env.ASTRO_DIST_DIR ?? "dist";
 export default defineConfig({
   testDir: ".",
   fullyParallel: true,
+  workers: Number(process.env.PLAYWRIGHT_WORKERS ?? 2),
   forbidOnly: Boolean(process.env.CI),
   retries: process.env.CI ? 2 : 0,
   reporter: [

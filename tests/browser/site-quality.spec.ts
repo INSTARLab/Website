@@ -175,6 +175,31 @@ test("search stays discoverable and recoverable when there are no matches", asyn
   await expect(page.locator("#search-browse")).toBeVisible();
 });
 
+test("record room uses only its dedicated navigation and evidence workspace", async ({ page }) => {
+  await page.goto("/record/", { waitUntil: "networkidle" });
+  await expect(page.locator(".site-header, .site-footer")).toHaveCount(0);
+  await expect(page.locator("main")).toHaveCount(1);
+  await expect(page.locator(".record-document h1")).toHaveText("INSTAR Lab public record");
+  await expect(page.locator("[data-record-viz]").first()).toBeVisible();
+  expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual((page.viewportSize()?.width ?? 0) + 1);
+});
+
+test("record room remains readable with client JavaScript disabled", async ({ browser }) => {
+  const context = await browser.newContext({
+    javaScriptEnabled: false,
+    viewport: { width: 390, height: 844 },
+  });
+  const page = await context.newPage();
+  const baseURL = process.env.PLAYWRIGHT_BASE_URL ?? "http://127.0.0.1:4173";
+  const response = await page.goto(`${baseURL}/record/`, { waitUntil: "domcontentloaded" });
+
+  expect(response?.status()).toBeLessThan(400);
+  await expect(page.locator(".record-document h1")).toHaveText("INSTAR Lab public record");
+  await expect(page.locator('.record-sidebar__nav a[href="/record/nav/"]')).toHaveCount(1);
+  expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(391);
+  await context.close();
+});
+
 test("primary navigation closes the previous dropdown", async ({ page }) => {
   await page.goto("/", { waitUntil: "domcontentloaded" });
 
@@ -194,6 +219,98 @@ test("primary navigation closes the previous dropdown", async ({ page }) => {
 
   await page.locator('main').click({ position: { x: 8, y: 8 } });
   await expect(navigation.locator('details[open][data-nav-dropdown]')).toHaveCount(0);
+});
+
+test("primary navigation clears transient open state across route changes", async ({ page }) => {
+  await page.goto("/", { waitUntil: "domcontentloaded" });
+
+  let navigation = page.locator('.site-nav__desktop');
+  const isMobile = !(await navigation.isVisible());
+  if (isMobile) {
+    await page.locator('.site-nav__mobile-trigger').click();
+    navigation = page.locator('.site-nav__mobile-panel');
+  }
+
+  const group = navigation.locator('details[data-nav-dropdown]').first();
+  await group.locator('summary[data-nav-summary]').click();
+  await group.locator('a[href="/mission/"]').click();
+  await expect(page).toHaveURL(/\/mission\/$/);
+  await expect(page.locator('.site-nav__mobile[open]')).toHaveCount(0);
+  const openTransientDetails = isMobile
+    ? page.locator('.site-nav__mobile-panel details[open][data-nav-dropdown]')
+    : page.locator('.site-nav__desktop details[open][data-nav-dropdown]');
+  await expect(openTransientDetails).toHaveCount(0);
+});
+
+test("primary navigation keeps a single rhythmic desktop row", async ({ page }) => {
+  test.skip((page.viewportSize()?.width ?? 0) < 1000, "desktop navigation assertion");
+  await page.goto("/", { waitUntil: "domcontentloaded" });
+
+  const desktopNavigation = page.locator('.site-nav__desktop');
+  const metrics = await desktopNavigation.locator(':scope > ul').evaluate((list) => {
+    const items = Array.from(list.children).map((item) => (item as HTMLElement).getBoundingClientRect());
+    const tops = new Set(items.map((item) => Math.round(item.top)));
+    const gaps = items.slice(1).map((item, index) => item.left - (items[index].right ?? item.left));
+    return {
+      rows: tops.size,
+      minGap: Math.min(...gaps),
+      clientWidth: list.clientWidth,
+      scrollWidth: list.scrollWidth,
+    };
+  });
+  expect(metrics.rows).toBe(1);
+  expect(metrics.minGap).toBeGreaterThanOrEqual(4);
+  expect(metrics.scrollWidth).toBeLessThanOrEqual(metrics.clientWidth + 1);
+
+  const headerHeight = await page.locator('.site-header').evaluate((header) => header.getBoundingClientRect().height);
+  await desktopNavigation.locator('summary[data-nav-summary]').first().click();
+  await expect(desktopNavigation.locator('details[open][data-nav-dropdown]')).toHaveCount(1);
+  const openHeaderHeight = await page.locator('.site-header').evaluate((header) => header.getBoundingClientRect().height);
+  expect(openHeaderHeight).toBe(headerHeight);
+});
+
+test("mobile navigation stays within the viewport with comfortable targets", async ({ page }) => {
+  test.skip((page.viewportSize()?.width ?? 0) >= 1000, "mobile navigation assertion");
+  await page.goto("/", { waitUntil: "domcontentloaded" });
+
+  await page.locator('.site-nav__mobile-trigger').click();
+  const metrics = await page.locator('.site-nav__mobile-panel').evaluate((panel) => {
+    const bounds = panel.getBoundingClientRect();
+    const targets = Array.from(panel.querySelectorAll('a, summary')).map((target) => target.getBoundingClientRect().height);
+    return {
+      left: bounds.left,
+      right: bounds.right,
+      minTargetHeight: Math.min(...targets),
+      innerWidth: window.innerWidth,
+      documentWidth: document.documentElement.scrollWidth,
+    };
+  });
+  expect(metrics.left).toBeGreaterThanOrEqual(0);
+  expect(metrics.right).toBeLessThanOrEqual(metrics.innerWidth);
+  expect(metrics.documentWidth).toBeLessThanOrEqual(metrics.innerWidth + 1);
+  expect(metrics.minTargetHeight).toBeGreaterThanOrEqual(44);
+});
+
+test("Escape closes the active disclosure and returns focus to its summary", async ({ page }) => {
+  await page.goto("/", { waitUntil: "domcontentloaded" });
+
+  let navigation = page.locator('.site-nav__desktop');
+  if (!(await navigation.isVisible())) {
+    await page.locator('.site-nav__mobile-trigger').click();
+    navigation = page.locator('.site-nav__mobile-panel');
+  }
+
+  const summary = navigation.locator('summary[data-nav-summary]').first();
+  const dropdown = summary.locator('xpath=ancestor::details[1]');
+  await summary.focus();
+  await page.keyboard.press("Enter");
+  await expect(dropdown).toHaveAttribute('open', '');
+  await expect(summary).toHaveAttribute('aria-expanded', 'true');
+
+  await page.keyboard.press("Escape");
+  await expect(dropdown).not.toHaveAttribute('open');
+  await expect(summary).toBeFocused();
+  await expect(summary).toHaveAttribute('aria-expanded', 'false');
 });
 
 function formatViolations(violations: Array<{ id: string; help: string; nodes: Array<{ target: unknown }> }>): string {

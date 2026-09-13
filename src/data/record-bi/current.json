@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "snapshotId": "record-bi-empty",
+  "status": "empty",
+  "asOf": null,
+  "refreshedAt": "2026-09-13",
+  "source": {
+    "id": "SRC-BI-PENDING",
+    "label": "No approved operational source",
+    "locator": "plan/record-room-bootstrap-bi.md#rr-208",
+    "retrievedAt": "2026-09-13"
+  },
+  "approval": {
+    "status": "pending",
+    "reference": "RR-208-PENDING",
+    "approvedBy": null,
+    "approvedAt": null
+  },
+  "observations": [],
+  "note": "Operational aggregates are not yet approved for publication. The Record Room must display Not reported until an institutional data owner supplies a public snapshot and approval metadata."
+}

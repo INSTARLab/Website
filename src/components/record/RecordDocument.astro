@@ -1,0 +1,90 @@
+---
+import RecordLayout from '../../layouts/RecordLayout.astro';
+import Icon from '../primitives/Icon.astro';
+import { recordHref, recordNavigation, type RecordRoute } from '../../data/record';
+
+interface Props {
+  route: RecordRoute;
+}
+
+const { route } = Astro.props;
+const currentRecordNumber = String(recordNavigation.findIndex((item) => item.path === route.path) + 1).padStart(2, '0');
+const snapshotDate = new Date().toISOString().slice(0, 10);
+---
+
+<RecordLayout
+  title={`${route.title} | INSTAR Lab`}
+  description={route.description}
+  canonical={route.path}
+>
+  <div class="record-sidebar-backdrop" data-record-sidebar-backdrop aria-hidden="true"></div>
+  <div class="record-app" data-route={route.path} data-page-signature={route.signature.join(' → ')}>
+    <aside id="record-sidebar" class="record-sidebar offcanvas-lg offcanvas-start" aria-label="Public record navigation" aria-hidden="false">
+      <div class="record-sidebar__intro">
+        <a class="record-sidebar__brand" href={recordHref('/record/')}>
+          <span class="record-sidebar__mark" aria-hidden="true">R</span>
+          <span><strong>Record room</strong><small>INSTAR Lab / public index</small></span>
+        </a>
+        <p>Source-conscious orientation for the institution, its research paths, and this website.</p>
+        <button class="record-sidebar__close btn btn-sm btn-outline-secondary d-lg-none" type="button" data-record-menu-close hidden>
+          Close menu
+        </button>
+      </div>
+      <nav id="record-index" class="record-sidebar__nav-wrap" aria-label="Record pages">
+        <p class="record-sidebar__label">Browse the record</p>
+        <ol class="record-sidebar__nav nav flex-column gap-1">
+          {recordNavigation.map((item, index) => (
+            <li class:list={{ 'record-sidebar__nav-item--current': item.path === route.path }}>
+              <a class="nav-link" href={recordHref(item.path)} aria-current={item.path === route.path ? 'page' : undefined}>
+                <span class="record-sidebar__number">{String(index + 1).padStart(2, '0')}</span>
+                <span>{item.label}</span>
+              </a>
+            </li>
+          ))}
+        </ol>
+      </nav>
+      <div class="record-sidebar__footer">
+        <a href={recordHref('/')}>Return to instarlab.org <Icon name="arrow-up-right" size="0.9rem" /></a>
+        <a href={recordHref('/record/nav/')}>Full site inventory <Icon name="arrow-right" size="0.9rem" /></a>
+        <div class="record-sidebar__legal" aria-label="Legal and accessibility">
+          <a href={recordHref('/privacy/')}>Privacy</a>
+          <a href={recordHref('/terms/')}>Terms</a>
+          <a href={recordHref('/accessibility/')}>Accessibility</a>
+        </div>
+      </div>
+    </aside>
+
+    <article id="main-content" class="record-document focus-target" tabindex="-1">
+      <header class="record-document__header">
+        <div class="record-document__eyebrow">
+          <span>{route.eyebrow}</span>
+          <span class="record-document__sequence">Record {currentRecordNumber} / {recordNavigation.length}</span>
+          <span class="record-document__status">Public record</span>
+        </div>
+        <div class="record-document__heading record-document__heading--with-menu">
+          <div>
+            <h1>{route.title}</h1>
+            <p class="record-document__description">{route.description}</p>
+          </div>
+          <button
+            class="record-menu-toggle btn btn-primary d-lg-none"
+            type="button"
+            data-record-menu-toggle
+            aria-controls="record-sidebar"
+            aria-expanded="false"
+            hidden
+          >
+            <span class="record-menu-toggle__icon" aria-hidden="true">☰</span>
+            Record menu
+          </button>
+        </div>
+        <div class="record-document__meta">
+          <span>INSTAR Lab Inc. · Website snapshot {snapshotDate} · No private submissions</span>
+        </div>
+      </header>
+      <div class="record-document__body">
+        <slot />
+      </div>
+    </article>
+  </div>
+</RecordLayout>

@@ -1,0 +1,97 @@
+---
+import RecordDocument from '../../../components/record/RecordDocument.astro';
+import MetricGrid from '../../../components/record/ui/MetricGrid.astro';
+import BarChart from '../../../components/record/viz/BarChart.astro';
+import { recordHref, recordRouteAtPath, recordStats, sitePageRecords } from '../../../data/record';
+
+const route = recordRouteAtPath('/record/metrics/');
+const familyStats = [...new Set(sitePageRecords.map((entry) => entry.family))]
+  .map((family) => ({
+    family,
+    count: sitePageRecords.filter((entry) => entry.family === family).length,
+    indexable: sitePageRecords.filter((entry) => entry.family === family && entry.indexable).length,
+  }))
+  .sort((left, right) => right.count - left.count || left.family.localeCompare(right.family));
+const familyBars = familyStats.map((entry) => ({ label: entry.family, value: entry.count }));
+const kindStats = ['core', 'editorial', 'section', 'record'].map((kind) => ({
+  kind,
+  count: sitePageRecords.filter((entry) => entry.kind === kind).length,
+}));
+---
+
+<RecordDocument {route}>
+  <div class="container-fluid px-0">
+    <section class="record-section mt-5" aria-labelledby="metrics-summary-title">
+      <h2 id="metrics-summary-title" class="visually-hidden">Inventory summary</h2>
+      <MetricGrid title="Inventory summary" items={[
+        { label: 'Routes in graph', value: recordStats.sitePages, note: 'Source-derived public pages' },
+        { label: 'Indexable routes', value: recordStats.indexablePages, note: 'Manifest permits indexing' },
+        { label: 'Route families', value: recordStats.routeFamilies, note: 'Distinct family labels' },
+        { label: 'Media policies', value: recordStats.publicMediaPolicies, note: 'Public policy entries' },
+      ]} columns={4} />
+    </section>
+
+    <section class="record-section mt-5" aria-labelledby="metrics-family-title">
+      <div class="row g-4">
+        <div class="col-12 col-xl-7">
+          <div class="card h-100 shadow-sm">
+            <div class="card-body p-4">
+              <div class="d-flex flex-wrap justify-content-between align-items-baseline gap-2 mb-3">
+                <div><p class="record-section__label mb-2">Family breakdown</p><h2 id="metrics-family-title" class="h3 mb-0">Where the public route graph carries its weight</h2></div>
+                <a class="small" href={recordHref('/record/nav/')}>Open route inventory</a>
+              </div>
+              <BarChart title="Routes by family" items={familyBars} description="The chart uses each family’s route count." source="Route manifests (SRC-002)" sourceHref={recordHref('/record/verify/')} />
+              <p class="small text-body-secondary mt-3 mb-0">The table retains the comparable indexable count for every family.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-xl-5">
+          <div class="card h-100 shadow-sm">
+            <div class="card-body p-4">
+              <p class="record-section__label mb-2">Record composition</p>
+              <h2 class="h3 mb-3">What the graph contains</h2>
+              <div class="table-responsive" tabindex="0" role="region" aria-label="Route composition">
+                <table class="table table-sm align-middle mb-0">
+                  <caption class="visually-hidden">Route counts by source kind</caption>
+                  <thead><tr><th scope="col">Kind</th><th scope="col">Routes</th><th scope="col">Share</th></tr></thead>
+                  <tbody>{kindStats.map((entry) => <tr><th scope="row" class="text-capitalize">{entry.kind}</th><td>{entry.count}</td><td>{Math.round((entry.count / recordStats.sitePages) * 100)}%</td></tr>)}</tbody>
+                </table>
+              </div>
+              <p class="small text-body-secondary mt-3 mb-0">Kind values come from the same source records used by the site map. They are inventory categories, not editorial quality scores.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="record-section mt-5" aria-labelledby="metrics-table-title">
+      <div class="d-flex flex-wrap justify-content-between align-items-end gap-3 mb-3">
+        <div><p class="record-section__label mb-2">Comparable detail</p><h2 id="metrics-table-title" class="h3 mb-0">Routes and indexability by family</h2></div>
+        <span class="small text-body-secondary">Source: <code>src/data/record.ts</code></span>
+      </div>
+      <div class="table-responsive" tabindex="0" role="region" aria-label="Routes and indexability by family">
+        <table class="table table-striped align-middle">
+          <caption class="caption-top">Route counts and indexable counts by family</caption>
+          <thead><tr><th scope="col">Family</th><th scope="col">Routes</th><th scope="col">Indexable</th><th scope="col">Indexable share</th></tr></thead>
+          <tbody>
+            {familyStats.map((entry) => <tr><th scope="row">{entry.family}</th><td>{entry.count}</td><td>{entry.indexable}</td><td>{entry.count ? Math.round((entry.indexable / entry.count) * 100) : 0}%</td></tr>)}
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="record-section mt-5" aria-labelledby="metrics-method-title">
+      <div class="card bg-light border-0">
+        <div class="card-body p-4 p-lg-5">
+          <p class="record-section__label mb-2">Method and limits</p>
+          <h2 id="metrics-method-title" class="h3 mb-3">What these counts cannot tell you</h2>
+          <div class="row g-4">
+            <div class="col-12 col-md-4"><h3 class="h5">Derived inventory</h3><p class="small mb-0">Route, family, kind, indexability, and public media policy counts are stable build-time measures.</p></div>
+            <div class="col-12 col-md-4"><h3 class="h5">Not connected</h3><p class="small mb-0">No private analytics, Search Console, funding, award, project, or partnership system is included.</p></div>
+            <div class="col-12 col-md-4"><h3 class="h5">Separate review</h3><p class="small mb-0">Claims, citations, media rights, and external operating status require their own source and human review gates.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</RecordDocument>

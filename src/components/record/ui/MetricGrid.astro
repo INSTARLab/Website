@@ -1,0 +1,102 @@
+---
+export type MetricValue = string | number | null;
+
+export interface MetricItem {
+  readonly label: string;
+  readonly value: MetricValue;
+  readonly note?: string;
+  readonly href?: string;
+}
+
+interface Props {
+  readonly items: readonly MetricItem[];
+  readonly title?: string;
+  readonly columns?: 2 | 3 | 4;
+}
+
+const { items, title, columns = 4 } = Astro.props;
+const valueFor = (value: MetricValue) => value === null || value === '' ? 'Not reported' : typeof value === 'number' ? value.toLocaleString('en-US') : value;
+---
+
+<section class="record-metric-grid" aria-label={title ?? 'Summary metrics'}>
+  {title && <h2 class="visually-hidden">{title}</h2>}
+  <div class:list={["row", "g-3", "record-metric-grid__row", `row-cols-1 row-cols-sm-2 row-cols-xl-${columns}`]}>
+    {items.map((item) => (
+      <div class="col" data-record-metric={item.label}>
+        <article class="record-metric card h-100">
+          <div class="card-body">
+            <p class="record-metric__label">{item.label}</p>
+            <p class="record-metric__value">
+              {item.href ? <a href={item.href}>{valueFor(item.value)}</a> : valueFor(item.value)}
+            </p>
+            {item.note && <p class="record-metric__note">{item.note}</p>}
+          </div>
+        </article>
+      </div>
+    ))}
+  </div>
+</section>
+
+<style>
+  .record-metric-grid {
+    --record-panel-border: #d6e1e8;
+    --record-panel-ink: #122535;
+    --record-panel-muted: #526675;
+  }
+
+  .record-metric-grid__row {
+    margin-inline: 0;
+  }
+
+  .record-metric {
+    border: 1px solid var(--record-panel-border);
+    border-radius: 0.65rem;
+    background: #fff;
+    box-shadow: 0 0.25rem 1rem rgb(18 37 53 / 0.06);
+  }
+
+  .record-metric .card-body {
+    padding: 1.1rem 1.2rem 1.15rem;
+  }
+
+  .record-metric__label,
+  .record-metric__note {
+    margin: 0;
+    color: var(--record-panel-muted);
+    font-family: var(--font-ui, system-ui, sans-serif);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    line-height: 1.35;
+    text-transform: uppercase;
+  }
+
+  .record-metric__value {
+    margin: 0.65rem 0 0;
+    color: var(--record-panel-ink);
+    font-family: var(--font-display, system-ui, sans-serif);
+    font-size: clamp(1.65rem, 3vw, 2.45rem);
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.04em;
+    line-height: 1;
+  }
+
+  .record-metric__value a {
+    color: inherit;
+    text-decoration-color: #9ebdcc;
+    text-underline-offset: 0.2em;
+  }
+
+  .record-metric__value a:hover {
+    color: #14627d;
+  }
+
+  .record-metric__note {
+    margin-top: 0.7rem;
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    line-height: 1.5;
+    text-transform: none;
+  }
+</style>

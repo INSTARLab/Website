@@ -1,0 +1,104 @@
+---
+import RecordDocument from '../../components/record/RecordDocument.astro';
+import MetricGrid from '../../components/record/ui/MetricGrid.astro';
+import BarChart from '../../components/record/viz/BarChart.astro';
+import {
+  recordHref,
+  recordRouteAtPath,
+  recordSourceRegister,
+  sitePageRecords,
+} from '../../data/record';
+import {
+  recordBiIsStale,
+  recordBiMetricDefinitions,
+  recordBiSnapshot,
+} from '../../data/record-bi';
+import { latestMetricAggregate, observationSourceLabel, periodLabel } from '../../data/record-bi/selectors.mjs';
+
+const route = recordRouteAtPath('/record/');
+
+const routeFamilies = [...new Set(sitePageRecords.map((entry) => entry.family))]
+  .map((family) => ({
+    family,
+    count: sitePageRecords.filter((entry) => entry.family === family).length,
+  }))
+  .sort((left, right) => right.count - left.count || left.family.localeCompare(right.family));
+const sourceStatuses = [
+  { label: 'Verified in repository', count: recordSourceRegister.filter((source) => source.status === 'verified-in-repository').length },
+  { label: 'Review required', count: recordSourceRegister.filter((source) => source.status === 'review-required').length },
+  { label: 'Not public', count: recordSourceRegister.filter((source) => source.status === 'not-public').length },
+] as const;
+
+const biCards = recordBiMetricDefinitions.map((definition) => {
+  const aggregate = latestMetricAggregate(definition, recordBiSnapshot.observations);
+  const observations = aggregate?.observations ?? [];
+  const value = aggregate?.value ?? null;
+  const staleCount = observations.filter((observation) => recordBiIsStale(observation)).length;
+  const freshness = staleCount === 0 ? 'Reported' : staleCount === observations.length ? 'Stale' : 'Mixed freshness';
+  const sourceLabel = aggregate ? observationSourceLabel(observations) : '';
+  const period = aggregate ? periodLabel(aggregate) : '';
+  return {
+    label: definition.label,
+    value,
+    note: value === null
+      ? aggregate ? `Not reported · ${period}${aggregate.unavailableReason ? ` · ${aggregate.unavailableReason}` : ''}` : 'No approved snapshot is loaded.'
+      : `${freshness} · ${definition.unit} · ${period} · ${sourceLabel}`,
+  };
+});
+const biHeading = recordBiSnapshot.status === 'empty' ? 'Four measures awaiting approved snapshots' : 'Operational measures in the current snapshot';
+const biLead = recordBiSnapshot.status === 'empty' ? recordBiSnapshot.note ?? 'No approved operational snapshot is loaded.' : 'Values are shown only with the source, period, and approval metadata carried by the current snapshot.';
+const familyBars = routeFamilies.map((entry) => ({ label: entry.family, value: entry.count }));
+const evidenceBars = sourceStatuses.map((entry) => ({ label: entry.label, value: entry.count }));
+---
+
+<RecordDocument {route}>
+  <div class="container-fluid px-0">
+    <section class="record-section mt-4" aria-labelledby="record-use-title">
+      <div class="d-flex flex-wrap align-items-center justify-content-between gap-3">
+        <p id="record-use-title" class="mb-0 text-body-secondary">Use the source register for limits, the site map for every route, and the decision briefs for a role-specific path.</p>
+        <div class="d-flex flex-wrap gap-2"><a class="btn btn-sm btn-outline-primary" href={recordHref('/record/verify/')}>Source register</a><a class="btn btn-sm btn-outline-primary" href={recordHref('/record/journeys/')}>Decision briefs</a></div>
+      </div>
+    </section>
+
+    <section class="record-section mt-4" aria-labelledby="record-operational-title">
+      <div class="d-flex flex-wrap justify-content-between align-items-end gap-3 mb-3"><div><p class="record-section__label mb-2">Operational BI</p><h2 id="record-operational-title" class="h3 mb-2">{biHeading}</h2><p class="mb-0 text-body-secondary">{biLead}</p></div><a class="btn btn-sm btn-outline-primary" href={recordHref('/record/ops/')}>Open business status</a></div>
+      <MetricGrid title="Operational BI measures" items={biCards} columns={4} />
+    </section>
+
+    <section class="record-section mt-5" aria-labelledby="record-inventory-title">
+      <div class="row g-4 align-items-start">
+        <div class="col-12 col-xl-7">
+          <div class="card shadow-sm"><div class="card-body p-4">
+            <p class="record-section__label mb-2">Inventory</p>
+            <BarChart title="The public route graph by family" items={familyBars} description="Counts are derived from the current route manifests." source="Route manifests (SRC-002)" sourceHref={recordHref('/record/verify/')} />
+            <a class="small" href={recordHref('/record/metrics/')}>View the full inventory and method.</a>
+          </div></div>
+        </div>
+        <div class="col-12 col-xl-5">
+          <div class="card shadow-sm"><div class="card-body p-4">
+            <p class="record-section__label mb-2">Evidence coverage</p>
+            <BarChart title="Source register states" items={evidenceBars} description="Repository source states, not external claim validation." source="Source register" sourceHref={recordHref('/record/verify/')} />
+          </div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="record-section mt-5" aria-labelledby="record-next-title">
+      <div class="card border-primary-subtle bg-primary-subtle">
+        <div class="card-body p-4 p-lg-5">
+          <div class="row g-4 align-items-center">
+            <div class="col-12 col-lg-8">
+              <p class="record-section__label mb-2">Next inspection</p>
+              <h2 id="record-next-title" class="h3 mb-2">Choose the evidence path that matches your question.</h2>
+              <p class="mb-0">The site map covers every public route. Decision briefs explain where a program officer, collaborator, researcher, institutional partner, or supporter can begin.</p>
+            </div>
+            <div class="col-12 col-lg-4 d-flex flex-wrap gap-2 justify-content-lg-end">
+              <a class="btn btn-primary" href={recordHref('/record/nav/')}>Browse all routes</a>
+              <a class="btn btn-outline-primary" href={recordHref('/record/journeys/')}>Open decision briefs</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</RecordDocument>

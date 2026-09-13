@@ -1,0 +1,184 @@
+@font-face {
+  font-family: 'Lato';
+  src: url('/fonts/lato-latin-400.woff2') format('woff2');
+  font-display: swap;
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Lato';
+  src: url('/fonts/lato-latin-700.woff2') format('woff2');
+  font-display: swap;
+  font-style: normal;
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: 'Raleway';
+  src: url('/fonts/raleway-latin-400.woff2') format('woff2');
+  font-display: swap;
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Raleway';
+  src: url('/fonts/raleway-latin-700.woff2') format('woff2');
+  font-display: swap;
+  font-style: normal;
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('/fonts/roboto-latin-400.woff2') format('woff2');
+  font-display: swap;
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('/fonts/roboto-latin-700.woff2') format('woff2');
+  font-display: swap;
+  font-style: normal;
+  font-weight: 700;
+}
+
+/*
+ * The Record document is intentionally isolated from the marketing shell.
+ * These variables carry the existing INSTAR palette and type choices without
+ * importing the marketing Tailwind reset into this document.
+ */
+.record-body {
+  --color-canvas: #ffffff;
+  --color-surface: #f7fafc;
+  --color-surface-raised: #ffffff;
+  --color-ink: #1b1b1b;
+  --color-body: #333333;
+  --color-muted: #667786;
+  --color-muted-strong: #3d4d59;
+  --color-brand: #1072ba;
+  --color-brand-deep: #0d5d98;
+  --color-brand-cool: #2dbee1;
+  --color-accent: #ec2227;
+  --color-footer-deep: #191919;
+  --color-focus: #1d4ed8;
+  --font-display: 'Raleway', ui-sans-serif, system-ui, sans-serif;
+  --font-body: 'Roboto', ui-sans-serif, system-ui, sans-serif;
+  --font-ui: 'Lato', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  --bs-body-font-family: var(--font-body);
+  --bs-body-color: var(--color-body);
+  --bs-body-bg: #edf3f8;
+  --bs-primary: var(--color-brand);
+  --bs-primary-rgb: 16, 114, 186;
+  --bs-primary-text-emphasis: #06436e;
+  --bs-primary-bg-subtle: #e7f3fb;
+  --bs-primary-border-subtle: #abd1e9;
+  --bs-link-color: var(--color-brand-deep);
+  --bs-link-color-rgb: 13, 93, 152;
+  --bs-link-hover-color: #093f67;
+  --bs-link-hover-color-rgb: 9, 63, 103;
+  --bs-border-color: #c9d8e3;
+  --bs-border-radius: 0.35rem;
+  --record-sidebar-width: 16rem;
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  overflow-x: hidden;
+  background: #edf3f8;
+  color: var(--color-body);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+.record-body h1,
+.record-body h2,
+.record-body h3,
+.record-body h4,
+.record-body h5,
+.record-body h6 {
+  color: var(--color-ink);
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.15;
+  text-wrap: balance;
+}
+
+.record-body :where(button, input, select, textarea) {
+  font: inherit;
+}
+
+.record-body :where(img, svg, video, canvas) {
+  max-inline-size: 100%;
+}
+
+.record-body :where(a, button, input, select, textarea, [tabindex]):focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 3px;
+}
+
+/* Bootstrap's compiled button variants carry their own color literals. Keep
+ * the official component behavior while mapping those variants to INSTAR's
+ * accessible brand and hover colors. */
+.record-body .btn-primary {
+  --bs-btn-bg: var(--color-brand);
+  --bs-btn-border-color: var(--color-brand);
+  --bs-btn-hover-bg: var(--color-brand-deep);
+  --bs-btn-hover-border-color: #093f67;
+  --bs-btn-active-bg: #093f67;
+  --bs-btn-active-border-color: #073653;
+  --bs-btn-disabled-bg: var(--color-brand);
+  --bs-btn-disabled-border-color: var(--color-brand);
+  --bs-btn-focus-shadow-rgb: 16, 114, 186;
+}
+
+.record-body .btn-outline-primary {
+  --bs-btn-color: var(--color-brand-deep);
+  --bs-btn-border-color: var(--color-brand);
+  --bs-btn-hover-bg: var(--color-brand);
+  --bs-btn-hover-border-color: var(--color-brand);
+  --bs-btn-active-bg: var(--color-brand-deep);
+  --bs-btn-active-border-color: var(--color-brand-deep);
+  --bs-btn-disabled-color: var(--color-brand-deep);
+  --bs-btn-disabled-border-color: var(--color-brand);
+  --bs-btn-focus-shadow-rgb: 16, 114, 186;
+}
+
+.record-body .progress-bar {
+  --bs-progress-bar-bg: var(--color-brand);
+}
+
+.record-body .skip-link {
+  position: fixed;
+  z-index: 1100;
+  inset-block-start: 0.75rem;
+  inset-inline-start: 0.75rem;
+  transform: translateY(-180%);
+  padding: 0.65rem 0.9rem;
+  color: #fff;
+  background: var(--color-footer-deep);
+  font-family: var(--font-ui);
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 160ms ease;
+}
+
+.record-body .skip-link:focus {
+  transform: translateY(0);
+}
+
+.record-main {
+  min-width: 0;
+  padding: 0;
+  background: #edf3f8;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .record-body .skip-link {
+    transition: none;
+  }
+}

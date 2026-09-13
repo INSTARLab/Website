@@ -1,0 +1,288 @@
+---
+import { csvDataHref, csvDocument } from './csv.mjs';
+import { lineSegments } from './line-segments.mjs';
+
+export interface LineDatum {
+  readonly period: string;
+  readonly value: number | null;
+}
+
+interface Props {
+  readonly title: string;
+  readonly data: readonly LineDatum[];
+  readonly unit?: string;
+  readonly source?: string;
+  readonly sourceHref?: string;
+  readonly description?: string;
+  readonly id?: string;
+  readonly emptyMessage?: string;
+}
+
+const { title, data, unit, source, sourceHref, description, id, emptyMessage = 'No observations are available for this period.' } = Astro.props;
+const chartId = id ?? `record-line-${title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')}`;
+const segments = lineSegments(data);
+const validData = segments.flat();
+const values = validData.map((item) => item.value as number);
+const rawMin = values.length ? Math.min(...values) : 0;
+const rawMax = values.length ? Math.max(...values) : 1;
+const padding = rawMin === rawMax ? Math.max(1, Math.abs(rawMin) * 0.1) : (rawMax - rawMin) * 0.1;
+const minValue = rawMin - padding;
+const maxValue = rawMax + padding;
+const width = 800;
+const height = 300;
+const left = 58;
+const right = 18;
+const top = 20;
+const bottom = 56;
+const innerWidth = width - left - right;
+const innerHeight = height - top - bottom;
+const xFor = (index: number) => left + (data.length <= 1 ? innerWidth / 2 : index / (data.length - 1) * innerWidth);
+const yFor = (value: number) => top + (maxValue - value) / (maxValue - minValue || 1) * innerHeight;
+const linePoints = segments.map((segment) => segment.map((item) => `${xFor(item.index)},${yFor(item.value)}`).join(' '));
+const formatValue = (value: number | null) => value === null || !Number.isFinite(value) ? 'Not reported' : value.toLocaleString('en-US');
+const csv = csvDocument([
+  ['Period', 'Value', ...(unit ? ['Unit'] : [])],
+  ...data.map((item) => [item.period, item.value ?? '', ...(unit ? [unit] : [])]),
+]);
+const csvHref = csvDataHref(csv);
+---
+
+<section class="record-line-chart" aria-labelledby={`${chartId}-title`} data-record-viz="line" data-record-viz-id={chartId}>
+  <header class="record-viz__header">
+    <div>
+      <h2 id={`${chartId}-title`} class="record-viz__title">{title}</h2>
+      {description && <p class="record-viz__description">{description}</p>}
+    </div>
+    <a class="record-viz__export" href={csvHref} download={`${chartId}.csv`}>Download CSV</a>
+  </header>
+
+  {data.length === 0 || validData.length === 0 ? (
+    <p class="record-viz__empty" role="status">{emptyMessage}</p>
+  ) : (
+    <>
+      <div class="record-viz__canvas-wrap">
+        <svg class="record-line-chart__svg" viewBox={`0 0 ${width} ${height}`} role="img" aria-labelledby={`${chartId}-svg-title ${chartId}-svg-description`}>
+          <title id={`${chartId}-svg-title`}>{title}</title>
+          <desc id={`${chartId}-svg-description`}>{description ?? `Line chart showing ${title.toLowerCase()} over time.`}</desc>
+          <g aria-hidden="true">
+            <line x1={left} y1={top} x2={left} y2={height - bottom} class="record-line-chart__axis" />
+            <line x1={left} y1={height - bottom} x2={width - right} y2={height - bottom} class="record-line-chart__axis" />
+            {linePoints.map((points) => <polyline points={points} class="record-line-chart__line" fill="none" />)}
+            {validData.map((item) => <circle cx={xFor(item.index)} cy={yFor(item.value)} r="5" class="record-line-chart__point" />)}
+          </g>
+        </svg>
+      </div>
+
+      <div class="record-line-chart__key" role="list" aria-label={`${title} periods`}>
+        {data.map((item) => (
+          <div class="record-line-chart__key-item" role="listitem">
+            <span>{item.period}</span>
+            <strong>{formatValue(item.value)}{unit && item.value !== null ? ` ${unit}` : ''}</strong>
+          </div>
+        ))}
+      </div>
+
+      <details class="record-viz__table-details">
+        <summary>View data table</summary>
+        <div class="record-viz__table-wrap" tabindex="0">
+          <table class="record-viz__table">
+            <caption>{title}</caption>
+            <thead><tr><th scope="col">Period</th><th scope="col">Value{unit && ` (${unit})`}</th></tr></thead>
+            <tbody>
+              {data.map((item) => <tr><th scope="row">{item.period}</th><td>{formatValue(item.value)}</td></tr>)}
+            </tbody>
+          </table>
+        </div>
+      </details>
+    </>
+  )}
+
+  {(source || unit) && (
+    <footer class="record-viz__footer">
+      {unit && <span>Unit: {unit}</span>}
+      {source && <span>Source: {sourceHref ? <a href={sourceHref}>{source}</a> : source}</span>}
+    </footer>
+  )}
+</section>
+
+<style>
+  .record-line-chart,
+  .record-viz__table-details {
+    color: #122535;
+    font-family: var(--font-ui, system-ui, sans-serif);
+  }
+
+  .record-viz__header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: start;
+    justify-content: space-between;
+    gap: 0.75rem 1.25rem;
+    margin-bottom: 1rem;
+  }
+
+  .record-viz__title {
+    margin: 0;
+    font-family: var(--font-display, system-ui, sans-serif);
+    font-size: clamp(1.1rem, 1.6vw, 1.45rem);
+    letter-spacing: -0.025em;
+    line-height: 1.15;
+  }
+
+  .record-viz__description,
+  .record-viz__footer,
+  .record-viz__empty {
+    color: #526675;
+    font-size: 0.8rem;
+    line-height: 1.5;
+  }
+
+  .record-viz__description {
+    max-width: 68ch;
+    margin: 0.45rem 0 0;
+  }
+
+  .record-viz__export {
+    flex: 0 0 auto;
+    padding: 0.4rem 0.65rem;
+    border: 1px solid #9ebdcc;
+    border-radius: 0.35rem;
+    color: #14627d;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  .record-viz__export:hover,
+  .record-viz__export:focus-visible {
+    border-color: #14627d;
+    background: #edf7fb;
+  }
+
+  .record-line-chart__svg {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .record-viz__canvas-wrap {
+    overflow: hidden;
+    padding-bottom: 0.35rem;
+  }
+
+  .record-line-chart__axis {
+    stroke: #9ebdcc;
+    stroke-width: 1;
+  }
+
+  .record-line-chart__line {
+    stroke: #176b8c;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 4;
+    vector-effect: non-scaling-stroke;
+  }
+
+  .record-line-chart__point {
+    fill: #fff;
+    stroke: #176b8c;
+    stroke-width: 3;
+    vector-effect: non-scaling-stroke;
+  }
+
+  .record-line-chart__key {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 7rem), 1fr));
+    gap: 0.5rem;
+    margin-top: 0.65rem;
+  }
+
+  .record-line-chart__key-item {
+    display: grid;
+    gap: 0.25rem;
+    min-width: 0;
+    padding: 0.55rem 0.65rem;
+    border: 1px solid #e4ebef;
+    border-radius: 0.35rem;
+    color: #526675;
+    font-size: 0.74rem;
+    line-height: 1.35;
+  }
+
+  .record-line-chart__key-item span {
+    overflow-wrap: anywhere;
+    font-weight: 700;
+  }
+
+  .record-line-chart__key-item strong {
+    color: #122535;
+    overflow-wrap: anywhere;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .record-viz__table-details {
+    margin-top: 0.9rem;
+    border-top: 1px solid #e4ebef;
+  }
+
+  .record-viz__table-details summary {
+    width: fit-content;
+    padding: 0.75rem 0;
+    color: #14627d;
+    cursor: pointer;
+    font-size: 0.78rem;
+    font-weight: 700;
+  }
+
+  .record-viz__table-wrap {
+    overflow-x: auto;
+  }
+
+  .record-viz__table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.8rem;
+  }
+
+  .record-viz__table th,
+  .record-viz__table td {
+    padding: 0.65rem 0.55rem;
+    border-bottom: 1px solid #e4ebef;
+    text-align: left;
+  }
+
+  .record-viz__table td {
+    font-variant-numeric: tabular-nums;
+    text-align: right;
+  }
+
+  .record-viz__footer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem 1rem;
+    margin-top: 1rem;
+    padding-top: 0.8rem;
+    border-top: 1px solid #e4ebef;
+  }
+
+  .record-viz__footer a,
+  .record-viz__table a {
+    color: #14627d;
+    text-underline-offset: 0.18em;
+  }
+
+  .record-viz__empty {
+    margin: 0;
+    padding: 1rem;
+    border: 1px dashed #9ebdcc;
+    border-radius: 0.4rem;
+    background: #f7fafc;
+  }
+
+  @media (max-width: 40rem) {
+    .record-viz__export {
+      width: 100%;
+      text-align: center;
+    }
+  }
+</style>

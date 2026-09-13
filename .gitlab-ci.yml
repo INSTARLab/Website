@@ -16,7 +16,7 @@ pages:
   before_script:
     # Shared runners are unprivileged, so Corepack cannot write under
     # /usr/local/bin. Run the pinned pnpm release from npx's user cache.
-    - npx --yes --package=pnpm@11.22.0 pnpm --version
+    - npx --yes --package=pnpm@12.4.1 pnpm --version
   script:
     # Project Pages is served below /Website/. Keep the custom-domain and
     # local builds at /, but make every generated asset and route URL point at
@@ -24,8 +24,8 @@ pages:
     # instance root (which redirects protected paths to OAuth).
     - export ASTRO_BASE="$(node scripts/quality/resolve-pages-base.mjs)"
     - echo "Building GitLab Pages with base ${ASTRO_BASE}"
-    - npx --yes --package=pnpm@11.22.0 pnpm install --frozen-lockfile
-    - npx --yes --package=pnpm@11.22.0 pnpm run build
+    - npx --yes --package=pnpm@12.4.1 pnpm install --frozen-lockfile
+    - npx --yes --package=pnpm@12.4.1 pnpm run build
     - test -f dist/.nojekyll
     - test -d dist/assets
     - test -n "$(find dist/assets -maxdepth 1 -type f -name '*.css' -print -quit)"
@@ -86,12 +86,12 @@ mirror:
         exit 1
       fi
       git --version
-    - npx --yes --package=pnpm@11.22.0 pnpm --version
+    - npx --yes --package=pnpm@12.4.1 pnpm --version
   script:
     # Do not expose the GitHub write token to dependency or build scripts.
-    - env -u GITHUB_TOKEN npx --yes --package=pnpm@11.22.0 pnpm install --frozen-lockfile
+    - env -u GITHUB_TOKEN npx --yes --package=pnpm@12.4.1 pnpm install --frozen-lockfile
     - echo "Building GitHub Pages artifact with ASTRO_BASE=${ASTRO_BASE}"
-    - env -u GITHUB_TOKEN ASTRO_BASE=/ npx --yes --package=pnpm@11.22.0 pnpm run build
+    - env -u GITHUB_TOKEN ASTRO_BASE=/ npx --yes --package=pnpm@12.4.1 pnpm run build
     - |
       set -euo pipefail
       test -d dist

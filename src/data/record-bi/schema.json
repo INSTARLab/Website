@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "description": "Defined public aggregate metrics for the INSTAR Lab Record Room. A data owner must approve a definition and provide a sourced snapshot before publication.",
+  "metrics": [
+    {
+      "id": "funding-awarded",
+      "domain": "funding",
+      "label": "Funding awarded",
+      "description": "The value of publicly approved awards in the stated period and category.",
+      "valueType": "currency",
+      "unit": "USD",
+      "aggregation": "sum",
+      "dimensions": ["category"],
+      "grain": "one category per non-overlapping reporting period",
+      "temporalKind": "period",
+      "population": "Publicly disclosed awards whose award date falls inside the observation period.",
+      "exclusions": "This is not revenue, cash received, expenditure, a commitment, or an estimate of undisclosed awards."
+    },
+    {
+      "id": "active-research-projects",
+      "domain": "research-projects",
+      "label": "Active research projects",
+      "description": "The count of approved research projects active at the stated as-of date.",
+      "valueType": "integer",
+      "unit": "projects",
+      "aggregation": "count",
+      "dimensions": ["domain", "status"],
+      "grain": "one domain and status combination at one as-of date",
+      "temporalKind": "asOf",
+      "population": "Distinct public research projects with an approved active status at the as-of date.",
+      "exclusions": "This is not a count of website pages, publications, people, proposals, or awards."
+    },
+    {
+      "id": "completed-research-outputs",
+      "domain": "research-outputs",
+      "label": "Completed research outputs",
+      "description": "The count of approved research outputs completed in the stated period and type.",
+      "valueType": "integer",
+      "unit": "outputs",
+      "aggregation": "count",
+      "dimensions": ["type"],
+      "grain": "one output type per non-overlapping reporting period",
+      "temporalKind": "period",
+      "population": "Distinct public research outputs marked complete during the observation period.",
+      "exclusions": "This is not a count of routes, page views, downloads, citations, or outcomes."
+    },
+    {
+      "id": "active-institutional-partnerships",
+      "domain": "institutional-partnerships",
+      "label": "Active institutional partnerships",
+      "description": "The count of approved institutional partnerships active at the stated as-of date.",
+      "valueType": "integer",
+      "unit": "partnerships",
+      "aggregation": "count",
+      "dimensions": ["category"],
+      "grain": "one partnership category at one as-of date",
+      "temporalKind": "asOf",
+      "population": "Distinct public institutional partnerships with an approved active status at the as-of date.",
+      "exclusions": "This is not a count of contacts, prospects, vendors, customers, or informal conversations."
+    }
+  ]
+}

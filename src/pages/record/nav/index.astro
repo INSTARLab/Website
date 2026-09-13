@@ -1,0 +1,104 @@
+---
+import RecordDocument from '../../../components/record/RecordDocument.astro';
+import BarChart from '../../../components/record/viz/BarChart.astro';
+import { recordHref, recordRouteAtPath, sitePageRecords } from '../../../data/record';
+
+const route = recordRouteAtPath('/record/nav/');
+const familyOrder = ['Home', 'Core', 'Research', 'Technology', 'Sciences', 'Community', 'Labs', 'Research brief', 'Fellowship', 'Tech transfer', 'Public record'];
+const families = [...new Set(sitePageRecords.map((entry) => entry.family))].sort((left, right) => {
+  const rank = (family: string) => { const index = familyOrder.findIndex((label) => label.toLowerCase() === family.toLowerCase()); return index < 0 ? familyOrder.length : index; };
+  return rank(left) - rank(right) || left.localeCompare(right);
+});
+const familyCounts = families.map((family) => ({ family, count: sitePageRecords.filter((entry) => entry.family === family).length }));
+const familyBars = familyCounts.map((entry) => ({ label: entry.family, value: entry.count }));
+const routeKindLabel = (kind: (typeof sitePageRecords)[number]['kind']) => ({ core: 'Core', editorial: 'Editorial', section: 'Section', record: 'Record' })[kind];
+---
+
+<RecordDocument {route}>
+  <div class="container-fluid px-0">
+    <section class="record-section mt-5" aria-labelledby="nav-distribution-title">
+      <div class="row g-4">
+        <div class="col-12 col-xl-7">
+          <div class="card h-100 shadow-sm">
+            <div class="card-body p-4">
+              <div class="d-flex flex-wrap justify-content-between align-items-baseline gap-2 mb-3"><div><p class="record-section__label mb-2">Distribution</p><h2 id="nav-distribution-title" class="h3 mb-0">Routes by family</h2></div><span class="badge text-bg-light">{sitePageRecords.length} routes</span></div>
+              <BarChart title="Routes by family" items={familyBars} description="Each bar is a count of source-derived routes." source="Route manifests (SRC-002)" sourceHref={recordHref('/record/verify/')} />
+              <a class="small" href={recordHref('/record/metrics/')}>Compare the inventory measures.</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-xl-5">
+          <div class="card h-100 shadow-sm">
+            <div class="card-body p-4">
+              <p class="record-section__label mb-2">Legend</p>
+              <h2 class="h3 mb-3">Route kinds</h2>
+              <dl class="row gy-3 mb-0 small">
+                <dt class="col-4">Core</dt><dd class="col-8 mb-0">Primary site pages from the core route manifest.</dd>
+                <dt class="col-4">Editorial</dt><dd class="col-8 mb-0">Article and publication routes.</dd>
+                <dt class="col-4">Section</dt><dd class="col-8 mb-0">Family index routes representing a larger area.</dd>
+                <dt class="col-4">Record</dt><dd class="col-8 mb-0">Pages in this public record room.</dd>
+              </dl>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="record-section mt-5" aria-labelledby="nav-table-title">
+      <div class="card shadow-sm">
+        <div class="card-body p-4">
+          <div class="d-flex flex-wrap justify-content-between align-items-end gap-3 mb-4">
+            <div><p class="record-section__label mb-2">Searchable inventory</p><h2 id="nav-table-title" class="h3 mb-0">Find a route</h2></div>
+            <p class="small text-body-secondary mb-0" data-route-count role="status" aria-live="polite">{sitePageRecords.length} routes</p>
+          </div>
+          <form class="row g-3 align-items-end mb-4" role="search" onsubmit="return false">
+            <div class="col-12 col-lg-7"><label class="form-label" for="record-route-filter">Search by path, title, family, or description</label><input id="record-route-filter" class="form-control" type="search" placeholder="Try research, fellowship, news…" autocomplete="off" data-route-filter /></div>
+            <div class="col-12 col-lg-5"><label class="form-label" for="record-family-filter">Filter by family</label><select id="record-family-filter" class="form-select" data-family-filter><option value="">All families</option>{families.map((family) => <option value={family}>{family}</option>)}</select></div>
+          </form>
+          <div class="table-responsive" tabindex="0" role="region" aria-label="Complete public route inventory">
+            <table class="table table-hover align-middle mb-0">
+              <caption class="visually-hidden">Complete public route inventory</caption>
+              <thead><tr><th scope="col">Route</th><th scope="col">Family</th><th scope="col">Kind</th><th scope="col">Indexability</th><th scope="col">Description</th></tr></thead>
+              <tbody data-route-list>
+                {families.flatMap((family) => sitePageRecords.filter((entry) => entry.family === family).map((entry) => (
+                  <tr data-route-item data-family={entry.family} data-search-text={`${entry.path} ${entry.title} ${entry.family} ${entry.description}`}>
+                    <th scope="row"><a href={recordHref(entry.path)}>{entry.title}</a><code class="d-block small text-body-secondary mt-1">{entry.path}</code></th>
+                    <td>{entry.family}</td>
+                    <td>{routeKindLabel(entry.kind)}</td>
+                    <td><span class:list={['badge', entry.indexable ? 'text-bg-success' : 'text-bg-secondary']}>{entry.indexable ? 'Indexable' : 'Noindex'}</span></td>
+                    <td class="small text-body-secondary">{entry.description}</td>
+                  </tr>
+                )))}
+              </tbody>
+            </table>
+          </div>
+          <p class="small text-body-secondary mt-3 mb-0">Search is an enhancement. The HTML table above contains the complete list at build time.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+</RecordDocument>
+
+<script>
+  const filter = document.querySelector<HTMLInputElement>('[data-route-filter]');
+  const familyFilter = document.querySelector<HTMLSelectElement>('[data-family-filter]');
+  const items = [...document.querySelectorAll<HTMLTableRowElement>('[data-route-item]')];
+  const count = document.querySelector<HTMLElement>('[data-route-count]');
+
+  const updateRouteList = () => {
+    const query = filter?.value.trim().toLowerCase() ?? '';
+    const family = familyFilter?.value ?? '';
+    let visible = 0;
+    items.forEach((item) => {
+      const matchesQuery = !query || item.dataset.searchText?.toLowerCase().includes(query);
+      const matchesFamily = !family || item.dataset.family === family;
+      const matches = Boolean(matchesQuery && matchesFamily);
+      item.hidden = !matches;
+      if (matches) visible += 1;
+    });
+    if (count) count.textContent = `${visible} route${visible === 1 ? '' : 's'}`;
+  };
+
+  filter?.addEventListener('input', updateRouteList);
+  familyFilter?.addEventListener('change', updateRouteList);
+</script>

@@ -1,0 +1,146 @@
+---
+import RecordDocument from '../../../components/record/RecordDocument.astro';
+import BarChart from '../../../components/record/viz/BarChart.astro';
+import { recordHref, recordMeta, recordRouteAtPath, recordStats } from '../../../data/record';
+import { recordBiIsStale, recordBiMetricDefinitions, recordBiObservations, recordBiSnapshot } from '../../../data/record-bi';
+import {
+  aggregateMetricObservations,
+  observationDimensionsLabel,
+  observationPeriodKey,
+  observationSourceLabel,
+  periodLabel,
+} from '../../../data/record-bi/selectors.mjs';
+
+const route = recordRouteAtPath('/record/ops/');
+
+const metricPanels = recordBiMetricDefinitions.flatMap((definition) => {
+  const aggregates = aggregateMetricObservations(definition, recordBiObservations);
+  if (aggregates.length === 0) {
+    return [{ definition, periodKey: '', categoryKey: '', title: definition.label, description: definition.description, items: [], source: `${recordBiSnapshot.source.label} · ${recordBiSnapshot.source.locator}` }];
+  }
+  return aggregates.map((observation) => ({
+    definition,
+    observations: observation.observations ?? [observation],
+    periodKey: observationPeriodKey(observation),
+    categoryKey: observationDimensionsLabel(observation),
+    title: `${definition.label} · ${observationDimensionsLabel(observation)}`,
+    description: (() => {
+      const sourceObservations = observation.observations ?? [observation];
+      const freshness = observation.value === null
+        ? `Not reported${observation.unavailableReason ? `: ${observation.unavailableReason}` : ''}`
+        : sourceObservations.every((entry) => recordBiIsStale(entry))
+          ? 'Stale'
+          : sourceObservations.some((entry) => recordBiIsStale(entry))
+            ? 'Mixed freshness'
+            : 'Current';
+      const reviewDates = [...new Set(sourceObservations.map((entry) => entry.nextReviewDate).filter(Boolean))].join(', ');
+      return `${definition.description} Observation period: ${periodLabel(observation)}. Status: ${freshness}. Review date: ${reviewDates || 'Not recorded'}. Values are aggregated at the declared dimension grain; unavailable values remain unavailable.`;
+    })(),
+    items: [{ label: periodLabel(observation), value: observation.value }],
+    source: observationSourceLabel(observation.observations ?? [observation]),
+  }));
+});
+const periods = [...new Set(metricPanels.flatMap((panel) => panel.periodKey ? [panel.periodKey] : []))];
+const categories = [...new Set(metricPanels.flatMap((panel) => panel.categoryKey ? [panel.categoryKey] : []))];
+const hasPublishedObservations = recordBiObservations.some((observation) => observation.value !== null);
+const biHeading = hasPublishedObservations ? 'Operational measures by period and category' : 'Operational data is not published in this snapshot';
+const biLead = hasPublishedObservations ? 'Use the filters to inspect each approved observation. Each chart is aggregated at the metric definition grain and keeps its period, category, source, and downloadable table.' : recordBiSnapshot.note ?? 'No approved operational snapshot is loaded.';
+
+const deliveryConfig = [
+  { area: 'Build output', value: recordStats.buildSurface, evidence: 'Declared by the static site build configuration.' },
+  { area: 'Record data endpoints', value: `${recordMeta.generatedFiles.length} static JSON endpoints`, evidence: 'Declared by the public record manifest.' },
+  { area: 'Record room pages', value: `${recordStats.recordPages} route pages`, evidence: 'Counted from the public record route manifest.' },
+  { area: 'Private submissions', value: 'No private submission surface is declared for this room.', evidence: 'Record room routes are read-only public output.' },
+] as const;
+
+const checkBoundaries = [
+  { check: 'Repository type check', state: 'Not asserted in this page snapshot', note: 'Run the repository check during release validation.' },
+  { check: 'Production build', state: 'Not asserted in this page snapshot', note: 'A local build does not prove deployed HTTP behavior.' },
+  { check: 'Browser and accessibility path', state: 'Not asserted in this page snapshot', note: 'Exercise the sidebar, filters, charts, tables, and no-JavaScript path in browser QA.' },
+  { check: 'Operational BI snapshot', state: recordBiSnapshot.status === 'published' ? 'Published snapshot present' : 'Not reported', note: recordBiSnapshot.note ?? 'Snapshot status and approval metadata are shown in the chart sources.' },
+] as const;
+---
+
+<RecordDocument {route}>
+  <div class="container-fluid px-0">
+    <section class="record-section mt-5" aria-labelledby="ops-business-title">
+      <div class="d-flex flex-wrap justify-content-between align-items-end gap-3 mb-3">
+        <div><p class="record-section__label mb-2">Operational BI</p><h2 id="ops-business-title" class="h3 mb-2">{biHeading}</h2><p class="mb-0 text-body-secondary">{biLead}</p></div>
+        <a class="btn btn-outline-primary" href={recordHref('/record/verify/')}>Review evidence limits</a>
+      </div>
+      <form class="row g-3 align-items-end mb-4" data-bi-filter-form onsubmit="return false">
+        <div class="col-12 col-md-6"><label class="form-label" for="record-bi-period">Period</label><select class="form-select" id="record-bi-period" data-bi-period><option value="">All periods</option>{periods.map((period) => <option value={period}>{period.replace('/', ' to ')}</option>)}</select></div>
+        <div class="col-12 col-md-6"><label class="form-label" for="record-bi-category">Category or dimension</label><select class="form-select" id="record-bi-category" data-bi-category><option value="">All categories</option>{categories.map((category) => <option value={category}>{category}</option>)}</select></div>
+        <div class="col-12"><p class="small text-body-secondary mb-0" data-bi-filter-count>{metricPanels.length} metric views</p></div>
+      </form>
+      <div class="row g-4" data-bi-panels>
+        {metricPanels.map((panel, index) => (
+          <div class="col-12 col-xl-6" data-bi-panel data-bi-period={panel.periodKey} data-bi-category={panel.categoryKey}>
+            <div class="card h-100 shadow-sm"><div class="card-body p-4">
+              <BarChart id={`record-bi-${panel.definition.id}-${index}`} title={panel.title} items={panel.items} unit={panel.definition.unit} description={panel.description} source={panel.source} sourceHref={recordHref('/record/verify/')} />
+              {panel.items.length === 0 && <p class="small text-body-secondary mb-0">The schema defines this measure, but the current snapshot has no publishable observation.</p>}
+            </div></div>
+          </div>
+        ))}
+      </div>
+      <p class="small text-body-secondary mt-3 mb-0">The full snapshot, definitions, and approval fields are available at <a href={recordHref('/record/bi.json')}>/record/bi.json</a>.</p>
+    </section>
+
+    <section class="record-section mt-5" aria-labelledby="ops-config-title">
+      <div class="d-flex flex-wrap justify-content-between align-items-end gap-3 mb-3"><div><p class="record-section__label mb-2">Declared configuration</p><h2 id="ops-config-title" class="h3 mb-0">How this record room is delivered</h2></div><span class="badge text-bg-light">Repository source</span></div>
+      <div class="table-responsive">
+        <table class="table table-striped align-middle">
+          <caption class="caption-top">Declared delivery configuration</caption>
+          <thead><tr><th scope="col">Area</th><th scope="col">Declared value</th><th scope="col">Evidence boundary</th></tr></thead>
+          <tbody>{deliveryConfig.map((entry) => <tr><th scope="row">{entry.area}</th><td>{entry.value}</td><td class="small text-body-secondary">{entry.evidence}</td></tr>)}</tbody>
+        </table>
+      </div>
+      <p class="small text-body-secondary mt-3 mb-0">The configuration table describes the source graph and static output contract. It does not certify a deployed host, external form delivery, or production uptime.</p>
+    </section>
+
+    <section class="record-section mt-5" aria-labelledby="ops-check-title">
+      <div class="d-flex flex-wrap justify-content-between align-items-end gap-3 mb-3"><div><p class="record-section__label mb-2">Validation boundary</p><h2 id="ops-check-title" class="h3 mb-0">Checks require their own evidence</h2></div><span class="badge text-bg-warning">No pass asserted</span></div>
+      <div class="table-responsive">
+        <table class="table table-hover align-middle">
+          <caption class="caption-top">Release and operational check boundaries</caption>
+          <thead><tr><th scope="col">Check</th><th scope="col">Page state</th><th scope="col">What to do next</th></tr></thead>
+          <tbody>{checkBoundaries.map((entry) => <tr><th scope="row">{entry.check}</th><td><span class="badge text-bg-secondary">{entry.state}</span></td><td class="small text-body-secondary">{entry.note}</td></tr>)}</tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="record-section mt-5" aria-labelledby="ops-next-title">
+      <div class="card border-primary-subtle bg-primary-subtle">
+        <div class="card-body p-4 p-lg-5">
+          <p class="record-section__label mb-2">Next evidence step</p>
+          <h2 id="ops-next-title" class="h3 mb-2">Keep operational values dated, sourced, and reviewable.</h2>
+          <p class="mb-3">When data owners update the approved snapshot, the filters and per-observation charts update with it. Release checks remain separate evidence.</p>
+          <div class="d-flex flex-wrap gap-2"><a class="btn btn-primary" href={recordHref('/record/metrics/')}>Inspect site metrics</a><a class="btn btn-outline-primary" href={recordHref('/record/verify/')}>Open source register</a></div>
+        </div>
+      </div>
+    </section>
+  </div>
+</RecordDocument>
+
+<script>
+  const periodFilter = document.querySelector<HTMLSelectElement>('[data-bi-period]');
+  const categoryFilter = document.querySelector<HTMLSelectElement>('[data-bi-category]');
+  const panels = [...document.querySelectorAll<HTMLElement>('[data-bi-panel]')];
+  const count = document.querySelector<HTMLElement>('[data-bi-filter-count]');
+
+  const updatePanels = () => {
+    const period = periodFilter?.value ?? '';
+    const category = categoryFilter?.value ?? '';
+    let visible = 0;
+    panels.forEach((panel) => {
+      const isEmptyPanel = !panel.dataset.biPeriod && !panel.dataset.biCategory;
+      const matches = isEmptyPanel || ((!period || panel.dataset.biPeriod === period) && (!category || panel.dataset.biCategory === category));
+      panel.hidden = !matches;
+      if (matches) visible += 1;
+    });
+    if (count) count.textContent = `${visible} metric view${visible === 1 ? '' : 's'}`;
+  };
+
+  periodFilter?.addEventListener('change', updatePanels);
+  categoryFilter?.addEventListener('change', updatePanels);
+</script>

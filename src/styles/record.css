@@ -1,0 +1,1306 @@
+/* Record room presentation styles. This file is loaded after Bootstrap so
+ * the existing route components can use their stable record-* classes while
+ * the shell uses Bootstrap's documented primitives. */
+  .record-body {
+    background: #edf3f8;
+  }
+
+  .record-main {
+    padding: 0;
+    background: #edf3f8;
+  }
+
+  .record-app {
+    display: grid;
+    grid-template-columns: minmax(14rem, 15.5rem) minmax(0, 1fr);
+    min-height: 70rem;
+    color: var(--color-ink);
+  }
+
+  .record-sidebar {
+    display: flex;
+    flex-direction: column;
+    position: sticky;
+    inset-block-start: var(--layout-chrome-offset);
+    align-self: start;
+    block-size: calc(100vh - var(--layout-chrome-offset));
+    max-block-size: calc(100vh - var(--layout-chrome-offset));
+    min-width: 0;
+    overflow-y: auto;
+    border-inline-end: 1px solid #c9d8e3;
+    background: #f7fafc;
+    overscroll-behavior: contain;
+    scrollbar-color: #9eb8c9 transparent;
+  }
+
+  .record-sidebar__intro {
+    padding: 1rem 1.1rem 1.1rem;
+    border-block-end: 1px solid #c9d8e3;
+  }
+
+  .record-sidebar__brand {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    color: var(--color-ink);
+    text-decoration: none;
+  }
+
+  .record-sidebar__mark {
+    display: grid;
+    width: 2.1rem;
+    height: 2.1rem;
+    place-items: center;
+    border-radius: 0.3rem;
+    background: var(--color-brand);
+    color: #fff;
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    font-weight: 700;
+  }
+
+  .record-sidebar__brand strong,
+  .record-sidebar__brand small {
+    display: block;
+  }
+
+  .record-sidebar__brand strong {
+    font-family: var(--font-display);
+    font-size: 1rem;
+  }
+
+  .record-sidebar__brand small {
+    margin-block-start: 0.1rem;
+    color: var(--color-muted);
+    font-family: var(--font-ui);
+    font-size: 0.68rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .record-sidebar__intro p {
+    margin-block-start: 0.8rem;
+    color: var(--color-muted-strong);
+    font-size: 0.82rem;
+    line-height: 1.5;
+  }
+
+  .record-sidebar nav {
+    padding: 0.95rem 0.7rem;
+  }
+
+  .record-sidebar__label,
+  .record-section__label,
+  .record-document__eyebrow,
+  .record-document__meta,
+  .record-stat__label,
+  .record-table th,
+  .record-status,
+  .record-kicker {
+    font-family: var(--font-ui);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    line-height: 1.35;
+    text-transform: uppercase;
+  }
+
+  .record-sidebar__label {
+    margin: 0 0 0.55rem 0.55rem;
+    color: var(--color-muted);
+  }
+
+  .record-sidebar__nav {
+    display: grid;
+    gap: 0.18rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .record-sidebar__nav a {
+    display: grid;
+    grid-template-columns: 2rem minmax(0, 1fr);
+    align-items: center;
+    gap: 0.55rem;
+    min-block-size: 2.75rem;
+    padding: 0.45rem 0.55rem;
+    border-radius: 0.25rem;
+    color: var(--color-muted-strong);
+    font-family: var(--font-ui);
+    font-size: 0.83rem;
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  .record-sidebar__nav a:hover,
+  .record-sidebar__nav-item--current a {
+    background: #e3f1f8;
+    color: var(--color-brand-deep);
+  }
+
+  .record-sidebar__number {
+    color: var(--color-brand);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .record-sidebar__nav-item--current .record-sidebar__number {
+    color: #a61b1b;
+  }
+
+  .record-sidebar__footer {
+    display: grid;
+    gap: 0.6rem;
+    margin-block-start: auto;
+    padding: 1rem 1.1rem 1.25rem;
+    border-block-start: 1px solid #c9d8e3;
+  }
+
+  .record-sidebar__footer a,
+  .record-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    width: fit-content;
+    color: var(--color-brand-deep);
+    font-family: var(--font-ui);
+    font-size: 0.82rem;
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  .record-sidebar__footer a:hover,
+  .record-link:hover {
+    color: #a61b1b;
+    text-decoration: underline;
+  }
+
+  .record-document {
+    min-width: 0;
+    background: var(--color-canvas);
+  }
+
+  .record-document__header {
+    padding: clamp(1.1rem, 2.4vw, 2rem) clamp(1.2rem, 3vw, 3.75rem) 1.2rem;
+    border-block-end: 1px solid #c9d8e3;
+    background: #fff;
+  }
+
+  .record-document__eyebrow {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.45rem 1rem;
+    color: var(--color-brand-deep);
+  }
+
+  .record-document__sequence {
+    color: var(--color-muted);
+  }
+
+  .record-document__status {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    color: #237a58;
+  }
+
+  .record-document__status i {
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    background: currentColor;
+  }
+
+  .record-document__heading {
+    margin-block-start: 0.55rem;
+  }
+
+  .record-document h1 {
+    max-width: 24ch;
+    margin: 0;
+    color: var(--color-ink);
+    font-size: clamp(2rem, 3.5vw, 4rem);
+    letter-spacing: -0.045em;
+    line-height: 1;
+  }
+
+  .record-document__description {
+    max-width: 62ch;
+    margin-block-start: 0.75rem;
+    color: var(--color-muted-strong);
+    font-size: clamp(1rem, 1.1vw, 1.14rem);
+    line-height: 1.5;
+  }
+
+  .record-document__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1rem;
+    margin-block-start: 1rem;
+    padding-block-start: 0.65rem;
+    border-block-start: 1px solid #e0e8ed;
+    color: var(--color-muted);
+  }
+
+  .record-document__body {
+    padding: clamp(1.5rem, 3vw, 3.25rem) clamp(1.2rem, 3vw, 3.75rem) clamp(3rem, 6vw, 6rem);
+  }
+
+  .record-section {
+    max-inline-size: 90rem;
+    margin-inline: auto;
+  }
+
+  .record-section + .record-section {
+    margin-block-start: 3rem;
+  }
+
+  .record-section__heading {
+    display: grid;
+    grid-template-columns: minmax(7rem, 0.22fr) minmax(0, 1fr);
+    gap: clamp(1rem, 2.8vw, 3.5rem);
+    align-items: start;
+    margin-block-end: 1.35rem;
+    padding-block-start: 0.7rem;
+    border-block-start: 2px solid var(--color-brand);
+  }
+
+  .record-section__label,
+  .record-kicker {
+    color: var(--color-brand-deep);
+  }
+
+  .record-section p {
+    max-width: 70ch;
+    color: var(--color-muted-strong);
+  }
+
+  .record-section__lede {
+    margin-block-start: 0.7rem;
+    font-size: 1rem;
+    line-height: 1.55;
+  }
+
+  .record-grid {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: 0.8rem;
+  }
+
+  .record-card,
+  .record-stat,
+  .record-callout,
+  .record-table-wrap,
+  .record-route-row,
+  .record-source {
+    border: 1px solid #c9d8e3;
+    background: #fff;
+  }
+
+  .record-card {
+    grid-column: span 4;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    padding: 1rem 1.05rem 1.15rem;
+  }
+
+  .record-card--wide {
+    grid-column: span 6;
+  }
+
+  .record-card__number {
+    display: block;
+    margin-block-end: 1.35rem;
+    color: var(--color-brand);
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 700;
+  }
+
+  .record-card p {
+    margin-block-start: 0.55rem;
+    font-size: 0.92rem;
+    line-height: 1.5;
+  }
+
+  .record-card .record-link {
+    margin-block-start: auto;
+    padding-block-start: 1rem;
+  }
+
+  .record-stats {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.8rem;
+  }
+
+  .record-stat {
+    padding: 0.9rem 1rem 1rem;
+  }
+
+  .record-stat__value {
+    display: block;
+    margin-block: 0.65rem 0.3rem;
+    color: var(--color-brand-deep);
+    font-family: var(--font-display);
+    font-size: clamp(1.9rem, 3.5vw, 3.1rem);
+    font-weight: 700;
+    letter-spacing: -0.06em;
+    line-height: 0.9;
+  }
+
+  .record-stat__label {
+    color: var(--color-muted);
+  }
+
+  .record-table-wrap {
+    overflow-x: auto;
+  }
+
+  .record-table-wrap:focus-visible {
+    outline: 3px solid var(--color-focus);
+    outline-offset: 3px;
+  }
+
+  .record-body .site-footer__panel h2,
+  .record-body .site-footer__panel h3 {
+    color: #fff !important;
+  }
+
+  .record-table {
+    width: 100%;
+    min-width: 42rem;
+    border-collapse: collapse;
+    color: var(--color-muted-strong);
+    font-size: 0.9rem;
+    line-height: 1.45;
+  }
+
+  .record-table caption {
+    padding: 0.9rem 1rem;
+    color: var(--color-muted);
+    font-family: var(--font-ui);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-align: left;
+    text-transform: uppercase;
+  }
+
+  .record-table th,
+  .record-table td {
+    padding: 0.85rem 1rem;
+    border-block-start: 1px solid #dce6ec;
+    vertical-align: top;
+    text-align: left;
+  }
+
+  .record-table th {
+    color: var(--color-muted);
+    white-space: nowrap;
+  }
+
+  .record-table code,
+  .record-code {
+    overflow-wrap: anywhere;
+    color: var(--color-brand-deep);
+    font-family: var(--font-mono);
+    font-size: 0.8em;
+  }
+
+  .record-status {
+    display: inline-flex;
+    padding: 0.25rem 0.45rem;
+    border: 1px solid currentColor;
+    border-radius: 0.2rem;
+    color: #237a58;
+    font-size: 0.64rem;
+    letter-spacing: 0.06em;
+  }
+
+  .record-status--review {
+    color: #986800;
+  }
+
+  .record-status--private {
+    color: #a33c34;
+  }
+
+  .record-callout {
+    padding: clamp(1.1rem, 2.5vw, 2rem);
+    border-inline-start: 0.35rem solid var(--color-brand);
+    background: #eaf5fa;
+  }
+
+  .record-callout--dark {
+    border-color: var(--color-footer-deep);
+    background: var(--color-footer-deep);
+    color: #fff;
+  }
+
+  .record-callout--dark p,
+  .record-callout--dark h3 {
+    color: #fff;
+  }
+
+  .record-callout h3 {
+    margin-block-end: 0.5rem;
+  }
+
+  .record-callout p {
+    font-size: 0.94rem;
+    line-height: 1.55;
+  }
+
+  .record-list {
+    display: grid;
+    gap: 0.6rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .record-list li {
+    display: grid;
+    grid-template-columns: 2.2rem minmax(0, 1fr);
+    gap: 0.75rem;
+    padding-block: 0.75rem;
+    border-block-start: 1px solid #dce6ec;
+  }
+
+  .record-list__number {
+    color: var(--color-brand);
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+  }
+
+  .record-list strong {
+    display: block;
+    color: var(--color-ink);
+  }
+
+  .record-list p {
+    margin-block-start: 0.25rem;
+    font-size: 0.92rem;
+  }
+
+  .record-route-list {
+    display: grid;
+    gap: 0.4rem;
+  }
+
+  .record-route-row {
+    display: grid;
+    grid-template-columns: 2.8rem minmax(12rem, 0.75fr) minmax(16rem, 1.6fr) auto;
+    align-items: start;
+    gap: 1rem;
+    padding: 0.85rem 1rem;
+  }
+
+  .record-route-row:hover {
+    border-color: var(--color-brand);
+    background: #f4fbfe;
+  }
+
+  .record-route-row__number {
+    color: var(--color-brand);
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+  }
+
+  .record-route-row__title {
+    color: var(--color-ink);
+    font-family: var(--font-ui);
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  .record-route-row__title:hover {
+    color: #a61b1b;
+    text-decoration: underline;
+  }
+
+  .record-route-row__path,
+  .record-route-row__description {
+    display: block;
+    overflow-wrap: anywhere;
+    color: var(--color-muted);
+    font-size: 0.82rem;
+  }
+
+  .record-route-row__description {
+    line-height: 1.45;
+  }
+
+  .record-filter {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: end;
+    gap: 1rem;
+    margin-block-end: 1rem;
+    padding: 0.85rem 1rem;
+    border: 1px solid #c9d8e3;
+    background: #f7fafc;
+  }
+
+  .record-filter label {
+    display: grid;
+    gap: 0.35rem;
+    color: var(--color-muted);
+    font-family: var(--font-ui);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .record-filter input {
+    min-height: 2.75rem;
+    padding-inline: 0.75rem;
+    border-color: #b6cbd8;
+    background: #fff;
+  }
+
+  .record-filter__count {
+    margin: 0;
+    color: var(--color-muted);
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    white-space: nowrap;
+  }
+
+  .record-visual-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.8rem;
+  }
+
+  .record-visual {
+    overflow: hidden;
+    border: 1px solid #c9d8e3;
+    background: #fff;
+  }
+
+  .record-visual a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .record-visual img {
+    width: 100%;
+    aspect-ratio: 16 / 8;
+    object-fit: cover;
+    object-position: center;
+    border-block-end: 1px solid #c9d8e3;
+  }
+
+  .record-visual__body {
+    padding: 0.95rem;
+  }
+
+  .record-visual h3 {
+    font-size: 1rem;
+  }
+
+  .record-visual p {
+    margin-block-start: 0.45rem;
+    font-size: 0.83rem;
+    line-height: 1.45;
+  }
+
+  .record-swatch-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.7rem;
+  }
+
+  .record-swatch {
+    min-height: 7rem;
+    padding: 0.75rem;
+    border: 1px solid #c9d8e3;
+  }
+
+  .record-swatch__color {
+    display: block;
+    height: 3rem;
+    margin-block-end: 0.7rem;
+  }
+
+  .record-swatch strong,
+  .record-swatch code {
+    display: block;
+    font-size: 0.78rem;
+  }
+
+  .record-swatch code {
+    margin-block-start: 0.2rem;
+    color: var(--color-muted);
+  }
+
+  .record-source-grid {
+    display: grid;
+    gap: 0.65rem;
+  }
+
+  .record-source {
+    display: grid;
+    grid-template-columns: 4.2rem minmax(0, 0.9fr) minmax(0, 1.4fr);
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .record-source__id {
+    color: var(--color-brand);
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+  }
+
+  .record-source h3 {
+    font-size: 1rem;
+  }
+
+  .record-source p {
+    margin-block-start: 0.2rem;
+    font-size: 0.86rem;
+    line-height: 1.48;
+  }
+
+  .record-source__limit {
+    color: var(--color-muted);
+  }
+
+  .record-hero-figure {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(14rem, 0.7fr);
+    aspect-ratio: 2.85 / 1;
+    min-width: 0;
+    align-items: stretch;
+    margin: 0;
+    border: 1px solid #c9d8e3;
+    background: var(--color-footer-deep);
+    color: #fff;
+  }
+
+  .record-hero-figure img {
+    display: block;
+    max-width: 100%;
+    min-width: 0;
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .record-hero-figure figcaption {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 0.7rem;
+    padding: clamp(1.1rem, 3vw, 2.5rem);
+  }
+
+  .record-hero-figure .record-kicker {
+    color: #a8e7f7;
+  }
+
+  .record-hero-figure figcaption strong {
+    display: block;
+    margin-block-start: 0.7rem;
+    font-family: var(--font-display);
+    font-size: clamp(1.4rem, 2.5vw, 2.5rem);
+    line-height: 1.02;
+  }
+
+  .record-hero-figure figcaption p {
+    margin-block-start: 0;
+    color: #dbeaf3;
+    font-size: 0.9rem;
+  }
+
+  .record-hero-figure__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 0.9rem;
+    margin-block-start: auto;
+  }
+
+  .record-hero-figure .record-link {
+    padding-block: 0.4rem;
+    color: #fff;
+    text-decoration-color: #a8e7f7;
+  }
+
+  .record-muted {
+    color: var(--color-muted);
+  }
+
+  .record-source-note {
+    display: block;
+    margin-block-start: 1rem;
+    padding-block-start: 0.75rem;
+    border-block-start: 1px solid #dce6ec;
+    color: var(--color-muted);
+    font-family: var(--font-ui);
+    font-size: 0.76rem;
+    line-height: 1.5;
+  }
+
+  @media (max-width: 70rem) {
+    .record-card {
+      grid-column: span 6;
+    }
+
+    .record-route-row {
+      grid-template-columns: 2.8rem minmax(12rem, 1fr) auto;
+    }
+
+    .record-route-row__description {
+      grid-column: 2 / -1;
+    }
+  }
+
+  @media (max-width: 52rem) {
+    .record-app {
+      display: block;
+      min-height: 0;
+    }
+
+    .record-sidebar {
+      position: static;
+      block-size: auto;
+      max-block-size: none;
+      overflow: visible;
+      border-inline-end: 0;
+      border-block-end: 1px solid #c9d8e3;
+    }
+
+    .record-sidebar__intro {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1rem 1.2rem;
+    }
+
+    .record-sidebar__intro p {
+      max-width: 26rem;
+      margin: 0;
+      font-size: 0.78rem;
+      text-align: right;
+    }
+
+    .record-sidebar nav {
+      overflow-x: auto;
+      padding: 0.65rem 1.2rem 0.9rem;
+      overscroll-behavior-inline: contain;
+      scrollbar-color: #9eb8c9 transparent;
+    }
+
+    .record-sidebar__label {
+      margin: 0 0 0.45rem;
+    }
+
+    .record-sidebar__nav {
+      display: flex;
+      gap: 0.35rem;
+      min-width: max-content;
+      scroll-snap-type: x proximity;
+    }
+
+    .record-sidebar__nav a {
+      display: flex;
+      gap: 0.35rem;
+      min-block-size: 2.35rem;
+      padding-inline: 0.6rem;
+      border: 1px solid #c9d8e3;
+      background: #fff;
+      font-size: 0.76rem;
+      scroll-snap-align: start;
+    }
+
+    .record-sidebar__footer {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 0.7rem 1.2rem 0.85rem;
+    }
+
+    .record-document__heading,
+    .record-section__heading,
+    .record-hero-figure,
+    .record-source {
+      grid-template-columns: 1fr;
+    }
+
+    .record-document h1 {
+      max-width: 20ch;
+    }
+
+    .record-document__header {
+      padding-block: 1rem 1.15rem;
+    }
+
+    .record-document__body {
+      padding-block-start: 1.5rem;
+    }
+
+    .record-section__heading {
+      gap: 0.7rem;
+    }
+
+    .record-stats,
+    .record-visual-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .record-hero-figure {
+      aspect-ratio: auto;
+    }
+
+    .record-hero-figure img {
+      height: auto;
+      min-height: 0;
+    }
+
+    .record-swatch-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .record-source__id {
+      margin-block-end: -0.45rem;
+    }
+  }
+
+  @media (max-width: 36rem) {
+    .record-sidebar__intro {
+      align-items: start;
+      flex-direction: column;
+    }
+
+    .record-sidebar__intro p {
+      max-width: 34ch;
+      text-align: left;
+    }
+
+    .record-card,
+    .record-card--wide {
+      grid-column: 1 / -1;
+    }
+
+    .record-stats,
+    .record-visual-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .record-stats {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .record-stat {
+      padding-inline: 0.75rem;
+    }
+
+    .record-stat__label {
+      font-size: 0.62rem;
+      letter-spacing: 0.07em;
+    }
+
+    .record-route-row {
+      grid-template-columns: 2.3rem minmax(0, 1fr);
+    }
+
+    .record-route-row__path,
+    .record-route-row__description,
+    .record-route-row .record-status {
+      grid-column: 2;
+    }
+
+    .record-filter {
+      grid-template-columns: 1fr;
+      align-items: start;
+    }
+
+    .record-hero-figure img {
+      min-height: 12rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .record-sidebar__nav a,
+    .record-visual,
+    .record-route-row {
+      transition: none;
+    }
+  }
+
+  @media (forced-colors: active) {
+    .record-sidebar,
+    .record-document__header,
+    .record-card,
+    .record-stat,
+    .record-callout,
+    .record-table-wrap,
+    .record-route-row,
+    .record-source,
+    .record-visual,
+    .record-swatch {
+      border-color: CanvasText;
+      background: Canvas;
+      color: CanvasText;
+    }
+
+    .record-sidebar__nav a:hover,
+    .record-sidebar__nav-item--current a,
+    .record-route-row:hover {
+      background: Highlight;
+      color: HighlightText;
+    }
+
+    .record-sidebar__mark,
+    .record-callout--dark,
+    .record-hero-figure {
+      border-color: CanvasText;
+      background: Canvas;
+      color: CanvasText;
+    }
+
+    .record-hero-figure .record-kicker,
+    .record-hero-figure figcaption p,
+    .record-hero-figure .record-link {
+      color: CanvasText;
+    }
+
+    .record-hero-figure img {
+      forced-color-adjust: none;
+    }
+  }
+
+  @media print {
+    .record-body,
+    .record-main,
+    .record-document {
+      background: #fff;
+    }
+
+    .record-sidebar {
+      display: none;
+    }
+
+    .record-app {
+      display: block;
+      min-height: 0;
+    }
+
+    .record-document__header,
+    .record-document__body {
+      padding-inline: 0;
+    }
+
+    .record-document__header {
+      padding-block-start: 0;
+      border-block-end: 1px solid #000;
+    }
+
+    .record-section + .record-section {
+      margin-block-start: 3rem;
+    }
+
+    .record-card,
+    .record-stat,
+    .record-callout,
+    .record-table-wrap,
+    .record-route-row,
+    .record-source,
+    .record-visual,
+    .record-hero-figure {
+      break-inside: avoid;
+    }
+
+    .record-hero-figure {
+      color: #000;
+    }
+
+    .record-hero-figure__actions {
+      display: none;
+    }
+
+    .record-link {
+      color: #000;
+    }
+  }
+
+/* Dedicated shell contract ------------------------------------------------ */
+
+.record-app {
+  display: grid;
+  grid-template-columns: var(--record-sidebar-width) minmax(0, 1fr);
+  min-height: 100svh;
+}
+
+.record-sidebar {
+  inset-block-start: 0;
+  block-size: 100svh;
+  max-block-size: 100svh;
+  background: var(--color-surface);
+}
+
+.record-sidebar__nav-wrap {
+  min-height: 0;
+  overflow-y: auto;
+}
+
+.record-sidebar__nav .nav-link {
+  color: var(--color-muted-strong);
+}
+
+.record-sidebar__nav .nav-link:hover,
+.record-sidebar__nav .nav-link:focus-visible,
+.record-sidebar__nav-item--current .nav-link {
+  color: var(--color-brand-deep);
+  background: #e3f1f8;
+}
+
+.record-sidebar__close {
+  margin-block-start: 0.9rem;
+}
+
+.record-sidebar__legal {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem 0.75rem;
+  padding-block-start: 0.7rem;
+  border-block-start: 1px solid #dce6ec;
+}
+
+.record-sidebar__legal a {
+  color: var(--color-muted);
+  font-size: 0.72rem;
+  font-weight: 400;
+}
+
+.record-sidebar__legal a:hover {
+  color: var(--color-brand-deep);
+}
+
+.record-document {
+  min-width: 0;
+  background: var(--color-canvas);
+}
+
+.record-document__header,
+.record-document__body {
+  padding-inline: 2rem;
+}
+
+.record-document__header {
+  padding-block-start: 2rem;
+  padding-block-end: 1.5rem;
+}
+
+.record-document__heading--with-menu {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.record-document__status {
+  color: var(--color-muted);
+}
+
+.record-document__body {
+  padding-block-start: 2rem;
+  padding-block-end: 4rem;
+}
+
+.record-menu-toggle {
+  align-items: center;
+  gap: 0.5rem;
+  flex: 0 0 auto;
+  margin: 0;
+  font-family: var(--font-ui);
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.record-menu-toggle__icon {
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+.record-sidebar-backdrop {
+  display: none;
+}
+
+@media (max-width: 61.999rem) {
+  .record-app {
+    display: block;
+    min-height: 0;
+  }
+
+  /* Bootstrap supplies the offcanvas class names; this base state keeps the
+   * complete navigation readable in document flow when JavaScript is absent. */
+  .record-sidebar.offcanvas-lg {
+    position: static;
+    inset: auto;
+    display: flex;
+    width: 100%;
+    max-width: none;
+    block-size: auto;
+    max-block-size: none;
+    transform: none;
+    visibility: visible;
+    overflow: visible;
+    border-inline-end: 0;
+    border-block-end: 1px solid #c9d8e3;
+    box-shadow: none;
+  }
+
+  .record-body[data-record-js] .record-sidebar.offcanvas-lg {
+    position: fixed;
+    z-index: 1045;
+    inset: 0 auto 0 0;
+    display: flex;
+    width: min(20rem, calc(100vw - 2rem));
+    max-width: 100%;
+    block-size: 100dvh;
+    max-block-size: 100dvh;
+    transform: translateX(-100%);
+    visibility: hidden;
+    overflow-y: auto;
+    border-inline-end: 1px solid #c9d8e3;
+    border-block-end: 0;
+    transition: transform 0.25s ease, visibility 0.25s ease;
+  }
+
+  .record-body[data-record-js] .record-sidebar.offcanvas-lg.show {
+    transform: translateX(0);
+    visibility: visible;
+  }
+
+  .record-sidebar__intro {
+    display: block;
+  }
+
+  .record-sidebar__intro p {
+    max-width: 34ch;
+    margin-block-start: 0.8rem;
+    text-align: left;
+  }
+
+  .record-sidebar__legal {
+    margin-block-start: 0.25rem;
+  }
+
+  .record-sidebar__nav-wrap {
+    overflow: visible;
+    padding-block: 0.95rem;
+  }
+
+  .record-sidebar__nav {
+    display: grid;
+    min-width: 0;
+  }
+
+  .record-sidebar__nav .nav-link {
+    display: grid;
+    grid-template-columns: 2rem minmax(0, 1fr);
+    gap: 0.55rem;
+    min-block-size: 2.75rem;
+    border: 0;
+  }
+
+  .record-sidebar__footer {
+    display: grid;
+    margin-block-start: auto;
+  }
+
+  .record-body[data-record-js] .record-sidebar-backdrop.show {
+    position: fixed;
+    z-index: 1040;
+    inset: 0;
+    display: block;
+    background: rgb(8 22 35 / 0.48);
+  }
+
+  .record-body.record-menu-open {
+    overflow: hidden;
+  }
+
+  .record-document__header,
+  .record-document__body {
+    padding-inline: 1.5rem;
+  }
+
+  .record-document__header {
+    padding-block-start: 1.5rem;
+  }
+
+  .record-document__heading--with-menu {
+    gap: 0.75rem;
+  }
+}
+
+@media (max-width: 35.999rem) {
+  .record-document__header,
+  .record-document__body {
+    padding-inline: 1rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .record-body[data-record-js] .record-sidebar.offcanvas-lg {
+    transition: none;
+  }
+}
+
+@media print {
+  .record-app {
+    display: block;
+    min-height: 0;
+  }
+
+  .record-sidebar,
+  .record-menu-toggle,
+  .record-sidebar-backdrop {
+    display: none !important;
+  }
+
+  .record-document__header,
+  .record-document__body {
+    padding-inline: 0;
+  }
+
+  .record-table-wrap,
+  .record-body .table-responsive {
+    overflow: visible !important;
+  }
+
+  .record-table {
+    min-width: 0;
+  }
+
+  /* Shared chart tables are disclosure content on screen. Printing must
+   * retain their semantic data even when the disclosure was never opened. */
+  .record-viz__table-details {
+    display: block;
+    break-inside: avoid;
+  }
+
+  .record-viz__table-details > summary {
+    display: none;
+  }
+
+  .record-viz__table-details::details-content {
+    display: block;
+    content-visibility: visible;
+  }
+
+  .record-viz__table-details:not([open]) > .record-viz__table-wrap {
+    display: block;
+  }
+}

@@ -1,0 +1,75 @@
+---
+import RecordDocument from '../../../components/record/RecordDocument.astro';
+import StatusMatrix from '../../../components/record/viz/StatusMatrix.astro';
+import { editorialRoutes } from '../../../data/editorialRoutes';
+import { recordHref, recordRouteAtPath } from '../../../data/record';
+import { siteIdentity } from '../../../data/seo/site';
+
+const route = recordRouteAtPath('/record/leadership/');
+const leadershipRoute = editorialRoutes.find((entry) => entry.path === '/community/leadership/');
+const consortiumRoute = editorialRoutes.find((entry) => entry.path === '/research/consortium/');
+const partnerRoute = editorialRoutes.find((entry) => entry.path === '/community/partner/');
+
+const evidenceRows = [
+  { field: 'Organization identity', value: siteIdentity.legalName, detail: 'Name, public description, and contact fields in the site identity source.', href: recordHref('/community/about-us/'), linkLabel: 'About Us', status: 'In repository' },
+  { field: 'Leadership presentation', value: leadershipRoute?.title ?? 'Published leadership route', detail: leadershipRoute?.description ?? 'The public route is present in the editorial manifest.', href: recordHref('/community/leadership/'), linkLabel: 'Leadership route', status: 'Route-backed' },
+  { field: 'Research affiliation', value: consortiumRoute?.title ?? 'Published consortium route', detail: consortiumRoute?.description ?? 'The public consortium route is present in the research manifest.', href: recordHref('/research/consortium/'), linkLabel: 'Consortium route', status: 'Route-backed' },
+  { field: 'Partner pathway', value: partnerRoute?.title ?? 'Published partner route', detail: partnerRoute?.description ?? 'The public partner route is present in the community manifest.', href: recordHref('/community/partner/'), linkLabel: 'Partner route', status: 'Route-backed' },
+] as const;
+
+const identityFields = [
+  ['Legal name', siteIdentity.legalName],
+  ['Public name', siteIdentity.name],
+  ['Public email', siteIdentity.email],
+  ['Public telephone', siteIdentity.telephone],
+  ['Public address', `${siteIdentity.address.streetAddress}, ${siteIdentity.address.addressLocality}, ${siteIdentity.address.addressRegion} ${siteIdentity.address.postalCode}`],
+] as const;
+
+const matrixRows = evidenceRows.map((row) => ({
+  label: row.field,
+  values: [
+    { value: 'Present', status: 'positive' as const },
+    { value: 'Published route', status: 'positive' as const },
+    { value: 'Not asserted', status: 'neutral' as const, note: 'No external verification is claimed by this record room.' },
+  ],
+}));
+---
+
+<RecordDocument {route}>
+  <div class="container-fluid px-0">
+    <section class="mb-5" aria-labelledby="leadership-brief-title">
+      <div class="row g-4 align-items-end">
+        <div class="col-12 col-xl-8">
+          <p class="text-uppercase small fw-bold text-primary mb-2">Accountability / evidence matrix</p>
+          <h2 id="leadership-brief-title" class="display-6 fw-semibold mb-3">A public leadership record with a clear boundary.</h2>
+          <p class="lead mb-0">This view maps the organization, leadership, and affiliation routes that are present in the current public source graph. It does not reproduce people, titles, governance decisions, or credentials that are not represented in that graph.</p>
+        </div>
+        <div class="col-12 col-xl-4"><div class="alert alert-info mb-0" role="note"><strong>Evidence rule.</strong> “Route-backed” means the page is represented in repository data. It is not an external verification of a person, affiliation, award, or current appointment.</div></div>
+      </div>
+    </section>
+
+    <section class="mb-5" aria-labelledby="leadership-stats-title">
+      <h2 id="leadership-stats-title" class="visually-hidden">Leadership record summary</h2>
+      <div class="row g-3">
+        <div class="col-12 col-md-4"><div class="card h-100 border-0 shadow-sm"><div class="card-body"><p class="text-uppercase small fw-bold text-secondary mb-2">Identity fields</p><p class="display-6 fw-semibold mb-1">{identityFields.length}</p><p class="mb-0 text-body-secondary">Organization-level fields carried by the public site identity source.</p></div></div></div>
+        <div class="col-12 col-md-4"><div class="card h-100 border-0 shadow-sm"><div class="card-body"><p class="text-uppercase small fw-bold text-secondary mb-2">Evidence routes</p><p class="display-6 fw-semibold mb-1">{evidenceRows.length}</p><p class="mb-0 text-body-secondary">Identity, leadership, affiliation, and partner routes in the source graph.</p></div></div></div>
+        <div class="col-12 col-md-4"><div class="card h-100 border-0 shadow-sm"><div class="card-body"><p class="text-uppercase small fw-bold text-secondary mb-2">Personnel records copied here</p><p class="display-6 fw-semibold mb-1">0</p><p class="mb-0 text-body-secondary">Names and private personnel material remain on their canonical public route.</p></div></div></div>
+      </div>
+    </section>
+
+    <section class="mb-5" aria-labelledby="leadership-matrix-title">
+      <div class="d-flex flex-wrap justify-content-between gap-3 align-items-end mb-3"><div><p class="text-uppercase small fw-bold text-primary mb-2">Published fields</p><h2 id="leadership-matrix-title" class="h3 mb-1">Governance and affiliation evidence matrix</h2><p class="text-body-secondary mb-0">Each row names the narrow claim supported by the linked public route.</p></div><a class="btn btn-outline-primary" href={recordHref('/record/verify/')}>Read source status definitions <span aria-hidden="true">↗</span></a></div>
+      <div class="card shadow-sm mb-4"><div class="card-body"><StatusMatrix title="Governance and affiliation status" columns={['Repository field', 'Public route', 'External verification']} rows={matrixRows} description="A compact status view of what the source graph carries and what remains outside this page." source="Route and identity manifests (SRC-001 / SRC-002)" sourceHref={recordHref('/record/verify/')} /></div></div>
+      <div class="table-responsive border rounded-3 shadow-sm" tabindex="0" role="region" aria-label="Governance evidence">
+        <table class="table table-striped align-middle mb-0"><caption class="visually-hidden">Leadership, governance, and affiliation evidence matrix</caption><thead class="table-light"><tr><th scope="col">Field</th><th scope="col">Public value</th><th scope="col">Evidence basis</th><th scope="col">Status</th></tr></thead>
+          <tbody>{evidenceRows.map((row) => <tr><th scope="row">{row.field}</th><td><a href={row.href}>{row.value}</a></td><td>{row.detail}<br /><a href={row.href} class="small">{row.linkLabel} <span aria-hidden="true">↗</span></a></td><td><span class="badge text-bg-primary">{row.status}</span></td></tr>)}</tbody>
+        </table>
+      </div>
+    </section>
+
+    <div class="row g-4">
+      <section class="col-12 col-xl-7" aria-labelledby="leadership-identity-title"><div class="card h-100 shadow-sm"><div class="card-body"><p class="text-uppercase small fw-bold text-primary mb-2">Stable organization fields</p><h2 id="leadership-identity-title" class="h3 mb-3">What the public identity source actually carries</h2><div class="table-responsive" tabindex="0" role="region" aria-label="Public identity fields"><table class="table table-sm align-middle mb-0"><caption class="visually-hidden">Public organization identity fields</caption><tbody>{identityFields.map(([label, value]) => <tr><th scope="row" class="w-25">{label}</th><td>{label === 'Public email' ? <a href={`mailto:${value}`}>{value}</a> : label === 'Public telephone' ? <a href={`tel:${value.replaceAll('-', '')}`}>{value}</a> : value}</td></tr>)}</tbody></table></div></div></div></section>
+      <section class="col-12 col-xl-5" aria-labelledby="leadership-boundary-title"><div class="card h-100 border-warning shadow-sm"><div class="card-body"><p class="text-uppercase small fw-bold text-warning-emphasis mb-2">Publication boundary</p><h2 id="leadership-boundary-title" class="h3 mb-3">Keep the inference line visible.</h2><p>Separate governance and policy materials may exist outside this public route graph. Their publication authority, branch status, and privacy review are not established here.</p><p class="mb-0">A public route or logo can establish discoverability. It cannot, by itself, establish a current appointment, contract, award, or legal relationship.</p></div></div></section>
+    </div>
+  </div>
+</RecordDocument>

@@ -1,0 +1,185 @@
+---
+export interface FlowStep {
+  readonly label: string;
+  readonly href?: string;
+  readonly description?: string;
+}
+
+interface Props {
+  readonly title: string;
+  readonly steps: readonly FlowStep[];
+  readonly description?: string;
+  readonly source?: string;
+  readonly sourceHref?: string;
+  readonly id?: string;
+  readonly emptyMessage?: string;
+}
+
+const { title, steps, description, source, sourceHref, id, emptyMessage = 'No pathway has been published.' } = Astro.props;
+const flowId = id ?? `record-flow-${title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')}`;
+---
+
+<section class="record-flow-diagram" aria-labelledby={`${flowId}-title`} data-record-viz="flow" data-record-viz-id={flowId}>
+  <header class="record-viz__header">
+    <div>
+      <h2 id={`${flowId}-title`} class="record-viz__title">{title}</h2>
+      {description && <p class="record-viz__description">{description}</p>}
+    </div>
+  </header>
+
+  {steps.length === 0 ? (
+    <p class="record-viz__empty" role="status">{emptyMessage}</p>
+  ) : (
+    <ol class="record-flow-diagram__list list-group list-group-horizontal-xl">
+      {steps.map((step) => (
+        <li class="record-flow-diagram__step list-group-item">
+          <span class="record-flow-diagram__number" aria-hidden="true">{steps.indexOf(step) + 1}</span>
+          <div>
+            <h3 class="record-flow-diagram__label">{step.href ? <a href={step.href}>{step.label}</a> : step.label}</h3>
+            {step.description && <p class="record-flow-diagram__description">{step.description}</p>}
+          </div>
+        </li>
+      ))}
+    </ol>
+  )}
+
+  {source && <footer class="record-viz__footer">Source: {sourceHref ? <a href={sourceHref}>{source}</a> : source}</footer>}
+</section>
+
+<style>
+  .record-flow-diagram {
+    color: #122535;
+    font-family: var(--font-ui, system-ui, sans-serif);
+  }
+
+  .record-viz__header {
+    margin-bottom: 1rem;
+  }
+
+  .record-viz__title {
+    margin: 0;
+    font-family: var(--font-display, system-ui, sans-serif);
+    font-size: clamp(1.1rem, 1.6vw, 1.45rem);
+    letter-spacing: -0.025em;
+    line-height: 1.15;
+  }
+
+  .record-viz__description,
+  .record-viz__empty,
+  .record-viz__footer {
+    color: #526675;
+    font-size: 0.8rem;
+    line-height: 1.5;
+  }
+
+  .record-viz__description {
+    max-width: 68ch;
+    margin: 0.45rem 0 0;
+  }
+
+  .record-flow-diagram__list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr));
+    gap: 0.75rem;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    list-style: none;
+  }
+
+  .record-flow-diagram__step {
+    position: relative;
+    display: flex;
+    gap: 0.75rem;
+    min-height: 7rem;
+    padding: 1rem;
+    border: 1px solid #d6e1e8;
+    border-radius: 0.55rem;
+    background: #fff;
+    box-shadow: 0 0.25rem 1rem rgb(18 37 53 / 0.06);
+  }
+
+  .record-flow-diagram__step:not(:last-child)::after {
+    position: absolute;
+    top: 50%;
+    right: -0.65rem;
+    z-index: 1;
+    color: #176b8c;
+    content: '→';
+    font-size: 1.35rem;
+    line-height: 1;
+    transform: translateY(-50%);
+  }
+
+  .record-flow-diagram__number {
+    display: grid;
+    flex: 0 0 1.7rem;
+    width: 1.7rem;
+    height: 1.7rem;
+    place-items: center;
+    border-radius: 50%;
+    background: #e3f1f8;
+    color: #14627d;
+    font-size: 0.75rem;
+    font-weight: 700;
+  }
+
+  .record-flow-diagram__label {
+    margin: 0;
+    color: #122535;
+    font-family: var(--font-display, system-ui, sans-serif);
+    font-size: 1rem;
+    line-height: 1.2;
+  }
+
+  .record-flow-diagram__label a,
+  .record-viz__footer a {
+    color: inherit;
+    text-decoration-color: #9ebdcc;
+    text-underline-offset: 0.18em;
+  }
+
+  .record-flow-diagram__label a:hover,
+  .record-viz__footer a:hover {
+    color: #14627d;
+  }
+
+  .record-flow-diagram__description {
+    margin: 0.4rem 0 0;
+    color: #526675;
+    font-size: 0.78rem;
+    line-height: 1.45;
+  }
+
+  .record-viz__footer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem 1rem;
+    margin-top: 1rem;
+    padding-top: 0.8rem;
+    border-top: 1px solid #e4ebef;
+  }
+
+  .record-viz__empty {
+    margin: 0;
+    padding: 1rem;
+    border: 1px dashed #9ebdcc;
+    border-radius: 0.4rem;
+    background: #f7fafc;
+  }
+
+  @media (max-width: 74.99rem) {
+    .record-flow-diagram__list {
+      grid-template-columns: 1fr;
+    }
+
+    .record-flow-diagram__step:not(:last-child)::after {
+      top: auto;
+      right: auto;
+      bottom: -0.75rem;
+      left: 1.35rem;
+      content: '↓';
+      transform: none;
+    }
+  }
+</style>

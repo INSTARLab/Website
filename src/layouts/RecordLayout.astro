@@ -1,0 +1,132 @@
+---
+import 'bootstrap/dist/css/bootstrap.min.css';
+import '../styles/record-theme.css';
+import '../styles/record.css';
+import type { SeoProps } from '../components/seo/Seo.astro';
+import Seo from '../components/seo/Seo.astro';
+import SkipLink from '../components/chrome/SkipLink.astro';
+
+interface Props extends SeoProps {
+  lang?: string;
+  bodyClass?: string;
+  mainClass?: string;
+}
+
+const {
+  lang = 'en',
+  bodyClass,
+  mainClass,
+  ...seoProps
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang={lang} data-record-shell="true">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <Seo {...seoProps} />
+    <slot name="head" />
+  </head>
+  <body id="top" data-bs-theme="light" class:list={['record-body', bodyClass]}>
+    <SkipLink />
+    <main class:list={['record-main', mainClass]}>
+      <slot />
+    </main>
+  </body>
+</html>
+
+<script>
+  /**
+   * The Record room keeps ordinary document links as its source of truth.
+   * This small enhancement turns the Bootstrap-shaped sidebar into an
+   * offcanvas panel on small screens while leaving the links in-flow when
+   * JavaScript is unavailable.
+   */
+  const body = document.body;
+  const sidebar = document.querySelector<HTMLElement>('#record-sidebar');
+  const menuButton = document.querySelector<HTMLButtonElement>('[data-record-menu-toggle]');
+  const closeButton = document.querySelector<HTMLButtonElement>('[data-record-menu-close]');
+  const backdrop = document.querySelector<HTMLElement>('[data-record-sidebar-backdrop]');
+
+  if (body && sidebar && menuButton) {
+    body.dataset.recordJs = 'true';
+    menuButton.hidden = false;
+    closeButton?.removeAttribute('hidden');
+
+    let returnFocus: HTMLElement | null = null;
+
+    const setOpen = (open: boolean) => {
+      sidebar.classList.toggle('show', open);
+      backdrop?.classList.toggle('show', open);
+      body.classList.toggle('record-menu-open', open);
+      menuButton.setAttribute('aria-expanded', String(open));
+      sidebar.setAttribute('aria-hidden', String(!open && window.matchMedia('(max-width: 991.98px)').matches));
+      if (open) {
+        sidebar.setAttribute('role', 'dialog');
+        sidebar.setAttribute('aria-modal', 'true');
+      } else {
+        sidebar.removeAttribute('role');
+        sidebar.removeAttribute('aria-modal');
+      }
+
+      if (open) {
+        returnFocus = document.activeElement instanceof HTMLElement ? document.activeElement : menuButton;
+        window.setTimeout(() => {
+          const firstLink = sidebar.querySelector<HTMLAnchorElement>('a[href]');
+          firstLink?.focus();
+        }, 0);
+      } else {
+        const desktop = window.matchMedia('(min-width: 992px)').matches;
+        const canRestoreFocus = returnFocus instanceof HTMLElement
+          && returnFocus.isConnected
+          && getComputedStyle(returnFocus).display !== 'none';
+        const fallback = desktop
+          ? sidebar.querySelector<HTMLElement>('a[href]')
+          : menuButton;
+        (canRestoreFocus ? returnFocus : fallback)?.focus();
+        returnFocus = null;
+      }
+    };
+
+    menuButton.addEventListener('click', () => setOpen(true));
+    closeButton?.addEventListener('click', () => setOpen(false));
+    backdrop?.addEventListener('click', () => setOpen(false));
+
+    sidebar.addEventListener('click', (event) => {
+      if (event.target instanceof Element && event.target.closest('a[href]')) setOpen(false);
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (!sidebar.classList.contains('show')) return;
+      if (event.key === 'Escape') {
+        event.preventDefault();
+        setOpen(false);
+        return;
+      }
+
+      if (event.key !== 'Tab') return;
+      const focusable = [...sidebar.querySelectorAll<HTMLElement>('a[href], button:not([hidden]), [tabindex]:not([tabindex="-1"])')]
+        .filter((element) => getComputedStyle(element).visibility !== 'hidden' && getComputedStyle(element).display !== 'none');
+      if (focusable.length === 0) return;
+
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (event.shiftKey && (document.activeElement === first || !sidebar.contains(document.activeElement))) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && (document.activeElement === last || !sidebar.contains(document.activeElement))) {
+        event.preventDefault();
+        first.focus();
+      }
+    });
+
+    const desktopQuery = window.matchMedia('(min-width: 992px)');
+    desktopQuery.addEventListener('change', (event) => {
+      if (event.matches) setOpen(false);
+      sidebar.setAttribute('aria-hidden', String(!event.matches));
+    });
+
+    sidebar.setAttribute('aria-hidden', String(!desktopQuery.matches));
+  }
+</script>

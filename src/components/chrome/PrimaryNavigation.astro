@@ -119,8 +119,8 @@ const scienceIconFor = (label: string) => scienceIcons[label] ?? '<circle cx="12
     </ul>
   </nav>
 
-  <details class="site-nav__mobile">
-    <summary class="site-nav__mobile-trigger">
+  <details class="site-nav__mobile" data-nav-menu>
+    <summary class="site-nav__mobile-trigger" data-nav-menu-summary aria-expanded="false">
       <span>Menu</span>
       <svg class="site-nav__mobile-icon" viewBox="0 0 24 24" aria-hidden="true">
         <path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2" />
@@ -176,34 +176,85 @@ const scienceIconFor = (label: string) => scienceIcons[label] ?? '<circle cx="12
 </div>
 
 <script>
-  const navDropdownSelector = 'details[data-nav-dropdown]';
+  const navRootSelector = '.site-navigation';
+  const navDropdownSelector = `${navRootSelector} details[data-nav-dropdown]`;
+  const navMenuSelector = `${navRootSelector} details[data-nav-menu]`;
+  const navDetailsSelector = `${navDropdownSelector}, ${navMenuSelector}`;
+  const openNavDetailsSelector = `${navDropdownSelector}[open], ${navMenuSelector}[open]`;
+
+  const syncNavDisclosure = (details: HTMLDetailsElement) => {
+    const summary = details.querySelector<HTMLElement>(':scope > summary');
+    summary?.setAttribute('aria-expanded', details.open ? 'true' : 'false');
+  };
+
+  const syncNavDisclosures = () => {
+    document.querySelectorAll<HTMLDetailsElement>(navDetailsSelector).forEach(syncNavDisclosure);
+  };
 
   const closeNavDropdowns = (except?: HTMLDetailsElement) => {
     document.querySelectorAll<HTMLDetailsElement>(`${navDropdownSelector}[open]`).forEach((details) => {
       if (details !== except) details.removeAttribute('open');
     });
+    syncNavDisclosures();
+  };
+
+  const closeNavDisclosures = () => {
+    document.querySelectorAll<HTMLDetailsElement>(openNavDetailsSelector).forEach((details) => {
+      details.removeAttribute('open');
+    });
+    syncNavDisclosures();
   };
 
   document.addEventListener('click', (event) => {
     const target = event.target;
     if (!(target instanceof Element)) return;
 
-    const summary = target.closest<HTMLElement>('summary[data-nav-summary]');
+    const summary = target.closest<HTMLElement>('summary[data-nav-summary], summary[data-nav-menu-summary]');
     if (summary) {
-      const details = summary.closest<HTMLDetailsElement>(navDropdownSelector);
-      if (details) closeNavDropdowns(details);
+      const details = summary.closest<HTMLDetailsElement>(navDetailsSelector);
+      if (details?.matches(navDropdownSelector)) closeNavDropdowns(details);
+      else if (details?.matches(navMenuSelector)) closeNavDropdowns();
       return;
     }
 
-    if (!target.closest('.site-navigation')) closeNavDropdowns();
+    if (!target.closest(navRootSelector)) closeNavDisclosures();
   });
 
   document.addEventListener('focusin', (event) => {
     const target = event.target;
     if (!(target instanceof Element)) return;
-    if (!target.closest('.site-navigation')) closeNavDropdowns();
+    if (!target.closest(navRootSelector)) closeNavDisclosures();
   });
 
-  document.addEventListener('astro:before-preparation', () => closeNavDropdowns());
-  document.addEventListener('astro:before-swap', () => closeNavDropdowns());
+  document.addEventListener('keydown', (event) => {
+    if (event.key !== 'Escape') return;
+
+    const target = event.target;
+    const details = target instanceof Element
+      ? target.closest<HTMLDetailsElement>(navDetailsSelector)
+      : null;
+    if (!details?.open) return;
+
+    event.preventDefault();
+    const summary = details.querySelector<HTMLElement>(':scope > summary');
+    if (details.matches(navMenuSelector)) closeNavDisclosures();
+    else {
+      details.removeAttribute('open');
+      syncNavDisclosures();
+    }
+    summary?.focus();
+  });
+
+  document.addEventListener('toggle', (event) => {
+    const details = event.target;
+    if (!(details instanceof HTMLDetailsElement) || !details.matches(navDetailsSelector)) return;
+    if (details.open && details.matches(navDropdownSelector)) closeNavDropdowns(details);
+    syncNavDisclosures();
+  }, true);
+
+  syncNavDisclosures();
+
+  const closeBeforeRouteChange = () => closeNavDisclosures();
+  document.addEventListener('astro:before-preparation', closeBeforeRouteChange);
+  document.addEventListener('astro:before-swap', closeBeforeRouteChange);
 </script>

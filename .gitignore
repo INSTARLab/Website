@@ -20,3 +20,6 @@ node_modules/
 .astro/
 dist/
 pnpm-debug.log*
+
+# astro-magazine skill runtime state (locks, checkpoints, event streams) — scratch, not source
+.astro-magazine/

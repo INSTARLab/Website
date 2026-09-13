@@ -12,15 +12,16 @@ import {
   routeFromHtml,
   readText,
   sha256,
+  stripBasePath,
   writeJson,
 } from "./lib.mjs";
 
-const options = parseArgs(process.argv.slice(2), { dist: "dist", out: "" });
+const options = parseArgs(process.argv.slice(2), { dist: "dist", out: "", base: process.env.ASTRO_BASE ?? "" });
 
 if (options.help) {
   printHelp([
     "Build a rendered media manifest and report missing metadata or reuse risks.",
-    "Usage: node scripts/quality/media-audit.mjs --dist dist [--out path] [--strict]",
+    "Usage: node scripts/quality/media-audit.mjs --dist dist [--base /Website/] [--out path] [--strict]",
     "Expected authoring data attributes: data-media-id, data-media-role, data-reuse-reason, data-source, data-license.",
   ]);
   process.exit(0);
@@ -58,7 +59,7 @@ for (const file of listHtmlFiles(root)) {
     if (sources.length === 0) continue;
 
     const resolvedSources = sources.map((source) => {
-      const resolved = resolveDistReference(source, file, root);
+      const resolved = resolveDistReference(source, file, root, "", options.base);
       return {
         url: source,
         external: resolved.external ?? resolved.skipped ?? false,
@@ -203,17 +204,18 @@ function inferMediaType(tagName, source) {
 }
 
 function publicMediaPolicyFor(url) {
-  const normalized = normalizeMediaUrl(url);
+  const normalized = normalizeMediaUrl(url, options.base);
   if (/^https?:\/\//i.test(normalized)) return undefined;
   return mediaPolicies.find((policy) => new RegExp(policy.match).test(normalized));
 }
 
-function normalizeMediaUrl(value) {
+function normalizeMediaUrl(value, base = "") {
   const withoutFragment = value.split("#", 1)[0] ?? value;
   const withoutQuery = withoutFragment.split("?", 1)[0] ?? withoutFragment;
   if (/^https?:\/\//i.test(withoutQuery)) return withoutQuery;
   const path = withoutQuery.replace(/^\.\//, "").replace(/^dist\//, "/");
-  return path.startsWith("/") ? path : `/${path}`;
+  const normalizedPath = path.startsWith("/") ? path : `/${path}`;
+  return stripBasePath(normalizedPath, base);
 }
 
 function stableMediaId(sourceUrl, prefix) {
