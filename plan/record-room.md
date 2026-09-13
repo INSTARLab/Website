@@ -1,3 +1,37 @@
+> ## SUPERSEDED — HISTORICAL EVIDENCE ONLY
+>
+> **This plan is superseded. Do not implement against it.** It is retained
+> unaltered below as historical evidence of the pre-Bootstrap Record Room
+> workstream. An agent that reads it as live specification will build the wrong
+> thing.
+>
+> **The authoritative plan is [`plan/record-room-bootstrap-bi.md`](record-room-bootstrap-bi.md).**
+> Read that document before touching `/record/`. Do not use the acceptance
+> criteria, the RR-01…RR-05 issue IDs, or the RICE table below as current
+> specification.
+>
+> **Superseded:** 2026-09-13, at commit `aeaae35` (branch `gh-pages`), by the
+> approved Bootstrap + Business Intelligence redesign.
+>
+> ### Acceptance criteria below that are now factually FALSE
+>
+> | Stale claim in this document | Current truth |
+> | --- | --- |
+> | "12 Record Room HTML routes and **five** Record Room JSON endpoints" (lines 36–38, 62, 64) | **Six** JSON endpoints. RR-201 added `/record/bi.json`. The set is `bi`, `graph`, `journeys`, `manifest`, `meta`, `page-metrics`. |
+> | "desktop shared-header height **132px**, mobile 76px" (lines 44–45) | **Desktop header is 0px — it was removed.** RR-102 gave `/record/` a standalone `RecordLayout.astro` with a 16rem sidebar and no marketing header or footer on any `/record/` route. The 76px mobile figure is stale for the same reason. |
+> | "Preserve the logo … shared header/footer semantics" / the protected-shell contract (lines 21–27, 63, 71) | **Reversed for `/record/` only.** The Bootstrap plan explicitly authorizes replacing the shared shell inside `/record/`. The ordinary site shell remains protected everywhere outside `/record/`. |
+> | Issue IDs RR-01…RR-05 and the RICE table (lines 53–164) | Replaced by **RR-101…RR-302**; the live tracker is GitLab issues #9–#21 (umbrella #8). |
+>
+> Recorded measurements and checkpoint evidence produced under this plan — for
+> example `.astro-magazine/checkpoints/record-room-candidate-20260913.json` and
+> `.astro-magazine/reviews/record-room-visual-evidence.json` — describe the
+> **pre-Bootstrap** build (5 endpoints, 132px header) and must not be cited as
+> evidence for the current tree.
+>
+> Everything below this banner is unaltered historical record.
+
+---
+
 # INSTAR Lab Record Room — SOTA continuation plan
 
 > Superseded for the Record Room redesign by [the approved Bootstrap and BI plan](record-room-bootstrap-bi.md). The candidate results below are historical. The current authorization removes marketing header/footer within `/record/` and adds approved-snapshot BI.
