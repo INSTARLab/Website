@@ -69,7 +69,23 @@ function parseDimensions(value, rowNumber) {
   }
 }
 
+const csvSourceColumns = ['sourceId', 'sourceLabel', 'sourceLocator', 'sourceRetrievedAt'];
+const csvApprovalColumns = ['approvalStatus', 'approvalReference', 'approvedBy', 'approvedAt'];
+
+/**
+ * A row either inherits the sidecar source/approval metadata in full or
+ * replaces it in full. A partial override would publish a provenance record
+ * stitched together from two different sources that no data owner approved.
+ */
+function requireCompleteOverride(row, columns, group, rowNumber) {
+  const missing = columns.filter((column) => !row[column]?.trim());
+  if (missing.length === 0 || missing.length === columns.length) return;
+  throw new Error(`CSV row ${rowNumber}: ${group} override must supply every column (${columns.join(', ')}); missing ${missing.join(', ')}`);
+}
+
 function observationFromCsv(row, rowNumber, metadata) {
+  requireCompleteOverride(row, csvSourceColumns, 'source', rowNumber);
+  requireCompleteOverride(row, csvApprovalColumns, 'approval', rowNumber);
   const periodStart = row.periodStart?.trim() || null;
   const periodEnd = row.periodEnd?.trim() || null;
   const period = periodStart === null && periodEnd === null ? null : { start: periodStart, end: periodEnd };

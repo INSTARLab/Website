@@ -22,8 +22,11 @@ CSV input contains one observation per row. The required columns are
 `metricId`, `value`, `unit`, `periodStart`, `periodEnd`, `asOf`, `dimensions`,
 `unavailableReason`, `reviewOwner`, and `nextReviewDate`. `dimensions` is a
 JSON object. Source and approval metadata are supplied by a JSON sidecar; row
-columns with the corresponding `source*` or approval names may override the
-sidecar for a specific source.
+columns with the corresponding `source*` or approval names may replace the
+sidecar metadata for a specific observation. A row must supply either all or
+none of the `source*` columns, and likewise all or none of the approval
+columns: a partial override is rejected because it would publish a provenance
+record stitched from two different sources.
 
 The sidecar contains the snapshot fields `schemaVersion`, `snapshotId`,
 `status`, `asOf`, `refreshedAt`, `source`, `approval`, and optional `note`.

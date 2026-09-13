@@ -198,10 +198,12 @@ export function validateRecordBiSnapshot(value: unknown): readonly string[] {
 
   for (let leftIndex = 0; leftIndex < candidate.observations.length; leftIndex += 1) {
     const left = candidate.observations[leftIndex];
+    if (!left || typeof left !== 'object') continue;
     const definition = definitionById.get(left.metricId);
     if (definition?.temporalKind !== 'period' || !left.period || typeof left.period !== 'object' || !left.dimensions || typeof left.dimensions !== 'object') continue;
     for (let rightIndex = leftIndex + 1; rightIndex < candidate.observations.length; rightIndex += 1) {
       const right = candidate.observations[rightIndex];
+      if (!right || typeof right !== 'object') continue;
       if (right.metricId !== left.metricId || !right.period || typeof right.period !== 'object' || JSON.stringify(Object.entries(left.dimensions).sort()) !== JSON.stringify(Object.entries(right.dimensions).sort())) continue;
       if (left.period.start <= right.period.end && right.period.start <= left.period.end) errors.push(`observations[${rightIndex}] overlaps observations[${leftIndex}] at the ${definition.grain} grain`);
     }

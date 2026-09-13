@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
 
+import { parseCsv } from '../../scripts/record/bi-schema.mjs';
 import { csvCell, csvDataHref, csvDocument } from '../../src/components/record/viz/csv.mjs';
 import { lineSegments } from '../../src/components/record/viz/line-segments.mjs';
 
@@ -12,6 +13,15 @@ test('CSV cells guard formula tokens after whitespace and control characters', (
   assert.equal(csvCell('plain'), '"plain"');
   assert.equal(csvCell('say "hello"'), '"say ""hello"""');
   assert.match(csvDataHref(csvDocument([['Label', 'Value']])), /^data:text\/csv;charset=utf-8,/);
+});
+
+test('CSV export round-trips delimiters, quotes, and line breaks through an RFC 4180 parser', () => {
+  const values = ['plain', 'a,b', 'say "hello"', 'line1\nline2', 'crlf\r\nnext', 'cr\ronly', '"', '""', 'a"b,c\nd', '^"|,"'];
+  const document = csvDocument([['Label', 'Value'], ...values.map((value) => [value, 'x'])]);
+
+  assert.deepEqual(parseCsv(document).map((row) => row.Label), values);
+  assert.equal(csvDocument([['a,b', 'c"d']]), '"a,b","c""d"');
+  assert.equal(csvDocument([['line1\nline2']]), '"line1\nline2"');
 });
 
 test('lineSegments leaves explicit unavailable periods as gaps', () => {
