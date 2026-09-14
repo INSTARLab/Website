@@ -171,7 +171,7 @@ export const recordRecordsRequest: RecordRecordsRequest = {
   ],
   notAvailable: [
     'Documents that do not exist cannot be produced. Where a filing year has no returned document, the institution’s reply should say so rather than substitute an explanation.',
-    'This register does not publish an email address, a telephone number or a post-office box for records requests, because none is established in the source this site is built from.',
+    'This register names no email address, telephone number or post-office box for records requests, because no source it cites establishes one for that purpose. Contact details the site publishes elsewhere are general contact routes; this register does not present them as a records-request channel.',
   ],
   limits:
     'The statute governs what the institution must provide and how long it has to respond. This page states the obligation and the route; it is not legal advice, and it is not a commitment about any individual request.',
