@@ -24,7 +24,7 @@ const audienceSignals = [
   <div class="container-fluid px-0">
     <section class="mb-5" aria-labelledby="marketing-brief-title">
       <div class="row g-4 align-items-end">
-        <div class="col-12 col-xl-8"><p class="text-uppercase small fw-bold text-primary mb-2">Positioning / route inventory</p><h2 id="marketing-brief-title" class="mb-3">The public profile is a map of research questions.</h2><p class="lead mb-0">This register counts the editorial route manifest and pairs its audience signals with the next public route. It describes site architecture and language; it does not turn those signals into traffic, conversion, customer, or funding performance.</p></div>
+        <div class="col-12 col-xl-8"><p class="text-uppercase small fw-bold text-primary mb-2">Positioning / route inventory</p><h2 id="marketing-brief-title" class="mb-3">The public profile is a map of research questions.</h2><p class="lead mb-0">This register counts the editorial route manifest and pairs its audience signals with the next public route. It describes site architecture and language; it does not turn those signals into traffic, conversion, or funding performance.</p></div>
         <div class="col-12 col-xl-4"><div class="card border-primary shadow-sm h-100"><div class="card-body"><p class="text-uppercase small fw-bold text-primary mb-2">Published positioning</p><h3>{siteIdentity.name}</h3><p class="mb-3">{siteIdentity.description}</p><a class="btn btn-primary" href={recordHref('/mission/')}>Read the mission <span aria-hidden="true">↗</span></a></div></div></div>
       </div>
     </section>
@@ -41,6 +41,6 @@ const audienceSignals = [
       <div class="table-responsive border rounded-3 shadow-sm" tabindex="0" role="region" aria-label="Audience coverage"><table class="table table-striped align-middle mb-0"><caption class="visually-hidden">Curated audience to capability route matrix</caption><thead class="table-light"><tr><th scope="col">Audience signal</th><th scope="col">What the route helps them inspect</th><th scope="col">Public starting point</th></tr></thead><tbody>{audienceSignals.map((signal) => <tr><th scope="row">{signal.label}</th><td>{signal.capability}</td><td><a href={recordHref(signal.route)}>{signal.route}</a></td></tr>)}</tbody></table></div>
     </section>
 
-    <section aria-labelledby="marketing-discipline-title"><div class="alert alert-warning mb-0" role="note"><h2 id="marketing-discipline-title">Claim discipline</h2><p class="mb-0">Words such as “advanced,” “frontier,” or “qualified” remain descriptions from the public route data. This page does not treat them as proof of a contract, customer outcome, active award, or external validation.</p></div></section>
+    <section aria-labelledby="marketing-discipline-title"><div class="alert alert-warning mb-0" role="note"><h2 id="marketing-discipline-title">Claim discipline</h2><p class="mb-0">Words such as “advanced,” “frontier,” or “qualified” remain descriptions from the public route data. This page does not treat them as proof of a contract, a program outcome, an active award, or external validation.</p></div></section>
   </div>
 </RecordDocument>

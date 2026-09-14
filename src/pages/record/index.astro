@@ -85,7 +85,7 @@ const evidenceBars = sourceStatuses.map((entry) => ({ label: entry.label, value:
     </div>
 
     <section class="record-section mt-4" aria-labelledby="record-operational-title">
-      <div class="d-flex flex-wrap justify-content-between align-items-end gap-3 mb-3"><div><p class="record-section__label mb-2">Operational BI</p><h2 id="record-operational-title" class="mb-2">{biHeading}</h2><p class="mb-0 text-body-secondary">{biLead}</p></div><a class="btn btn-sm btn-outline-primary" href={recordHref('/record/ops/')}>Open business status</a></div>
+      <div class="d-flex flex-wrap justify-content-between align-items-end gap-3 mb-3"><div><p class="record-section__label mb-2">Operational BI</p><h2 id="record-operational-title" class="mb-2">{biHeading}</h2><p class="mb-0 text-body-secondary">{biLead}</p></div><a class="btn btn-sm btn-outline-primary" href={recordHref('/record/ops/')}>Open delivery status</a></div>
       <MetricGrid title="Operational BI measures" items={biCards} columns={4} />
     </section>
 

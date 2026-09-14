@@ -366,6 +366,11 @@ test('the contact-detail discrepancy is recorded, and the published value is lef
 // reads them from the served artifact the way a reader receives them.
 test('the served record room labels describe a public charity rather than a vendor', async ({ page, request }) => {
   const forbidden = /acquisition|market profile|business status|procurement|competitor|past performance/i;
+  // A 501(c)(3) has no customers, no vendors and no marketplace. The words are
+  // swept across the whole rendered page rather than the labels alone, because
+  // the stale copy this caught was a link in the body — `Open business status`
+  // on the room's own home route, left behind when the route label changed.
+  const commercialNoun = /\bcustomers?\b|\bvendors?\b|marketplace/i;
 
   const manifest = await (await request.get('/record/manifest.json')).json();
   expect(manifest.routeInventory.length, 'the manifest carries no route inventory').toBeGreaterThan(10);
@@ -385,6 +390,15 @@ test('the served record room labels describe a public charity rather than a vend
     expect(eyebrow.trim(), `${href} carries a commercial eyebrow`).not.toMatch(forbidden);
     const heading = await page.locator('h1').innerText();
     expect(heading.trim(), `${href} has no page heading`).not.toBe('');
+
+    // The body copy a reader receives, including the links the room offers.
+    const body = await page.locator('main').innerText();
+    expect(body, `${href} describes the institution as a business with customers or vendors`).not.toMatch(commercialNoun);
+    const anchors = await page.locator('main a').allInnerTexts();
+    expect(
+      anchors.filter((label) => forbidden.test(label)),
+      `${href} offers a link labelled with the commercial vocabulary of its own past model`,
+    ).toEqual([]);
   }
 });
 
