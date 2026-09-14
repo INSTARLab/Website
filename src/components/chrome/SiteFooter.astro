@@ -1,4 +1,5 @@
 ---
+import { siteIdentity } from '../../data/seo/site';
 import { quickFooterLinks, researchFooterLinks } from '../../data/siteNavigation';
 import Icon from '../primitives/Icon.astro';
 
@@ -9,6 +10,12 @@ interface Props {
 
 const { newsletterAction, newsletterMethod = 'post' } = Astro.props;
 const year = new Date().getFullYear();
+// Org facts render from the single siteIdentity source (gh#278) so a
+// correction is one edit, not a sitewide propagation.
+const telephoneHref = `tel:${siteIdentity.telephone.replaceAll('-', '')}`;
+const streetAddress = siteIdentity.address.streetAddress;
+const localityAddress = `${siteIdentity.address.addressLocality}, ${siteIdentity.address.addressRegion} ${siteIdentity.address.postalCode}`;
+const mapsHref = `https://maps.google.com/?q=${encodeURIComponent(`${streetAddress} ${localityAddress}`)}`;
 ---
 
 <footer class="site-footer">
@@ -19,9 +26,9 @@ const year = new Date().getFullYear();
         <p>INSTAR Lab is a 501(c)(3) nonprofit research institute conducting applied research in AI, quantum science, high-performance computing, health, energy, space, and the sciences for federal and institutional research partners.</p>
         <div class="site-footer__contact">
           <h3>Contact us</h3>
-          <a href="tel:9292292917"><Icon name="phone" size="1rem" /><span>Phone: 929-229-2917</span></a>
-          <a href="mailto:info@instarlab.org"><Icon name="mail" size="1rem" /><span>Email: info@instarlab.org</span></a>
-          <a href="https://maps.google.com/?q=125+Frederick+St+Marietta+OH+45750"><Icon name="map-pin" size="1rem" /><span>Address: 125 Frederick St, Marietta, OH 45750-3407</span></a>
+          <a href={telephoneHref}><Icon name="phone" size="1rem" /><span>Phone: {siteIdentity.telephone}</span></a>
+          <a href={`mailto:${siteIdentity.email}`}><Icon name="mail" size="1rem" /><span>Email: {siteIdentity.email}</span></a>
+          <a href={mapsHref} target="_blank" rel="noopener noreferrer"><Icon name="map-pin" size="1rem" /><span>Address: {streetAddress}, {localityAddress}</span></a>
         </div>
       </section>
 
@@ -62,6 +69,19 @@ const year = new Date().getFullYear();
   <div class="site-footer__bottom">
     <div class="site-container site-footer__bottom-inner">
       <p>INSTAR Lab Inc. is a registered 501(c)(3) nonprofit. Copyright © {year} INSTAR Lab Inc. All Rights Reserved.</p>
+      {/*
+        Verified nonprofit transparency (gh#252, gh#309, gh#326, gh#347):
+        EIN 85-0845517 is IRS-verified as safe to publish; the determination
+        letter ships with the site; ProPublica and the Ohio Attorney General
+        registry are the stable external lookups. No UEI/CAGE/SAM identifiers
+        are published — past values were retracted as unverifiable.
+      */}
+      <p class="site-footer__transparency">
+        <span>EIN 85-0845517.</span>
+        <a href="/docs/irs-determination-letter-85-0845517.pdf">IRS determination letter (PDF)</a>
+        <a href="https://projects.propublica.org/nonprofits/organizations/850845517" target="_blank" rel="noopener noreferrer">ProPublica Nonprofit Explorer</a>
+        <a href="https://charitableregistration.ohioago.gov/Charities/OrganizationDetails?Id=12174620" target="_blank" rel="noopener noreferrer">Ohio charity registration</a>
+      </p>
       <a href="#top">Back to top <Icon name="arrow-up-right" size="0.9rem" /></a>
     </div>
   </div>
@@ -98,5 +118,12 @@ const year = new Date().getFullYear();
 
   .site-footer__form button {
     justify-content: center;
+  }
+
+  .site-footer__transparency {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.35rem 0.9rem;
   }
 </style>

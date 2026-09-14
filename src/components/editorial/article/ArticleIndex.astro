@@ -11,6 +11,12 @@ interface Props {
 const { articles, authors } = Astro.props;
 const featured = articles[0];
 const rest = featured ? articles.slice(1) : [];
+// Topic filter (gh#322) and feed discovery (gh#264) run off metadata the
+// collection already carries — no new taxonomy to maintain by hand.
+const allTopics = [...new Set(articles.flatMap((article) => article.data.topics))].sort((a, b) =>
+  a.localeCompare(b),
+);
+const topicsFor = (article: ArticleEntry) => article.data.topics.join(' | ');
 ---
 
 <SiteLayout
@@ -18,6 +24,7 @@ const rest = featured ? articles.slice(1) : [];
   description="Research briefs, methods, and evidence from INSTAR Lab’s work in AI, quantum science, computing, health, energy, space, and the sciences."
   canonical="/news/"
 >
+  <link slot="head" rel="alternate" type="application/rss+xml" title="INSTAR Lab News" href="/rss.xml" />
   <div class="article-index" data-route="/news/" data-page-signature="orientation → evidence → observation → connection">
     <header class="article-index__header">
       <div class="article-index__header-inner">
@@ -41,10 +48,25 @@ const rest = featured ? articles.slice(1) : [];
       </div>
 
       {featured ? (
-        <ArticleCard article={featured} authors={authors} featured />
+        <div data-topic-card data-topics={topicsFor(featured)}>
+          <ArticleCard article={featured} authors={authors} featured />
+        </div>
       ) : (
         <p class="article-index__empty">No published briefs are available yet.</p>
       )}
+
+      {allTopics.length > 1 ? (
+        <div class="article-index__filters" data-topic-filters>
+          <p class="article-index__label" id="article-filter-label">Filter by topic</p>
+          <div class="article-index__filter-buttons" role="group" aria-labelledby="article-filter-label">
+            <button type="button" data-topic-filter="all" aria-pressed="true">All topics</button>
+            {allTopics.map((topic) => (
+              <button type="button" data-topic-filter={topic} aria-pressed="false">{topic}</button>
+            ))}
+          </div>
+          <p class="article-index__filter-status" data-topic-status role="status" aria-live="polite"></p>
+        </div>
+      ) : null}
 
       {rest.length > 0 ? (
         <section class="article-index__archive" aria-labelledby="article-archive-title">
@@ -53,12 +75,60 @@ const rest = featured ? articles.slice(1) : [];
             <h2 id="article-archive-title">Keep reading</h2>
           </div>
           <div class="article-index__grid">
-            {rest.map((article) => <ArticleCard article={article} authors={authors} />)}
+            {rest.map((article) => (
+              <div data-topic-card data-topics={topicsFor(article)}>
+                <ArticleCard article={article} authors={authors} />
+              </div>
+            ))}
           </div>
+          <p class="article-index__empty" data-topic-empty hidden>No briefs match this topic yet. Try another topic.</p>
         </section>
       ) : null}
     </div>
   </div>
+
+  {allTopics.length > 1 ? (
+    <script>
+      // Progressive enhancement: without JS every brief stays visible and the
+      // filter group degrades to inert buttons, so this never hides content
+      // from no-JS readers or crawlers.
+      const root = document.querySelector('[data-topic-filters]');
+      const scope = root?.closest('.article-index');
+      const buttons = [...(root?.querySelectorAll('[data-topic-filter]') ?? [])];
+      const cards = [...(scope?.querySelectorAll('[data-topic-card]') ?? [])];
+      const status = root?.querySelector('[data-topic-status]');
+      const emptyNote = scope?.querySelector('[data-topic-empty]');
+
+      const applyFilter = (topic: string) => {
+        let visible = 0;
+        for (const card of cards) {
+          const topics = (card.getAttribute('data-topics') ?? '').split(' | ');
+          const show = topic === 'all' || topics.includes(topic);
+          card.toggleAttribute('hidden', !show);
+          if (show) visible += 1;
+        }
+        for (const button of buttons) {
+          button.setAttribute('aria-pressed', String(button.getAttribute('data-topic-filter') === topic));
+        }
+        if (status) {
+          status.textContent =
+            topic === 'all' ? '' : `${String(visible)} ${visible === 1 ? 'brief' : 'briefs'} on ${topic}.`;
+        }
+        emptyNote?.toggleAttribute('hidden', visible !== 0);
+      };
+
+      // The status line starts empty; announce only after a filter is chosen.
+      if (status) status.textContent = '';
+      for (const button of buttons) {
+        button.addEventListener('click', () => applyFilter(button.getAttribute('data-topic-filter') ?? 'all'));
+      }
+      // Keep a pre-selected (e.g. back-button) filter honest on load.
+      const pressed = buttons.find((button) => button.getAttribute('aria-pressed') === 'true');
+      if (pressed && pressed.getAttribute('data-topic-filter') !== 'all') {
+        applyFilter(pressed.getAttribute('data-topic-filter') ?? 'all');
+      }
+    </script>
+  ) : null}
 </SiteLayout>
 
 <style>
@@ -162,6 +232,53 @@ const rest = featured ? articles.slice(1) : [];
     padding: 2rem;
     border: 1px solid var(--color-rule);
     background: var(--color-surface);
+  }
+
+  .article-index__filters {
+    margin-block: clamp(2rem, 5vw, 3.5rem);
+    padding-block-start: clamp(1.5rem, 3vw, 2.5rem);
+    border-block-start: 1px solid var(--color-rule);
+  }
+
+  .article-index__filter-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-block-start: 1rem;
+  }
+
+  .article-index__filter-buttons button {
+    padding: 0.55rem 1rem;
+    border: 1px solid var(--color-rule);
+    border-radius: 999px;
+    background: var(--color-surface);
+    color: var(--color-ink);
+    font: 700 0.82rem/1.2 var(--font-ui);
+    cursor: pointer;
+  }
+
+  .article-index__filter-buttons button[aria-pressed="true"] {
+    border-color: var(--color-brand-deep);
+    background: var(--color-brand-deep);
+    color: #fff;
+  }
+
+  .article-index__filter-buttons button:hover {
+    border-color: var(--color-brand-deep);
+  }
+
+  .article-index__filter-status:empty {
+    display: none;
+  }
+
+  .article-index__filter-status {
+    margin-block: 1rem 0;
+    color: var(--color-muted-strong);
+    font-size: 0.95rem;
+  }
+
+  [data-topic-card][hidden] {
+    display: none;
   }
 
   @media (max-width: 48rem) {

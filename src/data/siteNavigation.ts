@@ -154,10 +154,21 @@ export const primaryNavigation = [
     ],
   },
   {
+    // The three laboratory pages were reachable only from homepage body copy
+    // (gh#317). They now have a persistent home in the primary navigation.
+    label: 'Laboratories',
+    items: [
+      { label: 'Sovereign AI Laboratory', href: '/labs/sovereign-ai/' },
+      { label: 'Biometrics & Drone Sensing', href: '/labs/biometric-security/' },
+      { label: 'Cognitive AI & Persona Systems', href: '/labs/cognitive-ai/' },
+    ],
+  },
+  {
     label: 'Community',
     items: [
       { label: 'Fellowship', href: '/fellowship/' },
       { label: 'Collaborate', href: '/community/work-with-us/' },
+      { label: 'Partner', href: '/community/partner/' },
       { label: 'Careers', href: '/community/careers/' },
       { label: 'Contact', href: '/contact-us/' },
     ],

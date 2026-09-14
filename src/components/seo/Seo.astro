@@ -93,6 +93,11 @@ const organizationNode: JsonLdNode = {
   logo: absoluteSeoUrl(siteIdentity.logoPath, siteUrl),
   email: siteIdentity.email,
   telephone: siteIdentity.telephone,
+  // sameAs carries only profiles evidenced in this repository: the GitHub
+  // organization that hosts the public mirror, and the X handle already
+  // asserted by the twitter:site tag below. LinkedIn and others stay out
+  // until the organization confirms the exact profile URLs (gh#333).
+  sameAs: ['https://github.com/INSTARLab', 'https://twitter.com/INSTARLab'],
   address: {
     '@type': 'PostalAddress',
     ...siteIdentity.address,
@@ -159,6 +164,20 @@ const imageMimeType = imageExtension
 <title>{title}</title>
 <meta name="description" content={description} />
 <meta name="robots" content={robots} />
+<!--
+  Same-origin content policy (gh#248). GitHub Pages cannot send a
+  Content-Security-Policy response header, so this meta tag is the available
+  lever. The build emits zero external scripts, stylesheets, fonts, or
+  fetch() targets, so the default stays 'self'. Two deliberate allowances:
+  script-src and style-src keep 'unsafe-inline' because Astro's client router
+  and scoped component styles render inline by design; img-src keeps data:
+  for inline SVG fallbacks. Revisit if any external dependency is added.
+-->
+<meta
+  http-equiv="Content-Security-Policy"
+  content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:; connect-src 'self'; form-action 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'self'"
+/>
+<meta name="referrer" content="strict-origin-when-cross-origin" />
 <link rel="canonical" href={canonicalUrl} />
 <link rel="sitemap" href={sitemapUrl} />
 {imagePreloadHref ? <link rel="preload" as="image" href={imagePreloadHref} type={imageMimeType} fetchpriority="high" /> : null}
@@ -174,6 +193,14 @@ const imageMimeType = imageExtension
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
 <meta property="og:site_name" content={siteIdentity.name} />
+<!--
+  Open Graph images are per-page AVIF hero assets (gh#250), not one shared
+  default. AVIF is kept deliberately under the repo's AVIF-only rule even
+  though older social scrapers prefer JPG/PNG (gh#334): every og:image ships
+  with explicit og:image:type/width/height so current crawlers (X, LinkedIn,
+  Slack) render without probing, and the site never maintains a parallel
+  raster set that can drift from the page art.
+-->
 {imageUrl ? <meta property="og:image" content={imageUrl} /> : null}
 {imageUrl?.startsWith('https://') ? <meta property="og:image:secure_url" content={imageUrl} /> : null}
 {imageMimeType ? <meta property="og:image:type" content={imageMimeType} /> : null}
