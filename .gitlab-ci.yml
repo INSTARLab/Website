@@ -29,22 +29,39 @@ pages:
     - export ASTRO_BASE="$(node scripts/quality/resolve-pages-base.mjs)"
     - echo "Building GitLab Pages with base ${ASTRO_BASE}"
     - npx --yes --package=pnpm@12.4.1 pnpm install --frozen-lockfile
+    # The artifact that ships to GitHub Pages is the CNAME-rooted one, and it is
+    # built here — from the same source and the same node_modules — so that
+    # `quality:astro-artifact` can validate it on demo. Before this, the only
+    # job that ever built or checked the root configuration was `mirror`, on the
+    # promotion branch, after the release decision had been taken: a defect that
+    # existed at base / alone failed late instead of early.
+    - ASTRO_BASE=/ npx --yes --package=pnpm@12.4.1 pnpm run build
+    - mv dist dist-root
     - npx --yes --package=pnpm@12.4.1 pnpm run build
     - test -f dist/.nojekyll
     - test -d dist/assets
     - test -n "$(find dist/assets -maxdepth 1 -type f -name '*.css' -print -quit)"
+    - test -f dist-root/.nojekyll
+    - test -d dist-root/assets
   pages:
     publish: dist
   artifacts:
     paths:
       - dist
+      - dist-root
     expire_in: 1 week
   rules:
     - if: '$CI_COMMIT_BRANCH == "demo"'
 
-# Validate the artifact produced by the Pages job instead of re-scanning the
+# Validate the artifacts produced by the Pages job instead of re-scanning the
 # removed root static-site corpus. This keeps CI aligned with the same strict
 # route, link, sitemap, and media checks used before publication.
+#
+# Both artifacts are validated, because a defect can exist at one base and not
+# the other. `dist` is the artifact mounted below the GitLab Pages project
+# subpath; `dist-root` is the CNAME-rooted artifact that actually ships to
+# GitHub Pages. Validating only the first left the shipped configuration with no
+# artifact-quality coverage at all until `mirror` ran at promotion time.
 quality:astro-artifact:
   stage: .post
   image: node:22-bookworm-slim
@@ -55,20 +72,46 @@ quality:astro-artifact:
     # Recreate the Pages build's base in this separate artifact-quality job.
     - export ASTRO_BASE="$(node scripts/quality/resolve-pages-base.mjs)"
   script:
-    - node scripts/quality/route-ledger.mjs --dist dist --strict
-    - node scripts/quality/check-dist-links.mjs --dist dist --base "${ASTRO_BASE}"
-    - node scripts/quality/check-dist-sitemap.mjs --dist dist --origin https://www.instarlab.org --base "${ASTRO_BASE}"
-    - node scripts/quality/media-audit.mjs --dist dist --strict
-    - node scripts/quality/check-dist-provenance.mjs --dist dist
-    - node scripts/quality/validate-dist-metadata.mjs --dist dist
-    - node tests/seo/structured-data.test.mjs
-    - test -f dist/rss.xml
-    - test -f dist/pagefind/pagefind.js
-    # check-dist-links.mjs only resolves references that appear in rendered
-    # HTML, so a file that is required by convention and never linked from a
-    # page is structurally invisible to it — which is how a live 404 for this
-    # exact path survived a green pipeline. Assert the artifact directly.
-    - test -f dist/.well-known/security.txt
+    - |
+      set -eu
+      # Every check is a script or a `test -f`, so running the suite twice costs
+      # no second install and no second build: the Pages job already produced
+      # both artifacts and this job's whole budget is process start-up.
+      check_artifact() {
+        dir="$1"
+        base="$2"
+        node scripts/quality/route-ledger.mjs --dist "$dir" --strict
+        node scripts/quality/check-dist-links.mjs --dist "$dir" --base "$base"
+        node scripts/quality/check-dist-sitemap.mjs --dist "$dir" --origin https://www.instarlab.org --base "$base"
+        node scripts/quality/media-audit.mjs --dist "$dir" --strict
+        node scripts/quality/check-dist-provenance.mjs --dist "$dir"
+        node scripts/quality/validate-dist-metadata.mjs --dist "$dir"
+        ASTRO_DIST_DIR="$dir" node tests/seo/structured-data.test.mjs
+        test -f "$dir/rss.xml"
+        test -f "$dir/pagefind/pagefind.js"
+        # check-dist-links.mjs only resolves references that appear in rendered
+        # HTML, so a file that is required by convention and never linked from a
+        # page is structurally invisible to it — which is how a live 404 for
+        # this exact path survived a green pipeline. Assert the artifact
+        # directly.
+        test -f "$dir/.well-known/security.txt"
+      }
+
+      echo "Validating the GitLab Pages artifact (base ${ASTRO_BASE})"
+      check_artifact dist "${ASTRO_BASE}"
+      node scripts/quality/check-dist-base.mjs --dist dist --base "${ASTRO_BASE}"
+
+      echo "Validating the shipped GitHub Pages artifact (base /)"
+      check_artifact dist-root /
+      # The root artifact is additionally scanned for the Pages mount a base
+      # leak would carry. The reverse scan is not meaningful: at base
+      # /Website/ every `/`-prefixed URL is the expected form, so there is no
+      # second base to look for. A runner without CI_PAGES_URL resolves to base
+      # /, where the two artifacts are the same build and there is no leak to
+      # hunt either.
+      if [ "${ASTRO_BASE}" != "/" ]; then
+        node scripts/quality/check-dist-base.mjs --dist dist-root --base / --other-base "${ASTRO_BASE}"
+      fi
   rules:
     - if: '$CI_COMMIT_BRANCH == "demo"'
 
@@ -122,34 +165,17 @@ mirror:
         exit 1
       fi
 
-      # grep exits 0 on a match, 1 on no match, and >1 on an error. Only a
-      # clean "no match" may pass, so an unreadable tree fails the job instead
-      # of reporting success it did not verify.
-      if grep -rIlF -e '/Website/' dist; then
-        echo "Refusing to mirror: the artifact contains the GitLab Pages base /Website/ (files listed above)" >&2
-        exit 1
-      else
-        base_scan_status=$?
-        if [ "${base_scan_status}" -ne 1 ]; then
-          echo "Refusing to mirror: the /Website/ scan could not complete (grep exited ${base_scan_status})" >&2
-          exit 1
-        fi
-      fi
-
-      # Positive counterpart to the scan above, which only knows that one wrong
-      # base. The shipped entry document must reference an asset at a
-      # root-relative /assets/ URL that exists in the artifact; any other base
-      # rewrites those to /<subpath>/assets/... and this fails.
-      entry_asset="$(grep -o -m1 -E '(href|src)="/assets/[^"]+"' dist/index.html | head -n 1 | sed -E 's/^[a-z]+="//; s/"$//' || true)"
-      if [ -z "${entry_asset}" ]; then
-        echo "Refusing to mirror: dist/index.html exposes no root-relative /assets/ reference" >&2
-        exit 1
-      fi
-      if [ ! -f "dist${entry_asset}" ]; then
-        echo "Refusing to mirror: dist/index.html references ${entry_asset}, which is absent from the artifact" >&2
-        exit 1
-      fi
-      echo "Verified root-relative base: ${entry_asset} resolves in dist/"
+      # The base contract, as the same script the demo-side gate runs, so the
+      # staging gate and the promotion gate enforce one rule instead of two
+      # copies of it. It replaces an inline
+      # `grep -rIlF -e '/Website/' dist`, which could not tell the GitLab Pages
+      # base from the public GitHub mirror this site cites at
+      # https://github.com/INSTARLab/Website/commit/<sha>: the repository is
+      # named Website, so that legitimate cross-host citation read as a leaked
+      # base and the job refused to release a correct artifact. The script tests
+      # position rather than value, and it still fails closed — an unreadable
+      # tree, a missing entry document or an absent asset each exit non-zero.
+      node scripts/quality/check-dist-base.mjs --dist dist --base / --other-base /Website/
 
       artifact_dir="$(mktemp -d)"
       cp -a dist/. "${artifact_dir}/"

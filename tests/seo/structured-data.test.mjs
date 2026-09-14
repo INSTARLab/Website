@@ -3,7 +3,13 @@ import { readFile, readdir } from 'node:fs/promises';
 import { join, relative } from 'node:path';
 import test from 'node:test';
 
-const distRoot = join(process.cwd(), 'dist');
+// The artifact under test is selectable so CI can run this against both bases
+// it builds — the GitLab Pages artifact and the root artifact that ships to
+// GitHub Pages — without a second copy of these assertions. It uses the same
+// `ASTRO_DIST_DIR` override the browser suite already reads, and the default is
+// unchanged, so a local `node tests/seo/structured-data.test.mjs` still checks
+// `dist/`.
+const distRoot = join(process.cwd(), process.env.ASTRO_DIST_DIR ?? 'dist');
 const expectedOrigin = 'https://www.instarlab.org';
 
 async function htmlFiles(directory) {
