@@ -144,9 +144,14 @@ test('the legal register carries each field with a basis and a limit, and states
   expect(recordFilingRecord.unresolved, 'the filing record does not record the gap as unresolved').toMatch(/unresolved/i);
   expect(recordFilingRecord.revocationStatus, 'revocation status is stated without attributing it').toMatch(/institution reports|institution’s check|institution's check/i);
 
-  // The one sentence this passage exists to prevent. A bulk file that omits a
-  // filing is not evidence of a filing gap, and the register may never write it
-  // as one, in any of the forms it would naturally take.
+  // The claim this passage exists to prevent: that INSTAR Lab failed to file.
+  //
+  // A plain substring guard cannot do this job, because the passage has to be
+  // able to *name* the claim in order to refuse it — "Nothing on this page
+  // asserts that INSTAR Lab failed to file" is the sentence doing the work, and
+  // it contains the forbidden phrase verbatim. So the rule is scoped to the
+  // sentence: a non-filing phrase may appear only inside a sentence that
+  // actually refuses it.
   const filingCopy = [
     recordFilingRecord.whatTheDatasetShows,
     recordFilingRecord.whatItDoesNotEstablish,
@@ -155,8 +160,12 @@ test('the legal register carries each field with a basis and a limit, and states
     recordFilingRecord.unresolved,
     recordFilingRecord.limits,
   ].join(' ');
-  expect(filingCopy, 'the filing record asserts a filing gap as a finding')
-    .not.toMatch(/INSTAR Lab (?:has not|did not|never|failed to) filed/i);
+  const refusal = /\bnothing\b|\bdoes not (?:assert|claim|establish|say)\b|\bno (?:page|source|record) (?:asserts|claims|states)\b/i;
+  const nonFilingSentence = /\b(?:did not|has not|has never|failed to|never)\s+fil(?:e|ed|ing)\b/i;
+  const sentences = filingCopy.split(/(?<=\.)\s+/).filter((sentence) => nonFilingSentence.test(sentence));
+  for (const sentence of sentences) {
+    expect(sentence, 'the filing record asserts a filing gap instead of refusing to draw one').toMatch(refusal);
+  }
 });
 
 test('the board register publishes the unaccounted seat instead of filling it', () => {
