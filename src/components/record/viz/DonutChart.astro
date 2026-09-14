@@ -1,0 +1,409 @@
+---
+import { csvDataHref, csvDocument } from './csv.mjs';
+import { donutCsvState, donutCsvValue, donutSegments, donutShareLabel } from './donut-segments.mjs';
+
+export interface DonutSlice {
+  readonly label: string;
+  readonly value: number | null;
+  readonly note?: string;
+  readonly href?: string;
+}
+
+interface Props {
+  readonly title: string;
+  readonly slices: readonly DonutSlice[];
+  readonly kicker?: string;
+  readonly unit?: string;
+  readonly source?: string;
+  readonly sourceHref?: string;
+  /**
+   * Approval reference for the snapshot the values come from. It travels in the
+   * CSV export but is deliberately not printed in the visible footer: on an
+   * unapproved snapshot the value is the raw enum state (`pending`), which is
+   * meaningful to the operator inspecting an export and meaningless to the
+   * public reading the page. The page states the absence in prose instead.
+   */
+  readonly approval?: string;
+  readonly description?: string;
+  readonly id?: string;
+  /**
+   * Outline level for the chart title. A chart is content inside a section, so
+   * a hard-coded `<h2>` fabricated a document-level heading on every page that
+   * rendered one. Call sites pass the level their enclosing section implies;
+   * the default reproduces the previous markup for anything that does not.
+   */
+  readonly level?: 2 | 3 | 4 | 5 | 6;
+  readonly emptyMessage?: string;
+}
+
+const { title, slices, kicker, unit, source, sourceHref, approval, description, id, level = 2, emptyMessage = 'No observations are available for this period.' } = Astro.props;
+const TitleTag = `h${level}` as 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+const chartId = id ?? `record-donut-${title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')}`;
+// Throws at build time on a non-finite or negative value: a ring cannot draw
+// either honestly, so neither may reach the page.
+const { total, measuredCount, segments } = donutSegments(slices);
+const formatValue = (value: number | null) => value === null || !Number.isFinite(value) ? 'Not reported' : value.toLocaleString('en-US');
+// The export carries the same attribution the page displays, plus the approval
+// reference an operator needs to trace a value back to its sign-off — the same
+// `Label,Value,State,Unit,Source,Approval` contract as BarChart, so the two
+// exports stay interchangeable. A measured zero exports as the number 0 with
+// `measured`; an unavailable observation exports as "Not reported" with
+// `unavailable`, never as an empty cell and never dropped.
+const csv = csvDocument([
+  ['Label', 'Value', 'State', ...(unit ? ['Unit'] : []), ...(source ? ['Source'] : []), ...(approval ? ['Approval'] : [])],
+  ...segments.map((segment) => [segment.label, donutCsvValue(segment.value), donutCsvState(segment.value), ...(unit ? [unit] : []), ...(source ? [source] : []), ...(approval ? [approval] : [])]),
+]);
+const csvHref = csvDataHref(csv);
+// Slice fills stay inside the room's token set — accent, secondary, and neutral
+// tints already on these pages. Colour is never the sole carrier: every slice
+// is labelled in the legend with its value and its state in text.
+const slicePalette = ['#176b8c', '#526675', '#9ebdcc', '#14627d'] as const;
+const measuredSegments = segments.filter((segment) => segment.value !== null);
+let cursor = 0;
+const arcs = measuredSegments.map((segment, index) => {
+  const share = segment.share ?? 0;
+  const start = cursor;
+  cursor += share;
+  return { ...segment, share, start, color: slicePalette[index % slicePalette.length] };
+});
+// The helper preserves input order one-to-one, so the page-level note and link
+// ride the same index as the computed share — no second lookup by label that
+// could mismatch on a duplicate.
+const legendItems = segments.map((segment, index) => {
+  const measuredIndex = measuredSegments.indexOf(segment);
+  return {
+    ...segment,
+    note: slices[index]?.note,
+    href: slices[index]?.href,
+    color: measuredIndex >= 0 ? slicePalette[measuredIndex % slicePalette.length] : undefined,
+  };
+});
+---
+
+<section class="record-donut-chart" aria-labelledby={`${chartId}-title`} data-record-viz="donut" data-record-viz-id={chartId}>
+  <header class="record-viz__header">
+    <div>
+      {kicker && <p class="record-kicker">{kicker}</p>}
+      <TitleTag id={`${chartId}-title`} class="record-viz__title">{title}</TitleTag>
+      {description && <p class="record-viz__description">{description}</p>}
+    </div>
+    <a class="record-viz__export" href={csvHref} download={`${chartId}.csv`}>Download CSV</a>
+  </header>
+
+  {slices.length === 0 || measuredCount === 0 ? (
+    <p class="record-viz__empty" role="status">{emptyMessage}</p>
+  ) : (
+    <>
+      <div class="record-donut-chart__canvas">
+        <svg class="record-donut-chart__svg" viewBox="0 0 180 180" role="img" aria-labelledby={`${chartId}-svg-title ${chartId}-svg-description`}>
+          <title id={`${chartId}-svg-title`}>{title}</title>
+          <desc id={`${chartId}-svg-description`}>{description ?? `Donut chart showing ${title.toLowerCase()} as shares of a whole.`}</desc>
+          <circle cx="90" cy="90" r="70" class="record-donut-chart__track" />
+          <g transform="rotate(-90 90 90)">
+            {arcs.map((arc) => arc.share > 0 && (
+              <circle
+                cx="90"
+                cy="90"
+                r="70"
+                pathLength="100"
+                stroke-dasharray={`${arc.share * 100} 100`}
+                stroke-dashoffset={25 - arc.start * 100}
+                stroke={arc.color}
+                class="record-donut-chart__arc"
+              />
+            ))}
+          </g>
+        </svg>
+        <p class="record-donut-chart__total" aria-hidden="true">
+          <strong>{total.toLocaleString('en-US')}{unit ? ` ${unit}` : ''}</strong>
+          <span>total</span>
+        </p>
+      </div>
+
+      <ul class="record-donut-chart__legend" aria-label={`${title} shares`}>
+        {legendItems.map((item) => {
+          const isAvailable = item.value !== null;
+          return (
+            <li class="record-donut-chart__legend-item">
+              <span class:list={['record-donut-chart__swatch', { 'record-donut-chart__swatch--unavailable': !isAvailable }]} style={isAvailable && item.color ? `--record-donut-slice: ${item.color}` : undefined} aria-hidden="true"></span>
+              <span class="record-donut-chart__legend-text">
+                <span class="record-donut-chart__label">{item.href ? <a href={item.href}>{item.label}</a> : item.label}</span>
+                <strong class="record-donut-chart__value">
+                  {isAvailable
+                    ? `${formatValue(item.value)}${unit ? ` ${unit}` : ''} · ${donutShareLabel(item.share)}`
+                    : 'Not reported'}
+                </strong>
+                {item.note && <span class="record-donut-chart__note">{item.note}</span>}
+              </span>
+            </li>
+          );
+        })}
+      </ul>
+
+      <details class="record-viz__table-details">
+        <summary>View data table</summary>
+        {/* tabindex puts this wrapper in the tab order, so it needs a role and a
+          * name — the same contract the register tables in files/ and verify/ use. */}
+        <div class="record-viz__table-wrap" tabindex="0" role="region" aria-label={`${title} data table`}>
+          <table class="record-viz__table">
+            <caption>{title}</caption>
+            <thead><tr><th scope="col">Category</th><th scope="col">Value{unit && ` (${unit})`}</th></tr></thead>
+            <tbody>
+              {segments.map((segment) => (
+                <tr>
+                  <th scope="row">{segment.href ? <a href={segment.href}>{segment.label}</a> : segment.label}</th>
+                  <td>{formatValue(segment.value)}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </details>
+    </>
+  )}
+
+  {(source || unit) && (
+    <footer class="record-viz__footer">
+      {unit && <span>Unit: {unit}</span>}
+      {source && <span>Source: {sourceHref ? <a href={sourceHref}>{source}</a> : source}</span>}
+    </footer>
+  )}
+</section>
+
+<style>
+  .record-donut-chart,
+  .record-viz__table-details {
+    color: #122535;
+    font-family: var(--font-ui, system-ui, sans-serif);
+  }
+
+  .record-viz__header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: start;
+    justify-content: space-between;
+    gap: 0.75rem 1.25rem;
+    margin-bottom: 1rem;
+  }
+
+  .record-kicker {
+    margin: 0 0 0.35rem;
+  }
+
+  .record-viz__title {
+    margin: 0;
+    font-family: var(--font-display, system-ui, sans-serif);
+    font-size: clamp(1.1rem, 1.6vw, 1.45rem);
+    letter-spacing: -0.025em;
+    line-height: 1.15;
+  }
+
+  .record-viz__description,
+  .record-viz__footer,
+  .record-viz__empty {
+    color: #526675;
+    font-size: 0.8rem;
+    line-height: 1.5;
+  }
+
+  .record-viz__description {
+    max-width: 68ch;
+    margin: 0.45rem 0 0;
+  }
+
+  .record-viz__export {
+    flex: 0 0 auto;
+    padding: 0.4rem 0.65rem;
+    border: 1px solid #9ebdcc;
+    border-radius: 0.35rem;
+    color: #14627d;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  .record-viz__export:hover,
+  .record-viz__export:focus-visible {
+    border-color: #14627d;
+    background: #edf7fb;
+  }
+
+  .record-donut-chart__canvas {
+    position: relative;
+    max-width: 16rem;
+    margin: 0 auto;
+  }
+
+  .record-donut-chart__svg {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .record-donut-chart__track {
+    fill: none;
+    stroke: #edf3f6;
+    stroke-width: 28;
+  }
+
+  .record-donut-chart__arc {
+    fill: none;
+    stroke-width: 28;
+  }
+
+  .record-donut-chart__total {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    align-content: center;
+    justify-items: center;
+    gap: 0.15rem;
+    margin: 0;
+    pointer-events: none;
+    text-align: center;
+  }
+
+  .record-donut-chart__total strong {
+    color: #122535;
+    font-size: 1.35rem;
+    font-variant-numeric: tabular-nums;
+    line-height: 1.1;
+  }
+
+  .record-donut-chart__total span {
+    color: #526675;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .record-donut-chart__legend {
+    display: grid;
+    gap: 0.75rem;
+    margin: 1rem 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .record-donut-chart__legend-item {
+    display: flex;
+    gap: 0.6rem;
+    align-items: flex-start;
+  }
+
+  .record-donut-chart__swatch {
+    flex: 0 0 0.9rem;
+    width: 0.9rem;
+    height: 0.9rem;
+    margin-top: 0.2rem;
+    border-radius: 0.2rem;
+    background: var(--record-donut-slice, #176b8c);
+  }
+
+  .record-donut-chart__swatch--unavailable {
+    border: 1px dashed #9ebdcc;
+    background: repeating-linear-gradient(45deg, #f7fafc, #f7fafc 2px, #d6e1e8 2px, #d6e1e8 4px);
+  }
+
+  .record-donut-chart__legend-text {
+    display: grid;
+    gap: 0.15rem;
+    min-width: 0;
+  }
+
+  .record-donut-chart__label {
+    overflow-wrap: anywhere;
+    color: #122535;
+    font-size: 0.82rem;
+  }
+
+  .record-donut-chart__label a {
+    color: inherit;
+    text-decoration-color: #9ebdcc;
+    text-underline-offset: 0.18em;
+  }
+
+  .record-donut-chart__value {
+    color: #122535;
+    font-size: 0.82rem;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .record-donut-chart__note {
+    color: #526675;
+    font-size: 0.74rem;
+    line-height: 1.45;
+  }
+
+  .record-viz__table-details {
+    margin-top: 0.9rem;
+    border-top: 1px solid #e4ebef;
+  }
+
+  .record-viz__table-details summary {
+    width: fit-content;
+    padding: 0.75rem 0;
+    color: #14627d;
+    cursor: pointer;
+    font-size: 0.78rem;
+    font-weight: 700;
+  }
+
+  .record-viz__table-wrap {
+    overflow-x: auto;
+  }
+
+  .record-viz__table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.8rem;
+  }
+
+  .record-viz__table th,
+  .record-viz__table td {
+    padding: 0.65rem 0.55rem;
+    border-bottom: 1px solid #e4ebef;
+    text-align: left;
+  }
+
+  .record-viz__table td {
+    font-variant-numeric: tabular-nums;
+    text-align: right;
+  }
+
+  .record-viz__table a,
+  .record-viz__footer a {
+    color: #14627d;
+    text-underline-offset: 0.18em;
+  }
+
+  .record-donut-chart__label a:hover,
+  .record-viz__footer a:hover {
+    color: #14627d;
+  }
+
+  .record-viz__footer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem 1rem;
+    margin-top: 1rem;
+    padding-top: 0.8rem;
+    border-top: 1px solid #e4ebef;
+  }
+
+  .record-viz__empty {
+    margin: 0;
+    padding: 1rem;
+    border: 1px dashed #9ebdcc;
+    border-radius: 0.4rem;
+    background: #f7fafc;
+  }
+
+  @media (max-width: 40rem) {
+    .record-viz__export {
+      width: 100%;
+      text-align: center;
+    }
+  }
+</style>

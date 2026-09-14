@@ -1,0 +1,254 @@
+---
+import { timelineDateIsUnknown, timelineDateKind, timelineDateLabel, timelineMachineDate } from './timeline-model.mjs';
+
+export interface TimelineEvent {
+  readonly id: string;
+  /** The event name, in the register's own words. Never a retracted value. */
+  readonly label: string;
+  /** A single pin date (a commit-evidenced or dataset-stated date, or year). */
+  readonly date?: string | null;
+  /** Span start — for corrections, when the defective claim went out. */
+  readonly from?: string | null;
+  /** Span end — for corrections, when the correcting commit landed. */
+  readonly to?: string | null;
+  /** Anchor or URL for the fuller record (a register entry, a dataset page). */
+  readonly href?: string;
+  /** One or two sentences of register-stated context. */
+  readonly description?: string;
+  /** The open gap, limit, or withheld-values note that travels with the event. */
+  readonly limits?: string;
+}
+
+interface Props {
+  readonly title: string;
+  readonly events: readonly TimelineEvent[];
+  readonly kicker?: string;
+  readonly description?: string;
+  readonly source?: string;
+  readonly sourceHref?: string;
+  readonly id?: string;
+  /**
+   * Outline level for the timeline title. A timeline is content inside a
+   * section, so a hard-coded `<h2>` fabricated a document-level heading on
+   * every page that rendered one. Call sites pass the level their enclosing
+   * section implies; the default reproduces the previous markup for anything
+   * that does not pass a level.
+   */
+  readonly level?: 2 | 3 | 4 | 5 | 6;
+  readonly emptyMessage?: string;
+}
+
+const { title, events, kicker, description, source, sourceHref, id, level = 2, emptyMessage = 'No dated events are published.' } = Astro.props;
+const TitleTag = `h${level}` as 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+const EventTag = `h${Math.min(level + 1, 6)}` as 'h3' | 'h4' | 'h5' | 'h6';
+const timelineId = id ?? `record-timeline-${title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')}`;
+---
+
+<section class="record-timeline" aria-labelledby={`${timelineId}-title`} data-record-viz="timeline" data-record-viz-id={timelineId}>
+  <header class="record-viz__header">
+    <div>
+      {kicker && <p class="record-kicker">{kicker}</p>}
+      <TitleTag id={`${timelineId}-title`} class="record-viz__title">{title}</TitleTag>
+      {description && <p class="record-viz__description">{description}</p>}
+    </div>
+  </header>
+
+  {events.length === 0 ? (
+    <p class="record-viz__empty" role="status">{emptyMessage}</p>
+  ) : (
+    // A single event renders as a one-pin timeline with its note, not an error
+    // state: the filing record holds exactly one observed filing year plus an
+    // open gap, and that is a complete rendering of what the register knows.
+    <ol class="record-timeline__list">
+      {events.map((event) => {
+        const kind = timelineDateKind(event);
+        const dateLabel = timelineDateLabel(event);
+        const unknown = timelineDateIsUnknown(event);
+        const machineDate = timelineMachineDate(event);
+        return (
+          <li class="record-timeline__event" id={`${timelineId}-${event.id.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`}>
+            <p class="record-timeline__date" data-timeline-date-state={unknown ? 'unknown' : 'stated'}>
+              {kind === 'single' && machineDate
+                ? <time dateTime={machineDate}>{dateLabel}</time>
+                : dateLabel}
+            </p>
+            <div class="record-timeline__body">
+              <EventTag class="record-timeline__label">{event.href ? <a href={event.href}>{event.label}</a> : event.label}</EventTag>
+              <p class="record-timeline__id">{event.id}</p>
+              {event.description && <p class="record-timeline__description">{event.description}</p>}
+              {event.limits && <p class="record-timeline__limits">{event.limits}</p>}
+            </div>
+          </li>
+        );
+      })}
+    </ol>
+  )}
+
+  {source && <footer class="record-viz__footer">Source: {sourceHref ? <a href={sourceHref}>{source}</a> : source}</footer>}
+</section>
+
+<style>
+  .record-timeline {
+    color: #122535;
+    font-family: var(--font-ui, system-ui, sans-serif);
+  }
+
+  .record-viz__header {
+    margin-bottom: 1rem;
+  }
+
+  .record-kicker {
+    margin: 0 0 0.35rem;
+  }
+
+  .record-viz__title {
+    margin: 0;
+    font-family: var(--font-display, system-ui, sans-serif);
+    font-size: clamp(1.1rem, 1.6vw, 1.45rem);
+    letter-spacing: -0.025em;
+    line-height: 1.15;
+  }
+
+  .record-viz__description,
+  .record-viz__empty,
+  .record-viz__footer {
+    color: #526675;
+    font-size: 0.8rem;
+    line-height: 1.5;
+  }
+
+  .record-viz__description {
+    max-width: 68ch;
+    margin: 0.45rem 0 0;
+  }
+
+  .record-timeline__list {
+    display: grid;
+    gap: 0;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .record-timeline__event {
+    display: grid;
+    grid-template-columns: minmax(9rem, 13rem) minmax(0, 1fr);
+    gap: 1rem;
+    padding: 0.9rem 0;
+    border-top: 1px solid #e4ebef;
+  }
+
+  .record-timeline__event:last-child {
+    border-bottom: 1px solid #e4ebef;
+  }
+
+  .record-timeline__date {
+    margin: 0;
+    padding-left: 0.9rem;
+    border-left: 0.25rem solid #176b8c;
+    color: #122535;
+    font-size: 0.8rem;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    line-height: 1.45;
+  }
+
+  .record-timeline__date[data-timeline-date-state='unknown'] {
+    border-left-style: dashed;
+    border-left-color: #9ebdcc;
+    color: #526675;
+    font-weight: 400;
+    font-style: italic;
+  }
+
+  .record-timeline__body {
+    min-width: 0;
+  }
+
+  .record-timeline__label {
+    margin: 0;
+    color: #122535;
+    font-family: var(--font-display, system-ui, sans-serif);
+    font-size: 1rem;
+    line-height: 1.25;
+  }
+
+  .record-timeline__label a {
+    color: inherit;
+    text-decoration-color: #9ebdcc;
+    text-underline-offset: 0.18em;
+  }
+
+  .record-timeline__label a:hover {
+    color: #14627d;
+  }
+
+  .record-timeline__id {
+    margin: 0.2rem 0 0;
+    color: #526675;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .record-timeline__description {
+    margin: 0.45rem 0 0;
+    color: #122535;
+    font-size: 0.82rem;
+    line-height: 1.55;
+  }
+
+  .record-timeline__limits {
+    margin: 0.45rem 0 0;
+    padding: 0.55rem 0.7rem;
+    border-left: 3px solid #9ebdcc;
+    background: #f7fafc;
+    color: #526675;
+    font-size: 0.76rem;
+    line-height: 1.5;
+  }
+
+  .record-viz__footer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem 1rem;
+    margin-top: 1rem;
+    padding-top: 0.8rem;
+    border-top: 1px solid #e4ebef;
+  }
+
+  .record-viz__footer a {
+    color: #14627d;
+    text-underline-offset: 0.18em;
+  }
+
+  .record-viz__footer a:hover {
+    color: #14627d;
+  }
+
+  .record-viz__empty {
+    margin: 0;
+    padding: 1rem;
+    border: 1px dashed #9ebdcc;
+    border-radius: 0.4rem;
+    background: #f7fafc;
+  }
+
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  @media (max-width: 40rem) {
+    .record-timeline__event {
+      grid-template-columns: 1fr;
+      gap: 0.45rem;
+    }
+  }
+</style>
