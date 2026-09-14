@@ -4,10 +4,17 @@ import MetricGrid from '../../components/record/ui/MetricGrid.astro';
 import BarChart from '../../components/record/viz/BarChart.astro';
 import {
   recordHref,
+  recordNavigationGroups,
   recordRouteAtPath,
   recordSourceRegister,
   sitePageRecords,
 } from '../../data/record';
+import {
+  legalRegisterRetrievedAt,
+  recordDeterminationLetter,
+  recordLegalStatus,
+} from '../../data/record-registers';
+import { siteIdentity } from '../../data/seo/site';
 import {
   recordBiIsStale,
   recordBiMetricDefinitions,
@@ -65,24 +72,81 @@ const biLead = recordBiSnapshot.status === 'empty'
   : `${biMeasuredCount} of ${recordBiMetricDefinitions.length} measures carry an approved value, ${biUnavailableCount} are approved with no published value, and ${biNoSnapshotCount} have no approved observation. A published zero is a measured figure, not a missing one.`;
 const familyBars = routeFamilies.map((entry) => ({ label: entry.family, value: entry.count }));
 const evidenceBars = sourceStatuses.map((entry) => ({ label: entry.label, value: entry.count }));
+
+// Identity hero rows, carried verbatim from the legal-status register — the
+// same field, value, and basis the legal page publishes, so the room's front
+// door can never disagree with its evidence room. No row here introduces a
+// fact the registers do not already carry.
+const identityFields = [
+  'Legal name',
+  'IRS employer identification number',
+  'Exemption',
+  'Public charity classification',
+  'Ruling effective date',
+  'Principal address',
+  'Published contact details',
+] as const;
+const identityRows = identityFields.flatMap((field) => recordLegalStatus.filter((row) => row.field === field));
 ---
 
 <RecordDocument {route}>
   <div class="container-fluid px-0">
-    {/* RR-301 SF-12. This block used to be a `<section>` whose only label was a
-      * `<p>` holding a sentence. A region whose name is a sentence fragment is
-      * not a region a reader can navigate to; it is a paragraph with two
-      * buttons, so it is markup'd as one.
-      *
-      * It keeps the `record-section` class because that class is not inert:
-      * `src/styles/record.css:422` declares `.record-section p { max-width: 70ch;
-      * color: var(--color-muted-strong) }`, which this paragraph depends on.
-      * Dropping the class here would silently un-cap the measure and change the
-      * ink. See the wave report for the CSS change that has to land first. */}
-    <div class="record-section d-flex flex-wrap align-items-center justify-content-between gap-3">
-      <p class="mb-0 text-body-secondary">Use the source register for limits, the site map for every route, and the decision briefs for a role-specific path.</p>
-      <div class="d-flex flex-wrap gap-2"><a class="btn btn-sm btn-outline-primary" href={recordHref('/record/verify/')}>Source register</a><a class="btn btn-sm btn-outline-primary" href={recordHref('/record/journeys/')}>Decision briefs</a></div>
-    </div>
+    {/* Identity hero. The room's front door states who the institution is —
+      * name, employer identification number, exemption and classification,
+      * mission, and the published contact routes — with every field carried
+      * verbatim from the legal-status register and pointed at the dated source
+      * register, followed by the supporting-pages index. It replaces the old
+      * paragraph-plus-buttons opener: a region whose only label was a sentence
+      * fragment is not a region a reader can navigate to. */}
+    <section class="record-section" aria-labelledby="record-identity-title">
+      <p class="record-section__label mb-2">Institution / identity</p>
+      <h2 id="record-identity-title" class="mb-2">INSTAR Lab Inc. — public identity</h2>
+      <p class="record-section__lede mb-4">{siteIdentity.description}</p>
+      <div class="row g-4 align-items-start">
+        <div class="col-12 col-xl-7">
+          <div class="table-responsive border rounded bg-white" tabindex="0" role="region" aria-label="Institutional identity fields with the source that carries each one">
+            <table class="record-table table table-hover align-middle mb-0">
+              <caption class="caption-top px-3 py-3">Identity field, value, and the source that carries it — carried verbatim from the legal-status register</caption>
+              <thead class="table-light"><tr><th scope="col">Field</th><th scope="col">Value</th><th scope="col">Basis</th></tr></thead>
+              <tbody>
+                {identityRows.map((row) => (
+                  <tr>
+                    <th scope="row">{row.field}</th>
+                    <td><strong>{row.value}</strong></td>
+                    <td class="small text-body-secondary">{row.basis}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p class="small text-body-secondary mt-2 mb-0">External records last opened {legalRegisterRetrievedAt}. Each field above names the source that carries it; the register states what each source cannot establish. <a href={recordHref('/record/verify/')}>Open the source register <span aria-hidden="true">→</span></a></p>
+        </div>
+        <div class="col-12 col-xl-5">
+          <div class="card h-100 border-primary-subtle bg-primary-subtle"><div class="card-body p-3 p-xl-4">
+            <p class="record-section__label mb-2">Published contact</p>
+            <h3 class="h5 mb-3">Reach the institution through its published routes.</h3>
+            <p class="mb-1"><a class="record-link" href={`mailto:${siteIdentity.email}`}>{siteIdentity.email}</a></p>
+            <p class="mb-3"><a class="record-link" href={`tel:${siteIdentity.telephone.replace(/-/g, '')}`}>{siteIdentity.telephone}</a></p>
+            <p class="small text-body-secondary mb-3">{siteIdentity.address.streetAddress}, {siteIdentity.address.addressLocality}, {siteIdentity.address.addressRegion} {siteIdentity.address.postalCode}</p>
+            <p class="mb-2"><a class="record-link" href={recordHref(recordDeterminationLetter.path)}>{recordDeterminationLetter.label} <span aria-hidden="true">→</span></a></p>
+            <p class="small text-body-secondary mb-0">Read from the served document: the employer identification number, the §501(c)(3) exemption, the §170(b)(1)(A)(vi) classification, and the ruling effective date. {recordDeterminationLetter.limits}</p>
+          </div></div>
+        </div>
+      </div>
+      <h3 id="record-supporting-title" class="mt-5 mb-3">Supporting pages in this room</h3>
+      <div class="row g-4">
+        {recordNavigationGroups.map((group) => (
+          <div class="col-12 col-sm-6 col-xl-3">
+            <p class="record-section__label mb-2">{group.label}</p>
+            <ul class="list-unstyled d-grid gap-1 mb-0">
+              {group.items.map((item) => (
+                <li><a class="record-link" href={recordHref(item.path)}>{item.label} <span aria-hidden="true">→</span></a></li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </section>
 
     <section class="record-section mt-4" aria-labelledby="record-operational-title">
       <div class="d-flex flex-wrap justify-content-between align-items-end gap-3 mb-3"><div><p class="record-section__label mb-2">Operational BI</p><h2 id="record-operational-title" class="mb-2">{biHeading}</h2><p class="mb-0 text-body-secondary">{biLead}</p></div><a class="btn btn-sm btn-outline-primary" href={recordHref('/record/ops/')}>Open delivery status</a></div>

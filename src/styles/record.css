@@ -360,6 +360,71 @@
   color: #a61b1b;
 }
 
+/* Grouped record navigation (Start / Trust / Inspect / Run). The outer list
+ * keeps its grid gap for the groups; each group separates from the previous
+ * one so the four names scan as landmarks, and the nested list resets the
+ * browser's ordered-list indentation that `.record-sidebar__nav` only resets
+ * for itself. */
+.record-sidebar__nav > .record-sidebar__nav-group {
+  display: grid;
+  gap: 0.18rem;
+  align-content: start;
+  margin: 0.7rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.record-sidebar__nav > .record-sidebar__nav-group:first-child {
+  margin-top: 0;
+}
+
+.record-sidebar__group-label {
+  display: block;
+  margin-bottom: 0.3rem;
+}
+
+.record-sidebar__nav-sub {
+  display: grid;
+  gap: 0.18rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Per-page jump list ("On this page"). Plain section links, deliberately
+ * quieter than the record navigation above: smaller, single-line entries that
+ * inherit the sidebar's hover wash so the two lists read as one instrument. */
+.record-sidebar__jump-wrap {
+  padding: 0.85rem 0.7rem 0.2rem;
+  border-block-start: 1px solid var(--bs-border-color);
+}
+
+.record-sidebar__jump {
+  display: grid;
+  gap: 0.12rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.record-sidebar__jump a {
+  display: block;
+  padding: 0.32rem 0.55rem;
+  border-radius: 0.25rem;
+  color: var(--color-muted-strong);
+  font-family: var(--font-ui);
+  font-size: 0.78rem;
+  font-weight: 600;
+  line-height: 1.4;
+  text-decoration: none;
+}
+
+.record-sidebar__jump a:hover,
+.record-sidebar__jump a:focus-visible {
+  background: #e3f1f8;
+  color: var(--color-brand-deep);
+}
+
 .record-sidebar__footer {
   display: grid;
   gap: 0.6rem;

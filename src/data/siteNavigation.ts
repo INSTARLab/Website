@@ -29,9 +29,49 @@ export const primaryNavigation = [
       { label: 'Mission', href: '/mission/' },
       { label: 'About Us', href: '/community/about-us/' },
       { label: 'Leadership', href: '/community/leadership/' },
-      { label: 'Public Record', href: '/record/' },
       { label: 'INSTAR Consortium', href: '/research/consortium/' },
       { label: 'Facilities', href: '/research/facilities/' },
+    ],
+  },
+  {
+    label: 'Record',
+    sections: [
+      {
+        label: 'Start',
+        items: [
+          { label: 'Record room', href: '/record/' },
+          { label: 'Decision briefs', href: '/record/journeys/' },
+          { label: 'Positioning', href: '/record/marketing/' },
+        ],
+      },
+      {
+        label: 'Trust',
+        items: [
+          { label: 'Leadership', href: '/record/leadership/' },
+          { label: 'Legal', href: '/record/legal/' },
+          { label: 'Governance', href: '/record/governance/' },
+          { label: 'Affiliations', href: '/record/affiliations/' },
+          { label: 'Sources', href: '/record/verify/' },
+          { label: 'Corrections', href: '/record/corrections/' },
+          { label: 'Documents', href: '/record/files/' },
+        ],
+      },
+      {
+        label: 'Inspect',
+        items: [
+          { label: 'Site map', href: '/record/nav/' },
+          { label: 'Inventory', href: '/record/metrics/' },
+          { label: 'Visuals', href: '/record/screens/' },
+        ],
+      },
+      {
+        label: 'Run',
+        items: [
+          { label: 'Federal', href: '/record/federal/' },
+          { label: 'Ops', href: '/record/ops/' },
+          { label: 'Style', href: '/record/style/' },
+        ],
+      },
     ],
   },
   {

@@ -137,6 +137,44 @@ export const recordRoutes = [
 
 export const recordNavigation = recordRoutes.map(({ path, label }) => ({ path, label })) as readonly { path: RecordRoute['path']; label: string }[];
 
+export interface RecordNavigationGroup {
+  readonly label: string;
+  readonly items: readonly { path: RecordRoute['path']; label: string }[];
+}
+
+/**
+ * The four wayfinding groups shared by the global Record megamenu, the room's
+ * sidebar, and the room index's supporting-pages list, so the three never drift
+ * apart. Every record route belongs to exactly one group; the completeness
+ * check below fails the build rather than silently dropping a new route from
+ * the grouped surfaces.
+ *
+ * Leadership sits in Trust with the other Institution/* pages (legal,
+ * governance, affiliations) rather than in Run: the Run group is the delivery
+ * surface (federal posture, ops, style), and a personnel register is evidence
+ * about the institution, not a delivery step.
+ */
+const recordGroupDefinitions = [
+  { label: 'Start', paths: ['/record/', '/record/journeys/', '/record/marketing/'] },
+  { label: 'Trust', paths: ['/record/leadership/', '/record/legal/', '/record/governance/', '/record/affiliations/', '/record/verify/', '/record/corrections/', '/record/files/'] },
+  { label: 'Inspect', paths: ['/record/nav/', '/record/metrics/', '/record/screens/'] },
+  { label: 'Run', paths: ['/record/federal/', '/record/ops/', '/record/style/'] },
+] as const satisfies readonly { label: string; paths: readonly RecordRoute['path'][] }[];
+
+export const recordNavigationGroups: readonly RecordNavigationGroup[] = recordGroupDefinitions.map((group) => ({
+  label: group.label,
+  items: group.paths.map((path) => {
+    const entry = recordNavigation.find((item) => item.path === path);
+    if (!entry) throw new Error(`Record navigation group "${group.label}" names an unknown path: ${path}`);
+    return entry;
+  }),
+}));
+
+const groupedRecordPaths = new Set(recordNavigationGroups.flatMap((group) => group.items.map((item) => item.path)));
+for (const entry of recordNavigation) {
+  if (!groupedRecordPaths.has(entry.path)) throw new Error(`Record route has no navigation group: ${entry.path}`);
+}
+
 export function recordRouteAtPath(path: string): RecordRoute {
   const normalized = path.endsWith('/') ? path : `${path}/`;
   const found = recordRoutes.find((entry) => entry.path === normalized);
@@ -210,7 +248,7 @@ export const recordFiles: readonly RecordFile[] = [
 export const recordSourceRegister: readonly RecordSource[] = [
   { id: 'SRC-001', label: 'Public site identity', locator: 'src/data/seo/site.ts', status: 'verified-in-repository', supports: 'The public organization name, contact details, address, site origin, and published nonprofit description used by the shared shell.', limits: 'Repository verification is not a substitute for an external legal or registration check.' },
   { id: 'SRC-002', label: 'Route manifests', locator: 'src/data/core-routes.ts, src/data/editorialRoutes.ts, src/data/workstream5/manifest.ts', status: 'verified-in-repository', supports: 'The route inventory, titles, descriptions, families, and page-signature metadata shown in this record room.', limits: 'Counts describe the built source graph, not traffic, conversions, awards, or research outcomes.' },
-  { id: 'SRC-003', label: 'Navigation manifest', locator: 'src/data/siteNavigation.ts', status: 'verified-in-repository', supports: 'Primary navigation, footer links, and the added Public Record entry.', limits: 'A navigation link proves discoverability, not that every downstream external service is available.' },
+  { id: 'SRC-003', label: 'Navigation manifest', locator: 'src/data/siteNavigation.ts', status: 'verified-in-repository', supports: 'Primary navigation, footer links, and the top-level Public Record megamenu.', limits: 'A navigation link proves discoverability, not that every downstream external service is available.' },
   { id: 'SRC-004', label: 'Public media policy', locator: 'src/data/media/public-media-policy.json and src/data/media/README.md', status: 'review-required', supports: 'Media roles, dimensions, responsive behavior, and per-asset provenance fields.', limits: 'The repository notes that many image and partner-asset rights/provenance fields remain unverified.' },
   { id: 'SRC-005', label: 'Served IRS determination letter', locator: '/docs/irs-determination-letter-85-0845517.pdf', status: 'verified-in-repository', supports: 'The employer identification number, the §501(c)(3) exemption, the §170(b)(1)(A)(vi) public-charity classification, a ruling effective 27 April 2020, and the Marietta address — read from the served document itself.', limits: 'It is a scanned document, so its fields are read from the artifact rather than parsed from it. It establishes the classification as of the ruling; it is not a current-status check and it is not a Form 990 of any year.' },
   { id: 'SRC-006', label: 'Separate records corpus', locator: 'Separate repository source corpus (not published)', status: 'not-public', supports: 'The existence of separately maintained governance, policy, training, template, institutional, and research source material.', limits: 'Branch status and publication authority are not established for this website; private legal, tax, agreement, and personnel content is intentionally not reproduced.' },
