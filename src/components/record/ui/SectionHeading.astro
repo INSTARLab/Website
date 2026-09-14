@@ -1,0 +1,34 @@
+---
+/**
+ * Compact section heading: kicker, titled heading at the outline level the
+ * enclosing section implies, and an optional lede. The type scale comes from
+ * the Record shell (`record-theme.css` keys sizes to the outline level), so
+ * call sites choose `level`, never a Bootstrap size utility.
+ */
+interface Props {
+  readonly kicker?: string;
+  readonly title: string;
+  readonly lede?: string;
+  readonly level?: 2 | 3;
+  readonly id?: string;
+}
+
+const { kicker, title, lede, level = 2, id } = Astro.props;
+const TitleTag = `h${level}` as 'h2' | 'h3';
+---
+
+<div class="record-section-heading">
+  {kicker && <p class="record-section__label">{kicker}</p>}
+  <TitleTag id={id}>{title}</TitleTag>
+  {lede && <p class="record-section__lede">{lede}</p>}
+</div>
+
+<style>
+  .record-section-heading {
+    max-width: var(--record-measure);
+  }
+
+  .record-section-heading > :last-child {
+    margin-block-end: 0;
+  }
+</style>

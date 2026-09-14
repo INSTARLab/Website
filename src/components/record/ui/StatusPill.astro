@@ -1,0 +1,33 @@
+---
+/**
+ * Status pill: one label from the room's closed status vocabulary, rendered
+ * as a Bootstrap badge. The text label always travels with the color, so the
+ * state is never color-only; the full definition sits in the `title` for
+ * hover and assistive-technology readers. Unknown keys throw at build time
+ * rather than rendering a quiet wrong color.
+ */
+import { statusDefinition } from './status-label.mjs';
+
+interface Props {
+  readonly status: 'verified-in-repository' | 'review-required' | 'not-public' | 'stale' | 'not-reported';
+}
+
+const { status } = Astro.props;
+const definition = statusDefinition(status);
+---
+
+<span class:list={['record-status-pill', 'badge', definition.badge]} data-record-status={status} title={definition.description}>
+  {definition.label}
+</span>
+
+<style>
+  .record-status-pill {
+    font-family: var(--font-ui, system-ui, sans-serif);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    white-space: normal;
+    text-align: start;
+  }
+</style>

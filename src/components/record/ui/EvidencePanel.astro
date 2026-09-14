@@ -1,0 +1,100 @@
+---
+/**
+ * Evidence panel frame: the agreed composition order for every dashboard
+ * section — title/date, summaries, one primary visualization, then details.
+ * Built on the Bootstrap card so gutters, borders, and radius stay on the
+ * official component. The visualization slot accepts any RR-203 chart output;
+ * everything renders without JavaScript and prints as ordinary blocks.
+ */
+interface Props {
+  readonly title: string;
+  readonly date?: string;
+  readonly level?: 2 | 3;
+  readonly id?: string;
+}
+
+const { title, date, level = 2, id } = Astro.props;
+const TitleTag = `h${level}` as 'h2' | 'h3';
+---
+
+<article class="record-panel card" data-record-panel={title} aria-labelledby={id ? `${id}-title` : undefined}>
+  <header class="record-panel__header card-header">
+    <div>
+      {Astro.slots.has('kicker') && <p class="record-section__label record-panel__kicker"><slot name="kicker" /></p>}
+      <TitleTag id={id ? `${id}-title` : undefined} class="record-panel__title">{title}</TitleTag>
+      {date && <p class="record-panel__date">{date}</p>}
+    </div>
+  </header>
+  <div class="record-panel__body card-body">
+    {Astro.slots.has('summary') && (
+      <div class="record-panel__summary">
+        <slot name="summary" />
+      </div>
+    )}
+    <div class="record-panel__visualization">
+      <slot />
+    </div>
+    {Astro.slots.has('details') && (
+      <div class="record-panel__details">
+        <slot name="details" />
+      </div>
+    )}
+  </div>
+  {Astro.slots.has('footer') && (
+    <footer class="record-panel__footer card-footer">
+      <slot name="footer" />
+    </footer>
+  )}
+</article>
+
+<style>
+  .record-panel {
+    --record-panel-border: var(--bs-border-color, #c9d8e3);
+    border: 1px solid var(--record-panel-border);
+    border-radius: var(--bs-border-radius, 0.35rem);
+    background: #fff;
+  }
+
+  .record-panel__header {
+    background: var(--color-surface, #f7fafc);
+  }
+
+  .record-panel__kicker {
+    margin-block-end: 0.35rem;
+  }
+
+  .record-panel__title {
+    margin: 0;
+  }
+
+  .record-panel__date {
+    margin: 0.35rem 0 0;
+    color: var(--color-muted, #586775);
+    font-family: var(--font-ui, system-ui, sans-serif);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .record-panel__summary {
+    margin-block-end: 1.25rem;
+  }
+
+  .record-panel__summary > :last-child,
+  .record-panel__details > :last-child {
+    margin-block-end: 0;
+  }
+
+  .record-panel__details {
+    margin-block-start: 1.25rem;
+    padding-block-start: 1.25rem;
+    border-block-start: 1px solid var(--record-panel-border);
+  }
+
+  .record-panel__footer {
+    background: transparent;
+    color: var(--color-muted-strong, #3d4d59);
+    font-size: 0.85rem;
+  }
+</style>

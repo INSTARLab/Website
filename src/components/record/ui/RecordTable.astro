@@ -1,0 +1,93 @@
+---
+/**
+ * Responsive data table. The caption is required — a table without one has no
+ * name — column headers carry `scope="col"`, and row headers opt in per row
+ * with `scope="row"`. Wide tables scroll inside a labelled Bootstrap
+ * `.table-responsive` region (keyboard-focusable with `tabindex="0"` so the
+ * scroll is reachable without a pointer) instead of pushing the document
+ * wider. Unavailable cells print the room's `Not reported`, never a blank.
+ */
+import { formatDisplayValue } from './value-state.mjs';
+
+export interface RecordTableCell {
+  readonly text: string | number | boolean | null;
+  readonly href?: string;
+  readonly header?: boolean;
+}
+
+interface Props {
+  readonly caption: string;
+  readonly columns: readonly string[];
+  readonly rows: readonly (readonly RecordTableCell[])[];
+  readonly regionLabel?: string;
+  readonly id?: string;
+}
+
+const { caption, columns, rows, regionLabel, id } = Astro.props;
+if (!caption.trim()) throw new Error('RecordTable requires a non-empty caption.');
+if (columns.length === 0) throw new Error(`RecordTable "${caption}" requires at least one column.`);
+const tableId = id ?? `record-table-${caption.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')}`;
+---
+
+<figure class="record-table-figure" aria-labelledby={`${tableId}-caption`}>
+  <div
+    class="record-table-scroll table-responsive"
+    role="region"
+    aria-label={regionLabel ?? `${caption} (scrollable table)`}
+    tabindex="0"
+  >
+    <table class="record-table table" id={tableId}>
+      <caption id={`${tableId}-caption`}>{caption}</caption>
+      <thead>
+        <tr>
+          {columns.map((column) => (
+            <th scope="col">{column}</th>
+          ))}
+        </tr>
+      </thead>
+      <tbody>
+        {rows.map((row) => (
+          <tr>
+            {row.map((cell, index) =>
+              cell.header || index === 0 ? (
+                <th scope="row">{cell.href ? <a href={cell.href}>{formatDisplayValue(cell.text)}</a> : formatDisplayValue(cell.text)}</th>
+              ) : (
+                <td>{cell.href ? <a href={cell.href}>{formatDisplayValue(cell.text)}</a> : formatDisplayValue(cell.text)}</td>
+              ),
+            )}
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+</figure>
+
+<style>
+  .record-table-figure {
+    max-width: 100%;
+    margin: 0;
+  }
+
+  .record-table-scroll {
+    max-width: 100%;
+    border: 1px solid var(--bs-border-color, #c9d8e3);
+    border-radius: var(--bs-border-radius, 0.35rem);
+    background: #fff;
+  }
+
+  .record-table-scroll:focus-visible {
+    outline: 3px solid var(--color-focus, #1d4ed8);
+    outline-offset: 3px;
+  }
+
+  /* The shell's `.record-table` carries `min-width: 42rem` so columns keep
+   * their measure; the scroll region above absorbs it. Long labels wrap
+   * instead of forcing the region wider than the prose measure. */
+  .record-table-scroll :is(th, td) {
+    overflow-wrap: anywhere;
+  }
+
+  .record-table-scroll a {
+    color: var(--color-brand-deep, #0d5d98);
+  }
+</style>

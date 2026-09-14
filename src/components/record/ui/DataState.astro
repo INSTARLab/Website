@@ -1,0 +1,64 @@
+---
+/**
+ * Data state: one published observation rendered so its state cannot be
+ * misread. A measured value prints as-is; an approved-but-unpublished value
+ * prints the room's `Not reported`; a stale value keeps its date and carries
+ * the stale pill; a measured zero names itself as measured so it is never
+ * mistaken for missing data. The `data-value-state` token lets tests assert
+ * that a published zero never renders as an absence.
+ */
+import { describeValue } from './value-state.mjs';
+import StatusPill from './StatusPill.astro';
+
+interface Props {
+  readonly label: string;
+  readonly value: string | number | boolean | null | undefined;
+  readonly stale?: boolean;
+  readonly asOf?: string;
+  readonly unit?: string;
+}
+
+const { label, value, stale = false, asOf, unit } = Astro.props;
+const described = describeValue(value, { stale, asOf });
+const display = unit && described.state !== 'unavailable' ? `${described.display} ${unit}` : described.display;
+---
+
+<p class="record-data-state" data-value-state={described.state} data-record-metric={label}>
+  <span class="record-data-state__label">{label}: </span>
+  <strong class="record-data-state__value">{display}</strong>
+  {described.state === 'measured-stale' && <StatusPill status="stale" />}
+  {described.state === 'unavailable' && <StatusPill status="not-reported" />}
+  {described.note && <span class="record-data-state__note"> {described.note}</span>}
+</p>
+
+<style>
+  .record-data-state {
+    max-width: 70ch;
+    margin-block: 0.5rem 0;
+    color: var(--color-muted-strong, #3d4d59);
+    line-height: 1.55;
+  }
+
+  .record-data-state__label {
+    font-family: var(--font-ui, system-ui, sans-serif);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .record-data-state__value {
+    color: var(--color-ink, #1b1b1b);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .record-data-state__note {
+    color: var(--color-muted, #586775);
+    font-size: 0.85rem;
+  }
+
+  .record-data-state .record-status-pill {
+    margin-inline-start: 0.5rem;
+    vertical-align: baseline;
+  }
+</style>

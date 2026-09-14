@@ -1,0 +1,50 @@
+---
+/**
+ * Source note: the attribution line every panel, chart, and table carries —
+ * which source publishes the figure, when it was retrieved, and what limit
+ * the reader must keep in mind. Plain text, no JavaScript, print-safe.
+ */
+interface Props {
+  readonly source: string;
+  readonly sourceHref?: string;
+  readonly retrievedAt?: string;
+  readonly limits?: string;
+}
+
+const { source, sourceHref, retrievedAt, limits } = Astro.props;
+---
+
+<p class="record-source-note">
+  <span class="record-source-note__label">Source</span>
+  {': '}
+  {sourceHref ? <a href={sourceHref}>{source}</a> : <span>{source}</span>}
+  {retrievedAt && <span class="record-source-note__meta"> · Retrieved {retrievedAt}</span>}
+  {limits && <span class="record-source-note__meta"> · Limits: {limits}</span>}
+</p>
+
+<style>
+  .record-source-note {
+    max-width: 70ch;
+    margin-block: 0.75rem 0;
+    color: var(--color-muted, #586775);
+    font-size: 0.83rem;
+    line-height: 1.5;
+  }
+
+  .record-source-note__label {
+    font-family: var(--font-ui, system-ui, sans-serif);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .record-source-note__meta {
+    overflow-wrap: anywhere;
+  }
+
+  .record-source-note a {
+    overflow-wrap: anywhere;
+    color: var(--color-brand-deep, #0d5d98);
+  }
+</style>
