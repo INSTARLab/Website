@@ -20,10 +20,18 @@ interface Props {
   readonly source?: string;
   readonly sourceHref?: string;
   readonly id?: string;
+  /**
+   * Outline level for the matrix title. A matrix is content inside a section,
+   * so a hard-coded `<h2>` fabricated a document-level heading on every page
+   * that rendered one. Call sites pass the level their enclosing section
+   * implies; the default reproduces the previous markup for anything else.
+   */
+  readonly level?: 2 | 3 | 4 | 5 | 6;
   readonly emptyMessage?: string;
 }
 
-const { title, columns, rows, description, source, sourceHref, id, emptyMessage = 'No status observations are available.' } = Astro.props;
+const { title, columns, rows, description, source, sourceHref, id, level = 2, emptyMessage = 'No status observations are available.' } = Astro.props;
+const TitleTag = `h${level}` as 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 const matrixId = id ?? `record-matrix-${title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')}`;
 const asCell = (value: StatusValue | StatusCell): StatusCell => typeof value === 'object' && value !== null && 'value' in value ? value : { value };
 const displayValue = (value: StatusValue) => value === null || value === '' ? 'Not reported' : typeof value === 'boolean' ? value ? 'Yes' : 'No' : typeof value === 'number' ? value.toLocaleString('en-US') : value;
@@ -33,7 +41,7 @@ const classFor = (status: StatusCell['status']) => status ? `record-status-matri
 <section class="record-status-matrix" aria-labelledby={`${matrixId}-title`} data-record-viz="status-matrix" data-record-viz-id={matrixId}>
   <header class="record-viz__header">
     <div>
-      <h2 id={`${matrixId}-title`} class="record-viz__title">{title}</h2>
+      <TitleTag id={`${matrixId}-title`} class="record-viz__title">{title}</TitleTag>
       {description && <p class="record-viz__description">{description}</p>}
     </div>
   </header>
@@ -41,7 +49,9 @@ const classFor = (status: StatusCell['status']) => status ? `record-status-matri
   {rows.length === 0 ? (
     <p class="record-viz__empty" role="status">{emptyMessage}</p>
   ) : (
-    <div class="record-viz__table-wrap" tabindex="0">
+    // tabindex puts this wrapper in the tab order, so it needs a role and a
+    // name — the same contract the register tables in files/ and verify/ use.
+    <div class="record-viz__table-wrap" tabindex="0" role="region" aria-label={`${title} data table`}>
       <table class="record-status-matrix__table">
         <caption>{title}</caption>
         <thead>

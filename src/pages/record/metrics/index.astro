@@ -21,8 +21,12 @@ const kindStats = ['core', 'editorial', 'section', 'record'].map((kind) => ({
 
 <RecordDocument {route}>
   <div class="container-fluid px-0">
-    <section class="record-section mt-5" aria-labelledby="metrics-summary-title">
-      <h2 id="metrics-summary-title" class="visually-hidden">Inventory summary</h2>
+    <section class="record-section mt-5">
+      {/* The wrapper used to carry its own visually-hidden "Inventory summary"
+        * heading while MetricGrid rendered a second one with the same text —
+        * two identical outline entries side by side. MetricGrid already emits a
+        * named region and its own heading, so the wrapper only has to be the
+        * first section the shell's vertical-rhythm rule keys on. */}
       <MetricGrid title="Inventory summary" items={[
         { label: 'Routes in graph', value: recordStats.sitePages, note: 'Source-derived public pages' },
         { label: 'Indexable routes', value: recordStats.indexablePages, note: 'Manifest permits indexing' },
@@ -37,10 +41,10 @@ const kindStats = ['core', 'editorial', 'section', 'record'].map((kind) => ({
           <div class="card h-100 shadow-sm">
             <div class="card-body p-4">
               <div class="d-flex flex-wrap justify-content-between align-items-baseline gap-2 mb-3">
-                <div><p class="record-section__label mb-2">Family breakdown</p><h2 id="metrics-family-title" class="h3 mb-0">Where the public route graph carries its weight</h2></div>
+                <div><p class="record-section__label mb-2">Family breakdown</p><h2 id="metrics-family-title" class="mb-0">Where the public route graph carries its weight</h2></div>
                 <a class="small" href={recordHref('/record/nav/')}>Open route inventory</a>
               </div>
-              <BarChart title="Routes by family" items={familyBars} description="The chart uses each family’s route count." source="Route manifests (SRC-002)" sourceHref={recordHref('/record/verify/')} />
+              <BarChart level={3} title="Routes by family" items={familyBars} description="The chart uses each family’s route count." source="Route manifests (SRC-002)" sourceHref={recordHref('/record/verify/')} />
               <p class="small text-body-secondary mt-3 mb-0">The table retains the comparable indexable count for every family.</p>
             </div>
           </div>
@@ -49,7 +53,7 @@ const kindStats = ['core', 'editorial', 'section', 'record'].map((kind) => ({
           <div class="card h-100 shadow-sm">
             <div class="card-body p-4">
               <p class="record-section__label mb-2">Record composition</p>
-              <h2 class="h3 mb-3">What the graph contains</h2>
+              <h2 class="mb-3">What the graph contains</h2>
               <div class="table-responsive" tabindex="0" role="region" aria-label="Route composition">
                 <table class="table table-sm align-middle mb-0">
                   <caption class="visually-hidden">Route counts by source kind</caption>
@@ -66,7 +70,7 @@ const kindStats = ['core', 'editorial', 'section', 'record'].map((kind) => ({
 
     <section class="record-section mt-5" aria-labelledby="metrics-table-title">
       <div class="d-flex flex-wrap justify-content-between align-items-end gap-3 mb-3">
-        <div><p class="record-section__label mb-2">Comparable detail</p><h2 id="metrics-table-title" class="h3 mb-0">Routes and indexability by family</h2></div>
+        <div><p class="record-section__label mb-2">Comparable detail</p><h2 id="metrics-table-title" class="mb-0">Routes and indexability by family</h2></div>
         <span class="small text-body-secondary">Source: <code>src/data/record.ts</code></span>
       </div>
       <div class="table-responsive" tabindex="0" role="region" aria-label="Routes and indexability by family">
@@ -84,11 +88,11 @@ const kindStats = ['core', 'editorial', 'section', 'record'].map((kind) => ({
       <div class="card bg-light border-0">
         <div class="card-body p-4 p-lg-5">
           <p class="record-section__label mb-2">Method and limits</p>
-          <h2 id="metrics-method-title" class="h3 mb-3">What these counts cannot tell you</h2>
+          <h2 id="metrics-method-title" class="mb-3">What these counts cannot tell you</h2>
           <div class="row g-4">
-            <div class="col-12 col-md-4"><h3 class="h5">Derived inventory</h3><p class="small mb-0">Route, family, kind, indexability, and public media policy counts are stable build-time measures.</p></div>
-            <div class="col-12 col-md-4"><h3 class="h5">Not connected</h3><p class="small mb-0">No private analytics, Search Console, funding, award, project, or partnership system is included.</p></div>
-            <div class="col-12 col-md-4"><h3 class="h5">Separate review</h3><p class="small mb-0">Claims, citations, media rights, and external operating status require their own source and human review gates.</p></div>
+            <div class="col-12 col-md-4"><h3>Derived inventory</h3><p class="small mb-0">Route, family, kind, indexability, and public media policy counts are stable build-time measures.</p></div>
+            <div class="col-12 col-md-4"><h3>Not connected</h3><p class="small mb-0">No private analytics, Search Console, funding, award, project, or partnership system is included.</p></div>
+            <div class="col-12 col-md-4"><h3>Separate review</h3><p class="small mb-0">Claims, citations, media rights, and external operating status require their own source and human review gates.</p></div>
           </div>
         </div>
       </div>

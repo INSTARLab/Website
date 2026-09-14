@@ -13,12 +13,28 @@ interface Props {
   readonly unit?: string;
   readonly source?: string;
   readonly sourceHref?: string;
+  /**
+   * Approval reference for the snapshot the values come from. It travels in the
+   * CSV export but is deliberately not printed in the visible footer: on an
+   * unapproved snapshot the value is the raw enum state (`pending`), which is
+   * meaningful to the operator inspecting an export and meaningless to the
+   * public reading the page. The page states the absence in prose instead.
+   */
+  readonly approval?: string;
   readonly description?: string;
   readonly id?: string;
+  /**
+   * Outline level for the chart title. A chart is content inside a section, so
+   * a hard-coded `<h2>` fabricated a document-level heading on every page that
+   * rendered one. Call sites pass the level their enclosing section implies;
+   * the default reproduces the previous markup for anything that does not.
+   */
+  readonly level?: 2 | 3 | 4 | 5 | 6;
   readonly emptyMessage?: string;
 }
 
-const { title, data, unit, source, sourceHref, description, id, emptyMessage = 'No observations are available for this period.' } = Astro.props;
+const { title, data, unit, source, sourceHref, approval, description, id, level = 2, emptyMessage = 'No observations are available for this period.' } = Astro.props;
+const TitleTag = `h${level}` as 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 const chartId = id ?? `record-line-${title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')}`;
 const segments = lineSegments(data);
 const validData = segments.flat();
@@ -40,9 +56,16 @@ const xFor = (index: number) => left + (data.length <= 1 ? innerWidth / 2 : inde
 const yFor = (value: number) => top + (maxValue - value) / (maxValue - minValue || 1) * innerHeight;
 const linePoints = segments.map((segment) => segment.map((item) => `${xFor(item.index)},${yFor(item.value)}`).join(' '));
 const formatValue = (value: number | null) => value === null || !Number.isFinite(value) ? 'Not reported' : value.toLocaleString('en-US');
+// The export carries the same attribution the page displays, plus the approval
+// reference an operator needs to trace a value back to its sign-off. A
+// downloaded CSV used to lose the source entirely, and wrote an unavailable
+// period as an empty cell — indistinguishable from a period that was never
+// published. Values are written raw so a spreadsheet reads them as numbers, and
+// an unavailable period keeps the room's explicit "Not reported" wording.
+const csvValue = (value: number | null) => value === null || !Number.isFinite(value) ? 'Not reported' : value;
 const csv = csvDocument([
-  ['Period', 'Value', ...(unit ? ['Unit'] : [])],
-  ...data.map((item) => [item.period, item.value ?? '', ...(unit ? [unit] : [])]),
+  ['Period', 'Value', ...(unit ? ['Unit'] : []), ...(source ? ['Source'] : []), ...(approval ? ['Approval'] : [])],
+  ...data.map((item) => [item.period, csvValue(item.value), ...(unit ? [unit] : []), ...(source ? [source] : []), ...(approval ? [approval] : [])]),
 ]);
 const csvHref = csvDataHref(csv);
 ---
@@ -50,7 +73,7 @@ const csvHref = csvDataHref(csv);
 <section class="record-line-chart" aria-labelledby={`${chartId}-title`} data-record-viz="line" data-record-viz-id={chartId}>
   <header class="record-viz__header">
     <div>
-      <h2 id={`${chartId}-title`} class="record-viz__title">{title}</h2>
+      <TitleTag id={`${chartId}-title`} class="record-viz__title">{title}</TitleTag>
       {description && <p class="record-viz__description">{description}</p>}
     </div>
     <a class="record-viz__export" href={csvHref} download={`${chartId}.csv`}>Download CSV</a>
@@ -84,7 +107,9 @@ const csvHref = csvDataHref(csv);
 
       <details class="record-viz__table-details">
         <summary>View data table</summary>
-        <div class="record-viz__table-wrap" tabindex="0">
+        {/* tabindex puts this wrapper in the tab order, so it needs a role and a
+          * name — the same contract the register tables in files/ and verify/ use. */}
+        <div class="record-viz__table-wrap" tabindex="0" role="region" aria-label={`${title} data table`}>
           <table class="record-viz__table">
             <caption>{title}</caption>
             <thead><tr><th scope="col">Period</th><th scope="col">Value{unit && ` (${unit})`}</th></tr></thead>

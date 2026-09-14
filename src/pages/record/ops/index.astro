@@ -16,7 +16,11 @@ const route = recordRouteAtPath('/record/ops/');
 const metricPanels = recordBiMetricDefinitions.flatMap((definition) => {
   const aggregates = aggregateMetricObservations(definition, recordBiObservations);
   if (aggregates.length === 0) {
-    return [{ definition, periodKey: '', categoryKey: '', title: definition.label, description: definition.description, items: [], source: `${recordBiSnapshot.source.label} · ${recordBiSnapshot.source.locator}` }];
+    // RR-301 SF-8. This used to append `recordBiSnapshot.source.locator`, which
+    // published a private plan-file path ("plan/record-room-bootstrap-bi.md#rr-208")
+    // on a public page. There is no approved source here and therefore no public
+    // locator to print, so the label alone is the honest and complete citation.
+    return [{ definition, periodKey: '', categoryKey: '', title: definition.label, description: definition.description, items: [], source: recordBiSnapshot.source.label }];
   }
   return aggregates.map((observation) => ({
     definition,
@@ -65,7 +69,7 @@ const checkBoundaries = [
   <div class="container-fluid px-0">
     <section class="record-section mt-5" aria-labelledby="ops-business-title">
       <div class="d-flex flex-wrap justify-content-between align-items-end gap-3 mb-3">
-        <div><p class="record-section__label mb-2">Operational BI</p><h2 id="ops-business-title" class="h3 mb-2">{biHeading}</h2><p class="mb-0 text-body-secondary">{biLead}</p></div>
+        <div><p class="record-section__label mb-2">Operational BI</p><h2 id="ops-business-title" class="mb-2">{biHeading}</h2><p class="mb-0 text-body-secondary">{biLead}</p></div>
         <a class="btn btn-outline-primary" href={recordHref('/record/verify/')}>Review evidence limits</a>
       </div>
       <form class="row g-3 align-items-end mb-4" data-bi-filter-form onsubmit="return false">
@@ -77,7 +81,7 @@ const checkBoundaries = [
         {metricPanels.map((panel, index) => (
           <div class="col-12 col-xl-6" data-bi-panel data-bi-period={panel.periodKey} data-bi-category={panel.categoryKey}>
             <div class="card h-100 shadow-sm"><div class="card-body p-4">
-              <BarChart id={`record-bi-${panel.definition.id}-${index}`} title={panel.title} items={panel.items} unit={panel.definition.unit} description={panel.description} source={panel.source} sourceHref={recordHref('/record/verify/')} />
+              <BarChart level={3} id={`record-bi-${panel.definition.id}-${index}`} title={panel.title} items={panel.items} unit={panel.definition.unit} approval={recordBiSnapshot.approval.status} description={panel.description} source={panel.source} sourceHref={recordHref('/record/verify/')} />
               {panel.items.length === 0 && <p class="small text-body-secondary mb-0">The schema defines this measure, but the current snapshot has no publishable observation.</p>}
             </div></div>
           </div>
@@ -87,7 +91,7 @@ const checkBoundaries = [
     </section>
 
     <section class="record-section mt-5" aria-labelledby="ops-config-title">
-      <div class="d-flex flex-wrap justify-content-between align-items-end gap-3 mb-3"><div><p class="record-section__label mb-2">Declared configuration</p><h2 id="ops-config-title" class="h3 mb-0">How this record room is delivered</h2></div><span class="badge text-bg-light">Repository source</span></div>
+      <div class="d-flex flex-wrap justify-content-between align-items-end gap-3 mb-3"><div><p class="record-section__label mb-2">Declared configuration</p><h2 id="ops-config-title" class="mb-0">How this record room is delivered</h2></div><span class="badge text-bg-light">Repository source</span></div>
       <div class="table-responsive" tabindex="0" role="region" aria-label="Declared delivery configuration">
         <table class="table table-striped align-middle">
           <caption class="caption-top">Declared delivery configuration</caption>
@@ -99,7 +103,7 @@ const checkBoundaries = [
     </section>
 
     <section class="record-section mt-5" aria-labelledby="ops-check-title">
-      <div class="d-flex flex-wrap justify-content-between align-items-end gap-3 mb-3"><div><p class="record-section__label mb-2">Validation boundary</p><h2 id="ops-check-title" class="h3 mb-0">Checks require their own evidence</h2></div><span class="badge text-bg-warning">No pass asserted</span></div>
+      <div class="d-flex flex-wrap justify-content-between align-items-end gap-3 mb-3"><div><p class="record-section__label mb-2">Validation boundary</p><h2 id="ops-check-title" class="mb-0">Checks require their own evidence</h2></div><span class="badge text-bg-warning">No pass asserted</span></div>
       <div class="table-responsive" tabindex="0" role="region" aria-label="Release and operational check boundaries">
         <table class="table table-hover align-middle">
           <caption class="caption-top">Release and operational check boundaries</caption>
@@ -113,7 +117,7 @@ const checkBoundaries = [
       <div class="card border-primary-subtle bg-primary-subtle">
         <div class="card-body p-4 p-lg-5">
           <p class="record-section__label mb-2">Next evidence step</p>
-          <h2 id="ops-next-title" class="h3 mb-2">Keep operational values dated, sourced, and reviewable.</h2>
+          <h2 id="ops-next-title" class="mb-2">Keep operational values dated, sourced, and reviewable.</h2>
           <p class="mb-3">When data owners update the approved snapshot, the filters and per-observation charts update with it. Release checks remain separate evidence.</p>
           <div class="d-flex flex-wrap gap-2"><a class="btn btn-primary" href={recordHref('/record/metrics/')}>Inspect site metrics</a><a class="btn btn-outline-primary" href={recordHref('/record/verify/')}>Open source register</a></div>
         </div>

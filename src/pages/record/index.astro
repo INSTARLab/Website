@@ -53,31 +53,46 @@ const evidenceBars = sourceStatuses.map((entry) => ({ label: entry.label, value:
 
 <RecordDocument {route}>
   <div class="container-fluid px-0">
-    <section class="record-section mt-4" aria-labelledby="record-use-title">
-      <div class="d-flex flex-wrap align-items-center justify-content-between gap-3">
-        <p id="record-use-title" class="mb-0 text-body-secondary">Use the source register for limits, the site map for every route, and the decision briefs for a role-specific path.</p>
-        <div class="d-flex flex-wrap gap-2"><a class="btn btn-sm btn-outline-primary" href={recordHref('/record/verify/')}>Source register</a><a class="btn btn-sm btn-outline-primary" href={recordHref('/record/journeys/')}>Decision briefs</a></div>
-      </div>
-    </section>
+    {/* RR-301 SF-12. This block used to be a `<section>` whose only label was a
+      * `<p>` holding a sentence. A region whose name is a sentence fragment is
+      * not a region a reader can navigate to; it is a paragraph with two
+      * buttons, so it is markup'd as one.
+      *
+      * It keeps the `record-section` class because that class is not inert:
+      * `src/styles/record.css:422` declares `.record-section p { max-width: 70ch;
+      * color: var(--color-muted-strong) }`, which this paragraph depends on.
+      * Dropping the class here would silently un-cap the measure and change the
+      * ink. See the wave report for the CSS change that has to land first. */}
+    <div class="record-section d-flex flex-wrap align-items-center justify-content-between gap-3">
+      <p class="mb-0 text-body-secondary">Use the source register for limits, the site map for every route, and the decision briefs for a role-specific path.</p>
+      <div class="d-flex flex-wrap gap-2"><a class="btn btn-sm btn-outline-primary" href={recordHref('/record/verify/')}>Source register</a><a class="btn btn-sm btn-outline-primary" href={recordHref('/record/journeys/')}>Decision briefs</a></div>
+    </div>
 
     <section class="record-section mt-4" aria-labelledby="record-operational-title">
-      <div class="d-flex flex-wrap justify-content-between align-items-end gap-3 mb-3"><div><p class="record-section__label mb-2">Operational BI</p><h2 id="record-operational-title" class="h3 mb-2">{biHeading}</h2><p class="mb-0 text-body-secondary">{biLead}</p></div><a class="btn btn-sm btn-outline-primary" href={recordHref('/record/ops/')}>Open business status</a></div>
+      <div class="d-flex flex-wrap justify-content-between align-items-end gap-3 mb-3"><div><p class="record-section__label mb-2">Operational BI</p><h2 id="record-operational-title" class="mb-2">{biHeading}</h2><p class="mb-0 text-body-secondary">{biLead}</p></div><a class="btn btn-sm btn-outline-primary" href={recordHref('/record/ops/')}>Open business status</a></div>
       <MetricGrid title="Operational BI measures" items={biCards} columns={4} />
     </section>
 
     <section class="record-section mt-5" aria-labelledby="record-inventory-title">
-      <div class="row g-4 align-items-start">
+      {/* RR-301 BLK-2. `aria-labelledby="record-inventory-title"` pointed at an
+        * id that existed nowhere, so this section had no accessible name and
+        * the reference was silently discarded. The section holds two cards with
+        * no heading of their own, so it needs a real target. Hidden rather than
+        * visible because the two card labels ("Inventory", "Evidence coverage")
+        * already name the content on screen. */}
+      <h2 id="record-inventory-title" class="visually-hidden">Route inventory and evidence coverage</h2>
+      <div class="row g-4">
         <div class="col-12 col-xl-7">
-          <div class="card shadow-sm"><div class="card-body p-4">
+          <div class="card h-100 shadow-sm"><div class="card-body p-4">
             <p class="record-section__label mb-2">Inventory</p>
-            <BarChart title="The public route graph by family" items={familyBars} description="Counts are derived from the current route manifests." source="Route manifests (SRC-002)" sourceHref={recordHref('/record/verify/')} />
+            <BarChart level={3} title="The public route graph by family" items={familyBars} description="Counts are derived from the current route manifests." source="Route manifests (SRC-002)" sourceHref={recordHref('/record/verify/')} />
             <a class="small" href={recordHref('/record/metrics/')}>View the full inventory and method.</a>
           </div></div>
         </div>
         <div class="col-12 col-xl-5">
-          <div class="card shadow-sm"><div class="card-body p-4">
+          <div class="card h-100 shadow-sm"><div class="card-body p-4">
             <p class="record-section__label mb-2">Evidence coverage</p>
-            <BarChart title="Source register states" items={evidenceBars} description="Repository source states, not external claim validation." source="Source register" sourceHref={recordHref('/record/verify/')} />
+            <BarChart level={3} title="Source register states" items={evidenceBars} description="Repository source states, not external claim validation." source="Source register" sourceHref={recordHref('/record/verify/')} />
           </div></div>
         </div>
       </div>
@@ -89,7 +104,7 @@ const evidenceBars = sourceStatuses.map((entry) => ({ label: entry.label, value:
           <div class="row g-4 align-items-center">
             <div class="col-12 col-lg-8">
               <p class="record-section__label mb-2">Next inspection</p>
-              <h2 id="record-next-title" class="h3 mb-2">Choose the evidence path that matches your question.</h2>
+              <h2 id="record-next-title" class="mb-2">Choose the evidence path that matches your question.</h2>
               <p class="mb-0">The site map covers every public route. Decision briefs explain where a program officer, collaborator, researcher, institutional partner, or supporter can begin.</p>
             </div>
             <div class="col-12 col-lg-4 d-flex flex-wrap gap-2 justify-content-lg-end">

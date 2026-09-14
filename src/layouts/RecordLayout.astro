@@ -68,6 +68,7 @@ const {
   const menuButton = document.querySelector<HTMLButtonElement>('[data-record-menu-toggle]');
   const closeButton = document.querySelector<HTMLButtonElement>('[data-record-menu-close]');
   const backdrop = document.querySelector<HTMLElement>('[data-record-sidebar-backdrop]');
+  const mainContent = document.querySelector<HTMLElement>('#main-content');
 
   if (body && sidebar && menuButton) {
     let returnFocus: HTMLElement | null = null;
@@ -87,9 +88,19 @@ const {
       if (open) {
         sidebar.setAttribute('role', 'dialog');
         sidebar.setAttribute('aria-modal', 'true');
+        // `aria-modal` asserts that everything outside the dialog is
+        // unavailable. The Tab trap below enforces that for Tab, but a virtual
+        // cursor can still reach the document behind the panel, so the claim
+        // was not true. `inert` makes it true for every input path.
+        //
+        // It goes on the document article rather than on `main`: the sidebar
+        // is itself inside `main`, and inerting an ancestor would inert the
+        // panel along with the background.
+        mainContent?.setAttribute('inert', '');
       } else {
         sidebar.removeAttribute('role');
         sidebar.removeAttribute('aria-modal');
+        mainContent?.removeAttribute('inert');
       }
 
       if (open) {

@@ -9,7 +9,16 @@ interface Props {
 
 const { route } = Astro.props;
 const currentRecordNumber = String(recordNavigation.findIndex((item) => item.path === route.path) + 1).padStart(2, '0');
-const snapshotDate = new Date().toISOString().slice(0, 10);
+// RR-301 SF-11. This used to be `new Date().toISOString().slice(0, 10)`,
+// rendered as "Website snapshot <date>". That is a build stamp wearing a
+// content date's clothes: it changed on every deploy and asserted the site
+// content was current on whatever day CI happened to run. The only date in the
+// record data is the operational snapshot's `refreshedAt`, which dates the BI
+// snapshot — not the website — so it cannot honestly carry this label either.
+// With no site-wide content snapshot date recorded anywhere, the truthful
+// state is to report the absence, matching the "Not reported" semantics used
+// throughout the record room, rather than print a plausible-looking wrong date.
+const snapshotDateLabel = 'Not reported';
 ---
 
 <RecordLayout
@@ -82,7 +91,7 @@ const snapshotDate = new Date().toISOString().slice(0, 10);
           </button>
         </div>
         <div class="record-document__meta">
-          <span>INSTAR Lab Inc. · Website snapshot {snapshotDate} · No private submissions</span>
+          <span>INSTAR Lab Inc. · Website snapshot: {snapshotDateLabel} · No private submissions</span>
         </div>
       </header>
       <div class="record-document__body">
