@@ -16,7 +16,9 @@ import {
   recordNamedPeople,
   recordPolicyRegister,
   recordRecordsRequest,
+  recordResourceUse,
 } from '../../src/data/record-registers';
+import { siteIdentity } from '../../src/data/seo/site';
 
 /*
  * These assertions are about the two things the institutional registers can get
@@ -282,11 +284,114 @@ test('the named-people register does not carry an unevidenced credential', () =>
   expect(everything, 'the register never records that an honorific is withheld').toMatch(/doctoral honorific/i);
 });
 
+test('the resource-use register carries the funder questions and publishes its absences', () => {
+  expect(recordResourceUse.length, 'the resource-use register is empty').toBeGreaterThan(0);
+  for (const row of recordResourceUse) {
+    expect(row.field.trim(), 'a resource-use row has no question label').not.toBe('');
+    expect(row.value.trim(), `resource-use row "${row.field}" has no value`).not.toBe('');
+    expect(row.basis.trim().length, `resource-use row "${row.field}" has no basis`).toBeGreaterThan(20);
+    expect(row.limits.trim().length, `resource-use row "${row.field}" has no limit`).toBeGreaterThan(20);
+  }
+
+  const byField = (needle: RegExp) => recordResourceUse.find((row) => needle.test(row.field));
+
+  // The ratio a program officer opens with is a state filing's arithmetic, not
+  // the institution's own measure, and the row has to say which publisher
+  // carries it.
+  const programShare = byField(/program service share/i);
+  expect(programShare, 'the register does not carry the program-service share').toBeDefined();
+  expect(programShare?.status, 'the program-service share is claimed as the institution’s own').toBe('external-record');
+  expect(programShare?.basis, 'the program-service share is not attributed to its publisher').toMatch(/Ohio Attorney General/i);
+
+  // The approval behind this room's own numbers is the weakest basis the
+  // snapshot can carry. A register that let it read as board-approved or
+  // audited would launder the weakest evidence into the strongest.
+  const approval = byField(/stands behind/i);
+  expect(approval, 'the register does not state who approved the published measures').toBeDefined();
+  expect(approval?.value, 'the approval basis is not published').toMatch(/management attestation/i);
+  expect(approval?.value, 'the register upgrades the approval basis').not.toMatch(/board[- ]approved|audited/i);
+
+  // Every expected funder type reaches the grant row, so the partition the
+  // measure declares is visible rather than summarised away.
+  const grants = byField(/grant awards received/i);
+  expect(grants, 'the register does not carry the grant position').toBeDefined();
+  for (const funderType of ['federal', 'state', 'private']) {
+    expect(grants?.value, `the grant row drops the ${funderType} funder type the measure defines`).toContain(funderType);
+  }
+
+  // An absence is published as an absence. A row marked `not-reported` that
+  // carried a figure — a nominal zero included — would be a measurement the
+  // register cannot make.
+  const absences = recordResourceUse.filter((row) => row.status === 'not-reported');
+  expect(absences.length, 'nothing is published as an absence, so the register reads as complete').toBeGreaterThan(0);
+  for (const row of absences) {
+    expect(row.value, `${row.field} is marked not-reported but does not publish the absence`).toMatch(/not reported/i);
+    expect(row.value, `${row.field} publishes a figure where it has no measurement`).not.toMatch(/\d/);
+  }
+
+  // Contributions are approved with an unavailable value. That is not the same
+  // claim as "none were received", and the row may not become one.
+  const contributions = byField(/contributions received/i);
+  expect(contributions?.value, 'the contributions row publishes a nominal zero').toMatch(/not reported/i);
+  expect(contributions?.limits, 'the contributions row asserts whether anything was received').toMatch(/does not say whether/i);
+
+  // No contact channel is invented to make a row look answerable.
+  const everything = recordResourceUse.flatMap((row) => [row.field, row.value, row.basis, row.limits]).join(' ');
+  expect(everything, 'the resource-use register invents a contact channel').not.toMatch(/[\w.+-]+@[\w-]+\.[\w.]+|\(?\d{3}\)?[-. ]\d{3}[-. ]\d{4}/);
+});
+
+test('the contact-detail discrepancy is recorded, and the published value is left alone', () => {
+  const contact = recordLegalStatus.find((row) => /contact details/i.test(row.field));
+  expect(contact, 'the legal register does not carry the published contact details').toBeDefined();
+  expect(contact?.value, 'the published email address is not recorded').toContain('info@instarlab.org');
+  expect(contact?.value, 'the published telephone number is not recorded').toContain('929-229-2918');
+
+  // Both values travel with the row: the discrepancy is named, not smoothed.
+  expect(contact?.basis, 'the conflicting external record is not named').toContain('(929) 222-2917');
+  expect(contact?.basis, 'the conflicting record is not attributed').toMatch(/Ohio Attorney General/i);
+  expect(contact?.limits, 'the discrepancy is not recorded as unresolved').toMatch(/discrepancy|disagree/i);
+  expect(contact?.limits, 'the register resolves a question it cannot answer').toMatch(/not change|does not change|changes neither/i);
+
+  // Recorded is not changed. The value the site emits is untouched, whichever
+  // of the two the institution eventually decides is right.
+  expect(siteIdentity.telephone, 'the register changed the published telephone number').toBe('929-229-2918');
+  expect(siteIdentity.email, 'the register changed the published email address').toBe('info@instarlab.org');
+});
+
+// The room was modelled on a for-profit defense contractor's past-performance
+// area, and commercial vocabulary that survives in its own labels describes an
+// institution this is not: a 501(c)(3) has no market, no business status and no
+// acquisition pathway. This guards the labels a reader navigates by — the
+// sidebar and the document eyebrow — rather than the editorial copy, and it
+// reads them from the served artifact the way a reader receives them.
+test('the served record room labels describe a public charity rather than a vendor', async ({ page, request }) => {
+  const forbidden = /acquisition|market profile|business status|procurement|competitor|past performance/i;
+
+  const manifest = await (await request.get('/record/manifest.json')).json();
+  expect(manifest.routeInventory.length, 'the manifest carries no route inventory').toBeGreaterThan(10);
+  for (const route of manifest.routeInventory as { path: string; label: string }[]) {
+    expect(route.label, `${route.path} is labelled with commercial vocabulary`).not.toMatch(forbidden);
+  }
+
+  await page.goto('/record/', { waitUntil: 'domcontentloaded' });
+  const hrefs = await page.locator('.record-sidebar__nav a').evaluateAll((nodes) =>
+    nodes.map((node) => node.getAttribute('href') ?? ''),
+  );
+  expect(hrefs.length, 'the sidebar renders no record routes').toBeGreaterThan(10);
+
+  for (const href of hrefs) {
+    await page.goto(href, { waitUntil: 'domcontentloaded' });
+    const eyebrow = await page.locator('.record-document__eyebrow span').first().innerText();
+    expect(eyebrow.trim(), `${href} carries a commercial eyebrow`).not.toMatch(forbidden);
+    const heading = await page.locator('h1').innerText();
+    expect(heading.trim(), `${href} has no page heading`).not.toBe('');
+  }
+});
+
 // ---------------------------------------------------------------------------
 // The served pages. The data above is what the pages import; these assertions
 // are about what a reader and a crawler actually receive.
 // ---------------------------------------------------------------------------
-
 test('the corrections page cites commits in prose and keeps them out of structured data', async ({ page, request }) => {
   const response = await page.goto('/record/corrections/');
   expect(response?.status()).toBe(200);
@@ -365,4 +470,41 @@ test('the served registers publish the absences the data declares', async ({ pag
   expect(legalCopy, 'the legal register does not publish the §6104(d) request path').toContain('6104(d)');
   expect(legalCopy, 'the legal register does not record the filing gap as unresolved').toMatch(/unresolved/i);
   expect(await page.locator('a[href*="apps.irs.gov"]').count(), 'a session-bound IRS link was published').toBe(0);
+});
+
+test('the served governance page publishes the resource-use register and its absences', async ({ page }) => {
+  await page.goto('/record/governance/');
+  const table = page.locator('[aria-label="Resource use and measurement register with basis, status and limits"] table');
+  await expect(table).toHaveCount(1);
+  // Scoped by the region's own accessible name rather than by table order, so
+  // adding a table above it cannot silently redirect this assertion.
+  expect(
+    await table.locator('tbody tr').count(),
+    'the served table does not carry every row the register declares',
+  ).toBe(recordResourceUse.length);
+
+  const copy = await table.innerText();
+  expect(copy, 'the served register does not publish the program-service share').toMatch(/100\.00%/);
+  expect(copy, 'the served register does not publish the approval basis behind the measures').toMatch(/management attestation/i);
+
+  // A row published as an absence must render the absence, not a blank cell.
+  const declaredAbsences = recordResourceUse.filter((row) => row.status === 'not-reported').length;
+  expect(
+    (copy.match(/not reported/gi) ?? []).length,
+    'the served register renders fewer absences than the data declares',
+  ).toBeGreaterThanOrEqual(declaredAbsences);
+
+  // The donor's statutory route is pointed at rather than restated here, so the
+  // section has to link it.
+  const section = page.locator('section:has(#governance-resource-title)');
+  await expect(section.locator('a[href$="/record/legal/"]')).toHaveCount(1);
+});
+
+test('the served legal register publishes the contact discrepancy with both values', async ({ page }) => {
+  await page.goto('/record/legal/');
+  const table = page.locator('[aria-label="Legal status fields with their basis and limits"] table');
+  const copy = await table.innerText();
+  expect(copy, 'the served register does not publish the published contact details').toContain('929-229-2918');
+  expect(copy, 'the served register does not publish the conflicting external value').toContain('(929) 222-2917');
+  expect(copy, 'the served register does not record the discrepancy').toMatch(/discrepancy/i);
 });
