@@ -210,6 +210,58 @@ test('Record route inventory covers the whole graph and filters actual rows', as
   await expect(page.locator('[data-route-item]:visible')).toHaveCount(graph.nodes.length);
 });
 
+test('Record visual sitemap keeps directory, ranking, preview, graph and finder consistent', async ({ page, request }) => {
+  const graph = await (await request.get('/record/graph.json')).json();
+  const metrics = await (await request.get('/record/page-metrics.json')).json();
+  await page.goto('/record/nav/');
+
+  // The numbered directory covers the same inventory the table and graph do.
+  const directoryPaths = await page.locator('[data-directory-path]').all();
+  expect(directoryPaths).toHaveLength(graph.nodes.length);
+  const numbers = await page.locator('[data-directory-path] .font-monospace').allTextContents();
+  const width = String(graph.nodes.length).length;
+  expect(new Set(numbers).size).toBe(graph.nodes.length);
+  for (const number of numbers) expect(number).toMatch(new RegExp(`^\\d{${width}}$`));
+  await expect(page.locator('[data-directory-path] a[aria-current="page"] code, [data-directory-path] a[aria-current="page"]')).toHaveCount(1);
+
+  // The inbound leaderboard renders rows with counts, backed by the metrics endpoint.
+  expect(metrics.routes).toHaveLength(graph.nodes.length);
+  const rankingRows = page.locator('[data-inbound-link]');
+  expect(await rankingRows.count()).toBeGreaterThan(0);
+  await expect(rankingRows.first()).toContainText(/\d/);
+
+  // The preview pane is complete HTML before scripts run, with visual or
+  // metadata-only state and working actions.
+  await expect(page.locator('[data-route-preview] [data-preview-link]')).toHaveAttribute('href', /.+/);
+  await expect(page.locator('[data-route-preview] [data-preview-copy]')).toBeVisible();
+  await expect(page.locator('[data-route-preview] [data-preview-max]')).toBeVisible();
+  const visualCount = await page.locator('[data-route-preview] [data-preview-visual]').count();
+  const noVisualCount = await page.locator('[data-route-preview] [data-preview-novisual]').count();
+  expect(visualCount + noVisualCount).toBe(1);
+
+  // The topology renders one node per stop plus a text fallback, and choosing
+  // a node updates the preview without navigating.
+  await expect(page.locator('[data-graph-node]')).toHaveCount(graph.nodes.length);
+  await expect(page.locator('[data-graph-fallback]')).toContainText('Topology as text');
+  const previewBefore = await page.locator('[data-route-preview] [data-preview-path]').textContent();
+  await page.locator('[data-graph-node]').first().dispatchEvent('click');
+  await expect(page.locator('[data-route-preview] [data-preview-path]')).not.toHaveText(previewBefore ?? '');
+
+  // The finder returns a recorded path for a connected pair, an honest dead
+  // end for a disconnected pair, and clears on Escape.
+  await page.locator('[data-finder-from]').selectOption('/mission/');
+  await page.locator('[data-finder-to]').selectOption('/record/federal/');
+  await page.locator('[data-finder-find]').click();
+  await expect(page.locator('[data-finder-summary]')).toBeFocused();
+  expect(await page.locator('[data-finder-result] ol li').count()).toBeGreaterThanOrEqual(2);
+  await page.locator('[data-finder-from]').selectOption('/contact-us/');
+  await page.locator('[data-finder-to]').selectOption('/mission/');
+  await page.locator('[data-finder-find]').click();
+  await expect(page.locator('[data-finder-result]')).toContainText('No recorded path');
+  await page.keyboard.press('Escape');
+  await expect(page.locator('[data-finder-result]')).toContainText('Choose two stops');
+});
+
 
 test('Record skip link bypasses the repeated sidebar', async ({ page }) => {
   await page.goto('/record/');

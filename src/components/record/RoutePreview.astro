@@ -1,0 +1,91 @@
+---
+import { recordHref, type RecordVisual } from '../../data/record';
+
+export interface PreviewEntry {
+  readonly path: string;
+  readonly number: string;
+  readonly title: string;
+  readonly description: string;
+  readonly family: string | null;
+  readonly kind: string | null;
+  readonly indexable: boolean | null;
+  readonly journeys: readonly string[];
+  readonly visual: Pick<RecordVisual, 'src' | 'alt' | 'width' | 'height' | 'caption' | 'href'> | null;
+}
+
+interface Props {
+  /** The route shown before any interaction: the most-connected ranked route. */
+  readonly current: PreviewEntry;
+  /** Every previewable route, consumed by the deferred preview module. */
+  readonly routes: readonly PreviewEntry[];
+  /**
+   * Outline level for the previewed route name. Call sites pass the level
+   * their enclosing section implies.
+   */
+  readonly level?: 2 | 3 | 4;
+  readonly id?: string;
+}
+
+const { current, routes, level = 3, id = 'record-route-preview' } = Astro.props;
+const NameTag = `h${level}` as 'h2' | 'h3' | 'h4';
+const kicker = current.family ?? 'Journey route';
+const kindLabel = current.kind ? current.kind.charAt(0).toUpperCase() + current.kind.slice(1) : null;
+---
+
+<aside class="card h-100 shadow-sm" aria-label="Route preview" id={id} data-route-preview>
+  <div class="card-body p-4 d-flex flex-column">
+    <div class="d-flex justify-content-between align-items-start gap-2">
+      <div>
+        <p class="record-section__label mb-2" data-preview-kicker>{current.number} · {kicker}</p>
+        <NameTag class="mb-1" data-preview-name><a href={recordHref(current.path)} data-preview-link>{current.title}</a></NameTag>
+        <p class="small text-body-secondary mb-0" data-preview-path>{current.path}</p>
+      </div>
+      <div class="btn-group btn-group-sm" role="group" aria-label="Preview actions">
+        <button class="btn btn-outline-secondary" type="button" data-preview-copy>Copy link</button>
+        <button class="btn btn-outline-secondary" type="button" data-preview-max aria-expanded="false">Maximize</button>
+      </div>
+    </div>
+    <p class="small mb-0 mt-2" role="status" data-preview-copy-status aria-live="polite"></p>
+
+    <div class="mt-3" data-preview-visual-wrap>
+      {current.visual ? (
+        <a href={recordHref(current.visual.href)} data-preview-visual-link>
+          <img
+            class="img-fluid rounded border"
+            src={recordHref(current.visual.src)}
+            alt={current.visual.alt}
+            width={current.visual.width}
+            height={current.visual.height}
+            loading="lazy"
+            data-preview-visual
+          />
+        </a>
+        <p class="small text-body-secondary mt-2 mb-0" data-preview-caption>{current.visual.caption}</p>
+      ) : (
+        <p class="small text-body-secondary border rounded p-3 mb-0" data-preview-novisual>
+          No route visual — this stop is linked from the route inventory and the journey manifest, not from the visual archive.
+        </p>
+      )}
+    </div>
+
+    <p class="mt-3 mb-0" data-preview-description>{current.description}</p>
+
+    <dl class="row small mt-3 mb-0" data-preview-meta>
+      {kindLabel && <><dt class="col-4">Kind</dt><dd class="col-8 mb-1" data-preview-kind>{kindLabel}</dd></>}
+      {current.indexable !== null && <><dt class="col-4">Indexability</dt><dd class="col-8 mb-1" data-preview-indexable>{current.indexable ? 'Indexable' : 'Noindex'}</dd></>}
+      {current.journeys.length > 0 && <><dt class="col-4">Journeys</dt><dd class="col-8 mb-1" data-preview-journeys>{current.journeys.join(' · ')}</dd></>}
+    </dl>
+
+    <div class="mt-3 pt-3 border-top">
+      <p class="small text-uppercase text-body-secondary fw-bold mb-2">Recently viewed</p>
+      <ol class="list-unstyled small mb-0" data-preview-recents>
+        <li class="text-body-secondary" data-preview-recents-empty>Routes previewed on this page appear here. History stays in this browser.</li>
+      </ol>
+    </div>
+
+    <p class="small text-body-secondary mt-3 mb-0">Source visuals: <a href={recordHref('/record/screens/')}>Visual archive</a>. Choosing a directory, ranking, graph, or finder entry updates this pane without leaving the page.</p>
+  </div>
+  {/* Build-time preview data for the deferred module. Rendered server-side so
+    the pane works before scripts run; scripts only swap between these rows. */}
+  <script type="application/json" data-preview-data set:html={JSON.stringify(routes).replace(/</g, '\\u003c')} />
+</aside>

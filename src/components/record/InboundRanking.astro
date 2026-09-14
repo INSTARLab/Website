@@ -1,0 +1,71 @@
+---
+import { recordHref } from '../../data/record';
+
+export interface InboundRow {
+  readonly path: string;
+  readonly title: string;
+  readonly inInventory: boolean;
+  readonly inbound: number;
+  readonly journeys: readonly string[];
+}
+
+interface Props {
+  readonly rows: readonly InboundRow[];
+  readonly topN?: number;
+  /**
+   * Outline level for the ranking title. Call sites pass the level their
+   * enclosing section implies.
+   */
+  readonly level?: 2 | 3 | 4;
+  readonly id?: string;
+}
+
+const { rows, topN = 8, level = 3, id = 'record-inbound-ranking' } = Astro.props;
+const TitleTag = `h${level}` as 'h2' | 'h3' | 'h4';
+const peak = Math.max(1, ...rows.map((row) => row.inbound));
+const head = rows.slice(0, topN);
+const tail = rows.slice(topN);
+const barWidth = (inbound: number) => `${Math.max(4, Math.round((inbound / peak) * 100))}%`;
+---
+
+<section class="card h-100 shadow-sm" aria-labelledby={`${id}-title`} data-inbound-ranking>
+  <div class="card-body p-4">
+    <p class="record-section__label mb-2">Attention</p>
+    <TitleTag id={`${id}-title`} class="mb-1">Top inbound pages</TitleTag>
+    <p class="small text-body-secondary">Where recorded journey flow concentrates. Counts are indegree over journey-step edges; next-action exits are excluded. Selecting a row previews the route and pins it in the topology below.</p>
+    {rows.length === 0 ? (
+      <p class="small text-body-secondary mb-0" role="status">No journey flow is recorded yet.</p>
+    ) : (
+      <>
+        <ol class="list-unstyled mb-0">
+          {head.map((row) => (
+            <li class="py-2 border-bottom" data-inbound-row={row.path}>
+              <a class="d-flex justify-content-between gap-2 text-decoration-none" href={recordHref(row.path)} data-inbound-link={row.path} aria-pressed="false">
+                <span><strong>{row.title}</strong> {!row.inInventory && <span class="badge text-bg-warning ms-1">Journey route</span>}<span class="d-block small text-body-secondary">{row.path} · {row.journeys.join(' · ')}</span></span>
+                <strong class="font-monospace" aria-label={`${row.inbound} inbound journey steps`}>{row.inbound}</strong>
+              </a>
+              <span class="d-block mt-1 rounded bg-body-secondary" aria-hidden="true" style="height: 0.35rem;"><span class="d-block rounded bg-primary" style={`height: 100%; width: ${barWidth(row.inbound)};`}></span></span>
+            </li>
+          ))}
+        </ol>
+        {tail.length > 0 && (
+          <details class="mt-2" data-inbound-more>
+            <summary>Show all {rows.length} ranked routes</summary>
+            <ol class="list-unstyled mb-0" start={topN + 1}>
+              {tail.map((row) => (
+                <li class="py-2 border-bottom" data-inbound-row={row.path}>
+                  <a class="d-flex justify-content-between gap-2 text-decoration-none" href={recordHref(row.path)} data-inbound-link={row.path} aria-pressed="false">
+                    <span><strong>{row.title}</strong> {!row.inInventory && <span class="badge text-bg-warning ms-1">Journey route</span>}<span class="d-block small text-body-secondary">{row.path} · {row.journeys.join(' · ')}</span></span>
+                    <strong class="font-monospace" aria-label={`${row.inbound} inbound journey steps`}>{row.inbound}</strong>
+                  </a>
+                  <span class="d-block mt-1 rounded bg-body-secondary" aria-hidden="true" style="height: 0.35rem;"><span class="d-block rounded bg-primary" style={`height: 100%; width: ${barWidth(row.inbound)};`}></span></span>
+                </li>
+              ))}
+            </ol>
+          </details>
+        )}
+      </>
+    )}
+    <p class="small text-body-secondary mt-3 mb-0">Source: <a href={recordHref('/record/verify/')}>Record journey manifest (SRC-002)</a> · <a href={recordHref('/record/journeys/')}>Inspect the journeys</a></p>
+  </div>
+</section>

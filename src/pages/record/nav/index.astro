@@ -1,7 +1,13 @@
 ---
 import RecordDocument from '../../../components/record/RecordDocument.astro';
+import RouteDirectory from '../../../components/record/RouteDirectory.astro';
+import InboundRanking from '../../../components/record/InboundRanking.astro';
+import RouteFinder from '../../../components/record/RouteFinder.astro';
+import RouteGraph from '../../../components/record/RouteGraph.astro';
+import RoutePreview, { type PreviewEntry } from '../../../components/record/RoutePreview.astro';
 import BarChart from '../../../components/record/viz/BarChart.astro';
-import { recordHref, recordRouteAtPath, sitePageRecords } from '../../../data/record';
+import { buildNavUniverse, inboundRanking, padNumber } from '../../../components/record/nav-graph.mjs';
+import { recordHref, recordJourneys, recordRouteAtPath, recordVisuals, sitePageRecords } from '../../../data/record';
 
 const route = recordRouteAtPath('/record/nav/');
 const familyOrder = ['Home', 'Core', 'Research', 'Technology', 'Sciences', 'Community', 'Labs', 'Research brief', 'Fellowship', 'Tech transfer', 'Public record'];
@@ -12,6 +18,37 @@ const families = [...new Set(sitePageRecords.map((entry) => entry.family))].sort
 const familyCounts = families.map((family) => ({ family, count: sitePageRecords.filter((entry) => entry.family === family).length }));
 const familyBars = familyCounts.map((entry) => ({ label: entry.family, value: entry.count }));
 const routeKindLabel = (kind: (typeof sitePageRecords)[number]['kind']) => ({ core: 'Core', editorial: 'Editorial', section: 'Section', record: 'Record' })[kind];
+
+// Visual sitemap derivations. The universe joins the route inventory with the
+// journey-only stops the recorded paths traverse; the ranking, finder, graph,
+// and preview all read this one derivation so they cannot disagree.
+const universe = buildNavUniverse(sitePageRecords, recordJourneys);
+const ranking = inboundRanking(universe);
+const directoryEntries = families.flatMap((family) => sitePageRecords.filter((entry) => entry.family === family));
+const directoryNumber = new Map(directoryEntries.map((entry, index) => [entry.path, padNumber(index + 1, directoryEntries.length)]));
+const inventoryByPath = new Map(sitePageRecords.map((entry) => [entry.path, entry]));
+const visualByHref = new Map(recordVisuals.map((visual) => [visual.href, visual]));
+const previewEntries: PreviewEntry[] = universe.nodes.map((node) => {
+  const inventory = inventoryByPath.get(node.path);
+  const visual = visualByHref.get(node.path);
+  return {
+    path: node.path,
+    number: directoryNumber.get(node.path) ?? '—',
+    title: node.title,
+    description: inventory?.description ?? `A recorded journey stop from ${node.journeys.join(', ') || 'the journey manifest'} — a real route with no inventory row.`,
+    family: inventory?.family ?? null,
+    kind: inventory?.kind ?? null,
+    indexable: inventory?.indexable ?? null,
+    journeys: node.journeys,
+    visual: visual ? { src: visual.src, alt: visual.alt, width: visual.width, height: visual.height, caption: visual.caption, href: visual.href } : null,
+  };
+});
+const previewByPath = new Map(previewEntries.map((entry) => [entry.path, entry]));
+const defaultPreview = (ranking[0] ? previewByPath.get(ranking[0].path) : undefined) ?? previewEntries[0];
+const finderOptions = [
+  ...sitePageRecords.map((entry) => ({ path: entry.path, title: entry.title, family: entry.family, inInventory: true as const })),
+  ...universe.nodes.filter((node) => !node.inInventory).map((node) => ({ path: node.path, title: node.title, family: null, inInventory: false as const })),
+];
 ---
 
 <RecordDocument {route}>
@@ -50,6 +87,54 @@ const routeKindLabel = (kind: (typeof sitePageRecords)[number]['kind']) => ({ co
       </div>
     </section>
 
+    <section class="record-section mt-5" aria-labelledby="nav-directory-title">
+      <div class="d-flex flex-wrap justify-content-between align-items-end gap-3 mb-3">
+        <div><p class="record-section__label mb-2">Visual sitemap</p><h2 id="nav-directory-title" class="mb-0">Browse every route, then inspect one</h2></div>
+        <p class="small text-body-secondary mb-0">Directory order matches the inventory table below.</p>
+      </div>
+      <div class="row g-4 align-items-start">
+        <div class="col-12 col-xl-7">
+          <RouteDirectory entries={directoryEntries} currentPath={route.path} level={3} />
+        </div>
+        <div class="col-12 col-xl-5">
+          {defaultPreview && <RoutePreview current={defaultPreview} routes={previewEntries} level={3} />}
+        </div>
+      </div>
+    </section>
+
+    <section class="record-section mt-5" aria-labelledby="nav-flow-title">
+      <div class="d-flex flex-wrap justify-content-between align-items-end gap-3 mb-3">
+        <div><p class="record-section__label mb-2">Flow</p><h2 id="nav-flow-title" class="mb-0">Where journeys concentrate, and how to cross them</h2></div>
+      </div>
+      <div class="row g-4 align-items-start">
+        <div class="col-12 col-xl-5">
+          <InboundRanking rows={ranking} level={3} />
+        </div>
+        <div class="col-12 col-xl-7">
+          <RouteFinder
+            options={finderOptions}
+            journeys={recordJourneys.map((journey) => ({ id: journey.id, label: journey.label }))}
+            contentEdges={universe.contentEdges}
+            weakEdges={universe.weakEdges}
+            level={3}
+          />
+        </div>
+      </div>
+    </section>
+
+    <section class="record-section mt-5" aria-labelledby="nav-topology-title">
+      <div class="d-flex flex-wrap justify-content-between align-items-end gap-3 mb-3">
+        <div><p class="record-section__label mb-2">Topology</p><h2 id="nav-topology-title" class="visually-hidden">Recorded link topology</h2></div>
+      </div>
+      <RouteGraph
+        nodes={universe.nodes}
+        contentEdges={universe.contentEdges}
+        weakEdges={universe.weakEdges}
+        journeyCount={recordJourneys.length}
+        level={3}
+      />
+    </section>
+
     <section class="record-section mt-5" aria-labelledby="nav-table-title">
       <div class="card shadow-sm">
         <div class="card-body p-4">
@@ -85,6 +170,32 @@ const routeKindLabel = (kind: (typeof sitePageRecords)[number]['kind']) => ({ co
   </div>
 </RecordDocument>
 
+<style>
+  /* Maximized preview becomes a focused overlay. Instant state change only —
+   * no transition, so there is nothing to gate under prefers-reduced-motion. */
+  :global(.record-preview--max) {
+    position: fixed;
+    inset: 1rem;
+    z-index: 1050;
+    overflow-y: auto;
+    background: var(--bs-body-bg, #fff);
+  }
+  /* Topology focus-dim. Decorative edges stay faint; dimmed nodes fade. */
+  :global([data-route-graph] .is-dim) {
+    opacity: 0.25;
+  }
+  :global([data-graph-svg] a:focus-visible) {
+    outline: 2px solid #14627d;
+    outline-offset: 2px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    :global([data-route-graph] *) {
+      transition: none !important;
+      scroll-behavior: auto !important;
+    }
+  }
+</style>
+
 <script>
   const filter = document.querySelector<HTMLInputElement>('[data-route-filter]');
   const familyFilter = document.querySelector<HTMLSelectElement>('[data-family-filter]');
@@ -107,4 +218,10 @@ const routeKindLabel = (kind: (typeof sitePageRecords)[number]['kind']) => ({ co
 
   filter?.addEventListener('input', updateRouteList);
   familyFilter?.addEventListener('change', updateRouteList);
+</script>
+
+<script>
+  import '../../../components/record/route-preview';
+  import '../../../components/record/route-graph';
+  import '../../../components/record/route-path';
 </script>

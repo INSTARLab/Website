@@ -1,0 +1,98 @@
+---
+import { recordHref } from '../../data/record';
+
+export interface FinderOption {
+  readonly path: string;
+  readonly title: string;
+  readonly family: string | null;
+  readonly inInventory: boolean;
+}
+
+export interface FinderJourney {
+  readonly id: string;
+  readonly label: string;
+}
+
+export interface FinderEdge {
+  readonly source: string;
+  readonly target: string;
+  readonly journey: string;
+}
+
+interface Props {
+  readonly options: readonly FinderOption[];
+  readonly journeys: readonly FinderJourney[];
+  readonly contentEdges: readonly FinderEdge[];
+  readonly weakEdges: readonly FinderEdge[];
+  /**
+   * Outline level for the finder title. Call sites pass the level their
+   * enclosing section implies.
+   */
+  readonly level?: 2 | 3 | 4;
+  readonly id?: string;
+}
+
+const { options, journeys, contentEdges, weakEdges, level = 3, id = 'record-route-finder' } = Astro.props;
+const TitleTag = `h${level}` as 'h2' | 'h3' | 'h4';
+const inventory = options.filter((option) => option.inInventory);
+const journeyOnly = options.filter((option) => !option.inInventory);
+const graphData = {
+  nodes: options.map((option) => ({ path: option.path, title: option.title })),
+  contentEdges,
+  weakEdges,
+  journeys: journeys.map((journey) => ({ id: journey.id, label: journey.label })),
+};
+const searched = journeys.map((journey) => journey.label).join(', ');
+---
+
+<section class="card h-100 shadow-sm" aria-labelledby={`${id}-title`} data-route-finder>
+  <div class="card-body p-4">
+    <p class="record-section__label mb-2">Wayfinding</p>
+    <TitleTag id={`${id}-title`} class="mb-1">Route finder</TitleTag>
+    <p class="small text-body-secondary">Shortest recorded path between two stops, searched over {journeys.length} journeys ({searched}). No path is ever invented: pairs with no recorded connection say so.</p>
+    <form class="row g-3 align-items-end" data-finder-form onsubmit="return false">
+      <div class="col-12 col-md-5">
+        <label class="form-label" for={`${id}-from`}>From</label>
+        <select class="form-select" id={`${id}-from`} data-finder-from>
+          <optgroup label="Site inventory">
+            {inventory.map((option) => <option value={option.path}>{option.title} — {option.path}</option>)}
+          </optgroup>
+          {journeyOnly.length > 0 && (
+            <optgroup label="Journey routes">
+              {journeyOnly.map((option) => <option value={option.path}>{option.title} — {option.path}</option>)}
+            </optgroup>
+          )}
+        </select>
+      </div>
+      <div class="col-12 col-md-5">
+        <label class="form-label" for={`${id}-to`}>To</label>
+        <select class="form-select" id={`${id}-to`} data-finder-to>
+          <optgroup label="Site inventory">
+            {inventory.map((option) => <option value={option.path} selected={option.path === '/record/federal/'}>{option.title} — {option.path}</option>)}
+          </optgroup>
+          {journeyOnly.length > 0 && (
+            <optgroup label="Journey routes">
+              {journeyOnly.map((option) => <option value={option.path}>{option.title} — {option.path}</option>)}
+            </optgroup>
+          )}
+        </select>
+      </div>
+      <div class="col-12 col-md-2 d-flex gap-2">
+        <button class="btn btn-primary flex-fill" type="submit" data-finder-find>Find</button>
+        <button class="btn btn-outline-secondary" type="button" data-finder-clear>Clear</button>
+      </div>
+      <div class="col-12">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id={`${id}-weak`} data-finder-weak />
+          <label class="form-check-label small" for={`${id}-weak`}>Include next-action exits (the final step into each journey's suggested destination)</label>
+        </div>
+      </div>
+    </form>
+    <div class="mt-3" aria-live="polite" data-finder-result>
+      <p class="small text-body-secondary mb-0" data-finder-empty>Choose two stops and select Find. The recorded steps appear here as links; <kbd>Esc</kbd> clears the result.</p>
+    </div>
+    <p class="small text-body-secondary mt-3 mb-0">Source: <a href={recordHref('/record/verify/')}>Record journey manifest (SRC-002)</a></p>
+  </div>
+  {/* Edge lists rendered once, server-side, for the deferred finder module. */}
+  <script type="application/json" data-finder-graph set:html={JSON.stringify(graphData).replace(/</g, '\\u003c')} />
+</section>

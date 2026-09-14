@@ -1,0 +1,154 @@
+---
+import { recordHref } from '../../data/record';
+
+export interface GraphNode {
+  readonly path: string;
+  readonly title: string;
+  readonly family: string | null;
+  readonly inInventory: boolean;
+}
+
+export interface GraphEdge {
+  readonly source: string;
+  readonly target: string;
+  readonly journey: string;
+}
+
+interface Props {
+  readonly nodes: readonly GraphNode[];
+  readonly contentEdges: readonly GraphEdge[];
+  readonly weakEdges: readonly GraphEdge[];
+  readonly journeyCount: number;
+  /**
+   * Outline level for the graph title. Call sites pass the level their
+   * enclosing section implies.
+   */
+  readonly level?: 2 | 3 | 4;
+  readonly id?: string;
+}
+
+const { nodes, contentEdges, weakEdges, journeyCount, level = 3, id = 'record-route-graph' } = Astro.props;
+const TitleTag = `h${level}` as 'h2' | 'h3' | 'h4';
+
+// Lanes group inventory nodes by family in first-seen order; journey-only
+// stops share a final lane so the topology stays readable at inventory scale.
+const JOURNEY_LANE = 'Journey routes';
+const lanes: string[] = [];
+for (const node of nodes) {
+  const lane = node.family ?? JOURNEY_LANE;
+  if (!lanes.includes(lane)) lanes.push(lane);
+}
+const LANE_WIDTH = 240;
+const ROW_HEIGHT = 34;
+const PAD = 16;
+const laneNodes = lanes.map((lane) => nodes.filter((node) => (node.family ?? JOURNEY_LANE) === lane));
+const svgWidth = lanes.length * LANE_WIDTH + PAD * 2;
+const svgHeight = Math.max(...laneNodes.map((items) => items.length)) * ROW_HEIGHT + 44 + PAD * 2;
+const palette = ['#176b8c', '#6a3fb5', '#1c7c4c', '#b25e09', '#a31f4d', '#4455aa', '#0f766e', '#8a6d00', '#5b5bd6', '#c2410c', '#047857', '#7c3aed'];
+const laneColor = (lane: string) => palette[lanes.indexOf(lane) % palette.length];
+const position = new Map<string, { x: number; y: number }>();
+laneNodes.forEach((items, laneIndex) => {
+  items.forEach((node, rowIndex) => {
+    position.set(node.path, { x: PAD + laneIndex * LANE_WIDTH + 12, y: PAD + 44 + rowIndex * ROW_HEIGHT + 12 });
+  });
+});
+const titleOf = (path: string) => nodes.find((node) => node.path === path)?.title ?? path;
+const connectedInventory = new Set<string>();
+for (const edge of [...contentEdges, ...weakEdges]) {
+  for (const end of [edge.source, edge.target]) {
+    const node = nodes.find((entry) => entry.path === end);
+    if (node?.inInventory) connectedInventory.add(end);
+  }
+}
+const inventoryTotal = nodes.filter((node) => node.inInventory).length;
+---
+
+<section class="card shadow-sm" aria-labelledby={`${id}-title`} data-route-graph>
+  <div class="card-body p-4">
+    <div class="d-flex flex-wrap justify-content-between align-items-baseline gap-2 mb-1">
+      <div>
+        <p class="record-section__label mb-2">Topology</p>
+        <TitleTag id={`${id}-title`} class="mb-1">Recorded link topology</TitleTag>
+      </div>
+      <div class="btn-group btn-group-sm" role="group" aria-label="Graph view">
+        <button class="btn btn-outline-secondary" type="button" data-graph-zoom-in>Zoom in</button>
+        <button class="btn btn-outline-secondary" type="button" data-graph-zoom-out>Zoom out</button>
+        <button class="btn btn-outline-secondary" type="button" data-graph-reset>Reset</button>
+      </div>
+    </div>
+    <p class="small text-body-secondary">{connectedInventory.size} of {inventoryTotal} inventory routes appear in a recorded journey across {journeyCount} journeys. Solid lines are journey steps; dashed lines are next-action exits. Choosing a node previews the route; <kbd>Enter</kbd> on a node moves to its inventory-table row.</p>
+    <div class="d-flex flex-wrap gap-3 small mb-3" aria-label="Lane key">
+      {lanes.map((lane) => (
+        <span class="d-inline-flex align-items-center gap-1"><span class="d-inline-block rounded-circle" aria-hidden="true" style={`width: 0.7rem; height: 0.7rem; background: ${laneColor(lane)};`}></span>{lane}</span>
+      ))}
+      <span class="d-inline-flex align-items-center gap-1"><span class="d-inline-block" aria-hidden="true" style="width: 1.4rem; border-top: 2px dashed #526675;"></span>Next-action exit</span>
+    </div>
+    {/* The svg keeps role="group" (not img): its nodes are operable links, and
+      an img role would hide them from assistive technology. The details table
+      below carries the same nodes and edges as text. */}
+    <div class="table-responsive border rounded" tabindex="0" role="region" aria-label="Recorded link topology graph">
+      <svg
+        data-graph-svg
+        role="group"
+        aria-label={`Link topology: ${nodes.length} stops, ${contentEdges.length} journey steps, ${weakEdges.length} next-action exits`}
+        viewBox={`0 0 ${svgWidth} ${svgHeight}`}
+        width={svgWidth}
+        height={Math.min(svgHeight, 560)}
+        style="max-width: none;"
+      >
+        <g aria-hidden="true">
+          {lanes.map((lane, laneIndex) => (
+            <text x={PAD + laneIndex * LANE_WIDTH + 12} y={PAD + 20} font-size="12" font-weight="700" fill="#526675">{lane}</text>
+          ))}
+        </g>
+        <g aria-hidden="true" stroke="#9ebdcc" stroke-width="1.5" opacity="0.55">
+          {contentEdges.map((edge) => {
+            const from = position.get(edge.source);
+            const to = position.get(edge.target);
+            return from && to ? <line x1={from.x} y1={from.y} x2={to.x} y2={to.y} data-graph-edge={`${edge.source} ${edge.target}`} /> : null;
+          })}
+        </g>
+        <g aria-hidden="true" stroke="#526675" stroke-width="1.5" stroke-dasharray="5 4" opacity="0.7">
+          {weakEdges.map((edge) => {
+            const from = position.get(edge.source);
+            const to = position.get(edge.target);
+            return from && to ? <line x1={from.x} y1={from.y} x2={to.x} y2={to.y} data-graph-edge={`${edge.source} ${edge.target}`} /> : null;
+          })}
+        </g>
+        <g>
+          {nodes.map((node) => {
+            const at = position.get(node.path);
+            if (!at) return null;
+            const color = laneColor(node.family ?? JOURNEY_LANE);
+            return (
+              <a href={recordHref(node.path)} data-graph-node={node.path} aria-label={`${node.title}, ${node.path}`}>
+                <title>{node.title} ({node.path})</title>
+                <circle cx={at.x} cy={at.y} r="7" fill={color} stroke="#fff" stroke-width="2" data-graph-dot={node.path} />
+                <text x={at.x + 13} y={at.y + 4} font-size="12" fill="#122535" data-graph-label={node.path}>{node.title.length > 26 ? `${node.title.slice(0, 25)}…` : node.title}</text>
+              </a>
+            );
+          })}
+        </g>
+      </svg>
+    </div>
+    <details class="mt-3" data-graph-fallback>
+      <summary>Topology as text ({nodes.length} stops, {contentEdges.length + weakEdges.length} links)</summary>
+      <div class="row g-4 mt-1">
+        <div class="col-12 col-lg-6">
+          <p class="small fw-bold mb-1">Stops</p>
+          <ul class="small mb-0">
+            {nodes.map((node) => <li><a href={recordHref(node.path)}>{node.title}</a> <span class="text-body-secondary">{node.path}{node.inInventory ? '' : ' · journey route'}</span></li>)}
+          </ul>
+        </div>
+        <div class="col-12 col-lg-6">
+          <p class="small fw-bold mb-1">Links</p>
+          <ul class="small mb-0">
+            {contentEdges.map((edge) => <li>{titleOf(edge.source)} → {titleOf(edge.target)} <span class="text-body-secondary">({edge.journey})</span></li>)}
+            {weakEdges.map((edge) => <li>{titleOf(edge.source)} → {titleOf(edge.target)} <span class="text-body-secondary">({edge.journey} next action)</span></li>)}
+          </ul>
+        </div>
+      </div>
+    </details>
+    <p class="small text-body-secondary mt-3 mb-0">Source: <a href={recordHref('/record/verify/')}>Record journey manifest (SRC-002)</a> · <a href={recordHref('/record/journeys/')}>Inspect the journeys</a></p>
+  </div>
+</section>

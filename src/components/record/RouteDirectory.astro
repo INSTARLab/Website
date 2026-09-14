@@ -1,0 +1,69 @@
+---
+import { padNumber } from './nav-graph.mjs';
+import { recordHref } from '../../data/record';
+
+export interface DirectoryEntry {
+  readonly path: string;
+  readonly title: string;
+  readonly family: string;
+}
+
+interface Props {
+  readonly entries: readonly DirectoryEntry[];
+  readonly currentPath: string;
+  /**
+   * Outline level for the directory title. The directory is content inside a
+   * section, so call sites pass the level their enclosing section implies.
+   */
+  readonly level?: 2 | 3 | 4;
+  readonly id?: string;
+}
+
+const { entries, currentPath, level = 3, id = 'record-page-directory' } = Astro.props;
+const TitleTag = `h${level}` as 'h2' | 'h3' | 'h4';
+const FamilyTag = `h${Math.min(level + 1, 6)}` as 'h3' | 'h4' | 'h5';
+// Family grouping preserves the caller's order (the same family-grouped order
+// the "Find a route" table renders), so directory numbers match the table's
+// visual sequence. Numbering is continuous across families via <ol start>.
+const families: string[] = [];
+for (const entry of entries) {
+  if (!families.includes(entry.family)) families.push(entry.family);
+}
+let running = 0;
+const groups = families.map((family) => {
+  const items = entries.filter((entry) => entry.family === family);
+  const start = running + 1;
+  running += items.length;
+  return { family, items, start };
+});
+---
+
+<section class="card h-100 shadow-sm" aria-labelledby={`${id}-title`}>
+  <div class="card-body p-4">
+    <p class="record-section__label mb-2">Directory</p>
+    <TitleTag id={`${id}-title`} class="mb-1">Page directory</TitleTag>
+    <p class="small text-body-secondary">Every public route, numbered in table order. This list is complete in HTML; scripts only enhance it.</p>
+    <nav aria-label="Page directory">
+      {groups.map((group) => (
+        <div class="mb-3">
+          <FamilyTag class="h6 text-uppercase text-body-secondary mt-3 mb-2">{group.family}</FamilyTag>
+          <ol class="list-unstyled mb-0" start={group.start}>
+            {group.items.map((entry, index) => {
+              const number = padNumber(group.start + index, entries.length);
+              const isCurrent = entry.path === currentPath;
+              return (
+                <li class="d-flex gap-2 align-items-baseline py-1" data-directory-path={entry.path}>
+                  <span class="text-body-secondary small font-monospace" aria-hidden="true">{number}</span>
+                  <a href={recordHref(entry.path)} aria-current={isCurrent ? 'page' : undefined}>
+                    <span class="visually-hidden">{number}. </span>{entry.title}
+                  </a>
+                </li>
+              );
+            })}
+          </ol>
+        </div>
+      ))}
+    </nav>
+    <p class="small text-body-secondary mt-3 mb-0">Source: <a href={recordHref('/record/verify/')}>Route manifests (SRC-002)</a></p>
+  </div>
+</section>
