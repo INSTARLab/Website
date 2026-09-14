@@ -53,7 +53,7 @@ const familyLabels: Record<EditorialFamily, string> = {
 };
 
 const familyRoots: Record<EditorialFamily, string> = {
-  research: '/research/current-programs/',
+  research: '/research/',
   technology: '/technology/computer-science/',
   sciences: '/sciences/physics/',
   community: '/community/about-us/',
@@ -156,7 +156,7 @@ function mediaForRoute(src: string, title: string): EditorialRouteMedia | undefi
 
   return {
     src: normalized,
-    alt: `${title}: a supporting visual for the research question described on this page.`,
+    alt: `${title} — INSTAR Lab`,
     caption: 'Supporting visual from the repository asset library. Read the adjacent text for the claim and its limits.',
     ...dimensions,
     focalPoint: '50% 50%',
@@ -164,7 +164,7 @@ function mediaForRoute(src: string, title: string): EditorialRouteMedia | undefi
 }
 
 function mediaAlt(title: string): string {
-  return `${title} — INSTAR Lab editorial image`;
+  return `${title} — INSTAR Lab`;
 }
 
 function routeFromRts(route: InstarResearchTechnologySciencesRoute): EditorialRoute {

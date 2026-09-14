@@ -52,7 +52,9 @@ const year = new Date().getFullYear();
             <input id="footer-email" name="email" type="email" autocomplete="email" placeholder="Email address" required />
             <button type="submit">Subscribe <Icon name="arrow-right" size="0.95rem" /></button>
           </form>
-        ) : null}
+        ) : (
+          <p><a href="mailto:info@instarlab.org?subject=Research%20updates">Email info@instarlab.org to receive research briefs</a></p>
+        )}
       </section>
     </div>
   </div>

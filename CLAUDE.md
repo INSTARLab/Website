@@ -43,7 +43,15 @@ legacy assets are copied to `public/` for the static build.
 
 ## Forms / mail
 
-All live forms POST as JSON to the shared Tao Learning `door.taolearning.org` Logic App endpoint, distinguished by a `topic` field — not PHP (GitHub Pages can't run PHP): `contact-us.js`, `js/newsletter.js`, `community/contact/intake.js`, `community/partner/partner-form.js`, and the inline handler in `fellowship/index.html`. The old orphaned `mail.php` mailer and the old direct Azure Logic Apps SAS-signed URLs were both removed (gh#249, gh#269) — don't reintroduce a PHP-based form handler or a raw Logic Apps URL in client JS.
+There are currently **no live intake forms** in the Astro build — contact paths are
+`mailto:info@instarlab.org` / `tel:9292292917` links (`/contact-us/`, footer) plus
+program-specific external application links (`/fellowship/` → US Fellows). The
+`SiteFooter` newsletter form renders only when a `newsletterAction` is passed, and
+no page passes one today, so the footer falls back to an email link. Do not
+reintroduce a PHP-based form handler (GitHub Pages can't run PHP; the old orphaned
+`mail.php` was removed in gh#249) or a raw Azure Logic Apps SAS-signed URL in
+client JS (removed in gh#269). If intake forms return, they need a named endpoint,
+per-form `topic`, honeypot/validation, and a confirmation state — none exists yet.
 
 ## Deploy
 

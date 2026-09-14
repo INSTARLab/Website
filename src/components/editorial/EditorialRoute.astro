@@ -98,7 +98,7 @@ const heroAsset = publicMediaFor(heroUrl, {
     <section class="editorial-brief editorial-container" aria-labelledby="editorial-brief-title">
       <div class="editorial-section-label">Decision brief</div>
       <div class="editorial-brief__grid">
-        <h2 id="editorial-brief-title">{isArticle ? 'What the evidence supports.' : 'What a sponsor should be able to evaluate.'}</h2>
+        <h2 id="editorial-brief-title">{isArticle ? 'What the evidence supports.' : route.family === 'community' || route.family === 'fellowship' ? 'Assess whether to engage.' : 'What a sponsor should be able to evaluate.'}</h2>
         <div class="editorial-brief__body">
           <p class="editorial-lead">{route.pageJob}</p>
           <p>INSTAR states the question, the method, the evidence, the limitations, and the next decision so a researcher, program officer, or contracting team can assess fit.</p>

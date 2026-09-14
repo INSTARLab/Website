@@ -95,11 +95,9 @@ const hasMultipleSlides = slides.length > 1;
             <div class="home-slider__content-shell">
               <div class="home-slider__copy">
                 {slide.kicker ? <p class="home-slider__kicker">{slide.kicker}</p> : null}
-                {index === 0 ? (
-                  <h1 id={slideTitleId} class="home-slider__title">{slide.title}</h1>
-                ) : (
-                  <h2 id={slideTitleId} class="home-slider__title">{slide.title}</h2>
-                )}
+                {/* Page-level H1 lives in the host page (sr-only page identity);
+                    slide titles are always H2 so the outline stays H1 → H2. */}
+                <h2 id={slideTitleId} class="home-slider__title">{slide.title}</h2>
                 {slide.description ? <p class="home-slider__description">{slide.description}</p> : null}
                 {slide.actions?.length ? (
                   <div class="home-slider__actions home-masthead__actions">
