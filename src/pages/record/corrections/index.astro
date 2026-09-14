@@ -2,6 +2,7 @@
 import RecordDocument from '../../../components/record/RecordDocument.astro';
 import BarChart from '../../../components/record/viz/BarChart.astro';
 import FlowDiagram from '../../../components/record/viz/FlowDiagram.astro';
+import Timeline from '../../../components/record/viz/Timeline.astro';
 import { recordHref, recordRouteAtPath } from '../../../data/record';
 import {
   correctionCommitLocator,
@@ -31,6 +32,23 @@ const withheldCount = recordCorrections.filter((correction) => correction.withho
 const pendingMirrorCount = recordCorrections
   .flatMap((correction) => correction.commits)
   .filter((commit) => correctionCommitLocator(commit) === null).length;
+
+// The register's only true event series: each span runs from the date the
+// defective claim went out to the date the correcting commit landed. COR-006
+// carries `publishedAt: null` because the repository does not establish it,
+// and the timeline prints that absence in words rather than guessing a date.
+// Commit SHAs stay in the register cards below as prose and links only — the
+// timeline carries no SHA, so none can leak into structured data.
+const correctionEvents = recordCorrections.map((correction) => ({
+  id: correction.id,
+  label: correction.subject,
+  from: correction.publishedAt,
+  to: correction.correctedAt,
+  href: `#correction-${correction.id}`,
+  limits: correction.withholdsRetractedIdentifiers
+    ? 'The values retracted in this entry are described, not reproduced: the commit citation in the register entry below is the locator instead.'
+    : undefined,
+}));
 
 // The register's method, stated as a sequence rather than as a paragraph, so a
 // reader can see that the citation is produced by the process and not chosen
@@ -94,6 +112,24 @@ const methodSteps = [
     </div>
   </section>
 
+  <section class="record-section container-fluid px-0 mt-5" aria-labelledby="corrections-chronology-title">
+    <div class="row align-items-end g-4 mb-4">
+      <div class="col-lg-8"><p class="record-section__label mb-2">Chronology</p><h2 id="corrections-chronology-title">When each defective claim went out, and when its fix landed.</h2><p class="record-section__lede mb-0">The bars above count corrections by month; the timeline below orders them as dated events. Each span runs from publication to correction, and each label links to its register entry.</p></div>
+    </div>
+    <div class="card shadow-sm"><div class="card-body p-3 p-xl-4">
+      <Timeline
+        level={3}
+        id="corrections-chronology"
+        kicker="Dated events"
+        title="Corrections from publication to fix"
+        events={correctionEvents}
+        description="Dates are commit-evidenced. Where the repository does not establish when a claim went out, the span says so instead of dating it."
+        source="Institutional registers (SRC-008)"
+        sourceHref={recordHref('/record/verify/')}
+      />
+    </div></div>
+  </section>
+
   <section class="record-section container-fluid px-0 mt-5" aria-labelledby="corrections-register-title">
     <div class="row align-items-end g-4 mb-4">
       <div class="col-lg-8"><p class="record-section__label mb-2">The register</p><h2 id="corrections-register-title">What went out, what was wrong, and what replaced it.</h2></div>
@@ -101,7 +137,7 @@ const methodSteps = [
     </div>
 
     {recordCorrections.map((correction) => (
-      <article class="card shadow-sm mb-4">
+      <article class="card shadow-sm mb-4" id={`correction-${correction.id}`}>
         <div class="card-body p-3 p-xl-4">
           <p class="record-kicker mb-2">{correction.id} · corrected {correction.correctedAt}{correction.publishedAt ? ` · published ${correction.publishedAt}` : ' · date published not established'}</p>
           <h3 class="mb-3">{correction.subject}</h3>
