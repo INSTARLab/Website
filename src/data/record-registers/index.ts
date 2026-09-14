@@ -62,3 +62,5 @@ export {
   recordOwnerConfirmedAffiliationCount,
 } from './affiliations';
 export type { ConsortiumAffiliation, ConsortiumClaim, NamedPersonRow } from './affiliations';
+
+export { recordResourceUse, resourceUseRegisterRetrievedAt } from './resource-use';

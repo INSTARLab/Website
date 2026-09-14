@@ -10,7 +10,10 @@ import {
   recordPolicyNotReportedCount,
   recordPolicyRegister,
   recordPolicyReportedCount,
+  recordResourceUse,
+  registerStatusCounts,
   registerStatusDefinition,
+  resourceUseRegisterRetrievedAt,
 } from '../../../data/record-registers';
 
 const route = recordRouteAtPath('/record/governance/');
@@ -28,6 +31,10 @@ const policyBars = [
   { label: 'Reported on file with the state registration', value: recordPolicyReportedCount },
   { label: 'No published source on this site', value: recordPolicyNotReportedCount },
 ];
+const resourceBars = registerStatusCounts(recordResourceUse).map((status) => ({
+  label: status.label,
+  value: status.count,
+}));
 ---
 
 <RecordDocument {route}>
@@ -142,6 +149,58 @@ const policyBars = [
             items={policyBars}
             unit="policies"
             description="Derived from the register beside it. The two bars are the two different things this page is trying to keep apart."
+            source="Institutional registers (SRC-008)"
+            sourceHref={recordHref('/record/verify/')}
+          />
+        </div></div>
+      </div>
+    </div>
+  </section>
+
+  {/* The first-grant review, the donor's question and the board member's
+    * question, in the same register shape as the rest of the room. Most of the
+    * rows are published as absences, and that is the point: the ratio a funder
+    * looks for and the approval behind it are carried in the same table, so the
+    * flattering half cannot be read without the other one. */}
+  <section class="record-section container-fluid px-0 mt-5" aria-labelledby="governance-resource-title">
+    <div class="row align-items-end g-4 mb-4">
+      <div class="col-lg-8">
+        <p class="record-section__label mb-2">Resource use and measurement</p>
+        <h2 id="governance-resource-title">What a first-grant review, a donor, and a board member each ask for.</h2>
+        <p class="record-section__lede mb-0">A program officer opening a first grant asks how much of the money reaches program, who approved the figures, and how the work is measured. A donor asks where a gift goes and whether it is restricted. A board member asks whether a budget and a financial statement exist, and who signed them. This register carries those questions with the same basis-and-limit discipline as every other register here, and it publishes the ones nothing answers as absences rather than leaving them off the table.</p>
+      </div>
+      <div class="col-lg-4"><div class="alert alert-info mb-0" role="note"><strong>Read the row next to it.</strong> The program-service share is a filing figure carried by a state record, and the approval basis behind this room&rsquo;s own measures is a management attestation. The register prints them in the same table because a reader who takes one without the other has an incomplete file.</div></div>
+    </div>
+    <div class="row g-4 align-items-start">
+      <div class="col-12 col-xl-7">
+        <div class="table-responsive border rounded bg-white" tabindex="0" role="region" aria-label="Resource use and measurement register with basis, status and limits">
+          <table class="record-table table table-hover align-middle mb-0">
+            <caption class="caption-top px-3 py-3">Question, what is published against it, the basis, and the limit that basis carries</caption>
+            <thead class="table-light"><tr><th scope="col">Question</th><th scope="col">Published value</th><th scope="col">Basis</th><th scope="col">Status</th><th scope="col">Limit</th></tr></thead>
+            <tbody>
+              {recordResourceUse.map((row) => (
+                <tr>
+                  <th scope="row">{row.field}</th>
+                  <td>{row.value}</td>
+                  <td>{row.basis}</td>
+                  <td><span class:list={['badge', registerStatusDefinition(row.status).className]}>{registerStatusDefinition(row.status).label}</span></td>
+                  <td class="small text-body-secondary">{row.limits}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p class="small text-body-secondary mt-3 mb-0">Register checked {resourceUseRegisterRetrievedAt}. The statutory route for requesting the institution&rsquo;s exemption application and its annual returns is the IRC §6104(d) path stated in the <a href={recordHref('/record/legal/')}>legal-status register</a>.</p>
+      </div>
+      <div class="col-12 col-xl-5">
+        <div class="card h-100"><div class="card-body p-3 p-xl-4">
+          <BarChart
+            level={3}
+            id="governance-resource-basis"
+            title="Resource-use rows by what establishes them"
+            items={resourceBars}
+            unit="rows"
+            description="Derived from the register beside it. A row carried by a government filing, a row verified in the repository, and a row publishing an absence are counted separately, and a status the register does not use is shown at zero rather than dropped."
             source="Institutional registers (SRC-008)"
             sourceHref={recordHref('/record/verify/')}
           />
