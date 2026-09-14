@@ -1,4 +1,7 @@
-import { execFileSync } from 'node:child_process';
+import { createHash } from 'node:crypto';
+import { readFileSync } from 'node:fs';
+import { join } from 'node:path';
+
 import { expect, test } from '@playwright/test';
 
 import {
@@ -24,19 +27,55 @@ import {
  */
 
 /**
- * The values retracted in June 2026, derived from the commit that introduced
- * them rather than written here. This file must not contain the identifier any
- * more than the site does.
+ * The withdrawn identifiers, as digests read from the same manifest the build
+ * gate reads (`scripts/quality/retracted-identifiers.json`).
+ *
+ * This used to shell out to `git show 3337b68` and pull the plaintext values
+ * out of the commit diff. Two things were wrong with that. It made the test
+ * depend on a git binary and on that commit staying reachable, and it put the
+ * only copy of the derivation in a second place, free to drift from the gate's.
+ * The manifest is now the single source, and it carries no plaintext value, so
+ * neither this file nor the site ever holds the identifier itself.
+ *
+ * Matching is by digest over uppercased windows, mirroring the gate, which
+ * makes it strictly stronger than the string comparison it replaces: a
+ * lowercased rendering, or the value embedded in a longer alphanumeric run,
+ * both match here and neither would have matched a `toContain`.
  */
-function retractedIdentifierTokens(): string[] {
-  const diff = execFileSync('git', ['show', '3337b68'], { encoding: 'utf8', maxBuffer: 1024 * 1024 * 1024 });
-  const tokens = new Set<string>();
-  for (const line of diff.split('\n')) {
-    if (!line.startsWith('+')) continue;
-    for (const match of line.matchAll(/\bUEI\s+([A-Z0-9]{5,20})\b/g)) tokens.add(match[1]);
-    for (const match of line.matchAll(/\bCAGE\s+([A-Z0-9]{4,10})\b/g)) tokens.add(match[1]);
+interface RetractedIdentifierManifest {
+  entries: { sha256: string; length: number; label: string }[];
+}
+
+function retractedIdentifierDigests(): { digests: Set<string>; lengths: number[] } {
+  // Resolved from the working directory rather than `import.meta.url`: the
+  // package is CommonJS, so Playwright transpiles this spec to CJS and
+  // `import.meta` is not available. The config resolves `dist/` the same way,
+  // and Playwright is invoked from the repository root.
+  const path = join(process.cwd(), 'scripts', 'quality', 'retracted-identifiers.json');
+  const manifest = JSON.parse(readFileSync(path, 'utf8')) as RetractedIdentifierManifest;
+  expect(
+    manifest.entries.length,
+    'the retracted-identifier manifest carries no digests, so this check would pass vacuously',
+  ).toBeGreaterThan(0);
+  return {
+    digests: new Set(manifest.entries.map((entry) => entry.sha256)),
+    lengths: [...new Set(manifest.entries.map((entry) => entry.length))],
+  };
+}
+
+/** A description of the withdrawn identifier found in `text`, or null. */
+function findRetractedIdentifier(text: string): string | null {
+  const { digests, lengths } = retractedIdentifierDigests();
+  for (const run of text.split(/[^A-Za-z0-9]+/)) {
+    for (const length of lengths) {
+      if (run.length < length) continue;
+      for (let start = 0; start + length <= run.length; start += 1) {
+        const digest = createHash('sha256').update(run.slice(start, start + length).toUpperCase(), 'utf8').digest('hex');
+        if (digests.has(digest)) return `a value matching a retracted ${length}-character identifier digest`;
+      }
+    }
   }
-  return [...tokens];
+  return null;
 }
 
 const ISO_DATE = /^\d{4}-\d{2}-\d{2}$/;
@@ -78,17 +117,15 @@ test('every correction entry is dated, sourced and cited by a full commit SHA', 
 });
 
 test('no correction entry reproduces a retracted federal identifier', () => {
-  const tokens = retractedIdentifierTokens();
-  expect(tokens.length, 'the retraction commit yielded no identifiers to check against').toBeGreaterThan(0);
-
   const prose = recordCorrections.flatMap((correction) => [
     correction.subject, correction.published, correction.defect, correction.correction, correction.scope,
     ...correction.commits.flatMap((commit) => [commit.sha, commit.summary]),
   ]);
   for (const value of prose) {
-    for (const token of tokens) {
-      expect(value, 'the corrections register reproduces a retracted identifier value').not.toContain(token);
-    }
+    expect(
+      findRetractedIdentifier(value),
+      'the corrections register reproduces a retracted identifier value',
+    ).toBeNull();
   }
 
   // The one entry that retracts identifiers must also say, on the page, that it
@@ -292,9 +329,10 @@ test('the corrections page cites commits in prose and keeps them out of structur
   // And the page itself must not be the one place a machine can find a
   // retracted federal identifier either.
   const pageText = await page.locator('main').innerText();
-  for (const token of retractedIdentifierTokens()) {
-    expect(pageText, 'the corrections page published a retracted identifier value').not.toContain(token);
-  }
+  expect(
+    findRetractedIdentifier(pageText),
+    'the corrections page published a retracted identifier value',
+  ).toBeNull();
 });
 
 test('the served registers publish the absences the data declares', async ({ page }) => {

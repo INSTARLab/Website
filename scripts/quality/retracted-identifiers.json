@@ -1,0 +1,21 @@
+{
+  "$comment": "SHA-256 digests of federal entity identifiers that were published on this site and then withdrawn. The plaintext values are deliberately absent: they were invented, they were never issued to INSTAR Lab, and writing them into the repository would re-publish them. Digests are one-way, so the gate can prove absence without this file being a copy of the thing it forbids. Regenerate with derive-retracted-identifiers.mjs.",
+  "digest": "sha256",
+  "normalizedForm": "uppercase",
+  "introducedBy": "3337b68b05ca8cd1bc040284cda2fcdc6a9d91b6",
+  "removedBy": "c11e03c61653e722aa8f5e1c9cc8b9963df54491",
+  "introducedOn": "2026-06-15",
+  "removedOn": "2026-06-16",
+  "entries": [
+    {
+      "sha256": "1a2e107c76c4f2ff7e4592d08ab73408966a630bd9d1823b8987c774df14f523",
+      "length": 5,
+      "label": "CAGE"
+    },
+    {
+      "sha256": "6b488376fba680636814585738973556a479e8c05f4c64887280b1406e84430b",
+      "length": 12,
+      "label": "UEI"
+    }
+  ]
+}

@@ -10,15 +10,28 @@
  *    code that had never been issued to INSTAR Lab, across dozens of files
  *    including JSON-LD. They were removed the next day. The corrections
  *    register records the episode and deliberately does not reproduce the
- *    values, so this gate cannot hard-code them either — it derives them from
- *    the git object of the commit that introduced them and hashes its way
- *    through the artifact. Nothing in this file names an identifier, and no
- *    file in the repository does.
+ *    values, so this gate cannot hard-code them either.
+ *
+ *    What it holds instead is a manifest of SHA-256 digests
+ *    (`retracted-identifiers.json`), derived once by
+ *    `derive-retracted-identifiers.mjs`. The gate walks every alphanumeric run
+ *    in the artifact, hashes each window whose length matches a manifest entry,
+ *    and fails on a digest match. A digest cannot be turned back into the
+ *    string, so the repository proves the values absent without carrying a
+ *    copy of them.
+ *
+ *    This replaced an earlier version that read the values out of the git
+ *    object of the retraction commit at gate time. That version could not run
+ *    in CI at all: `node:22-bookworm-slim` has no git binary, so it died with
+ *    `spawnSync git ENOENT` — and the failure was latent rather than obvious,
+ *    because the same derivation would also have broken once the token-bearing
+ *    commit drifted out of the runner's depth-20 clone. A gate that depends on
+ *    a specific old commit staying reachable is a gate that expires.
  *
  *    A second, value-independent rule runs alongside it: an uppercase entity-
  *    identifier-shaped token sitting immediately after a `UEI`, `CAGE`, `DUNS`
- *    or `SAM` label is a defect whatever its value. That one needs no git and
- *    catches the *next* invented identifier, which the exact rule cannot.
+ *    or `SAM` label is a defect whatever its value. That rule catches the
+ *    *next* invented identifier, which the exact rule cannot.
  *
  * 2. The corrections register cites commits without emitting them.
  *
@@ -29,10 +42,10 @@
  *    institution rather than as a note a human follows.
  *
  * Usage:
- *   node scripts/quality/check-dist-provenance.mjs --dist dist [--retraction-commit <sha>]
+ *   node scripts/quality/check-dist-provenance.mjs --dist dist [--manifest <path>]
  */
 
-import { execFileSync } from "node:child_process";
+import { createHash } from "node:crypto";
 import { existsSync, readFileSync } from "node:fs";
 import { extname, join } from "node:path";
 
@@ -48,14 +61,14 @@ import {
 
 const options = parseArgs(process.argv.slice(2), {
   dist: "dist",
-  "retraction-commit": "3337b68b05ca8cd1bc040284cda2fcdc6a9d91b6",
+  manifest: join("scripts", "quality", "retracted-identifiers.json"),
 });
 
 if (options.help) {
   printHelp([
     "Check the built artifact for retracted federal identifiers and for commit",
     "SHAs leaking out of prose into structured data.",
-    "Usage: node scripts/quality/check-dist-provenance.mjs --dist dist [--retraction-commit <sha>]",
+    "Usage: node scripts/quality/check-dist-provenance.mjs --dist dist [--manifest <path>]",
   ]);
   process.exit(0);
 }
@@ -76,44 +89,50 @@ const TEXT_EXTENSIONS = new Set([
 const isTextArtifact = (file) => TEXT_EXTENSIONS.has(extname(file).toLowerCase());
 
 /**
- * The values the retraction commit introduced, read out of the git object.
+ * The digests of the withdrawn identifiers, read from the checked-in manifest.
  *
- * Thresholds and labels are structural, not the values: the identifier appears
- * in the historical copy as `UEI <value>` and `CAGE <value>`, so the diff is
- * scanned for those shapes rather than for anything this file knows in advance.
+ * The manifest carries no plaintext value — see `derive-retracted-identifiers.mjs`
+ * for why, and for how it is regenerated. A set of digests keyed by length is
+ * all this gate needs: hash a window of that length and ask whether it is one of
+ * them.
  */
-function retractedIdentifierTokens(commit) {
-  let diff;
-  try {
-    diff = execFileSync("git", ["show", "--no-color", "--unified=0", commit], {
-      cwd: REPO_ROOT,
-      encoding: "utf8",
-      maxBuffer: 512 * 1024 * 1024,
-    });
-  } catch (error) {
+function loadRetractedIdentifierDigests(manifestPath) {
+  const absolute = absolutePath(manifestPath);
+  if (!existsSync(absolute)) {
     throw new Error(
-      `Could not read the retraction commit ${commit} from git (${error.message}). ` +
-      "This gate derives the retracted identifier set from the commit that introduced it, " +
-      "so it needs the commit in the local history; a shallow clone cannot run it.",
+      `The retracted-identifier manifest is missing at ${manifestPath}, so this gate cannot tell ` +
+      "whether a withdrawn identifier came back. Regenerate it with " +
+      "`node scripts/quality/derive-retracted-identifiers.mjs --write`.",
     );
   }
 
-  const tokens = new Set();
-  for (const line of diff.split("\n")) {
-    if (!line.startsWith("+")) continue;
-    for (const match of line.matchAll(/\bUEI\s+([A-Z0-9]{5,20})\b/g)) tokens.add(match[1]);
-    for (const match of line.matchAll(/\bCAGE\s+([A-Z0-9]{4,10})\b/g)) tokens.add(match[1]);
+  let manifest;
+  try {
+    manifest = JSON.parse(readFileSync(absolute, "utf8"));
+  } catch (error) {
+    throw new Error(`The retracted-identifier manifest at ${manifestPath} is not valid JSON: ${error.message}`);
   }
-  if (tokens.size === 0) {
+
+  const entries = Array.isArray(manifest.entries) ? manifest.entries : [];
+  if (entries.length === 0) {
     throw new Error(
-      `The retraction commit ${commit} yielded no identifier-shaped tokens, so this gate would ` +
-      "pass vacuously. Either the commit reference is wrong or its diff no longer carries the values.",
+      `The retracted-identifier manifest at ${manifestPath} carries no entries, so this gate would ` +
+      "pass vacuously. An empty manifest is a broken manifest, not a clean artifact.",
     );
   }
-  return [...tokens];
+  for (const entry of entries) {
+    if (typeof entry?.sha256 !== "string" || !Number.isInteger(entry?.length) || entry.length < 1) {
+      throw new Error(`The retracted-identifier manifest at ${manifestPath} has an entry without a usable sha256/length pair.`);
+    }
+  }
+
+  /** Lengths are deduplicated: two entries of the same length share one pass. */
+  const lengths = [...new Set(entries.map((entry) => entry.length))];
+  return { digests: new Set(entries.map((entry) => entry.sha256)), lengths };
 }
 
-const retractedTokens = retractedIdentifierTokens(options["retraction-commit"]);
+const { digests: retractedDigests, lengths: retractedLengths } =
+  loadRetractedIdentifierDigests(options.manifest);
 const textFiles = listFiles(root, isTextArtifact);
 
 /** Every text artifact, with its contents, read once. */
@@ -122,16 +141,42 @@ const artifacts = textFiles.map((file) => ({ file, relative: relativeToRepo(file
 const findings = [];
 
 // ---------------------------------------------------------------------------
-// 1a. The retracted values, by exact value.
+// 1a. The retracted values, by digest.
+//
+//     Every alphanumeric run is split out, and each window of a manifest length
+//     inside it is hashed and compared. Windows are uppercased first, because
+//     the manifest is normalized that way and a lowercased rendering of the
+//     same identifier is the same defect.
 // ---------------------------------------------------------------------------
-const exactHits = [];
+const digestHits = [];
+let windowsHashed = 0;
 for (const artifact of artifacts) {
-  for (const token of retractedTokens) {
-    if (artifact.text.includes(token)) exactHits.push(`${artifact.relative} contains a retracted identifier value`);
+  // One finding per artifact. A value published sitewide would otherwise report
+  // once per occurrence, and the count of occurrences is not the useful fact —
+  // which file has to be fixed is.
+  const matchedLengths = new Set();
+  for (const run of artifact.text.split(/[^A-Za-z0-9]+/)) {
+    for (const length of retractedLengths) {
+      if (run.length < length) continue;
+      for (let start = 0; start + length <= run.length; start += 1) {
+        const digest = createHash("sha256")
+          .update(run.slice(start, start + length).toUpperCase(), "utf8")
+          .digest("hex");
+        windowsHashed += 1;
+        if (retractedDigests.has(digest)) matchedLengths.add(length);
+      }
+    }
+  }
+  if (matchedLengths.size > 0) {
+    const labels = [...matchedLengths].sort((a, b) => a - b).join(", ");
+    digestHits.push(
+      `${artifact.relative} contains a value matching a retracted identifier digest ` +
+      `(${labels} character(s)); the withdrawn values may not be republished`,
+    );
   }
 }
-if (exactHits.length > 0) {
-  findings.push(...exactHits);
+if (digestHits.length > 0) {
+  findings.push(...digestHits);
 }
 
 // ---------------------------------------------------------------------------
@@ -201,7 +246,8 @@ if (findings.length > 0) {
 } else {
   console.log(
     `Provenance clean: ${textFiles.length} text artifact(s) checked, ` +
-    `${retractedTokens.length} retracted identifier value(s) absent, ` +
+    `${retractedDigests.size} retracted identifier digest(s) absent across ` +
+    `${windowsHashed} candidate window(s), ` +
     "correction citations absent from structured data.",
   );
 }
