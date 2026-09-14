@@ -61,7 +61,7 @@ export const instarResearchTechnologySciencesRoutes = [
   {
     family: 'research', slug: 'funding', path: '/research/funding/', key: 'funding',
     title: 'Federal Research & Sponsored Programs — INSTAR Lab',
-    description: 'Review how INSTAR Lab approaches federal research funding, sponsored programs, and institutional partnerships across NSF, NASA, DOE, USDA, and other mission-driven organizations.',
+    description: 'Review how INSTAR Lab approaches federal research funding, sponsored programs, and STTR partnerships across NSF, NASA, DOE, USDA, and other mission-driven organizations.',
     heading: 'FUNDING', banner: 'img/banners/research-funding.avif', primaryMedia: null,
     composition: 'funding-pathway', pageSignature: 'question canvas → funding routes → support sequence → action',
   },
@@ -82,7 +82,7 @@ export const instarResearchTechnologySciencesRoutes = [
   {
     family: 'research', slug: 'opportunities', path: '/research/opportunities/', key: 'opportunities',
     title: 'Research Opportunities — INSTAR Lab',
-    description: 'Review engagement opportunities at INSTAR Lab, including collaborative programs, co-investigation, fellowship, and sponsored research pathways across the Consortium.',
+    description: 'Review engagement opportunities at INSTAR Lab, including collaborative programs, STTR partnerships, co-investigation, fellowship, and sponsored research pathways across the Consortium.',
     heading: 'OPPORTUNITIES', banner: 'img/banners/research-opportunities.avif', primaryMedia: '../../img/pages/opportunities/card-1.avif',
     composition: 'opportunity-index', pageSignature: 'orientation → opportunity index → public-data proof → fellowship invitation',
   },
