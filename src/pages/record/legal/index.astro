@@ -1,0 +1,223 @@
+---
+import RecordDocument from '../../../components/record/RecordDocument.astro';
+import BarChart from '../../../components/record/viz/BarChart.astro';
+import StatusMatrix from '../../../components/record/viz/StatusMatrix.astro';
+import { recordHref, recordRouteAtPath } from '../../../data/record';
+import {
+  legalRegisterRetrievedAt,
+  recordDeterminationLetter,
+  recordFilingRecord,
+  recordFilingRevocationRuleLocator,
+  recordLegalStatus,
+  recordRecordsRequest,
+  registerStatusCounts,
+  registerStatusDefinition,
+} from '../../../data/record-registers';
+
+const route = recordRouteAtPath('/record/legal/');
+
+const fieldCounts = registerStatusCounts(recordLegalStatus).map((status) => ({
+  label: status.label,
+  value: status.count,
+}));
+
+// Three sources carry the rows on this page, and they are not equally strong.
+// The matrix below keeps them apart rather than letting the table's uniform
+// shape imply that they are the same kind of evidence.
+const sourceMatrixRows = [
+  {
+    label: 'Served IRS determination letter',
+    values: [
+      { value: 'EIN, §501(c)(3) exemption, §170(b)(1)(A)(vi) classification, ruling effective date, address', status: 'positive' as const },
+      { value: 'Current status, any Form 990, or anything after the ruling', status: 'negative' as const, note: 'A determination letter records the classification as of the ruling. It is not a status check.' },
+    ],
+  },
+  {
+    label: 'Ohio Attorney General registration record',
+    values: [
+      { value: 'State of registration and registration ID 12174620', status: 'positive' as const },
+      { value: 'Anything about federal exemption or federal filings', status: 'negative' as const, note: 'A state charitable-solicitation registration is not an IRS registration.' },
+    ],
+  },
+  {
+    label: 'Site identity source',
+    values: [
+      { value: 'The legal name, public name and address this site publishes', status: 'positive' as const },
+      { value: 'That any registry agrees with them', status: 'neutral' as const, note: 'Repository data proves what the site says, not what a registry holds.' },
+    ],
+  },
+];
+---
+
+<RecordDocument {route}>
+  <section class="record-section container-fluid px-0" aria-labelledby="legal-brief-title">
+    <div class="row align-items-end g-4 mb-4">
+      <div class="col-lg-8">
+        <p class="record-section__label mb-2">Legal status worksheet</p>
+        <h2 id="legal-brief-title">Every legal fact needs the source that carries it.</h2>
+        <p class="record-section__lede mb-0">The fields below are the institution's legal identity, each next to the source that establishes it. Three sources carry them and they are not interchangeable: the institution's own determination letter, a state registration record, and this site's own identity data. Where a field is carried by none of them, it is not published here.</p>
+      </div>
+      <div class="col-lg-4">
+        <div class="alert alert-info mb-0" role="note"><strong>Evidence rule.</strong> A field is listed because a named source carries it. Listing is not an audit, and this page does not re-check any registry on every build.</div>
+      </div>
+    </div>
+    <div class="row g-3" aria-label="Legal status register summary">
+      <div class="col-12 col-sm-4"><article class="card record-stat h-100"><div class="card-body p-3"><span class="record-kicker d-block mb-2">Fields carried</span><strong class="record-stat__value d-block">{recordLegalStatus.length}</strong><span class="record-stat__label">legal-status fields, each with a named basis</span></div></article></div>
+      <div class="col-12 col-sm-4"><article class="card record-stat h-100"><div class="card-body p-3"><span class="record-kicker d-block mb-2">Register checked</span><strong class="record-stat__value d-block">{legalRegisterRetrievedAt}</strong><span class="record-stat__label">the date the external records below were last opened</span></div></article></div>
+      <div class="col-12 col-sm-4"><article class="card record-stat h-100"><div class="card-body p-3"><span class="record-kicker d-block mb-2">Records request route</span><strong class="record-stat__value d-block">{recordRecordsRequest.statutoryBasis}</strong><span class="record-stat__label">the statutory basis for requesting the institution&rsquo;s filings</span></div></article></div>
+    </div>
+  </section>
+
+  <section class="record-section container-fluid px-0 mt-5" aria-labelledby="legal-fields-title">
+    <div class="row align-items-end g-4 mb-4">
+      <div class="col-lg-8"><p class="record-section__label mb-2">Legal identity</p><h2 id="legal-fields-title">The fields, the basis, and the limit that basis carries.</h2></div>
+      <div class="col-lg-4"><p class="small text-body-secondary mb-0">The limit travels in its own column so a reader cannot take the value without it.</p></div>
+    </div>
+    <div class="table-responsive border rounded bg-white" tabindex="0" role="region" aria-label="Legal status fields with their basis and limits">
+      <table class="record-table table table-hover align-middle mb-0">
+        <caption class="caption-top px-3 py-3">Legal-status field, value, the source that carries it, and what that source cannot establish</caption>
+        <thead class="table-light"><tr><th scope="col">Field</th><th scope="col">Value</th><th scope="col">Basis</th><th scope="col">Status</th><th scope="col">Limit</th></tr></thead>
+        <tbody>
+          {recordLegalStatus.map((row) => (
+            <tr>
+              <th scope="row">{row.field}</th>
+              <td><strong>{row.value}</strong></td>
+              <td>{row.basis}</td>
+              <td><span class:list={['badge', registerStatusDefinition(row.status).className]}>{registerStatusDefinition(row.status).label}</span></td>
+              <td class="small text-body-secondary">{row.limits}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+    <div class="row g-4 align-items-start mt-4">
+      <div class="col-12 col-xl-7">
+        <div class="card h-100"><div class="card-body p-3 p-xl-4">
+          <BarChart
+            level={3}
+            id="legal-field-status"
+            title="Legal-status fields by what establishes them"
+            items={fieldCounts}
+            unit="fields"
+            description="Derived from the register above. A field carried by the institution’s own document and a field carried only by a third-party filing are counted separately on purpose."
+            source="Institutional registers (SRC-008)"
+            sourceHref={recordHref('/record/verify/')}
+          />
+        </div></div>
+      </div>
+      <div class="col-12 col-xl-5">
+        <div class="card h-100 border-warning"><div class="card-body p-3 p-xl-4">
+          <p class="record-kicker mb-2">Freshness check</p>
+          <h3>Three sources, three different strengths.</h3>
+          <p class="mb-3">The register does not blend them. A state filing and the institution&rsquo;s own letter are both real evidence, and they are not evidence of the same things.</p>
+          <a class="record-link" href={recordHref('/record/verify/')}>Read the source status definitions <span aria-hidden="true">→</span></a>
+        </div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="record-section container-fluid px-0 mt-5" aria-labelledby="legal-sources-title">
+    <div class="row align-items-end g-4 mb-4">
+      <div class="col-lg-8"><p class="record-section__label mb-2">Source scope</p><h2 id="legal-sources-title">What each source can carry, and what it cannot.</h2></div>
+    </div>
+    <div class="card shadow-sm"><div class="card-body">
+      <StatusMatrix
+        level={3}
+        id="legal-source-scope"
+        title="Source scope by legal field"
+        columns={['Can carry', 'Cannot carry']}
+        rows={sourceMatrixRows}
+        description="A compact view of the same three sources, stated as their reach rather than as a ranking."
+        source="Institutional registers (SRC-008)"
+        sourceHref={recordHref('/record/verify/')}
+      />
+    </div></div>
+  </section>
+
+  <section class="record-section container-fluid px-0 mt-5" aria-labelledby="legal-letter-title">
+    <div class="row g-4 align-items-start">
+      <div class="col-12 col-xl-7">
+        <article class="card h-100"><div class="card-body p-3 p-xl-4">
+          <p class="record-section__label mb-2">Determination letter</p>
+          <h2 id="legal-letter-title" class="mb-3">The institution&rsquo;s own document, served where anyone can read it.</h2>
+          <p>The {recordDeterminationLetter.label} is served from this site at a stable URL. Reading it confirms:</p>
+          <ul>{recordDeterminationLetter.confirms.map((item) => <li>{item}</li>)}</ul>
+          <p class="small text-body-secondary mb-3">{recordDeterminationLetter.limits}</p>
+          <p class="mb-0"><a class="record-link" href={recordHref(recordDeterminationLetter.path)}>{recordDeterminationLetter.label} <span aria-hidden="true">→</span></a></p>
+          <p class="small text-body-secondary mt-2 mb-0">Kind: {recordDeterminationLetter.kind}. Register status: <span class:list={['badge', registerStatusDefinition(recordDeterminationLetter.status).className]}>{registerStatusDefinition(recordDeterminationLetter.status).label}</span></p>
+        </div></article>
+      </div>
+      <div class="col-12 col-xl-5">
+        <article class="card h-100 border-primary-subtle bg-primary-subtle"><div class="card-body p-3 p-xl-4">
+          <p class="record-section__label mb-2">Records request</p>
+          <h2 class="mb-3">{recordRecordsRequest.statutoryBasis}</h2>
+          <p>{recordRecordsRequest.obligation}</p>
+          <p>{recordRecordsRequest.route}</p>
+          <address class="mb-3">{recordRecordsRequest.addressLines.map((line) => <span class="d-block">{line}</span>)}</address>
+          <p class="small text-body-secondary mb-0">{recordRecordsRequest.limits}</p>
+        </div></article>
+      </div>
+    </div>
+    <div class="row g-4 align-items-start mt-4">
+      <div class="col-12 col-lg-6">
+        <div class="card h-100"><div class="card-body p-3 p-xl-4">
+          <h3 class="h5">Available on written request</h3>
+          <ul class="mb-0">{recordRecordsRequest.available.map((item) => <li>{item}</li>)}</ul>
+        </div></div>
+      </div>
+      <div class="col-12 col-lg-6">
+        <div class="card h-100 border-warning"><div class="card-body p-3 p-xl-4">
+          <h3 class="h5">Not available, and why</h3>
+          <ul class="mb-0">{recordRecordsRequest.notAvailable.map((item) => <li>{item}</li>)}</ul>
+        </div></div>
+      </div>
+    </div>
+  </section>
+
+  {/* The most carefully worded passage in the record room. A bulk file that
+    * does not list a filing and a filing that was never made are different
+    * claims, and nothing available from outside the IRS separates them. The
+    * page states the observation, states what would be needed to turn it into
+    * a finding, and records the gap as open. It never asserts that INSTAR Lab
+    * failed to file, and it never asserts that it filed in a year it cannot
+    * evidence. */}
+  <section class="record-section container-fluid px-0 mt-5" aria-labelledby="legal-filing-title">
+    <div class="row align-items-end g-4 mb-4">
+      <div class="col-lg-8"><p class="record-section__label mb-2">Filing record</p><h2 id="legal-filing-title">What the bulk filing data shows, and what it does not.</h2><p class="record-section__lede mb-0">This register publishes this row attributively: it states what a third-party dataset contains, and it refuses to convert that into a statement about the institution&rsquo;s conduct.</p></div>
+      <div class="col-lg-4"><div class="card border-0 bg-body-tertiary h-100"><div class="card-body p-3 p-xl-4"><p class="record-kicker mb-2">Dataset checked</p><p class="mb-1"><strong>{recordFilingRecord.dataset}</strong></p><p class="small text-body-secondary mb-0">{recordFilingRecord.publisher} · opened {recordFilingRecord.retrievedAt}</p></div></div></div>
+    </div>
+    <div class="table-responsive border rounded bg-white" tabindex="0" role="region" aria-label="Filing record as the bulk dataset shows it, with its limits">
+      <table class="record-table table align-middle mb-0">
+        <caption class="caption-top px-3 py-3">The filing record as the dataset shows it, the revocation rule, and the unresolved gap</caption>
+        <thead class="table-light"><tr><th scope="col">Question</th><th scope="col">What this register can say</th></tr></thead>
+        <tbody>
+          <tr>
+            <th scope="row">What the dataset shows</th>
+            <td>{recordFilingRecord.whatTheDatasetShows}</td>
+          </tr>
+          <tr>
+            <th scope="row">What that does not establish</th>
+            <td>{recordFilingRecord.whatItDoesNotEstablish}</td>
+          </tr>
+          <tr>
+            <th scope="row">Automatic revocation</th>
+            <td>{recordFilingRecord.revocationStatus}<span class="d-block mt-2">{recordFilingRecord.revocationRule}</span><span class="d-block mt-2"><a class="record-link" href={recordFilingRevocationRuleLocator} target="_blank" rel="noopener noreferrer" aria-label="IRS automatic revocation of exemption (opens in a new tab)">IRS automatic revocation of exemption <span aria-hidden="true">↗</span></a></span></td>
+          </tr>
+          <tr>
+            <th scope="row">Unresolved</th>
+            <td>{recordFilingRecord.unresolved}</td>
+          </tr>
+          <tr>
+            <th scope="row">Limit on all of it</th>
+            <td class="small text-body-secondary">{recordFilingRecord.limits}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="alert alert-warning mt-4 mb-0" role="note">
+      <h3 class="h5">Read the row, not the blank.</h3>
+      <p class="mb-0">A filing that is missing from a dataset and a filing that was never made are different claims, and this register cannot tell them apart from outside the IRS. The gap is recorded above as open. It is not recorded as a finding, and it is not recorded as an explanation.</p>
+    </div>
+    <p class="small text-body-secondary mt-3 mb-0">Where the institution’s figures and filings are published by a government record rather than by the institution, this room points at that record instead of restating it: see the external sources in the <a href={recordHref('/record/verify/')}>source register</a>.</p>
+  </section>
+</RecordDocument>

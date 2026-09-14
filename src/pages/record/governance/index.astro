@@ -1,0 +1,161 @@
+---
+import RecordDocument from '../../../components/record/RecordDocument.astro';
+import BarChart from '../../../components/record/viz/BarChart.astro';
+import StatusMatrix from '../../../components/record/viz/StatusMatrix.astro';
+import { recordHref, recordRouteAtPath } from '../../../data/record';
+import {
+  governanceRegisterRetrievedAt,
+  recordBoardSeats,
+  recordGovernanceCounts,
+  recordPolicyNotReportedCount,
+  recordPolicyRegister,
+  recordPolicyReportedCount,
+  registerStatusDefinition,
+} from '../../../data/record-registers';
+
+const route = recordRouteAtPath('/record/governance/');
+
+const namedSeatCount = recordBoardSeats.filter((seat) => seat.name !== null).length;
+const seatMatrixRows = recordBoardSeats.map((seat) => ({
+  label: seat.seat,
+  values: [
+    seat.name ?? null,
+    seat.displayedRole ?? null,
+    { value: registerStatusDefinition(seat.status).label, status: seat.status === 'not-reported' ? ('caution' as const) : ('neutral' as const), note: seat.limits },
+  ],
+}));
+const policyBars = [
+  { label: 'Reported on file with the state registration', value: recordPolicyReportedCount },
+  { label: 'No published source on this site', value: recordPolicyNotReportedCount },
+];
+---
+
+<RecordDocument {route}>
+  <section class="record-section container-fluid px-0" aria-labelledby="governance-brief-title">
+    <div class="row align-items-end g-4 mb-4">
+      <div class="col-lg-8">
+        <p class="record-section__label mb-2">Governance worksheet</p>
+        <h2 id="governance-brief-title">Publish the row, not a completed table.</h2>
+        <p class="record-section__lede mb-0">This register carries the board seats and the policies a donor, a funder, or a board member would look for. Every row states what establishes it. The rows nothing establishes are published empty on purpose: a table that omits them reads as complete, and a reader cannot tell an unpublished policy from one that does not exist.</p>
+      </div>
+      <div class="col-lg-4">
+        <div class="alert alert-info mb-0" role="note"><strong>Evidence rule.</strong> A row marked “not reported” is a statement about the evidence, not about the institution. It does not say a control is missing; it says no public source here describes it.</div>
+      </div>
+    </div>
+    <div class="row g-3" aria-label="Governance register summary">
+      <div class="col-12 col-sm-4"><article class="card record-stat h-100"><div class="card-body p-3"><span class="record-kicker d-block mb-2">Board seats</span><strong class="record-stat__value d-block">{recordBoardSeats.length}</strong><span class="record-stat__label">seats listed; {namedSeatCount} named by a public source</span></div></article></div>
+      <div class="col-12 col-sm-4"><article class="card record-stat h-100"><div class="card-body p-3"><span class="record-kicker d-block mb-2">Policies with a source</span><strong class="record-stat__value d-block">{recordPolicyReportedCount}</strong><span class="record-stat__label">of {recordPolicyRegister.length} policies this register carries</span></div></article></div>
+      <div class="col-12 col-sm-4"><article class="card record-stat h-100"><div class="card-body p-3"><span class="record-kicker d-block mb-2">Register checked</span><strong class="record-stat__value d-block">{governanceRegisterRetrievedAt}</strong><span class="record-stat__label">the date the external record below was last opened</span></div></article></div>
+    </div>
+  </section>
+
+  <section class="record-section container-fluid px-0 mt-5" aria-labelledby="governance-counts-title">
+    <div class="row align-items-end g-4 mb-4">
+      <div class="col-lg-8"><p class="record-section__label mb-2">Governance facts</p><h2 id="governance-counts-title">What the state filing reports.</h2></div>
+      <div class="col-lg-4"><p class="small text-body-secondary mb-0">These are the strongest rows in this register: a state charitable-registration record states them. They are self-reported figures for a filing year, not a current roster.</p></div>
+    </div>
+    <div class="table-responsive border rounded bg-white" tabindex="0" role="region" aria-label="Governance facts with their basis and limits">
+      <table class="record-table table table-hover align-middle mb-0">
+        <caption class="caption-top px-3 py-3">Governance fact, the source that carries it, and what that source cannot establish</caption>
+        <thead class="table-light"><tr><th scope="col">Fact</th><th scope="col">Value</th><th scope="col">Basis</th><th scope="col">Status</th><th scope="col">Limit</th></tr></thead>
+        <tbody>
+          {recordGovernanceCounts.map((row) => (
+            <tr>
+              <th scope="row">{row.field}</th>
+              <td><strong>{row.value}</strong></td>
+              <td>{row.basis}</td>
+              <td><span class:list={['badge', registerStatusDefinition(row.status).className]}>{registerStatusDefinition(row.status).label}</span></td>
+              <td class="small text-body-secondary">{row.limits}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="record-section container-fluid px-0 mt-5" aria-labelledby="governance-seats-title">
+    <div class="row align-items-end g-4 mb-4">
+      <div class="col-lg-8"><p class="record-section__label mb-2">Board register</p><h2 id="governance-seats-title">Three seats, and what accounts for each one.</h2><p class="record-section__lede mb-0">The count above comes from a state filing that does not name anyone. The names below come from the institution&rsquo;s own public pages, which is a weaker basis, and each row says so.</p></div>
+    </div>
+    <div class="card shadow-sm mb-4"><div class="card-body">
+      <StatusMatrix
+        level={3}
+        id="governance-seat-matrix"
+        title="Board seats as the record accounts for them"
+        columns={['Name as published', 'Displayed role', 'Status']}
+        rows={seatMatrixRows}
+        description="An empty cell is a row the register is publishing empty, not a row it forgot. No degree, certification, or professional title is asserted for any name in this register."
+        source="Institutional registers (SRC-008)"
+        sourceHref={recordHref('/record/verify/')}
+      />
+    </div></div>
+    <div class="table-responsive border rounded bg-white" tabindex="0" role="region" aria-label="Board seats with their basis and limits">
+      <table class="record-table table table-hover align-middle mb-0">
+        <caption class="caption-top px-3 py-3">Board seat, the basis that carries it, and the limit that basis carries</caption>
+        <thead class="table-light"><tr><th scope="col">Seat</th><th scope="col">Name as published</th><th scope="col">Displayed role</th><th scope="col">Basis</th><th scope="col">Status</th><th scope="col">Limit</th></tr></thead>
+        <tbody>
+          {recordBoardSeats.map((seat) => (
+            <tr>
+              <th scope="row">{seat.seat}</th>
+              <td>{seat.name ?? <span class="text-body-secondary">Not reported</span>}</td>
+              <td>{seat.displayedRole ?? <span class="text-body-secondary">Not reported</span>}</td>
+              <td>{seat.basis}</td>
+              <td><span class:list={['badge', registerStatusDefinition(seat.status).className]}>{registerStatusDefinition(seat.status).label}</span></td>
+              <td class="small text-body-secondary">{seat.limits}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="record-section container-fluid px-0 mt-5" aria-labelledby="governance-policy-title">
+    <div class="row align-items-end g-4 mb-4">
+      <div class="col-lg-8"><p class="record-section__label mb-2">Policy register</p><h2 id="governance-policy-title">Every policy a reader would look for, including the ones with nothing behind them.</h2><p class="record-section__lede mb-0">The register carries five policies by name. One is reported to exist in a state filing without its text being published; four have no public source at all. Neither state is a statement that the policy does not exist.</p></div>
+    </div>
+    <div class="row g-4 align-items-start">
+      <div class="col-12 col-xl-7">
+        <div class="table-responsive border rounded bg-white" tabindex="0" role="region" aria-label="Policy register with basis, status and limits">
+          <table class="record-table table table-hover align-middle mb-0">
+            <caption class="caption-top px-3 py-3">Policy, what is published about it, the basis, and the limit</caption>
+            <thead class="table-light"><tr><th scope="col">Policy</th><th scope="col">Published state</th><th scope="col">Basis</th><th scope="col">Status</th><th scope="col">Limit</th></tr></thead>
+            <tbody>
+              {recordPolicyRegister.map((row) => (
+                <tr>
+                  <th scope="row">{row.field}</th>
+                  <td>{row.value}</td>
+                  <td>{row.basis}</td>
+                  <td><span class:list={['badge', registerStatusDefinition(row.status).className]}>{registerStatusDefinition(row.status).label}</span></td>
+                  <td class="small text-body-secondary">{row.limits}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="col-12 col-xl-5">
+        <div class="card h-100"><div class="card-body p-3 p-xl-4">
+          <BarChart
+            level={3}
+            id="governance-policy-basis"
+            title="Policies by what establishes them"
+            items={policyBars}
+            unit="policies"
+            description="Derived from the register beside it. The two bars are the two different things this page is trying to keep apart."
+            source="Institutional registers (SRC-008)"
+            sourceHref={recordHref('/record/verify/')}
+          />
+        </div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="record-section container-fluid px-0 mt-5" aria-labelledby="governance-boundary-title">
+    <div class="card border-warning"><div class="card-body p-3 p-xl-4">
+      <p class="record-kicker mb-2">Publication boundary</p>
+      <h2 id="governance-boundary-title" class="mb-3">Keep the inference line visible.</h2>
+      <p>This register does not reproduce private personnel material, board minutes, resolutions, or the text of any policy. Those may exist outside the public route graph; their publication authority and privacy review are not established here.</p>
+      <p class="mb-0">A name on a public page establishes that the page says so. It does not establish an appointment, a term, a fiduciary duty, or a qualification, and nothing in this register should be read as establishing one.</p>
+    </div></div>
+  </section>
+</RecordDocument>

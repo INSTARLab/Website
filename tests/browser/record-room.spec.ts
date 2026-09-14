@@ -1,7 +1,16 @@
 import { expect, test } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 
-const routes = ['', 'leadership/', 'marketing/', 'journeys/', 'federal/', 'verify/', 'files/', 'nav/', 'metrics/', 'screens/', 'ops/', 'style/'].map(part => `/record/${part}`);
+const routes = ['', 'leadership/', 'legal/', 'governance/', 'affiliations/', 'marketing/', 'journeys/', 'federal/', 'verify/', 'corrections/', 'files/', 'nav/', 'metrics/', 'screens/', 'ops/', 'style/'].map(part => `/record/${part}`);
+
+// The sidebar renders exactly one link per Record route, so the count below is
+// derived from the same list this spec sweeps. It was hard-coded to 12: the
+// sweep would have covered a new route while the count still asserted the old
+// inventory, or a route could be dropped from the ledger and the count edited
+// to match, and either way the two numbers would agree by construction rather
+// than because the room is consistent. Deriving one from the other leaves a
+// single list to maintain.
+const navigationCount = routes.length;
 
 test('every Record page has an isolated shell, evidence visual and readable spacing', async ({ page }) => {
   for (const route of routes) {
@@ -11,7 +20,7 @@ test('every Record page has an isolated shell, evidence visual and readable spac
       await expect(page.locator('main')).toHaveCount(1);
       await expect(page.locator('h1')).toHaveCount(1);
       await expect(page.locator('.site-header, .site-footer')).toHaveCount(0);
-      await expect(page.locator('.record-sidebar__nav a')).toHaveCount(12);
+      await expect(page.locator('.record-sidebar__nav a')).toHaveCount(navigationCount);
       await expect(page.locator('.record-sidebar a[aria-current="page"]')).toHaveCount(1);
       await expect(page.locator('[data-record-viz]').first()).toBeVisible();
       const bounds = await page.locator('.record-document').evaluate(element => {
