@@ -184,14 +184,17 @@ test("record room uses only its dedicated navigation and evidence workspace", as
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual((page.viewportSize()?.width ?? 0) + 1);
 });
 
-test("record room remains readable with client JavaScript disabled", async ({ browser }) => {
+test("record room remains readable with client JavaScript disabled", async ({ browser, baseURL }) => {
+  // Take the origin from the config that started the server. This used to
+  // hard-code 4173, which meant a run could pass against a server this build
+  // never started (see the note in playwright.config.ts).
   const context = await browser.newContext({
     javaScriptEnabled: false,
     viewport: { width: 390, height: 844 },
+    baseURL,
   });
   const page = await context.newPage();
-  const baseURL = process.env.PLAYWRIGHT_BASE_URL ?? "http://127.0.0.1:4173";
-  const response = await page.goto(`${baseURL}/record/`, { waitUntil: "domcontentloaded" });
+  const response = await page.goto("/record/", { waitUntil: "domcontentloaded" });
 
   expect(response?.status()).toBeLessThan(400);
   await expect(page.locator(".record-document h1")).toHaveText("INSTAR Lab public record");

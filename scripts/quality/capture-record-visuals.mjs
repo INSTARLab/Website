@@ -11,7 +11,10 @@ const argValue = (name, fallback) => {
 const label = argValue('--label', `record-${Date.now()}`);
 const directory = join(argValue('--output', 'artifacts/record-visuals'), label);
 const dist = resolve(argValue('--dist', 'dist'));
-const baseUrl = argValue('--base-url', process.env.PLAYWRIGHT_BASE_URL || 'http://127.0.0.1:4173').replace(/\/$/, '');
+// Keep the default aligned with tests/browser/playwright.config.ts, which
+// serves the built artifact on its own port. 4173 belongs to other sessions in
+// this working tree; this tool must not default onto a server it did not start.
+const baseUrl = argValue('--base-url', process.env.PLAYWRIGHT_BASE_URL || `http://127.0.0.1:${process.env.PLAYWRIGHT_WEB_SERVER_PORT ?? '4187'}`).replace(/\/$/, '');
 const recordRoot = join(dist, 'record');
 const routes = ['/record/', ...(await readdir(recordRoot, { withFileTypes: true }))
   .filter(entry => entry.isDirectory()).map(entry => `/record/${entry.name}/`)].sort();

@@ -69,13 +69,16 @@ test('Record menu traps mobile focus, closes on Escape and restores the trigger'
   await expect(page.locator('.offcanvas-backdrop')).toHaveCount(0);
 });
 
-test('all Record routes remain navigable and meaningful without JavaScript', async ({ browser }) => {
-  const context = await browser.newContext({ javaScriptEnabled: false, viewport: { width: 390, height: 844 } });
+test('all Record routes remain navigable and meaningful without JavaScript', async ({ browser, baseURL }) => {
+  // `baseURL` is Playwright's own fixture, resolved from the config that also
+  // started the server. Re-deriving an origin here (this used to hard-code
+  // 4173) puts a second, unverified answer to "which artifact am I testing?"
+  // in the suite, and the answer it gives is another session's server.
+  const context = await browser.newContext({ javaScriptEnabled: false, viewport: { width: 390, height: 844 }, baseURL });
   try {
     const page = await context.newPage();
-    const base = process.env.PLAYWRIGHT_BASE_URL ?? 'http://127.0.0.1:4173';
     for (const route of routes) {
-      await page.goto(`${base}${route}`);
+      await page.goto(route);
       await expect(page.locator('.record-sidebar__nav a').first()).toBeVisible();
       await expect(page.locator('.record-sidebar__nav a').last()).toBeVisible();
       await expect(page.locator('main h1')).toBeVisible();
