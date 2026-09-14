@@ -25,6 +25,24 @@ const {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    {/* RR-301 BLK-1. The Record room's small-screen shell is an off-canvas
+      * panel when `data-record-js` is present on the root element and an
+      * in-flow navigation list when it is not — a 891px difference in where
+      * `ARTICLE.record-document` starts. The flag therefore has to be resolved
+      * during head parsing, before the browser's first layout and paint.
+      *
+      * It used to be set by the deferred module below. Module scripts always
+      * execute after HTML parsing, so the browser painted the in-flow layout
+      * first and then moved the entire document: a single layout-shift entry
+      * of 1.0 (the maximum) on the first load of every page. `is:inline` keeps
+      * this tiny script out of the bundle so it runs synchronously, in place,
+      * ahead of the stylesheets.
+      *
+      * With JavaScript disabled the attribute is never set, so the no-JS
+      * fallback below is unchanged: all twelve navigation links in flow. */}
+    <script is:inline>
+      document.documentElement.dataset.recordJs = 'true';
+    </script>
     <Seo {...seoProps} />
     <slot name="head" />
   </head>
@@ -39,9 +57,11 @@ const {
 <script>
   /**
    * The Record room keeps ordinary document links as its source of truth.
-   * This small enhancement turns the Bootstrap-shaped sidebar into an
-   * offcanvas panel on small screens while leaving the links in-flow when
-   * JavaScript is unavailable.
+   * This small enhancement gives the Bootstrap-shaped sidebar its off-canvas
+   * behaviour on small screens: focus trapping, Escape, backdrop and focus
+   * return. The *geometry* switch is not here — it is driven by the
+   * `data-record-js` flag set synchronously in the head, so that the panel's
+   * layout is correct at first paint (see the note in <head>).
    */
   const body = document.body;
   const sidebar = document.querySelector<HTMLElement>('#record-sidebar');
@@ -50,10 +70,6 @@ const {
   const backdrop = document.querySelector<HTMLElement>('[data-record-sidebar-backdrop]');
 
   if (body && sidebar && menuButton) {
-    body.dataset.recordJs = 'true';
-    menuButton.hidden = false;
-    closeButton?.removeAttribute('hidden');
-
     let returnFocus: HTMLElement | null = null;
 
     const setOpen = (open: boolean) => {

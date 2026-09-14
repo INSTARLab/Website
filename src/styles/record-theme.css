@@ -79,6 +79,22 @@
   --bs-primary: var(--color-brand);
   --bs-primary-rgb: 16, 114, 186;
   --bs-primary-text-emphasis: #06436e;
+  /* --bs-primary (#1072ba) measures 4.538:1 on the record ground (#edf3f8):
+   * an AA pass by 0.038 ratio points, or 0.8%. It is the ink for every small
+   * uppercase section label in the room, so that margin is a tripwire — any
+   * future darkening of the ground, or nudge of the brand hex, silently turns
+   * every section label on the site into a WCAG failure, and nothing in the
+   * suite asserts it (RR-301 SF-14).
+   *
+   * The token is NOT darkened wholesale: --bs-primary / --bs-primary-rgb also
+   * drive .bg-primary (13 uses) and .border-primary (10 uses), where the brand
+   * fill is correct and the 4.5:1 text threshold does not apply. Instead the
+   * *text* role is bound explicitly below to --color-brand-deep (#0d5d98,
+   * 6.184:1 on the same ground) — the same text/fill split this file already
+   * applies to <code> via --bs-code-color. Bootstrap's .text-primary reads
+   * --bs-primary-rgb, not --bs-primary, so a token edit cannot reach it; the
+   * binding has to be a rule. */
+  --record-primary-text: var(--color-brand-deep);
   --bs-primary-bg-subtle: #e7f3fb;
   --bs-primary-border-subtle: #abd1e9;
   /* Bootstrap's "secondary" palette ships its own ink, which this document
@@ -101,6 +117,21 @@
   --bs-border-color: #c9d8e3;
   --bs-border-radius: 0.35rem;
   --record-sidebar-width: 16rem;
+  /* ---- Record shell design tokens ----------------------------------------
+   * One measure, one vertical rhythm, one heading scale. These are the only
+   * values the shell uses for those three jobs; no route may fork them with a
+   * Bootstrap size utility (see the heading scale below). */
+  --record-measure: 90rem;
+  --record-flow-gap: 3rem;
+  /* A single type scale. Each step is a clamp so the ramp is continuous from
+   * a 320px phone to a wide desktop; the ratio between steps is what makes the
+   * outline legible, and it is the same on all twelve routes. */
+  --record-heading-1: clamp(2rem, 3.5vw, 4rem);
+  --record-heading-2: clamp(1.5rem, 2.5vw, 2rem);
+  --record-heading-3: clamp(1.25rem, 1.7vw, 1.5rem);
+  --record-heading-4: clamp(1.125rem, 1.2vw, 1.25rem);
+  --record-heading-5: 1.0625rem;
+  --record-heading-6: 1rem;
   min-width: 320px;
   min-height: 100vh;
   margin: 0;
@@ -123,6 +154,44 @@
   font-weight: 700;
   line-height: 1.15;
   text-wrap: balance;
+}
+
+/* RR-301 SF-10 / SF-3. The room used to render three heading scales for the
+ * same shell: a bare `<h2>` took Bootstrap's responsive 2rem, `<h2 class="h3">`
+ * took 1.75rem, and `<h2 class="display-6">` took 2.5rem — so /record/verify/
+ * and /record/leadership/ looked like two different designs, and the first
+ * content heading sat at 28px, 32px or 40px depending on which route you were
+ * on. The scale is now owned here and keyed to the *outline level*, not to a
+ * per-page utility class.
+ *
+ * `.record-body h2` is (0,1,1); Bootstrap's `h2` is (0,0,1) and `.h3` /
+ * `.display-6` are (0,1,0). Higher specificity wins without `!important`, so a
+ * page cannot buy a fourth scale by adding a size class. Component-level
+ * overrides (e.g. a card title) still win because record.css is loaded after
+ * this file at equal specificity — that is deliberate. */
+.record-body h1 { font-size: var(--record-heading-1); }
+.record-body h2 { font-size: var(--record-heading-2); }
+.record-body h3 { font-size: var(--record-heading-3); }
+.record-body h4 { font-size: var(--record-heading-4); }
+.record-body h5 { font-size: var(--record-heading-5); }
+.record-body h6 { font-size: var(--record-heading-6); }
+
+/* Bootstrap's font-weight utilities are `!important`, so they outrank the
+ * element rule above and left the SF-10 lead headings at weight 600 against
+ * every other heading's 700. Re-assert the one heading weight over the one
+ * utility actually used in this room. */
+.record-body :is(h1, h2, h3, h4, h5, h6).fw-semibold,
+.record-body :is(h1, h2, h3, h4, h5, h6).fw-bold {
+  font-weight: 700 !important;
+}
+
+/* RR-301 SF-14 — the text half of the brand split documented at
+ * --record-primary-text above. Bootstrap marks .text-primary `!important`, so
+ * this has to be `!important` too and win on specificity; it only ever fires
+ * for the text role, never for a fill or a border. */
+.record-body .text-primary,
+.record-body .link-primary {
+  color: var(--record-primary-text) !important;
 }
 
 .record-body :where(button, input, select, textarea) {

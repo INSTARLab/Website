@@ -1,1051 +1,66 @@
-/* Record room presentation styles. This file is loaded after Bootstrap so
- * the existing route components can use their stable record-* classes while
- * the shell uses Bootstrap's documented primitives. */
-  .record-body {
-    background: #edf3f8;
-  }
-
-  .record-main {
-    padding: 0;
-    background: #edf3f8;
-  }
-
-  .record-app {
-    display: grid;
-    grid-template-columns: minmax(14rem, 15.5rem) minmax(0, 1fr);
-    min-height: 70rem;
-    color: var(--color-ink);
-  }
-
-  .record-sidebar {
-    display: flex;
-    flex-direction: column;
-    position: sticky;
-    inset-block-start: var(--layout-chrome-offset);
-    align-self: start;
-    block-size: calc(100vh - var(--layout-chrome-offset));
-    max-block-size: calc(100vh - var(--layout-chrome-offset));
-    min-width: 0;
-    overflow-y: auto;
-    border-inline-end: 1px solid #c9d8e3;
-    background: #f7fafc;
-    overscroll-behavior: contain;
-    scrollbar-color: #9eb8c9 transparent;
-  }
-
-  .record-sidebar__intro {
-    padding: 1rem 1.1rem 1.1rem;
-    border-block-end: 1px solid #c9d8e3;
-  }
-
-  .record-sidebar__brand {
-    display: flex;
-    align-items: center;
-    gap: 0.7rem;
-    color: var(--color-ink);
-    text-decoration: none;
-  }
-
-  .record-sidebar__mark {
-    display: grid;
-    width: 2.1rem;
-    height: 2.1rem;
-    place-items: center;
-    border-radius: 0.3rem;
-    background: var(--color-brand);
-    color: #fff;
-    font-family: var(--font-display);
-    font-size: 1.35rem;
-    font-weight: 700;
-  }
-
-  .record-sidebar__brand strong,
-  .record-sidebar__brand small {
-    display: block;
-  }
-
-  .record-sidebar__brand strong {
-    font-family: var(--font-display);
-    font-size: 1rem;
-  }
-
-  .record-sidebar__brand small {
-    margin-block-start: 0.1rem;
-    color: var(--color-muted);
-    font-family: var(--font-ui);
-    font-size: 0.68rem;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-  }
-
-  .record-sidebar__intro p {
-    margin-block-start: 0.8rem;
-    color: var(--color-muted-strong);
-    font-size: 0.82rem;
-    line-height: 1.5;
-  }
-
-  .record-sidebar nav {
-    padding: 0.95rem 0.7rem;
-  }
-
-  .record-sidebar__label,
-  .record-section__label,
-  .record-document__eyebrow,
-  .record-document__meta,
-  .record-stat__label,
-  .record-table th,
-  .record-status,
-  .record-kicker {
-    font-family: var(--font-ui);
-    font-size: 0.7rem;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    line-height: 1.35;
-    text-transform: uppercase;
-  }
-
-  .record-sidebar__label {
-    margin: 0 0 0.55rem 0.55rem;
-    color: var(--color-muted);
-  }
-
-  .record-sidebar__nav {
-    display: grid;
-    gap: 0.18rem;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
-
-  .record-sidebar__nav a {
-    display: grid;
-    grid-template-columns: 2rem minmax(0, 1fr);
-    align-items: center;
-    gap: 0.55rem;
-    min-block-size: 2.75rem;
-    padding: 0.45rem 0.55rem;
-    border-radius: 0.25rem;
-    color: var(--color-muted-strong);
-    font-family: var(--font-ui);
-    font-size: 0.83rem;
-    font-weight: 700;
-    text-decoration: none;
-  }
-
-  .record-sidebar__nav a:hover,
-  .record-sidebar__nav-item--current a {
-    background: #e3f1f8;
-    color: var(--color-brand-deep);
-  }
-
-  .record-sidebar__number {
-    color: var(--color-brand);
-    font-variant-numeric: tabular-nums;
-  }
-
-  .record-sidebar__nav-item--current .record-sidebar__number {
-    color: #a61b1b;
-  }
-
-  .record-sidebar__footer {
-    display: grid;
-    gap: 0.6rem;
-    margin-block-start: auto;
-    padding: 1rem 1.1rem 1.25rem;
-    border-block-start: 1px solid #c9d8e3;
-  }
-
-  .record-sidebar__footer a,
-  .record-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.45rem;
-    width: fit-content;
-    color: var(--color-brand-deep);
-    font-family: var(--font-ui);
-    font-size: 0.82rem;
-    font-weight: 700;
-    text-decoration: none;
-  }
-
-  .record-sidebar__footer a:hover,
-  .record-link:hover {
-    color: #a61b1b;
-    text-decoration: underline;
-  }
-
-  .record-document {
-    min-width: 0;
-    background: var(--color-canvas);
-  }
-
-  .record-document__header {
-    padding: clamp(1.1rem, 2.4vw, 2rem) clamp(1.2rem, 3vw, 3.75rem) 1.2rem;
-    border-block-end: 1px solid #c9d8e3;
-    background: #fff;
-  }
-
-  .record-document__eyebrow {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: baseline;
-    gap: 0.45rem 1rem;
-    color: var(--color-brand-deep);
-  }
-
-  .record-document__sequence {
-    color: var(--color-muted);
-  }
-
-  .record-document__status {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
-    color: #237a58;
-  }
-
-  .record-document__status i {
-    width: 0.5rem;
-    height: 0.5rem;
-    border-radius: 50%;
-    background: currentColor;
-  }
-
-  .record-document__heading {
-    margin-block-start: 0.55rem;
-  }
-
-  .record-document h1 {
-    max-width: 24ch;
-    margin: 0;
-    color: var(--color-ink);
-    font-size: clamp(2rem, 3.5vw, 4rem);
-    letter-spacing: -0.045em;
-    line-height: 1;
-  }
-
-  .record-document__description {
-    max-width: 62ch;
-    margin-block-start: 0.75rem;
-    color: var(--color-muted-strong);
-    font-size: clamp(1rem, 1.1vw, 1.14rem);
-    line-height: 1.5;
-  }
-
-  .record-document__meta {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem 1rem;
-    margin-block-start: 1rem;
-    padding-block-start: 0.65rem;
-    border-block-start: 1px solid #e0e8ed;
-    color: var(--color-muted);
-  }
-
-  .record-document__body {
-    padding: clamp(1.5rem, 3vw, 3.25rem) clamp(1.2rem, 3vw, 3.75rem) clamp(3rem, 6vw, 6rem);
-  }
-
-  .record-section {
-    max-inline-size: 90rem;
-    margin-inline: auto;
-  }
-
-  .record-section + .record-section {
-    margin-block-start: 3rem;
-  }
-
-  .record-section__heading {
-    display: grid;
-    grid-template-columns: minmax(7rem, 0.22fr) minmax(0, 1fr);
-    gap: clamp(1rem, 2.8vw, 3.5rem);
-    align-items: start;
-    margin-block-end: 1.35rem;
-    padding-block-start: 0.7rem;
-    border-block-start: 2px solid var(--color-brand);
-  }
-
-  .record-section__label,
-  .record-kicker {
-    color: var(--color-brand-deep);
-  }
-
-  .record-section p {
-    max-width: 70ch;
-    color: var(--color-muted-strong);
-  }
-
-  .record-section__lede {
-    margin-block-start: 0.7rem;
-    font-size: 1rem;
-    line-height: 1.55;
-  }
-
-  .record-grid {
-    display: grid;
-    grid-template-columns: repeat(12, minmax(0, 1fr));
-    gap: 0.8rem;
-  }
-
-  .record-card,
-  .record-stat,
-  .record-callout,
-  .record-table-wrap,
-  .record-route-row,
-  .record-source {
-    border: 1px solid #c9d8e3;
-    background: #fff;
-  }
-
-  .record-card {
-    grid-column: span 4;
-    display: flex;
-    flex-direction: column;
-    min-width: 0;
-    padding: 1rem 1.05rem 1.15rem;
-  }
-
-  .record-card--wide {
-    grid-column: span 6;
-  }
-
-  .record-card__number {
-    display: block;
-    margin-block-end: 1.35rem;
-    color: var(--color-brand);
-    font-family: var(--font-mono);
-    font-size: 0.72rem;
-    font-weight: 700;
-  }
-
-  .record-card p {
-    margin-block-start: 0.55rem;
-    font-size: 0.92rem;
-    line-height: 1.5;
-  }
-
-  .record-card .record-link {
-    margin-block-start: auto;
-    padding-block-start: 1rem;
-  }
-
-  .record-stats {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 0.8rem;
-  }
-
-  .record-stat {
-    padding: 0.9rem 1rem 1rem;
-  }
-
-  .record-stat__value {
-    display: block;
-    margin-block: 0.65rem 0.3rem;
-    color: var(--color-brand-deep);
-    font-family: var(--font-display);
-    font-size: clamp(1.9rem, 3.5vw, 3.1rem);
-    font-weight: 700;
-    letter-spacing: -0.06em;
-    line-height: 0.9;
-  }
-
-  .record-stat__label {
-    color: var(--color-muted);
-  }
-
-  .record-table-wrap {
-    overflow-x: auto;
-  }
-
-  .record-table-wrap:focus-visible {
-    outline: 3px solid var(--color-focus);
-    outline-offset: 3px;
-  }
-
-  .record-body .site-footer__panel h2,
-  .record-body .site-footer__panel h3 {
-    color: #fff !important;
-  }
-
-  .record-table {
-    width: 100%;
-    min-width: 42rem;
-    border-collapse: collapse;
-    color: var(--color-muted-strong);
-    font-size: 0.9rem;
-    line-height: 1.45;
-  }
-
-  .record-table caption {
-    padding: 0.9rem 1rem;
-    color: var(--color-muted);
-    font-family: var(--font-ui);
-    font-size: 0.72rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-align: left;
-    text-transform: uppercase;
-  }
-
-  .record-table th,
-  .record-table td {
-    padding: 0.85rem 1rem;
-    border-block-start: 1px solid #dce6ec;
-    vertical-align: top;
-    text-align: left;
-  }
-
-  .record-table th {
-    color: var(--color-muted);
-    white-space: nowrap;
-  }
-
-  .record-table code,
-  .record-code {
-    overflow-wrap: anywhere;
-    color: var(--color-brand-deep);
-    font-family: var(--font-mono);
-    font-size: 0.8em;
-  }
-
-  .record-status {
-    display: inline-flex;
-    padding: 0.25rem 0.45rem;
-    border: 1px solid currentColor;
-    border-radius: 0.2rem;
-    color: #237a58;
-    font-size: 0.64rem;
-    letter-spacing: 0.06em;
-  }
-
-  .record-status--review {
-    color: #986800;
-  }
-
-  .record-status--private {
-    color: #a33c34;
-  }
-
-  .record-callout {
-    padding: clamp(1.1rem, 2.5vw, 2rem);
-    border-inline-start: 0.35rem solid var(--color-brand);
-    background: #eaf5fa;
-  }
-
-  .record-callout--dark {
-    border-color: var(--color-footer-deep);
-    background: var(--color-footer-deep);
-    color: #fff;
-  }
-
-  .record-callout--dark p,
-  .record-callout--dark h3 {
-    color: #fff;
-  }
-
-  .record-callout h3 {
-    margin-block-end: 0.5rem;
-  }
-
-  .record-callout p {
-    font-size: 0.94rem;
-    line-height: 1.55;
-  }
-
-  .record-list {
-    display: grid;
-    gap: 0.6rem;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
-
-  .record-list li {
-    display: grid;
-    grid-template-columns: 2.2rem minmax(0, 1fr);
-    gap: 0.75rem;
-    padding-block: 0.75rem;
-    border-block-start: 1px solid #dce6ec;
-  }
-
-  .record-list__number {
-    color: var(--color-brand);
-    font-family: var(--font-mono);
-    font-size: 0.8rem;
-  }
-
-  .record-list strong {
-    display: block;
-    color: var(--color-ink);
-  }
-
-  .record-list p {
-    margin-block-start: 0.25rem;
-    font-size: 0.92rem;
-  }
-
-  .record-route-list {
-    display: grid;
-    gap: 0.4rem;
-  }
-
-  .record-route-row {
-    display: grid;
-    grid-template-columns: 2.8rem minmax(12rem, 0.75fr) minmax(16rem, 1.6fr) auto;
-    align-items: start;
-    gap: 1rem;
-    padding: 0.85rem 1rem;
-  }
-
-  .record-route-row:hover {
-    border-color: var(--color-brand);
-    background: #f4fbfe;
-  }
-
-  .record-route-row__number {
-    color: var(--color-brand);
-    font-family: var(--font-mono);
-    font-size: 0.78rem;
-  }
-
-  .record-route-row__title {
-    color: var(--color-ink);
-    font-family: var(--font-ui);
-    font-size: 0.9rem;
-    font-weight: 700;
-    text-decoration: none;
-  }
-
-  .record-route-row__title:hover {
-    color: #a61b1b;
-    text-decoration: underline;
-  }
-
-  .record-route-row__path,
-  .record-route-row__description {
-    display: block;
-    overflow-wrap: anywhere;
-    color: var(--color-muted);
-    font-size: 0.82rem;
-  }
-
-  .record-route-row__description {
-    line-height: 1.45;
-  }
-
-  .record-filter {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) auto;
-    align-items: end;
-    gap: 1rem;
-    margin-block-end: 1rem;
-    padding: 0.85rem 1rem;
-    border: 1px solid #c9d8e3;
-    background: #f7fafc;
-  }
-
-  .record-filter label {
-    display: grid;
-    gap: 0.35rem;
-    color: var(--color-muted);
-    font-family: var(--font-ui);
-    font-size: 0.72rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-  }
-
-  .record-filter input {
-    min-height: 2.75rem;
-    padding-inline: 0.75rem;
-    border-color: #b6cbd8;
-    background: #fff;
-  }
-
-  .record-filter__count {
-    margin: 0;
-    color: var(--color-muted);
-    font-family: var(--font-mono);
-    font-size: 0.78rem;
-    white-space: nowrap;
-  }
-
-  .record-visual-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 0.8rem;
-  }
-
-  .record-visual {
-    overflow: hidden;
-    border: 1px solid #c9d8e3;
-    background: #fff;
-  }
-
-  .record-visual a {
-    color: inherit;
-    text-decoration: none;
-  }
-
-  .record-visual img {
-    width: 100%;
-    aspect-ratio: 16 / 8;
-    object-fit: cover;
-    object-position: center;
-    border-block-end: 1px solid #c9d8e3;
-  }
-
-  .record-visual__body {
-    padding: 0.95rem;
-  }
-
-  .record-visual h3 {
-    font-size: 1rem;
-  }
-
-  .record-visual p {
-    margin-block-start: 0.45rem;
-    font-size: 0.83rem;
-    line-height: 1.45;
-  }
-
-  .record-swatch-grid {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 0.7rem;
-  }
-
-  .record-swatch {
-    min-height: 7rem;
-    padding: 0.75rem;
-    border: 1px solid #c9d8e3;
-  }
-
-  .record-swatch__color {
-    display: block;
-    height: 3rem;
-    margin-block-end: 0.7rem;
-  }
-
-  .record-swatch strong,
-  .record-swatch code {
-    display: block;
-    font-size: 0.78rem;
-  }
-
-  .record-swatch code {
-    margin-block-start: 0.2rem;
-    color: var(--color-muted);
-  }
-
-  .record-source-grid {
-    display: grid;
-    gap: 0.65rem;
-  }
-
-  .record-source {
-    display: grid;
-    grid-template-columns: 4.2rem minmax(0, 0.9fr) minmax(0, 1.4fr);
-    gap: 1rem;
-    padding: 1rem;
-  }
-
-  .record-source__id {
-    color: var(--color-brand);
-    font-family: var(--font-mono);
-    font-size: 0.78rem;
-  }
-
-  .record-source h3 {
-    font-size: 1rem;
-  }
-
-  .record-source p {
-    margin-block-start: 0.2rem;
-    font-size: 0.86rem;
-    line-height: 1.48;
-  }
-
-  .record-source__limit {
-    color: var(--color-muted);
-  }
-
-  .record-hero-figure {
-    display: grid;
-    grid-template-columns: minmax(0, 1.15fr) minmax(14rem, 0.7fr);
-    aspect-ratio: 2.85 / 1;
-    min-width: 0;
-    align-items: stretch;
-    margin: 0;
-    border: 1px solid #c9d8e3;
-    background: var(--color-footer-deep);
-    color: #fff;
-  }
-
-  .record-hero-figure img {
-    display: block;
-    max-width: 100%;
-    min-width: 0;
-    width: 100%;
-    height: 100%;
-    min-height: 0;
-    aspect-ratio: 16 / 9;
-    object-fit: cover;
-    object-position: center;
-  }
-
-  .record-hero-figure figcaption {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    gap: 0.7rem;
-    padding: clamp(1.1rem, 3vw, 2.5rem);
-  }
-
-  .record-hero-figure .record-kicker {
-    color: #a8e7f7;
-  }
-
-  .record-hero-figure figcaption strong {
-    display: block;
-    margin-block-start: 0.7rem;
-    font-family: var(--font-display);
-    font-size: clamp(1.4rem, 2.5vw, 2.5rem);
-    line-height: 1.02;
-  }
-
-  .record-hero-figure figcaption p {
-    margin-block-start: 0;
-    color: #dbeaf3;
-    font-size: 0.9rem;
-  }
-
-  .record-hero-figure__actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem 0.9rem;
-    margin-block-start: auto;
-  }
-
-  .record-hero-figure .record-link {
-    padding-block: 0.4rem;
-    color: #fff;
-    text-decoration-color: #a8e7f7;
-  }
-
-  .record-muted {
-    color: var(--color-muted);
-  }
-
-  .record-source-note {
-    display: block;
-    margin-block-start: 1rem;
-    padding-block-start: 0.75rem;
-    border-block-start: 1px solid #dce6ec;
-    color: var(--color-muted);
-    font-family: var(--font-ui);
-    font-size: 0.76rem;
-    line-height: 1.5;
-  }
-
-  @media (max-width: 70rem) {
-    .record-card {
-      grid-column: span 6;
-    }
-
-    .record-route-row {
-      grid-template-columns: 2.8rem minmax(12rem, 1fr) auto;
-    }
-
-    .record-route-row__description {
-      grid-column: 2 / -1;
-    }
-  }
-
-  @media (max-width: 52rem) {
-    .record-app {
-      display: block;
-      min-height: 0;
-    }
-
-    .record-sidebar {
-      position: static;
-      block-size: auto;
-      max-block-size: none;
-      overflow: visible;
-      border-inline-end: 0;
-      border-block-end: 1px solid #c9d8e3;
-    }
-
-    .record-sidebar__intro {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-      padding: 1rem 1.2rem;
-    }
-
-    .record-sidebar__intro p {
-      max-width: 26rem;
-      margin: 0;
-      font-size: 0.78rem;
-      text-align: right;
-    }
-
-    .record-sidebar nav {
-      overflow-x: auto;
-      padding: 0.65rem 1.2rem 0.9rem;
-      overscroll-behavior-inline: contain;
-      scrollbar-color: #9eb8c9 transparent;
-    }
-
-    .record-sidebar__label {
-      margin: 0 0 0.45rem;
-    }
-
-    .record-sidebar__nav {
-      display: flex;
-      gap: 0.35rem;
-      min-width: max-content;
-      scroll-snap-type: x proximity;
-    }
-
-    .record-sidebar__nav a {
-      display: flex;
-      gap: 0.35rem;
-      min-block-size: 2.35rem;
-      padding-inline: 0.6rem;
-      border: 1px solid #c9d8e3;
-      background: #fff;
-      font-size: 0.76rem;
-      scroll-snap-align: start;
-    }
-
-    .record-sidebar__footer {
-      display: flex;
-      flex-wrap: wrap;
-      padding: 0.7rem 1.2rem 0.85rem;
-    }
-
-    .record-document__heading,
-    .record-section__heading,
-    .record-hero-figure,
-    .record-source {
-      grid-template-columns: 1fr;
-    }
-
-    .record-document h1 {
-      max-width: 20ch;
-    }
-
-    .record-document__header {
-      padding-block: 1rem 1.15rem;
-    }
-
-    .record-document__body {
-      padding-block-start: 1.5rem;
-    }
-
-    .record-section__heading {
-      gap: 0.7rem;
-    }
-
-    .record-stats,
-    .record-visual-grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .record-hero-figure {
-      aspect-ratio: auto;
-    }
-
-    .record-hero-figure img {
-      height: auto;
-      min-height: 0;
-    }
-
-    .record-swatch-grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .record-source__id {
-      margin-block-end: -0.45rem;
-    }
-  }
-
-  @media (max-width: 36rem) {
-    .record-sidebar__intro {
-      align-items: start;
-      flex-direction: column;
-    }
-
-    .record-sidebar__intro p {
-      max-width: 34ch;
-      text-align: left;
-    }
-
-    .record-card,
-    .record-card--wide {
-      grid-column: 1 / -1;
-    }
-
-    .record-stats,
-    .record-visual-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .record-stats {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .record-stat {
-      padding-inline: 0.75rem;
-    }
-
-    .record-stat__label {
-      font-size: 0.62rem;
-      letter-spacing: 0.07em;
-    }
-
-    .record-route-row {
-      grid-template-columns: 2.3rem minmax(0, 1fr);
-    }
-
-    .record-route-row__path,
-    .record-route-row__description,
-    .record-route-row .record-status {
-      grid-column: 2;
-    }
-
-    .record-filter {
-      grid-template-columns: 1fr;
-      align-items: start;
-    }
-
-    .record-hero-figure img {
-      min-height: 12rem;
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .record-sidebar__nav a,
-    .record-visual,
-    .record-route-row {
-      transition: none;
-    }
-  }
-
-  @media (forced-colors: active) {
-    .record-sidebar,
-    .record-document__header,
-    .record-card,
-    .record-stat,
-    .record-callout,
-    .record-table-wrap,
-    .record-route-row,
-    .record-source,
-    .record-visual,
-    .record-swatch {
-      border-color: CanvasText;
-      background: Canvas;
-      color: CanvasText;
-    }
-
-    .record-sidebar__nav a:hover,
-    .record-sidebar__nav-item--current a,
-    .record-route-row:hover {
-      background: Highlight;
-      color: HighlightText;
-    }
-
-    .record-sidebar__mark,
-    .record-callout--dark,
-    .record-hero-figure {
-      border-color: CanvasText;
-      background: Canvas;
-      color: CanvasText;
-    }
-
-    .record-hero-figure .record-kicker,
-    .record-hero-figure figcaption p,
-    .record-hero-figure .record-link {
-      color: CanvasText;
-    }
-
-    .record-hero-figure img {
-      forced-color-adjust: none;
-    }
-  }
-
-  @media print {
-    .record-body,
-    .record-main,
-    .record-document {
-      background: #fff;
-    }
-
-    .record-sidebar {
-      display: none;
-    }
-
-    .record-app {
-      display: block;
-      min-height: 0;
-    }
-
-    .record-document__header,
-    .record-document__body {
-      padding-inline: 0;
-    }
-
-    .record-document__header {
-      padding-block-start: 0;
-      border-block-end: 1px solid #000;
-    }
-
-    .record-section + .record-section {
-      margin-block-start: 3rem;
-    }
-
-    .record-card,
-    .record-stat,
-    .record-callout,
-    .record-table-wrap,
-    .record-route-row,
-    .record-source,
-    .record-visual,
-    .record-hero-figure {
-      break-inside: avoid;
-    }
-
-    .record-hero-figure {
-      color: #000;
-    }
-
-    .record-hero-figure__actions {
-      display: none;
-    }
-
-    .record-link {
-      color: #000;
-    }
-  }
-
-/* Dedicated shell contract ------------------------------------------------ */
+/* Record room presentation styles.
+ * ---------------------------------------------------------------------------
+ * Loaded last by src/layouts/RecordLayout.astro, after bootstrap.min.css and
+ * record-theme.css. Route components keep their stable `record-*` classes; the
+ * shell geometry, the content measure, the vertical rhythm and the responsive
+ * behaviour are defined here exactly once.
+ *
+ * Structural note (RR-301 SF-13). This file used to be two layers: a legacy
+ * marketing-era stylesheet for lines 1-1034 and a "Dedicated shell contract"
+ * block for lines 1036-1306. The two disagreed about the app grid, the sidebar
+ * geometry, the document padding, the status ink, the mobile nav-link
+ * treatment and which breakpoint the mobile shell starts at, so which
+ * declaration won could not be read off the page. That is now one layer, and
+ * everything only the retired record design ever used is gone:
+ *   record-card* record-callout* record-list* record-route-*
+ *   record-filter* record-swatch* record-source* record-hero-figure*
+ *   record-visual-grid record-visual__body record-stats record-table-wrap
+ *   record-status* record-code record-muted record-source-note
+ *   record-grid record-section__heading
+ * Each was proved unreferenced against the source tree and the built output
+ * before deletion; see docs/reviews/record-room-independent-review.md §SF-13.
+ *
+ * Breakpoints are Bootstrap's own, and there are two of them (there were five:
+ * 70rem, 61.999rem, 52rem, 36rem, 35.999rem): `lg` for the off-canvas shell
+ * and `sm` for the phone gutter.
+ */
+
+/* ---------------------------------------------------------------------------
+ * 1. Document shell
+ * ------------------------------------------------------------------------ */
+
+/* `.record-body` and `.record-main` own their ground in record-theme.css; it is
+ * not re-declared here (that duplication was part of SF-13). */
 
 .record-app {
   display: grid;
   grid-template-columns: var(--record-sidebar-width) minmax(0, 1fr);
   min-height: 100svh;
+  color: var(--color-ink);
 }
 
 .record-sidebar {
+  position: sticky;
   inset-block-start: 0;
+  align-self: start;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
   block-size: 100svh;
   max-block-size: 100svh;
-  background: var(--color-surface);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  border-inline-end: 1px solid var(--bs-border-color);
+  scrollbar-color: #9eb8c9 transparent;
+  /* RR-301 SF-4. Bootstrap's responsive off-canvas emits
+   * `background-color: transparent !important` from the `lg` breakpoint up
+   * (the `.offcanvas-lg` rule in its `min-width: 992px` block), which silently
+   * beat `.record-sidebar { background: var(--color-surface) }` and left the
+   * surface token doing nothing at every desktop width. An `!important` cannot
+   * be out-specified, so the surface is re-asserted with one at a specificity
+   * above Bootstrap's. This is the only `!important` colour in the file and it
+   * is load-bearing. */
+  background: var(--color-surface) !important;
 }
 
 .record-sidebar__nav-wrap {
@@ -1053,19 +68,323 @@
   overflow-y: auto;
 }
 
-.record-sidebar__nav .nav-link {
-  color: var(--color-muted-strong);
+/* ---------------------------------------------------------------------------
+ * 2. One content column for the whole document
+ *
+ * RR-301 SF-1. The header and the body used to disagree about their inline
+ * size: eight routes carried `.record-section` (max-inline-size: 90rem,
+ * centred) inside an uncapped body, four routes carried no cap at all, and the
+ * document header had none in any layer. Above ~1760px that put a page's own
+ * title 80px to the left of its own body text.
+ *
+ * The cap is applied as inline padding rather than `max-inline-size` so the
+ * header's white band and its rule stay full-bleed while the text inside it
+ * converges on the same measure as the body. Below `90rem + 4rem` the padding
+ * floor (2rem, and 1.5rem/1rem on smaller screens) governs instead, so nothing
+ * changes at ordinary widths. `--record-measure` is the single knob; the
+ * `.record-section` cap that follows is inert by construction.
+ * ------------------------------------------------------------------------ */
+
+.record-document {
+  min-width: 0;
+  background: var(--color-canvas);
 }
 
-.record-sidebar__nav .nav-link:hover,
-.record-sidebar__nav .nav-link:focus-visible,
-.record-sidebar__nav-item--current .nav-link {
+.record-document__header,
+.record-document__body {
+  padding-inline: max(2rem, calc((100% - var(--record-measure)) / 2));
+}
+
+/* ---------------------------------------------------------------------------
+ * 3. Document header
+ * ------------------------------------------------------------------------ */
+
+.record-document__header {
+  padding-block: 2rem 1.5rem;
+  border-block-end: 1px solid var(--bs-border-color);
+  background: #fff;
+}
+
+.record-document__eyebrow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.45rem 1rem;
   color: var(--color-brand-deep);
-  background: #e3f1f8;
+}
+
+.record-document__sequence {
+  color: var(--color-muted);
+}
+
+.record-document__status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--color-muted);
+}
+
+.record-document__heading {
+  margin-block-start: 0.55rem;
+}
+
+.record-document__heading--with-menu {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+/* RR-301 SF-7. The title is a flex item, so its automatic minimum size was
+ * max-content and a long heading pushed the menu button past the viewport
+ * (321px of scrollWidth at 320px on /record/leadership/). Letting the item
+ * shrink makes the heading wrap inside the row instead. The alternative the
+ * review offers — `flex-wrap: wrap` — was measured and rejected: because a
+ * wrapped line breaks on the item's max-content size, it drops the button to
+ * its own row on every route at 390px, moving it 200px down the page. */
+.record-document__heading--with-menu > :first-child {
+  min-width: 0;
+}
+
+.record-document h1 {
+  max-width: 24ch;
+  margin: 0;
+  color: var(--color-ink);
+  /* Size comes from --record-heading-1 in record-theme.css. */
+  letter-spacing: -0.045em;
+  line-height: 1;
+}
+
+.record-document__description {
+  max-width: 62ch;
+  margin-block-start: 0.75rem;
+  color: var(--color-muted-strong);
+  font-size: clamp(1rem, 1.1vw, 1.14rem);
+  line-height: 1.5;
+}
+
+.record-document__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  margin-block-start: 1rem;
+  padding-block-start: 0.65rem;
+  border-block-start: 1px solid #e0e8ed;
+  color: var(--color-muted);
+}
+
+/* The menu toggle and the panel's close button are revealed by the shell's
+ * `data-record-js` flag, never by a post-parse `hidden` flip. Un-hiding a
+ * button after the deferred module runs reflows the heading row, which is the
+ * small sibling of RR-301 BLK-1. The flag is set by the inline script in
+ * RecordLayout.astro's <head>, so both states are correct at first paint. */
+.record-menu-toggle {
+  display: none;
+  align-items: center;
+  gap: 0.5rem;
+  flex: 0 0 auto;
+  margin: 0;
+  font-family: var(--font-ui);
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.record-menu-toggle__icon {
+  font-size: 1.1rem;
+  line-height: 1;
 }
 
 .record-sidebar__close {
+  display: none;
   margin-block-start: 0.9rem;
+}
+
+.record-sidebar-backdrop {
+  display: none;
+}
+
+/* ---------------------------------------------------------------------------
+ * 4. Vertical rhythm
+ *
+ * RR-301 SF-2. The offset above the first section used to be the page's own
+ * choice — `mt-5` on seven routes, nothing on four, `mt-4` on one — which is
+ * why the distance from the header rule to the first heading ran from 63px to
+ * 306px. The shell owns it now: the first block in the body is flush, and the
+ * body's own `padding-block-start` is the only offset.
+ *
+ * Two shapes exist in the built output and both are covered: the body's first
+ * child is `<section>` on /record/verify|files|screens|style/, and
+ * `<div class="container-fluid px-0">` wrapping the first `<section>` on the
+ * other eight. The gap between sections is already 3rem on every route
+ * (`.record-section + .record-section` for Group A, Bootstrap's `.mb-5` for
+ * Group B), so nothing else is needed there.
+ * ------------------------------------------------------------------------ */
+
+.record-document__body {
+  padding-block: 2rem 4rem;
+}
+
+.record-document__body > :first-child,
+.record-document__body > :first-child > section:first-child {
+  margin-block-start: 0 !important; /* over Bootstrap's .mt-4/.mt-5 */
+}
+
+.record-section {
+  /* Legacy Group-A wrapper. The shell now owns the measure, so this cap is
+   * inert; it is kept only because eight routes still carry the class. Delete
+   * the class from the markup and this rule together. */
+  max-inline-size: var(--record-measure);
+  margin-inline: auto;
+}
+
+.record-section + .record-section {
+  margin-block-start: var(--record-flow-gap);
+}
+
+/* ---------------------------------------------------------------------------
+ * 5. Sidebar
+ * ------------------------------------------------------------------------ */
+
+.record-sidebar__intro {
+  padding: 1rem 1.1rem 1.1rem;
+  border-block-end: 1px solid var(--bs-border-color);
+}
+
+.record-sidebar__brand {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  color: var(--color-ink);
+  text-decoration: none;
+}
+
+.record-sidebar__mark {
+  display: grid;
+  width: 2.1rem;
+  height: 2.1rem;
+  place-items: center;
+  border-radius: 0.3rem;
+  background: var(--color-brand);
+  color: #fff;
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 700;
+}
+
+.record-sidebar__brand strong,
+.record-sidebar__brand small {
+  display: block;
+}
+
+.record-sidebar__brand strong {
+  font-family: var(--font-display);
+  font-size: 1rem;
+}
+
+.record-sidebar__brand small {
+  margin-block-start: 0.1rem;
+  color: var(--color-muted);
+  font-family: var(--font-ui);
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.record-sidebar__intro p {
+  margin-block-start: 0.8rem;
+  color: var(--color-muted-strong);
+  font-size: 0.82rem;
+  line-height: 1.5;
+}
+
+.record-sidebar nav {
+  padding: 0.95rem 0.7rem;
+}
+
+.record-sidebar__label,
+.record-section__label,
+.record-document__eyebrow,
+.record-document__meta,
+.record-stat__label,
+.record-table th,
+.record-kicker {
+  font-family: var(--font-ui);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  line-height: 1.35;
+  text-transform: uppercase;
+}
+
+.record-sidebar__label {
+  margin: 0 0 0.55rem 0.55rem;
+  color: var(--color-muted);
+}
+
+.record-sidebar__nav {
+  display: grid;
+  gap: 0.18rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.record-sidebar__nav a {
+  display: grid;
+  grid-template-columns: 2rem minmax(0, 1fr);
+  align-items: center;
+  gap: 0.55rem;
+  min-block-size: 2.75rem;
+  padding: 0.45rem 0.55rem;
+  border-radius: 0.25rem;
+  color: var(--color-muted-strong);
+  font-family: var(--font-ui);
+  font-size: 0.83rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.record-sidebar__nav a:hover,
+.record-sidebar__nav a:focus-visible,
+.record-sidebar__nav-item--current a {
+  background: #e3f1f8;
+  color: var(--color-brand-deep);
+}
+
+.record-sidebar__number {
+  color: var(--color-brand);
+  font-variant-numeric: tabular-nums;
+}
+
+.record-sidebar__nav-item--current .record-sidebar__number {
+  color: #a61b1b;
+}
+
+.record-sidebar__footer {
+  display: grid;
+  gap: 0.6rem;
+  margin-block-start: auto;
+  padding: 1rem 1.1rem 1.25rem;
+  border-block-start: 1px solid var(--bs-border-color);
+}
+
+.record-sidebar__footer a,
+.record-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  width: fit-content;
+  color: var(--color-brand-deep);
+  font-family: var(--font-ui);
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.record-sidebar__footer a:hover,
+.record-link:hover {
+  color: #a61b1b;
+  text-decoration: underline;
 }
 
 .record-sidebar__legal {
@@ -1086,55 +405,128 @@
   color: var(--color-brand-deep);
 }
 
-.record-document {
-  min-width: 0;
-  background: var(--color-canvas);
+/* ---------------------------------------------------------------------------
+ * 6. Section chrome and shared content primitives
+ *
+ * The shell-level `.record-section__label` convention only the Group-A routes
+ * use. Its heading-grid sibling (`record-section__heading`) was unreferenced
+ * everywhere and is deleted; the same rows are built with Bootstrap's
+ * `.row.align-items-end` on every route.
+ * ------------------------------------------------------------------------ */
+
+.record-section__label,
+.record-kicker {
+  color: var(--color-brand-deep);
 }
 
-.record-document__header,
-.record-document__body {
-  padding-inline: 2rem;
+.record-section p {
+  max-width: 70ch;
+  color: var(--color-muted-strong);
 }
 
-.record-document__header {
-  padding-block-start: 2rem;
-  padding-block-end: 1.5rem;
+.record-section__lede {
+  margin-block-start: 0.7rem;
+  font-size: 1rem;
+  line-height: 1.55;
 }
 
-.record-document__heading--with-menu {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 1rem;
+.record-stat {
+  padding: 0.9rem 1rem 1rem;
+  border: 1px solid var(--bs-border-color);
+  background: #fff;
 }
 
-.record-document__status {
+.record-stat__value {
+  display: block;
+  margin-block: 0.65rem 0.3rem;
+  color: var(--color-brand-deep);
+  font-family: var(--font-display);
+  font-size: clamp(1.9rem, 3.5vw, 3.1rem);
+  font-weight: 700;
+  letter-spacing: -0.06em;
+  line-height: 0.9;
+}
+
+.record-stat__label {
   color: var(--color-muted);
 }
 
-.record-document__body {
-  padding-block-start: 2rem;
-  padding-block-end: 4rem;
+.record-table {
+  width: 100%;
+  min-width: 42rem;
+  border-collapse: collapse;
+  color: var(--color-muted-strong);
+  font-size: 0.9rem;
+  line-height: 1.45;
 }
 
-.record-menu-toggle {
-  align-items: center;
-  gap: 0.5rem;
-  flex: 0 0 auto;
-  margin: 0;
+.record-table caption {
+  padding: 0.9rem 1rem;
+  color: var(--color-muted);
   font-family: var(--font-ui);
-  font-size: 0.82rem;
+  font-size: 0.72rem;
   font-weight: 700;
+  letter-spacing: 0.08em;
+  text-align: left;
+  text-transform: uppercase;
 }
 
-.record-menu-toggle__icon {
-  font-size: 1.1rem;
-  line-height: 1;
+.record-table th,
+.record-table td {
+  padding: 0.85rem 1rem;
+  border-block-start: 1px solid #dce6ec;
+  vertical-align: top;
+  text-align: left;
 }
 
-.record-sidebar-backdrop {
-  display: none;
+.record-table th {
+  color: var(--color-muted);
+  white-space: nowrap;
 }
+
+.record-table code {
+  overflow-wrap: anywhere;
+  color: var(--color-brand-deep);
+  font-family: var(--font-mono);
+  font-size: 0.8em;
+}
+
+.record-visual {
+  overflow: hidden;
+  border: 1px solid var(--bs-border-color);
+  background: #fff;
+}
+
+.record-visual a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.record-visual img {
+  width: 100%;
+  aspect-ratio: 16 / 8;
+  object-fit: cover;
+  object-position: center;
+  border-block-end: 1px solid var(--bs-border-color);
+}
+
+/* Component-level heading override: the card title inside a gallery figure is
+ * not a section heading, so it deliberately sits below the shell scale. It
+ * wins because this file loads after record-theme.css at equal specificity. */
+.record-visual h3 {
+  font-size: 1rem;
+}
+
+.record-visual p {
+  margin-block-start: 0.45rem;
+  font-size: 0.83rem;
+  line-height: 1.45;
+}
+
+/* ---------------------------------------------------------------------------
+ * 7. Responsive. Two breakpoints: `lg` (the off-canvas shell) and `sm` (the
+ * phone gutter). Both are Bootstrap's own boundaries.
+ * ------------------------------------------------------------------------ */
 
 @media (max-width: 61.999rem) {
   .record-app {
@@ -1142,8 +534,9 @@
     min-height: 0;
   }
 
-  /* Bootstrap supplies the offcanvas class names; this base state keeps the
-   * complete navigation readable in document flow when JavaScript is absent. */
+  /* Pre-JS state. This is what a browser without JavaScript paints, and it is
+   * reachable only when the `data-record-js` flag was never set. The complete
+   * navigation stays in document flow — twelve links, nothing hidden. */
   .record-sidebar.offcanvas-lg {
     position: static;
     inset: auto;
@@ -1156,11 +549,16 @@
     visibility: visible;
     overflow: visible;
     border-inline-end: 0;
-    border-block-end: 1px solid #c9d8e3;
+    border-block-end: 1px solid var(--bs-border-color);
     box-shadow: none;
   }
 
-  .record-body[data-record-js] .record-sidebar.offcanvas-lg {
+  /* Post-JS state. RR-301 BLK-1: the flag that reaches this block is set by a
+   * synchronous inline script in the document head, so this geometry is already
+   * in force at first contentful paint and the document never moves. When the
+   * flag instead came from the deferred module, the browser painted the in-flow
+   * state first and then shifted `ARTICLE.record-document` by 891px. */
+  html[data-record-js] .record-sidebar.offcanvas-lg {
     position: fixed;
     z-index: 1045;
     inset: 0 auto 0 0;
@@ -1172,54 +570,25 @@
     transform: translateX(-100%);
     visibility: hidden;
     overflow-y: auto;
-    border-inline-end: 1px solid #c9d8e3;
+    border-inline-end: 1px solid var(--bs-border-color);
     border-block-end: 0;
     transition: transform 0.25s ease, visibility 0.25s ease;
   }
 
-  .record-body[data-record-js] .record-sidebar.offcanvas-lg.show {
+  html[data-record-js] .record-sidebar.offcanvas-lg.show {
     transform: translateX(0);
     visibility: visible;
   }
 
-  .record-sidebar__intro {
-    display: block;
+  html[data-record-js] .record-menu-toggle {
+    display: inline-flex;
   }
 
-  .record-sidebar__intro p {
-    max-width: 34ch;
-    margin-block-start: 0.8rem;
-    text-align: left;
+  html[data-record-js] .record-sidebar__close {
+    display: inline-block;
   }
 
-  .record-sidebar__legal {
-    margin-block-start: 0.25rem;
-  }
-
-  .record-sidebar__nav-wrap {
-    overflow: visible;
-    padding-block: 0.95rem;
-  }
-
-  .record-sidebar__nav {
-    display: grid;
-    min-width: 0;
-  }
-
-  .record-sidebar__nav .nav-link {
-    display: grid;
-    grid-template-columns: 2rem minmax(0, 1fr);
-    gap: 0.55rem;
-    min-block-size: 2.75rem;
-    border: 0;
-  }
-
-  .record-sidebar__footer {
-    display: grid;
-    margin-block-start: auto;
-  }
-
-  .record-body[data-record-js] .record-sidebar-backdrop.show {
+  html[data-record-js] .record-sidebar-backdrop.show {
     position: fixed;
     z-index: 1040;
     inset: 0;
@@ -1231,6 +600,69 @@
     overflow: hidden;
   }
 
+  /* In-flow fallback internals. These are what makes "twelve navigation links
+   * with JavaScript disabled" true, and they now hold across the whole `lg`
+   * range. They used to stop at 52rem while the shell switched at 61.999rem,
+   * so between 832px and 992px the same list rendered with a different link
+   * background, font size and padding — the visible form of the two-layer bug
+   * this rewrite removes. */
+  .record-sidebar__intro {
+    display: block;
+    padding: 1rem 1.2rem;
+  }
+
+  .record-sidebar__intro p {
+    max-width: 34ch;
+    margin-block-start: 0.8rem;
+    text-align: left;
+  }
+
+  .record-sidebar nav {
+    overflow-x: auto;
+    padding: 0.65rem 1.2rem 0.9rem;
+    overscroll-behavior-inline: contain;
+    scrollbar-color: #9eb8c9 transparent;
+  }
+
+  .record-sidebar__label {
+    margin: 0 0 0.45rem;
+  }
+
+  .record-sidebar__nav {
+    display: grid;
+    min-width: 0;
+  }
+
+  .record-sidebar__nav a {
+    min-block-size: 2.35rem;
+    padding-inline: 0.6rem;
+    background: #fff;
+    font-size: 0.76rem;
+  }
+
+  .record-sidebar__footer {
+    display: grid;
+    margin-block-start: auto;
+    padding: 0.7rem 1.2rem 0.85rem;
+  }
+
+  .record-sidebar__legal {
+    margin-block-start: 0.25rem;
+  }
+
+  .record-sidebar__nav-wrap {
+    overflow: visible;
+    padding-block: 0.95rem;
+  }
+
+  .record-sidebar__nav .nav-link {
+    display: grid;
+    grid-template-columns: 2rem minmax(0, 1fr);
+    gap: 0.55rem;
+    min-block-size: 2.75rem;
+    border: 0;
+  }
+
   .record-document__header,
   .record-document__body {
     padding-inline: 1.5rem;
@@ -1238,6 +670,10 @@
 
   .record-document__header {
     padding-block-start: 1.5rem;
+  }
+
+  .record-document h1 {
+    max-width: 20ch;
   }
 
   .record-document__heading--with-menu {
@@ -1250,15 +686,61 @@
   .record-document__body {
     padding-inline: 1rem;
   }
+
+  .record-stat {
+    padding-inline: 0.75rem;
+  }
+
+  .record-stat__label {
+    font-size: 0.62rem;
+    letter-spacing: 0.07em;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .record-body[data-record-js] .record-sidebar.offcanvas-lg {
+  html[data-record-js] .record-sidebar.offcanvas-lg {
     transition: none;
   }
 }
 
+/* ---------------------------------------------------------------------------
+ * 8. Forced colours
+ * ------------------------------------------------------------------------ */
+
+@media (forced-colors: active) {
+  .record-sidebar,
+  .record-document__header,
+  .record-stat,
+  .record-visual {
+    border-color: CanvasText;
+    background: Canvas;
+    color: CanvasText;
+  }
+
+  .record-sidebar__nav a:hover,
+  .record-sidebar__nav-item--current a {
+    background: Highlight;
+    color: HighlightText;
+  }
+
+  .record-sidebar__mark {
+    border-color: CanvasText;
+    background: Canvas;
+    color: CanvasText;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+ * 9. Print
+ * ------------------------------------------------------------------------ */
+
 @media print {
+  .record-body,
+  .record-main,
+  .record-document {
+    background: #fff;
+  }
+
   .record-app {
     display: block;
     min-height: 0;
@@ -1275,7 +757,26 @@
     padding-inline: 0;
   }
 
-  .record-table-wrap,
+  .record-document__header {
+    padding-block-start: 0;
+    border-block-end: 1px solid #000;
+  }
+
+  .record-section + .record-section {
+    margin-block-start: var(--record-flow-gap);
+  }
+
+  .record-stat,
+  .record-visual,
+  .record-table,
+  .record-viz__table-details {
+    break-inside: avoid;
+  }
+
+  .record-link {
+    color: #000;
+  }
+
   .record-body .table-responsive {
     overflow: visible !important;
   }
@@ -1288,7 +789,6 @@
    * retain their semantic data even when the disclosure was never opened. */
   .record-viz__table-details {
     display: block;
-    break-inside: avoid;
   }
 
   .record-viz__table-details > summary {

@@ -26,7 +26,7 @@ const snapshotDate = new Date().toISOString().slice(0, 10);
           <span><strong>Record room</strong><small>INSTAR Lab / public index</small></span>
         </a>
         <p>Source-conscious orientation for the institution, its research paths, and this website.</p>
-        <button class="record-sidebar__close btn btn-sm btn-outline-secondary d-lg-none" type="button" data-record-menu-close hidden>
+        <button class="record-sidebar__close btn btn-sm btn-outline-secondary d-lg-none" type="button" data-record-menu-close>
           Close menu
         </button>
       </div>
@@ -66,13 +66,16 @@ const snapshotDate = new Date().toISOString().slice(0, 10);
             <h1>{route.title}</h1>
             <p class="record-document__description">{route.description}</p>
           </div>
+          {/* Visibility is owned by record.css and keyed to the shell's
+            * `data-record-js` flag, which is set before first paint. A
+            * post-parse `hidden` flip would reflow the heading row once the
+            * deferred module ran. */}
           <button
             class="record-menu-toggle btn btn-primary d-lg-none"
             type="button"
             data-record-menu-toggle
             aria-controls="record-sidebar"
             aria-expanded="false"
-            hidden
           >
             <span class="record-menu-toggle__icon" aria-hidden="true">☰</span>
             Record menu
