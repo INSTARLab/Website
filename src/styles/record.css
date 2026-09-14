@@ -414,13 +414,56 @@
  * `.row.align-items-end` on every route.
  * ------------------------------------------------------------------------ */
 
-.record-section__label,
-.record-kicker {
+/* RR-301 (b). This declaration has never applied. It was authored at (0,1,0)
+ * — `.record-section__label, .record-kicker` — and the running-copy ink rule
+ * below it is (0,1,1), so `.record-section p` won every time and each
+ * `<p class="record-section__label">` and `<p class="record-kicker">` on the
+ * eight Group-A routes rendered --color-muted-strong (#3d4d59) instead of the
+ * brand ink declared here. Measured on the built tree at 1280px, before this
+ * change: /record/ops/ and /record/verify/ section labels both computed
+ * rgb(61, 77, 89). Scoping the arms to a paragraph inside the section makes
+ * them (0,2,1), above the ink rule, and the declared intent is real.
+ *
+ * The bare `.record-kicker` arm is kept because three call sites render it on
+ * a `<span>`, not a `<p>`; those never collided with the ink rule and were
+ * already correct. */
+.record-section p.record-section__label,
+.record-section p.record-kicker,
+.record-section .record-kicker {
   color: var(--color-brand-deep);
 }
 
-.record-section p {
+/* RR-301 (a). The 70ch reading measure used to be declared on a
+ * `.record-section` descendant, so only the eight Group-A routes carried it;
+ * the four Group-B routes (/record/leadership|marketing|journeys|federal/) ran
+ * their prose the full width of the shell. Measured at 1920px before the
+ * change, uncapped paragraphs reached 952–996px against a 630–770px cap.
+ *
+ * The measure is a property of the shell, not of a wrapper class, so it is
+ * declared once here for all twelve routes. Measured after: sixteen paragraphs
+ * across the four Group-B routes gain exactly one line (the largest is +33px),
+ * nothing overflows at 320–1920px, and the eight Group-A routes are unchanged
+ * because the cap they already had is the same cap.
+ *
+ * `.record-document__body p` is (0,1,1) and the four visual components
+ * declare their own `max-width: 68ch` on `.record-viz__description` from a
+ * scoped `<style>` at (0,2,0), so a component measure still wins. */
+.record-document__body p {
   max-width: 70ch;
+}
+
+/* The ink for running copy. Deliberately still scoped to `.record-section`.
+ *
+ * Rehoming *this* declaration to the shell was measured and rejected: at
+ * (0,1,1) shell-wide it repaints `<p class="display-6">` KPI numerals,
+ * `<p class="lead">` paragraphs, `p.h3`/`p.h4` pseudo-headings and the
+ * `<p class="mb-0">` inside Bootstrap alerts, which carry their own ink
+ * (#1b1b1b, #664d03) and lose it — 110 elements across four routes. Deleting
+ * it instead would darken every unclassed Group-A body paragraph from #3d4d59
+ * to the inherited --color-ink and change the room's body-copy tone on eight
+ * routes. Neither is a change this file should make silently, so the ink keeps
+ * the footprint it has always had. */
+.record-section p {
   color: var(--color-muted-strong);
 }
 

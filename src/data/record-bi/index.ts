@@ -229,6 +229,29 @@ export function recordBiIsStale(observation: RecordBiObservation, today = new Da
   return observation.nextReviewDate < today;
 }
 
+/**
+ * Public copy for the snapshot approval enum.
+ *
+ * `current.json` stores the machine value (`pending` / `approved`). Rendering
+ * that value directly puts the raw enum in a public sentence — /record/federal/
+ * printed "Snapshot approval: pending" — which is an operator's word, not a
+ * reader's. The labels neither overstate nor understate the state: a pending
+ * snapshot is not approved, and it is not "Not reported" either, because the
+ * approval itself is what is outstanding.
+ *
+ * This is presentation only. The underlying data, the enum values, and the
+ * CSV export (which carries the raw value for the operator holding the file)
+ * are unchanged.
+ */
+export const recordBiApprovalLabels: Readonly<Record<RecordBiApprovalStatus, string>> = {
+  pending: 'Pending approval',
+  approved: 'Approved',
+};
+
+export function recordBiApprovalLabel(status: RecordBiApprovalStatus): string {
+  return recordBiApprovalLabels[status];
+}
+
 export function recordBiStatusForMetric(metricId: string, today = new Date().toISOString().slice(0, 10)): RecordBiMetricState {
   const observations = recordBiObservations.filter((observation) => observation.metricId === metricId);
   if (observations.length === 0) return 'not-reported';
