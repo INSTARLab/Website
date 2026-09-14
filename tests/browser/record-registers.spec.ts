@@ -340,21 +340,22 @@ test('the resource-use register carries the funder questions and publishes its a
   expect(everything, 'the resource-use register invents a contact channel').not.toMatch(/[\w.+-]+@[\w-]+\.[\w.]+|\(?\d{3}\)?[-. ]\d{3}[-. ]\d{4}/);
 });
 
-test('the contact-detail discrepancy is recorded, and the published value is left alone', () => {
+test('the published contact details are recorded as a single corrected value', () => {
   const contact = recordLegalStatus.find((row) => /contact details/i.test(row.field));
   expect(contact, 'the legal register does not carry the published contact details').toBeDefined();
   expect(contact?.value, 'the published email address is not recorded').toContain('info@instarlab.org');
-  expect(contact?.value, 'the published telephone number is not recorded').toContain('929-229-2918');
+  expect(contact?.value, 'the published telephone number is not recorded').toContain('929-229-2917');
 
-  // Both values travel with the row: the discrepancy is named, not smoothed.
-  expect(contact?.basis, 'the conflicting external record is not named').toContain('(929) 222-2917');
-  expect(contact?.basis, 'the conflicting record is not attributed').toMatch(/Ohio Attorney General/i);
-  expect(contact?.limits, 'the discrepancy is not recorded as unresolved').toMatch(/discrepancy|disagree/i);
-  expect(contact?.limits, 'the register resolves a question it cannot answer').toMatch(/not change|does not change|changes neither/i);
+  // A single corrected number travels with the row: every 929-numbered
+  // string in the row normalizes to the corrected digits, and only one appears.
+  const rowText = [contact?.value, contact?.basis, contact?.limits].join(' ');
+  const rowPhones = rowText.match(/929[-.\s()]*\d{3}[-.\s]*\d{4}/g) ?? [];
+  expect(rowPhones.length, 'the contact row does not carry exactly one number').toBe(1);
+  expect(rowPhones[0]?.replace(/\D/g, ''), 'the contact row carries a wrong number').toBe('9292292917');
+  expect(rowText, 'the contact row still records a second-number note').not.toMatch(/discrepancy|disagree|conflicting/i);
 
-  // Recorded is not changed. The value the site emits is untouched, whichever
-  // of the two the institution eventually decides is right.
-  expect(siteIdentity.telephone, 'the register changed the published telephone number').toBe('929-229-2918');
+  // The value the site emits matches the corrected register value.
+  expect(siteIdentity.telephone, 'the register changed the published telephone number').toBe('929-229-2917');
   expect(siteIdentity.email, 'the register changed the published email address').toBe('info@instarlab.org');
 });
 
@@ -514,11 +515,15 @@ test('the served governance page publishes the resource-use register and its abs
   await expect(section.locator('a[href$="/record/legal/"]')).toHaveCount(1);
 });
 
-test('the served legal register publishes the contact discrepancy with both values', async ({ page }) => {
+test('the served legal register publishes the corrected contact details', async ({ page }) => {
   await page.goto('/record/legal/');
   const table = page.locator('[aria-label="Legal status fields with their basis and limits"] table');
   const copy = await table.innerText();
-  expect(copy, 'the served register does not publish the published contact details').toContain('929-229-2918');
-  expect(copy, 'the served register does not publish the conflicting external value').toContain('(929) 222-2917');
-  expect(copy, 'the served register does not record the discrepancy').toMatch(/discrepancy/i);
+  expect(copy, 'the served register does not publish the corrected contact details').toContain('929-229-2917');
+  // Every 929-numbered string in the served table normalizes to the corrected digits.
+  const servedPhones = copy.match(/929[-.\s()]*\d{3}[-.\s]*\d{4}/g) ?? [];
+  expect(servedPhones.length, 'the served table carries no 929 number at all').toBeGreaterThan(0);
+  for (const phone of servedPhones) {
+    expect(phone.replace(/\D/g, ''), 'the served table carries a number other than the corrected one').toBe('9292292917');
+  }
 });

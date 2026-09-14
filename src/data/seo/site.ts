@@ -37,7 +37,7 @@ export const siteIdentity = {
     'INSTAR Lab is a 501(c)(3) nonprofit research institute conducting applied research in artificial intelligence, quantum science, high-performance computing, health, energy, space, and the sciences for federal and institutional research partners.',
   logoPath: '/img/logo/instar.svg',
   email: 'info@instarlab.org',
-  telephone: '929-229-2918',
+  telephone: '929-229-2917',
   address: {
     streetAddress: '125 Frederick St',
     addressLocality: 'Marietta',

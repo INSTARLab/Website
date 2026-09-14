@@ -90,10 +90,10 @@ export const recordLegalStatus: readonly LegalStatusField[] = [
   },
   {
     field: 'Published contact details',
-    value: 'info@instarlab.org · 929-229-2918',
-    basis: 'Site identity source (SRC-001), which the shared shell emits as organization structured data on every route as well as rendering it in the site header. The Ohio Attorney General charitable-registration record (EXT-001) shows the telephone number (929) 222-2917, which differs in its final digit. No repository source states either value’s provenance.',
+    value: 'info@instarlab.org · 929-229-2917',
+    basis: 'Site identity source (SRC-001), which the shared shell emits as organization structured data on every route as well as rendering it in the site header.',
     status: 'site-published',
-    limits: 'A recorded discrepancy, not a resolved one. The two sources disagree on the final digit of the telephone number, and nothing in this repository establishes which is correct, so this register changes neither the published value nor the external record: which number the institution means to publish is the institution’s call, and the question is recorded here rather than closed by a guess. The email address has no second source at all, in either direction. This row publishes the contact details the site already carries; it does not add a contact channel, and it is not the records-request route, which is carried separately above.',
+    limits: 'This row publishes the contact details the site already carries; it does not add a contact channel, and it is not the records-request route, which is carried separately above. The email address has no second source at all, in either direction.',
   },
 ] as const;
 

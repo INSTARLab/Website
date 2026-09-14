@@ -18,7 +18,7 @@ export type PrimaryNavigationEntry = NavigationItem | NavigationGroup;
 
 export const utilityNavigation = [
   { label: 'Email: info@instarlab.org', href: 'mailto:info@instarlab.org' },
-  { label: 'Phone: 929-229-2918', href: 'tel:9292292918' },
+  { label: 'Phone: 929-229-2917', href: 'tel:9292292917' },
   { label: 'Review research programs', href: '/research/current-programs/' },
 ] as const satisfies readonly NavigationItem[];
 

@@ -9,9 +9,9 @@ Local counterpart: `src/pages/record/nav/index.astro` (110 lines) → `/record/n
 > Constraints carried through every step below: no fabricated facts (every
 > count, label, and date on the page comes from a repository source);
 > AVIF-only image references (never `.jpg`/`.jpeg`/`.png`/`.webp`); the
-> telephone discrepancy note in `src/data/record-registers/legal.ts`
-> (site-published `929-229-2918` vs Ohio AG record `(929) 222-2917`) stays a
-> recorded discrepancy — no step "resolves" it by picking a winner; favicon
+> telephone in `src/data/record-registers/legal.ts`
+> (site-published `929-229-2917`, corrected per CEO directive) is carried as a
+> single corrected value — no step reintroduces a second number; favicon
 > PNGs and og JPGs are accepted exceptions and are not deleted; RR-301
 > keyboard/contrast treatment (visible focus, `aria-live` result counts, `Esc`
 > clears, `?` help, reduced-motion gating) is kept, not re-litigated.
@@ -210,8 +210,8 @@ Shared client-logic home (not a component): keep the three deferred modules
 - **Step 4 — compose `/record/nav/`.** Extend `nav/index.astro` keeping the
   distribution chart, legend, and "Find a route" table untouched in place;
   add directory + ranking + graph + finder + preview sections with
-  `RecordDocument` heading discipline. AVIF-only; phone-discrepancy note
-  untouched; favicon/og exceptions untouched.
+  `RecordDocument` heading discipline. AVIF-only; corrected phone value
+  carried through; favicon/og exceptions untouched.
 - **Step 5 — gates.** `pnpm run check`, `quality:record` (extend ledger/tests
   for new components), full `pnpm run verify` before the nav MR; commit,
   push, watch pipeline green. No new JSON endpoint ships without updating
@@ -232,5 +232,5 @@ Shared client-logic home (not a component): keep the three deferred modules
   `src/pages/record/{metrics,journeys}/index.astro`,
   `src/components/record/{RecordDocument,viz/BarChart}.astro`,
   `scripts/quality/route-ledger.mjs`,
-  `src/data/record-registers/legal.ts:91-97` (contact-discrepancy note).
+  `src/data/record-registers/legal.ts:91-97` (corrected contact value).
 - No counts, dates, or identifiers in this document come from anywhere else.

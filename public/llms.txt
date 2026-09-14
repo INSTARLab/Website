@@ -18,5 +18,5 @@
 - Status: 501(c)(3) nonprofit research institute
 - Founded: 2020
 - Location: 125 Frederick St, Marietta, OH 45750-3407, USA
-- Contact: info@instarlab.org, 929-229-2918
+- Contact: info@instarlab.org, 929-229-2917
 - Research domains: Artificial Intelligence, Quantum Computing, High-Performance Computing, Health Sciences, Energy Research, Space Sciences

@@ -11,9 +11,8 @@ Hard rules observed throughout: no chart from an `unverified` or
 visibility exactly as `src/pages/record/federal/index.astro` does; no invented
 figures (real 501(c)(3), EIN 85-0845517 only); no new image references
 (AVIF-only convention untouched — this audit proposes inline-SVG primitives,
-not image files); the contact phone discrepancy in
-`src/data/record-registers/legal.ts:93-94` (site `929-229-2918` vs Ohio AG
-`(929) 222-2917`) is preserved as a recorded discrepancy and no chart consumes
+not image files); the corrected contact phone in
+`src/data/record-registers/legal.ts:93-94` (`929-229-2917`) is not charted and no chart consumes
 phone numbers.
 
 ## 1. Snapshot freshness at audit time (what "Current" means today)
@@ -56,7 +55,7 @@ any line is drawn, which is why the federal page renders its line empty now.
 | 12 | `governance.ts` — policy register (5: 1 conflict-of-interest external-record, 4 not-reported) | 1 `external-record` + 4 `not-reported` (+ derived `recordPolicyReportedCount` / `recordPolicyNotReportedCount`) | No (checklist, not periods) | **Chartable now as Bar** (already is: `policyBars`) and as Donut (1 vs 4). The not-reported slice must stay visible and labelled "no published source", never merged into zero. |
 | 13 | `governance.ts` — resource-use status mix (`registerStatusCounts(recordResourceUse)`) | Derived counts across statuses | No | **Chartable now as Bar** (already is: `resourceBars`). |
 | 14 | `legal.ts` — legal-status fields (9 rows; EIN 85-0845517, exemption, classification, dates, Ohio reg ID 12174620, address) | `repo-verified` / `external-record` / `site-published`; identifiers and dates, not measures | No | **Not chartable as series.** Only the *status mix* is chartable (already is: legal page `fieldCounts` bar). Values such as the EIN, registration ID, and ruling date must never become chart data. |
-| 15 | `legal.ts:93-94` — published contact details incl. phone discrepancy | `site-published`, recorded discrepancy | N/A | **Must not chart, must not "fix".** Preserved verbatim; any future contact work records the question, it does not resolve it by edit. |
+| 15 | `legal.ts:93-94` — published contact details (corrected single value `929-229-2917`) | `site-published` | N/A | **Must not chart.** Contact details are not a series; the corrected value is carried verbatim. |
 | 16 | `legal.ts` — filing record FIL-001 (one 2025 e-Postcard filing in the bulk dataset; gap unresolved) | Single observed filing year; absence ≠ non-filing | No — one point + an open gap | **Timeline candidate** (proposed primitive): one event pin at tax year 2025 with the `whatItDoesNotEstablish` + `unresolved` text attached. A bar/line of "1 filing" would convert the dataset observation into a compliance claim the register explicitly refuses. |
 | 17 | `affiliations.ts` — consortium (7 named: 1 owner-confirmed Ravonics, 6 unverified; 5 with outbound link, 2 without; marks all `unverified`) | 1 `owner-confirmed` + 6 `unverified` | No (membership list, not periods) | **Chartable now as Bar** (already is: `affiliationBars` 1 vs 6). Donut-eligible with the same visibility rule: the 6-slice renders as "named by the site, no source attached". Mark provenance (all unverified) is a constant — charting it would be a one-slice chart; keep as prose. |
 | 18 | `affiliations.ts` — named people (4, all `unverified`; one carries an unevidenced doctoral honorific on-page) | All `unverified` incl. credential rule | N/A | **Must not chart as people data.** Counts (4 presented, 0 established) may appear only inside a status-mix chart whose slices are evidence states, never as a "team" visual. Never reproduce the honorific in chart labels. |
