@@ -1,0 +1,17 @@
+# INSTAR Lab Inc. — security.txt
+# https://www.rfc-editor.org/rfc/rfc9116
+#
+# If you believe you've found a security vulnerability affecting
+# instarlab.org, please report it to the address below. We currently
+# route security reports through our general contact address; if
+# INSTAR Lab stands up a dedicated security alias in the future, this
+# file should be updated to point at it instead.
+
+Contact: mailto:info@instarlab.org
+Expires: 2027-07-19T00:00:00.000Z
+# The apex host 301s to www, so the URI this file is actually served at — and
+# the canonical host the site publishes everywhere else (src/data/seo/site.ts,
+# public/CNAME) — is www.instarlab.org. RFC 9116 requires Canonical to name the
+# location the file is retrieved from.
+Canonical: https://www.instarlab.org/.well-known/security.txt
+Preferred-Languages: en
