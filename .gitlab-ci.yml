@@ -63,6 +63,11 @@ quality:astro-artifact:
     - node tests/seo/structured-data.test.mjs
     - test -f dist/rss.xml
     - test -f dist/pagefind/pagefind.js
+    # check-dist-links.mjs only resolves references that appear in rendered
+    # HTML, so a file that is required by convention and never linked from a
+    # page is structurally invisible to it — which is how a live 404 for this
+    # exact path survived a green pipeline. Assert the artifact directly.
+    - test -f dist/.well-known/security.txt
   rules:
     - if: '$CI_COMMIT_BRANCH == "demo"'
 

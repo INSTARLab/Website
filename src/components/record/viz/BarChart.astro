@@ -48,10 +48,17 @@ const formatValue = (value: number | null) => value === null || !Number.isFinite
 // spreadsheet should read them as numbers) and an unavailable observation is
 // written as the room's explicit "Not reported" rather than an empty cell, so
 // it cannot be confused with a row that was never published.
+//
+// The State column is what keeps the three publication states apart in a file
+// someone keeps after leaving the page: a measured zero exports as the number
+// 0 with `measured`, an approved-but-unpublished value exports as "Not
+// reported" with `unavailable`, and a measure with no approved observation
+// exports no rows at all.
 const csvValue = (value: number | null) => value === null || !Number.isFinite(value) ? 'Not reported' : value;
+const csvState = (value: number | null) => value === null || !Number.isFinite(value) ? 'unavailable' : 'measured';
 const csv = csvDocument([
-  ['Label', 'Value', ...(unit ? ['Unit'] : []), ...(source ? ['Source'] : []), ...(approval ? ['Approval'] : [])],
-  ...items.map((item) => [item.label, csvValue(item.value), ...(unit ? [unit] : []), ...(source ? [source] : []), ...(approval ? [approval] : [])]),
+  ['Label', 'Value', 'State', ...(unit ? ['Unit'] : []), ...(source ? ['Source'] : []), ...(approval ? ['Approval'] : [])],
+  ...items.map((item) => [item.label, csvValue(item.value), csvState(item.value), ...(unit ? [unit] : []), ...(source ? [source] : []), ...(approval ? [approval] : [])]),
 ]);
 const csvHref = csvDataHref(csv);
 ---

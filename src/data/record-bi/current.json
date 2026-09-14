@@ -1,21 +1,258 @@
 {
   "schemaVersion": 1,
-  "snapshotId": "record-bi-empty",
-  "status": "empty",
-  "asOf": null,
+  "snapshotId": "record-bi-ceo-attestation-2026-09-13",
+  "status": "published",
+  "asOf": "2026-09-13",
   "refreshedAt": "2026-09-13",
   "source": {
-    "id": "SRC-BI-PENDING",
-    "label": "No approved operational source",
-    "locator": "No public locator",
+    "id": "SRC-BI-CEO-2026-09-13",
+    "label": "Chief executive officer attestation of 2026-09-13",
+    "locator": "https://www.instarlab.org/record/verify/#src-007",
     "retrievedAt": "2026-09-13"
   },
   "approval": {
-    "status": "pending",
-    "reference": "RR-208-PENDING",
-    "approvedBy": null,
-    "approvedAt": null
+    "status": "approved",
+    "basis": "management",
+    "reference": "CEO-ATTESTATION-2026-09-13",
+    "approvedBy": "Chief Executive Officer, INSTAR Lab Inc.",
+    "approvedAt": "2026-09-13"
   },
-  "observations": [],
-  "note": "Operational aggregates are not yet approved for publication. The Record Room must display Not reported until an institutional data owner supplies a public snapshot and approval metadata."
+  "observations": [
+    {
+      "metricId": "grants-awarded",
+      "value": 0,
+      "unit": "USD",
+      "period": null,
+      "asOf": "2026-09-13",
+      "dimensions": { "funder-type": "federal" },
+      "source": {
+        "id": "SRC-BI-CEO-2026-09-13",
+        "label": "Chief executive officer attestation of 2026-09-13",
+        "locator": "https://www.instarlab.org/record/verify/#src-007",
+        "retrievedAt": "2026-09-13"
+      },
+      "approval": {
+        "status": "approved",
+        "basis": "management",
+        "reference": "CEO-ATTESTATION-2026-09-13",
+        "approvedBy": "Chief Executive Officer, INSTAR Lab Inc.",
+        "approvedAt": "2026-09-13"
+      },
+      "reviewOwner": "Chief Executive Officer, INSTAR Lab Inc.",
+      "nextReviewDate": "2027-03-31"
+    },
+    {
+      "metricId": "grants-awarded",
+      "value": 0,
+      "unit": "USD",
+      "period": null,
+      "asOf": "2026-09-13",
+      "dimensions": { "funder-type": "state" },
+      "source": {
+        "id": "SRC-BI-CEO-2026-09-13",
+        "label": "Chief executive officer attestation of 2026-09-13",
+        "locator": "https://www.instarlab.org/record/verify/#src-007",
+        "retrievedAt": "2026-09-13"
+      },
+      "approval": {
+        "status": "approved",
+        "basis": "management",
+        "reference": "CEO-ATTESTATION-2026-09-13",
+        "approvedBy": "Chief Executive Officer, INSTAR Lab Inc.",
+        "approvedAt": "2026-09-13"
+      },
+      "reviewOwner": "Chief Executive Officer, INSTAR Lab Inc.",
+      "nextReviewDate": "2027-03-31"
+    },
+    {
+      "metricId": "grants-awarded",
+      "value": 0,
+      "unit": "USD",
+      "period": null,
+      "asOf": "2026-09-13",
+      "dimensions": { "funder-type": "private" },
+      "source": {
+        "id": "SRC-BI-CEO-2026-09-13",
+        "label": "Chief executive officer attestation of 2026-09-13",
+        "locator": "https://www.instarlab.org/record/verify/#src-007",
+        "retrievedAt": "2026-09-13"
+      },
+      "approval": {
+        "status": "approved",
+        "basis": "management",
+        "reference": "CEO-ATTESTATION-2026-09-13",
+        "approvedBy": "Chief Executive Officer, INSTAR Lab Inc.",
+        "approvedAt": "2026-09-13"
+      },
+      "reviewOwner": "Chief Executive Officer, INSTAR Lab Inc.",
+      "nextReviewDate": "2027-03-31"
+    },
+    {
+      "metricId": "publications",
+      "value": 0,
+      "unit": "publications",
+      "period": null,
+      "asOf": "2026-09-13",
+      "dimensions": { "publication-type": "journal-article" },
+      "source": {
+        "id": "SRC-BI-CEO-2026-09-13",
+        "label": "Chief executive officer attestation of 2026-09-13",
+        "locator": "https://www.instarlab.org/record/verify/#src-007",
+        "retrievedAt": "2026-09-13"
+      },
+      "approval": {
+        "status": "approved",
+        "basis": "management",
+        "reference": "CEO-ATTESTATION-2026-09-13",
+        "approvedBy": "Chief Executive Officer, INSTAR Lab Inc.",
+        "approvedAt": "2026-09-13"
+      },
+      "reviewOwner": "Chief Executive Officer, INSTAR Lab Inc.",
+      "nextReviewDate": "2027-03-31"
+    },
+    {
+      "metricId": "publications",
+      "value": 0,
+      "unit": "publications",
+      "period": null,
+      "asOf": "2026-09-13",
+      "dimensions": { "publication-type": "conference-paper" },
+      "source": {
+        "id": "SRC-BI-CEO-2026-09-13",
+        "label": "Chief executive officer attestation of 2026-09-13",
+        "locator": "https://www.instarlab.org/record/verify/#src-007",
+        "retrievedAt": "2026-09-13"
+      },
+      "approval": {
+        "status": "approved",
+        "basis": "management",
+        "reference": "CEO-ATTESTATION-2026-09-13",
+        "approvedBy": "Chief Executive Officer, INSTAR Lab Inc.",
+        "approvedAt": "2026-09-13"
+      },
+      "reviewOwner": "Chief Executive Officer, INSTAR Lab Inc.",
+      "nextReviewDate": "2027-03-31"
+    },
+    {
+      "metricId": "contributions-received",
+      "value": null,
+      "unavailableReason": "No approved amount exists for charitable contributions, and no figure, donor name, or donor-level record is published in the Record Room. The room does not say whether any were received, because nothing on file here establishes it either way.",
+      "unit": "USD",
+      "period": null,
+      "asOf": "2026-09-13",
+      "dimensions": { "donor-type": "all" },
+      "source": {
+        "id": "SRC-BI-CEO-2026-09-13",
+        "label": "Chief executive officer attestation of 2026-09-13",
+        "locator": "https://www.instarlab.org/record/verify/#src-007",
+        "retrievedAt": "2026-09-13"
+      },
+      "approval": {
+        "status": "approved",
+        "basis": "management",
+        "reference": "CEO-ATTESTATION-2026-09-13",
+        "approvedBy": "Chief Executive Officer, INSTAR Lab Inc.",
+        "approvedAt": "2026-09-13"
+      },
+      "reviewOwner": "Chief Executive Officer, INSTAR Lab Inc.",
+      "nextReviewDate": "2027-03-31"
+    },
+    {
+      "metricId": "annual-revenue",
+      "value": null,
+      "unavailableReason": "No approved figure for the 2025 reporting year. No exact amount is approved for publication here: the institution files the 990-N (e-Postcard), which the IRS limits to organizations whose gross receipts are normally not more than $50,000, so the filing establishes a bound rather than an exact figure. The filed gross revenue is published by the Ohio AG Charitable Registration and cited in the source register, and this room does not restate it as its own measure.",
+      "unit": "USD",
+      "period": { "start": "2025-01-01", "end": "2025-12-31" },
+      "asOf": null,
+      "dimensions": { "source": "all" },
+      "source": {
+        "id": "SRC-BI-CEO-2026-09-13",
+        "label": "Chief executive officer attestation of 2026-09-13",
+        "locator": "https://www.instarlab.org/record/verify/#src-007",
+        "retrievedAt": "2026-09-13"
+      },
+      "approval": {
+        "status": "approved",
+        "basis": "management",
+        "reference": "CEO-ATTESTATION-2026-09-13",
+        "approvedBy": "Chief Executive Officer, INSTAR Lab Inc.",
+        "approvedAt": "2026-09-13"
+      },
+      "reviewOwner": "Chief Executive Officer, INSTAR Lab Inc.",
+      "nextReviewDate": "2027-03-31"
+    },
+    {
+      "metricId": "completed-research-outputs",
+      "value": null,
+      "unavailableReason": "No approved count for the 2025 reporting year. No institutional data owner has supplied a completed-output count, so the year is Not reported rather than zero.",
+      "unit": "outputs",
+      "period": { "start": "2025-01-01", "end": "2025-12-31" },
+      "asOf": null,
+      "dimensions": { "output-type": "all" },
+      "source": {
+        "id": "SRC-BI-CEO-2026-09-13",
+        "label": "Chief executive officer attestation of 2026-09-13",
+        "locator": "https://www.instarlab.org/record/verify/#src-007",
+        "retrievedAt": "2026-09-13"
+      },
+      "approval": {
+        "status": "approved",
+        "basis": "management",
+        "reference": "CEO-ATTESTATION-2026-09-13",
+        "approvedBy": "Chief Executive Officer, INSTAR Lab Inc.",
+        "approvedAt": "2026-09-13"
+      },
+      "reviewOwner": "Chief Executive Officer, INSTAR Lab Inc.",
+      "nextReviewDate": "2027-03-31"
+    },
+    {
+      "metricId": "datasets-released",
+      "value": null,
+      "unavailableReason": "No approved count. The public open-data route describes an intended approach to releasing data; it is not a record of releases, and counting zero without an approved count would state something the institution has not attested.",
+      "unit": "datasets",
+      "period": null,
+      "asOf": "2026-09-13",
+      "dimensions": { "release-channel": "all" },
+      "source": {
+        "id": "SRC-BI-CEO-2026-09-13",
+        "label": "Chief executive officer attestation of 2026-09-13",
+        "locator": "https://www.instarlab.org/record/verify/#src-007",
+        "retrievedAt": "2026-09-13"
+      },
+      "approval": {
+        "status": "approved",
+        "basis": "management",
+        "reference": "CEO-ATTESTATION-2026-09-13",
+        "approvedBy": "Chief Executive Officer, INSTAR Lab Inc.",
+        "approvedAt": "2026-09-13"
+      },
+      "reviewOwner": "Chief Executive Officer, INSTAR Lab Inc.",
+      "nextReviewDate": "2027-03-31"
+    },
+    {
+      "metricId": "technology-transfers",
+      "value": null,
+      "unavailableReason": "No approved count. The technology-transfer and enterprise R&D routes describe engagements a partner can open; a route is not an executed agreement.",
+      "unit": "transfers",
+      "period": null,
+      "asOf": "2026-09-13",
+      "dimensions": { "transfer-type": "all" },
+      "source": {
+        "id": "SRC-BI-CEO-2026-09-13",
+        "label": "Chief executive officer attestation of 2026-09-13",
+        "locator": "https://www.instarlab.org/record/verify/#src-007",
+        "retrievedAt": "2026-09-13"
+      },
+      "approval": {
+        "status": "approved",
+        "basis": "management",
+        "reference": "CEO-ATTESTATION-2026-09-13",
+        "approvedBy": "Chief Executive Officer, INSTAR Lab Inc.",
+        "approvedAt": "2026-09-13"
+      },
+      "reviewOwner": "Chief Executive Officer, INSTAR Lab Inc.",
+      "nextReviewDate": "2027-03-31"
+    }
+  ],
+  "note": "Measured zeros in this snapshot were attested by the chief executive officer on 2026-09-13: no grant award has been made to INSTAR Lab and no peer-reviewed publication names an INSTAR Lab author. Every other measure carries no approved value and renders as Not reported. No figure in this snapshot is board-approved or externally audited; INSTAR Lab's filed financial figures are published by the Ohio AG Charitable Registration and cited in the source register."
 }

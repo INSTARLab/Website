@@ -3,15 +3,43 @@ import currentSnapshot from './current.json';
 
 export type RecordBiDomain =
   | 'funding'
-  | 'research-projects'
+  | 'revenue'
   | 'research-outputs'
-  | 'institutional-partnerships';
+  | 'technology-transfer';
 
 export type RecordBiValueType = 'currency' | 'integer';
 export type RecordBiAggregation = 'sum' | 'count';
 export type RecordBiSnapshotStatus = 'empty' | 'published';
 export type RecordBiApprovalStatus = 'pending' | 'approved';
+
+/**
+ * Who put their authority behind a number. A figure attested by an executive
+ * and a figure resolved by the governing board are different artifacts with
+ * different weight, and a figure lifted from someone else's published filing
+ * is a third thing again. Collapsing them into a single `approved` flag would
+ * let a management estimate read as a board-approved statement, so the basis
+ * travels with the approval wherever it is published.
+ */
+export type RecordBiApprovalBasis = 'board' | 'management' | 'external-publication';
 export type RecordBiMetricState = 'not-reported' | 'reported' | 'stale';
+
+/**
+ * The three publication states a value can be in. They are deliberately
+ * separate because "we published a zero", "we have an approved measure but no
+ * value", and "nothing has been approved" are three different claims about the
+ * institution, and a transparency surface that renders all three as the same
+ * words is not honest about any of them.
+ *
+ * - `no-snapshot`: no approved observation exists for the measure. Nothing has
+ *   been published, so there is nothing to report.
+ * - `unavailable`: an approved observation exists and its value is explicitly
+ *   unavailable. The institution has taken a position; the position is that
+ *   the figure is not published.
+ * - `measured`: an approved observation carries a measured value. A measured
+ *   zero is `measured` with a value of 0 — it is a number the institution
+ *   stands behind, never a silence.
+ */
+export type RecordBiValueState = 'no-snapshot' | 'unavailable' | 'measured';
 export type RecordBiTemporalKind = 'period' | 'asOf';
 
 export interface RecordBiMetricDefinition {
@@ -38,6 +66,7 @@ export interface RecordBiSource {
 
 export interface RecordBiApproval {
   readonly status: RecordBiApprovalStatus;
+  readonly basis: RecordBiApprovalBasis | null;
   readonly reference: string;
   readonly approvedBy: string | null;
   readonly approvedAt: string | null;
@@ -74,9 +103,17 @@ export interface RecordBiSnapshot {
   readonly note?: string;
 }
 
+const approvalBasisValues: readonly RecordBiApprovalBasis[] = ['board', 'management', 'external-publication'];
+
 const definitions = metricSchema.metrics as readonly RecordBiMetricDefinition[];
 const definitionById = new Map(definitions.map((definition) => [definition.id, definition]));
-const snapshot = currentSnapshot as RecordBiSnapshot;
+// A JSON import infers one object type per observation, so a snapshot whose
+// observations carry different dimension sets is a union that no single index
+// signature accepts. The type is therefore asserted rather than inferred — and
+// the guard that matters is not the compiler here anyway: the module runs
+// `validateRecordBiSnapshot` on this value at import time and refuses to load
+// a snapshot that breaks any part of the contract.
+const snapshot = currentSnapshot as unknown as RecordBiSnapshot;
 
 const hasOnlyKeys = (value: object, keys: readonly string[]): boolean => Object.keys(value).every((key) => keys.includes(key));
 
@@ -128,9 +165,11 @@ export function validateRecordBiSnapshot(value: unknown): readonly string[] {
   if (!approval || typeof approval !== 'object') {
     errors.push('snapshot approval metadata is required');
   } else {
-    if (!hasOnlyKeys(approval, ['status', 'reference', 'approvedBy', 'approvedAt'])) errors.push('snapshot approval contains unsupported properties');
+    if (!hasOnlyKeys(approval, ['status', 'basis', 'reference', 'approvedBy', 'approvedAt'])) errors.push('snapshot approval contains unsupported properties');
     if (approval.status !== 'pending' && approval.status !== 'approved') errors.push('snapshot approval.status must be pending or approved');
     if (typeof approval.reference !== 'string' || !approval.reference.trim()) errors.push('snapshot approval.reference is required');
+    if (approval.basis !== null && approval.basis !== undefined && !approvalBasisValues.includes(approval.basis as RecordBiApprovalBasis)) errors.push('snapshot approval.basis must be board, management, or external-publication');
+    if (approval.status === 'approved' && !approvalBasisValues.includes(approval.basis as RecordBiApprovalBasis)) errors.push('snapshot approval.basis is required when the approval status is approved');
     if (approval.approvedBy !== null && approval.approvedBy !== undefined && typeof approval.approvedBy !== 'string') errors.push('snapshot approval.approvedBy must be null or a string');
     if (approval.approvedAt !== null && approval.approvedAt !== undefined && !isIsoDate(approval.approvedAt)) errors.push('snapshot approval.approvedAt must be null or a valid YYYY-MM-DD date');
     if (isIsoDate(approval.approvedAt) && isIsoDate(candidate.refreshedAt) && approval.approvedAt > candidate.refreshedAt) errors.push('snapshot approval.approvedAt cannot be later than refreshedAt');
@@ -180,7 +219,7 @@ export function validateRecordBiSnapshot(value: unknown): readonly string[] {
     const observationSource = observation.source;
     if (!observationSource || typeof observationSource !== 'object' || !hasOnlyKeys(observationSource, ['id', 'label', 'locator', 'retrievedAt']) || typeof observationSource.id !== 'string' || typeof observationSource.label !== 'string' || typeof observationSource.locator !== 'string' || !isIsoDate(observationSource.retrievedAt)) errors.push(`${prefix}.source requires id, label, locator, retrievedAt, and no unsupported properties`);
     const observationApproval = observation.approval;
-    if (!observationApproval || typeof observationApproval !== 'object' || !hasOnlyKeys(observationApproval, ['status', 'reference', 'approvedBy', 'approvedAt']) || observationApproval.status !== 'approved' || typeof observationApproval.reference !== 'string' || !observationApproval.reference.trim() || typeof observationApproval.approvedBy !== 'string' || !observationApproval.approvedBy.trim() || !isIsoDate(observationApproval.approvedAt)) errors.push(`${prefix}.approval requires approved status, reference, approver, approvedAt, and no unsupported properties`);
+    if (!observationApproval || typeof observationApproval !== 'object' || !hasOnlyKeys(observationApproval, ['status', 'basis', 'reference', 'approvedBy', 'approvedAt']) || observationApproval.status !== 'approved' || !approvalBasisValues.includes(observationApproval.basis as RecordBiApprovalBasis) || typeof observationApproval.reference !== 'string' || !observationApproval.reference.trim() || typeof observationApproval.approvedBy !== 'string' || !observationApproval.approvedBy.trim() || !isIsoDate(observationApproval.approvedAt)) errors.push(`${prefix}.approval requires approved status, an approval basis, reference, approver, approvedAt, and no unsupported properties`);
     if (typeof observation.reviewOwner !== 'string' || !observation.reviewOwner.trim()) errors.push(`${prefix}.reviewOwner is required`);
     if (!isIsoDate(observation.nextReviewDate)) errors.push(`${prefix}.nextReviewDate must be a valid YYYY-MM-DD date`);
     if (isIsoDate(observation.nextReviewDate) && isIsoDate(candidate.refreshedAt) && observation.nextReviewDate < candidate.refreshedAt) errors.push(`${prefix}.nextReviewDate cannot be earlier than snapshot.refreshedAt`);
@@ -252,12 +291,60 @@ export function recordBiApprovalLabel(status: RecordBiApprovalStatus): string {
   return recordBiApprovalLabels[status];
 }
 
+/**
+ * Public copy for the approval basis.
+ *
+ * The basis is the part of the provenance a reader needs in order to weigh the
+ * number: an executive's attestation, a resolution of the governing body, and
+ * a figure lifted from someone else's published filing are not equivalent
+ * evidence, and the page must not let them read as one thing.
+ */
+export const recordBiApprovalBasisLabels: Readonly<Record<RecordBiApprovalBasis, string>> = {
+  board: 'Board approved',
+  management: 'Management attestation',
+  'external-publication': 'External publication',
+};
+
+export function recordBiApprovalBasisLabel(basis: RecordBiApprovalBasis | null): string {
+  return basis ? recordBiApprovalBasisLabels[basis] : 'No approval basis recorded';
+}
+
 export function recordBiStatusForMetric(metricId: string, today = new Date().toISOString().slice(0, 10)): RecordBiMetricState {
   const observations = recordBiObservations.filter((observation) => observation.metricId === metricId);
   if (observations.length === 0) return 'not-reported';
   const reported = observations.filter((observation) => observation.value !== null);
   if (reported.length === 0) return 'not-reported';
   return reported.every((observation) => recordBiIsStale(observation, today)) ? 'stale' : 'reported';
+}
+
+/**
+ * The value state of a single approved observation. There are only two: an
+ * observation either carries a measured value (zero included) or it does not.
+ * The third state, `no-snapshot`, is a property of a measure that has no
+ * observation at all, so it cannot be read off one observation.
+ */
+export function recordBiObservationValueState(observation: RecordBiObservation): 'measured' | 'unavailable' {
+  return observation.value === null ? 'unavailable' : 'measured';
+}
+
+/**
+ * The value state of a measure across a snapshot.
+ *
+ * `no-snapshot` and `unavailable` are different facts and must not be merged.
+ * The first says nothing has been approved for publication; the second says
+ * something has been approved, and what was approved is that the figure is not
+ * published. Only `measured` can carry a number, and a measured zero is
+ * `measured` — a value of 0 is a published figure, not an absent one.
+ *
+ * A measure with some rows carrying values and some explicitly unavailable is
+ * reported as `unavailable` here: understating what is published is the safe
+ * direction for this surface, and every row still carries its own state for
+ * the views that render row by row.
+ */
+export function recordBiValueStateForMetric(metricId: string, snapshot: RecordBiSnapshot = recordBiSnapshot): RecordBiValueState {
+  const observations = snapshot.observations.filter((observation) => observation.metricId === metricId);
+  if (observations.length === 0) return 'no-snapshot';
+  return observations.some((observation) => observation.value === null) ? 'unavailable' : 'measured';
 }
 
 export const recordBi = {

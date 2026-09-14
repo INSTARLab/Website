@@ -12,8 +12,9 @@ import {
   recordBiIsStale,
   recordBiMetricDefinitions,
   recordBiSnapshot,
+  recordBiValueStateForMetric,
 } from '../../data/record-bi';
-import { latestMetricAggregate, observationSourceLabel, periodLabel } from '../../data/record-bi/selectors.mjs';
+import { latestMetricAggregate, periodLabel } from '../../data/record-bi/selectors.mjs';
 
 const route = recordRouteAtPath('/record/');
 
@@ -29,24 +30,39 @@ const sourceStatuses = [
   { label: 'Not public', count: recordSourceRegister.filter((source) => source.status === 'not-public').length },
 ] as const;
 
+// Three states, three renderings. A measure the institution has measured —
+// including a measured zero — shows its number; a measure that is approved but
+// has no publishable value says so and gives the reason; a measure with no
+// approved observation says that instead. They are carried into the DOM as
+// `data-record-value-state` so the distinction is machine-checkable.
 const biCards = recordBiMetricDefinitions.map((definition) => {
   const aggregate = latestMetricAggregate(definition, recordBiSnapshot.observations);
   const observations = aggregate?.observations ?? [];
-  const value = aggregate?.value ?? null;
+  const declared = recordBiValueStateForMetric(definition.id);
+  // `measured` is only claimed when a number actually reaches the page. A
+  // measure whose latest observations are not a comparable period has no value
+  // to publish, whatever its rows say.
+  const value = declared === 'measured' && aggregate ? aggregate.value : null;
+  const state = declared === 'measured' && value === null ? 'unavailable' : declared;
   const staleCount = observations.filter((observation) => recordBiIsStale(observation)).length;
   const freshness = staleCount === 0 ? 'Reported' : staleCount === observations.length ? 'Stale' : 'Mixed freshness';
-  const sourceLabel = aggregate ? observationSourceLabel(observations) : '';
-  const period = aggregate ? periodLabel(aggregate) : '';
-  return {
-    label: definition.label,
-    value,
-    note: value === null
-      ? aggregate ? `Not reported · ${period}${aggregate.unavailableReason ? ` · ${aggregate.unavailableReason}` : ''}` : 'No approved snapshot is loaded.'
-      : `${freshness} · ${definition.unit} · ${period} · ${sourceLabel}`,
-  };
+  const sourceLabels = [...new Set((aggregate?.sources ?? []).map((source) => source.label))].join('; ');
+  const detail = state === 'measured'
+    ? [freshness, definition.unit, aggregate ? periodLabel(aggregate) : '', sourceLabels].filter(Boolean).join(' · ')
+    : state === 'unavailable'
+      ? ['Not reported', aggregate ? periodLabel(aggregate) : '', aggregate?.unavailableReason ?? ''].filter(Boolean).join(' · ')
+      : 'Not reported · no approved observation is published for this measure';
+  return { label: definition.label, value, state, note: detail };
 });
-const biHeading = recordBiSnapshot.status === 'empty' ? 'Four measures awaiting approved snapshots' : 'Operational measures in the current snapshot';
-const biLead = recordBiSnapshot.status === 'empty' ? recordBiSnapshot.note ?? 'No approved operational snapshot is loaded.' : 'Values are shown only with the source, period, and approval metadata carried by the current snapshot.';
+const biMeasuredCount = biCards.filter((card) => card.state === 'measured').length;
+const biUnavailableCount = biCards.filter((card) => card.state === 'unavailable').length;
+const biNoSnapshotCount = biCards.filter((card) => card.state === 'no-snapshot').length;
+const biHeading = biMeasuredCount === 0
+  ? `${recordBiMetricDefinitions.length} measures awaiting approved values`
+  : 'Operational measures in the current snapshot';
+const biLead = recordBiSnapshot.status === 'empty'
+  ? recordBiSnapshot.note ?? 'No approved operational snapshot is loaded.'
+  : `${biMeasuredCount} of ${recordBiMetricDefinitions.length} measures carry an approved value, ${biUnavailableCount} are approved with no published value, and ${biNoSnapshotCount} have no approved observation. A published zero is a measured figure, not a missing one.`;
 const familyBars = routeFamilies.map((entry) => ({ label: entry.family, value: entry.count }));
 const evidenceBars = sourceStatuses.map((entry) => ({ label: entry.label, value: entry.count }));
 ---

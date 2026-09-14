@@ -1,11 +1,22 @@
 # Record Room BI snapshots
 
-The public Record Room currently ships an explicit empty snapshot because no
-operational funding, project, output, or partnership aggregate has been
-approved for publication. Empty data renders as `Not reported`; it is not a
-zero. A data owner must approve the definitions in
+The public Record Room currently ships a published snapshot
+(`record-bi-ceo-attestation-2026-09-13`) built entirely from a chief-executive
+attestation. It carries three publication states, and they are not
+interchangeable:
+
+- **no-snapshot** — no approved observation exists for the measure. The room
+  says so rather than printing a number.
+- **unavailable** — an approved observation exists and its value is not
+  publishable. The measure renders `Not reported`.
+- **measured** — an approved observation carries a value, including a measured
+  zero. A zero renders as `0` and is never rewritten as `Not reported`.
+
+A measure is `measured` only when at least one approved observation carries a
+value; a measure with any unavailable observation is `unavailable`, and a null
+value is never read as a zero. A data owner must approve the definitions in
 `src/data/record-bi/schema.json`, provide public aggregate observations, and
-record the approval reference before a snapshot can be published.
+record the approval reference and basis before a snapshot can be published.
 
 ## Import a JSON snapshot
 
@@ -23,10 +34,15 @@ CSV input contains one observation per row. The required columns are
 `unavailableReason`, `reviewOwner`, and `nextReviewDate`. `dimensions` is a
 JSON object. Source and approval metadata are supplied by a JSON sidecar; row
 columns with the corresponding `source*` or approval names may replace the
-sidecar metadata for a specific observation. A row must supply either all or
-none of the `source*` columns, and likewise all or none of the approval
-columns: a partial override is rejected because it would publish a provenance
-record stitched from two different sources.
+sidecar metadata for a specific observation. The approval columns are
+`approvalStatus`, `approvalBasis`, `approvalReference`, `approvedBy`, and
+`approvedAt`; `approvalBasis` is one of `board`, `management`, or
+`external-publication`, and it is required whenever the approval status is
+`approved`, because a board-approved figure and a management-attested figure
+are different artifacts. A row must supply either all or none of the `source*`
+columns, and likewise all or none of the approval columns: a partial override
+is rejected because it would publish a provenance record stitched from two
+different sources.
 
 The sidecar contains the snapshot fields `schemaVersion`, `snapshotId`,
 `status`, `asOf`, `refreshedAt`, `source`, `approval`, and optional `note`.

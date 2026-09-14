@@ -70,7 +70,7 @@ function parseDimensions(value, rowNumber) {
 }
 
 const csvSourceColumns = ['sourceId', 'sourceLabel', 'sourceLocator', 'sourceRetrievedAt'];
-const csvApprovalColumns = ['approvalStatus', 'approvalReference', 'approvedBy', 'approvedAt'];
+const csvApprovalColumns = ['approvalStatus', 'approvalBasis', 'approvalReference', 'approvedBy', 'approvedAt'];
 
 /**
  * A row either inherits the sidecar source/approval metadata in full or
@@ -106,6 +106,9 @@ function observationFromCsv(row, rowNumber, metadata) {
     },
     approval: {
       status: row.approvalStatus?.trim() || metadata.approval.status,
+      // A row that overrides the approval group must name who put their
+      // authority behind the number, not only that someone did.
+      basis: row.approvalBasis?.trim() || metadata.approval.basis,
       reference: row.approvalReference?.trim() || metadata.approval.reference,
       approvedBy: row.approvedBy?.trim() || metadata.approval.approvedBy,
       approvedAt: row.approvedAt?.trim() || metadata.approval.approvedAt,

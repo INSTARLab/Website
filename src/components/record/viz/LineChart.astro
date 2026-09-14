@@ -62,10 +62,15 @@ const formatValue = (value: number | null) => value === null || !Number.isFinite
 // period as an empty cell — indistinguishable from a period that was never
 // published. Values are written raw so a spreadsheet reads them as numbers, and
 // an unavailable period keeps the room's explicit "Not reported" wording.
+//
+// The State column keeps the three publication states apart in the file: a
+// measured zero exports as the number 0 with `measured`, while an approved
+// period with no published value exports as "Not reported" with `unavailable`.
 const csvValue = (value: number | null) => value === null || !Number.isFinite(value) ? 'Not reported' : value;
+const csvState = (value: number | null) => value === null || !Number.isFinite(value) ? 'unavailable' : 'measured';
 const csv = csvDocument([
-  ['Period', 'Value', ...(unit ? ['Unit'] : []), ...(source ? ['Source'] : []), ...(approval ? ['Approval'] : [])],
-  ...data.map((item) => [item.period, csvValue(item.value), ...(unit ? [unit] : []), ...(source ? [source] : []), ...(approval ? [approval] : [])]),
+  ['Period', 'Value', 'State', ...(unit ? ['Unit'] : []), ...(source ? ['Source'] : []), ...(approval ? ['Approval'] : [])],
+  ...data.map((item) => [item.period, csvValue(item.value), csvState(item.value), ...(unit ? [unit] : []), ...(source ? [source] : []), ...(approval ? [approval] : [])]),
 ]);
 const csvHref = csvDataHref(csv);
 ---

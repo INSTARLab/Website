@@ -14,6 +14,33 @@ green gate report.**
 | Pushed | **No** — nothing has been pushed from this commit |
 | GitLab state | All 13 RR issues (#9–#21) plus umbrella #8 remain **OPEN**; no issue was closed or commented on |
 
+## Superseding note — 2026-09-13 (later the same day)
+
+This document is a point-in-time record of commit `aeaae35` and every claim in
+it is scoped to that commit. It is left as written. Two of its forward-looking
+instructions have since been superseded, and a successor should not act on them:
+
+- **§3 (RR-208) and §4** say `src/data/record-bi/current.json` carries
+  `status: "empty"`, `approval.status: "pending"`, and `observations: []`, and
+  that it **must remain so**. The shipped snapshot is now
+  `record-bi-ceo-attestation-2026-09-13` with `status: "published"` and a
+  management-basis CEO attestation dated 2026-09-13. RR-208's underlying
+  dependency is **not** discharged by that change: the attestation publishes
+  measured zeros and explicitly unavailable values only. No funding, output, or
+  partnership aggregate has been supplied by an institutional data owner, and
+  the definitions in `src/data/record-bi/schema.json` are still awaiting owner
+  approval as §4 describes.
+- **§6 risk 5** ("keep `current.json` at `status: "empty"` until approved data
+  exists") is superseded by the same snapshot. The operative rule is now the
+  three-state contract in `scripts/record/README.md`: a measure with no approved
+  observation is `no-snapshot`, an approved observation without a publishable
+  value is `unavailable` (`Not reported`), and an approved observation with a
+  value is `measured` — including a measured zero, which must never be rendered
+  as `Not reported`.
+
+The gate matrix in §2 and the verdict in §8 describe `aeaae35` only and were
+never a release verdict for any later commit.
+
 ## 0. Why this document exists
 
 RR-302 ("Verify production artifacts and complete delivery handoff") was assigned

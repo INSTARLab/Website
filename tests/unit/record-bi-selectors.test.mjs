@@ -10,7 +10,7 @@ import {
 } from '../../src/data/record-bi/selectors.mjs';
 
 const definition = {
-  id: 'funding-awarded',
+  id: 'grants-awarded',
   dimensions: ['category'],
   aggregation: 'sum',
 };
@@ -19,7 +19,7 @@ const sourceA = { id: 'SRC-A', label: 'Awards register', locator: 'https://examp
 const sourceB = { id: 'SRC-B', label: 'Awards correction', locator: 'https://example.test/b', retrievedAt: '2026-09-02' };
 
 const observation = (overrides = {}) => ({
-  metricId: 'funding-awarded',
+  metricId: 'grants-awarded',
   value: 10,
   unit: 'USD',
   period: { start: '2026-01-01', end: '2026-03-31' },
@@ -71,6 +71,17 @@ test('same period and dimension aggregates sum values without changing unavailab
   ]);
   assert.equal(unavailable[0].value, null);
   assert.match(unavailable[0].unavailableReason, /Pending release/);
+
+  // Zero is a value, not an absence. Two published zeros aggregate to the
+  // number zero; if the reducer ever treated a falsy value as missing, this
+  // is the assertion that catches it.
+  const zeros = aggregateMetricObservations(definition, [
+    observation({ value: 0 }),
+    observation({ value: 0, source: sourceB }),
+  ]);
+  assert.strictEqual(zeros[0].value, 0);
+  assert.equal(zeros[0].unavailableReason, undefined);
+  assert.notEqual(zeros[0].value, null);
 });
 
 test('comparable history stays within one dimension and equal non-overlapping periods', () => {

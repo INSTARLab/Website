@@ -1,11 +1,21 @@
 ---
 export type MetricValue = string | number | null;
 
+/**
+ * The value state of a summary measure, mirroring `RecordBiValueState` in
+ * `src/data/record-bi`. It is declared here rather than imported so the
+ * presentation component stays independent of the data module, but the three
+ * tokens are the same three, and they are carried into the DOM so a test can
+ * assert that a published zero is never rendered as a missing value.
+ */
+export type MetricValueState = 'no-snapshot' | 'unavailable' | 'measured';
+
 export interface MetricItem {
   readonly label: string;
   readonly value: MetricValue;
   readonly note?: string;
   readonly href?: string;
+  readonly state?: MetricValueState;
 }
 
 interface Props {
@@ -22,7 +32,7 @@ const valueFor = (value: MetricValue) => value === null || value === '' ? 'Not r
   {title && <h2 class="visually-hidden">{title}</h2>}
   <div class:list={["row", "g-3", "record-metric-grid__row", `row-cols-1 row-cols-sm-2 row-cols-xl-${columns}`]}>
     {items.map((item) => (
-      <div class="col" data-record-metric={item.label}>
+      <div class="col" data-record-metric={item.label} data-record-value-state={item.state ?? 'no-snapshot'}>
         <article class="record-metric card h-100">
           <div class="card-body">
             <p class="record-metric__label">{item.label}</p>

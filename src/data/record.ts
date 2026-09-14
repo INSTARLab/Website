@@ -8,13 +8,16 @@ export {
   recordBiIsStale,
   recordBiMetricDefinition,
   recordBiMetricDefinitions,
+  recordBiObservationValueState,
   recordBiObservations,
   recordBiSnapshot,
   recordBiStatusForMetric,
+  recordBiValueStateForMetric,
   validateRecordBiSnapshot,
 } from './record-bi';
 export type {
   RecordBiApproval,
+  RecordBiApprovalBasis,
   RecordBiDomain,
   RecordBiMetricDefinition,
   RecordBiMetricState,
@@ -22,6 +25,7 @@ export type {
   RecordBiPeriod,
   RecordBiSnapshot,
   RecordBiSource,
+  RecordBiValueState,
 } from './record-bi';
 
 export interface RecordRoute {
@@ -66,6 +70,18 @@ export interface RecordSource {
   readonly status: 'verified-in-repository' | 'review-required' | 'not-public';
   readonly supports: string;
   readonly limits: string;
+}
+
+export interface RecordExternalSource {
+  readonly id: string;
+  readonly label: string;
+  readonly publisher: string;
+  readonly locator: string;
+  readonly retrievedAt: string;
+  readonly publishes: string;
+  readonly limits: string;
+  readonly note?: string;
+  readonly fallback?: { readonly label: string; readonly locator: string };
 }
 
 export interface RecordVisual {
@@ -194,6 +210,41 @@ export const recordSourceRegister: readonly RecordSource[] = [
   { id: 'SRC-004', label: 'Public media policy', locator: 'src/data/media/public-media-policy.json and src/data/media/README.md', status: 'review-required', supports: 'Media roles, dimensions, responsive behavior, and per-asset provenance fields.', limits: 'The repository notes that many image and partner-asset rights/provenance fields remain unverified.' },
   { id: 'SRC-005', label: 'Published organization document URL', locator: '/docs/irs-determination-letter-85-0845517.pdf', status: 'review-required', supports: 'The existence of a public PDF at this stable URL.', limits: 'The filename is not treated as proof of document type; extracted text requires human review.' },
   { id: 'SRC-006', label: 'Separate records corpus', locator: 'Separate repository source corpus (not published)', status: 'not-public', supports: 'The existence of separately maintained governance, policy, training, template, institutional, and research source material.', limits: 'Branch status and publication authority are not established for this website; private legal, tax, agreement, and personnel content is intentionally not reproduced.' },
+  { id: 'SRC-007', label: 'Management attestation of the measured zeros', locator: 'src/data/record-bi/current.json', status: 'verified-in-repository', supports: 'The two measured zeros published in the operational snapshot — no grant awarded to INSTAR Lab, and no peer-reviewed publication naming an INSTAR Lab author — attested by the chief executive officer on 2026-09-13.', limits: 'A management attestation is not a board resolution, an audited statement, or an external filing. It records what the institution approved for publication, and it is the weakest of the three approval bases the snapshot can carry.' },
+] as const;
+
+/**
+ * Authoritative external records about the institution itself.
+ *
+ * These are published the way the repository publishes everything else: the
+ * figure belongs to the source, the attribution travels with it, and the
+ * limitation is stated next to the number rather than buried. The Record Room
+ * does not restate a filing's figures as its own operational measures — the
+ * BI snapshot in `src/data/record-bi/current.json` publishes only what an
+ * approver inside the institution has signed, and it marks everything else
+ * "Not reported".
+ */
+export const recordExternalSources: readonly RecordExternalSource[] = [
+  {
+    id: 'EXT-001',
+    label: 'Ohio Attorney General charitable registration record',
+    publisher: 'Ohio Attorney General — Charitable Registration',
+    locator: 'https://charitableregistration.ohioago.gov/Charities/OrganizationDetails?Id=12174620',
+    retrievedAt: '2026-09-13',
+    publishes: 'For the most recent filing year on record, the Ohio Attorney General publishes: gross revenue $49,000; total expenses $49,000; program service expenses $49,000 (100.00%); total assets $0; three board members; a conflict-of-interest policy on file; no audited financial statements; and a status of in compliance with registration requirements.',
+    limits: 'A state charitable-registration filing is a self-reported annual filing, not an audit. It describes the filing year rather than a current balance, it reports a filing classification rather than the institution\'s own accounting, and the page is a third-party system that INSTAR Lab does not control.',
+    fallback: { label: 'Ohio Attorney General charity search', locator: 'https://charitableregistration.ohioago.gov/Charities/ResearchCharities' },
+  },
+  {
+    id: 'EXT-002',
+    label: 'Nonprofit Explorer record by EIN',
+    publisher: 'ProPublica',
+    locator: 'https://projects.propublica.org/nonprofits/organizations/850845517',
+    retrievedAt: '2026-09-13',
+    publishes: 'The entry is keyed to INSTAR Lab\'s IRS employer identification number (85-0845517) and identifies the organization.',
+    note: 'This page renders "No Financial Data Available", which reads as a hole unless the reason is stated: the Nonprofit Explorer reproduces digitized Form 990 filings and excludes organizations that file the 990-N (e-Postcard) instead. The entry is cited here as an independent identity and filing-status check, not as a financial source.',
+    limits: 'Because no Form 990 is reproduced there, this page cannot confirm or contradict any figure in the filing linked above, and its own absence of data is not evidence that no filing exists.',
+  },
 ] as const;
 
 export const recordStats = {

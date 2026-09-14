@@ -5,13 +5,14 @@ import metricSchema from '../../src/data/record-bi/schema.json' with { type: 'js
 
 const metricKeys = ['id', 'domain', 'label', 'description', 'valueType', 'unit', 'aggregation', 'dimensions', 'grain', 'temporalKind', 'population', 'exclusions'];
 const sourceKeys = ['id', 'label', 'locator', 'retrievedAt'];
-const approvalKeys = ['status', 'reference', 'approvedBy', 'approvedAt'];
+const approvalKeys = ['status', 'basis', 'reference', 'approvedBy', 'approvedAt'];
+const approvalBasisValues = ['board', 'management', 'external-publication'];
 const snapshotKeys = ['schemaVersion', 'snapshotId', 'status', 'asOf', 'refreshedAt', 'source', 'approval', 'observations', 'note'];
 const observationKeys = ['metricId', 'value', 'unavailableReason', 'unit', 'period', 'asOf', 'dimensions', 'source', 'approval', 'reviewOwner', 'nextReviewDate'];
 const isoDatePattern = /^\d{4}-\d{2}-\d{2}$/;
 
 export const csvRequiredHeaders = Object.freeze(['metricId', 'value', 'unit', 'periodStart', 'periodEnd', 'asOf', 'dimensions', 'unavailableReason', 'reviewOwner', 'nextReviewDate']);
-export const csvOptionalHeaders = Object.freeze(['sourceId', 'sourceLabel', 'sourceLocator', 'sourceRetrievedAt', 'approvalStatus', 'approvalReference', 'approvedBy', 'approvedAt']);
+export const csvOptionalHeaders = Object.freeze(['sourceId', 'sourceLabel', 'sourceLocator', 'sourceRetrievedAt', 'approvalStatus', 'approvalBasis', 'approvalReference', 'approvedBy', 'approvedAt']);
 
 const requiredString = (value) => typeof value === 'string' && value.trim().length > 0;
 const isPlainObject = (value) => Boolean(value) && typeof value === 'object' && !Array.isArray(value);
@@ -81,11 +82,13 @@ function validateApproval(approval, prefix, errors, { observation = false, publi
   }
   if (!hasOnlyKeys(approval, approvalKeys)) errors.push(`${prefix} contains unsupported properties`);
   if (!['pending', 'approved'].includes(approval.status)) errors.push(`${prefix}.status must be pending or approved`);
+  if (approval.basis !== null && approval.basis !== undefined && !approvalBasisValues.includes(approval.basis)) errors.push(`${prefix}.basis must be board, management, or external-publication`);
+  if (approval.status === 'approved' && !approvalBasisValues.includes(approval.basis)) errors.push(`${prefix}.basis is required when the approval status is approved`);
   if (!requiredString(approval.reference)) errors.push(`${prefix}.reference is required`);
   if (approval.approvedBy !== null && approval.approvedBy !== undefined && !requiredString(approval.approvedBy)) errors.push(`${prefix}.approvedBy must be null or a string`);
   if (approval.approvedAt !== null && approval.approvedAt !== undefined && !isIsoDate(approval.approvedAt)) errors.push(`${prefix}.approvedAt must be null or a valid YYYY-MM-DD date`);
   if (published && (approval.status !== 'approved' || !requiredString(approval.approvedBy) || !isIsoDate(approval.approvedAt))) errors.push(`${prefix} requires approved status, approver, and approvedAt for a published snapshot`);
-  if (observation && (approval.status !== 'approved' || !requiredString(approval.approvedBy) || !isIsoDate(approval.approvedAt))) errors.push(`${prefix} requires approved status, reference, approver, approvedAt, and no unsupported properties`);
+  if (observation && (approval.status !== 'approved' || !approvalBasisValues.includes(approval.basis) || !requiredString(approval.approvedBy) || !isIsoDate(approval.approvedAt))) errors.push(`${prefix} requires approved status, approval basis, reference, approver, approvedAt, and no unsupported properties`);
 }
 
 function validatePeriod(period, prefix, errors) {

@@ -114,7 +114,7 @@ test('Record navigation crosses marketing boundaries without CSS or script leaka
   await expect(page.locator('.site-header')).toHaveCount(0);
 });
 
-test('Record JSON endpoints stay public and do not invent operational observations', async ({ request }) => {
+test('Record JSON endpoints stay public and declare only approved operational observations', async ({ request }) => {
   for (const name of ['meta', 'manifest', 'graph', 'journeys', 'page-metrics', 'bi']) {
     const response = await request.get(`/record/${name}.json`);
     expect(response.status()).toBe(200);
@@ -123,9 +123,41 @@ test('Record JSON endpoints stay public and do not invent operational observatio
   }
   const bi = await (await request.get('/record/bi.json')).json();
   expect(bi.schemaVersion).toBe(1);
-  expect(bi.metrics).toHaveLength(4);
-  // This repository has no approved institutional observations yet. Adding them must update this fixture expectation.
-  expect(bi.observations).toEqual([]);
+  expect(bi.metrics).toHaveLength(7);
+  expect(bi.observations.length).toBeGreaterThan(0);
+
+  // The snapshot carries its own approval, and it is the part a reader cites
+  // when they quote a figure from this endpoint. Without a basis on the
+  // snapshot, a management attestation is indistinguishable from a board
+  // resolution — the exact distinction the field exists to preserve.
+  expect(bi.snapshot?.snapshotId, 'the published snapshot has no identity').toBeTruthy();
+  expect(bi.snapshot?.status, 'the endpoint publishes a snapshot that is not published').toBe('published');
+  expect(bi.snapshot?.approval?.status, 'the snapshot carries no approval').toBe('approved');
+  expect(['board', 'management', 'external-publication'], 'the snapshot names no approval basis').toContain(bi.snapshot.approval.basis);
+  expect(bi.snapshot.approval.reference, 'the snapshot cites no approval reference').toBeTruthy();
+  expect(bi.snapshot.approval.approvedBy, 'the snapshot names no approver').toBeTruthy();
+  expect(bi.snapshot.approval.approvedAt, 'the snapshot has no approval date').toMatch(/^\d{4}-\d{2}-\d{2}$/);
+
+  // The suite used to assert that no observation existed at all. What matters
+  // is not that the array is empty but that nothing in it is invented: every
+  // published figure must name the source it came from, who approved it, when,
+  // and on whose authority — and a row with no value must say why rather than
+  // posing as a measured zero.
+  const contract = ['metricId', 'value', 'unavailableReason', 'unit', 'period', 'asOf', 'dimensions', 'source', 'approval', 'reviewOwner', 'nextReviewDate'];
+  for (const observation of bi.observations) {
+    expect(Object.keys(observation).every(key => contract.includes(key)), 'an observation carries a field outside the published contract').toBe(true);
+    expect(observation.source?.id, 'an observation has no source').toBeTruthy();
+    expect(observation.approval?.status, 'an observation is not approved').toBe('approved');
+    expect(['board', 'management', 'external-publication'], 'an observation has no approval basis').toContain(observation.approval.basis);
+    expect(observation.approval.approvedBy, 'an observation names no approver').toBeTruthy();
+    expect(observation.approval.approvedAt, 'an observation has no approval date').toMatch(/^\d{4}-\d{2}-\d{2}$/);
+    if (observation.value === null) {
+      expect((observation.unavailableReason ?? '').trim().length, `${observation.metricId} publishes a missing value with no reason`).toBeGreaterThan(0);
+    } else {
+      expect(observation.value).toBeGreaterThanOrEqual(0);
+      expect(observation.unavailableReason, 'a measured value carries an unavailability reason').toBeUndefined();
+    }
+  }
 });
 
 test('Record content reflows at narrow, tablet and wide widths and supports reduced motion', async ({ page }) => {
@@ -467,4 +499,111 @@ test('the off-canvas Record panel makes the page behind it inert, and releases i
   await page.keyboard.press('Escape');
   await expect(panel).not.toBeVisible();
   await expect(document).not.toHaveAttribute('inert', /.*/);
+});
+
+// The three publication states are three different claims about the
+// institution: "we measured this and it is zero", "this is approved and the
+// value is not published", and "nothing has been approved here". Rendering any
+// two of them the same way makes the room lie about one of them, so the states
+// are asserted apart on the page itself rather than only in the data module.
+test('Record measures keep measured zeros, approved unavailability, and unpublished measures apart', async ({ page }) => {
+  await page.goto('/record/', { waitUntil: 'domcontentloaded' });
+  const cards = await page.locator('[data-record-metric]').evaluateAll(elements => elements.map(element => ({
+    label: element.getAttribute('data-record-metric') ?? '',
+    state: element.getAttribute('data-record-value-state') ?? '',
+    value: element.querySelector('.record-metric__value')?.textContent?.trim() ?? '',
+    note: element.querySelector('.record-metric__note')?.textContent?.trim() ?? '',
+  })));
+
+  expect(cards.length, 'the overview renders no measures').toBeGreaterThan(0);
+  const measured = cards.filter(card => card.state === 'measured');
+  const unavailable = cards.filter(card => card.state === 'unavailable');
+  expect(measured.length, 'no measure published a measured value').toBeGreaterThan(0);
+  expect(unavailable.length, 'no measure exercised the approved-unavailable state').toBeGreaterThan(0);
+
+  for (const card of measured) {
+    // A measured value — including a measured zero — is a numeral. If it ever
+    // renders as "Not reported", the page has published the opposite claim.
+    expect(card.value, `${card.label} publishes a measured value as missing`).not.toBe('Not reported');
+    expect(card.value, `${card.label} does not render a numeral`).toMatch(/^[\d,.]+$/);
+  }
+  for (const card of unavailable) {
+    expect(card.value, `${card.label} invents a value it has no approval for`).toBe('Not reported');
+    // The reason is the whole difference between this state and an
+    // unpublished one, so it has to be on the page.
+    expect(card.note.replace(/^Not reported · /, '').length, `${card.label} states no reason for its unavailability`).toBeGreaterThan(0);
+  }
+  // The two measures the institution has actually attested are published from
+  // zero, so the overview must show them as measured zeros and not merely as
+  // "some measure has a number".
+  const attested = cards.filter(card => /grants awarded|publications/i.test(card.label));
+  expect(attested.length, 'the attested measures are missing from the overview').toBe(2);
+  for (const card of attested) {
+    expect(card.state, `${card.label} is no longer published as a measured value`).toBe('measured');
+    expect(card.value, `${card.label} does not render its measured zero`).toBe('0');
+  }
+});
+
+// The export is the artifact a reader keeps. A spreadsheet row that says
+// "Not reported" for a measured zero is the same defect as the page saying it,
+// and it is harder to notice.
+test('Record exports distinguish a measured zero from an unavailable value', async ({ page }) => {
+  await page.goto('/record/ops/', { waitUntil: 'domcontentloaded' });
+  const documents = await page.locator('[data-record-viz] a.record-viz__export').evaluateAll(links => links.map(link =>
+    decodeURIComponent((link.getAttribute('href') ?? '').slice('data:text/csv;charset=utf-8,'.length)).split('\n'),
+  ));
+  const rowGroups = documents.map(document => document.slice(1));
+  const rows = rowGroups.flat();
+
+  // The state column has to be named, not merely populated: a reader holding
+  // the file needs to know which column carries the distinction, and a dropped
+  // header is the quiet way the three states stop being readable in a
+  // spreadsheet.
+  expect(documents.length, 'the business-status page rendered no BI export').toBeGreaterThan(0);
+  for (const [index, document_] of documents.entries()) {
+    expect(document_[0], `export ${index + 1} does not name the publication state column`).toContain('"State"');
+  }
+
+  expect(rows.length, 'the business-status page rendered no BI export rows').toBeGreaterThan(0);
+  const measured = rows.filter(row => row.includes('"measured"'));
+  const unavailable = rows.filter(row => row.includes('"unavailable"'));
+  expect(measured.length, 'no export row carries a measured value').toBeGreaterThan(0);
+  expect(unavailable.length, 'no export row carries an unavailable value').toBeGreaterThan(0);
+
+  for (const row of measured) {
+    expect(row, 'a measured row exported its value as missing').not.toContain('"Not reported"');
+  }
+  for (const row of unavailable) {
+    expect(row, 'an unavailable row exported a value as if it were measured').toContain('"Not reported"');
+  }
+  expect(measured.some(row => row.includes(',"0",')), 'no measured zero was exported as the number zero').toBe(true);
+});
+
+// The room cites the government filing that publishes INSTAR Lab's figures
+// rather than restating them as its own measures, and the ProPublica entry is
+// published with the reason it shows no financial data — bare, it reads as a
+// hole rather than as a record.
+test('the source register cites external records with working links and stated limits', async ({ page }) => {
+  await page.goto('/record/verify/', { waitUntil: 'domcontentloaded' });
+  const externalLinks = await page
+    .locator('a[href^="https://charitableregistration.ohioago.gov"], a[href^="https://projects.propublica.org"]')
+    .evaluateAll(links => links.map(link => ({
+      href: link.getAttribute('href') ?? '',
+      rel: link.getAttribute('rel') ?? '',
+      label: link.getAttribute('aria-label') ?? '',
+    })));
+
+  expect(externalLinks.length, 'no external record was rendered').toBeGreaterThanOrEqual(2);
+  for (const link of externalLinks) {
+    expect(link.rel, `${link.href} opens a new tab without noopener`).toContain('noopener');
+    expect(link.label.length, `${link.href} has no accessible name`).toBeGreaterThan(0);
+  }
+  expect(externalLinks.some(link => link.href.includes('charitableregistration.ohioago.gov/Charities/OrganizationDetails?Id=12174620')), 'the Ohio filing link is missing').toBe(true);
+  expect(externalLinks.some(link => link.href.includes('projects.propublica.org/nonprofits/organizations/850845517')), 'the ProPublica link is missing').toBe(true);
+
+  const body = await page.locator('main').innerText();
+  expect(body, 'the ProPublica entry does not explain why it shows no financial data').toMatch(/990-N/);
+  expect(body, 'the ProPublica framing sentence was dropped').toMatch(/No Financial Data Available/);
+  // A session-bound IRS TEOS link was verified to break; it must not come back.
+  expect(await page.locator('a[href*="apps.irs.gov"]').count(), 'a session-bound IRS link was published').toBe(0);
 });
