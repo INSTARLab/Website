@@ -9,5 +9,9 @@
 
 Contact: mailto:info@instarlab.org
 Expires: 2027-07-19T00:00:00.000Z
-Canonical: https://instarlab.org/.well-known/security.txt
+# The apex host 301s to www, so the URI this file is actually served at — and
+# the canonical host the site publishes everywhere else (src/data/seo/site.ts,
+# public/CNAME) — is www.instarlab.org. RFC 9116 requires Canonical to name the
+# location the file is retrieved from.
+Canonical: https://www.instarlab.org/.well-known/security.txt
 Preferred-Languages: en

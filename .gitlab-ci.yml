@@ -9,8 +9,12 @@ variables:
 
 # Astro owns the production artifact. Override the included template's
 # root-copying `pages` job so GitLab Pages publishes dist/ instead of the
-# repository source tree.
+# repository source tree. `extends: []` is the explicit opt-out from the
+# included `.pages:deploy` template, matching the mirror job below: without it
+# the job only avoids the template's root-copying script because its own keys
+# happen to win the merge.
 pages:
+  extends: []
   stage: deploy
   image: node:22-bookworm-slim
   before_script:
@@ -97,7 +101,49 @@ mirror:
       test -d dist
       test -f dist/.nojekyll
       test -f dist/CNAME
+      test -f dist/index.html
       test -z "$(find dist -type l -print -quit)"
+
+      # This artifact ships to the CNAME-rooted site at https://instarlab.org,
+      # where every route and asset URL must be root-relative. If ASTRO_BASE
+      # stops being "/" the build silently switches to the GitLab project
+      # subpath (/Website/) and the published site 404s. No other job covers
+      # this: quality:astro-artifact only runs on demo and validates the
+      # /Website/ build, so assert the invariant on the artifact that actually
+      # ships, and fail closed when a check cannot run at all.
+      if [ "${ASTRO_BASE:-}" != "/" ]; then
+        echo "Refusing to mirror: ASTRO_BASE must be / for the CNAME-rooted site, got '${ASTRO_BASE:-<unset>}'" >&2
+        exit 1
+      fi
+
+      # grep exits 0 on a match, 1 on no match, and >1 on an error. Only a
+      # clean "no match" may pass, so an unreadable tree fails the job instead
+      # of reporting success it did not verify.
+      if grep -rIlF -e '/Website/' dist; then
+        echo "Refusing to mirror: the artifact contains the GitLab Pages base /Website/ (files listed above)" >&2
+        exit 1
+      else
+        base_scan_status=$?
+        if [ "${base_scan_status}" -ne 1 ]; then
+          echo "Refusing to mirror: the /Website/ scan could not complete (grep exited ${base_scan_status})" >&2
+          exit 1
+        fi
+      fi
+
+      # Positive counterpart to the scan above, which only knows that one wrong
+      # base. The shipped entry document must reference an asset at a
+      # root-relative /assets/ URL that exists in the artifact; any other base
+      # rewrites those to /<subpath>/assets/... and this fails.
+      entry_asset="$(grep -o -m1 -E '(href|src)="/assets/[^"]+"' dist/index.html | head -n 1 | sed -E 's/^[a-z]+="//; s/"$//' || true)"
+      if [ -z "${entry_asset}" ]; then
+        echo "Refusing to mirror: dist/index.html exposes no root-relative /assets/ reference" >&2
+        exit 1
+      fi
+      if [ ! -f "dist${entry_asset}" ]; then
+        echo "Refusing to mirror: dist/index.html references ${entry_asset}, which is absent from the artifact" >&2
+        exit 1
+      fi
+      echo "Verified root-relative base: ${entry_asset} resolves in dist/"
 
       artifact_dir="$(mktemp -d)"
       cp -a dist/. "${artifact_dir}/"
@@ -211,5 +257,133 @@ mirror:
 
       github_pages_sha_after="$(GIT_ASKPASS="${askpass}" GIT_TERMINAL_PROMPT=0 git ls-remote "${github_repo_url}" refs/heads/gh-pages | awk 'NF {print $1; exit}')"
       test "${github_pages_sha_after}" = "$(git -C "${publish_dir}" rev-parse HEAD)"
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "gh-pages"'
+
+# The push above completes before GitHub Pages has republished the artifact, so
+# verify the live origin separately rather than asserting on the local build.
+# This runs in the built-in .post stage — after the mirror, never before it —
+# and fails the pipeline when the record surface the site advertises is not
+# actually served. Because the push has already happened by then, a failure
+# reports a published release rather than preventing one; that is the correct
+# trade for a smoke test, and the retry budget below absorbs the publish delay.
+smoke:live-record:
+  extends: []
+  stage: .post
+  image: node:22-bookworm-slim
+  needs:
+    - job: mirror
+  variables:
+    SMOKE_ORIGIN: "https://www.instarlab.org"
+    SMOKE_DELAY_MS: "15000"
+    SMOKE_TIMEOUT_MS: "240000"
+  script:
+    - |
+      set -eu
+      smoke_script="$(mktemp)"
+      trap 'rm -f "${smoke_script}"' EXIT
+      # Fetch is a Node built-in, so the check needs no curl in the image.
+      cat > "${smoke_script}" <<'SMOKE'
+      const origin = (process.env.SMOKE_ORIGIN ?? "").replace(/\/+$/, "");
+      const delayMs = Number.parseInt(process.env.SMOKE_DELAY_MS ?? "15000", 10);
+      const timeoutMs = Number.parseInt(process.env.SMOKE_TIMEOUT_MS ?? "240000", 10);
+      const requestTimeoutMs = 20000;
+
+      // The record surface the published site tells readers to rely on.
+      const targets = [
+        { path: "/record/meta.json", kind: "json" },
+        { path: "/record/ops/", kind: "html" },
+      ];
+
+      const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+      async function probe(target) {
+        const response = await fetch(`${origin}${target.path}`, {
+          redirect: "follow",
+          cache: "no-store",
+          signal: AbortSignal.timeout(requestTimeoutMs),
+          headers: { "user-agent": "instarlab-launch-sequence-smoke" },
+        });
+        const body = await response.text();
+        if (response.status !== 200) return { ok: false, detail: `HTTP ${response.status}` };
+        if (target.kind === "json") {
+          let payload;
+          try {
+            payload = JSON.parse(body);
+          } catch (error) {
+            return { ok: false, detail: `body was not JSON (${error.message})` };
+          }
+          if (payload === null || typeof payload !== "object") {
+            return { ok: false, detail: "JSON body was not an object" };
+          }
+          return { ok: true, detail: `HTTP 200 JSON object, ${body.length} bytes` };
+        }
+        const contentType = response.headers.get("content-type") ?? "";
+        if (!contentType.includes("text/html")) {
+          return { ok: false, detail: `content-type was ${contentType || "<missing>"}` };
+        }
+        if (!/<html[\s>]/i.test(body)) {
+          return { ok: false, detail: "body was not an HTML document" };
+        }
+        return { ok: true, detail: `HTTP 200 HTML document, ${body.length} bytes` };
+      }
+
+      async function main() {
+        if (!/^https?:\/\/[^/]+$/.test(origin)) {
+          console.error(`SMOKE_ORIGIN must be a bare http(s) origin, got ${JSON.stringify(origin)}`);
+          return 1;
+        }
+        if (!Number.isInteger(delayMs) || delayMs < 1000) {
+          console.error(`SMOKE_DELAY_MS must be an integer of at least 1000 ms, got ${process.env.SMOKE_DELAY_MS}`);
+          return 1;
+        }
+        if (!Number.isInteger(timeoutMs) || timeoutMs < 1) {
+          console.error(`SMOKE_TIMEOUT_MS must be a positive integer, got ${process.env.SMOKE_TIMEOUT_MS}`);
+          return 1;
+        }
+
+        let failed = 0;
+        for (const target of targets) {
+          const deadline = Date.now() + timeoutMs;
+          let outcome = { ok: false, detail: "not attempted" };
+          let attempts = 0;
+          while (true) {
+            attempts += 1;
+            try {
+              outcome = await probe(target);
+            } catch (error) {
+              outcome = { ok: false, detail: `fetch failed: ${error?.message ?? error}` };
+            }
+            if (outcome.ok) break;
+            const remaining = deadline - Date.now();
+            if (remaining <= 0) break;
+            const wait = Math.min(delayMs, remaining);
+            console.log(`${origin}${target.path}: attempt ${attempts} not ready (${outcome.detail}); retrying in ${wait} ms`);
+            await sleep(wait);
+          }
+          if (outcome.ok) {
+            console.log(`OK   ${origin}${target.path}: ${outcome.detail} after ${attempts} attempt(s)`);
+          } else {
+            failed += 1;
+            console.error(`FAIL ${origin}${target.path}: ${outcome.detail} after ${attempts} attempt(s)`);
+          }
+        }
+
+        if (failed > 0) {
+          console.error(`The published site did not serve ${failed} of ${targets.length} required record endpoint(s).`);
+          return 1;
+        }
+        console.log(`Verified ${targets.length} live record endpoint(s) on ${origin}.`);
+        return 0;
+      }
+
+      main()
+        .then((code) => process.exit(code))
+        .catch((error) => {
+          console.error(`live record smoke check crashed: ${error?.stack ?? error}`);
+          process.exit(1);
+        });
+      SMOKE
+      node "${smoke_script}"
   rules:
     - if: '$CI_COMMIT_BRANCH == "gh-pages"'
