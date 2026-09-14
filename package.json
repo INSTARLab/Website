@@ -21,10 +21,11 @@
     "quality:links": "node scripts/quality/check-dist-links.mjs --dist dist",
     "quality:sitemap": "node scripts/quality/check-dist-sitemap.mjs --dist dist --origin https://www.instarlab.org",
     "quality:media": "node scripts/quality/media-audit.mjs --dist dist",
+    "quality:provenance": "node scripts/quality/check-dist-provenance.mjs --dist dist",
     "design:refresh": "21st init --design-context --refresh",
     "test:browser": "pnpm exec playwright test -c tests/browser/playwright.config.ts",
     "quality:browser": "pnpm run test:browser",
-    "verify": "pnpm run check && pnpm run quality:record && pnpm run build && pnpm run quality:routes && pnpm run quality:media && pnpm run quality:links && pnpm run quality:sitemap && pnpm run quality:browser",
+    "verify": "pnpm run check && pnpm run quality:record && pnpm run build && pnpm run quality:routes && pnpm run quality:media && pnpm run quality:provenance && pnpm run quality:links && pnpm run quality:sitemap && pnpm run quality:browser",
     "quality:record": "node --test tests/record/*.test.mjs tests/unit/*.test.mjs"
   },
   "dependencies": {
