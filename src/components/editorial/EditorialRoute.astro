@@ -76,7 +76,7 @@ const heroAsset = publicMediaFor(heroUrl, {
           <h1>{route.title}</h1>
           <p class="editorial-dek">{route.description}</p>
           <div class="editorial-actions">
-            <a class="editorial-button editorial-button--primary" href={primaryHref}>Review {familyLabel(route.family).toLowerCase()} portfolio <Icon name="arrow-up-right" size="1rem" /></a>
+            <a class="editorial-button editorial-button--primary" href={primaryHref}>Explore {familyLabel(route.family).toLowerCase()} <Icon name="arrow-up-right" size="1rem" /></a>
             <a class="editorial-button editorial-button--quiet" href="/contact-us/">Discuss a research requirement <Icon name="arrow-right" size="1rem" /></a>
           </div>
         </div>
@@ -122,6 +122,24 @@ const heroAsset = publicMediaFor(heroUrl, {
       </section>
     ) : null}
 
+    {route.path === '/community/careers/' ? (
+      /*
+       * Honest empty-state (gh#259, gh#312): this page's title promises jobs,
+       * so it must say plainly that no verified openings exist rather than
+       * imply listings below. Only verified current openings are ever
+       * published here — never placeholder postings.
+       */
+      <section class="editorial-decision editorial-container" aria-labelledby="careers-openings-title">
+        <div class="editorial-decision__stamp" aria-hidden="true">INSTAR<br />/ / /</div>
+        <div class="editorial-decision__copy">
+          <div class="editorial-section-label">Current openings</div>
+          <h2 id="careers-openings-title">No open positions are listed right now.</h2>
+          <p>To be considered for a future research or technical role, send your background and interests through the contact page, or compare the fellowship pathways.</p>
+        </div>
+        <a class="editorial-button editorial-button--primary" href="/contact-us/">Express interest in a future role <Icon name="arrow-up-right" size="1rem" /></a>
+      </section>
+    ) : null}
+
     {related.length > 0 ? (
     <section class="editorial-related editorial-container" aria-labelledby="editorial-related-title">
       <div class="editorial-related__head">
@@ -129,7 +147,7 @@ const heroAsset = publicMediaFor(heroUrl, {
           <div class="editorial-section-label">Related research</div>
           <h2 id="editorial-related-title">Review the surrounding portfolio.</h2>
         </div>
-        <a href={primaryHref}>Review all {familyLabel(route.family).toLowerCase()} <Icon name="arrow-right" size="1rem" /></a>
+        <a href={primaryHref}>{isArticle ? 'More research briefs' : `Continue in ${familyLabel(route.family).toLowerCase()}`} <Icon name="arrow-right" size="1rem" /></a>
       </div>
       <ul class="editorial-related__grid">
         {related.map((entry) => (

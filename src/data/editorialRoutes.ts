@@ -53,6 +53,10 @@ const familyLabels: Record<EditorialFamily, string> = {
 };
 
 const familyRoots: Record<EditorialFamily, string> = {
+  // Where a real family index exists it is the target (gh#325). The other
+  // families have no standalone index route, so the root is the most
+  // representative page — and the link labels below say "explore/continue",
+  // never "review all", to avoid promising an index that does not exist.
   research: '/research/',
   technology: '/technology/computer-science/',
   sciences: '/sciences/physics/',

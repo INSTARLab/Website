@@ -419,3 +419,34 @@ smoke:live-record:
       node "${smoke_script}"
   rules:
     - if: '$CI_COMMIT_BRANCH == "gh-pages"'
+
+# Monthly site-health sweep (gh#283). Dormant until an owner creates a CI
+# schedule targeting a branch: the rules below match scheduled pipelines
+# only, so ordinary pushes never run this job. It rebuilds the release
+# artifact from the scheduled ref and re-runs the release-quality checks
+# (routes, links, sitemap, media, provenance, metadata) to catch drift that
+# per-push runs cannot see — destinations that rotted while no source file
+# changed. A failure surfaces as a failed scheduled pipeline with the check
+# output attached, which is the machine-readable report the on-call agent
+# acts on. Lighthouse sampling stays out until gh#266 lands a calibrated
+# budget; this job must never fail on an uncalibrated perf number.
+sweep:site-health:
+  extends: []
+  stage: preflight
+  image: node:22-bookworm-slim
+  before_script:
+    - npx --yes --package=pnpm@12.4.1 pnpm --version
+  script:
+    - npx --yes --package=pnpm@12.4.1 pnpm install --frozen-lockfile
+    - ASTRO_BASE=/ npx --yes --package=pnpm@12.4.1 pnpm run build
+    - node scripts/quality/route-ledger.mjs --dist dist --strict
+    - node scripts/quality/check-dist-links.mjs --dist dist --base /
+    - node scripts/quality/check-dist-sitemap.mjs --dist dist --origin https://www.instarlab.org --base /
+    - node scripts/quality/media-audit.mjs --dist dist --strict
+    - node scripts/quality/check-dist-provenance.mjs --dist dist
+    - node scripts/quality/validate-dist-metadata.mjs --dist dist
+    - test -f dist/rss.xml
+    - test -f dist/sitemap.xml
+    - test -f dist/sitemap-index.xml
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "schedule"'
