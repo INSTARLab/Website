@@ -40,6 +40,7 @@ try {
         return { route: location.pathname, width: innerWidth, height: innerHeight,
           scrollWidth: document.documentElement.scrollWidth, heightTotal: document.body.scrollHeight,
           mains: document.querySelectorAll('main').length, marketingHeaders: document.querySelectorAll('.site-header').length,
+          marketingHeaderHeight: document.querySelector('.site-header')?.getBoundingClientRect().height ?? 0,
           marketingFooters: document.querySelectorAll('.site-footer').length,
           mainBounds: bounds ? { x: bounds.x, width: bounds.width } : null,
           mainPadding: styles ? { left: styles.paddingLeft, right: styles.paddingRight } : null };

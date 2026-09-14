@@ -61,7 +61,13 @@ const {
       backdrop?.classList.toggle('show', open);
       body.classList.toggle('record-menu-open', open);
       menuButton.setAttribute('aria-expanded', String(open));
-      sidebar.setAttribute('aria-hidden', String(!open && window.matchMedia('(max-width: 991.98px)').matches));
+      const offcanvasHidden = !open && window.matchMedia('(max-width: 991.98px)').matches;
+      sidebar.setAttribute('aria-hidden', String(offcanvasHidden));
+      // Keep the closed panel out of the focus order immediately. The panel
+      // transitions `visibility`, which stays `visible` for the full 250ms, so
+      // aria-hidden alone would leave focusable links inside a hidden subtree
+      // during that window.
+      sidebar.toggleAttribute('inert', offcanvasHidden);
       if (open) {
         sidebar.setAttribute('role', 'dialog');
         sidebar.setAttribute('aria-modal', 'true');
@@ -122,11 +128,16 @@ const {
     });
 
     const desktopQuery = window.matchMedia('(min-width: 992px)');
+    const syncViewportState = () => {
+      const offcanvasHidden = !desktopQuery.matches;
+      sidebar.setAttribute('aria-hidden', String(offcanvasHidden));
+      sidebar.toggleAttribute('inert', offcanvasHidden);
+    };
     desktopQuery.addEventListener('change', (event) => {
       if (event.matches) setOpen(false);
-      sidebar.setAttribute('aria-hidden', String(!event.matches));
+      syncViewportState();
     });
 
-    sidebar.setAttribute('aria-hidden', String(!desktopQuery.matches));
+    syncViewportState();
   }
 </script>

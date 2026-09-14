@@ -1,4 +1,5 @@
 import { expect, test } from '@playwright/test';
+import AxeBuilder from '@axe-core/playwright';
 
 const routes = ['', 'leadership/', 'marketing/', 'journeys/', 'federal/', 'verify/', 'files/', 'nav/', 'metrics/', 'screens/', 'ops/', 'style/'].map(part => `/record/${part}`);
 
@@ -150,4 +151,78 @@ test('Record skip link bypasses the repeated sidebar', async ({ page }) => {
   await expect(page.locator('.record-document')).toBeFocused();
   await page.keyboard.press('Tab');
   expect(await page.evaluate(() => Boolean(document.activeElement?.closest('.record-sidebar')))).toBe(false);
+});
+
+// The Record Room shipped a muted token (#667786 = 4.13:1 on the record ground)
+// that only the sweeping site-quality scan caught. Keep a focused guard on the
+// tokens themselves plus an axe contrast pass so the room cannot silently
+// regress to sub-AA secondary text.
+const minimumContrast = 4.5;
+
+function channelLuminance(channel: number): number {
+  const value = channel / 255;
+  return value <= 0.03928 ? value / 12.92 : ((value + 0.055) / 1.055) ** 2.4;
+}
+
+function relativeLuminance(rgb: number[]): number {
+  const [red, green, blue] = rgb.map(channelLuminance);
+  return 0.2126 * red + 0.7152 * green + 0.0722 * blue;
+}
+
+function contrastRatio(foreground: number[], background: number[]): number {
+  const [lighter, darker] = [relativeLuminance(foreground), relativeLuminance(background)].sort((a, b) => b - a);
+  return (lighter + 0.05) / (darker + 0.05);
+}
+
+function parseRgb(value: string): number[] {
+  const channels = value.match(/\d+(?:\.\d+)?/g);
+  if (!channels || channels.length < 3) throw new Error(`Cannot parse the computed color "${value}"`);
+  return channels.slice(0, 3).map(Number);
+}
+
+function contrastTokens() {
+  const root = document.querySelector('.record-body');
+  if (!root) throw new Error('The record shell did not render a .record-body element');
+  const styles = getComputedStyle(root);
+  const resolve = (value: string) => {
+    const probe = document.createElement('span');
+    probe.style.display = 'none';
+    probe.style.color = value;
+    document.body.append(probe);
+    const resolved = getComputedStyle(probe).color;
+    probe.remove();
+    return resolved;
+  };
+  const raw = (token: string) => styles.getPropertyValue(token).trim();
+  return {
+    background: resolve(raw('--bs-body-bg')),
+    muted: resolve(raw('--color-muted')),
+    secondaryColor: resolve(raw('--bs-secondary-color')),
+    secondaryRgb: raw('--bs-secondary-rgb'),
+    codeColor: resolve(raw('--bs-code-color')),
+  };
+}
+
+test('every Record route keeps AA contrast for muted, secondary and code text', async ({ page }) => {
+  test.setTimeout(180_000);
+  for (const route of routes) {
+    await test.step(route, async () => {
+      await page.goto(route, { waitUntil: 'domcontentloaded' });
+      const tokens = await page.evaluate(contrastTokens);
+      const background = parseRgb(tokens.background);
+      const samples: Array<[string, number[]]> = [
+        ['--color-muted', parseRgb(tokens.muted)],
+        ['--bs-secondary-color', parseRgb(tokens.secondaryColor)],
+        ['--bs-secondary-rgb', parseRgb(tokens.secondaryRgb)],
+        ['--bs-code-color', parseRgb(tokens.codeColor)],
+      ];
+      for (const [token, rgb] of samples) {
+        const ratio = contrastRatio(rgb, background);
+        expect(ratio, `${route} ${token} (${rgb.join(', ')}) contrasts ${ratio.toFixed(2)}:1 against ${tokens.background}`).toBeGreaterThanOrEqual(minimumContrast);
+      }
+      const results = await new AxeBuilder({ page }).withRules(['color-contrast']).analyze();
+      const violations = results.violations.map(violation => `${violation.id}: ${violation.help} (${violation.nodes.map(node => JSON.stringify(node.target)).join(' | ')})`);
+      expect(violations, `${route} has contrast violations`).toEqual([]);
+    });
+  }
 });

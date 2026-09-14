@@ -57,7 +57,11 @@
   --color-surface-raised: #ffffff;
   --color-ink: #1b1b1b;
   --color-body: #333333;
-  --color-muted: #667786;
+  /* 5.20:1 on the record ground (#edf3f8, declared below as --bs-body-bg) and
+   * >=5.5:1 on the lighter surfaces (#ffffff, #f8f9fa, #f7fafc) the same
+   * token is used on. The previous #667786 measured 4.13:1 there, below the
+   * WCAG 2.2 AA 4.5:1 threshold for normal text. */
+  --color-muted: #586775;
   --color-muted-strong: #3d4d59;
   --color-brand: #1072ba;
   --color-brand-deep: #0d5d98;
@@ -77,6 +81,19 @@
   --bs-primary-text-emphasis: #06436e;
   --bs-primary-bg-subtle: #e7f3fb;
   --bs-primary-border-subtle: #abd1e9;
+  /* Bootstrap's "secondary" palette ships its own ink, which this document
+   * must not inherit. .text-secondary resolves --bs-secondary-rgb to #6c757d:
+   * 4.19:1 on the record ground (#edf3f8), below WCAG 2.2 AA for normal text.
+   * --bs-secondary-color is rgba(33, 37, 41, 0.75), which composites to
+   * 6.33:1 here but is still Bootstrap's default rather than the record's.
+   * Bind both to the accessible muted token so one ink covers every
+   * secondary surface. */
+  --bs-secondary-color: var(--color-muted);
+  --bs-secondary-color-rgb: 88, 103, 117;
+  --bs-secondary-rgb: 88, 103, 117;
+  /* Inline <code> inherits Bootstrap's #d63384, which measures 4.02:1 on the
+   * same ground. Use the deep brand ink that .record-code already uses. */
+  --bs-code-color: var(--color-brand-deep);
   --bs-link-color: var(--color-brand-deep);
   --bs-link-color-rgb: 13, 93, 152;
   --bs-link-hover-color: #093f67;
