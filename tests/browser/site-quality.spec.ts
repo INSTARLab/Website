@@ -220,7 +220,12 @@ test("primary navigation closes the previous dropdown", async ({ page }) => {
   await expect(dropdowns.nth(0)).not.toHaveAttribute('open');
   await expect(dropdowns.nth(1)).toHaveAttribute('open', '');
 
-  await page.locator('main').click({ position: { x: 8, y: 8 } });
+  // The second dropdown is now the Record megamenu, whose open panel covers
+  // the top-left of `main` — the old click point at (8, 8) lands on the panel
+  // instead of outside the nav, so the close-on-outside-click step could never
+  // fire. The footer is outside `.site-navigation` on every viewport and is
+  // never covered by an open panel, so it exercises the same handler.
+  await page.locator('.site-footer').click();
   await expect(navigation.locator('details[open][data-nav-dropdown]')).toHaveCount(0);
 });
 
