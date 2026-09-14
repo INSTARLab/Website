@@ -180,6 +180,23 @@ const heroAsset = publicMediaFor(heroUrl, {
               <h2 id={`core-block-${index}`}>{block.title}</h2>
               <p>{block.body}</p>
               {block.bullets ? <ul>{block.bullets.map((item) => <li>{typeof item === 'string' ? item : <a href={item.href}>{item.label}</a>}</li>)}</ul> : null}
+              {isNotFound ? (
+                <form class="core-editorial__search" method="get" action="/search/" role="search">
+                  <label for="core-not-found-search">Search the site</label>
+                  <div class="core-editorial__search-field">
+                    <input
+                      id="core-not-found-search"
+                      name="q"
+                      type="search"
+                      placeholder="Try “quantum sensing”"
+                      autocomplete="off"
+                      spellcheck="false"
+                      enterkeyhint="search"
+                    />
+                    <button type="submit">Search <span aria-hidden="true">↗</span></button>
+                  </div>
+                </form>
+              ) : null}
             </div>
           </section>
         ))}
@@ -212,6 +229,12 @@ const heroAsset = publicMediaFor(heroUrl, {
   .core-editorial__block li { display: flex; align-items: center; gap: 0.65rem; color: var(--color-ink); font-weight: 700; }
   .core-editorial__block li::before { inline-size: 0.55rem; block-size: 0.55rem; border-radius: 50%; background: var(--core-accent); content: ''; }
   .core-editorial__block li a { color: var(--core-accent); text-decoration-thickness: 0.08em; text-underline-offset: 0.14em; }
+  .core-editorial__search { max-inline-size: 38rem; margin-block-start: 1.75rem; }
+  .core-editorial__search label { display: block; margin-block-end: 0.6rem; color: var(--color-ink); font: 800 0.72rem/1.3 var(--font-ui); letter-spacing: 0.1em; text-transform: uppercase; }
+  .core-editorial__search-field { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 0.6rem; }
+  .core-editorial__search-field input { min-block-size: 3rem; padding-inline: 0.9rem; border: 1px solid var(--color-rule); border-radius: 0; background: #fff; color: var(--color-ink); font-size: 1rem; }
+  .core-editorial__search-field button { display: inline-flex; align-items: center; gap: 0.6rem; min-block-size: 3rem; padding-inline: 1.1rem; border: 0; background: var(--core-accent); color: #fff; font: 800 0.8rem/1 var(--font-ui); cursor: pointer; }
+  .core-editorial__search-field button:hover { filter: brightness(1.1); }
 
   @media (max-width: 58rem) {
     .core-editorial__hero { grid-template-columns: 1fr; }
