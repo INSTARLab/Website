@@ -8,13 +8,15 @@ interface Props {
 }
 
 const { route } = Astro.props;
-// The sidebar sequence follows the grouped order (Start / Trust / Inspect /
-// Run), so the numbers printed here and the "Record NN / 16" header below are
-// drawn from the same flattened list — never from the ungrouped route ledger,
-// whose flat order no longer matches what the reader sees.
+// The grouped order (Start / Trust / Inspect / Run) is the presentation order
+// for the top-bar menus and the flat fallback strip alike, so the numbers
+// printed here and the "Record NN / 16" header below are drawn from the same
+// flattened list — never from the ungrouped route ledger, whose flat order no
+// longer matches what the reader sees.
 let recordSequence = 0;
 const groupedRecordNav = recordNavigationGroups.map((group) => ({
   label: group.label,
+  slug: group.label.toLowerCase(),
   items: group.items.map((item) => ({ ...item, number: String(++recordSequence).padStart(2, '0') })),
 }));
 const orderedRecordNav = groupedRecordNav.flatMap((group) => group.items);
@@ -36,84 +38,122 @@ const snapshotDateLabel = 'Not reported';
   description={route.description}
   canonical={route.path}
 >
-  <div class="record-sidebar-backdrop" data-record-sidebar-backdrop aria-hidden="true"></div>
   <div class="record-app" data-route={route.path} data-page-signature={route.signature.join(' → ')}>
-    <aside id="record-sidebar" class="record-sidebar offcanvas-lg offcanvas-start" aria-label="Public record navigation" aria-hidden="false">
-      <div class="record-sidebar__intro">
-        <a class="record-sidebar__brand" href={recordHref('/record/')}>
-          <span class="record-sidebar__mark" aria-hidden="true">R</span>
+    <header class="record-topbar">
+      <div class="record-topbar__primary">
+        <a class="record-topbar__brand" href={recordHref('/record/')}>
+          <span class="record-topbar__mark" aria-hidden="true">R</span>
           <span><strong>Record room</strong><small>INSTAR Lab / public index</small></span>
         </a>
-        <p>Source-conscious orientation for the institution, its research paths, and this website.</p>
-        <button class="record-sidebar__close btn btn-sm btn-outline-secondary d-lg-none" type="button" data-record-menu-close>
-          Close menu
-        </button>
+        <div class="record-topbar__utility">
+          {/* Per-page jump list. The links are built from the document's own
+            * `h2[id]` headings at runtime, so the list can never point at a section
+            * a page edit removed — a hard-coded anchor map would rot. It lives in
+            * its own labelled nav on purpose: the grouped and flat lists each hold
+            * exactly one link per record route, and the suite asserts both counts.
+            * Hidden until the script finds at least two sections; without
+            * JavaScript the room keeps its grouped/flat navigation and no empty
+            * nav is announced. */}
+          <nav class="record-jump-nav" aria-label="On this page" data-record-jump-nav hidden>
+            <details class="record-jump" data-record-jump>
+              <summary><span>On this page</span></summary>
+              <ol class="record-jump__list"></ol>
+            </details>
+          </nav>
+          <script>
+            const jumpWrap = document.querySelector<HTMLElement>('[data-record-jump-nav]');
+            const jump = jumpWrap?.querySelector<HTMLDetailsElement>('[data-record-jump]');
+            const jumpList = jump?.querySelector<HTMLOListElement>('ol');
+            const jumpHeadings = [...document.querySelectorAll<HTMLElement>('#main-content h2[id]')]
+              .filter((heading) => (heading.textContent ?? '').trim().length > 0);
+            if (jumpWrap && jump && jumpList && jumpHeadings.length > 1) {
+              for (const heading of jumpHeadings) {
+                const item = document.createElement('li');
+                const link = document.createElement('a');
+                link.href = `#${heading.id}`;
+                link.textContent = (heading.textContent ?? '').replace(/\s+/g, ' ').trim();
+                item.append(link);
+                jumpList.append(item);
+              }
+              jumpWrap.hidden = false;
+              jumpList.addEventListener('click', (event) => {
+                if (event.target instanceof Element && event.target.closest('a[href]')) jump.open = false;
+              });
+              jump.addEventListener('keydown', (event) => {
+                if (event.key === 'Escape' && jump.open) {
+                  event.preventDefault();
+                  jump.open = false;
+                  jump.querySelector('summary')?.focus();
+                }
+              });
+            } else {
+              jumpWrap?.remove();
+            }
+          </script>
+          <a class="record-topbar__return" href={recordHref('/')}>
+            <span>Return to instarlab.org</span>
+            <Icon name="arrow-up-right" size="0.9rem" />
+          </a>
+        </div>
       </div>
-      <nav id="record-index" class="record-sidebar__nav-wrap" aria-label="Record pages">
-        <p class="record-sidebar__label">Browse the record</p>
-        {/* Group labels are spans, not headings: the heading-outline guard
-          * requires exactly one h1, no skipped levels and no reused names
-          * across the whole document, and a second heading tree inside the
-          * sidebar would put every record page one edit away from violating
-          * it. The nested list carries the group name instead. */}
-        <ol class="record-sidebar__nav nav flex-column gap-1">
-          {groupedRecordNav.map((group) => (
-            <li class="record-sidebar__nav-group">
-              <span class="record-sidebar__label record-sidebar__group-label" aria-hidden="true">{group.label}</span>
-              <ol class="record-sidebar__nav-sub" aria-label={`Record pages: ${group.label}`}>
-                {group.items.map((item) => (
-                  <li class:list={{ 'record-sidebar__nav-item--current': item.path === route.path }}>
-                    <a class="nav-link" href={recordHref(item.path)} aria-current={item.path === route.path ? 'page' : undefined}>
-                      <span class="record-sidebar__number">{item.number}</span>
-                      <span>{item.label}</span>
-                    </a>
-                  </li>
-                ))}
-              </ol>
+      {/* Grouped dropdown navigation (Start / Trust / Inspect / Run). Group
+        * names travel on the toggle buttons and the nested lists, never as
+        * headings: the heading-outline guard requires exactly one h1, no
+        * skipped levels and no reused names across the whole document, and a
+        * second heading tree inside the navigation would put every record page
+        * one edit away from violating it. */}
+      <nav class="record-topbar__groups" aria-label="Record pages by group" data-record-groups>
+        <ol class="record-topbar__groups-list">
+          {groupedRecordNav.map((group) => {
+            const isCurrentGroup = group.items.some((item) => item.path === route.path);
+            return (
+              <li class="record-topbar__group">
+                <button
+                  type="button"
+                  id={`record-tab-${group.slug}`}
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                  aria-controls={`record-menu-${group.slug}`}
+                  aria-current={isCurrentGroup ? 'true' : undefined}
+                >
+                  <span>{group.label}</span>
+                </button>
+                <div class="record-topbar__menu" id={`record-menu-${group.slug}`} hidden>
+                  <ol aria-label={`Record pages: ${group.label}`}>
+                    {group.items.map((item) => (
+                      <li>
+                        <a href={recordHref(item.path)} aria-current={item.path === route.path ? 'page' : undefined}>
+                          <span class="record-topbar__number">{item.number}</span>
+                          <span>{item.label}</span>
+                        </a>
+                      </li>
+                    ))}
+                  </ol>
+                </div>
+              </li>
+            );
+          })}
+        </ol>
+      </nav>
+      {/* Flat fallback strip. The grouped menus need script for toggle and
+        * keyboard support, so without JavaScript — and on small screens, where
+        * four dropdowns cost more room than one scrolling row — this list
+        * carries the same sixteen destinations in flow. record.css owns which
+        * of the two lists is visible; both stay in the DOM so the counts can
+        * never drift apart silently. */}
+      <nav class="record-topbar__flat" aria-label="Record pages" data-record-flat>
+        <ol class="record-topbar__flat-list">
+          {orderedRecordNav.map((item) => (
+            <li>
+              <a href={recordHref(item.path)} aria-current={item.path === route.path ? 'page' : undefined}>
+                <span class="record-topbar__number">{item.number}</span>
+                <span>{item.label}</span>
+              </a>
             </li>
           ))}
         </ol>
       </nav>
-      {/* Per-page jump list. The links are built from the document's own
-        * `h2[id]` headings at runtime, so the list can never point at a section
-        * a page edit removed — a hard-coded anchor map would rot. It lives
-        * outside `.record-sidebar__nav` on purpose: the suite asserts that
-        * selector holds exactly one link per record route. Hidden until the
-        * script finds at least two sections; without JavaScript the room keeps
-        * its plain in-flow navigation and no empty nav is announced. */}
-      <nav class="record-sidebar__jump-wrap" aria-label="On this page" data-record-jump hidden>
-        <p class="record-sidebar__label" aria-hidden="true">On this page</p>
-        <ol class="record-sidebar__jump"></ol>
-      </nav>
-      <script>
-        const jump = document.querySelector<HTMLElement>('[data-record-jump]');
-        const list = jump?.querySelector<HTMLOListElement>('ol');
-        const headings = [...document.querySelectorAll<HTMLElement>('#main-content h2[id]')]
-          .filter((heading) => (heading.textContent ?? '').trim().length > 0);
-        if (jump && list && headings.length > 1) {
-          for (const heading of headings) {
-            const item = document.createElement('li');
-            const link = document.createElement('a');
-            link.href = `#${heading.id}`;
-            link.textContent = (heading.textContent ?? '').replace(/\s+/g, ' ').trim();
-            item.append(link);
-            list.append(item);
-          }
-          jump.hidden = false;
-        } else {
-          jump?.remove();
-        }
-      </script>
-      <div class="record-sidebar__footer">
-        <a href={recordHref('/')}>Return to instarlab.org <Icon name="arrow-up-right" size="0.9rem" /></a>
-        <a href={recordHref('/record/nav/')}>Full site inventory <Icon name="arrow-right" size="0.9rem" /></a>
-        <div class="record-sidebar__legal" aria-label="Legal and accessibility">
-          <a href={recordHref('/privacy/')}>Privacy</a>
-          <a href={recordHref('/terms/')}>Terms</a>
-          <a href={recordHref('/accessibility/')}>Accessibility</a>
-        </div>
-      </div>
-    </aside>
+    </header>
 
     <article id="main-content" class="record-document focus-target" tabindex="-1">
       <header class="record-document__header">
@@ -122,25 +162,11 @@ const snapshotDateLabel = 'Not reported';
           <span class="record-document__sequence">Record {currentRecordNumber} / {orderedRecordNav.length}</span>
           <span class="record-document__status">Public record</span>
         </div>
-        <div class="record-document__heading record-document__heading--with-menu">
+        <div class="record-document__heading">
           <div>
             <h1>{route.title}</h1>
             <p class="record-document__description">{route.description}</p>
           </div>
-          {/* Visibility is owned by record.css and keyed to the shell's
-            * `data-record-js` flag, which is set before first paint. A
-            * post-parse `hidden` flip would reflow the heading row once the
-            * deferred module ran. */}
-          <button
-            class="record-menu-toggle btn btn-primary d-lg-none"
-            type="button"
-            data-record-menu-toggle
-            aria-controls="record-sidebar"
-            aria-expanded="false"
-          >
-            <span class="record-menu-toggle__icon" aria-hidden="true">☰</span>
-            Record menu
-          </button>
         </div>
         <div class="record-document__meta">
           <span>INSTAR Lab Inc. · Website snapshot: {snapshotDateLabel} · No private submissions</span>
@@ -149,6 +175,14 @@ const snapshotDateLabel = 'Not reported';
       <div class="record-document__body">
         <slot />
       </div>
+      <footer class="record-document__footer">
+        <a class="record-link" href={recordHref('/record/nav/')}>Full site inventory <Icon name="arrow-right" size="0.9rem" /></a>
+        <div class="record-document__legal" aria-label="Legal and accessibility">
+          <a href={recordHref('/privacy/')}>Privacy</a>
+          <a href={recordHref('/terms/')}>Terms</a>
+          <a href={recordHref('/accessibility/')}>Accessibility</a>
+        </div>
+      </footer>
     </article>
   </div>
 </RecordLayout>

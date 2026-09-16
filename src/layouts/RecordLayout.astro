@@ -25,21 +25,22 @@ const {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    {/* RR-301 BLK-1. The Record room's small-screen shell is an off-canvas
-      * panel when `data-record-js` is present on the root element and an
-      * in-flow navigation list when it is not — a 891px difference in where
-      * `ARTICLE.record-document` starts. The flag therefore has to be resolved
-      * during head parsing, before the browser's first layout and paint.
+    {/* RR-101. The Record room's grouped top navigation needs script for its
+      * dropdown behaviour, so `data-record-js` separates the two states: with
+      * JavaScript the four group menus take over at desktop widths and the
+      * flat strip carries small screens; without it the flat strip carries all
+      * sixteen destinations in flow at every width. The flag therefore has to
+      * be resolved during head parsing, before the browser's first layout and
+      * paint.
       *
       * It used to be set by the deferred module below. Module scripts always
-      * execute after HTML parsing, so the browser painted the in-flow layout
-      * first and then moved the entire document: a single layout-shift entry
-      * of 1.0 (the maximum) on the first load of every page. `is:inline` keeps
-      * this tiny script out of the bundle so it runs synchronously, in place,
-      * ahead of the stylesheets.
+      * execute after HTML parsing, so the browser painted the flat strip first
+      * and then swapped the navigation row once the module ran. `is:inline`
+      * keeps this tiny script out of the bundle so it runs synchronously, in
+      * place, ahead of the stylesheets.
       *
       * With JavaScript disabled the attribute is never set, so the no-JS
-      * fallback below is unchanged: all twelve navigation links in flow. */}
+      * fallback below is unchanged: all sixteen navigation links in flow. */}
     <script is:inline>
       document.documentElement.dataset.recordJs = 'true';
     </script>
@@ -57,114 +58,136 @@ const {
 <script>
   /**
    * The Record room keeps ordinary document links as its source of truth.
-   * This small enhancement gives the Bootstrap-shaped sidebar its off-canvas
-   * behaviour on small screens: focus trapping, Escape, backdrop and focus
-   * return. The *geometry* switch is not here — it is driven by the
-   * `data-record-js` flag set synchronously in the head, so that the panel's
-   * layout is correct at first paint (see the note in <head>).
+   * This small enhancement gives the four top-bar group buttons their
+   * dropdown behaviour: one menu opens at a time, a button tap toggles,
+   * choosing a destination closes, outside interaction closes, Escape closes
+   * and refocuses the owning button, and the arrow/Home/End keys walk the
+   * buttons and the open menu's links. A closed menu carries the `hidden`
+   * attribute (enforced by record.css), so it is never focusable, and the
+   * flat strip below the groups keeps every destination reachable without
+   * script. The *visibility* switch is not here — it is driven by the
+   * `data-record-js` flag set synchronously in the head, so the navigation
+   * row is correct at first paint (see the note in <head>).
    */
-  const body = document.body;
-  const sidebar = document.querySelector<HTMLElement>('#record-sidebar');
-  const menuButton = document.querySelector<HTMLButtonElement>('[data-record-menu-toggle]');
-  const closeButton = document.querySelector<HTMLButtonElement>('[data-record-menu-close]');
-  const backdrop = document.querySelector<HTMLElement>('[data-record-sidebar-backdrop]');
-  const mainContent = document.querySelector<HTMLElement>('#main-content');
+  const groupsNav = document.querySelector<HTMLElement>('[data-record-groups]');
 
-  if (body && sidebar && menuButton) {
-    let returnFocus: HTMLElement | null = null;
+  if (groupsNav) {
+    const groupButtons = () =>
+      [...groupsNav.querySelectorAll<HTMLButtonElement>('.record-topbar__group > button')];
 
-    const setOpen = (open: boolean) => {
-      sidebar.classList.toggle('show', open);
-      backdrop?.classList.toggle('show', open);
-      body.classList.toggle('record-menu-open', open);
-      menuButton.setAttribute('aria-expanded', String(open));
-      const offcanvasHidden = !open && window.matchMedia('(max-width: 991.98px)').matches;
-      sidebar.setAttribute('aria-hidden', String(offcanvasHidden));
-      // Keep the closed panel out of the focus order immediately. The panel
-      // transitions `visibility`, which stays `visible` for the full 250ms, so
-      // aria-hidden alone would leave focusable links inside a hidden subtree
-      // during that window.
-      sidebar.toggleAttribute('inert', offcanvasHidden);
-      if (open) {
-        sidebar.setAttribute('role', 'dialog');
-        sidebar.setAttribute('aria-modal', 'true');
-        // `aria-modal` asserts that everything outside the dialog is
-        // unavailable. The Tab trap below enforces that for Tab, but a virtual
-        // cursor can still reach the document behind the panel, so the claim
-        // was not true. `inert` makes it true for every input path.
-        //
-        // It goes on the document article rather than on `main`: the sidebar
-        // is itself inside `main`, and inerting an ancestor would inert the
-        // panel along with the background.
-        mainContent?.setAttribute('inert', '');
-      } else {
-        sidebar.removeAttribute('role');
-        sidebar.removeAttribute('aria-modal');
-        mainContent?.removeAttribute('inert');
-      }
-
-      if (open) {
-        returnFocus = document.activeElement instanceof HTMLElement ? document.activeElement : menuButton;
-        window.setTimeout(() => {
-          const firstLink = sidebar.querySelector<HTMLAnchorElement>('a[href]');
-          firstLink?.focus();
-        }, 0);
-      } else {
-        const desktop = window.matchMedia('(min-width: 992px)').matches;
-        const canRestoreFocus = returnFocus instanceof HTMLElement
-          && returnFocus.isConnected
-          && getComputedStyle(returnFocus).display !== 'none';
-        const fallback = desktop
-          ? sidebar.querySelector<HTMLElement>('a[href]')
-          : menuButton;
-        (canRestoreFocus ? returnFocus : fallback)?.focus();
-        returnFocus = null;
-      }
+    const closeGroups = (except: Element | null = null) => {
+      groupsNav.querySelectorAll('.record-topbar__group').forEach((item) => {
+        if (item === except) return;
+        item.querySelector(':scope > button')?.setAttribute('aria-expanded', 'false');
+        const menu = item.querySelector(':scope > .record-topbar__menu');
+        if (menu instanceof HTMLElement) menu.hidden = true;
+      });
     };
 
-    menuButton.addEventListener('click', () => setOpen(true));
-    closeButton?.addEventListener('click', () => setOpen(false));
-    backdrop?.addEventListener('click', () => setOpen(false));
+    const openGroup = (item: Element) => {
+      const button = item.querySelector(':scope > button');
+      const menu = item.querySelector(':scope > .record-topbar__menu');
+      if (!(button instanceof HTMLButtonElement) || !(menu instanceof HTMLElement)) return;
+      closeGroups(item);
+      button.setAttribute('aria-expanded', 'true');
+      menu.hidden = false;
+    };
 
-    sidebar.addEventListener('click', (event) => {
-      if (event.target instanceof Element && event.target.closest('a[href]')) setOpen(false);
+    const menuLinks = (item: Element) =>
+      [...item.querySelectorAll<HTMLAnchorElement>('.record-topbar__menu a')];
+
+    const focusButton = (index: number) => {
+      const buttons = groupButtons();
+      if (buttons.length === 0) return;
+      const next = buttons[(index + buttons.length) % buttons.length];
+      closeGroups();
+      next.focus();
+    };
+
+    groupsNav.addEventListener('click', (event) => {
+      const target = event.target instanceof Element ? event.target : null;
+      const button = target?.closest('.record-topbar__group > button');
+      if (button instanceof HTMLButtonElement) {
+        const item = button.closest('.record-topbar__group');
+        if (button.getAttribute('aria-expanded') === 'true') closeGroups();
+        else if (item) openGroup(item);
+        return;
+      }
+      if (target?.closest('.record-topbar__menu a')) closeGroups();
     });
 
-    document.addEventListener('keydown', (event) => {
-      if (!sidebar.classList.contains('show')) return;
-      if (event.key === 'Escape') {
-        event.preventDefault();
-        setOpen(false);
+    groupsNav.addEventListener('keydown', (event) => {
+      const target = event.target instanceof Element ? event.target : null;
+      const buttons = groupButtons();
+      const button = target?.closest('.record-topbar__group > button');
+      if (button instanceof HTMLButtonElement) {
+        const at = buttons.indexOf(button);
+        const item = button.closest('.record-topbar__group');
+        if (event.key === 'ArrowRight') {
+          event.preventDefault();
+          focusButton(at + 1);
+        } else if (event.key === 'ArrowLeft') {
+          event.preventDefault();
+          focusButton(at - 1);
+        } else if (event.key === 'Home') {
+          event.preventDefault();
+          focusButton(0);
+        } else if (event.key === 'End') {
+          event.preventDefault();
+          focusButton(buttons.length - 1);
+        } else if (event.key === 'ArrowDown' || event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          if (item) {
+            openGroup(item);
+            menuLinks(item)[0]?.focus();
+          }
+        } else if (event.key === 'Escape') {
+          event.preventDefault();
+          closeGroups();
+        }
         return;
       }
 
-      if (event.key !== 'Tab') return;
-      const focusable = [...sidebar.querySelectorAll<HTMLElement>('a[href], button:not([hidden]), [tabindex]:not([tabindex="-1"])')]
-        .filter((element) => getComputedStyle(element).visibility !== 'hidden' && getComputedStyle(element).display !== 'none');
-      if (focusable.length === 0) return;
-
-      const first = focusable[0];
-      const last = focusable[focusable.length - 1];
-      if (event.shiftKey && (document.activeElement === first || !sidebar.contains(document.activeElement))) {
+      const link = target?.closest('.record-topbar__menu a');
+      if (!(link instanceof HTMLAnchorElement)) return;
+      const group = link.closest('.record-topbar__group');
+      if (!group) return;
+      const links = menuLinks(group);
+      const position = links.indexOf(link);
+      if (event.key === 'Escape') {
         event.preventDefault();
-        last.focus();
-      } else if (!event.shiftKey && (document.activeElement === last || !sidebar.contains(document.activeElement))) {
+        closeGroups();
+        group.querySelector<HTMLElement>(':scope > button')?.focus();
+      } else if (event.key === 'ArrowDown') {
         event.preventDefault();
-        first.focus();
+        links[position + 1]?.focus();
+      } else if (event.key === 'ArrowUp') {
+        event.preventDefault();
+        if (position <= 0) group.querySelector<HTMLElement>(':scope > button')?.focus();
+        else links[position - 1]?.focus();
+      } else if (event.key === 'Home') {
+        event.preventDefault();
+        links[0]?.focus();
+      } else if (event.key === 'End') {
+        event.preventDefault();
+        links[links.length - 1]?.focus();
       }
     });
 
-    const desktopQuery = window.matchMedia('(min-width: 992px)');
-    const syncViewportState = () => {
-      const offcanvasHidden = !desktopQuery.matches;
-      sidebar.setAttribute('aria-hidden', String(offcanvasHidden));
-      sidebar.toggleAttribute('inert', offcanvasHidden);
-    };
-    desktopQuery.addEventListener('change', (event) => {
-      if (event.matches) setOpen(false);
-      syncViewportState();
+    groupsNav.addEventListener('focusout', (event) => {
+      if (event.relatedTarget instanceof Node && groupsNav.contains(event.relatedTarget)) return;
+      closeGroups();
     });
 
-    syncViewportState();
+    document.addEventListener('click', (event) => {
+      const target = event.target instanceof Element ? event.target : null;
+      if (!target?.closest('.record-topbar__group')) closeGroups();
+    });
+
+    // A menu left open across the desktop/small-screen switch would strand an
+    // `aria-expanded="true"` button on a hidden group list (or a stale closed
+    // menu on return), so every breakpoint crossing closes all four.
+    const desktopQuery = window.matchMedia('(min-width: 62rem)');
+    desktopQuery.addEventListener('change', () => closeGroups());
   }
 </script>
