@@ -63,6 +63,102 @@ export interface RecordFile {
   readonly note: string;
 }
 
+/**
+ * RRP-203 actual-link graph schema (GitLab #28).
+ *
+ * The compatibility payload (`recordGraph`: inventory nodes plus journey-step
+ * edges) stays frozen at `COMPAT_GRAPH_SCHEMA_VERSION` so existing JSON
+ * consumers never change meaning underneath them. The observed topology —
+ * every built-HTML anchor classified into content (`<main>`) versus chrome
+ * (header/footer) edge sets, with the authored journeys kept as a labelled
+ * overlay — travels beside it at `LINK_GRAPH_SCHEMA_VERSION`, derived by
+ * `buildLinkGraph` in `src/components/record/nav-graph.mjs` and merged into
+ * `dist/record/graph.json` post-build by
+ * `scripts/quality/build-link-graph.mjs`. No synthetic journey or
+ * next-action link is ever presented as an observed HTML link: overlay
+ * entries carry their own `kind` and an `observed` zone flag.
+ */
+export const COMPAT_GRAPH_SCHEMA_VERSION = 1 as const;
+export const LINK_GRAPH_SCHEMA_VERSION = 2 as const;
+
+export interface RecordLinkGraphNode {
+  readonly id: string;
+  readonly title: string;
+  readonly family: string | null;
+  readonly kind: string | null;
+  readonly indexable: boolean | null;
+  readonly inLedger: boolean;
+  readonly inInventory: boolean;
+  readonly aliasOf: string | null;
+  readonly inboundContent: number;
+  readonly outboundContent: number;
+  readonly inboundChrome: number;
+  readonly outboundChrome: number;
+  readonly journeys: readonly string[];
+}
+
+export interface RecordLinkGraphEdge {
+  readonly source: string;
+  readonly target: string;
+  readonly occurrences: number;
+  readonly label: string;
+}
+
+export interface RecordJourneyOverlayLink {
+  readonly source: string;
+  readonly target: string;
+  readonly journey: string;
+  readonly kind: 'step' | 'next-action';
+  readonly observed: 'content' | 'chrome' | null;
+}
+
+export interface RecordMissingTarget {
+  readonly route: string;
+  readonly sources: readonly string[];
+  readonly occurrences: number;
+}
+
+export interface RecordLinkGraphProvenance {
+  readonly generatedAt: string;
+  readonly generator: string;
+  readonly base: string;
+  readonly origin: string;
+  readonly routeCount: number;
+  readonly documentCount: number;
+  readonly unzoned: readonly string[];
+  readonly aliases: readonly { readonly route: string; readonly target: string | null }[];
+  readonly undocumented: readonly string[];
+}
+
+export interface RecordLinkGraphSummary {
+  readonly nodes: number;
+  readonly contentPairs: number;
+  readonly chromePairs: number;
+  readonly journeyLinks: number;
+  readonly observedJourneyLinks: number;
+  readonly orphans: number;
+  readonly missingCount: number;
+}
+
+export interface RecordLinkGraph {
+  readonly schemaVersion: 2;
+  readonly provenance: RecordLinkGraphProvenance;
+  readonly summary: RecordLinkGraphSummary;
+  readonly nodes: readonly RecordLinkGraphNode[];
+  readonly contentEdges: readonly RecordLinkGraphEdge[];
+  readonly chromeEdges: readonly RecordLinkGraphEdge[];
+  readonly journeyOverlay: readonly RecordJourneyOverlayLink[];
+  readonly orphans: readonly string[];
+  readonly missing: readonly RecordMissingTarget[];
+}
+
+export interface RecordGraphDocument {
+  readonly schemaVersion: 1 | 2;
+  readonly nodes: readonly { readonly id: string; readonly label: string; readonly family: string; readonly kind: string }[];
+  readonly edges: readonly { readonly source: string; readonly target: string; readonly journey: string }[];
+  readonly linkGraph?: RecordLinkGraph;
+}
+
 export interface RecordSource {
   readonly id: string;
   readonly label: string;
@@ -216,7 +312,7 @@ export const recordRoutes = [
   route('/record/files/', 'Documents', 'Public documents and asset register', 'A focused index of public documents, route-backed content, fonts, logos, and image policy records used by the site.', 'Files / lineage', ['orientation', 'evidence', 'observation', 'connection']),
   route('/record/nav/', 'Site map', 'INSTAR Lab public site link inventory', 'The complete source-derived route inventory for the current public website, grouped by family and searchable in the browser.', 'Routes / navigation', ['orientation', 'participation', 'evidence', 'connection']),
   route('/record/metrics/', 'Content inventory', 'Captured page inventory: content, media, and metadata', 'Build-time measurements from the route manifests, article collection, and public media policy—not claims about audience traffic or research outcomes.', 'Measurements / inventory', ['orientation', 'evidence', 'sequence', 'connection']),
-  route('/record/screens/', 'Visual archive', 'See the public site in context', 'Representative source visuals from the public AVIF library, linked back to the pages where readers encounter them. These are source visuals, not screenshot captures.', 'Media / observation', ['orientation', 'observation', 'evidence', 'connection']),
+  route('/record/screens/', 'Visual archive', 'See the public site in context', 'Full-page browser screenshots of every public page, captured from one frozen production build with per-page provenance. This archive page’s own capture depicts the previous generation by design.', 'Media / observation', ['orientation', 'observation', 'evidence', 'connection']),
   route('/record/ops/', 'Delivery status', 'Static delivery and operational readiness', 'A public-facing view of the site\'s delivery model, content ownership boundaries, forms posture, and the checks that protect the static build.', 'Operations / readiness', ['orientation', 'sequence', 'evidence', 'contrast', 'connection']),
   route('/record/style/', 'Brand guide', 'INSTAR Lab visual system and public assets', 'A compact reference for the current INSTAR visual language: logo, type, palette, spacing, image policy, and accessible interaction principles.', 'Design system / assets', ['orientation', 'observation', 'evidence', 'participation', 'connection']),
 ] as const satisfies readonly RecordRoute[];
@@ -415,6 +511,7 @@ export const recordMeta = {
 } as const;
 
 export const recordGraph = {
+  schemaVersion: COMPAT_GRAPH_SCHEMA_VERSION,
   nodes: sitePageRecords.map(({ path, title, family, kind }) => ({ id: path, label: title, family, kind })),
   edges: recordJourneys.flatMap((journey) => journey.steps.slice(0, -1).map((step, index) => ({ source: step.href, target: journey.steps[index + 1]?.href ?? journey.nextAction.href, journey: journey.id }))),
 } as const;
