@@ -404,11 +404,14 @@ async function runCapture(inputRows, previous) {
   const previousByRoute = new Map((previous?.routes ?? []).map((entry) => [entry.routeId, entry]));
   const generationId = generationIdFor(inputRows);
   if (previous?.generationId === generationId && !options.force) {
-    console.log(`Input manifest matches committed generation ${generationId.slice(0, 12)}; nothing to recapture.`);
-    const coverage = checkCoverage(inputRows, previous);
-    reportCoverage(coverage);
-    if (options.strict && !coverage.summary.complete) process.exitCode = 1;
-    return;
+    if (previous.coverage?.complete === true) {
+      console.log(`Input manifest matches committed complete generation ${generationId.slice(0, 12)}; nothing to recapture.`);
+      const coverage = checkCoverage(inputRows, previous);
+      reportCoverage(coverage);
+      if (options.strict && !coverage.summary.complete) process.exitCode = 1;
+      return;
+    }
+    console.log(`Input manifest matches generation ${generationId.slice(0, 12)} but its coverage is incomplete; recapturing failed routes.`);
   }
   mkdirSync(qaRoot, { recursive: true });
   // A generation captures 174 viewports; a crash near the end must not lose
@@ -427,6 +430,13 @@ async function runCapture(inputRows, previous) {
       console.log("Ignoring unreadable resume file; starting this generation fresh.");
     }
   }
+  // Chain base for the self-capture contract: when this run heals a failed
+  // attempt over the same input manifest, the new generation supersedes the
+  // failed attempt's predecessor (not itself), and the screens capture
+  // depicts that predecessor.
+  const chainBase = previous && previous.generationId !== generationId
+    ? previous.generationId
+    : (previous?.supersedes ?? null);
   const persistResume = (routes) => {
     writeFileSync(resumePath, `${JSON.stringify({ generationId, savedAt: new Date().toISOString(), routes }, null, 2)}\n`);
   };
@@ -458,7 +468,7 @@ async function runCapture(inputRows, previous) {
           capturedAt: startedAt,
           selfCapture: input.routeId === SELF_CAPTURE_ROUTE,
           depictsGeneration:
-            input.routeId === SELF_CAPTURE_ROUTE ? (previous?.generationId ?? null) : null,
+            input.routeId === SELF_CAPTURE_ROUTE ? chainBase : null,
           failure: null,
           artifacts,
         };
@@ -563,7 +573,7 @@ async function runCapture(inputRows, previous) {
   const manifest = {
     schemaVersion: 1,
     generationId,
-    supersedes: previous?.generationId ?? null,
+    supersedes: chainBase,
     generatedAt: new Date().toISOString(),
     captureTool: {
       name: "scripts/quality/capture-record-visuals.mjs",
