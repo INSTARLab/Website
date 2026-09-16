@@ -1105,7 +1105,7 @@
     "reuseReason": "Partner-network mark; use is limited to the INSTAR Consortium context."
   },
   {
-    "match": "^/img/volunteers/(?:maha-khan|sean-hackney|spoogmay-khan|suzanne-conejos)\\.avif$",
+    "match": "^/img/team/(?:maha-khan|sean-hackney|spoogmay-khan|suzanne-conejos)\\.avif$",
     "idPrefix": "media:leadership-",
     "type": "photography-or-illustration",
     "role": "observation",

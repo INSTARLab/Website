@@ -181,7 +181,7 @@ export const recordNamedPeople: readonly NamedPersonRow[] = [
   {
     name: 'Suzanne Conejos',
     displayedRole: 'AI Lead Scientist · Board Member',
-    portraitPath: '/img/volunteers/suzanne-conejos.avif',
+    portraitPath: '/img/team/suzanne-conejos.avif',
     status: 'unverified',
     basis: 'The homepage leadership preview. The board appointment is also carried in the governance register.',
     limits:
@@ -190,7 +190,7 @@ export const recordNamedPeople: readonly NamedPersonRow[] = [
   {
     name: 'Sean Hackney',
     displayedRole: 'Board Member · AI Researcher',
-    portraitPath: '/img/volunteers/sean-hackney.avif',
+    portraitPath: '/img/team/sean-hackney.avif',
     status: 'unverified',
     basis: 'The homepage leadership preview. The board appointment is also carried in the governance register.',
     limits:
@@ -199,7 +199,7 @@ export const recordNamedPeople: readonly NamedPersonRow[] = [
   {
     name: 'Spoogmay',
     displayedRole: 'Applied Scientist · Materials Physics',
-    portraitPath: '/img/volunteers/spoogmay-khan.avif',
+    portraitPath: '/img/team/spoogmay-khan.avif',
     status: 'unverified',
     basis: 'The homepage leadership preview.',
     limits:
@@ -208,7 +208,7 @@ export const recordNamedPeople: readonly NamedPersonRow[] = [
   {
     name: 'Maha Khan',
     displayedRole: 'Research Scientist',
-    portraitPath: '/img/volunteers/maha-khan.avif',
+    portraitPath: '/img/team/maha-khan.avif',
     status: 'unverified',
     basis: 'The homepage leadership preview.',
     limits:
