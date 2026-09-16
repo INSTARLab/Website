@@ -310,19 +310,22 @@
   cursor: pointer;
 }
 
-.record-topbar__group > button::after {
-  content: '▾';
-  font-size: 0.65rem;
-  color: var(--color-muted);
-}
-
 .record-topbar__group > button:hover,
 .record-topbar__group > button[aria-expanded='true'] {
   border-color: var(--color-brand);
   color: var(--color-brand-deep);
 }
 
-.record-topbar__group > button[aria-expanded='true']::after {
+/* The caret is a real element, not a `::after`, so it can carry
+ * `aria-hidden`: generated content would leak into the button's accessible
+ * name ("Start ▾") and be announced by assistive technology. */
+.record-topbar__caret {
+  font-size: 0.65rem;
+  color: var(--color-muted);
+}
+
+.record-topbar__group > button:hover .record-topbar__caret,
+.record-topbar__group > button[aria-expanded='true'] .record-topbar__caret {
   color: var(--color-brand-deep);
 }
 
@@ -485,10 +488,12 @@
   display: none;
 }
 
-.record-jump > summary::after {
-  content: '▾';
-  font-size: 0.65rem;
+.record-jump > summary .record-topbar__caret {
   color: var(--color-muted);
+}
+
+.record-jump > summary:hover .record-topbar__caret {
+  color: var(--color-brand-deep);
 }
 
 .record-jump > summary:hover,

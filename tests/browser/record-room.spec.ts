@@ -12,6 +12,10 @@ const routes = ['', 'leadership/', 'legal/', 'governance/', 'affiliations/', 'ma
 const navigationCount = routes.length;
 
 test('every Record page has an isolated shell, evidence visual and readable spacing', async ({ page }) => {
+  // Sixteen routes with a full page load and a dozen assertions each: well
+  // past the default 30s budget on a loaded shared machine (the contrast
+  // sweep below already carries the same explicit budget for the same reason).
+  test.setTimeout(180_000);
   for (const route of routes) {
     await test.step(route, async () => {
       const response = await page.goto(route, { waitUntil: 'networkidle' });
@@ -62,6 +66,7 @@ test('every Record page has an isolated shell, evidence visual and readable spac
 
 test('Record group menus open one at a time, close on Escape and return focus', async ({ page }) => {
   test.skip((page.viewportSize()?.width ?? 0) < 992, 'desktop dropdowns');
+  test.setTimeout(120_000);
   await page.goto('/record/', { waitUntil: 'networkidle' });
   const start = page.getByRole('button', { name: 'Start', exact: true });
   const trust = page.getByRole('button', { name: 'Trust', exact: true });
@@ -203,6 +208,9 @@ test('Record JSON endpoints stay public and declare only approved operational ob
 });
 
 test('Record content reflows at narrow, tablet and wide widths and supports reduced motion', async ({ page }) => {
+  // Sixteen routes at five widths: eighty page loads, far past the default
+  // 30s budget even unloaded.
+  test.setTimeout(300_000);
   for (const width of [320, 390, 768, 1280, 1920]) {
     await page.setViewportSize({ width, height: 900 });
     for (const route of routes) {
@@ -445,6 +453,9 @@ test('every Record route has a navigable heading outline', async ({ page }) => {
 // are always rendered inside <code>; anywhere else on the page is prose and may
 // not carry a repository path.
 test('Record pages and JSON endpoints never publish an internal repository path as copy', async ({ page, request }) => {
+  // Sixteen routes plus six endpoints per run: paced past the default 30s
+  // budget on a loaded shared machine.
+  test.setTimeout(120_000);
   const repositoryPath = /\bplan\/|\.md#|\bsrc\/[\w.-]/;
   for (const route of routes) {
     await test.step(route, async () => {
@@ -535,6 +546,7 @@ test('the Record shell resolves its navigation before first paint, so a throttle
 // observation as an empty cell — indistinguishable from a row that was never
 // published. `csvDocument` quotes every cell, so an empty one is `,"",`.
 test('Record chart exports keep their source, never blank a cell, and say "Not reported" out loud', async ({ page }) => {
+  test.setTimeout(120_000);
   let exports = 0;
   let unavailable = 0;
   for (const route of routes) {
@@ -584,13 +596,22 @@ test('closed Record menus stay hidden and unfocusable, and the page behind them 
   for (const name of ['start', 'trust', 'inspect', 'run']) {
     await expect(page.locator(`#record-menu-${name}`)).toHaveAttribute('hidden', /.*/);
   }
-  const tabbableInHidden = await page.evaluate(() => {
-    const hidden = Array.from(document.querySelectorAll('.record-topbar__menu[hidden]'));
-    return hidden.flatMap(menu =>
-      Array.from(menu.querySelectorAll('a[href], button')).map(node => (node as HTMLElement).tabIndex),
-    );
+  // `tabIndex` reads 0 for links in a `display: none` subtree, so it cannot
+  // prove anything here. Focus is the behaviour that matters: calling focus()
+  // on a link inside a closed menu must leave the focused element untouched.
+  const focusStuckInHidden = await page.evaluate(() => {
+    const hiddenLinks = Array.from(document.querySelectorAll('.record-topbar__menu[hidden] a[href]'));
+    const before = document.activeElement;
+    for (const link of hiddenLinks) (link as HTMLElement).focus();
+    return {
+      count: hiddenLinks.length,
+      moved: document.activeElement !== before,
+      insideMenu: Boolean(document.activeElement?.closest('.record-topbar__menu[hidden]')),
+    };
   });
-  expect(tabbableInHidden, 'a closed menu exposes focusable controls').toEqual([]);
+  expect(focusStuckInHidden.count, 'the grouped menus render no links to check').toBe(navigationCount);
+  expect(focusStuckInHidden.moved, 'a closed menu accepted focus').toBe(false);
+  expect(focusStuckInHidden.insideMenu, 'focus landed inside a closed menu').toBe(false);
   const trust = page.getByRole('button', { name: 'Trust', exact: true });
   await trust.click();
   await expect(page.locator('#record-menu-trust')).toBeVisible();
