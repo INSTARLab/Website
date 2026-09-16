@@ -1,0 +1,68 @@
+{
+  "owner": "Chief Executive Officer, INSTAR Lab Inc.",
+  "domains": [
+    {
+      "id": "active-projects",
+      "label": "Active projects",
+      "metricId": null,
+      "state": "no-snapshot",
+      "owner": "Chief Executive Officer, INSTAR Lab Inc.",
+      "nextAction": "Data owner to decide whether an active-projects measure belongs in the nonprofit registry; if so, approve the definition (population, grain, temporal kind) and supply an approved aggregate snapshot via scripts/record/import-bi.mjs. Until then the room publishes no project count.",
+      "missingDependency": "No approved metric definition. The retired contractor measure active-research-projects is not reused as a charity position."
+    },
+    {
+      "id": "active-partnerships",
+      "label": "Active partnerships",
+      "metricId": null,
+      "state": "no-snapshot",
+      "owner": "Chief Executive Officer, INSTAR Lab Inc.",
+      "nextAction": "Data owner to decide whether an active-partnerships measure belongs in the nonprofit registry; if so, approve the definition (population, grain, temporal kind) and supply an approved aggregate snapshot via scripts/record/import-bi.mjs. Until then the room publishes no partnership count and names no partner.",
+      "missingDependency": "No approved metric definition. The retired contractor measure active-institutional-partnerships is not reused as a charity position."
+    },
+    {
+      "id": "contributions",
+      "label": "Contributions received",
+      "metricId": "contributions-received",
+      "state": "unavailable",
+      "owner": "Chief Executive Officer, INSTAR Lab Inc.",
+      "nextAction": "Data owner to supply an approved as-of aggregate for contributions-received with source and approval metadata via scripts/record/import-bi.mjs, or confirm that no figure is approved for publication. Do not restate an external filing as the room-owned measure.",
+      "missingDependency": "Definition approved; no approved amount exists for publication. The current observation carries value null with a non-empty unavailable reason."
+    },
+    {
+      "id": "revenue",
+      "label": "Annual revenue",
+      "metricId": "annual-revenue",
+      "state": "unavailable",
+      "owner": "Chief Executive Officer, INSTAR Lab Inc.",
+      "nextAction": "Data owner to supply an approved 2025 period aggregate for annual-revenue by source via scripts/record/import-bi.mjs, or confirm the year stays Not reported. The 990-N filing bound (gross receipts normally not more than $50,000) is a bound, never a substitute exact figure.",
+      "missingDependency": "Definition approved; no approved exact figure for the 2025 reporting year. The bound from the e-Postcard filing class is not published as the measure."
+    },
+    {
+      "id": "outputs",
+      "label": "Completed research outputs",
+      "metricId": "completed-research-outputs",
+      "state": "unavailable",
+      "owner": "Chief Executive Officer, INSTAR Lab Inc.",
+      "nextAction": "Data owner to supply an approved 2025 completed-output count for completed-research-outputs by output-type via scripts/record/import-bi.mjs, or confirm the year stays Not reported.",
+      "missingDependency": "Definition approved; no approved count supplied for the 2025 reporting year. The year is Not reported rather than zero."
+    },
+    {
+      "id": "datasets",
+      "label": "Datasets released",
+      "metricId": "datasets-released",
+      "state": "unavailable",
+      "owner": "Chief Executive Officer, INSTAR Lab Inc.",
+      "nextAction": "Data owner to supply an approved as-of release count for datasets-released by release channel via scripts/record/import-bi.mjs, or confirm that no releases are approved for publication. The public open-data route states intent, not a release count.",
+      "missingDependency": "Definition approved; no approved release count. Counting zero without an attested count would state something the institution has not said."
+    },
+    {
+      "id": "transfers",
+      "label": "Technology transfers",
+      "metricId": "technology-transfers",
+      "state": "unavailable",
+      "owner": "Chief Executive Officer, INSTAR Lab Inc.",
+      "nextAction": "Data owner to supply an approved as-of executed-agreement count for technology-transfers by transfer-type via scripts/record/import-bi.mjs, or confirm that no transfers are approved for publication. A transfer route or conversation is not an executed agreement.",
+      "missingDependency": "Definition approved; no approved executed-agreement count. Routes describing engagements a partner can open are not evidence of a transfer."
+    }
+  ]
+}

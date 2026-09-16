@@ -226,6 +226,31 @@ and review date. If a source domain is unavailable, keep the dashboard in an
 explicit blocked/Not reported state and record the exact missing dependency.
 This issue cannot be marked complete from a working empty state.
 
+Blocked-with-owner register (RR-208 forward motion without invented data):
+missing is not zero, every row renders Not reported, and no row carries a
+value. The live register is `src/data/record-bi/blocked-domains.json`,
+rendered as the blocked table on `/record/ops/`. Measured zeros in the
+shipped snapshot were attested by the chief executive officer on 2026-09-13
+(grants awarded, publications) and never appear here.
+
+| Domain | State | Owner | Exact next action | Missing dependency |
+| --- | --- | --- | --- | --- |
+| Active projects | Not reported · no approved observation | Chief Executive Officer, INSTAR Lab Inc. | Decide whether an active-projects measure belongs in the nonprofit registry; if so, approve the definition and supply an approved aggregate via `scripts/record/import-bi.mjs`. | No approved metric definition; retired `active-research-projects` is not reused. |
+| Active partnerships | Not reported · no approved observation | Chief Executive Officer, INSTAR Lab Inc. | Decide whether an active-partnerships measure belongs in the nonprofit registry; if so, approve the definition and supply an approved aggregate via `scripts/record/import-bi.mjs`. Until then name no partner. | No approved metric definition; retired `active-institutional-partnerships` is not reused. |
+| Contributions (`contributions-received`) | Not reported · blocked with owner | Chief Executive Officer, INSTAR Lab Inc. | Supply an approved as-of aggregate with source/approval metadata via `scripts/record/import-bi.mjs`, or confirm no figure is approved. | Definition approved; no approved amount exists for publication. |
+| Revenue (`annual-revenue`) | Not reported · blocked with owner | Chief Executive Officer, INSTAR Lab Inc. | Supply an approved 2025 period aggregate by source via `scripts/record/import-bi.mjs`, or confirm the year stays Not reported. | No approved exact 2025 figure; the 990-N bound (normally not more than $50,000) is never substituted. |
+| Outputs (`completed-research-outputs`) | Not reported · blocked with owner | Chief Executive Officer, INSTAR Lab Inc. | Supply an approved 2025 completed-output count by output-type via `scripts/record/import-bi.mjs`. | No approved 2025 count; the year is Not reported rather than zero. |
+| Datasets (`datasets-released`) | Not reported · blocked with owner | Chief Executive Officer, INSTAR Lab Inc. | Supply an approved as-of release count by channel via `scripts/record/import-bi.mjs`, or confirm no releases are approved. | No approved release count; the open-data route is intent, not a count. |
+| Transfers (`technology-transfers`) | Not reported · blocked with owner | Chief Executive Officer, INSTAR Lab Inc. | Supply an approved as-of executed-agreement count by transfer-type via `scripts/record/import-bi.mjs`, or confirm none are approved. | No approved executed-agreement count; routes and conversations are not agreements. |
+
+Honest-state machinery: `scripts/record/bi-schema.mjs` pins the two
+CEO-attested zeros (`validateCeoAttestedZeros`, forbidding other zeros and
+requiring non-empty reasons); `scripts/record/import-bi.mjs` rejects
+blank-value rows without a reason and measured rows with a reason at the CSV
+row boundary; `tests/record/record-bi.test.mjs` and
+`tests/record/record-bi-aggregations.test.mjs` reconcile displayed aggregates
+to source rows and the blocked register to snapshot states.
+
 Dependencies: RR-202, RR-207.
 
 ## Required route coverage

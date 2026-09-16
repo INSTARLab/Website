@@ -3,6 +3,7 @@ import RecordDocument from '../../../components/record/RecordDocument.astro';
 import BarChart from '../../../components/record/viz/BarChart.astro';
 import { recordHref, recordMeta, recordRouteAtPath, recordStats } from '../../../data/record';
 import { recordBiIsStale, recordBiMetricDefinitions, recordBiObservations, recordBiSnapshot } from '../../../data/record-bi';
+import { recordBiBlockedDomains, recordBiBlockedStateLabel } from '../../../data/record-bi/blocked-domains';
 import {
   aggregateMetricObservations,
   observationDimensionsLabel,
@@ -88,6 +89,18 @@ const checkBoundaries = [
         ))}
       </div>
       <p class="small text-body-secondary mt-3 mb-0">The full snapshot, definitions, and approval fields are available at <a href={recordHref('/record/bi.json')}>/record/bi.json</a>.</p>
+    </section>
+
+    <section class="record-section mt-5" aria-labelledby="ops-blocked-title">
+      <div class="d-flex flex-wrap justify-content-between align-items-end gap-3 mb-3"><div><p class="record-section__label mb-2">Blocked with owner · RR-208</p><h2 id="ops-blocked-title" class="mb-2">Unavailable domains stay Not reported until the data owner acts</h2><p class="mb-0 text-body-secondary">Missing is not zero. Each row names the responsible owner and the exact next action. No row carries a value, and no value is inferred from an external filing or a site route.</p></div><span class="badge text-bg-secondary">{recordBiBlockedDomains.length} domains blocked</span></div>
+      <div class="table-responsive" tabindex="0" role="region" aria-label="Blocked operational domains with owner and next action">
+        <table class="table table-striped align-middle">
+          <caption class="caption-top">Blocked domain, state, owner, exact next action, and missing dependency</caption>
+          <thead><tr><th scope="col">Domain</th><th scope="col">State</th><th scope="col">Owner</th><th scope="col">Exact next action</th><th scope="col">Missing dependency</th></tr></thead>
+          <tbody>{recordBiBlockedDomains.map((entry) => <tr><th scope="row">{entry.label}{entry.metricId && <code class="d-block mt-1 text-break">{entry.metricId}</code>}</th><td><span class="badge text-bg-secondary">Not reported</span><span class="small text-body-secondary d-block mt-1">{recordBiBlockedStateLabel(entry.state)}</span></td><td>{entry.owner}</td><td class="small">{entry.nextAction}</td><td class="small text-body-secondary">{entry.missingDependency}</td></tr>)}</tbody>
+        </table>
+      </div>
+      <p class="small text-body-secondary mt-3 mb-0">Measured zeros in this snapshot were attested by the chief executive officer on 2026-09-13 (grants awarded, publications). Every domain above renders as Not reported; none renders as zero.</p>
     </section>
 
     <section class="record-section mt-5" aria-labelledby="ops-config-title">

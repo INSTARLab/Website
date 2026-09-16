@@ -291,6 +291,54 @@ export function sortSnapshot(snapshot) {
   return { schemaVersion: 1, snapshotId: snapshot.snapshotId, status: snapshot.status, asOf: snapshot.asOf ?? null, refreshedAt: snapshot.refreshedAt, source: snapshot.source, approval: snapshot.approval, observations, ...(snapshot.note ? { note: snapshot.note } : {}) };
 }
 
+/**
+ * RR-208 schema pinning: the only measured zeros any approver has attested in
+ * the shipped snapshot. Tests pin the live `current.json` against this list so
+ * a stray zero can never read as a measured figure, and a flipped zero can
+ * never silently become Not reported. This is a pin on the shipped snapshot,
+ * not a ban on future attested zeros: a future snapshot that adds a newly
+ * attested zero updates this list with its new approval reference.
+ */
+export const CEO_ATTESTED_ZERO_METRIC_IDS = Object.freeze(['grants-awarded', 'publications']);
+export const CEO_ATTESTATION_REFERENCE = 'CEO-ATTESTATION-2026-09-13';
+
+/**
+ * Pin the shipped snapshot's honest states: the two CEO-attested measures
+ * publish measured zeros, every other observation with a null value carries a
+ * non-empty reason, and no other measure publishes a zero. Returns error
+ * strings; an empty array means the snapshot keeps its pin.
+ */
+export function validateCeoAttestedZeros(snapshot) {
+  const errors = [];
+  if (!isPlainObject(snapshot) || !Array.isArray(snapshot.observations)) return ['snapshot observations must be an array'];
+  const rowsFor = (metricId) => snapshot.observations.filter((entry) => isPlainObject(entry) && entry.metricId === metricId);
+  for (const metricId of CEO_ATTESTED_ZERO_METRIC_IDS) {
+    const rows = rowsFor(metricId);
+    if (rows.length === 0) {
+      errors.push(`${metricId} must publish a CEO-attested measured zero`);
+      continue;
+    }
+    for (const row of rows) {
+      if (row.value !== 0) errors.push(`${metricId} must publish a measured zero, not ${JSON.stringify(row.value)}`);
+      if (row.unavailableReason !== undefined) errors.push(`${metricId} must not carry an unavailable reason for a measured zero`);
+      if (row.approval?.reference !== CEO_ATTESTATION_REFERENCE) errors.push(`${metricId} must carry approval reference ${CEO_ATTESTATION_REFERENCE}`);
+    }
+  }
+  for (const entry of snapshot.observations) {
+    if (!isPlainObject(entry)) continue;
+    if (entry.value === 0 && !CEO_ATTESTED_ZERO_METRIC_IDS.includes(entry.metricId)) {
+      errors.push(`${entry.metricId} publishes a zero that no approver attested; use null with an unavailable reason`);
+    }
+    if (entry.value === null && !requiredString(entry.unavailableReason)) {
+      errors.push(`${entry.metricId ?? '(unknown metric)'} with a null value requires a non-empty unavailable reason`);
+    }
+    if (entry.value !== null && entry.unavailableReason !== undefined) {
+      errors.push(`${entry.metricId} carries an unavailable reason for a measured value`);
+    }
+  }
+  return errors;
+}
+
 export async function readJsonFile(filePath) {
   return JSON.parse(await readFile(resolve(filePath), 'utf8'));
 }

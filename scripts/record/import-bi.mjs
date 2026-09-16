@@ -86,18 +86,31 @@ function requireCompleteOverride(row, columns, group, rowNumber) {
 function observationFromCsv(row, rowNumber, metadata) {
   requireCompleteOverride(row, csvSourceColumns, 'source', rowNumber);
   requireCompleteOverride(row, csvApprovalColumns, 'approval', rowNumber);
+  const value = parseNumber(row.value, 'value', rowNumber);
+  const hasReason = Boolean(row.unavailableReason?.trim());
+  // Honest-state guard at the row boundary, before snapshot validation. A
+  // blank value is missing, never zero: it must say why. A measured value —
+  // zero included — must not carry a reason that would let a number read as
+  // unavailable. Reporting the CSV row number here is the whole point; the
+  // later snapshot validator can only name an observation index.
+  if (value === null && !hasReason) throw new Error(`CSV row ${rowNumber}: unavailableReason is required when value is blank (missing is not zero)`);
+  if (value !== null && hasReason) throw new Error(`CSV row ${rowNumber}: unavailableReason is only allowed when value is blank`);
+  const dimensions = parseDimensions(row.dimensions, rowNumber);
+  for (const [key, dimensionValue] of Object.entries(dimensions)) {
+    if (typeof dimensionValue !== 'string' || !dimensionValue.trim()) throw new Error(`CSV row ${rowNumber}: dimensions.${key} must be a non-empty string`);
+  }
   const periodStart = row.periodStart?.trim() || null;
   const periodEnd = row.periodEnd?.trim() || null;
   const period = periodStart === null && periodEnd === null ? null : { start: periodStart, end: periodEnd };
   const asOf = row.asOf?.trim() || null;
   return {
     metricId: row.metricId?.trim(),
-    value: parseNumber(row.value, 'value', rowNumber),
+    value,
     ...(row.unavailableReason?.trim() ? { unavailableReason: row.unavailableReason.trim() } : {}),
     unit: row.unit?.trim(),
     period,
     asOf,
-    dimensions: parseDimensions(row.dimensions, rowNumber),
+    dimensions,
     source: {
       id: row.sourceId?.trim() || metadata.source.id,
       label: row.sourceLabel?.trim() || metadata.source.label,

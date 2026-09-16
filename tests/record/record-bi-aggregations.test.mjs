@@ -1,7 +1,8 @@
 import assert from 'node:assert/strict';
+import { readFile } from 'node:fs/promises';
 import test from 'node:test';
 
-import { sortSnapshot } from '../../scripts/record/bi-schema.mjs';
+import { sortSnapshot, validateCeoAttestedZeros } from '../../scripts/record/bi-schema.mjs';
 import {
   aggregateMetricObservations,
   comparableMetricSeries,
@@ -141,4 +142,62 @@ test('snapshot serialization is deterministic regardless of input order', () => 
   const reversed = sortSnapshot({ ...metadata, observations: [second, first] });
   assert.equal(JSON.stringify(forward), JSON.stringify(reversed));
   assert.equal(JSON.stringify(forward.observations[0].dimensions), '{"source":"contributions"}');
+});
+
+test('shipped snapshot aggregates reconcile to source: measured zeros sum to zero, blocked domains stay null', async () => {
+  // RR-208 reconciliation evidence. Displayed totals must equal the source
+  // rows they aggregate — no invented data between the snapshot and the page.
+  const current = JSON.parse(await readFile('src/data/record-bi/current.json', 'utf8'));
+  assert.deepEqual(validateCeoAttestedZeros(current), []);
+  const blocked = JSON.parse(await readFile('src/data/record-bi/blocked-domains.json', 'utf8'));
+  const observations = current.observations;
+
+  // The two CEO-attested measures aggregate to the number zero at every grain
+  // the selectors publish: per-dimension groups and the institution rollup.
+  for (const metricId of ['grants-awarded', 'publications']) {
+    const definition = { id: metricId, dimensions: metricId === 'grants-awarded' ? ['funder-type'] : ['publication-type'] };
+    const groups = aggregateMetricObservations(definition, observations);
+    assert.ok(groups.length > 0, `${metricId} must have aggregate groups`);
+    for (const group of groups) {
+      assert.strictEqual(group.value, 0, `${metricId} group must reconcile to zero`);
+      assert.equal(group.unavailableReason, undefined);
+    }
+    const rollup = latestMetricAggregate(definition, observations);
+    assert.notEqual(rollup, null);
+    assert.strictEqual(rollup.value, 0, `${metricId} rollup must reconcile to zero`);
+    assert.equal(rollup.observations.length, groups.flatMap((group) => group.observations ?? []).length);
+  }
+
+  // Every blocked metric with a definition reconciles to null at every grain:
+  // one unavailable row poisons its group, and the rollup stays null with the
+  // row reasons joined. The room therefore cannot render these as zero.
+  const blockedMetricIds = blocked.domains.map((entry) => entry.metricId).filter(Boolean);
+  assert.deepEqual([...blockedMetricIds].sort(), [
+    'annual-revenue',
+    'completed-research-outputs',
+    'contributions-received',
+    'datasets-released',
+    'technology-transfers',
+  ]);
+  for (const metricId of blockedMetricIds) {
+    const rows = observations.filter((row) => row.metricId === metricId);
+    assert.ok(rows.length > 0, `${metricId} must have unavailable rows to reconcile`);
+    const definition = { id: metricId, dimensions: Object.keys(rows[0].dimensions) };
+    const groups = aggregateMetricObservations(definition, observations);
+    assert.ok(groups.length > 0);
+    for (const group of groups) {
+      assert.strictEqual(group.value, null, `${metricId} group must reconcile to null, never zero`);
+      assert.ok(group.unavailableReason?.trim().length > 0, `${metricId} group must carry its reason`);
+    }
+    const rollup = latestMetricAggregate(definition, observations);
+    assert.notEqual(rollup, null);
+    assert.strictEqual(rollup.value, null);
+  }
+
+  // Domains with no approved definition have no rows at all: no-snapshot is
+  // not a zero and not an unavailable row.
+  for (const entry of blocked.domains.filter((entry) => entry.metricId === null)) {
+    assert.deepEqual(aggregateMetricObservations({ id: entry.id, dimensions: [] }, observations), []);
+    assert.equal(latestMetricAggregate({ id: entry.id, dimensions: [] }, observations), null);
+  }
 });

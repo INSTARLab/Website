@@ -6,8 +6,11 @@ import test from 'node:test';
 
 import {
   assertValidSnapshot,
+  CEO_ATTESTATION_REFERENCE,
+  CEO_ATTESTED_ZERO_METRIC_IDS,
   metricDefinitions,
   parseCsv,
+  validateCeoAttestedZeros,
   validateCsvHeaders,
   validateSnapshot,
 } from '../../scripts/record/bi-schema.mjs';
@@ -275,6 +278,153 @@ test('invalid imports leave the current snapshot untouched', async () => {
     await writeFile(inputPath, JSON.stringify(snapshot({ observations: [observation({ unit: 'not-a-unit' })] })));
     await assert.rejects(() => importSnapshot({ inputPath, currentPath, historyDir }), /unit must match/);
     assert.equal(await readFile(currentPath, 'utf8'), '{"sentinel":true}\n');
+  } finally {
+    await rm(directory, { recursive: true, force: true });
+  }
+});
+
+test('the shipped snapshot keeps the CEO-attested zero pin and the blocked-domain register reconciles to it', async () => {
+  // The pin is the software half of RR-208 honesty: two measured zeros, no
+  // other zeros, every null carrying its reason. The blocked-domain register
+  // is the documentation half: seven domains with an owner and a next action.
+  assert.deepEqual([...CEO_ATTESTED_ZERO_METRIC_IDS].sort(), ['grants-awarded', 'publications']);
+  assert.equal(CEO_ATTESTATION_REFERENCE, 'CEO-ATTESTATION-2026-09-13');
+
+  const current = JSON.parse(await readFile('src/data/record-bi/current.json', 'utf8'));
+  assert.deepEqual(validateCeoAttestedZeros(current), []);
+
+  const blocked = JSON.parse(await readFile('src/data/record-bi/blocked-domains.json', 'utf8'));
+  assert.deepEqual(blocked.domains.map((entry) => entry.id), [
+    'active-projects',
+    'active-partnerships',
+    'contributions',
+    'revenue',
+    'outputs',
+    'datasets',
+    'transfers',
+  ]);
+  const metricIds = new Set(metricDefinitions.map((metric) => metric.id));
+  for (const entry of blocked.domains) {
+    assert.equal(typeof entry.label, 'string');
+    assert.ok(entry.label.trim().length > 0);
+    // The owner is a role the snapshot already attests, never a personal
+    // name no source supports.
+    assert.equal(entry.owner, 'Chief Executive Officer, INSTAR Lab Inc.');
+    assert.ok(entry.nextAction.trim().length > 0, `${entry.id} must name its exact next action`);
+    assert.ok(entry.missingDependency.trim().length > 0, `${entry.id} must name its exact missing dependency`);
+    assert.ok(['unavailable', 'no-snapshot'].includes(entry.state), `${entry.id} has an unknown blocked state`);
+    if (entry.metricId === null) {
+      // Domains with no approved definition stay no-snapshot: nothing has
+      // been approved, so there is nothing to report.
+      assert.equal(entry.state, 'no-snapshot');
+      assert.ok(!current.observations.some((row) => row.metricId === entry.id), `${entry.id} must not appear as a metric`);
+    } else {
+      assert.ok(metricIds.has(entry.metricId), `${entry.id} points at an unknown metric ${entry.metricId}`);
+      assert.equal(entry.state, 'unavailable');
+      const rows = current.observations.filter((row) => row.metricId === entry.metricId);
+      assert.ok(rows.length > 0, `${entry.metricId} must have an approved unavailable observation`);
+      for (const row of rows) {
+        assert.equal(row.value, null, `${entry.metricId} must stay Not reported, never zero`);
+        assert.ok(row.unavailableReason.trim().length > 0);
+      }
+    }
+    // A blocked domain never carries a value. The register is JSON data, so
+    // the absence of a value field is the assertion.
+    assert.ok(!Object.hasOwn(entry, 'value'), `${entry.id} must not carry a value`);
+  }
+
+  // And the two measured measures are not blocked: each publishes its
+  // CEO-attested zero.
+  for (const metricId of CEO_ATTESTED_ZERO_METRIC_IDS) {
+    assert.ok(!blocked.domains.some((entry) => entry.metricId === metricId), `${metricId} is measured and must not be blocked`);
+    const rows = current.observations.filter((row) => row.metricId === metricId);
+    assert.ok(rows.length > 0);
+    for (const row of rows) assert.strictEqual(row.value, 0);
+  }
+});
+
+test('the CEO pin rejects a flipped zero, a stray zero, and a missing reason', () => {
+  const current = {
+    schemaVersion: 1,
+    snapshotId: 'test-pin',
+    status: 'published',
+    asOf: '2026-09-13',
+    refreshedAt: '2026-09-13',
+    source,
+    approval,
+    observations: [
+      observation({ metricId: 'grants-awarded', value: 0, unit: 'USD', period: null, asOf: '2026-09-13', dimensions: { 'funder-type': 'federal' }, approval: { ...approval, reference: CEO_ATTESTATION_REFERENCE } }),
+      observation({ metricId: 'publications', value: 0, unit: 'publications', period: null, asOf: '2026-09-13', dimensions: { 'publication-type': 'journal-article' }, approval: { ...approval, reference: CEO_ATTESTATION_REFERENCE } }),
+      observation({ value: null, unavailableReason: 'No approved figure' }),
+    ],
+  };
+  assert.deepEqual(validateCeoAttestedZeros(current), []);
+
+  // A measured zero flipped to null silently becomes Not reported.
+  assert.match(
+    validateCeoAttestedZeros({ ...current, observations: current.observations.map((row) => (row.metricId === 'grants-awarded' ? { ...row, value: null, unavailableReason: 'Lost' } : row)) }).join('\n'),
+    /grants-awarded must publish a measured zero/,
+  );
+  // A zero on a blocked measure states something no approver said.
+  assert.match(
+    validateCeoAttestedZeros({ ...current, observations: current.observations.map((row) => (row.metricId === 'annual-revenue' ? { ...row, value: 0 } : row)) }).join('\n'),
+    /publishes a zero that no approver attested/,
+  );
+  // A null without its reason is a silence, not a position.
+  assert.match(
+    validateCeoAttestedZeros({ ...current, observations: current.observations.map((row) => (row.metricId === 'annual-revenue' ? { ...row, unavailableReason: '  ' } : row)) }).join('\n'),
+    /requires a non-empty unavailable reason/,
+  );
+});
+
+test('CSV rows reject honest-state confusion with the row number attached', async () => {
+  const directory = await mkdtemp(join(tmpdir(), 'record-bi-honest-'));
+  try {
+    const metadataPath = join(directory, 'metadata.json');
+    const currentPath = join(directory, 'current.json');
+    const historyDir = join(directory, 'history');
+    await writeFile(metadataPath, JSON.stringify(snapshot({ observations: undefined })));
+    const header = 'metricId,value,unit,periodStart,periodEnd,asOf,dimensions,unavailableReason,reviewOwner,nextReviewDate';
+
+    // A blank value without a reason would publish a silence as if it were a
+    // position. The importer names the CSV row; the snapshot validator can
+    // only name an observation index.
+    const blankPath = join(directory, 'blank.csv');
+    await writeFile(blankPath, `${header}\nannual-revenue,,USD,2026-01-01,2026-06-30,,"{""source"":""contributions""}",,"Test data owner",2027-01-01\n`);
+    await assert.rejects(() => importSnapshot({ inputPath: blankPath, metadataPath, currentPath, historyDir }), /CSV row 2: unavailableReason is required when value is blank/);
+
+    // A measured value carrying a reason would let a number read as
+    // unavailable. Zero included: a measured zero must stand alone.
+    const reasonedPath = join(directory, 'reasoned.csv');
+    await writeFile(reasonedPath, `${header}\nannual-revenue,125000,USD,2026-01-01,2026-06-30,,"{""source"":""contributions""}","Has a value but also a reason","Test data owner",2027-01-01\n`);
+    await assert.rejects(() => importSnapshot({ inputPath: reasonedPath, metadataPath, currentPath, historyDir }), /CSV row 2: unavailableReason is only allowed when value is blank/);
+
+    const zeroReasonedPath = join(directory, 'zero-reasoned.csv');
+    await writeFile(zeroReasonedPath, `${header}\nannual-revenue,0,USD,2026-01-01,2026-06-30,,"{""source"":""contributions""}","Zero with a reason","Test data owner",2027-01-01\n`);
+    await assert.rejects(() => importSnapshot({ inputPath: zeroReasonedPath, metadataPath, currentPath, historyDir }), /unavailableReason is only allowed when value is blank/);
+
+    // An empty dimension value would publish a grain the definition never
+    // declared.
+    const dimensionPath = join(directory, 'dimension.csv');
+    await writeFile(dimensionPath, `${header}\nannual-revenue,125000,USD,2026-01-01,2026-06-30,,"{""source"":""""}",,"Test data owner",2027-01-01\n`);
+    await assert.rejects(() => importSnapshot({ inputPath: dimensionPath, metadataPath, currentPath, historyDir }), /dimensions\.source must be a non-empty string/);
+
+    // The honest paths still import: a measured value alone, and a blank
+    // value with its reason.
+    const measuredPath = join(directory, 'measured.csv');
+    const measuredMetadataPath = join(directory, 'measured.metadata.json');
+    await writeFile(measuredPath, `${header}\nannual-revenue,125000,USD,2026-01-01,2026-06-30,,"{""source"":""contributions""}",,"Test data owner",2027-01-01\n`);
+    await writeFile(measuredMetadataPath, JSON.stringify(snapshot({ snapshotId: 'test-honest-measured', observations: undefined })));
+    const measured = await importSnapshot({ inputPath: measuredPath, metadataPath: measuredMetadataPath, currentPath, historyDir });
+    assert.equal(measured.observations[0].value, 125000);
+
+    const unavailablePath = join(directory, 'unavailable.csv');
+    await writeFile(unavailablePath, `${header}\nannual-revenue,,USD,2026-01-01,2026-06-30,,"{""source"":""contributions""}","No approved figure","Test data owner",2027-01-01\n`);
+    const unavailableMetadataPath = join(directory, 'unavailable.metadata.json');
+    await writeFile(unavailableMetadataPath, JSON.stringify(snapshot({ snapshotId: 'test-honest-unavailable', observations: undefined })));
+    const unavailable = await importSnapshot({ inputPath: unavailablePath, metadataPath: unavailableMetadataPath, currentPath, historyDir });
+    assert.equal(unavailable.observations[0].value, null);
+    assert.match(unavailable.observations[0].unavailableReason, /No approved figure/);
   } finally {
     await rm(directory, { recursive: true, force: true });
   }
