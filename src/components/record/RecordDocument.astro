@@ -53,42 +53,57 @@ const snapshotDateLabel = 'Not reported';
             * exactly one link per record route, and the suite asserts both counts.
             * Hidden until the script finds at least two sections; without
             * JavaScript the room keeps its grouped/flat navigation and no empty
-            * nav is announced. */}
+            * nav is announced.
+            *
+            * `is:inline` is load-bearing, not stylistic. Astro bundles a plain
+            * `<script>` into a deferred module, which under CPU throttle executes
+            * after first paint: the utility row first lays out with only the
+            * Return link, then the jump disclosure pops in and the row wraps,
+            * shifting the document ~0.14. Running synchronously during parsing —
+            * the same reason the `data-record-js` flag in RecordLayout is inline —
+            * means the row is correct at first paint. Plain script, no imports
+            * and no TypeScript syntax: inline content is emitted verbatim. */}
           <nav class="record-jump-nav" aria-label="On this page" data-record-jump-nav hidden>
             <details class="record-jump" data-record-jump>
               <summary><span>On this page</span><span class="record-topbar__caret" aria-hidden="true">▾</span></summary>
               <ol class="record-jump__list"></ol>
             </details>
           </nav>
-          <script>
-            const jumpWrap = document.querySelector<HTMLElement>('[data-record-jump-nav]');
-            const jump = jumpWrap?.querySelector<HTMLDetailsElement>('[data-record-jump]');
-            const jumpList = jump?.querySelector<HTMLOListElement>('ol');
-            const jumpHeadings = [...document.querySelectorAll<HTMLElement>('#main-content h2[id]')]
-              .filter((heading) => (heading.textContent ?? '').trim().length > 0);
-            if (jumpWrap && jump && jumpList && jumpHeadings.length > 1) {
-              for (const heading of jumpHeadings) {
-                const item = document.createElement('li');
-                const link = document.createElement('a');
-                link.href = `#${heading.id}`;
-                link.textContent = (heading.textContent ?? '').replace(/\s+/g, ' ').trim();
-                item.append(link);
-                jumpList.append(item);
+          <script is:inline>
+            (function () {
+              var jumpWrap = document.querySelector('[data-record-jump-nav]');
+              var jump = jumpWrap ? jumpWrap.querySelector('[data-record-jump]') : null;
+              var jumpList = jump ? jump.querySelector('ol') : null;
+              var jumpHeadings = Array.prototype.slice
+                .call(document.querySelectorAll('#main-content h2[id]'))
+                .filter(function (heading) {
+                  return (heading.textContent || '').trim().length > 0;
+                });
+              if (jumpWrap && jump && jumpList && jumpHeadings.length > 1) {
+                jumpHeadings.forEach(function (heading) {
+                  var item = document.createElement('li');
+                  var link = document.createElement('a');
+                  link.href = '#' + heading.id;
+                  link.textContent = (heading.textContent || '').replace(/\s+/g, ' ').trim();
+                  item.appendChild(link);
+                  jumpList.appendChild(item);
+                });
+                jumpWrap.hidden = false;
+                jumpList.addEventListener('click', function (event) {
+                  if (event.target instanceof Element && event.target.closest('a[href]')) jump.open = false;
+                });
+                jump.addEventListener('keydown', function (event) {
+                  if (event.key === 'Escape' && jump.open) {
+                    event.preventDefault();
+                    jump.open = false;
+                    var summary = jump.querySelector('summary');
+                    if (summary) summary.focus();
+                  }
+                });
+              } else if (jumpWrap) {
+                jumpWrap.remove();
               }
-              jumpWrap.hidden = false;
-              jumpList.addEventListener('click', (event) => {
-                if (event.target instanceof Element && event.target.closest('a[href]')) jump.open = false;
-              });
-              jump.addEventListener('keydown', (event) => {
-                if (event.key === 'Escape' && jump.open) {
-                  event.preventDefault();
-                  jump.open = false;
-                  jump.querySelector('summary')?.focus();
-                }
-              });
-            } else {
-              jumpWrap?.remove();
-            }
+            })();
           </script>
           <a class="record-topbar__return" href={recordHref('/')}>
             <span>Return to instarlab.org</span>
