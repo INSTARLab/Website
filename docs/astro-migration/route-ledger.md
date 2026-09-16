@@ -15,8 +15,10 @@ description, one canonical URL, one primary `h1`, and one `main` landmark.
 404, 500, offline, and explicit `noindex` documents are recorded but are not
 treated as indexable content.
 
-The current production build passes this audit with 70 HTML documents (including
-the host-specific `404.html`) and 68 indexable sitemap routes. Canonical content uses clean trailing-slash URLs
+The current production build passes this audit with 87 HTML documents
+(85 sitemap-indexable pages plus the host-specific `404.html` and the noindex
+`/search/` utility; derived 2026-09-16, see the canonical ledger in
+`plan/record-parity-contract.md` §8). Canonical content uses clean trailing-slash URLs
 such as `/about/` and `/research/consortium/`; the generated `404.html` is the
 host-specific not-found document and is not indexable. There are no legacy URL
 redirects or compatibility pages in the deployed artifact.

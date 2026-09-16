@@ -1,5 +1,13 @@
 # RR-101 — Baseline and template contract ledger
 
+> Superseded in part by #22 (owner direction, 2026-09-14) and recorded under
+> RRP-001 (#23, `plan/record-parity-contract.md`, 2026-09-16): the composition
+> decision below ("one persistent sidebar", "sidebar as the only navigation")
+> no longer governs — global Record navigation belongs at the top, with
+> directory/preview drawers as inspection tools. The 16-route / 6-endpoint
+> facts in this ledger stand. Do not cite this file's sidebar acceptance
+> against the parity backlog (#24–#30).
+
 Owner: primary / explorer. Scope: plan and baseline records only; no application
 edits were made under RR-101. Recorded 2026-09-14 at `511e1c0` plus the
 working-tree changes listed below, which are preserved, not reverted.
