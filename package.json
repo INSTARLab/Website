@@ -10,10 +10,11 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build && pnpm run build:compatibility && pnpm run build:search",
+    "build": "astro build && pnpm run build:compatibility && pnpm run build:search && pnpm run build:link-graph",
     "build:astro": "astro build",
     "build:compatibility": "node scripts/build/finalize-static-artifact.mjs",
     "build:search": "node scripts/search/build-pagefind.mjs",
+    "build:link-graph": "node scripts/quality/build-link-graph.mjs --dist dist",
     "preview": "astro preview",
     "check": "tsc --noEmit",
     "test": "pnpm run check",

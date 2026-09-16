@@ -7,19 +7,34 @@
  * deliberately: the shared module cannot type the embedded JSON without a
  * build-time codegen step, and the logic is twelve lines). Unreachable pairs
  * name the journeys searched and offer the nearest hub; nothing is invented.
+ *
+ * Edge-semantics contract (shared with `findLinkPath` in `nav-graph.mjs`):
+ * content edges carry every search by default; chrome (header/footer) edges
+ * only join when the caller opts in, so chrome repetition can never invent
+ * connectedness. Weak next-action edges keep their own existing opt-in.
  */
 
 interface FinderGraph {
   nodes: Array<{ path: string; title: string }>;
   contentEdges: Array<{ source: string; target: string; journey: string }>;
   weakEdges: Array<{ source: string; target: string; journey: string }>;
+  /** Observed header/footer pairs. Excluded unless the caller passes includeChrome. */
+  chromeEdges?: Array<{ source: string; target: string }>;
   journeys: Array<{ id: string; label: string }>;
 }
 
-function findPath(graph: FinderGraph, from: string, to: string, includeWeak: boolean): string[] | null {
+function observedEdges(graph: FinderGraph, includeWeak: boolean, includeChrome: boolean): Array<{ source: string; target: string }> {
+  return [
+    ...graph.contentEdges,
+    ...(includeChrome ? (graph.chromeEdges ?? []) : []),
+    ...(includeWeak ? graph.weakEdges : []),
+  ];
+}
+
+function findPath(graph: FinderGraph, from: string, to: string, includeWeak: boolean, includeChrome = false): string[] | null {
   if (from === to) return [from];
   const forward = new Map<string, Set<string>>();
-  const edges = includeWeak ? [...graph.contentEdges, ...graph.weakEdges] : graph.contentEdges;
+  const edges = observedEdges(graph, includeWeak, includeChrome);
   for (const edge of edges) {
     if (!forward.has(edge.source)) forward.set(edge.source, new Set());
     forward.get(edge.source)?.add(edge.target);
