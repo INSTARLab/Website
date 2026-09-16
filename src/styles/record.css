@@ -5,24 +5,15 @@
  * shell geometry, the content measure, the vertical rhythm and the responsive
  * behaviour are defined here exactly once.
  *
- * Structural note (RR-301 SF-13). This file used to be two layers: a legacy
- * marketing-era stylesheet for lines 1-1034 and a "Dedicated shell contract"
- * block for lines 1036-1306. The two disagreed about the app grid, the sidebar
- * geometry, the document padding, the status ink, the mobile nav-link
- * treatment and which breakpoint the mobile shell starts at, so which
- * declaration won could not be read off the page. That is now one layer, and
- * everything only the retired record design ever used is gone:
- *   record-card* record-callout* record-list* record-route-*
- *   record-filter* record-swatch* record-source* record-hero-figure*
- *   record-visual-grid record-visual__body record-stats record-table-wrap
- *   record-status* record-code record-muted record-source-note
- *   record-grid record-section__heading
- * Each was proved unreferenced against the source tree and the built output
- * before deletion; see docs/reviews/record-room-independent-review.md §SF-13.
+ * Structural note (RR-101). This file used to carry a persistent left rail:
+ * `.record-app` was a sidebar/content grid and a long Sidebar section owned
+ * the rail's geometry, its off-canvas small-screen panel and the menu toggle.
+ * The room now navigates from a compact grouped top bar on every page, so the
+ * app is a single column: the sticky top bar, then the full-width document.
+ * Everything only the retired rail ever used is gone with it.
  *
- * Breakpoints are Bootstrap's own, and there are two of them (there were five:
- * 70rem, 61.999rem, 52rem, 36rem, 35.999rem): `lg` for the off-canvas shell
- * and `sm` for the phone gutter.
+ * Breakpoints are Bootstrap's own, and there are two of them: `lg` for the
+ * grouped-menus/flat-strip switch and `sm` for the phone gutter.
  */
 
 /* ---------------------------------------------------------------------------
@@ -33,39 +24,17 @@
  * not re-declared here (that duplication was part of SF-13). */
 
 .record-app {
-  display: grid;
-  grid-template-columns: var(--record-sidebar-width) minmax(0, 1fr);
+  display: block;
   min-height: 100svh;
   color: var(--color-ink);
 }
 
-.record-sidebar {
-  position: sticky;
-  inset-block-start: 0;
-  align-self: start;
-  display: flex;
-  flex-direction: column;
-  min-width: 0;
-  block-size: 100svh;
-  max-block-size: 100svh;
-  overflow-y: auto;
-  overscroll-behavior: contain;
-  border-inline-end: 1px solid var(--bs-border-color);
-  scrollbar-color: #9eb8c9 transparent;
-  /* RR-301 SF-4. Bootstrap's responsive off-canvas emits
-   * `background-color: transparent !important` from the `lg` breakpoint up
-   * (the `.offcanvas-lg` rule in its `min-width: 992px` block), which silently
-   * beat `.record-sidebar { background: var(--color-surface) }` and left the
-   * surface token doing nothing at every desktop width. An `!important` cannot
-   * be out-specified, so the surface is re-asserted with one at a specificity
-   * above Bootstrap's. This is the only `!important` colour in the file and it
-   * is load-bearing. */
-  background: var(--color-surface) !important;
-}
-
-.record-sidebar__nav-wrap {
-  min-height: 0;
-  overflow-y: auto;
+/* A `hidden` subtree is never interactive. The grouped menus and the jump
+ * disclosure toggle `hidden` at runtime, and author `position` rules below
+ * must not resurrect a closed panel into the focus order or the
+ * accessibility tree. */
+.record-body [hidden] {
+  display: none !important;
 }
 
 /* ---------------------------------------------------------------------------
@@ -128,24 +97,6 @@
   margin-block-start: 0.55rem;
 }
 
-.record-document__heading--with-menu {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 1rem;
-}
-
-/* RR-301 SF-7. The title is a flex item, so its automatic minimum size was
- * max-content and a long heading pushed the menu button past the viewport
- * (321px of scrollWidth at 320px on /record/leadership/). Letting the item
- * shrink makes the heading wrap inside the row instead. The alternative the
- * review offers — `flex-wrap: wrap` — was measured and rejected: because a
- * wrapped line breaks on the item's max-content size, it drops the button to
- * its own row on every route at 390px, moving it 200px down the page. */
-.record-document__heading--with-menu > :first-child {
-  min-width: 0;
-}
-
 .record-document h1 {
   max-width: 24ch;
   margin: 0;
@@ -173,36 +124,6 @@
   color: var(--color-muted);
 }
 
-/* The menu toggle and the panel's close button are revealed by the shell's
- * `data-record-js` flag, never by a post-parse `hidden` flip. Un-hiding a
- * button after the deferred module runs reflows the heading row, which is the
- * small sibling of RR-301 BLK-1. The flag is set by the inline script in
- * RecordLayout.astro's <head>, so both states are correct at first paint. */
-.record-menu-toggle {
-  display: none;
-  align-items: center;
-  gap: 0.5rem;
-  flex: 0 0 auto;
-  margin: 0;
-  font-family: var(--font-ui);
-  font-size: 0.82rem;
-  font-weight: 700;
-}
-
-.record-menu-toggle__icon {
-  font-size: 1.1rem;
-  line-height: 1;
-}
-
-.record-sidebar__close {
-  display: none;
-  margin-block-start: 0.9rem;
-}
-
-.record-sidebar-backdrop {
-  display: none;
-}
-
 /* ---------------------------------------------------------------------------
  * 4. Vertical rhythm
  *
@@ -221,7 +142,7 @@
  * ------------------------------------------------------------------------ */
 
 .record-document__body {
-  padding-block: 2rem 4rem;
+  padding-block: 2rem 2.5rem;
 }
 
 .record-document__body > :first-child,
@@ -242,15 +163,43 @@
 }
 
 /* ---------------------------------------------------------------------------
- * 5. Sidebar
+ * 5. Top bar
+ *
+ * RR-101. The room navigates from a compact grouped top bar pinned to the top
+ * of the viewport: brand and return links on the primary row, the four group
+ * menus (Start / Trust / Inspect / Run) beneath them at desktop widths, and a
+ * flat scrolling strip carrying the same sixteen destinations on small screens
+ * and without JavaScript. The grouped menus need script for toggle and
+ * keyboard support, so the visibility switch keys off the shell's
+ * `data-record-js` flag (set synchronously in the head, before first paint):
+ * groups show only with script at `lg` and up, the flat strip shows
+ * everywhere else. Both lists stay in the DOM either way so their
+ * sixteen-link counts can never drift apart silently.
  * ------------------------------------------------------------------------ */
 
-.record-sidebar__intro {
-  padding: 1rem 1.1rem 1.1rem;
+.record-topbar {
+  position: sticky;
+  top: 0;
+  z-index: 1020;
+  background: var(--color-surface);
   border-block-end: 1px solid var(--bs-border-color);
 }
 
-.record-sidebar__brand {
+.record-topbar__primary,
+.record-topbar__groups,
+.record-topbar__flat {
+  padding-inline: max(1.1rem, calc((100% - var(--record-measure)) / 2));
+}
+
+.record-topbar__primary {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem 1rem;
+  padding-block: 0.65rem;
+}
+
+.record-topbar__brand {
   display: flex;
   align-items: center;
   gap: 0.7rem;
@@ -258,7 +207,7 @@
   text-decoration: none;
 }
 
-.record-sidebar__mark {
+.record-topbar__mark {
   display: grid;
   width: 2.1rem;
   height: 2.1rem;
@@ -271,17 +220,17 @@
   font-weight: 700;
 }
 
-.record-sidebar__brand strong,
-.record-sidebar__brand small {
+.record-topbar__brand strong,
+.record-topbar__brand small {
   display: block;
 }
 
-.record-sidebar__brand strong {
+.record-topbar__brand strong {
   font-family: var(--font-display);
   font-size: 1rem;
 }
 
-.record-sidebar__brand small {
+.record-topbar__brand small {
   margin-block-start: 0.1rem;
   color: var(--color-muted);
   font-family: var(--font-ui);
@@ -290,18 +239,305 @@
   text-transform: uppercase;
 }
 
-.record-sidebar__intro p {
-  margin-block-start: 0.8rem;
-  color: var(--color-muted-strong);
+.record-topbar__utility {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 0.75rem;
+  margin-inline-start: auto;
+}
+
+.record-topbar__return {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  width: fit-content;
+  color: var(--color-brand-deep);
+  font-family: var(--font-ui);
   font-size: 0.82rem;
-  line-height: 1.5;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
 }
 
-.record-sidebar nav {
-  padding: 0.95rem 0.7rem;
+.record-topbar__return:hover {
+  color: #a61b1b;
+  text-decoration: underline;
 }
 
-.record-sidebar__label,
+/* Grouped dropdown navigation. Hidden until script confirms the menus can
+ * toggle; the flat strip below carries the same destinations meanwhile. */
+.record-topbar__groups {
+  display: none;
+  padding-block: 0.55rem 0.7rem;
+  border-block-start: 1px solid var(--bs-border-color);
+}
+
+.record-topbar__groups-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.4rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.record-topbar__group {
+  position: relative;
+}
+
+/* The last menu opens against the inline-end edge so its 21rem panel can
+ * never cross the viewport on narrow desktop windows. */
+.record-topbar__group:last-child .record-topbar__menu {
+  left: auto;
+  right: 0;
+}
+
+.record-topbar__group > button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  min-block-size: 2rem;
+  padding: 0.3rem 0.7rem;
+  border: 1px solid var(--bs-border-color);
+  border-radius: 0.35rem;
+  background: #fff;
+  color: var(--color-ink);
+  font-family: var(--font-ui);
+  font-size: 0.82rem;
+  font-weight: 700;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.record-topbar__group > button::after {
+  content: '▾';
+  font-size: 0.65rem;
+  color: var(--color-muted);
+}
+
+.record-topbar__group > button:hover,
+.record-topbar__group > button[aria-expanded='true'] {
+  border-color: var(--color-brand);
+  color: var(--color-brand-deep);
+}
+
+.record-topbar__group > button[aria-expanded='true']::after {
+  color: var(--color-brand-deep);
+}
+
+.record-topbar__group > button[aria-current='true'],
+.record-topbar__group:has([aria-current='page']) > button {
+  border-color: var(--color-brand);
+  color: var(--color-brand-deep);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.record-topbar__menu {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  z-index: 7;
+  min-width: 15rem;
+  max-width: min(21.25rem, 90vw);
+  max-height: 60vh;
+  overflow: auto;
+  margin: 0;
+  padding: 0.375rem;
+  border: 1px solid var(--bs-border-color);
+  border-radius: 0.5rem;
+  background: var(--color-surface-raised);
+  box-shadow: 0 12px 32px rgb(8 22 35 / 0.18);
+}
+
+.record-topbar__menu > ol {
+  display: grid;
+  gap: 0.12rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.record-topbar__menu a {
+  display: grid;
+  grid-template-columns: 2rem minmax(0, 1fr);
+  align-items: center;
+  gap: 0.55rem;
+  min-block-size: 2.5rem;
+  padding: 0.45rem 0.55rem;
+  border-radius: 0.25rem;
+  color: var(--color-muted-strong);
+  font-family: var(--font-ui);
+  font-size: 0.83rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.record-topbar__menu a:hover,
+.record-topbar__menu a:focus-visible,
+.record-topbar__menu a[aria-current='page'] {
+  background: #e3f1f8;
+  color: var(--color-brand-deep);
+}
+
+.record-topbar__number {
+  color: var(--color-brand);
+  font-variant-numeric: tabular-nums;
+}
+
+.record-topbar__menu a[aria-current='page'] .record-topbar__number,
+.record-topbar__flat-list a[aria-current='page'] .record-topbar__number {
+  color: #a61b1b;
+}
+
+/* Flat fallback strip. This is the small-screen navigation and the no-JS
+ * navigation: one horizontally scrolling row of the same sixteen pills, so
+ * the strip scrolls internally and never widens the document. */
+.record-topbar__flat {
+  overflow-x: auto;
+  padding-block: 0.55rem 0.7rem;
+  border-block-start: 1px solid var(--bs-border-color);
+  overscroll-behavior-inline: contain;
+  scrollbar-color: #9eb8c9 transparent;
+}
+
+.record-topbar__flat-list {
+  display: flex;
+  gap: 0.35rem;
+  width: max-content;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.record-topbar__flat-list a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  min-block-size: 2rem;
+  padding: 0.3rem 0.65rem;
+  border: 1px solid var(--bs-border-color);
+  border-radius: 0.35rem;
+  background: #fff;
+  color: var(--color-muted-strong);
+  font-family: var(--font-ui);
+  font-size: 0.76rem;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.record-topbar__flat-list a:hover,
+.record-topbar__flat-list a:focus-visible,
+.record-topbar__flat-list a[aria-current='page'] {
+  border-color: var(--color-brand);
+  background: #e3f1f8;
+  color: var(--color-brand-deep);
+}
+
+/* With script at desktop widths the grouped menus take over and the flat
+ * strip retires. Every other combination — small screens with or without
+ * script, desktop without script — keeps the flat strip and hides the
+ * groups, which cannot toggle without script. */
+@media (min-width: 62rem) {
+  html[data-record-js] .record-topbar__groups {
+    display: block;
+  }
+
+  html[data-record-js] .record-topbar__flat {
+    display: none;
+  }
+}
+
+/* Per-page jump list ("On this page"). A compact disclosure at the inline-end
+ * of the primary row: quieter than the record navigation, single-line entries
+ * that inherit its hover wash so the two read as one instrument. The panel is
+ * anchored to the disclosure and capped at 80vw so it can never cross a phone
+ * viewport. */
+.record-jump-nav {
+  min-width: 0;
+}
+
+.record-jump {
+  position: relative;
+}
+
+.record-jump > summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  min-block-size: 2rem;
+  padding: 0.3rem 0.7rem;
+  border: 1px solid var(--bs-border-color);
+  border-radius: 0.35rem;
+  background: #fff;
+  color: var(--color-ink);
+  font-family: var(--font-ui);
+  font-size: 0.78rem;
+  font-weight: 700;
+  white-space: nowrap;
+  cursor: pointer;
+  list-style: none;
+}
+
+.record-jump > summary::-webkit-details-marker {
+  display: none;
+}
+
+.record-jump > summary::after {
+  content: '▾';
+  font-size: 0.65rem;
+  color: var(--color-muted);
+}
+
+.record-jump > summary:hover,
+.record-jump[open] > summary {
+  border-color: var(--color-brand);
+  color: var(--color-brand-deep);
+}
+
+.record-jump__list {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  z-index: 7;
+  min-width: 13.75rem;
+  max-width: min(20rem, 80vw);
+  max-height: 50vh;
+  overflow: auto;
+  margin: 0;
+  padding: 0.375rem;
+  border: 1px solid var(--bs-border-color);
+  border-radius: 0.5rem;
+  background: var(--color-surface-raised);
+  box-shadow: 0 12px 32px rgb(8 22 35 / 0.18);
+  list-style: none;
+}
+
+.record-jump__list a {
+  display: block;
+  padding: 0.4rem 0.55rem;
+  border-radius: 0.25rem;
+  color: var(--color-muted-strong);
+  font-family: var(--font-ui);
+  font-size: 0.78rem;
+  font-weight: 600;
+  line-height: 1.4;
+  text-decoration: none;
+}
+
+.record-jump__list a:hover,
+.record-jump__list a:focus-visible {
+  background: #e3f1f8;
+  color: var(--color-brand-deep);
+}
+
+.record-topbar nav {
+  min-width: 0;
+}
+
+.record-topbar__label,
 .record-section__label,
 .record-document__eyebrow,
 .record-document__meta,
@@ -316,124 +552,18 @@
   text-transform: uppercase;
 }
 
-.record-sidebar__label {
-  margin: 0 0 0.55rem 0.55rem;
-  color: var(--color-muted);
-}
-
-.record-sidebar__nav {
-  display: grid;
-  gap: 0.18rem;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.record-sidebar__nav a {
-  display: grid;
-  grid-template-columns: 2rem minmax(0, 1fr);
+.record-document__footer {
+  display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  gap: 0.55rem;
-  min-block-size: 2.75rem;
-  padding: 0.45rem 0.55rem;
-  border-radius: 0.25rem;
-  color: var(--color-muted-strong);
-  font-family: var(--font-ui);
-  font-size: 0.83rem;
-  font-weight: 700;
-  text-decoration: none;
-}
-
-.record-sidebar__nav a:hover,
-.record-sidebar__nav a:focus-visible,
-.record-sidebar__nav-item--current a {
-  background: #e3f1f8;
-  color: var(--color-brand-deep);
-}
-
-.record-sidebar__number {
-  color: var(--color-brand);
-  font-variant-numeric: tabular-nums;
-}
-
-.record-sidebar__nav-item--current .record-sidebar__number {
-  color: #a61b1b;
-}
-
-/* Grouped record navigation (Start / Trust / Inspect / Run). The outer list
- * keeps its grid gap for the groups; each group separates from the previous
- * one so the four names scan as landmarks, and the nested list resets the
- * browser's ordered-list indentation that `.record-sidebar__nav` only resets
- * for itself. */
-.record-sidebar__nav > .record-sidebar__nav-group {
-  display: grid;
-  gap: 0.18rem;
-  align-content: start;
-  margin: 0.7rem 0 0;
-  padding: 0;
-  list-style: none;
-}
-
-.record-sidebar__nav > .record-sidebar__nav-group:first-child {
-  margin-top: 0;
-}
-
-.record-sidebar__group-label {
-  display: block;
-  margin-bottom: 0.3rem;
-}
-
-.record-sidebar__nav-sub {
-  display: grid;
-  gap: 0.18rem;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-/* Per-page jump list ("On this page"). Plain section links, deliberately
- * quieter than the record navigation above: smaller, single-line entries that
- * inherit the sidebar's hover wash so the two lists read as one instrument. */
-.record-sidebar__jump-wrap {
-  padding: 0.85rem 0.7rem 0.2rem;
+  justify-content: space-between;
+  gap: 0.6rem 1.25rem;
+  padding-block: 1.25rem 3rem;
+  padding-inline: max(2rem, calc((100% - var(--record-measure)) / 2));
   border-block-start: 1px solid var(--bs-border-color);
 }
 
-.record-sidebar__jump {
-  display: grid;
-  gap: 0.12rem;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.record-sidebar__jump a {
-  display: block;
-  padding: 0.32rem 0.55rem;
-  border-radius: 0.25rem;
-  color: var(--color-muted-strong);
-  font-family: var(--font-ui);
-  font-size: 0.78rem;
-  font-weight: 600;
-  line-height: 1.4;
-  text-decoration: none;
-}
-
-.record-sidebar__jump a:hover,
-.record-sidebar__jump a:focus-visible {
-  background: #e3f1f8;
-  color: var(--color-brand-deep);
-}
-
-.record-sidebar__footer {
-  display: grid;
-  gap: 0.6rem;
-  margin-block-start: auto;
-  padding: 1rem 1.1rem 1.25rem;
-  border-block-start: 1px solid var(--bs-border-color);
-}
-
-.record-sidebar__footer a,
+.record-document__footer a,
 .record-link {
   display: inline-flex;
   align-items: center;
@@ -446,27 +576,25 @@
   text-decoration: none;
 }
 
-.record-sidebar__footer a:hover,
+.record-document__footer a:hover,
 .record-link:hover {
   color: #a61b1b;
   text-decoration: underline;
 }
 
-.record-sidebar__legal {
+.record-document__legal {
   display: flex;
   flex-wrap: wrap;
   gap: 0.45rem 0.75rem;
-  padding-block-start: 0.7rem;
-  border-block-start: 1px solid #dce6ec;
 }
 
-.record-sidebar__legal a {
+.record-document__legal a {
   color: var(--color-muted);
   font-size: 0.72rem;
   font-weight: 400;
 }
 
-.record-sidebar__legal a:hover {
+.record-document__legal a:hover {
   color: var(--color-brand-deep);
 }
 
@@ -632,147 +760,27 @@
 }
 
 /* ---------------------------------------------------------------------------
- * 7. Responsive. Two breakpoints: `lg` (the off-canvas shell) and `sm` (the
- * phone gutter). Both are Bootstrap's own boundaries.
+ * 7. Responsive. Two breakpoints: `lg` (the grouped-menus/flat-strip switch)
+ * and `sm` (the phone gutter). Both are Bootstrap's own boundaries.
  * ------------------------------------------------------------------------ */
 
 @media (max-width: 61.999rem) {
-  .record-app {
-    display: block;
-    min-height: 0;
+  .record-topbar__primary {
+    padding-inline: 1.2rem;
+  }
+
+  .record-topbar__flat {
+    padding-inline: 1.2rem;
   }
 
   /* Pre-JS state. This is what a browser without JavaScript paints, and it is
-   * reachable only when the `data-record-js` flag was never set. The complete
-   * navigation stays in document flow — twelve links, nothing hidden. */
-  .record-sidebar.offcanvas-lg {
-    position: static;
-    inset: auto;
-    display: flex;
-    width: 100%;
-    max-width: none;
-    block-size: auto;
-    max-block-size: none;
-    transform: none;
-    visibility: visible;
-    overflow: visible;
-    border-inline-end: 0;
-    border-block-end: 1px solid var(--bs-border-color);
-    box-shadow: none;
-  }
-
-  /* Post-JS state. RR-301 BLK-1: the flag that reaches this block is set by a
-   * synchronous inline script in the document head, so this geometry is already
-   * in force at first contentful paint and the document never moves. When the
-   * flag instead came from the deferred module, the browser painted the in-flow
-   * state first and then shifted `ARTICLE.record-document` by 891px. */
-  html[data-record-js] .record-sidebar.offcanvas-lg {
-    position: fixed;
-    z-index: 1045;
-    inset: 0 auto 0 0;
-    display: flex;
-    width: min(20rem, calc(100vw - 2rem));
-    max-width: 100%;
-    block-size: 100dvh;
-    max-block-size: 100dvh;
-    transform: translateX(-100%);
-    visibility: hidden;
-    overflow-y: auto;
-    border-inline-end: 1px solid var(--bs-border-color);
-    border-block-end: 0;
-    transition: transform 0.25s ease, visibility 0.25s ease;
-  }
-
-  html[data-record-js] .record-sidebar.offcanvas-lg.show {
-    transform: translateX(0);
-    visibility: visible;
-  }
-
-  html[data-record-js] .record-menu-toggle {
-    display: inline-flex;
-  }
-
-  html[data-record-js] .record-sidebar__close {
-    display: inline-block;
-  }
-
-  html[data-record-js] .record-sidebar-backdrop.show {
-    position: fixed;
-    z-index: 1040;
-    inset: 0;
-    display: block;
-    background: rgb(8 22 35 / 0.48);
-  }
-
-  .record-body.record-menu-open {
-    overflow: hidden;
-  }
-
-  /* In-flow fallback internals. These are what makes "twelve navigation links
-   * with JavaScript disabled" true, and they now hold across the whole `lg`
-   * range. They used to stop at 52rem while the shell switched at 61.999rem,
-   * so between 832px and 992px the same list rendered with a different link
-   * background, font size and padding — the visible form of the two-layer bug
-   * this rewrite removes. */
-  .record-sidebar__intro {
-    display: block;
-    padding: 1rem 1.2rem;
-  }
-
-  .record-sidebar__intro p {
-    max-width: 34ch;
-    margin-block-start: 0.8rem;
-    text-align: left;
-  }
-
-  .record-sidebar nav {
-    overflow-x: auto;
-    padding: 0.65rem 1.2rem 0.9rem;
-    overscroll-behavior-inline: contain;
-    scrollbar-color: #9eb8c9 transparent;
-  }
-
-  .record-sidebar__label {
-    margin: 0 0 0.45rem;
-  }
-
-  .record-sidebar__nav {
-    display: grid;
-    min-width: 0;
-  }
-
-  .record-sidebar__nav a {
-    min-block-size: 2.35rem;
-    padding-inline: 0.6rem;
-    background: #fff;
-    font-size: 0.76rem;
-  }
-
-  .record-sidebar__footer {
-    display: grid;
-    margin-block-start: auto;
-    padding: 0.7rem 1.2rem 0.85rem;
-  }
-
-  .record-sidebar__legal {
-    margin-block-start: 0.25rem;
-  }
-
-  .record-sidebar__nav-wrap {
-    overflow: visible;
-    padding-block: 0.95rem;
-  }
-
-  .record-sidebar__nav .nav-link {
-    display: grid;
-    grid-template-columns: 2rem minmax(0, 1fr);
-    gap: 0.55rem;
-    min-block-size: 2.75rem;
-    border: 0;
-  }
+   * reachable only when the `data-record-js` flag was never set. The flat
+   * strip carries all sixteen destinations in flow at every width — nothing
+   * hidden, nothing to toggle. */
 
   .record-document__header,
-  .record-document__body {
+  .record-document__body,
+  .record-document__footer {
     padding-inline: 1.5rem;
   }
 
@@ -783,15 +791,17 @@
   .record-document h1 {
     max-width: 20ch;
   }
-
-  .record-document__heading--with-menu {
-    gap: 0.75rem;
-  }
 }
 
 @media (max-width: 35.999rem) {
+  .record-topbar__primary,
+  .record-topbar__flat {
+    padding-inline: 1rem;
+  }
+
   .record-document__header,
-  .record-document__body {
+  .record-document__body,
+  .record-document__footer {
     padding-inline: 1rem;
   }
 
@@ -805,18 +815,12 @@
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  html[data-record-js] .record-sidebar.offcanvas-lg {
-    transition: none;
-  }
-}
-
 /* ---------------------------------------------------------------------------
  * 8. Forced colours
  * ------------------------------------------------------------------------ */
 
 @media (forced-colors: active) {
-  .record-sidebar,
+  .record-topbar,
   .record-document__header,
   .record-stat,
   .record-visual {
@@ -825,13 +829,23 @@
     color: CanvasText;
   }
 
-  .record-sidebar__nav a:hover,
-  .record-sidebar__nav-item--current a {
+  .record-topbar__menu,
+  .record-jump__list {
+    border-color: CanvasText;
+    background: Canvas;
+  }
+
+  .record-topbar__menu a:hover,
+  .record-topbar__menu a[aria-current='page'],
+  .record-topbar__flat-list a:hover,
+  .record-topbar__flat-list a[aria-current='page'],
+  .record-topbar__group > button[aria-expanded='true'],
+  .record-jump__list a:hover {
     background: Highlight;
     color: HighlightText;
   }
 
-  .record-sidebar__mark {
+  .record-topbar__mark {
     border-color: CanvasText;
     background: Canvas;
     color: CanvasText;
@@ -854,9 +868,8 @@
     min-height: 0;
   }
 
-  .record-sidebar,
-  .record-menu-toggle,
-  .record-sidebar-backdrop {
+  .record-topbar,
+  .record-document__footer {
     display: none !important;
   }
 
