@@ -78,6 +78,13 @@ const methodSteps = [
       <div class="col-12 col-sm-4"><article class="card record-stat h-100"><div class="card-body p-3"><span class="record-kicker d-block mb-2">Commits cited</span><strong class="record-stat__value d-block">{commitCount}</strong><span class="record-stat__label">commits, cited by SHA, that introduce or correct a claim</span></div></article></div>
       <div class="col-12 col-sm-4"><article class="card record-stat h-100"><div class="card-body p-3"><span class="record-kicker d-block mb-2">Identifier entries withheld</span><strong class="record-stat__value d-block">{withheldCount}</strong><span class="record-stat__label">entries whose retracted values this register deliberately does not reproduce</span></div></article></div>
     </div>
+    {/*
+      Self-verifiability note (gh#360): more commits than claims is expected,
+      because one claim can take several commits to introduce and correct.
+      The spans below are derived from the register above, not written by
+      hand, so they cannot drift from it.
+    */}
+    <p class="small text-body-secondary mt-3 mb-0">{recordCorrectionCount} claims cite {commitCount} commits: {recordCorrections.map((correction) => `${correction.id} spans ${correction.commits.length}`).join(', ')}.</p>
   </section>
 
   <section class="record-section container-fluid px-0 mt-5" aria-labelledby="corrections-method-title">
