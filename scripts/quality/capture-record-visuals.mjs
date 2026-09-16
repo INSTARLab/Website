@@ -62,7 +62,11 @@ import {
   sha256,
 } from "./lib.mjs";
 
-const CAPTURE_CODE_VERSION = 1;
+const CAPTURE_CODE_VERSION = 2;
+// The gallery route embeds the whole archive and rasters far beyond sharp's
+// default 268MP input guard; the input here is always our own screenshot, so
+// lift the guard per instance (sharp >= 0.30 takes it as a constructor option).
+const SCREENSHOT_INPUT = { limitInputPixels: false };
 const STATUS = ["success", "failed", "stale"];
 const SELF_CAPTURE_ROUTE = "/record/screens/";
 
@@ -374,15 +378,17 @@ async function captureViewport(page, url, viewport, routeId) {
     throw new Error(`unexpected HTTP ${httpStatus} for ${routeId}`);
   }
   const { unsettledImages } = await settlePage(page);
-  const png = await page.screenshot({ fullPage: true });
-  const metadata = await sharp(png).metadata();
+  // The gallery page embeds the whole archive and runs several times taller
+  // than any other route; give its full-page raster room beyond the default.
+  const png = await page.screenshot({ fullPage: true, timeout: 180000 });
+  const metadata = await sharp(png, SCREENSHOT_INPUT).metadata();
   const fullW = metadata.width ?? 0;
   const fullH = metadata.height ?? 0;
   if (!fullW || !fullH || fullW < 300 || fullH < 200) {
     throw new Error(`implausible screenshot dimensions ${fullW}x${fullH} for ${routeId}`);
   }
   // Blank check runs on a cheap downscale, not the full-page bitmap.
-  const probe = await sharp(png).resize({ width: Math.min(THUMB_WIDTH, fullW), withoutEnlargement: true }).stats();
+  const probe = await sharp(png, SCREENSHOT_INPUT).resize({ width: Math.min(THUMB_WIDTH, fullW), withoutEnlargement: true }).stats();
   const peakDeviation = Math.max(...probe.channels.map((channel) => channel.stdev ?? 0));
   if (peakDeviation < 3) {
     throw new Error(`screenshot for ${routeId} at ${viewport.id} decoded blank (peak channel deviation ${peakDeviation.toFixed(2)})`);
@@ -399,7 +405,7 @@ async function captureViewport(page, url, viewport, routeId) {
     const height = Math.min(sliceH, fullH - top);
     const name = sliceCount === 1 ? `${stem}.avif` : `${stem}-p${index + 1}.avif`;
     const out = absolutePath(join("public", "record", "shots", name));
-    const info = await sharp(png)
+    const info = await sharp(png, SCREENSHOT_INPUT)
       .extract({ left: 0, top, width: fullW, height })
       .avif({ quality: 55, effort: 2 })
       .toFile(out);
@@ -407,7 +413,7 @@ async function captureViewport(page, url, viewport, routeId) {
   }
   const thumbName = `${stem}.avif`;
   const thumbOut = absolutePath(join("public", "record", "shots", "thumbs", thumbName));
-  const thumbInfo = await sharp(png)
+  const thumbInfo = await sharp(png, SCREENSHOT_INPUT)
     .resize({ width: THUMB_WIDTH, height: MAX_SEGMENT_PX, fit: "inside", withoutEnlargement: true })
     .avif({ quality: 50, effort: 2 })
     .toFile(thumbOut);
