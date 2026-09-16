@@ -27,7 +27,8 @@
     "test:browser": "pnpm exec playwright test -c tests/browser/playwright.config.ts",
     "quality:browser": "pnpm run test:browser",
     "verify": "pnpm run check && pnpm run quality:record && pnpm run build && pnpm run quality:routes && pnpm run quality:media && pnpm run quality:provenance && pnpm run quality:links && pnpm run quality:sitemap && pnpm run quality:base && pnpm run quality:browser",
-    "quality:record": "node --test tests/record/*.test.mjs tests/unit/*.test.mjs"
+    "quality:record": "node --test tests/record/*.test.mjs tests/unit/*.test.mjs",
+    "quality:record-capture": "node scripts/quality/capture-record-visuals.mjs --check --dist dist --strict"
   },
   "dependencies": {
     "@astrojs/rss": "^4.0.19",
@@ -43,6 +44,7 @@
     "@tailwindcss/vite": "^4.3.3",
     "astro": "^7.3.2",
     "pagefind": "1.5.2",
+    "sharp": "0.35.4",
     "tailwindcss": "^4.3.3",
     "typescript": "^7.0.2",
     "vite": "^8.3.0"

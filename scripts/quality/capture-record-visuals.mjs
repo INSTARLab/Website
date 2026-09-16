@@ -1,77 +1,538 @@
-import { mkdir, writeFile, readdir, readFile } from 'node:fs/promises';
-import { resolve, join } from 'node:path';
-import { createHash } from 'node:crypto';
-import process from 'node:process';
-import { chromium } from '@playwright/test';
+#!/usr/bin/env node
+// All-page Record capture pipeline (RRP-201, GitLab #26).
+//
+// Captures full-page screenshots + AVIF thumbnails for EVERY ledger page
+// derived from the production `dist/` build (ordinary pages, generated pages,
+// all Record routes, the noindex error document, and the noindex search
+// utility) — not a representative sample. The route population is read off the
+// artifact with the same classifier as
+// `scripts/quality/canonical-route-ledger.mjs`, so route additions/removals
+// update coverage automatically.
+//
+// Two-pass frozen-manifest self-capture contract (no recursive recapture):
+//   1. `pnpm run build` produces the frozen input build B1.
+//   2. `capture-record-visuals.mjs --capture` freezes the input manifest
+//      (routeId -> contentHash over base-normalized HTML), serves B1, and
+//      captures each stale/missing route once. Entries whose contentHash is
+//      unchanged are carried over byte-identical (deterministic rerun apart
+//      from recorded timestamps). Output: committed generation data in
+//      `src/data/record-captures.json` + website-facing AVIFs in
+//      `public/record/shots/`.
+//   3. Rebuild (`pnpm run build`) embeds the new generation into
+//      `/record/screens/` (gallery + `data-capture-generation`). The stored
+//      capture of `/record/screens/` itself always depicts the PREVIOUS
+//      generation's page by design (`selfCapture: true`, `depictsGeneration`);
+//      it is never recaptured to chase the build that embeds it, and the
+//      coverage gate validates it through the generation chain instead of a
+//      contentHash comparison. Adding capture output never invalidates the
+//      other routes' captures because their hashes cover HTML only.
+//   4. `--check` (dist-only, no browser) re-verifies: every required route has
+//      a `success` entry whose contentHash matches the current build, failures
+//      keep their detail and can never read as current, and anything behind
+//      the build reads as `stale`. `--strict` exits non-zero unless coverage
+//      is 100% — that is the CI gate.
+//
+// Capture quality: waits for fonts + settled media, auto-scrolls through lazy
+// sections before shooting, decodes every screenshot and rejects blank ones,
+// serves through `serve-dist.mjs` so the capture sees the host's real routing
+// contract (including the 404 status of the error document).
+//
+// Usage:
+//   node scripts/quality/capture-record-visuals.mjs --check [--dist dist] [--base /] [--strict]
+//   node scripts/quality/capture-record-visuals.mjs --capture [--dist dist] [--base /] [--strict] [--force]
 
-const argValue = (name, fallback) => {
-  const index = process.argv.indexOf(name);
-  return index >= 0 && process.argv[index + 1] ? process.argv[index + 1] : fallback;
-};
-const label = argValue('--label', `record-${Date.now()}`);
-const directory = join(argValue('--output', 'artifacts/record-visuals'), label);
-const dist = resolve(argValue('--dist', 'dist'));
-// Keep the default aligned with tests/browser/playwright.config.ts, which
-// serves the built artifact on its own port. 4173 belongs to other sessions in
-// this working tree; this tool must not default onto a server it did not start.
-const baseUrl = argValue('--base-url', process.env.PLAYWRIGHT_BASE_URL || `http://127.0.0.1:${process.env.PLAYWRIGHT_WEB_SERVER_PORT ?? '4187'}`).replace(/\/$/, '');
-const recordRoot = join(dist, 'record');
-const routes = ['/record/', ...(await readdir(recordRoot, { withFileTypes: true }))
-  .filter(entry => entry.isDirectory()).map(entry => `/record/${entry.name}/`)].sort();
-const protectedRoutes = ['/', '/research/current-programs/', '/contact-us/'];
-const viewports = [{ width: 1440, height: 900 }, { width: 390, height: 844 }];
-const evidence = { capturedAt: new Date().toISOString(), label, dist, baseUrl, routes, artifacts: {}, measurements: [] };
-await mkdir(directory, { recursive: true });
-for (const route of [...routes, ...protectedRoutes]) {
-  evidence.artifacts[route] = createHash('sha256').update(await readFile(join(dist, route, 'index.html'))).digest('hex');
+import { spawn } from "node:child_process";
+import { createHash } from "node:crypto";
+import { existsSync, mkdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
+import { dirname, join, resolve } from "node:path";
+import process from "node:process";
+import { setTimeout as sleep } from "node:timers/promises";
+import sharp from "sharp";
+import { chromium } from "@playwright/test";
+import {
+  absolutePath,
+  listHtmlFiles,
+  openingTags,
+  pageMetadata,
+  parseArgs,
+  printHelp,
+  relativeToRepo,
+  routeFromHtml,
+  readText,
+  sha256,
+} from "./lib.mjs";
+
+const CAPTURE_CODE_VERSION = 1;
+const STATUS = ["success", "failed", "stale"];
+const SELF_CAPTURE_ROUTE = "/record/screens/";
+
+const VIEWPORTS = [
+  { id: "desktop", width: 1440, height: 900 },
+  { id: "mobile", width: 390, height: 844 },
+];
+
+const options = parseArgs(process.argv.slice(2), {
+  dist: "dist",
+  base: process.env.ASTRO_BASE ?? "/",
+  data: "src/data/record-captures.json",
+  shots: "public/record/shots",
+  out: "artifacts/record-capture",
+  port: process.env.CAPTURE_PORT ?? "4193",
+});
+
+if (options.help) {
+  printHelp([
+    "Capture all-page Record screenshots for every ledger page.",
+    "Usage:",
+    "  node scripts/quality/capture-record-visuals.mjs --check [--dist dist] [--base /] [--strict]",
+    "  node scripts/quality/capture-record-visuals.mjs --capture [--dist dist] [--base /] [--strict] [--force]",
+    "",
+    "Modes: --check verifies the committed capture generation against a build (no browser).",
+    "  --capture recaptures stale/missing routes and writes a new generation (needs a browser).",
+  ]);
+  process.exit(0);
 }
-const browser = await chromium.launch({ headless: true });
-try {
-  const page = await browser.newPage();
-  for (const viewport of viewports) {
-    await page.setViewportSize(viewport);
-    for (const route of [...routes, ...protectedRoutes]) {
-      await page.goto(`${baseUrl}${route}`, { waitUntil: 'networkidle' });
-      await page.evaluate(() => document.fonts.ready);
-      const stem = `${viewport.width}-${route.replaceAll('/', '-').replace(/^-|-$/g, '') || 'home'}`;
-      await page.screenshot({ path: `${directory}/${stem}-full.png`, fullPage: true });
-      await page.screenshot({ path: `${directory}/${stem}-fold.png` });
-      evidence.measurements.push(await page.evaluate(() => {
-        const main = document.querySelector('main');
-        const bounds = main?.getBoundingClientRect();
-        const styles = main ? getComputedStyle(main) : null;
-        return { route: location.pathname, width: innerWidth, height: innerHeight,
-          scrollWidth: document.documentElement.scrollWidth, heightTotal: document.body.scrollHeight,
-          mains: document.querySelectorAll('main').length, marketingHeaders: document.querySelectorAll('.site-header').length,
-          marketingHeaderHeight: document.querySelector('.site-header')?.getBoundingClientRect().height ?? 0,
-          marketingFooters: document.querySelectorAll('.site-footer').length,
-          mainBounds: bounds ? { x: bounds.x, width: bounds.width } : null,
-          mainPadding: styles ? { left: styles.paddingLeft, right: styles.paddingRight } : null };
-      }));
+
+const mode = options.capture ? "capture" : "check";
+const distRoot = absolutePath(options.dist);
+const dataPath = absolutePath(options.data);
+const shotsRoot = absolutePath(options.shots);
+const qaRoot = absolutePath(join(options.out, `run-${Date.now()}`));
+
+if (!existsSync(distRoot)) {
+  console.error(`Rendered output not found: ${distRoot}`);
+  console.error("Run the Astro production build first, then rerun this pipeline.");
+  process.exit(2);
+}
+
+function normalizeBase(value) {
+  const raw = String(value ?? "/").trim() || "/";
+  if (raw === "/") return "/";
+  const path = raw.includes("://") ? new URL(raw).pathname : raw;
+  const trimmed = path.replace(/^\/+|\/+$/g, "");
+  return trimmed ? `/${trimmed}` : "/";
+}
+
+const distBase = normalizeBase(options.base);
+const basePrefix = distBase === "/" ? "" : distBase;
+
+// The capture build (base /) and the GitLab Pages build (base /Website/)
+// differ only by the base prefix injected into URLs. Normalizing it away
+// before hashing lets one generation verify both artifacts; the replacement
+// is applied identically to both sides so it cannot equate distinct pages.
+function canonicalHtmlForHash(html) {
+  return basePrefix ? html.replaceAll(basePrefix, "") : html;
+}
+
+function contentHashFor(html) {
+  return createHash("sha256").update(canonicalHtmlForHash(html), "utf8").digest("hex");
+}
+
+function classify(route, metadata, html) {
+  const refresh = openingTags(html, ["meta"]).find(
+    ({ attributes }) => attributes["http-equiv"]?.toLowerCase() === "refresh",
+  );
+  if (refresh) return "alias";
+  if (route === "/404.html") return "error";
+  if (!metadata.indexable) return "utility";
+  if (route.startsWith("/record/")) return "record";
+  return "page";
+}
+
+function slugFor(routeId) {
+  if (routeId === "/") return "home";
+  if (routeId === "/404.html") return "404";
+  return routeId.replace(/^\/|\/$/g, "").replaceAll("/", "-").toLowerCase();
+}
+
+// Every emitted HTML document is a required capture row: ordinary pages,
+// Record routes, the error document, and the utility route. Alias documents
+// (none today) resolve to their canonical route instead of being captured
+// twice or silently excluded.
+function freezeInputManifest() {
+  const files = listHtmlFiles(distRoot);
+  if (files.length === 0) {
+    console.error(`No HTML documents found below ${distRoot}`);
+    process.exit(2);
+  }
+  return files
+    .map((file) => {
+      const routeId = routeFromHtml(distRoot, file);
+      const html = readText(file);
+      const metadata = pageMetadata(html, routeId);
+      return {
+        routeId,
+        file: relativeToRepo(file),
+        kind: classify(routeId, metadata, html),
+        title: metadata.title,
+        contentHash: contentHashFor(html),
+      };
+    })
+    .sort((left, right) => left.routeId.localeCompare(right.routeId));
+}
+
+function readPreviousGeneration() {
+  if (!existsSync(dataPath)) return null;
+  try {
+    return JSON.parse(readFileSync(dataPath, "utf8"));
+  } catch (error) {
+    console.error(`Committed capture data is not valid JSON at ${relativeToRepo(dataPath)}: ${error.message}`);
+    process.exit(2);
+  }
+}
+
+function generationIdFor(inputRows) {
+  const canonical = JSON.stringify(
+    inputRows.map((row) => [row.routeId, row.kind, row.contentHash]),
+  );
+  return createHash("sha256").update(canonical, "utf8").digest("hex");
+}
+
+function shotPaths(routeId, viewportId) {
+  const stem = `${slugFor(routeId)}-${viewportId}.avif`;
+  return {
+    image: `record/shots/${stem}`,
+    thumb: `record/shots/thumbs/${stem}`,
+  };
+}
+
+function embeddedGeneration(distScreensHtml) {
+  const match = distScreensHtml.match(/data-capture-generation="([a-f0-9]{4,})"/);
+  return match ? match[1] : null;
+}
+
+// Dist-only verification. Never launches a browser, never writes captures.
+function checkCoverage(inputRows, previous) {
+  const byRoute = new Map((previous?.routes ?? []).map((entry) => [entry.routeId, entry]));
+  const screensFile = inputRows.find((row) => row.routeId === SELF_CAPTURE_ROUTE)?.file;
+  const distEmbedded = screensFile
+    ? embeddedGeneration(canonicalHtmlForHash(readText(absolutePath(screensFile))))
+    : null;
+  const rows = [];
+  for (const input of inputRows) {
+    const entry = byRoute.get(input.routeId);
+    if (!entry) {
+      rows.push({ ...input, status: "failed", detail: "no capture entry recorded" });
+      continue;
     }
-    // Preserve marketing navigation open states for cross-shell comparisons.
-    await page.goto(baseUrl, { waitUntil: 'networkidle' });
-    const trigger = viewport.width >= 992 ? page.locator('.site-nav__desktop summary[data-nav-summary]').first() : page.locator('.site-nav__mobile-trigger');
-    if (await trigger.isVisible()) {
-      await trigger.click();
-      await page.screenshot({ path: `${directory}/${viewport.width}-marketing-menu-open.png` });
+    if (!STATUS.includes(entry.status)) {
+      rows.push({ ...input, status: "failed", detail: `unknown status ${JSON.stringify(entry.status)}` });
+      continue;
     }
-    if (viewport.width < 992) {
-      await page.goto(`${baseUrl}/record/`, { waitUntil: 'networkidle' });
-      const menu = page.getByRole('button', { name: /record menu/i });
-      if (await menu.count() && await menu.isVisible()) {
-        await menu.click();
-        await page.screenshot({ path: `${directory}/${viewport.width}-record-menu-open.png` });
+    if (entry.status === "failed") {
+      rows.push({ ...input, status: "failed", detail: entry.failure?.message ?? "recorded failure" });
+      continue;
+    }
+    // The archive page depicts the previous generation by contract (see the
+    // header): it is current exactly when the build embeds this generation
+    // and the stored capture names the generation it supersedes.
+    if (input.routeId === SELF_CAPTURE_ROUTE) {
+      const chainOk =
+        entry.selfCapture === true &&
+        previous.generationId &&
+        entry.depictsGeneration === previous.supersedes &&
+        distEmbedded === previous.generationId;
+      rows.push({
+        ...input,
+        status: chainOk ? "success" : "stale",
+        detail: chainOk
+          ? `self-capture depicts ${previous.supersedes ?? "the pre-capture archive"}`
+          : `self-capture chain broken (embedded=${distEmbedded ?? "none"}, depicts=${entry.depictsGeneration ?? "none"}, supersedes=${previous.supersedes ?? "none"})`,
+      });
+      continue;
+    }
+    if (entry.status !== "success" || entry.contentHash !== input.contentHash) {
+      rows.push({
+        ...input,
+        status: "stale",
+        detail:
+          entry.status !== "success"
+            ? `recorded status is ${entry.status}`
+            : "source build moved beyond the captured contentHash",
+      });
+      continue;
+    }
+    const missing = [];
+    for (const viewport of VIEWPORTS) {
+      for (const key of ["image", "thumb"]) {
+        const relative = entry.artifacts?.[viewport.id]?.[key]?.replace(/^\//, "");
+        if (!relative || !existsSync(absolutePath(join("public", relative)))) missing.push(`${viewport.id}:${key}`);
       }
     }
+    rows.push({
+      ...input,
+      status: missing.length === 0 ? "success" : "failed",
+      detail: missing.length === 0 ? "current" : `capture files missing from public/: ${missing.join(", ")}`,
+    });
   }
-  await writeFile(`${directory}/evidence.json`, JSON.stringify(evidence, null, 2) + '\n');
-  const images = evidence.measurements.map(row => {
-    const stem = `${row.width}-${row.route.replaceAll('/', '-').replace(/^-|-$/g, '') || 'home'}`;
-    return `<figure><figcaption>${row.width}px ${row.route}</figcaption><a href="${stem}-full.png"><img loading="lazy" src="${stem}-full.png" alt="${row.route} at ${row.width}px"></a></figure>`;
-  }).join('\n');
-  await writeFile(`${directory}/contact-sheet.html`, `<!doctype html><html lang="en"><meta charset="utf-8"><title>Record visual evidence ${label}</title><style>body{font:16px sans-serif;background:#eee}main{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}figure{margin:0;background:white;padding:8px}img{width:100%;height:auto}figcaption{padding:8px}</style><h1>${label}</h1><main>${images}</main></html>`);
-  console.log(`Captured ${routes.length} Record routes and ${protectedRoutes.length} protected routes at ${viewports.length} viewports: ${directory}`);
-} finally {
-  await browser.close();
+  const success = rows.filter((row) => row.status === "success").length;
+  const failed = rows.filter((row) => row.status === "failed").length;
+  const stale = rows.filter((row) => row.status === "stale").length;
+  return { rows, summary: { required: rows.length, success, failed, stale, complete: failed === 0 && stale === 0 } };
+}
+
+function reportCoverage(coverage) {
+  const { required, success, failed, stale, complete } = coverage.summary;
+  console.log(`Capture coverage: ${success}/${required} current, ${failed} failed, ${stale} stale.`);
+  for (const row of coverage.rows.filter((entry) => entry.status !== "success")) {
+    console.log(`  ${row.status.toUpperCase()} ${row.routeId} — ${row.detail}`);
+  }
+  console.log(complete ? "Coverage is 100%: every required route has a current capture." : "Coverage is INCOMPLETE.");
+}
+
+function startServer() {
+  return new Promise((resolvePromise, reject) => {
+    const child = spawn(
+      process.execPath,
+      ["scripts/quality/serve-dist.mjs", "--dist", options.dist, "--port", String(options.port), "--host", "127.0.0.1"],
+      { cwd: absolutePath("."), stdio: ["ignore", "pipe", "pipe"] },
+    );
+    let settled = false;
+    const fail = (message) => {
+      if (settled) return;
+      settled = true;
+      child.kill();
+      reject(new Error(message));
+    };
+    child.on("error", (error) => fail(`capture server failed to start: ${error.message}`));
+    child.stderr.on("data", (chunk) => process.stderr.write(chunk));
+    const readyTimer = setTimeout(() => fail(`capture server did not become ready on port ${options.port}`), 15000);
+    const probe = async () => {
+      for (let attempt = 0; attempt < 50; attempt += 1) {
+        try {
+          const response = await fetch(`http://127.0.0.1:${options.port}/`);
+          if (response.ok) {
+            clearTimeout(readyTimer);
+            settled = true;
+            resolvePromise(child);
+            return;
+          }
+        } catch {
+          // Server is still starting; retry below.
+        }
+        await sleep(200);
+      }
+      fail(`capture server did not become ready on port ${options.port}`);
+    };
+    child.stdout.on("data", () => {
+      // First log line means the server is listening; confirm with a probe.
+      void probe();
+    });
+    child.on("exit", (code) => fail(`capture server exited before becoming ready (code ${code})`));
+  });
+}
+
+async function settlePage(page) {
+  await page.evaluate(() => document.fonts.ready);
+  // Walk the full document height so lazy-loaded sections mount before the
+  // shot; instant scrolling keeps animations from mid-flight frames.
+  await page.evaluate(async () => {
+    const step = Math.max(window.innerHeight - 100, 200);
+    const top = window.scrollY;
+    for (let y = top; y < document.body.scrollHeight; y += step) {
+      window.scrollTo({ top: y, behavior: "instant" });
+      await new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve)));
+    }
+    window.scrollTo({ top: 0, behavior: "instant" });
+  });
+  const unsettled = await page.evaluate(async () => {
+    const deadline = Date.now() + 15000;
+    const images = [...document.images];
+    while (Date.now() < deadline) {
+      const pending = images.filter((img) => !(img.complete && img.naturalWidth > 0));
+      if (pending.length === 0) return 0;
+      await new Promise((resolve) => setTimeout(resolve, 250));
+    }
+    return images.filter((img) => !(img.complete && img.naturalWidth > 0)).length;
+  });
+  await sleep(500);
+  return { unsettledImages: unsettled };
+}
+
+async function captureViewport(page, url, viewport, routeId) {
+  await page.setViewportSize({ width: viewport.width, height: viewport.height });
+  const response = await page.goto(url, { waitUntil: "networkidle", timeout: 45000 });
+  const httpStatus = response?.status() ?? 0;
+  if (routeId === "/404.html" ? httpStatus !== 404 : httpStatus !== 200) {
+    throw new Error(`unexpected HTTP ${httpStatus} for ${routeId}`);
+  }
+  const { unsettledImages } = await settlePage(page);
+  const png = await page.screenshot({ fullPage: true });
+  const image = sharp(png);
+  const metadata = await image.metadata();
+  if (!metadata.width || !metadata.height || metadata.width < 300 || metadata.height < 200) {
+    throw new Error(`implausible screenshot dimensions ${metadata.width}x${metadata.height} for ${routeId}`);
+  }
+  const stats = await sharp(png).stats();
+  const peakDeviation = Math.max(...stats.channels.map((channel) => channel.stdev ?? 0));
+  if (peakDeviation < 3) {
+    throw new Error(`screenshot for ${routeId} at ${viewport.id} decoded blank (peak channel deviation ${peakDeviation.toFixed(2)})`);
+  }
+  const paths = shotPaths(routeId, viewport.id);
+  const fullOut = absolutePath(join("public", paths.image));
+  const thumbOut = absolutePath(join("public", paths.thumb));
+  mkdirSync(dirname(fullOut), { recursive: true });
+  mkdirSync(dirname(thumbOut), { recursive: true });
+  const fullInfo = await sharp(png).avif({ quality: 55, effort: 4 }).toFile(fullOut);
+  const thumbInfo = await sharp(png)
+    .resize({ width: Math.min(480, metadata.width), withoutEnlargement: true })
+    .avif({ quality: 50, effort: 4 })
+    .toFile(thumbOut);
+  const thumbMeta = await sharp(thumbOut).metadata();
+  return {
+    image: `/${paths.image}`,
+    thumb: `/${paths.thumb}`,
+    w: fullInfo.width,
+    h: fullInfo.height,
+    bytes: fullInfo.size,
+    thumbW: thumbMeta.width ?? 0,
+    thumbH: thumbMeta.height ?? 0,
+    thumbBytes: thumbInfo.size,
+    httpStatus,
+    unsettledImages,
+  };
+}
+
+async function runCapture(inputRows, previous) {
+  const previousByRoute = new Map((previous?.routes ?? []).map((entry) => [entry.routeId, entry]));
+  const generationId = generationIdFor(inputRows);
+  if (previous?.generationId === generationId && !options.force) {
+    console.log(`Input manifest matches committed generation ${generationId.slice(0, 12)}; nothing to recapture.`);
+    const coverage = checkCoverage(inputRows, previous);
+    reportCoverage(coverage);
+    if (options.strict && !coverage.summary.complete) process.exitCode = 1;
+    return;
+  }
+  mkdirSync(qaRoot, { recursive: true });
+  const failures = [];
+  const server = await startServer();
+  const browser = await chromium.launch({ headless: true });
+  const baseUrl = `http://127.0.0.1:${options.port}`;
+  const routes = [];
+  try {
+    const context = await browser.newContext({ reducedMotion: "reduce" });
+    const page = await context.newPage();
+    for (const input of inputRows) {
+      const prior = previousByRoute.get(input.routeId);
+      const carried =
+        !options.force &&
+        prior?.status === "success" &&
+        prior.contentHash === input.contentHash &&
+        prior.selfCapture !== true &&
+        input.routeId !== SELF_CAPTURE_ROUTE &&
+        VIEWPORTS.every((viewport) =>
+          ["image", "thumb"].every((key) => {
+            const relative = prior.artifacts?.[viewport.id]?.[key]?.replace(/^\//, "");
+            return relative && existsSync(absolutePath(join("public", relative)));
+          }),
+        );
+      if (carried) {
+        routes.push(prior);
+        console.log(`carry  ${input.routeId} (${input.contentHash.slice(0, 12)})`);
+        continue;
+      }
+      const startedAt = new Date().toISOString();
+      try {
+        const artifacts = {};
+        for (const viewport of VIEWPORTS) {
+          artifacts[viewport.id] = await captureViewport(page, `${baseUrl}${input.routeId}`, viewport, input.routeId);
+        }
+        const entry = {
+          routeId: input.routeId,
+          kind: input.kind,
+          title: input.title,
+          status: "success",
+          contentHash: input.contentHash,
+          capturedAt: startedAt,
+          selfCapture: input.routeId === SELF_CAPTURE_ROUTE,
+          depictsGeneration:
+            input.routeId === SELF_CAPTURE_ROUTE ? (previous?.generationId ?? null) : null,
+          failure: null,
+          artifacts,
+        };
+        routes.push(entry);
+        console.log(`shot   ${input.routeId} (${input.contentHash.slice(0, 12)})`);
+      } catch (error) {
+        const message = error instanceof Error ? error.message : String(error);
+        try {
+          await page.screenshot({ path: join(qaRoot, `${slugFor(input.routeId)}-failure.png`) });
+        } catch {
+          // Failure evidence is best-effort; the recorded detail is the gate input.
+        }
+        failures.push({ routeId: input.routeId, message });
+        routes.push({
+          routeId: input.routeId,
+          kind: input.kind,
+          title: input.title,
+          status: "failed",
+          contentHash: input.contentHash,
+          capturedAt: startedAt,
+          selfCapture: input.routeId === SELF_CAPTURE_ROUTE,
+          depictsGeneration: null,
+          failure: { message, at: startedAt },
+          artifacts: {},
+        });
+        console.log(`FAILED ${input.routeId} — ${message}`);
+      }
+    }
+    await context.close();
+  } finally {
+    await browser.close();
+    server.kill();
+  }
+  const success = routes.filter((entry) => entry.status === "success").length;
+  const manifest = {
+    schemaVersion: 1,
+    generationId,
+    supersedes: previous?.generationId ?? null,
+    generatedAt: new Date().toISOString(),
+    captureTool: {
+      name: "scripts/quality/capture-record-visuals.mjs",
+      codeVersion: CAPTURE_CODE_VERSION,
+      browser: "Chromium (Playwright, headless, reduced motion)",
+      viewports: VIEWPORTS,
+    },
+    sourceBuild: {
+      directory: relativeToRepo(distRoot),
+      base: distBase,
+      inputManifestHash: generationId,
+    },
+    coverage: {
+      required: routes.length,
+      success,
+      failed: routes.length - success,
+      complete: success === routes.length,
+    },
+    routes: routes.sort((left, right) => left.routeId.localeCompare(right.routeId)),
+  };
+  mkdirSync(dirname(dataPath), { recursive: true });
+  writeFileSync(dataPath, `${JSON.stringify(manifest, null, 2)}\n`);
+  writeFileSync(
+    join(qaRoot, "evidence.json"),
+    `${JSON.stringify({ mode, generatedAt: manifest.generatedAt, generationId, failures }, null, 2)}\n`,
+  );
+  console.log(`Wrote ${relativeToRepo(dataPath)} (generation ${generationId.slice(0, 12)}).`);
+  console.log(`Capture coverage: ${success}/${routes.length} succeeded.`);
+  if (failures.length > 0) {
+    console.log("Failed routes (recorded, never labeled current):");
+    for (const failure of failures) console.log(`  FAILED ${failure.routeId} — ${failure.message}`);
+  }
+  if (options.strict && !manifest.coverage.complete) process.exitCode = 1;
+}
+
+const inputRows = freezeInputManifest();
+console.log(`Ledger input: ${inputRows.length} HTML document(s) from ${relativeToRepo(distRoot)} (base ${distBase}).`);
+
+if (mode === "check") {
+  const previous = readPreviousGeneration();
+  if (!previous) {
+    console.log(`No committed capture generation at ${relativeToRepo(dataPath)}; coverage is 0/${inputRows.length}.`);
+    if (options.strict) process.exitCode = 1;
+  } else {
+    const coverage = checkCoverage(inputRows, previous);
+    reportCoverage(coverage);
+    if (options.strict && !coverage.summary.complete) process.exitCode = 1;
+  }
+} else {
+  await runCapture(inputRows, readPreviousGeneration());
 }
