@@ -447,7 +447,7 @@ async function runCapture(inputRows, previous) {
   const jobs = Math.max(1, Number(options.jobs ?? 3) || 3);
   const routes = [];
   let infraFailures = 0;
-  const queue = [...inputRows];
+  const queue = [];
   const nextInput = () => queue.shift();
   console.log(`Capturing with ${jobs} worker(s).`);
   const isInfraFailure = (message) => /browser has been closed|context has been closed|Target page, context or browser has been closed|browser has disconnected/i.test(message);
