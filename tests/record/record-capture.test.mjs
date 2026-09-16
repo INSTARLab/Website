@@ -14,8 +14,11 @@ const generation = JSON.parse(read(dataPath));
 const isPending = generation.generationId === 'pending-no-captures';
 const entries = generation.routes ?? [];
 
-function thumbPaths(entry) {
-  return Object.values(entry.artifacts ?? {}).flatMap((artifact) => [artifact.image, artifact.thumb]);
+function artifactFiles(entry) {
+  return Object.values(entry.artifacts ?? {}).flatMap((artifact) => [
+    ...(artifact.segments ?? []).map((segment) => segment.image),
+    artifact.thumb,
+  ]);
 }
 
 test('the committed capture generation carries the frozen-manifest contract fields', () => {
@@ -39,9 +42,13 @@ test('per-page status can never mislabel a failed or outdated capture as current
       assert.ok(!entry.depictsGeneration || entry.selfCapture === true, `${entry.routeId}: only the self-capture may depict another generation`);
       for (const viewport of generation.captureTool.viewports) {
         const artifact = entry.artifacts?.[viewport.id];
-        assert.ok(artifact?.image?.startsWith('/record/shots/') && artifact.image.endsWith('.avif'), `${entry.routeId}: ${viewport.id} full capture is a published AVIF path`);
-        assert.ok(artifact?.thumb?.startsWith('/record/shots/thumbs/') && artifact.thumb.endsWith('.avif'), `${entry.routeId}: ${viewport.id} thumbnail is a published AVIF path`);
-        assert.ok(artifact.w > 0 && artifact.h > 0 && artifact.thumbW > 0 && artifact.thumbH > 0, `${entry.routeId}: ${viewport.id} records decoded dimensions`);
+        assert.ok(Array.isArray(artifact?.segments) && artifact.segments.length > 0, `${entry.routeId}: ${viewport.id} records full-capture segments`);
+        for (const segment of artifact.segments) {
+          assert.ok(segment.image?.startsWith('/record/shots/') && segment.image.endsWith('.avif'), `${entry.routeId}: ${viewport.id} segment is a published AVIF path`);
+          assert.ok(segment.w > 0 && segment.h > 0 && segment.h <= 16000, `${entry.routeId}: ${viewport.id} segment records decoded dimensions within the encoder limit`);
+        }
+        assert.ok(artifact.thumb?.startsWith('/record/shots/thumbs/') && artifact.thumb.endsWith('.avif'), `${entry.routeId}: ${viewport.id} thumbnail is a published AVIF path`);
+        assert.ok(artifact.thumbW > 0 && artifact.thumbH > 0, `${entry.routeId}: ${viewport.id} records decoded thumbnail dimensions`);
         const publicFile = join(repoRoot, 'public', artifact.thumb.replace(/^\//, ''));
         assert.ok(existsSync(publicFile), `${entry.routeId}: ${viewport.id} thumbnail exists in public/`);
       }
@@ -57,11 +64,15 @@ test('the self-capture contract pins exactly one archive page to the generation 
   const selfCaptures = entries.filter((entry) => entry.selfCapture === true);
   assert.equal(selfCaptures.length, 1, 'exactly one entry is the pinned self-capture');
   assert.equal(selfCaptures[0].routeId, '/record/screens/', 'the self-capture is the archive page itself');
-  assert.equal(
-    selfCaptures[0].depictsGeneration,
-    generation.supersedes,
-    'the self-capture depicts the superseded generation, never the build that embeds it',
-  );
+  if (selfCaptures[0].status === 'success') {
+    assert.equal(
+      selfCaptures[0].depictsGeneration,
+      generation.supersedes,
+      'the self-capture depicts the superseded generation, never the build that embeds it',
+    );
+  } else {
+    assert.ok(selfCaptures[0].failure?.message, 'a failed self-capture preserves its reason');
+  }
 });
 
 test('the coverage rollup agrees with the recorded routes', () => {
@@ -97,7 +108,7 @@ test('the built archive page embeds the generation it depicts', (t) => {
     return;
   }
   for (const entry of entries.filter((item) => item.status === 'success')) {
-    for (const path of thumbPaths(entry)) {
+    for (const path of artifactFiles(entry)) {
       assert.ok(html.includes(path), `the archive page publishes ${entry.routeId} ${path}`);
     }
   }

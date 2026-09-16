@@ -189,12 +189,15 @@ function generationIdFor(inputRows) {
   return createHash("sha256").update(canonical, "utf8").digest("hex");
 }
 
-function shotPaths(routeId, viewportId) {
-  const stem = `${slugFor(routeId)}-${viewportId}.avif`;
-  return {
-    image: `record/shots/${stem}`,
-    thumb: `record/shots/thumbs/${stem}`,
-  };
+// Every file a viewport artifact needs inside a dist artifact: all full
+// segments plus the thumbnail.
+function artifactFiles(entry, viewportId) {
+  const artifact = entry?.artifacts?.[viewportId];
+  if (!artifact) return [];
+  return [
+    ...(artifact.segments ?? []).map((segment) => segment.image),
+    artifact.thumb,
+  ].filter(Boolean);
 }
 
 function embeddedGeneration(distScreensHtml) {
@@ -255,12 +258,14 @@ function checkCoverage(inputRows, previous) {
     }
     const missing = [];
     for (const viewport of VIEWPORTS) {
-      for (const key of ["image", "thumb"]) {
-        const relative = entry.artifacts?.[viewport.id]?.[key]?.replace(/^\//, "");
+      const files = artifactFiles(entry, viewport.id);
+      if (files.length === 0) missing.push(`${viewport.id}:no-artifacts`);
+      for (const file of files) {
+        const relative = file.replace(/^\//, "");
         // The gate verifies the checked artifact, not the working tree: a
         // capture that was never rebuilt into dist/ is missing here even when
         // public/ already carries it.
-        if (!relative || !existsSync(join(distRoot, relative))) missing.push(`${viewport.id}:${key}`);
+        if (!existsSync(join(distRoot, relative))) missing.push(`${viewport.id}:${relative}`);
       }
     }
     rows.push({
@@ -353,6 +358,14 @@ async function settlePage(page) {
   return { unsettledImages: unsettled };
 }
 
+// libheif refuses images taller than 16384px, and the archive's longest
+// pages (the screenshot gallery itself) exceed that several times over.
+// Full captures are therefore stored as full-resolution segments of at most
+// MAX_SEGMENT_PX tall; the manifest records every segment so no pixels are
+// silently dropped and long pages stay readable at full resolution.
+const MAX_SEGMENT_PX = 16000;
+const THUMB_WIDTH = 480;
+
 async function captureViewport(page, url, viewport, routeId) {
   await page.setViewportSize({ width: viewport.width, height: viewport.height });
   const response = await page.goto(url, { waitUntil: "networkidle", timeout: 45000 });
@@ -362,36 +375,46 @@ async function captureViewport(page, url, viewport, routeId) {
   }
   const { unsettledImages } = await settlePage(page);
   const png = await page.screenshot({ fullPage: true });
-  const image = sharp(png);
-  const metadata = await image.metadata();
-  if (!metadata.width || !metadata.height || metadata.width < 300 || metadata.height < 200) {
-    throw new Error(`implausible screenshot dimensions ${metadata.width}x${metadata.height} for ${routeId}`);
+  const metadata = await sharp(png).metadata();
+  const fullW = metadata.width ?? 0;
+  const fullH = metadata.height ?? 0;
+  if (!fullW || !fullH || fullW < 300 || fullH < 200) {
+    throw new Error(`implausible screenshot dimensions ${fullW}x${fullH} for ${routeId}`);
   }
-  const stats = await sharp(png).stats();
-  const peakDeviation = Math.max(...stats.channels.map((channel) => channel.stdev ?? 0));
+  // Blank check runs on a cheap downscale, not the full-page bitmap.
+  const probe = await sharp(png).resize({ width: Math.min(THUMB_WIDTH, fullW), withoutEnlargement: true }).stats();
+  const peakDeviation = Math.max(...probe.channels.map((channel) => channel.stdev ?? 0));
   if (peakDeviation < 3) {
     throw new Error(`screenshot for ${routeId} at ${viewport.id} decoded blank (peak channel deviation ${peakDeviation.toFixed(2)})`);
   }
-  const paths = shotPaths(routeId, viewport.id);
-  const fullOut = absolutePath(join("public", paths.image));
-  const thumbOut = absolutePath(join("public", paths.thumb));
-  mkdirSync(dirname(fullOut), { recursive: true });
-  mkdirSync(dirname(thumbOut), { recursive: true });
+  const stem = `${slugFor(routeId)}-${viewport.id}`;
+  mkdirSync(absolutePath(join("public", "record", "shots", "thumbs")), { recursive: true });
   // Effort 2 keeps full-page text legible at fixed quality while encoding
   // several times faster than the default: this pipeline captures 174
   // viewports per generation and never runs its browser leg in CI.
-  const fullInfo = await sharp(png).avif({ quality: 55, effort: 2 }).toFile(fullOut);
+  const segments = [];
+  const sliceCount = Math.ceil(fullH / MAX_SEGMENT_PX);
+  const sliceH = Math.floor(fullH / sliceCount);
+  for (let index = 0, top = 0; top < fullH; index += 1, top += sliceH) {
+    const height = Math.min(sliceH, fullH - top);
+    const name = sliceCount === 1 ? `${stem}.avif` : `${stem}-p${index + 1}.avif`;
+    const out = absolutePath(join("public", "record", "shots", name));
+    const info = await sharp(png)
+      .extract({ left: 0, top, width: fullW, height })
+      .avif({ quality: 55, effort: 2 })
+      .toFile(out);
+    segments.push({ image: `/record/shots/${name}`, w: info.width, h: info.height, bytes: info.size });
+  }
+  const thumbName = `${stem}.avif`;
+  const thumbOut = absolutePath(join("public", "record", "shots", "thumbs", thumbName));
   const thumbInfo = await sharp(png)
-    .resize({ width: Math.min(480, metadata.width), withoutEnlargement: true })
+    .resize({ width: THUMB_WIDTH, height: MAX_SEGMENT_PX, fit: "inside", withoutEnlargement: true })
     .avif({ quality: 50, effort: 2 })
     .toFile(thumbOut);
   const thumbMeta = await sharp(thumbOut).metadata();
   return {
-    image: `/${paths.image}`,
-    thumb: `/${paths.thumb}`,
-    w: fullInfo.width,
-    h: fullInfo.height,
-    bytes: fullInfo.size,
+    segments,
+    thumb: `/record/shots/thumbs/${thumbName}`,
     thumbW: thumbMeta.width ?? 0,
     thumbH: thumbMeta.height ?? 0,
     thumbBytes: thumbInfo.size,
@@ -510,12 +533,15 @@ async function runCapture(inputRows, previous) {
     for (const input of inputRows) {
       const prior = previousByRoute.get(input.routeId);
       const resumed = resumedByRoute.get(input.routeId);
+      // Entries recorded before the segmented-artifact shape carry no
+      // segments and are recaptured rather than trusted.
       const filesPresent = (entry) =>
-        VIEWPORTS.every((viewport) =>
-          ["image", "thumb"].every((key) => {
-            const relative = entry?.artifacts?.[viewport.id]?.[key]?.replace(/^\//, "");
-            return relative && existsSync(absolutePath(join("public", relative)));
-          }),
+        VIEWPORTS.every(
+          (viewport) =>
+            (entry?.artifacts?.[viewport.id]?.segments?.length ?? 0) > 0 &&
+            artifactFiles(entry, viewport.id).every((file) =>
+              existsSync(absolutePath(join("public", file.replace(/^\//, "")))),
+            ),
         );
       const carried =
         !options.force &&

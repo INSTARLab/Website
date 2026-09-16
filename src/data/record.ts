@@ -197,16 +197,25 @@ export interface RecordVisual {
 }
 
 /**
+ * One full-resolution segment of a captured viewport. Pages taller than the
+ * encoder's dimension limit are stored as several full-resolution segments so
+ * long pages stay readable; ordinary pages carry exactly one.
+ */
+export interface RecordCaptureSegment {
+  readonly image: string;
+  readonly w: number;
+  readonly h: number;
+  readonly bytes: number;
+}
+
+/**
  * One captured viewport artifact for a ledger route (RRP-201, #26). Paths are
  * base-absolute public paths (`/record/shots/…`); the shell renders them
  * through `recordHref` so the gallery loads under both `/` and `/Website/`.
  */
 export interface RecordCaptureViewportArtifact {
-  readonly image: string;
+  readonly segments: readonly RecordCaptureSegment[];
   readonly thumb: string;
-  readonly w: number;
-  readonly h: number;
-  readonly bytes: number;
   readonly thumbW: number;
   readonly thumbH: number;
   readonly thumbBytes: number;
