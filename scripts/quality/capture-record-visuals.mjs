@@ -85,10 +85,11 @@ if (options.help) {
     "Capture all-page Record screenshots for every ledger page.",
     "Usage:",
     "  node scripts/quality/capture-record-visuals.mjs --check [--dist dist] [--base /] [--strict]",
-    "  node scripts/quality/capture-record-visuals.mjs --capture [--dist dist] [--base /] [--strict] [--force]",
+    "  node scripts/quality/capture-record-visuals.mjs --capture [--dist dist] [--base /] [--strict] [--force] [--jobs 3]",
     "",
     "Modes: --check verifies the committed capture generation against a build (no browser).",
     "  --capture recaptures stale/missing routes and writes a new generation (needs a browser).",
+    "  --jobs N sizes the browser worker pool (default 3).",
   ]);
   process.exit(0);
 }
@@ -433,44 +434,15 @@ async function runCapture(inputRows, previous) {
   const server = await startServer();
   const browser = await chromium.launch({ headless: true });
   const baseUrl = `http://127.0.0.1:${options.port}`;
+  const jobs = Math.max(1, Number(options.jobs ?? 3) || 3);
   const routes = [];
+  let infraFailures = 0;
+  const queue = [...inputRows];
+  const nextInput = () => queue.shift();
+  console.log(`Capturing with ${jobs} worker(s).`);
+  const isInfraFailure = (message) => /browser has been closed|context has been closed|Target page, context or browser has been closed|browser has disconnected/i.test(message);
   try {
-    const context = await browser.newContext({ reducedMotion: "reduce" });
-    const page = await context.newPage();
-    for (const input of inputRows) {
-      const prior = previousByRoute.get(input.routeId);
-      const resumed = resumedByRoute.get(input.routeId);
-      const resumedCurrent =
-        resumed?.status === "success" &&
-        resumed.contentHash === input.contentHash &&
-        VIEWPORTS.every((viewport) =>
-          ["image", "thumb"].every((key) => {
-            const relative = resumed.artifacts?.[viewport.id]?.[key]?.replace(/^\//, "");
-            return relative && existsSync(absolutePath(join("public", relative)));
-          }),
-        );
-      const carried =
-        !options.force &&
-        prior?.status === "success" &&
-        prior.contentHash === input.contentHash &&
-        prior.selfCapture !== true &&
-        input.routeId !== SELF_CAPTURE_ROUTE &&
-        VIEWPORTS.every((viewport) =>
-          ["image", "thumb"].every((key) => {
-            const relative = prior.artifacts?.[viewport.id]?.[key]?.replace(/^\//, "");
-            return relative && existsSync(absolutePath(join("public", relative)));
-          }),
-        );
-      if (carried) {
-        routes.push(prior);
-        console.log(`carry  ${input.routeId} (${input.contentHash.slice(0, 12)})`);
-        continue;
-      }
-      if (resumedCurrent) {
-        routes.push(resumed);
-        console.log(`resume ${input.routeId} (${input.contentHash.slice(0, 12)})`);
-        continue;
-      }
+    const captureOne = async (page, input) => {
       const startedAt = new Date().toISOString();
       try {
         const artifacts = {};
@@ -491,6 +463,7 @@ async function runCapture(inputRows, previous) {
           artifacts,
         };
         routes.push(entry);
+        infraFailures = 0;
         console.log(`shot   ${input.routeId} (${input.contentHash.slice(0, 12)})`);
       } catch (error) {
         const message = error instanceof Error ? error.message : String(error);
@@ -513,10 +486,75 @@ async function runCapture(inputRows, previous) {
           artifacts: {},
         });
         console.log(`FAILED ${input.routeId} — ${message}`);
+        // A dead browser fails every remaining route with identical noise and
+        // would then write a generation of bogus failures. Abort instead and
+        // keep the resume file so the rerun continues where it stopped.
+        if (isInfraFailure(message) && (infraFailures += 1) >= jobs * 2) {
+          throw new Error(`aborting capture: browser infrastructure failed (${message})`);
+        }
       }
       persistResume(routes);
+    };
+    // Carried and resumed entries resolve without a browser before workers start.
+    const pending = [];
+    for (const input of inputRows) {
+      const prior = previousByRoute.get(input.routeId);
+      const resumed = resumedByRoute.get(input.routeId);
+      const filesPresent = (entry) =>
+        VIEWPORTS.every((viewport) =>
+          ["image", "thumb"].every((key) => {
+            const relative = entry?.artifacts?.[viewport.id]?.[key]?.replace(/^\//, "");
+            return relative && existsSync(absolutePath(join("public", relative)));
+          }),
+        );
+      const carried =
+        !options.force &&
+        prior?.status === "success" &&
+        prior.contentHash === input.contentHash &&
+        prior.selfCapture !== true &&
+        input.routeId !== SELF_CAPTURE_ROUTE &&
+        filesPresent(prior);
+      if (carried) {
+        routes.push(prior);
+        console.log(`carry  ${input.routeId} (${input.contentHash.slice(0, 12)})`);
+        continue;
+      }
+      if (
+        resumed?.status === "success" &&
+        resumed.contentHash === input.contentHash &&
+        filesPresent(resumed)
+      ) {
+        routes.push(resumed);
+        console.log(`resume ${input.routeId} (${input.contentHash.slice(0, 12)})`);
+        continue;
+      }
+      pending.push(input);
     }
-    await context.close();
+    queue.push(...pending);
+    const workers = Array.from({ length: Math.min(jobs, queue.length) }, async () => {
+      const context = await browser.newContext({ reducedMotion: "reduce" });
+      const page = await context.newPage();
+      try {
+        let input = nextInput();
+        while (input) {
+          await captureOne(page, input);
+          input = nextInput();
+        }
+      } finally {
+        await context.close();
+      }
+    });
+    try {
+      await Promise.all(workers);
+    } catch (error) {
+      // Infrastructure abort (dead browser): the resume file already holds
+      // every completed route, so report and stop WITHOUT writing a partial
+      // generation over the committed data.
+      console.error(error instanceof Error ? error.message : String(error));
+      console.error(`Resume state kept at ${relativeToRepo(resumePath)}; rerun --capture to continue.`);
+      process.exitCode = 1;
+      return;
+    }
   } finally {
     await browser.close();
     server.kill();
