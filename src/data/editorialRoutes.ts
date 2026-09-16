@@ -158,10 +158,17 @@ function mediaForRoute(src: string, title: string): EditorialRouteMedia | undefi
   const dimensions = routeMediaDimensions[normalized];
   if (!dimensions) return undefined;
 
+  // No figcaption is emitted here by design (gh#353). The previous value was
+  // an internal asset-library instruction that leaked into public body copy
+  // on every route with a supporting visual. A real descriptive caption must
+  // be sourced per image; inventing one here would replace a tooling leak
+  // with an unsourced claim, so the caption stays empty (and the figure
+  // renders without a figcaption) until that content work lands. Alt text
+  // above remains the contextual accessible name.
   return {
     src: normalized,
     alt: `${title} — INSTAR Lab`,
-    caption: 'Supporting visual from the repository asset library. Read the adjacent text for the claim and its limits.',
+    caption: '',
     ...dimensions,
     focalPoint: '50% 50%',
   };
