@@ -86,6 +86,11 @@ quality:astro-artifact:
         node scripts/quality/media-audit.mjs --dist "$dir" --strict
         node scripts/quality/check-dist-provenance.mjs --dist "$dir"
         node scripts/quality/validate-dist-metadata.mjs --dist "$dir"
+        # RRP-201: the screenshot archive is a 100% coverage gate, not a
+        # sample. This is the dist-only check (no browser in this image): it
+        # fails when any ledger route lacks a current capture for this exact
+        # build, so a missing or stale capture blocks completeness here.
+        node scripts/quality/capture-record-visuals.mjs --check --dist "$dir" --base "$base" --strict
         ASTRO_DIST_DIR="$dir" node tests/seo/structured-data.test.mjs
         test -f "$dir/rss.xml"
         test -f "$dir/pagefind/pagefind.js"
@@ -445,6 +450,7 @@ sweep:site-health:
     - node scripts/quality/media-audit.mjs --dist dist --strict
     - node scripts/quality/check-dist-provenance.mjs --dist dist
     - node scripts/quality/validate-dist-metadata.mjs --dist dist
+    - node scripts/quality/capture-record-visuals.mjs --check --dist dist --base / --strict
     - test -f dist/rss.xml
     - test -f dist/sitemap.xml
     - test -f dist/sitemap-index.xml

@@ -256,7 +256,10 @@ function checkCoverage(inputRows, previous) {
     for (const viewport of VIEWPORTS) {
       for (const key of ["image", "thumb"]) {
         const relative = entry.artifacts?.[viewport.id]?.[key]?.replace(/^\//, "");
-        if (!relative || !existsSync(absolutePath(join("public", relative)))) missing.push(`${viewport.id}:${key}`);
+        // The gate verifies the checked artifact, not the working tree: a
+        // capture that was never rebuilt into dist/ is missing here even when
+        // public/ already carries it.
+        if (!relative || !existsSync(join(distRoot, relative))) missing.push(`${viewport.id}:${key}`);
       }
     }
     rows.push({
@@ -373,10 +376,13 @@ async function captureViewport(page, url, viewport, routeId) {
   const thumbOut = absolutePath(join("public", paths.thumb));
   mkdirSync(dirname(fullOut), { recursive: true });
   mkdirSync(dirname(thumbOut), { recursive: true });
-  const fullInfo = await sharp(png).avif({ quality: 55, effort: 4 }).toFile(fullOut);
+  // Effort 2 keeps full-page text legible at fixed quality while encoding
+  // several times faster than the default: this pipeline captures 174
+  // viewports per generation and never runs its browser leg in CI.
+  const fullInfo = await sharp(png).avif({ quality: 55, effort: 2 }).toFile(fullOut);
   const thumbInfo = await sharp(png)
     .resize({ width: Math.min(480, metadata.width), withoutEnlargement: true })
-    .avif({ quality: 50, effort: 4 })
+    .avif({ quality: 50, effort: 2 })
     .toFile(thumbOut);
   const thumbMeta = await sharp(thumbOut).metadata();
   return {
@@ -404,6 +410,25 @@ async function runCapture(inputRows, previous) {
     return;
   }
   mkdirSync(qaRoot, { recursive: true });
+  // A generation captures 174 viewports; a crash near the end must not lose
+  // the run. Progress lands in the gitignored QA dir after every route and is
+  // resumed (never trusted blindly: contentHash + files are re-verified).
+  const resumePath = absolutePath(join(options.out, `resume-${generationId.slice(0, 12)}.json`));
+  const resumedByRoute = new Map();
+  if (!options.force && existsSync(resumePath)) {
+    try {
+      const resumed = JSON.parse(readFileSync(resumePath, "utf8"));
+      if (resumed?.generationId === generationId && Array.isArray(resumed.routes)) {
+        for (const entry of resumed.routes) resumedByRoute.set(entry.routeId, entry);
+        console.log(`Resuming interrupted generation ${generationId.slice(0, 12)} at ${resumedByRoute.size} route(s).`);
+      }
+    } catch {
+      console.log("Ignoring unreadable resume file; starting this generation fresh.");
+    }
+  }
+  const persistResume = (routes) => {
+    writeFileSync(resumePath, `${JSON.stringify({ generationId, savedAt: new Date().toISOString(), routes }, null, 2)}\n`);
+  };
   const failures = [];
   const server = await startServer();
   const browser = await chromium.launch({ headless: true });
@@ -414,6 +439,16 @@ async function runCapture(inputRows, previous) {
     const page = await context.newPage();
     for (const input of inputRows) {
       const prior = previousByRoute.get(input.routeId);
+      const resumed = resumedByRoute.get(input.routeId);
+      const resumedCurrent =
+        resumed?.status === "success" &&
+        resumed.contentHash === input.contentHash &&
+        VIEWPORTS.every((viewport) =>
+          ["image", "thumb"].every((key) => {
+            const relative = resumed.artifacts?.[viewport.id]?.[key]?.replace(/^\//, "");
+            return relative && existsSync(absolutePath(join("public", relative)));
+          }),
+        );
       const carried =
         !options.force &&
         prior?.status === "success" &&
@@ -429,6 +464,11 @@ async function runCapture(inputRows, previous) {
       if (carried) {
         routes.push(prior);
         console.log(`carry  ${input.routeId} (${input.contentHash.slice(0, 12)})`);
+        continue;
+      }
+      if (resumedCurrent) {
+        routes.push(resumed);
+        console.log(`resume ${input.routeId} (${input.contentHash.slice(0, 12)})`);
         continue;
       }
       const startedAt = new Date().toISOString();
@@ -474,6 +514,7 @@ async function runCapture(inputRows, previous) {
         });
         console.log(`FAILED ${input.routeId} — ${message}`);
       }
+      persistResume(routes);
     }
     await context.close();
   } finally {
@@ -507,6 +548,7 @@ async function runCapture(inputRows, previous) {
   };
   mkdirSync(dirname(dataPath), { recursive: true });
   writeFileSync(dataPath, `${JSON.stringify(manifest, null, 2)}\n`);
+  rmSync(resumePath, { force: true });
   writeFileSync(
     join(qaRoot, "evidence.json"),
     `${JSON.stringify({ mode, generatedAt: manifest.generatedAt, generationId, failures }, null, 2)}\n`,
