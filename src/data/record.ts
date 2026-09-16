@@ -100,6 +100,92 @@ export interface RecordVisual {
   readonly reuseReason: string;
 }
 
+/**
+ * One captured viewport artifact for a ledger route (RRP-201, #26). Paths are
+ * base-absolute public paths (`/record/shots/…`); the shell renders them
+ * through `recordHref` so the gallery loads under both `/` and `/Website/`.
+ */
+export interface RecordCaptureViewportArtifact {
+  readonly image: string;
+  readonly thumb: string;
+  readonly w: number;
+  readonly h: number;
+  readonly bytes: number;
+  readonly thumbW: number;
+  readonly thumbH: number;
+  readonly thumbBytes: number;
+  readonly httpStatus: number;
+  readonly unsettledImages: number;
+}
+
+/**
+ * Per-page capture status. `success` always means a decoded, nonblank
+ * screenshot of the recorded `contentHash`; `failed` preserves the failure
+ * detail and is never presented as current; `stale` means the source build
+ * moved beyond the capture. The `/record/screens/` row additionally carries
+ * `selfCapture: true` with the previous generation it depicts — it is
+ * validated through the generation chain, never by chasing its own embed.
+ */
+export interface RecordCaptureEntry {
+  readonly routeId: string;
+  readonly kind: string;
+  readonly title: string;
+  readonly status: 'success' | 'failed' | 'stale';
+  readonly contentHash: string;
+  readonly capturedAt: string;
+  readonly selfCapture: boolean;
+  readonly depictsGeneration: string | null;
+  readonly failure: { readonly message: string; readonly at: string } | null;
+  readonly artifacts: { readonly [viewport: string]: RecordCaptureViewportArtifact };
+}
+
+export interface RecordCaptureGeneration {
+  readonly schemaVersion: 1;
+  readonly generationId: string;
+  readonly supersedes: string | null;
+  readonly generatedAt: string | null;
+  readonly captureTool: {
+    readonly name: string;
+    readonly codeVersion: number;
+    readonly browser: string;
+    readonly viewports: readonly { readonly id: string; readonly width: number; readonly height: number }[];
+  };
+  readonly sourceBuild: {
+    readonly directory: string;
+    readonly base: string;
+    readonly inputManifestHash: string;
+  };
+  readonly coverage: {
+    readonly required: number;
+    readonly success: number;
+    readonly failed: number;
+    readonly complete: boolean;
+  };
+  readonly routes: readonly RecordCaptureEntry[];
+}
+
+// Written by `scripts/quality/capture-record-visuals.mjs --capture` (RRP-201).
+// Before the first capture generation lands this file is an explicit pending
+// placeholder with no routes, so the build stays green and the archive page
+// reports the absence instead of inventing captures.
+import recordCaptureData from './record-captures.json';
+
+export const recordCaptures = recordCaptureData as unknown as RecordCaptureGeneration;
+
+export function recordCaptureForRoute(routeId: string): RecordCaptureEntry | undefined {
+  return recordCaptures.routes.find((entry) => entry.routeId === routeId);
+}
+
+/** Machine-readable archive rollup shared by the JSON endpoints (additive). */
+export const recordCaptureSummary = {
+  generationId: recordCaptures.generationId,
+  generatedAt: recordCaptures.generatedAt,
+  complete: recordCaptures.coverage.complete,
+  required: recordCaptures.coverage.required,
+  success: recordCaptures.coverage.success,
+  failed: recordCaptures.coverage.failed,
+} as const;
+
 export function recordHref(path: string): string {
   const base = import.meta.env.BASE_URL;
   if (base === '/') return path;

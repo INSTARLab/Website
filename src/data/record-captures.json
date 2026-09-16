@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "generationId": "pending-no-captures",
+  "supersedes": null,
+  "generatedAt": null,
+  "captureTool": {
+    "name": "scripts/quality/capture-record-visuals.mjs",
+    "codeVersion": 1,
+    "browser": "Chromium (Playwright, headless, reduced motion)",
+    "viewports": [
+      { "id": "desktop", "width": 1440, "height": 900 },
+      { "id": "mobile", "width": 390, "height": 844 }
+    ]
+  },
+  "sourceBuild": {
+    "directory": "dist",
+    "base": "/",
+    "inputManifestHash": "pending-no-captures"
+  },
+  "coverage": {
+    "required": 0,
+    "success": 0,
+    "failed": 0,
+    "complete": false
+  },
+  "routes": []
+}
