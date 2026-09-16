@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
-  "generationId": "b19c5e50aaa221ab3c1e7ab3dd75e44c288776ccb6c57b10ffc49d104234363a",
-  "supersedes": "99511fe7507af5d0392b9972a421398aadcecbc2765a8961f875e91305846973",
-  "generatedAt": "2026-09-16T19:34:57.881Z",
+  "generationId": "41a8c490348d9e60fe2c771f6bf398736694cf6071ac46d3f24cf9cabe99f04e",
+  "supersedes": "1c0c576f73d7c39b64d0b822a4eaedfde31e05af4b22589bd90693ad9227cfa5",
+  "generatedAt": "2026-09-16T20:41:30.567Z",
   "captureTool": {
     "name": "scripts/quality/capture-record-visuals.mjs",
-    "codeVersion": 1,
+    "codeVersion": 2,
     "browser": "Chromium (Playwright, headless, reduced motion)",
     "viewports": [
       {
@@ -21,9 +21,9 @@
     ]
   },
   "sourceBuild": {
-    "directory": "../../../../../tmp/capture-frozen-5",
+    "directory": "../../../../../tmp/capture-frozen-7b",
     "base": "/",
-    "inputManifestHash": "b19c5e50aaa221ab3c1e7ab3dd75e44c288776ccb6c57b10ffc49d104234363a"
+    "inputManifestHash": "41a8c490348d9e60fe2c771f6bf398736694cf6071ac46d3f24cf9cabe99f04e"
   },
   "coverage": {
     "required": 87,
@@ -37,8 +37,8 @@
       "kind": "page",
       "title": "INSTAR Lab — Research Institute",
       "status": "success",
-      "contentHash": "fdaedaa3b77ad052c7e48a03978a074bd102e3b8c3d07533f027ac2c04f70d41",
-      "capturedAt": "2026-09-16T19:21:17.084Z",
+      "contentHash": "a2bcd5751d9cc62ab28dd1e5d72d10e65aca7e9140592fedcda708c63ea0d0aa",
+      "capturedAt": "2026-09-16T20:03:50.723Z",
       "selfCapture": false,
       "depictsGeneration": null,
       "failure": null,
@@ -49,13 +49,13 @@
               "image": "/record/shots/home-desktop.avif",
               "w": 1440,
               "h": 9355,
-              "bytes": 547749
+              "bytes": 561579
             }
           ],
           "thumb": "/record/shots/thumbs/home-desktop.avif",
           "thumbW": 480,
           "thumbH": 3118,
-          "thumbBytes": 84450,
+          "thumbBytes": 86179,
           "httpStatus": 200,
           "unsettledImages": 0
         },
@@ -65,13 +65,13 @@
               "image": "/record/shots/home-mobile.avif",
               "w": 390,
               "h": 15961,
-              "bytes": 428863
+              "bytes": 444941
             }
           ],
           "thumb": "/record/shots/thumbs/home-mobile.avif",
           "thumbW": 390,
           "thumbH": 15961,
-          "thumbBytes": 372003,
+          "thumbBytes": 385436,
           "httpStatus": 200,
           "unsettledImages": 0
         }
@@ -82,8 +82,8 @@
       "kind": "error",
       "title": "Page Not Found — INSTAR Lab",
       "status": "success",
-      "contentHash": "3dfd8d7ffdb683f27a37b54c2c600f2432e7c30b892924eaad159f64df379476",
-      "capturedAt": "2026-09-16T19:21:17.097Z",
+      "contentHash": "b5c0e4bab599afb1de4715d142366db49e69e6780ecda3644ea20a2acc595180",
+      "capturedAt": "2026-09-16T20:03:50.790Z",
       "selfCapture": false,
       "depictsGeneration": null,
       "failure": null,
@@ -127,8 +127,8 @@
       "kind": "page",
       "title": "About INSTAR Lab — Nonprofit Research Institute",
       "status": "success",
-      "contentHash": "12e0f9a8d0ac6e492561e9905d9ba71b4311d9a673db8bef2dcfb3304b322e59",
-      "capturedAt": "2026-09-16T19:21:17.146Z",
+      "contentHash": "b61336b426e1992c253bd83c4f0ffb7742a1f23c6f6b462f73f2e9450a12fa76",
+      "capturedAt": "2026-09-16T20:03:51.085Z",
       "selfCapture": false,
       "depictsGeneration": null,
       "failure": null,
@@ -172,8 +172,8 @@
       "kind": "page",
       "title": "Accessibility Statement — INSTAR Lab",
       "status": "success",
-      "contentHash": "a4ed5f192e7772c179df62c49b243efe558138ca4fccdc7e84dfc18db9c53552",
-      "capturedAt": "2026-09-16T19:21:35.005Z",
+      "contentHash": "3687daa3cbdf1e8a114b1bebd81e32702dcce55803ad9f1839ddc0be68b88563",
+      "capturedAt": "2026-09-16T20:04:05.357Z",
       "selfCapture": false,
       "depictsGeneration": null,
       "failure": null,
@@ -217,8 +217,8 @@
       "kind": "page",
       "title": "About Us — INSTAR Lab Community",
       "status": "success",
-      "contentHash": "5fda942e8fb2e9ea244cb7d17e22657c9e0b8c35e660027cbcb43298c3114fd9",
-      "capturedAt": "2026-09-16T19:21:35.852Z",
+      "contentHash": "32161228a03782b5b277e0e25ab4640254fe539f9f0ca5bbb559a5accac16931",
+      "capturedAt": "2026-09-16T20:04:08.996Z",
       "selfCapture": false,
       "depictsGeneration": null,
       "failure": null,
@@ -262,8 +262,8 @@
       "kind": "page",
       "title": "Careers at INSTAR Lab — Research & Science Jobs",
       "status": "success",
-      "contentHash": "fc11b145841b1cb51e46a3d3e8d5c90bce321f47fe96dbd7ad3bff8fc0b0137c",
-      "capturedAt": "2026-09-16T19:21:50.484Z",
+      "contentHash": "fe81978738fb4f7666b05f6096b969efabaff548a0d76a1caec8638b44b37e60",
+      "capturedAt": "2026-09-16T20:04:23.029Z",
       "selfCapture": false,
       "depictsGeneration": null,
       "failure": null,
@@ -307,8 +307,8 @@
       "kind": "page",
       "title": "Research & Partnership Inquiries — INSTAR Lab",
       "status": "success",
-      "contentHash": "416879401e16e89e0735216d8ddd092e5cdfd3dcec84d03ddbccef4d289cd50f",
-      "capturedAt": "2026-09-16T19:22:02.677Z",
+      "contentHash": "c0c1367cfbb2cdef63af2a2247d2f34bd4678c1cbe99e1e59478a90e4908b2af",
+      "capturedAt": "2026-09-16T20:04:33.131Z",
       "selfCapture": false,
       "depictsGeneration": null,
       "failure": null,
@@ -352,8 +352,8 @@
       "kind": "page",
       "title": "Research Leadership & Governance — INSTAR Lab",
       "status": "success",
-      "contentHash": "6b2974835217d596fd1f6ca514b5383d72b4eda88dfa6fa16fcf99e2e9b52b29",
-      "capturedAt": "2026-09-16T19:22:17.973Z",
+      "contentHash": "946f72b2a20a6a112bec88fe2258d76f5623226eedf61aafe90cc448b60e1c56",
+      "capturedAt": "2026-09-16T20:04:45.502Z",
       "selfCapture": false,
       "depictsGeneration": null,
       "failure": null,
@@ -397,8 +397,8 @@
       "kind": "page",
       "title": "Partner With INSTAR Lab — Research & Philanthropy",
       "status": "success",
-      "contentHash": "e4f2522e7d0001cadc3f185523512e8158b8de3bff264ec85d149c70aed4e55f",
-      "capturedAt": "2026-09-16T19:22:22.543Z",
+      "contentHash": "b42481ba3bb437cc117149c631d9418dfdc77980c7a47a55cc6976b0b8b1e2ae",
+      "capturedAt": "2026-09-16T20:04:52.406Z",
       "selfCapture": false,
       "depictsGeneration": null,
       "failure": null,
@@ -442,8 +442,8 @@
       "kind": "page",
       "title": "Give to INSTAR Lab — One-Time Gifts & Friends Membership",
       "status": "success",
-      "contentHash": "a7d415019da643f3d0b7e1767a00ec8971693e5002f41d4521f8145e822eb3b6",
-      "capturedAt": "2026-09-16T19:22:27.093Z",
+      "contentHash": "f1115ca1ecd822ad41cfdf755d961f1f491b584f8157944060a9bc4436434fde",
+      "capturedAt": "2026-09-16T20:04:58.519Z",
       "selfCapture": false,
       "depictsGeneration": null,
       "failure": null,
@@ -487,8 +487,8 @@
       "kind": "page",
       "title": "Work With INSTAR Lab — Collaboration Opportunities",
       "status": "success",
-      "contentHash": "c7541f61cba2924c7360b633ff7311d338308ccef533b0669ff6278fba41f855",
-      "capturedAt": "2026-09-16T19:22:41.452Z",
+      "contentHash": "82466fb733760113ad2223824da16a5e165ac12b8b54060ac197305a9f83dfd3",
+      "capturedAt": "2026-09-16T20:05:06.125Z",
       "selfCapture": false,
       "depictsGeneration": null,
       "failure": null,
@@ -532,8 +532,8 @@
       "kind": "page",
       "title": "Contact INSTAR Lab — Federal Research, Contracts & Partnerships",
       "status": "success",
-      "contentHash": "7bb032f4476052d316fee59dc0b78c49bac4e147c439c4fb1ba73d2ef3a18533",
-      "capturedAt": "2026-09-16T19:22:43.293Z",
+      "contentHash": "c8c6b2a0910809bc57aa8b99328b4babb71c95ee664e156c9a682d25725f8c14",
+      "capturedAt": "2026-09-16T20:05:10.497Z",
       "selfCapture": false,
       "depictsGeneration": null,
       "failure": null,
@@ -577,8 +577,8 @@
       "kind": "page",
       "title": "INSTAR Lab R&D Fellowships — International and Resident Scholars",
       "status": "success",
-      "contentHash": "31b6c7dd93d17fe823845fbadd68ac0b591dd139f4088e8ebd062a1101192d05",
-      "capturedAt": "2026-09-16T19:22:48.183Z",
+      "contentHash": "f5482251e96e81e2cdb33333f3371086f21a943c265f63bf86c04866cfeb4c9e",
+      "capturedAt": "2026-09-16T20:05:18.274Z",
       "selfCapture": false,
       "depictsGeneration": null,
       "failure": null,
@@ -622,8 +622,8 @@
       "kind": "page",
       "title": "Biometrics & Drone Sensing — INSTAR Lab",
       "status": "success",
-      "contentHash": "1d74e362b2e6b2c217db29ff280f8e338a2084356df81dee9e68f786f7365f28",
-      "capturedAt": "2026-09-16T19:22:58.602Z",
+      "contentHash": "1c04f7a87ecf6a2676ae8253469daa90408c6f42fe427f91a60ad118b7bab738",
+      "capturedAt": "2026-09-16T20:05:23.576Z",
       "selfCapture": false,
       "depictsGeneration": null,
       "failure": null,
@@ -667,8 +667,8 @@
       "kind": "page",
       "title": "Cognitive AI & Persona Systems — INSTAR Lab",
       "status": "success",
-      "contentHash": "1955f56f7bc9c72b7f2809295b7560dcb7ee1bc2b17005d2d014af7800d9a3a5",
-      "capturedAt": "2026-09-16T19:23:01.909Z",
+      "contentHash": "20a113091d42262c1d588aa6a7d16afc756dbe44e245ee67bf9eae618a2a0e9c",
+      "capturedAt": "2026-09-16T20:05:23.996Z",
       "selfCapture": false,
       "depictsGeneration": null,
       "failure": null,
@@ -712,8 +712,8 @@
       "kind": "page",
       "title": "Sovereign AI Laboratory — INSTAR Lab",
       "status": "success",
-      "contentHash": "caa8cf48730b65db7468dacdbf2d41cbebf3a39383b3cd6e77d288ed248283e5",
-      "capturedAt": "2026-09-16T19:23:16.929Z",
+      "contentHash": "d7ac73799b431926f96914a58678d9042b698dd09955c0dff07f0a06c71cd305",
+      "capturedAt": "2026-09-16T20:05:45.906Z",
       "selfCapture": false,
       "depictsGeneration": null,
       "failure": null,
@@ -757,8 +757,8 @@
       "kind": "page",
       "title": "Our Mission — INSTAR Lab",
       "status": "success",
-      "contentHash": "d872750b7cf66f69106dfd89e403d1a5966878d88a3234b86ca61d1ca646a1e1",
-      "capturedAt": "2026-09-16T19:23:22.287Z",
+      "contentHash": "c049ba8f6370e530a636e797c04e45b0d0e9065fadbbf4347299fccaa1fa5f2b",
+      "capturedAt": "2026-09-16T20:05:51.055Z",
       "selfCapture": false,
       "depictsGeneration": null,
       "failure": null,
@@ -802,8 +802,8 @@
       "kind": "page",
       "title": "News — INSTAR Lab",
       "status": "success",
-      "contentHash": "d539626074f2771bc71c103b259e96334dcd313061b469e843bf1686d2d6cd03",
-      "capturedAt": "2026-09-16T19:23:26.304Z",
+      "contentHash": "d96986228fef2f36a1ef87e3b0b35b582adf1c8e5c841a915b9810c99301a8a9",
+      "capturedAt": "2026-09-16T20:05:52.272Z",
       "selfCapture": false,
       "depictsGeneration": null,
       "failure": null,
@@ -814,13 +814,13 @@
               "image": "/record/shots/news-desktop.avif",
               "w": 1440,
               "h": 5541,
-              "bytes": 388891
+              "bytes": 359662
             }
           ],
           "thumb": "/record/shots/thumbs/news-desktop.avif",
           "thumbW": 480,
           "thumbH": 1847,
-          "thumbBytes": 54952,
+          "thumbBytes": 50041,
           "httpStatus": 200,
           "unsettledImages": 0
         },
@@ -830,13 +830,13 @@
               "image": "/record/shots/news-mobile.avif",
               "w": 390,
               "h": 7689,
-              "bytes": 262185
+              "bytes": 267627
             }
           ],
           "thumb": "/record/shots/thumbs/news-mobile.avif",
           "thumbW": 390,
           "thumbH": 7689,
-          "thumbBytes": 227975,
+          "thumbBytes": 232271,
           "httpStatus": 200,
           "unsettledImages": 0
         }
@@ -847,8 +847,8 @@
       "kind": "page",
       "title": "Clinical AI Safety Research — INSTAR Lab",
       "status": "success",
-      "contentHash": "1ab821ef0f61d4eb01c966a43fd0daabf7219009696b7f07ccdc63b0bfb0e36a",
-      "capturedAt": "2026-09-16T19:23:35.792Z",
+      "contentHash": "280b868b878ab73f8a6e44e81fdc4f1f6c11463f1c2be0d6ebab4dd3da59a71f",
+      "capturedAt": "2026-09-16T20:06:02.249Z",
       "selfCapture": false,
       "depictsGeneration": null,
       "failure": null,
@@ -892,8 +892,8 @@
       "kind": "page",
       "title": "Formal Methods and Trust in Safety-Critical Software — INSTAR Lab",
       "status": "success",
-      "contentHash": "a2d18fc4f22bc09c3c839e2d810c2ad6606ca87bacf9b48223387c16b47e02fa",
-      "capturedAt": "2026-09-16T19:23:39.222Z",
+      "contentHash": "90140211c66dc4cdf9e66ada6bf8bebbccb81e9cba131cce76f6b8d78cf4c3b0",
+      "capturedAt": "2026-09-16T20:06:08.108Z",
       "selfCapture": false,
       "depictsGeneration": null,
       "failure": null,
@@ -937,8 +937,8 @@
       "kind": "page",
       "title": "HPC Infrastructure for AI — INSTAR Lab",
       "status": "success",
-      "contentHash": "d01f8b92f8a95ad5cb9fe7f38b77f887c395f08670eb0d511ffc865d70454b95",
-      "capturedAt": "2026-09-16T19:24:01.514Z",
+      "contentHash": "6e80d4ede5095bcae08b8d81a2222d52641d2ca6c516937fbf81687f11116a69",
+      "capturedAt": "2026-09-16T20:06:25.817Z",
       "selfCapture": false,
       "depictsGeneration": null,
       "failure": null,
@@ -982,8 +982,8 @@
       "kind": "page",
       "title": "Legal Foundations for Emerging Technology Governance — INSTAR Lab",
       "status": "success",
-      "contentHash": "6b1bd8dcdda4e7aa850c63f4a2410c7a8220bbe380133fc0655d86fb8483ae68",
-      "capturedAt": "2026-09-16T19:24:04.045Z",
+      "contentHash": "86fd2c9180eddc8417e9d5e056db9083e31b242c98303e4b0d8bd8e19d941ba8",
+      "capturedAt": "2026-09-16T20:06:32.454Z",
       "selfCapture": false,
       "depictsGeneration": null,
       "failure": null,
@@ -1027,8 +1027,8 @@
       "kind": "page",
       "title": "Materials Science and the Energy Transition — INSTAR Lab",
       "status": "success",
-      "contentHash": "0517a9489d89471e565e87df2d8b1b7ef62c39a4223c8e088fcc53ca5c15549f",
-      "capturedAt": "2026-09-16T19:24:05.256Z",
+      "contentHash": "f5160750b68f312bf2635057858f4f6b80b844f158a5f794b503e423a4ec4e22",
+      "capturedAt": "2026-09-16T20:06:34.173Z",
       "selfCapture": false,
       "depictsGeneration": null,
       "failure": null,
@@ -1072,8 +1072,8 @@
       "kind": "page",
       "title": "Open data is part of the research infrastructure — INSTAR Lab",
       "status": "success",
-      "contentHash": "ecbb4708d9636c605241b9af54d35ae68a1cebf335d84c470a6d8d3f72e4d00b",
-      "capturedAt": "2026-09-16T19:24:31.213Z",
+      "contentHash": "332bf7153f47ac39575b459bdb6e84dfb84207d8097dce47f9a19c62d9f00e58",
+      "capturedAt": "2026-09-16T20:06:53.615Z",
       "selfCapture": false,
       "depictsGeneration": null,
       "failure": null,
@@ -1117,8 +1117,8 @@
       "kind": "page",
       "title": "Precision Agriculture and Open Agricultural Data — INSTAR Lab",
       "status": "success",
-      "contentHash": "6b782a3a1af80c7ba9925d5b99aaf0d50e841bc79839de765624026aa130d3b4",
-      "capturedAt": "2026-09-16T19:24:32.738Z",
+      "contentHash": "0f2541c2b96f1706abe3f673cab56b8849fc2686f79c8e06f2721b2cb8a346b6",
+      "capturedAt": "2026-09-16T20:06:59.499Z",
       "selfCapture": false,
       "depictsGeneration": null,
       "failure": null,
@@ -1162,8 +1162,8 @@
       "kind": "page",
       "title": "Quantum Sensing Breakthroughs — INSTAR Lab",
       "status": "success",
-      "contentHash": "dfda6aaab2a71d94da2c78b79572e5883015fe0edf2cb267f22bd9e7bdffec4c",
-      "capturedAt": "2026-09-16T19:24:32.903Z",
+      "contentHash": "6077d32490c49dacc6d834aed5dc1fb7198b276c380bd6148a75518c143d6104",
+      "capturedAt": "2026-09-16T20:07:00.327Z",
       "selfCapture": false,
       "depictsGeneration": null,
       "failure": null,
@@ -1207,8 +1207,8 @@
       "kind": "page",
       "title": "Privacy Policy — INSTAR Lab",
       "status": "success",
-      "contentHash": "bd394a1f408cfb6c6f07a881222d9d3485b879bb6d7fbc91e0f576fc9add8a53",
-      "capturedAt": "2026-09-16T19:24:57.601Z",
+      "contentHash": "4f3e16b410c3ff17bc33c4fe1c5d6aa1bc961d6b416b54b60b81a82038b1ad9b",
+      "capturedAt": "2026-09-16T20:07:18.181Z",
       "selfCapture": false,
       "depictsGeneration": null,
       "failure": null,
@@ -1252,8 +1252,8 @@
       "kind": "record",
       "title": "INSTAR Lab public record | INSTAR Lab",
       "status": "success",
-      "contentHash": "c288563ec421182ff4ad3f77bbae72507c7d90dd6654b40d406cdf7eeecc764c",
-      "capturedAt": "2026-09-16T19:24:58.895Z",
+      "contentHash": "54b6dda1adec5935344a2cf8f07042522d75fa2c095b282ca35198757f0ddb07",
+      "capturedAt": "2026-09-16T20:37:17.377Z",
       "selfCapture": false,
       "depictsGeneration": null,
       "failure": null,
@@ -1264,13 +1264,13 @@
               "image": "/record/shots/record-desktop.avif",
               "w": 1440,
               "h": 3571,
-              "bytes": 216910
+              "bytes": 216485
             }
           ],
           "thumb": "/record/shots/thumbs/record-desktop.avif",
           "thumbW": 480,
           "thumbH": 1190,
-          "thumbBytes": 25326,
+          "thumbBytes": 25213,
           "httpStatus": 200,
           "unsettledImages": 0
         },
@@ -1279,14 +1279,14 @@
             {
               "image": "/record/shots/record-mobile.avif",
               "w": 390,
-              "h": 6330,
-              "bytes": 190462
+              "h": 6319,
+              "bytes": 185373
             }
           ],
           "thumb": "/record/shots/thumbs/record-mobile.avif",
           "thumbW": 390,
-          "thumbH": 6330,
-          "thumbBytes": 162842,
+          "thumbH": 6319,
+          "thumbBytes": 158403,
           "httpStatus": 200,
           "unsettledImages": 0
         }
@@ -1297,8 +1297,8 @@
       "kind": "record",
       "title": "Affiliation register | INSTAR Lab",
       "status": "success",
-      "contentHash": "2832830d316717cf0e7034578a92230b03f943d362a3cd2fad4bb73f56cd4658",
-      "capturedAt": "2026-09-16T19:25:00.283Z",
+      "contentHash": "820509636807eba39627beccbe50584e1d6a4e6db99c3558ade458a9c1c5c61c",
+      "capturedAt": "2026-09-16T20:37:17.413Z",
       "selfCapture": false,
       "depictsGeneration": null,
       "failure": null,
@@ -1309,13 +1309,13 @@
               "image": "/record/shots/record-affiliations-desktop.avif",
               "w": 1440,
               "h": 4336,
-              "bytes": 409311
+              "bytes": 408355
             }
           ],
           "thumb": "/record/shots/thumbs/record-affiliations-desktop.avif",
           "thumbW": 480,
           "thumbH": 1445,
-          "thumbBytes": 41440,
+          "thumbBytes": 41320,
           "httpStatus": 200,
           "unsettledImages": 0
         },
@@ -1324,14 +1324,14 @@
             {
               "image": "/record/shots/record-affiliations-mobile.avif",
               "w": 390,
-              "h": 12557,
-              "bytes": 152985
+              "h": 12546,
+              "bytes": 156052
             }
           ],
           "thumb": "/record/shots/thumbs/record-affiliations-mobile.avif",
           "thumbW": 390,
-          "thumbH": 12557,
-          "thumbBytes": 138593,
+          "thumbH": 12546,
+          "thumbBytes": 141073,
           "httpStatus": 200,
           "unsettledImages": 0
         }
@@ -1342,8 +1342,8 @@
       "kind": "record",
       "title": "Corrections register | INSTAR Lab",
       "status": "success",
-      "contentHash": "c9b7bc8759c7392ad2d26d580fde82c070d90025651798a72f5dc3460c5953fc",
-      "capturedAt": "2026-09-16T19:25:13.222Z",
+      "contentHash": "995868aa5c3e7e4a1cf31b58eb13ac6d3d932fb7b56e231f883aa9e4f47cc605",
+      "capturedAt": "2026-09-16T20:37:33.251Z",
       "selfCapture": false,
       "depictsGeneration": null,
       "failure": null,
@@ -1354,13 +1354,13 @@
               "image": "/record/shots/record-corrections-desktop.avif",
               "w": 1440,
               "h": 6714,
-              "bytes": 619659
+              "bytes": 618909
             }
           ],
           "thumb": "/record/shots/thumbs/record-corrections-desktop.avif",
           "thumbW": 480,
           "thumbH": 2238,
-          "thumbBytes": 59964,
+          "thumbBytes": 59803,
           "httpStatus": 200,
           "unsettledImages": 0
         },
@@ -1369,14 +1369,14 @@
             {
               "image": "/record/shots/record-corrections-mobile.avif",
               "w": 390,
-              "h": 10189,
-              "bytes": 379404
+              "h": 10178,
+              "bytes": 378331
             }
           ],
           "thumb": "/record/shots/thumbs/record-corrections-mobile.avif",
           "thumbW": 390,
-          "thumbH": 10189,
-          "thumbBytes": 327417,
+          "thumbH": 10178,
+          "thumbBytes": 326712,
           "httpStatus": 200,
           "unsettledImages": 0
         }
@@ -1387,8 +1387,8 @@
       "kind": "record",
       "title": "Federal and institutional research posture | INSTAR Lab",
       "status": "success",
-      "contentHash": "5cf008d2ae10f7e5b840dc85a5c08529370e0f458564530887618475b7a5d963",
-      "capturedAt": "2026-09-16T19:25:23.946Z",
+      "contentHash": "56c0c3453b7d9c4bfbf72eb40c3ecb5ccf8051521c88d90f3a07814447c4c063",
+      "capturedAt": "2026-09-16T20:37:36.813Z",
       "selfCapture": false,
       "depictsGeneration": null,
       "failure": null,
@@ -1399,13 +1399,13 @@
               "image": "/record/shots/record-federal-desktop.avif",
               "w": 1440,
               "h": 3245,
-              "bytes": 241548
+              "bytes": 240662
             }
           ],
           "thumb": "/record/shots/thumbs/record-federal-desktop.avif",
           "thumbW": 480,
           "thumbH": 1082,
-          "thumbBytes": 28101,
+          "thumbBytes": 28046,
           "httpStatus": 200,
           "unsettledImages": 0
         },
@@ -1414,14 +1414,14 @@
             {
               "image": "/record/shots/record-federal-mobile.avif",
               "w": 390,
-              "h": 5840,
-              "bytes": 224780
+              "h": 5829,
+              "bytes": 224256
             }
           ],
           "thumb": "/record/shots/thumbs/record-federal-mobile.avif",
           "thumbW": 390,
-          "thumbH": 5840,
-          "thumbBytes": 193431,
+          "thumbH": 5829,
+          "thumbBytes": 193164,
           "httpStatus": 200,
           "unsettledImages": 0
         }
@@ -1432,8 +1432,8 @@
       "kind": "record",
       "title": "Public documents and asset register | INSTAR Lab",
       "status": "success",
-      "contentHash": "7a868853843767b437bdb1504bfcc274dd3781d3fc03120f4c7721e91cf576fe",
-      "capturedAt": "2026-09-16T19:25:33.372Z",
+      "contentHash": "6d7a5a1e301558c48ae7f3755f1e43ac9662c7beb66211f956f6cc3f63ccf3f0",
+      "capturedAt": "2026-09-16T20:37:49.716Z",
       "selfCapture": false,
       "depictsGeneration": null,
       "failure": null,
@@ -1444,13 +1444,13 @@
               "image": "/record/shots/record-files-desktop.avif",
               "w": 1440,
               "h": 2555,
-              "bytes": 158065
+              "bytes": 157803
             }
           ],
           "thumb": "/record/shots/thumbs/record-files-desktop.avif",
           "thumbW": 480,
           "thumbH": 852,
-          "thumbBytes": 19778,
+          "thumbBytes": 19642,
           "httpStatus": 200,
           "unsettledImages": 0
         },
@@ -1459,14 +1459,14 @@
             {
               "image": "/record/shots/record-files-mobile.avif",
               "w": 390,
-              "h": 4131,
-              "bytes": 78819
+              "h": 4120,
+              "bytes": 76865
             }
           ],
           "thumb": "/record/shots/thumbs/record-files-mobile.avif",
           "thumbW": 390,
-          "thumbH": 4131,
-          "thumbBytes": 72976,
+          "thumbH": 4120,
+          "thumbBytes": 71353,
           "httpStatus": 200,
           "unsettledImages": 0
         }
@@ -1477,8 +1477,8 @@
       "kind": "record",
       "title": "Board and policy register | INSTAR Lab",
       "status": "success",
-      "contentHash": "9b5f0d4074f727b72b8142cea7bcc4736c8b2e168fb3517033f3b8e14e6f98f6",
-      "capturedAt": "2026-09-16T19:25:48.233Z",
+      "contentHash": "6b2b9a0a42dd12e0c109848b1056968f79248e3c9554a369de54e659a6c19bdb",
+      "capturedAt": "2026-09-16T20:37:55.462Z",
       "selfCapture": false,
       "depictsGeneration": null,
       "failure": null,
@@ -1489,13 +1489,13 @@
               "image": "/record/shots/record-governance-desktop.avif",
               "w": 1440,
               "h": 9509,
-              "bytes": 476336
+              "bytes": 475502
             }
           ],
           "thumb": "/record/shots/thumbs/record-governance-desktop.avif",
           "thumbW": 480,
           "thumbH": 3170,
-          "thumbBytes": 52497,
+          "thumbBytes": 52324,
           "httpStatus": 200,
           "unsettledImages": 0
         },
@@ -1504,14 +1504,14 @@
             {
               "image": "/record/shots/record-governance-mobile.avif",
               "w": 390,
-              "h": 15671,
-              "bytes": 212177
+              "h": 15661,
+              "bytes": 214655
             }
           ],
           "thumb": "/record/shots/thumbs/record-governance-mobile.avif",
           "thumbW": 390,
-          "thumbH": 15671,
-          "thumbBytes": 192705,
+          "thumbH": 15661,
+          "thumbBytes": 195769,
           "httpStatus": 200,
           "unsettledImages": 0
         }
@@ -1522,8 +1522,8 @@
       "kind": "record",
       "title": "Role-specific paths through the INSTAR site | INSTAR Lab",
       "status": "success",
-      "contentHash": "7ae22157d78d849ff3e91f526c3523e803e81bc21b91d9eb8818d63eded9bce2",
-      "capturedAt": "2026-09-16T19:25:48.992Z",
+      "contentHash": "85e5cf0a68cf68c30c593d4f699744af3b15d2400484b9155fe2426902562a56",
+      "capturedAt": "2026-09-16T20:37:58.792Z",
       "selfCapture": false,
       "depictsGeneration": null,
       "failure": null,
@@ -1534,13 +1534,13 @@
               "image": "/record/shots/record-journeys-desktop.avif",
               "w": 1440,
               "h": 3505,
-              "bytes": 207263
+              "bytes": 206194
             }
           ],
           "thumb": "/record/shots/thumbs/record-journeys-desktop.avif",
           "thumbW": 480,
           "thumbH": 1168,
-          "thumbBytes": 26865,
+          "thumbBytes": 26741,
           "httpStatus": 200,
           "unsettledImages": 0
         },
@@ -1549,14 +1549,14 @@
             {
               "image": "/record/shots/record-journeys-mobile.avif",
               "w": 390,
-              "h": 7148,
-              "bytes": 201218
+              "h": 7138,
+              "bytes": 203506
             }
           ],
           "thumb": "/record/shots/thumbs/record-journeys-mobile.avif",
           "thumbW": 390,
-          "thumbH": 7148,
-          "thumbBytes": 174622,
+          "thumbH": 7138,
+          "thumbBytes": 174489,
           "httpStatus": 200,
           "unsettledImages": 0
         }
@@ -1567,8 +1567,8 @@
       "kind": "record",
       "title": "Leadership, governance, and affiliations | INSTAR Lab",
       "status": "success",
-      "contentHash": "31c74230d291d87a3c778f033accad682576059e91bf90817c537595d6c89fb4",
-      "capturedAt": "2026-09-16T19:25:56.644Z",
+      "contentHash": "88bb0ecf4e50d1cb2a1b2b30ba5b25991606833ef63dc9b77b56ecff4f186995",
+      "capturedAt": "2026-09-16T20:38:12.284Z",
       "selfCapture": false,
       "depictsGeneration": null,
       "failure": null,
@@ -1579,13 +1579,13 @@
               "image": "/record/shots/record-leadership-desktop.avif",
               "w": 1440,
               "h": 2294,
-              "bytes": 189960
+              "bytes": 189157
             }
           ],
           "thumb": "/record/shots/thumbs/record-leadership-desktop.avif",
           "thumbW": 480,
           "thumbH": 765,
-          "thumbBytes": 23002,
+          "thumbBytes": 22959,
           "httpStatus": 200,
           "unsettledImages": 0
         },
@@ -1594,14 +1594,14 @@
             {
               "image": "/record/shots/record-leadership-mobile.avif",
               "w": 390,
-              "h": 5243,
-              "bytes": 173269
+              "h": 5232,
+              "bytes": 175267
             }
           ],
           "thumb": "/record/shots/thumbs/record-leadership-mobile.avif",
           "thumbW": 390,
-          "thumbH": 5243,
-          "thumbBytes": 150399,
+          "thumbH": 5232,
+          "thumbBytes": 152353,
           "httpStatus": 200,
           "unsettledImages": 0
         }
@@ -1612,8 +1612,8 @@
       "kind": "record",
       "title": "Legal status, filings, and the §6104(d) request path | INSTAR Lab",
       "status": "success",
-      "contentHash": "eb966b72389059719f1fae07dbd55ee56c5d334adc840b0deaede25f56178707",
-      "capturedAt": "2026-09-16T19:26:12.390Z",
+      "contentHash": "ff3dfcae23e75bc5199b6fd60a27b1433c0eb169fd22591382c0752380e0d2d2",
+      "capturedAt": "2026-09-16T20:38:18.787Z",
       "selfCapture": false,
       "depictsGeneration": null,
       "failure": null,
@@ -1624,13 +1624,13 @@
               "image": "/record/shots/record-legal-desktop.avif",
               "w": 1440,
               "h": 5418,
-              "bytes": 500954
+              "bytes": 499480
             }
           ],
           "thumb": "/record/shots/thumbs/record-legal-desktop.avif",
           "thumbW": 480,
           "thumbH": 1806,
-          "thumbBytes": 51240,
+          "thumbBytes": 51226,
           "httpStatus": 200,
           "unsettledImages": 0
         },
@@ -1639,14 +1639,14 @@
             {
               "image": "/record/shots/record-legal-mobile.avif",
               "w": 390,
-              "h": 10567,
-              "bytes": 236470
+              "h": 10557,
+              "bytes": 236135
             }
           ],
           "thumb": "/record/shots/thumbs/record-legal-mobile.avif",
           "thumbW": 390,
-          "thumbH": 10567,
-          "thumbBytes": 211745,
+          "thumbH": 10557,
+          "thumbBytes": 212036,
           "httpStatus": 200,
           "unsettledImages": 0
         }
@@ -1657,8 +1657,8 @@
       "kind": "record",
       "title": "INSTAR Lab positioning and public claims | INSTAR Lab",
       "status": "success",
-      "contentHash": "3d0c7c177adc0aa8c087140e8a84b0aa7e0181ec2dcf4972d80d1cb41485a95b",
-      "capturedAt": "2026-09-16T19:26:14.272Z",
+      "contentHash": "477a64358bc6b069de288ab2005419cc160f69f0a36acdcc7fbf1cc03ad57f77",
+      "capturedAt": "2026-09-16T20:38:22.403Z",
       "selfCapture": false,
       "depictsGeneration": null,
       "failure": null,
@@ -1669,13 +1669,13 @@
               "image": "/record/shots/record-marketing-desktop.avif",
               "w": 1440,
               "h": 13676,
-              "bytes": 1877584
+              "bytes": 1876993
             }
           ],
           "thumb": "/record/shots/thumbs/record-marketing-desktop.avif",
           "thumbW": 480,
           "thumbH": 4559,
-          "thumbBytes": 177654,
+          "thumbBytes": 177449,
           "httpStatus": 200,
           "unsettledImages": 0
         },
@@ -1684,26 +1684,32 @@
             {
               "image": "/record/shots/record-marketing-mobile-p1.avif",
               "w": 390,
-              "h": 14775,
-              "bytes": 365932
+              "h": 14771,
+              "bytes": 363587
             },
             {
               "image": "/record/shots/record-marketing-mobile-p2.avif",
               "w": 390,
-              "h": 14775,
-              "bytes": 339160
+              "h": 14771,
+              "bytes": 341358
             },
             {
               "image": "/record/shots/record-marketing-mobile-p3.avif",
               "w": 390,
-              "h": 14775,
-              "bytes": 329170
+              "h": 14771,
+              "bytes": 325881
+            },
+            {
+              "image": "/record/shots/record-marketing-mobile-p4.avif",
+              "w": 390,
+              "h": 2,
+              "bytes": 309
             }
           ],
           "thumb": "/record/shots/thumbs/record-marketing-mobile.avif",
           "thumbW": 141,
           "thumbH": 16000,
-          "thumbBytes": 157677,
+          "thumbBytes": 157334,
           "httpStatus": 200,
           "unsettledImages": 0
         }
@@ -1714,8 +1720,8 @@
       "kind": "record",
       "title": "Captured page inventory: content, media, and metadata | INSTAR Lab",
       "status": "success",
-      "contentHash": "77cc56957fbb103abdabe468afbd008c406a28cfa36cc34f16851a0da8d89a1f",
-      "capturedAt": "2026-09-16T19:26:26.915Z",
+      "contentHash": "e0ba3f05debf3e66fbd0ce08d17d8395a8b520997a99fc8d1ecab82eb43f48fb",
+      "capturedAt": "2026-09-16T20:38:38.477Z",
       "selfCapture": false,
       "depictsGeneration": null,
       "failure": null,
@@ -1726,13 +1732,13 @@
               "image": "/record/shots/record-metrics-desktop.avif",
               "w": 1440,
               "h": 2718,
-              "bytes": 114767
+              "bytes": 114269
             }
           ],
           "thumb": "/record/shots/thumbs/record-metrics-desktop.avif",
           "thumbW": 480,
           "thumbH": 906,
-          "thumbBytes": 17178,
+          "thumbBytes": 17145,
           "httpStatus": 200,
           "unsettledImages": 0
         },
@@ -1741,14 +1747,14 @@
             {
               "image": "/record/shots/record-metrics-mobile.avif",
               "w": 390,
-              "h": 4058,
-              "bytes": 110657
+              "h": 4047,
+              "bytes": 110769
             }
           ],
           "thumb": "/record/shots/thumbs/record-metrics-mobile.avif",
           "thumbW": 390,
-          "thumbH": 4058,
-          "thumbBytes": 97385,
+          "thumbH": 4047,
+          "thumbBytes": 97547,
           "httpStatus": 200,
           "unsettledImages": 0
         }
@@ -1759,8 +1765,8 @@
       "kind": "record",
       "title": "INSTAR Lab public site link inventory | INSTAR Lab",
       "status": "success",
-      "contentHash": "681a4a3a46ffff80ee48cab8db5ff97588278198eebd4b1d25a0321b10b54305",
-      "capturedAt": "2026-09-16T19:26:38.930Z",
+      "contentHash": "c51cb6e90eb0fc6e00e8af15cfa39bfcbe0134a6907cc36fa7dc286f17b422ee",
+      "capturedAt": "2026-09-16T20:38:48.293Z",
       "selfCapture": false,
       "depictsGeneration": null,
       "failure": null,
@@ -1771,13 +1777,13 @@
               "image": "/record/shots/record-nav-desktop.avif",
               "w": 1440,
               "h": 15461,
-              "bytes": 1299043
+              "bytes": 1298552
             }
           ],
           "thumb": "/record/shots/thumbs/record-nav-desktop.avif",
           "thumbW": 480,
           "thumbH": 5154,
-          "thumbBytes": 131058,
+          "thumbBytes": 130961,
           "httpStatus": 200,
           "unsettledImages": 0
         },
@@ -1786,26 +1792,32 @@
             {
               "image": "/record/shots/record-nav-mobile-p1.avif",
               "w": 390,
-              "h": 12445,
-              "bytes": 368630
+              "h": 12441,
+              "bytes": 365894
             },
             {
               "image": "/record/shots/record-nav-mobile-p2.avif",
               "w": 390,
-              "h": 12445,
-              "bytes": 155874
+              "h": 12441,
+              "bytes": 157175
             },
             {
               "image": "/record/shots/record-nav-mobile-p3.avif",
               "w": 390,
-              "h": 12445,
-              "bytes": 151408
+              "h": 12441,
+              "bytes": 153868
+            },
+            {
+              "image": "/record/shots/record-nav-mobile-p4.avif",
+              "w": 390,
+              "h": 1,
+              "bytes": 309
             }
           ],
           "thumb": "/record/shots/thumbs/record-nav-mobile.avif",
           "thumbW": 167,
           "thumbH": 16000,
-          "thumbBytes": 140004,
+          "thumbBytes": 140944,
           "httpStatus": 200,
           "unsettledImages": 0
         }
@@ -1816,8 +1828,8 @@
       "kind": "record",
       "title": "Static delivery and operational readiness | INSTAR Lab",
       "status": "success",
-      "contentHash": "b766a5c84ded63d08a4a36e8eebd2c3a1b22f400058a3f943ba76c4ee79dac99",
-      "capturedAt": "2026-09-16T19:26:40.220Z",
+      "contentHash": "1a4345e6bec94c51c38cd7a134d87ab46840e5ca139ab0520dce889f833f81b0",
+      "capturedAt": "2026-09-16T20:39:16.393Z",
       "selfCapture": false,
       "depictsGeneration": null,
       "failure": null,
@@ -1828,13 +1840,13 @@
               "image": "/record/shots/record-ops-desktop.avif",
               "w": 1440,
               "h": 5722,
-              "bytes": 529842
+              "bytes": 529458
             }
           ],
           "thumb": "/record/shots/thumbs/record-ops-desktop.avif",
           "thumbW": 480,
           "thumbH": 1907,
-          "thumbBytes": 52893,
+          "thumbBytes": 52682,
           "httpStatus": 200,
           "unsettledImages": 0
         },
@@ -1843,14 +1855,14 @@
             {
               "image": "/record/shots/record-ops-mobile.avif",
               "w": 390,
-              "h": 12988,
-              "bytes": 452440
+              "h": 12977,
+              "bytes": 446169
             }
           ],
           "thumb": "/record/shots/thumbs/record-ops-mobile.avif",
           "thumbW": 390,
-          "thumbH": 12988,
-          "thumbBytes": 387486,
+          "thumbH": 12977,
+          "thumbBytes": 383039,
           "httpStatus": 200,
           "unsettledImages": 0
         }
@@ -1861,10 +1873,10 @@
       "kind": "record",
       "title": "See the public site in context | INSTAR Lab",
       "status": "success",
-      "contentHash": "c9a35fc0f2c41e17a228d419826255da05be4479e055d5aa097a010d0735a880",
-      "capturedAt": "2026-09-16T19:27:25.728Z",
+      "contentHash": "c88ecbc2116d247b365746e41754786966c04e235b1d07fb1c34eac782003ffd",
+      "capturedAt": "2026-09-16T20:39:36.108Z",
       "selfCapture": true,
-      "depictsGeneration": "99511fe7507af5d0392b9972a421398aadcecbc2765a8961f875e91305846973",
+      "depictsGeneration": "1c0c576f73d7c39b64d0b822a4eaedfde31e05af4b22589bd90693ad9227cfa5",
       "failure": null,
       "artifacts": {
         "desktop": {
@@ -1872,20 +1884,20 @@
             {
               "image": "/record/shots/record-screens-desktop-p1.avif",
               "w": 1440,
-              "h": 14244,
-              "bytes": 415245
+              "h": 13575,
+              "bytes": 962148
             },
             {
               "image": "/record/shots/record-screens-desktop-p2.avif",
               "w": 1440,
-              "h": 14244,
-              "bytes": 876568
+              "h": 13575,
+              "bytes": 1015080
             }
           ],
           "thumb": "/record/shots/thumbs/record-screens-desktop.avif",
           "thumbW": 480,
-          "thumbH": 9496,
-          "thumbBytes": 166678,
+          "thumbH": 9050,
+          "thumbBytes": 271935,
           "httpStatus": 200,
           "unsettledImages": 0
         },
@@ -1894,32 +1906,44 @@
             {
               "image": "/record/shots/record-screens-mobile-p1.avif",
               "w": 390,
-              "h": 13188,
-              "bytes": 339802
+              "h": 13858,
+              "bytes": 353447
             },
             {
               "image": "/record/shots/record-screens-mobile-p2.avif",
               "w": 390,
-              "h": 13188,
-              "bytes": 300364
+              "h": 13858,
+              "bytes": 332707
             },
             {
               "image": "/record/shots/record-screens-mobile-p3.avif",
               "w": 390,
-              "h": 13188,
-              "bytes": 395199
+              "h": 13858,
+              "bytes": 368069
             },
             {
               "image": "/record/shots/record-screens-mobile-p4.avif",
               "w": 390,
-              "h": 13188,
-              "bytes": 401064
+              "h": 13858,
+              "bytes": 329728
+            },
+            {
+              "image": "/record/shots/record-screens-mobile-p5.avif",
+              "w": 390,
+              "h": 13858,
+              "bytes": 344983
+            },
+            {
+              "image": "/record/shots/record-screens-mobile-p6.avif",
+              "w": 390,
+              "h": 1,
+              "bytes": 309
             }
           ],
           "thumb": "/record/shots/thumbs/record-screens-mobile.avif",
-          "thumbW": 118,
+          "thumbW": 90,
           "thumbH": 16000,
-          "thumbBytes": 144021,
+          "thumbBytes": 118032,
           "httpStatus": 200,
           "unsettledImages": 0
         }
@@ -1930,8 +1954,8 @@
       "kind": "record",
       "title": "INSTAR Lab visual system and public assets | INSTAR Lab",
       "status": "success",
-      "contentHash": "638c6a05d90d4cd92420781cd6fa7ebe501c67b8cf6872a31fad4c5cbcf2d157",
-      "capturedAt": "2026-09-16T19:27:36.601Z",
+      "contentHash": "e6060eb543d4055e08a01f16de15e425bfc4470b2a7bef6fc93138a61c9e2ef3",
+      "capturedAt": "2026-09-16T20:39:42.246Z",
       "selfCapture": false,
       "depictsGeneration": null,
       "failure": null,
@@ -1942,13 +1966,13 @@
               "image": "/record/shots/record-style-desktop.avif",
               "w": 1440,
               "h": 2608,
-              "bytes": 142501
+              "bytes": 141745
             }
           ],
           "thumb": "/record/shots/thumbs/record-style-desktop.avif",
           "thumbW": 480,
           "thumbH": 869,
-          "thumbBytes": 19745,
+          "thumbBytes": 19594,
           "httpStatus": 200,
           "unsettledImages": 0
         },
@@ -1957,14 +1981,14 @@
             {
               "image": "/record/shots/record-style-mobile.avif",
               "w": 390,
-              "h": 4371,
-              "bytes": 94213
+              "h": 4360,
+              "bytes": 93240
             }
           ],
           "thumb": "/record/shots/thumbs/record-style-mobile.avif",
           "thumbW": 390,
-          "thumbH": 4371,
-          "thumbBytes": 86220,
+          "thumbH": 4360,
+          "thumbBytes": 85370,
           "httpStatus": 200,
           "unsettledImages": 0
         }
@@ -1975,8 +1999,8 @@
       "kind": "record",
       "title": "Source register and verification limits | INSTAR Lab",
       "status": "success",
-      "contentHash": "79c8ca4cdc44f89b7e54f45e1e8480e3a8e6edf601c115dee5b0d9c7d6f2518c",
-      "capturedAt": "2026-09-16T19:27:55.222Z",
+      "contentHash": "6c9f7737a7b2dad4d707657d85c437c9a32e89ea70da5a8de16280768b81725b",
+      "capturedAt": "2026-09-16T20:39:53.968Z",
       "selfCapture": false,
       "depictsGeneration": null,
       "failure": null,
@@ -1987,13 +2011,13 @@
               "image": "/record/shots/record-verify-desktop.avif",
               "w": 1440,
               "h": 3536,
-              "bytes": 338543
+              "bytes": 337836
             }
           ],
           "thumb": "/record/shots/thumbs/record-verify-desktop.avif",
           "thumbW": 480,
           "thumbH": 1179,
-          "thumbBytes": 32908,
+          "thumbBytes": 33024,
           "httpStatus": 200,
           "unsettledImages": 0
         },
@@ -2002,14 +2026,14 @@
             {
               "image": "/record/shots/record-verify-mobile.avif",
               "w": 390,
-              "h": 6669,
-              "bytes": 120724
+              "h": 6658,
+              "bytes": 119866
             }
           ],
           "thumb": "/record/shots/thumbs/record-verify-mobile.avif",
           "thumbW": 390,
-          "thumbH": 6669,
-          "thumbBytes": 110982,
+          "thumbH": 6658,
+          "thumbBytes": 109318,
           "httpStatus": 200,
           "unsettledImages": 0
         }
@@ -2020,8 +2044,8 @@
       "kind": "page",
       "title": "Research — INSTAR Lab",
       "status": "success",
-      "contentHash": "9bcfaea40cb4659e487ae68bc0785dfc161006f3b41be9e6aa4d69f3f9288360",
-      "capturedAt": "2026-09-16T19:28:09.452Z",
+      "contentHash": "fc93734799d7355ad7d6947035f464a35077f5c5511b99ca668fd47e7e76642b",
+      "capturedAt": "2026-09-16T20:12:47.852Z",
       "selfCapture": false,
       "depictsGeneration": null,
       "failure": null,
@@ -2065,8 +2089,8 @@
       "kind": "page",
       "title": "INSTAR Consortium — Collaborative Research Network",
       "status": "success",
-      "contentHash": "034be9450256027fd30ccc58b498235fb079a10f0116ecb1d78b6e33ec29b85b",
-      "capturedAt": "2026-09-16T19:28:20.374Z",
+      "contentHash": "6f994b90f7df786e0f16726c2ca10240decf46a348f900bd9c26bdd367c9a689",
+      "capturedAt": "2026-09-16T20:13:01.959Z",
       "selfCapture": false,
       "depictsGeneration": null,
       "failure": null,
@@ -2110,8 +2134,8 @@
       "kind": "page",
       "title": "Current Research Programs — INSTAR Lab",
       "status": "success",
-      "contentHash": "daa36f113c075c901ff17be517cacf8d17a16461719d8ee403e65525fa1405fb",
-      "capturedAt": "2026-09-16T19:28:35.692Z",
+      "contentHash": "75dfad84335b3a2c0cdb8d8f1fa3a79bd34e3a23212def6c70d430c473ffbfc6",
+      "capturedAt": "2026-09-16T20:13:03.720Z",
       "selfCapture": false,
       "depictsGeneration": null,
       "failure": null,
@@ -2155,8 +2179,8 @@
       "kind": "page",
       "title": "Research Facilities — INSTAR Lab",
       "status": "success",
-      "contentHash": "393947ecaf007f9cd940a57308d483fc9e34d60fcb219d50b26343be7d43b220",
-      "capturedAt": "2026-09-16T19:28:43.586Z",
+      "contentHash": "7a153a129aee161cb8621d06aa5f3ac68c828605de92657bab9e83056a5474d7",
+      "capturedAt": "2026-09-16T20:13:19.273Z",
       "selfCapture": false,
       "depictsGeneration": null,
       "failure": null,
@@ -2200,8 +2224,8 @@
       "kind": "page",
       "title": "Federal Research & Sponsored Programs — INSTAR Lab",
       "status": "success",
-      "contentHash": "59b07c855be440a309352cee794835c11394bf61f36c175002fdcbfdb3546572",
-      "capturedAt": "2026-09-16T19:29:00.668Z",
+      "contentHash": "f2fa18976e7e636e316ec9de3a1bd83027d4c46f2cedc6f07a685f2e5d896c18",
+      "capturedAt": "2026-09-16T20:13:19.670Z",
       "selfCapture": false,
       "depictsGeneration": null,
       "failure": null,
@@ -2245,8 +2269,8 @@
       "kind": "page",
       "title": "Research Innovation — INSTAR Lab",
       "status": "success",
-      "contentHash": "75eb29596fde99457e1ee6a578386c079eb53aedf75abebbbd8adc83c383f556",
-      "capturedAt": "2026-09-16T19:29:07.555Z",
+      "contentHash": "944f5a558b5be74c3bfaf34f09cf480bc29fe5e6bfacfca00d21fa53652c7124",
+      "capturedAt": "2026-09-16T20:13:36.321Z",
       "selfCapture": false,
       "depictsGeneration": null,
       "failure": null,
@@ -2290,8 +2314,8 @@
       "kind": "page",
       "title": "Open Data & Public Datasets — INSTAR Lab",
       "status": "success",
-      "contentHash": "7aacbe61efa09905b1660cb87db7d36ee9b754e5a15c15fbd3093cfbbbf8341a",
-      "capturedAt": "2026-09-16T19:29:26.027Z",
+      "contentHash": "208f94ebcf49c4d828f69580d204f7d6edc862d313c1aadd15a0d75d8adbca41",
+      "capturedAt": "2026-09-16T20:13:36.364Z",
       "selfCapture": false,
       "depictsGeneration": null,
       "failure": null,
@@ -2335,8 +2359,8 @@
       "kind": "page",
       "title": "Research Opportunities — INSTAR Lab",
       "status": "success",
-      "contentHash": "fc6aa5ea9dc2552b0c22d3ee3ce5ec3f136f4b9bc8f5dbdf06e6722e77ad89f1",
-      "capturedAt": "2026-09-16T19:29:35.556Z",
+      "contentHash": "fac4a93d49c3c928c168eac10627c2f9518fa8c47b92d529c90978bc9f544226",
+      "capturedAt": "2026-09-16T20:13:54.267Z",
       "selfCapture": false,
       "depictsGeneration": null,
       "failure": null,
@@ -2380,8 +2404,8 @@
       "kind": "page",
       "title": "Our Research Process — INSTAR Lab",
       "status": "success",
-      "contentHash": "04830cf0f1dd4ffb98f2cf913ba1d8c830054b66fa29186a28a8b73636de8aaa",
-      "capturedAt": "2026-09-16T19:29:43.580Z",
+      "contentHash": "671669f19d8deca181248dbf2f8e75701f72a2b9b56de726ba2874cbe0cae7c7",
+      "capturedAt": "2026-09-16T20:13:54.830Z",
       "selfCapture": false,
       "depictsGeneration": null,
       "failure": null,
@@ -2425,8 +2449,8 @@
       "kind": "page",
       "title": "Agriculture Research — INSTAR Lab Sciences",
       "status": "success",
-      "contentHash": "27447ee1b40512cccd65709806156cec9ace0b50aa33d6a75977cec501241da4",
-      "capturedAt": "2026-09-16T19:29:53.532Z",
+      "contentHash": "da2f93c28939d7a99df1a5f3d16e68515ac3b099826867331d28e221b2f693b5",
+      "capturedAt": "2026-09-16T20:14:10.432Z",
       "selfCapture": false,
       "depictsGeneration": null,
       "failure": null,
@@ -2470,8 +2494,8 @@
       "kind": "page",
       "title": "Anthropology Research — INSTAR Lab Sciences",
       "status": "success",
-      "contentHash": "7ebeea733be17450ab4595abbadc84a1ad04c10e6eff3a85d39e35395620a9d9",
-      "capturedAt": "2026-09-16T19:30:03.610Z",
+      "contentHash": "1e637cd0bbdec862751142193c20eb33db9c21a1af1a356849a6ba84101594be",
+      "capturedAt": "2026-09-16T20:14:12.279Z",
       "selfCapture": false,
       "depictsGeneration": null,
       "failure": null,
@@ -2515,8 +2539,8 @@
       "kind": "page",
       "title": "Archaeology Research — INSTAR Lab Sciences",
       "status": "success",
-      "contentHash": "3507eb03bea2a24859992abfe869ab7207b9eb7756b9f6dbea937c1b976575a4",
-      "capturedAt": "2026-09-16T19:30:07.923Z",
+      "contentHash": "a8026514b4747b503a5d4a8ed3d2ae3a72ac71f887badc8e7280d4dabbae7706",
+      "capturedAt": "2026-09-16T20:14:28.937Z",
       "selfCapture": false,
       "depictsGeneration": null,
       "failure": null,
@@ -2560,8 +2584,8 @@
       "kind": "page",
       "title": "Biology Research — INSTAR Lab Sciences",
       "status": "success",
-      "contentHash": "9e76f316694905ef6bf6b3b5eb8f39285e860b9e0c272e1b1518aa24dbb6101c",
-      "capturedAt": "2026-09-16T19:30:22.142Z",
+      "contentHash": "a2d8d3a299b1e79f088bfb5565d1f5d5334a27afff5c09c716f80cca02ca1d36",
+      "capturedAt": "2026-09-16T20:14:31.267Z",
       "selfCapture": false,
       "depictsGeneration": null,
       "failure": null,
@@ -2605,8 +2629,8 @@
       "kind": "page",
       "title": "Chemistry Research — INSTAR Lab Sciences",
       "status": "success",
-      "contentHash": "1d1eb19ceb105c537d42608980b27b0c0858a0a1ead0282c800db7853b93cfce",
-      "capturedAt": "2026-09-16T19:30:35.576Z",
+      "contentHash": "ad452f0304b9f82f67f978aeccd984d3829d20d4085009175a4bb4fabaf8f165",
+      "capturedAt": "2026-09-16T20:14:45.582Z",
       "selfCapture": false,
       "depictsGeneration": null,
       "failure": null,
@@ -2650,8 +2674,8 @@
       "kind": "page",
       "title": "Cognitive Sciences Research — INSTAR Lab Sciences",
       "status": "success",
-      "contentHash": "07586e005398bc2f425315cf28331aa76f11f4bc1e3791a2d179011152f4a68a",
-      "capturedAt": "2026-09-16T19:30:38.364Z",
+      "contentHash": "aea9a8530b26a83e45403548975809a233c815989e29cfcb3e9d996bf310b02b",
+      "capturedAt": "2026-09-16T20:14:46.526Z",
       "selfCapture": false,
       "depictsGeneration": null,
       "failure": null,
@@ -2695,8 +2719,8 @@
       "kind": "page",
       "title": "Economics Research — INSTAR Lab Sciences",
       "status": "success",
-      "contentHash": "14257f48d27537623ef53b51f9e7ada0eed5ea358a8a672331f7c562ca19409d",
-      "capturedAt": "2026-09-16T19:30:48.595Z",
+      "contentHash": "f8689226857ddddd0654553cb78f36fedd5775533d608280106381f1fe7407c9",
+      "capturedAt": "2026-09-16T20:14:59.252Z",
       "selfCapture": false,
       "depictsGeneration": null,
       "failure": null,
@@ -2740,8 +2764,8 @@
       "kind": "page",
       "title": "Energy Research — INSTAR Lab Sciences",
       "status": "success",
-      "contentHash": "2fb08c32c6890f37bda17ff74a340104bd63b5c62332c278626028fcaf9829d7",
-      "capturedAt": "2026-09-16T19:31:02.992Z",
+      "contentHash": "6028c0e295a99363ecae6103c21fe67b3b2466690ee138b33b8016317407655f",
+      "capturedAt": "2026-09-16T20:15:02.742Z",
       "selfCapture": false,
       "depictsGeneration": null,
       "failure": null,
@@ -2785,8 +2809,8 @@
       "kind": "page",
       "title": "Genetics Research — INSTAR Lab Sciences",
       "status": "success",
-      "contentHash": "cb832f32403c2bfc19b472a2434d47d5e2e2444261c0349fb6a58909928cc64e",
-      "capturedAt": "2026-09-16T19:31:08.832Z",
+      "contentHash": "259cba6af92f3c24ea94ad6b87162ec496efe3b1d0c8145009b8d382370329ae",
+      "capturedAt": "2026-09-16T20:15:13.691Z",
       "selfCapture": false,
       "depictsGeneration": null,
       "failure": null,
@@ -2830,8 +2854,8 @@
       "kind": "page",
       "title": "Geology Research — INSTAR Lab Sciences",
       "status": "success",
-      "contentHash": "c2f7ed9f9092a25cc86aa40d87c9b32df948cc80c23daac98672c3ffea632028",
-      "capturedAt": "2026-09-16T19:31:15.022Z",
+      "contentHash": "1061d12911f0a30bf92be641b8f20686215f187a6c08e01982366d6cfbd4ad97",
+      "capturedAt": "2026-09-16T20:15:16.370Z",
       "selfCapture": false,
       "depictsGeneration": null,
       "failure": null,
@@ -2875,8 +2899,8 @@
       "kind": "page",
       "title": "Kinesiology Research — INSTAR Lab Sciences",
       "status": "success",
-      "contentHash": "8f4e61c926789a5a86033cdbe40f87a18ef145da2f2e23bb72c06d64b7c87134",
-      "capturedAt": "2026-09-16T19:31:29.052Z",
+      "contentHash": "ea6fa4afb5d7e0d87cc8594e71ae83fabcda6f2a46d675341a4924bf482acc13",
+      "capturedAt": "2026-09-16T20:15:28.438Z",
       "selfCapture": false,
       "depictsGeneration": null,
       "failure": null,
@@ -2920,8 +2944,8 @@
       "kind": "page",
       "title": "Law & Legal Research — INSTAR Lab Sciences",
       "status": "success",
-      "contentHash": "caa794638a37b1e1c2509c6742e94618c180ed645726feb4c330e2456720ce99",
-      "capturedAt": "2026-09-16T19:31:39.486Z",
+      "contentHash": "7d505c04dac10aef44b0ca3f13accff4020dfcc77a2395162bbd917d5f0bac21",
+      "capturedAt": "2026-09-16T20:15:30.380Z",
       "selfCapture": false,
       "depictsGeneration": null,
       "failure": null,
@@ -2965,8 +2989,8 @@
       "kind": "page",
       "title": "Linguistics Research — INSTAR Lab Sciences",
       "status": "success",
-      "contentHash": "7b683194772d9c75d72fbb258f7efb3ab1e5e763e62a9c8ba3dbd9bae0787cf0",
-      "capturedAt": "2026-09-16T19:31:48.717Z",
+      "contentHash": "578dfa8a640ea345a6b30645321418e00bd4e12b166870fb5b79f3254d16fef7",
+      "capturedAt": "2026-09-16T20:15:42.527Z",
       "selfCapture": false,
       "depictsGeneration": null,
       "failure": null,
@@ -3010,8 +3034,8 @@
       "kind": "page",
       "title": "Materials Science Research — INSTAR Lab Sciences",
       "status": "success",
-      "contentHash": "4e1cb69f836c0f856cc2d27150b7349519a850e0cf06fa380d46a95fdd806f69",
-      "capturedAt": "2026-09-16T19:32:00.573Z",
+      "contentHash": "1e78f12973c961d4f0da9ddbfe8c6e9c44371ec1b5b469ca0f28253a4a528800",
+      "capturedAt": "2026-09-16T20:15:46.034Z",
       "selfCapture": false,
       "depictsGeneration": null,
       "failure": null,
@@ -3055,8 +3079,8 @@
       "kind": "page",
       "title": "Medicine & Health Research — INSTAR Lab Sciences",
       "status": "success",
-      "contentHash": "d92c29192191a279403cb2dd20aa587998f677d3fdb2ad676a3fd1deb2415530",
-      "capturedAt": "2026-09-16T19:32:10.038Z",
+      "contentHash": "b1d640228674f30edb0a65140892fefb744ce063c2111275256206ad359e3aff",
+      "capturedAt": "2026-09-16T20:15:56.560Z",
       "selfCapture": false,
       "depictsGeneration": null,
       "failure": null,
@@ -3100,8 +3124,8 @@
       "kind": "page",
       "title": "Neuroscience Research — INSTAR Lab Sciences",
       "status": "success",
-      "contentHash": "a8e83e95025522d848fcb14048f9f6d6a91fc94650b033c3cb5704092c85ea20",
-      "capturedAt": "2026-09-16T19:32:15.324Z",
+      "contentHash": "5f1c2c0d59401007a74ebb456adf0a4373ec8384373870477ad2352bac85a832",
+      "capturedAt": "2026-09-16T20:16:01.717Z",
       "selfCapture": false,
       "depictsGeneration": null,
       "failure": null,
@@ -3145,8 +3169,8 @@
       "kind": "page",
       "title": "Ocean Science Research — INSTAR Lab Sciences",
       "status": "success",
-      "contentHash": "549e2ade73c5e645c767fe8aa20b750891c84f50c37e412772ebd2b4bb1799c1",
-      "capturedAt": "2026-09-16T19:32:25.410Z",
+      "contentHash": "a6a95656eb49e3d27150263f2ae6e8cf5b13e1f644f3ddd37e15ce97e21c6c0a",
+      "capturedAt": "2026-09-16T20:16:13.215Z",
       "selfCapture": false,
       "depictsGeneration": null,
       "failure": null,
@@ -3190,8 +3214,8 @@
       "kind": "page",
       "title": "Outer Space Research — INSTAR Lab Sciences",
       "status": "success",
-      "contentHash": "0cf00de5b8c83085c12225afc42eb4a8976d3f84b02ae134a98ded5adb01d6a7",
-      "capturedAt": "2026-09-16T19:32:31.379Z",
+      "contentHash": "439b0f530be2e9afdf14c83420354705feb93c8e9d876dcd77640566cf0f235a",
+      "capturedAt": "2026-09-16T20:16:16.849Z",
       "selfCapture": false,
       "depictsGeneration": null,
       "failure": null,
@@ -3235,8 +3259,8 @@
       "kind": "page",
       "title": "Physics Research — INSTAR Lab Sciences",
       "status": "success",
-      "contentHash": "39b05eae464262425a89af8865915e1ceddf540bf06dbe6bdb6b8da6216acd87",
-      "capturedAt": "2026-09-16T19:32:37.336Z",
+      "contentHash": "8af208d1a5d963be0ac7ff06f59afd3456022bbcb0feeae3b6d19ec897a3b302",
+      "capturedAt": "2026-09-16T20:16:28.596Z",
       "selfCapture": false,
       "depictsGeneration": null,
       "failure": null,
@@ -3280,8 +3304,8 @@
       "kind": "page",
       "title": "Physiology Research — INSTAR Lab Sciences",
       "status": "success",
-      "contentHash": "d3cd3f4b3bc8b2d85045cb1cabe7c726f201fcea1a7c52629d9fa6e69f91997b",
-      "capturedAt": "2026-09-16T19:32:47.489Z",
+      "contentHash": "315f0d812e72872e47386cd58672fe30a6a635aa3343235be0022aa037f42faa",
+      "capturedAt": "2026-09-16T20:16:31.695Z",
       "selfCapture": false,
       "depictsGeneration": null,
       "failure": null,
@@ -3325,8 +3349,8 @@
       "kind": "page",
       "title": "Psychology Research — INSTAR Lab Sciences",
       "status": "success",
-      "contentHash": "c14486cef69ff074c2513a4c507a2f9719dfa1ad4ee18d0c5cf64d119b5c12ab",
-      "capturedAt": "2026-09-16T19:32:52.804Z",
+      "contentHash": "87b0eca27261b681f71a4aa0755d0c8483410e8962f85d2d448658b79500a9fc",
+      "capturedAt": "2026-09-16T20:16:44.454Z",
       "selfCapture": false,
       "depictsGeneration": null,
       "failure": null,
@@ -3370,8 +3394,8 @@
       "kind": "page",
       "title": "Sociology Research — INSTAR Lab Sciences",
       "status": "success",
-      "contentHash": "5818f6563f4cc77535941468800b569190292947d7da9524d083a1e0fa960626",
-      "capturedAt": "2026-09-16T19:33:00.534Z",
+      "contentHash": "0d9351731b3a01ca682987fccaf2864c67763c6c6fe63719689dafc155997a8d",
+      "capturedAt": "2026-09-16T20:16:46.029Z",
       "selfCapture": false,
       "depictsGeneration": null,
       "failure": null,
@@ -3415,8 +3439,8 @@
       "kind": "utility",
       "title": "Search — INSTAR Lab",
       "status": "success",
-      "contentHash": "b90b3d6a18dbd4b0c0ea7d28d92d42c0b5e02f4d76d9ee62e07b8bc8d067d72d",
-      "capturedAt": "2026-09-16T19:33:07.582Z",
+      "contentHash": "a343fcc34192eb1e6c4d37bd66aef43bffeb4389037080a1a5a1312bcb66ec66",
+      "capturedAt": "2026-09-16T20:16:59.114Z",
       "selfCapture": false,
       "depictsGeneration": null,
       "failure": null,
@@ -3466,8 +3490,8 @@
       "kind": "page",
       "title": "Enterprise R&D — INSTAR Lab Technology Transfer",
       "status": "success",
-      "contentHash": "cfea96b0df8f45e7922634f6b29b75f671a0d909de86c9c5cd59f84736ac8b2e",
-      "capturedAt": "2026-09-16T19:33:14.035Z",
+      "contentHash": "240a622f4de349aadbbb61171df32f069459f0e3a5b205466ddcf5ed28710727",
+      "capturedAt": "2026-09-16T20:17:00.432Z",
       "selfCapture": false,
       "depictsGeneration": null,
       "failure": null,
@@ -3511,8 +3535,8 @@
       "kind": "page",
       "title": "Research Portfolio — INSTAR Lab Technology Transfer",
       "status": "success",
-      "contentHash": "c37bf3dcffa966d7932d377f4681b30342c6cb18649e915845c3595e3ff31f23",
-      "capturedAt": "2026-09-16T19:33:20.988Z",
+      "contentHash": "a36a16bedcde856672e8e867c32f7ceb8c7ee03eef21e2f4b5d48dd3b5fbd5bd",
+      "capturedAt": "2026-09-16T20:17:15.516Z",
       "selfCapture": false,
       "depictsGeneration": null,
       "failure": null,
@@ -3556,8 +3580,8 @@
       "kind": "page",
       "title": "STTR Programs — INSTAR Lab Technology Transfer",
       "status": "success",
-      "contentHash": "5bd82755435fc5c9c6259271f690916f1c7eb765f2bf690e3b61f218b522e6f4",
-      "capturedAt": "2026-09-16T19:33:32.311Z",
+      "contentHash": "14b3d7b96b10a70dd97944b7a2c212c0b0067e9a08da54f146f01587a1ff4e63",
+      "capturedAt": "2026-09-16T20:17:29.645Z",
       "selfCapture": false,
       "depictsGeneration": null,
       "failure": null,
@@ -3601,8 +3625,8 @@
       "kind": "page",
       "title": "Workshops & Events — INSTAR Lab Technology Transfer",
       "status": "success",
-      "contentHash": "d68b5d1eb6285a564bffaa4b0ef8c2bcc61bdaf2dbf833addde74eea2aea54fe",
-      "capturedAt": "2026-09-16T19:33:40.224Z",
+      "contentHash": "43fbe9110a4b1b4cd483aa5747a2b8517a422d7f1b9cfef2b964e157017467bc",
+      "capturedAt": "2026-09-16T20:17:29.719Z",
       "selfCapture": false,
       "depictsGeneration": null,
       "failure": null,
@@ -3646,8 +3670,8 @@
       "kind": "page",
       "title": "Augmented Reality Research — INSTAR Lab Technology",
       "status": "success",
-      "contentHash": "cfbb3ba713b14db9cf6df22c7832d68df259ddc822ce2818dbfc3c00c58e208c",
-      "capturedAt": "2026-09-16T19:33:52.018Z",
+      "contentHash": "3249f8962d7703cdf1c7717c64a0ef6f53393759108f0cc3119e27d068a4411e",
+      "capturedAt": "2026-09-16T20:17:42.378Z",
       "selfCapture": false,
       "depictsGeneration": null,
       "failure": null,
@@ -3691,8 +3715,8 @@
       "kind": "page",
       "title": "Computer Science Research — INSTAR Lab Technology",
       "status": "success",
-      "contentHash": "2e5a8117993afea099103796252cf830c04e001f23ec4d9d2fa9a209f3cccc44",
-      "capturedAt": "2026-09-16T19:33:53.380Z",
+      "contentHash": "3e1d47e9dce4088c997a20032721c3b4c5576de71b03326a0c1849c80c20f7bb",
+      "capturedAt": "2026-09-16T20:17:43.088Z",
       "selfCapture": false,
       "depictsGeneration": null,
       "failure": null,
@@ -3736,8 +3760,8 @@
       "kind": "page",
       "title": "Data Science Research — INSTAR Lab Technology",
       "status": "success",
-      "contentHash": "6c8e31732b66f71a832303f3a06d282d1ae3c667fc1c99e7f3abc8f76427a4a3",
-      "capturedAt": "2026-09-16T19:34:00.929Z",
+      "contentHash": "8972a7f1020e2e53d2e28b926f23700013314b7d607368d27a8ba7e3373f2ea9",
+      "capturedAt": "2026-09-16T20:17:57.095Z",
       "selfCapture": false,
       "depictsGeneration": null,
       "failure": null,
@@ -3781,8 +3805,8 @@
       "kind": "page",
       "title": "Formal Methods Research — INSTAR Lab Technology",
       "status": "success",
-      "contentHash": "3629ac6b973f7dd70d2fa28c4c1e086aa35faf727cc2f2a8671b26e1c72f42e7",
-      "capturedAt": "2026-09-16T19:34:19.889Z",
+      "contentHash": "d5e1e1d231e2558afad63e762b5f81d5dcda771a5a5ff02391da0391fba8ca00",
+      "capturedAt": "2026-09-16T20:17:58.209Z",
       "selfCapture": false,
       "depictsGeneration": null,
       "failure": null,
@@ -3826,8 +3850,8 @@
       "kind": "page",
       "title": "Machine Intelligence Research — INSTAR Lab Technology",
       "status": "success",
-      "contentHash": "6798c487684522baf24f39b6237b3c3589d9c8d286d4128f55107d3bb4e64069",
-      "capturedAt": "2026-09-16T19:34:20.683Z",
+      "contentHash": "817401fbd538a364bc1a57b8c6e835ab5ada68a5fa162985ff516a24403e4452",
+      "capturedAt": "2026-09-16T20:18:10.767Z",
       "selfCapture": false,
       "depictsGeneration": null,
       "failure": null,
@@ -3871,8 +3895,8 @@
       "kind": "page",
       "title": "Natural Language Processing Research — INSTAR Lab Technology",
       "status": "success",
-      "contentHash": "415f82c590fe590689d5a0cdff3357c78ddd8c32f06e4624430fe12b3773b3d4",
-      "capturedAt": "2026-09-16T19:34:23.412Z",
+      "contentHash": "57bc765f9eff026f62832b40bb6dba34653be152acfae54cc1bba247d50d8b91",
+      "capturedAt": "2026-09-16T20:18:13.666Z",
       "selfCapture": false,
       "depictsGeneration": null,
       "failure": null,
@@ -3916,8 +3940,8 @@
       "kind": "page",
       "title": "Quantum Computing Research — INSTAR Lab Technology",
       "status": "success",
-      "contentHash": "bd89d0c62a8fa557d4ffccf4731cba9bd2956a1117478077943706efc820f587",
-      "capturedAt": "2026-09-16T19:34:42.000Z",
+      "contentHash": "bf6697bb71c8ec227dc7a6f530e705039e020d2feeeeda015d2535e5d20f465b",
+      "capturedAt": "2026-09-16T20:18:27.048Z",
       "selfCapture": false,
       "depictsGeneration": null,
       "failure": null,
@@ -3961,8 +3985,8 @@
       "kind": "page",
       "title": "Terms of Use — INSTAR Lab",
       "status": "success",
-      "contentHash": "74bc6a643da9b15740f9a61877e6b96face5d5b01bad12509fc93db12552efd3",
-      "capturedAt": "2026-09-16T19:34:45.225Z",
+      "contentHash": "0e5de9da7dc5ec19944515b88b8ac8d6b0794e31753e37be61b3e5ba8f8423d7",
+      "capturedAt": "2026-09-16T20:18:27.808Z",
       "selfCapture": false,
       "depictsGeneration": null,
       "failure": null,
