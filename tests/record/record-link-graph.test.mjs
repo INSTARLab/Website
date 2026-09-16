@@ -240,6 +240,20 @@ test('undocumented inventory routes stay visible with no out-edges', () => {
   assert.ok(graph.orphans.includes('/contact-us/'));
 });
 
+test('ledger-only routes outside the inventory stay visible without membership', () => {
+  const graph = buildLinkGraph({
+    routes,
+    documents,
+    journeys: [],
+    inventory: routes.map((route) => route.path).filter((path) => path !== '/lonely/'),
+  });
+  const lonely = graph.nodes.find((node) => node.id === '/lonely/');
+  assert.equal(lonely?.inLedger, true);
+  assert.equal(lonely?.inInventory, false);
+  // Ledger membership still governs orphan visibility, not inventory status.
+  assert.ok(graph.orphans.includes('/lonely/'));
+});
+
 test('self-loop next actions record no overlay edge', () => {
   const graph = buildLinkGraph({
     routes,

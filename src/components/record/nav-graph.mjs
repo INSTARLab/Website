@@ -771,6 +771,8 @@ export function extractPageLinks(html, fromRoute, options = {}) {
  * @param {readonly {path: string, title: string, family?: string | null, kind?: string | null, indexable?: boolean | null}[]} input.routes complete route/capture ledger rows
  * @param {readonly {route: string, html: string}[]} input.documents finished built HTML per route
  * @param {readonly JourneyRecord[]} [input.journeys] authored journeys for the overlay
+ * @param {readonly string[]} [input.inventory] source-inventory route ids; every
+ * ledger route counts as inventory when omitted (so fixtures stay small)
  * @param {string} [input.base] deployment subpath hrefs normalize against
  * @param {string} [input.origin] site origin treated as internal
  * @param {string} [input.generator] provenance generator label
@@ -786,6 +788,11 @@ export function buildLinkGraph(input) {
   const base = input?.base ?? '/';
   const origin = input?.origin ?? DEFAULT_ORIGIN;
   const generator = input?.generator ?? 'src/components/record/nav-graph.mjs';
+  const inventoryPaths = input?.inventory;
+  if (inventoryPaths !== undefined && !Array.isArray(inventoryPaths)) {
+    throw new TypeError('buildLinkGraph expects inventory as an array of route ids.');
+  }
+  const inventory = inventoryPaths === undefined ? null : new Set(inventoryPaths);
 
   /** @type {Map<string, LinkGraphNode>} */
   const nodes = new Map();
@@ -801,7 +808,7 @@ export function buildLinkGraph(input) {
         kind: route.kind ?? null,
         indexable: typeof route.indexable === 'boolean' ? route.indexable : null,
         inLedger: true,
-        inInventory: true,
+        inInventory: inventory === null ? true : inventory.has(route.path),
         aliasOf: null,
         inboundContent: 0,
         outboundContent: 0,
