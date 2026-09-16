@@ -3,13 +3,12 @@ import AxeBuilder from '@axe-core/playwright';
 
 const routes = ['', 'leadership/', 'legal/', 'governance/', 'affiliations/', 'marketing/', 'journeys/', 'federal/', 'verify/', 'corrections/', 'files/', 'nav/', 'metrics/', 'screens/', 'ops/', 'style/'].map(part => `/record/${part}`);
 
-// The sidebar renders exactly one link per Record route, so the count below is
-// derived from the same list this spec sweeps. It was hard-coded to 12: the
-// sweep would have covered a new route while the count still asserted the old
-// inventory, or a route could be dropped from the ledger and the count edited
-// to match, and either way the two numbers would agree by construction rather
-// than because the room is consistent. Deriving one from the other leaves a
-// single list to maintain.
+// The top bar renders exactly one link per Record route in each of its two
+// lists (grouped menus and flat strip), so the counts below are derived from
+// the same list this spec sweeps. A route dropped from the ledger — or added
+// without reaching both lists — fails here rather than agreeing by
+// construction. Deriving the counts from one list leaves a single inventory
+// to maintain.
 const navigationCount = routes.length;
 
 test('every Record page has an isolated shell, evidence visual and readable spacing', async ({ page }) => {
@@ -20,8 +19,14 @@ test('every Record page has an isolated shell, evidence visual and readable spac
       await expect(page.locator('main')).toHaveCount(1);
       await expect(page.locator('h1')).toHaveCount(1);
       await expect(page.locator('.site-header, .site-footer')).toHaveCount(0);
-      await expect(page.locator('.record-sidebar__nav a')).toHaveCount(navigationCount);
-      await expect(page.locator('.record-sidebar a[aria-current="page"]')).toHaveCount(1);
+      await expect(page.locator('.record-topbar__menu a')).toHaveCount(navigationCount);
+      await expect(page.locator('.record-topbar__flat-list a')).toHaveCount(navigationCount);
+      await expect(page.locator('.record-topbar__menu a[aria-current="page"]')).toHaveCount(1);
+      await expect(page.locator('.record-topbar__flat-list a[aria-current="page"]')).toHaveCount(1);
+      await expect(page.locator('.record-topbar__group > button')).toHaveCount(4);
+      await expect(page.locator('.record-topbar__group > button[aria-current="true"]')).toHaveCount(1);
+      // RR-101: no permanent global left rail remains at any width.
+      await expect(page.locator('.record-sidebar')).toHaveCount(0);
       await expect(page.locator('[data-record-viz]').first()).toBeVisible();
       const bounds = await page.locator('.record-document').evaluate(element => {
         const rect = element.getBoundingClientRect();
@@ -55,27 +60,50 @@ test('every Record page has an isolated shell, evidence visual and readable spac
   }
 });
 
-test('Record menu traps mobile focus, closes on Escape and restores the trigger', async ({ page }) => {
-  test.skip((page.viewportSize()?.width ?? 0) >= 992, 'mobile offcanvas');
+test('Record group menus open one at a time, close on Escape and return focus', async ({ page }) => {
+  test.skip((page.viewportSize()?.width ?? 0) < 992, 'desktop dropdowns');
   await page.goto('/record/', { waitUntil: 'networkidle' });
-  const trigger = page.getByRole('button', { name: /record menu/i });
-  await expect(trigger).toBeVisible();
-  await trigger.click();
-  const nav = page.locator('.record-sidebar');
-  await expect(nav).toBeVisible();
-  await page.locator('.record-sidebar__nav a').last().focus();
-  for (let i = 0; i < 8; i++) {
-    await page.keyboard.press('Tab');
-    expect(await page.evaluate(() => Boolean(document.activeElement?.closest('.record-sidebar')))).toBe(true);
-  }
+  const start = page.getByRole('button', { name: 'Start', exact: true });
+  const trust = page.getByRole('button', { name: 'Trust', exact: true });
+  const inspect = page.getByRole('button', { name: 'Inspect', exact: true });
+  await start.click();
+  await expect(page.locator('#record-menu-start')).toBeVisible();
+  await expect(start).toHaveAttribute('aria-expanded', 'true');
+  // Sibling close: opening a second group closes the first.
+  await trust.click();
+  await expect(page.locator('#record-menu-start')).not.toBeVisible();
+  await expect(page.locator('#record-menu-trust')).toBeVisible();
+  // Arrow keys walk the group buttons and close any open menu.
+  await trust.press('ArrowRight');
+  await expect(inspect).toBeFocused();
+  await expect(page.locator('#record-menu-trust')).not.toBeVisible();
+  // ArrowDown opens the focused group and lands on its first link.
+  await inspect.press('ArrowDown');
+  await expect(page.locator('#record-menu-inspect a').first()).toBeFocused();
+  // Escape closes and returns focus to the owning button.
   await page.keyboard.press('Escape');
-  await expect(trigger).toBeFocused();
-  await expect(nav).not.toBeVisible();
-  await trigger.click();
-  await page.locator('.record-sidebar__nav a[href="/record/verify/"]').click();
+  await expect(page.locator('#record-menu-inspect')).not.toBeVisible();
+  await expect(inspect).toBeFocused();
+  // Outside interaction closes without moving focus into the page.
+  await start.click();
+  await expect(page.locator('#record-menu-start')).toBeVisible();
+  await page.locator('.record-document h1').click();
+  await expect(page.locator('#record-menu-start')).not.toBeVisible();
+  // Choosing a destination navigates with the menus closed.
+  await trust.click();
+  await page.locator('#record-menu-trust a[href="/record/verify/"]').click();
   await expect(page).toHaveURL(/\/record\/verify\/$/);
-  await expect(page.getByRole('button', { name: /record menu/i })).toBeVisible();
-  await expect(page.locator('.offcanvas-backdrop')).toHaveCount(0);
+  await expect(page.locator('.record-topbar__menu:visible')).toHaveCount(0);
+  // Every menu fits the viewport it opens in.
+  for (const name of ['start', 'trust', 'inspect', 'run']) {
+    await page.getByRole('button', { name: new RegExp(`^${name}$`, 'i') }).click();
+    const box = await page.locator(`#record-menu-${name}`).boundingBox();
+    const viewport = page.viewportSize();
+    expect(box, `${name} menu has no box`).toBeTruthy();
+    expect(box!.x, `${name} menu escapes the viewport edge`).toBeGreaterThanOrEqual(0);
+    expect(box!.x + box!.width, `${name} menu overflows the viewport`).toBeLessThanOrEqual(viewport!.width);
+    await page.keyboard.press('Escape');
+  }
 });
 
 test('all Record routes remain navigable and meaningful without JavaScript', async ({ browser, baseURL }) => {
@@ -88,11 +116,14 @@ test('all Record routes remain navigable and meaningful without JavaScript', asy
     const page = await context.newPage();
     for (const route of routes) {
       await page.goto(route);
-      await expect(page.locator('.record-sidebar__nav a').first()).toBeVisible();
-      await expect(page.locator('.record-sidebar__nav a').last()).toBeVisible();
+      await expect(page.locator('.record-topbar__flat-list a').first()).toBeVisible();
+      await expect(page.locator('.record-topbar__flat-list a').last()).toBeVisible();
+      // The grouped menus need script: without it they stay hidden and the
+      // flat strip is the whole navigation at every width.
+      await expect(page.locator('.record-topbar__groups')).not.toBeVisible();
       await expect(page.locator('main h1')).toBeVisible();
       await expect(page.locator('[data-record-viz]').first()).toBeVisible();
-      // The no-JS fallback keeps all twelve navigation links in flow, which is
+      // The no-JS fallback keeps all sixteen navigation links in flow, which is
       // the widest this shell ever gets below `lg`. It still may not exceed the
       // viewport: 390, not the 391 this assertion used to allow.
       expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(390);
@@ -114,13 +145,12 @@ test('Record navigation crosses marketing boundaries without CSS or script leaka
   else await link.evaluate((element: HTMLAnchorElement) => element.click());
   await expect(page).toHaveURL(/\/record\/$/);
   await expect(page.locator('.site-header, .site-footer')).toHaveCount(0);
-  if ((page.viewportSize()?.width ?? 0) < 992) await page.getByRole('button', { name: /record menu/i }).click();
-  await page.locator('.record-sidebar a[href="/"]').click();
+  await page.locator('.record-topbar__return').click();
   await expect(page).toHaveURL(/\/$/);
   await expect(page.locator('.site-header')).toBeVisible();
   const after = await page.locator('.site-header').evaluate(el => ({ width: el.getBoundingClientRect().width, height: el.getBoundingClientRect().height }));
   expect(after).toEqual(baseline);
-  await expect(page.locator('.record-sidebar, .offcanvas-backdrop')).toHaveCount(0);
+  await expect(page.locator('.record-topbar')).toHaveCount(0);
   await page.goBack();
   await expect(page).toHaveURL(/\/record\/$/);
   await expect(page.locator('.site-header')).toHaveCount(0);
@@ -183,15 +213,17 @@ test('Record content reflows at narrow, tablet and wide widths and supports redu
   await page.setViewportSize({ width: 390, height: 844 });
   await page.emulateMedia({ reducedMotion: 'reduce' });
   await page.goto('/record/');
-  await page.getByRole('button', { name: /record menu/i }).click();
-  expect(await page.locator('.record-sidebar').evaluate(el => getComputedStyle(el).transitionDuration)).toBe('0s');
+  // The group menus toggle instantly — there is no panel transition to
+  // suppress under reduced motion.
+  expect(await page.locator('#record-menu-trust').evaluate(el => getComputedStyle(el).transitionDuration)).toBe('0s');
 });
 
 test('Record print output hides navigation and exposes chart tables', async ({ page }) => {
   await page.goto('/record/metrics/');
   await page.emulateMedia({ media: 'print' });
-  await expect(page.locator('.record-sidebar')).not.toBeVisible();
-  await expect(page.getByRole('button', { name: /record menu/i })).not.toBeVisible();
+  await expect(page.locator('.record-topbar')).not.toBeVisible();
+  await expect(page.locator('.record-document__footer')).not.toBeVisible();
+  await expect(page.locator('[data-record-jump-nav]')).not.toBeVisible();
   await expect(page.locator('.record-viz__table-details table').first()).toBeVisible();
 });
 
@@ -263,13 +295,13 @@ test('Record visual sitemap keeps directory, ranking, preview, graph and finder 
 });
 
 
-test('Record skip link bypasses the repeated sidebar', async ({ page }) => {
+test('Record skip link bypasses the repeated navigation', async ({ page }) => {
   await page.goto('/record/');
   await page.keyboard.press('Tab');
   await page.getByRole('link', { name: /skip to main content/i }).press('Enter');
   await expect(page.locator('.record-document')).toBeFocused();
   await page.keyboard.press('Tab');
-  expect(await page.evaluate(() => Boolean(document.activeElement?.closest('.record-sidebar')))).toBe(false);
+  expect(await page.evaluate(() => Boolean(document.activeElement?.closest('.record-topbar')))).toBe(false);
 });
 
 // The Record Room shipped a muted token (#667786 = 4.13:1 on the record ground)
@@ -440,15 +472,14 @@ test('Record pages and JSON endpoints never publish an internal repository path 
   }
 });
 
-// RR-301 BLK-1. The small-screen shell is an in-flow navigation list without
-// `data-record-js` and a fixed off-canvas panel with it — a 891px difference in
-// where ARTICLE.record-document starts. The flag used to be set by the bundled
-// `<script type="module">`, which always runs after HTML parsing, so the
-// browser painted the in-flow layout and then moved the whole document: a
-// single layout-shift entry of 1.0 (the maximum) on the first load of every
-// page. Unthrottled headless Chromium wins that race and reports a false 0,
-// which is exactly why the defect shipped, so this test throttles the CPU.
-test('the Record shell resolves its layout before first paint, so a throttled phone never sees the document jump', async ({ browser, request }) => {
+// RR-101. The navigation row is the flat strip without `data-record-js` and
+// the grouped menus with it at desktop widths. The flag used to be set by the
+// bundled `<script type="module">`, which always runs after HTML parsing, so
+// the browser painted the fallback row first and then swapped the navigation
+// once the module ran. Unthrottled headless Chromium wins that race and
+// reports a false 0, which is exactly why the defect class shipped before, so
+// this test throttles the CPU.
+test('the Record shell resolves its navigation before first paint, so a throttled phone never sees the document jump', async ({ browser, request }) => {
   test.setTimeout(120_000);
 
   const html = await (await request.get('/record/leadership/')).text();
@@ -479,20 +510,20 @@ test('the Record shell resolves its layout before first paint, so a throttled ph
       await page.waitForTimeout(1200);
       const layout = await page.evaluate(() => {
         const store = (window as unknown as { __recordShifts: number[] }).__recordShifts;
-        const article = document.querySelector('article.record-document');
+        const topbar = document.querySelector('.record-topbar');
         return {
           cls: store.reduce((sum, value) => sum + value, 0),
           worst: Math.max(0, ...store),
-          articleTop: article ? Math.round(article.getBoundingClientRect().top) : null,
-          sidebarPosition: document.querySelector('.record-sidebar')
-            ? getComputedStyle(document.querySelector('.record-sidebar') as Element).position
+          topbarTop: topbar ? Math.round(topbar.getBoundingClientRect().top) : null,
+          topbarPosition: topbar
+            ? getComputedStyle(topbar as Element).position
             : null,
         };
       });
       expect(layout.worst, `run ${run + 1}: a single layout-shift entry reached ${layout.worst}`).toBeLessThan(0.1);
       expect(layout.cls, `run ${run + 1}: cumulative layout shift ${layout.cls}`).toBeLessThan(0.1);
-      expect(layout.articleTop, `run ${run + 1}: the document did not start at the top of the page`).toBe(0);
-      expect(layout.sidebarPosition, `run ${run + 1}: the small-screen shell is still in document flow`).toBe('fixed');
+      expect(layout.topbarTop, `run ${run + 1}: the navigation did not start at the top of the page`).toBe(0);
+      expect(layout.topbarPosition, `run ${run + 1}: the top bar is not pinned`).toBe('sticky');
     }
   } finally {
     await context.close();
@@ -544,25 +575,30 @@ test('Record chart exports keep their source, never blank a cell, and say "Not r
   }
 });
 
-// RR-301 SF-6. `aria-modal="true"` asserts that everything outside the dialog
-// is unavailable, but nothing enforced it, so a virtual cursor could still read
-// the page behind the panel. The shell now inerts the document while the panel
-// is open and releases it on close — and must not inert the panel itself, which
-// lives inside the same region.
-test('the off-canvas Record panel makes the page behind it inert, and releases it on close', async ({ page }) => {
-  test.skip((page.viewportSize()?.width ?? 0) >= 992, 'mobile offcanvas');
+// RR-101. The grouped menus are popovers, not modal dialogs: the page behind
+// them stays interactive, and a closed menu must be truly hidden — `hidden`
+// backed by CSS — so no link inside one is ever focusable or announced.
+test('closed Record menus stay hidden and unfocusable, and the page behind them stays live', async ({ page }) => {
+  test.skip((page.viewportSize()?.width ?? 0) < 992, 'desktop dropdowns');
   await page.goto('/record/', { waitUntil: 'networkidle' });
-  const document = page.locator('#main-content');
-  const panel = page.locator('.record-sidebar');
-  const trigger = page.getByRole('button', { name: /record menu/i });
-  await expect(document).not.toHaveAttribute('inert', /.*/);
-  await trigger.click();
-  await expect(panel).toBeVisible();
-  await expect(document).toHaveAttribute('inert', /.*/);
-  await expect(panel).not.toHaveAttribute('inert', /.*/);
+  for (const name of ['start', 'trust', 'inspect', 'run']) {
+    await expect(page.locator(`#record-menu-${name}`)).toHaveAttribute('hidden', /.*/);
+  }
+  const tabbableInHidden = await page.evaluate(() => {
+    const hidden = Array.from(document.querySelectorAll('.record-topbar__menu[hidden]'));
+    return hidden.flatMap(menu =>
+      Array.from(menu.querySelectorAll('a[href], button')).map(node => (node as HTMLElement).tabIndex),
+    );
+  });
+  expect(tabbableInHidden, 'a closed menu exposes focusable controls').toEqual([]);
+  const trust = page.getByRole('button', { name: 'Trust', exact: true });
+  await trust.click();
+  await expect(page.locator('#record-menu-trust')).toBeVisible();
+  // The page behind the open menu is not inerted: content links keep working.
+  await expect(page.locator('#main-content')).not.toHaveAttribute('inert', /.*/);
   await page.keyboard.press('Escape');
-  await expect(panel).not.toBeVisible();
-  await expect(document).not.toHaveAttribute('inert', /.*/);
+  await expect(page.locator('#record-menu-trust')).toHaveAttribute('hidden', /.*/);
+  await expect(trust).toBeFocused();
 });
 
 // The three publication states are three different claims about the

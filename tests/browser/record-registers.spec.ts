@@ -363,7 +363,7 @@ test('the published contact details are recorded as a single corrected value', (
 // area, and commercial vocabulary that survives in its own labels describes an
 // institution this is not: a 501(c)(3) has no market, no business status and no
 // acquisition pathway. This guards the labels a reader navigates by — the
-// sidebar and the document eyebrow — rather than the editorial copy, and it
+// top-bar navigation and the document eyebrow — rather than the editorial copy, and it
 // reads them from the served artifact the way a reader receives them.
 test('the served record room labels describe a public charity rather than a vendor', async ({ page, request }) => {
   const forbidden = /acquisition|market profile|business status|procurement|competitor|past performance/i;
@@ -380,10 +380,10 @@ test('the served record room labels describe a public charity rather than a vend
   }
 
   await page.goto('/record/', { waitUntil: 'domcontentloaded' });
-  const hrefs = await page.locator('.record-sidebar__nav a').evaluateAll((nodes) =>
+  const hrefs = await page.locator('.record-topbar__menu a').evaluateAll((nodes) =>
     nodes.map((node) => node.getAttribute('href') ?? ''),
   );
-  expect(hrefs.length, 'the sidebar renders no record routes').toBeGreaterThan(10);
+  expect(hrefs.length, 'the grouped record navigation renders no record routes').toBeGreaterThan(10);
 
   for (const href of hrefs) {
     await page.goto(href, { waitUntil: 'domcontentloaded' });

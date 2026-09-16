@@ -198,7 +198,7 @@ test("record room remains readable with client JavaScript disabled", async ({ br
 
   expect(response?.status()).toBeLessThan(400);
   await expect(page.locator(".record-document h1")).toHaveText("INSTAR Lab public record");
-  await expect(page.locator('.record-sidebar__nav a[href="/record/nav/"]')).toHaveCount(1);
+  await expect(page.locator('.record-topbar__flat-list a[href="/record/nav/"]')).toHaveCount(1);
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(391);
   await context.close();
 });
