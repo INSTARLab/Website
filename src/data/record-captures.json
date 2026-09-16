@@ -1,27 +1,4005 @@
 {
   "schemaVersion": 1,
-  "generationId": "pending-no-captures",
-  "supersedes": null,
-  "generatedAt": null,
+  "generationId": "b19c5e50aaa221ab3c1e7ab3dd75e44c288776ccb6c57b10ffc49d104234363a",
+  "supersedes": "99511fe7507af5d0392b9972a421398aadcecbc2765a8961f875e91305846973",
+  "generatedAt": "2026-09-16T19:34:57.881Z",
   "captureTool": {
     "name": "scripts/quality/capture-record-visuals.mjs",
     "codeVersion": 1,
     "browser": "Chromium (Playwright, headless, reduced motion)",
     "viewports": [
-      { "id": "desktop", "width": 1440, "height": 900 },
-      { "id": "mobile", "width": 390, "height": 844 }
+      {
+        "id": "desktop",
+        "width": 1440,
+        "height": 900
+      },
+      {
+        "id": "mobile",
+        "width": 390,
+        "height": 844
+      }
     ]
   },
   "sourceBuild": {
-    "directory": "dist",
+    "directory": "../../../../../tmp/capture-frozen-5",
     "base": "/",
-    "inputManifestHash": "pending-no-captures"
+    "inputManifestHash": "b19c5e50aaa221ab3c1e7ab3dd75e44c288776ccb6c57b10ffc49d104234363a"
   },
   "coverage": {
-    "required": 0,
-    "success": 0,
+    "required": 87,
+    "success": 87,
     "failed": 0,
-    "complete": false
+    "complete": true
   },
-  "routes": []
+  "routes": [
+    {
+      "routeId": "/",
+      "kind": "page",
+      "title": "INSTAR Lab — Research Institute",
+      "status": "success",
+      "contentHash": "fdaedaa3b77ad052c7e48a03978a074bd102e3b8c3d07533f027ac2c04f70d41",
+      "capturedAt": "2026-09-16T19:21:17.084Z",
+      "selfCapture": false,
+      "depictsGeneration": null,
+      "failure": null,
+      "artifacts": {
+        "desktop": {
+          "segments": [
+            {
+              "image": "/record/shots/home-desktop.avif",
+              "w": 1440,
+              "h": 9355,
+              "bytes": 547749
+            }
+          ],
+          "thumb": "/record/shots/thumbs/home-desktop.avif",
+          "thumbW": 480,
+          "thumbH": 3118,
+          "thumbBytes": 84450,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        },
+        "mobile": {
+          "segments": [
+            {
+              "image": "/record/shots/home-mobile.avif",
+              "w": 390,
+              "h": 15961,
+              "bytes": 428863
+            }
+          ],
+          "thumb": "/record/shots/thumbs/home-mobile.avif",
+          "thumbW": 390,
+          "thumbH": 15961,
+          "thumbBytes": 372003,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        }
+      }
+    },
+    {
+      "routeId": "/404.html",
+      "kind": "error",
+      "title": "Page Not Found — INSTAR Lab",
+      "status": "success",
+      "contentHash": "3dfd8d7ffdb683f27a37b54c2c600f2432e7c30b892924eaad159f64df379476",
+      "capturedAt": "2026-09-16T19:21:17.097Z",
+      "selfCapture": false,
+      "depictsGeneration": null,
+      "failure": null,
+      "artifacts": {
+        "desktop": {
+          "segments": [
+            {
+              "image": "/record/shots/404-desktop.avif",
+              "w": 1440,
+              "h": 1982,
+              "bytes": 84863
+            }
+          ],
+          "thumb": "/record/shots/thumbs/404-desktop.avif",
+          "thumbW": 480,
+          "thumbH": 661,
+          "thumbBytes": 11477,
+          "httpStatus": 404,
+          "unsettledImages": 0
+        },
+        "mobile": {
+          "segments": [
+            {
+              "image": "/record/shots/404-mobile.avif",
+              "w": 390,
+              "h": 2702,
+              "bytes": 67928
+            }
+          ],
+          "thumb": "/record/shots/thumbs/404-mobile.avif",
+          "thumbW": 390,
+          "thumbH": 2702,
+          "thumbBytes": 58491,
+          "httpStatus": 404,
+          "unsettledImages": 0
+        }
+      }
+    },
+    {
+      "routeId": "/about/",
+      "kind": "page",
+      "title": "About INSTAR Lab — Nonprofit Research Institute",
+      "status": "success",
+      "contentHash": "12e0f9a8d0ac6e492561e9905d9ba71b4311d9a673db8bef2dcfb3304b322e59",
+      "capturedAt": "2026-09-16T19:21:17.146Z",
+      "selfCapture": false,
+      "depictsGeneration": null,
+      "failure": null,
+      "artifacts": {
+        "desktop": {
+          "segments": [
+            {
+              "image": "/record/shots/about-desktop.avif",
+              "w": 1440,
+              "h": 2344,
+              "bytes": 120950
+            }
+          ],
+          "thumb": "/record/shots/thumbs/about-desktop.avif",
+          "thumbW": 480,
+          "thumbH": 781,
+          "thumbBytes": 17429,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        },
+        "mobile": {
+          "segments": [
+            {
+              "image": "/record/shots/about-mobile.avif",
+              "w": 390,
+              "h": 3232,
+              "bytes": 104576
+            }
+          ],
+          "thumb": "/record/shots/thumbs/about-mobile.avif",
+          "thumbW": 390,
+          "thumbH": 3232,
+          "thumbBytes": 88766,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        }
+      }
+    },
+    {
+      "routeId": "/accessibility/",
+      "kind": "page",
+      "title": "Accessibility Statement — INSTAR Lab",
+      "status": "success",
+      "contentHash": "a4ed5f192e7772c179df62c49b243efe558138ca4fccdc7e84dfc18db9c53552",
+      "capturedAt": "2026-09-16T19:21:35.005Z",
+      "selfCapture": false,
+      "depictsGeneration": null,
+      "failure": null,
+      "artifacts": {
+        "desktop": {
+          "segments": [
+            {
+              "image": "/record/shots/accessibility-desktop.avif",
+              "w": 1440,
+              "h": 2218,
+              "bytes": 110317
+            }
+          ],
+          "thumb": "/record/shots/thumbs/accessibility-desktop.avif",
+          "thumbW": 480,
+          "thumbH": 739,
+          "thumbBytes": 13662,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        },
+        "mobile": {
+          "segments": [
+            {
+              "image": "/record/shots/accessibility-mobile.avif",
+              "w": 390,
+              "h": 3063,
+              "bytes": 88057
+            }
+          ],
+          "thumb": "/record/shots/thumbs/accessibility-mobile.avif",
+          "thumbW": 390,
+          "thumbH": 3063,
+          "thumbBytes": 73874,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        }
+      }
+    },
+    {
+      "routeId": "/community/about-us/",
+      "kind": "page",
+      "title": "About Us — INSTAR Lab Community",
+      "status": "success",
+      "contentHash": "5fda942e8fb2e9ea244cb7d17e22657c9e0b8c35e660027cbcb43298c3114fd9",
+      "capturedAt": "2026-09-16T19:21:35.852Z",
+      "selfCapture": false,
+      "depictsGeneration": null,
+      "failure": null,
+      "artifacts": {
+        "desktop": {
+          "segments": [
+            {
+              "image": "/record/shots/community-about-us-desktop.avif",
+              "w": 1440,
+              "h": 3527,
+              "bytes": 188983
+            }
+          ],
+          "thumb": "/record/shots/thumbs/community-about-us-desktop.avif",
+          "thumbW": 480,
+          "thumbH": 1176,
+          "thumbBytes": 27557,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        },
+        "mobile": {
+          "segments": [
+            {
+              "image": "/record/shots/community-about-us-mobile.avif",
+              "w": 390,
+              "h": 5473,
+              "bytes": 145915
+            }
+          ],
+          "thumb": "/record/shots/thumbs/community-about-us-mobile.avif",
+          "thumbW": 390,
+          "thumbH": 5473,
+          "thumbBytes": 125582,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        }
+      }
+    },
+    {
+      "routeId": "/community/careers/",
+      "kind": "page",
+      "title": "Careers at INSTAR Lab — Research & Science Jobs",
+      "status": "success",
+      "contentHash": "fc11b145841b1cb51e46a3d3e8d5c90bce321f47fe96dbd7ad3bff8fc0b0137c",
+      "capturedAt": "2026-09-16T19:21:50.484Z",
+      "selfCapture": false,
+      "depictsGeneration": null,
+      "failure": null,
+      "artifacts": {
+        "desktop": {
+          "segments": [
+            {
+              "image": "/record/shots/community-careers-desktop.avif",
+              "w": 1440,
+              "h": 3773,
+              "bytes": 202165
+            }
+          ],
+          "thumb": "/record/shots/thumbs/community-careers-desktop.avif",
+          "thumbW": 480,
+          "thumbH": 1258,
+          "thumbBytes": 28650,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        },
+        "mobile": {
+          "segments": [
+            {
+              "image": "/record/shots/community-careers-mobile.avif",
+              "w": 390,
+              "h": 6490,
+              "bytes": 175900
+            }
+          ],
+          "thumb": "/record/shots/thumbs/community-careers-mobile.avif",
+          "thumbW": 390,
+          "thumbH": 6490,
+          "thumbBytes": 152694,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        }
+      }
+    },
+    {
+      "routeId": "/community/contact/",
+      "kind": "page",
+      "title": "Research & Partnership Inquiries — INSTAR Lab",
+      "status": "success",
+      "contentHash": "416879401e16e89e0735216d8ddd092e5cdfd3dcec84d03ddbccef4d289cd50f",
+      "capturedAt": "2026-09-16T19:22:02.677Z",
+      "selfCapture": false,
+      "depictsGeneration": null,
+      "failure": null,
+      "artifacts": {
+        "desktop": {
+          "segments": [
+            {
+              "image": "/record/shots/community-contact-desktop.avif",
+              "w": 1440,
+              "h": 2849,
+              "bytes": 156657
+            }
+          ],
+          "thumb": "/record/shots/thumbs/community-contact-desktop.avif",
+          "thumbW": 480,
+          "thumbH": 950,
+          "thumbBytes": 21935,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        },
+        "mobile": {
+          "segments": [
+            {
+              "image": "/record/shots/community-contact-mobile.avif",
+              "w": 390,
+              "h": 5054,
+              "bytes": 131842
+            }
+          ],
+          "thumb": "/record/shots/thumbs/community-contact-mobile.avif",
+          "thumbW": 390,
+          "thumbH": 5054,
+          "thumbBytes": 114920,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        }
+      }
+    },
+    {
+      "routeId": "/community/leadership/",
+      "kind": "page",
+      "title": "Research Leadership & Governance — INSTAR Lab",
+      "status": "success",
+      "contentHash": "6b2974835217d596fd1f6ca514b5383d72b4eda88dfa6fa16fcf99e2e9b52b29",
+      "capturedAt": "2026-09-16T19:22:17.973Z",
+      "selfCapture": false,
+      "depictsGeneration": null,
+      "failure": null,
+      "artifacts": {
+        "desktop": {
+          "segments": [
+            {
+              "image": "/record/shots/community-leadership-desktop.avif",
+              "w": 1440,
+              "h": 4053,
+              "bytes": 201903
+            }
+          ],
+          "thumb": "/record/shots/thumbs/community-leadership-desktop.avif",
+          "thumbW": 480,
+          "thumbH": 1351,
+          "thumbBytes": 28476,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        },
+        "mobile": {
+          "segments": [
+            {
+              "image": "/record/shots/community-leadership-mobile.avif",
+              "w": 390,
+              "h": 6493,
+              "bytes": 173076
+            }
+          ],
+          "thumb": "/record/shots/thumbs/community-leadership-mobile.avif",
+          "thumbW": 390,
+          "thumbH": 6493,
+          "thumbBytes": 150207,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        }
+      }
+    },
+    {
+      "routeId": "/community/partner/",
+      "kind": "page",
+      "title": "Partner With INSTAR Lab — Research & Philanthropy",
+      "status": "success",
+      "contentHash": "e4f2522e7d0001cadc3f185523512e8158b8de3bff264ec85d149c70aed4e55f",
+      "capturedAt": "2026-09-16T19:22:22.543Z",
+      "selfCapture": false,
+      "depictsGeneration": null,
+      "failure": null,
+      "artifacts": {
+        "desktop": {
+          "segments": [
+            {
+              "image": "/record/shots/community-partner-desktop.avif",
+              "w": 1440,
+              "h": 3365,
+              "bytes": 184138
+            }
+          ],
+          "thumb": "/record/shots/thumbs/community-partner-desktop.avif",
+          "thumbW": 480,
+          "thumbH": 1122,
+          "thumbBytes": 24992,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        },
+        "mobile": {
+          "segments": [
+            {
+              "image": "/record/shots/community-partner-mobile.avif",
+              "w": 390,
+              "h": 6065,
+              "bytes": 162509
+            }
+          ],
+          "thumb": "/record/shots/thumbs/community-partner-mobile.avif",
+          "thumbW": 390,
+          "thumbH": 6065,
+          "thumbBytes": 140416,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        }
+      }
+    },
+    {
+      "routeId": "/community/support/",
+      "kind": "page",
+      "title": "Give to INSTAR Lab — One-Time Gifts & Friends Membership",
+      "status": "success",
+      "contentHash": "a7d415019da643f3d0b7e1767a00ec8971693e5002f41d4521f8145e822eb3b6",
+      "capturedAt": "2026-09-16T19:22:27.093Z",
+      "selfCapture": false,
+      "depictsGeneration": null,
+      "failure": null,
+      "artifacts": {
+        "desktop": {
+          "segments": [
+            {
+              "image": "/record/shots/community-support-desktop.avif",
+              "w": 1440,
+              "h": 3365,
+              "bytes": 189552
+            }
+          ],
+          "thumb": "/record/shots/thumbs/community-support-desktop.avif",
+          "thumbW": 480,
+          "thumbH": 1122,
+          "thumbBytes": 26039,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        },
+        "mobile": {
+          "segments": [
+            {
+              "image": "/record/shots/community-support-mobile.avif",
+              "w": 390,
+              "h": 6090,
+              "bytes": 166922
+            }
+          ],
+          "thumb": "/record/shots/thumbs/community-support-mobile.avif",
+          "thumbW": 390,
+          "thumbH": 6090,
+          "thumbBytes": 144897,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        }
+      }
+    },
+    {
+      "routeId": "/community/work-with-us/",
+      "kind": "page",
+      "title": "Work With INSTAR Lab — Collaboration Opportunities",
+      "status": "success",
+      "contentHash": "c7541f61cba2924c7360b633ff7311d338308ccef533b0669ff6278fba41f855",
+      "capturedAt": "2026-09-16T19:22:41.452Z",
+      "selfCapture": false,
+      "depictsGeneration": null,
+      "failure": null,
+      "artifacts": {
+        "desktop": {
+          "segments": [
+            {
+              "image": "/record/shots/community-work-with-us-desktop.avif",
+              "w": 1440,
+              "h": 3332,
+              "bytes": 172001
+            }
+          ],
+          "thumb": "/record/shots/thumbs/community-work-with-us-desktop.avif",
+          "thumbW": 480,
+          "thumbH": 1111,
+          "thumbBytes": 24947,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        },
+        "mobile": {
+          "segments": [
+            {
+              "image": "/record/shots/community-work-with-us-mobile.avif",
+              "w": 390,
+              "h": 5559,
+              "bytes": 146406
+            }
+          ],
+          "thumb": "/record/shots/thumbs/community-work-with-us-mobile.avif",
+          "thumbW": 390,
+          "thumbH": 5559,
+          "thumbBytes": 126746,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        }
+      }
+    },
+    {
+      "routeId": "/contact-us/",
+      "kind": "page",
+      "title": "Contact INSTAR Lab — Federal Research, Contracts & Partnerships",
+      "status": "success",
+      "contentHash": "7bb032f4476052d316fee59dc0b78c49bac4e147c439c4fb1ba73d2ef3a18533",
+      "capturedAt": "2026-09-16T19:22:43.293Z",
+      "selfCapture": false,
+      "depictsGeneration": null,
+      "failure": null,
+      "artifacts": {
+        "desktop": {
+          "segments": [
+            {
+              "image": "/record/shots/contact-us-desktop.avif",
+              "w": 1440,
+              "h": 2276,
+              "bytes": 107405
+            }
+          ],
+          "thumb": "/record/shots/thumbs/contact-us-desktop.avif",
+          "thumbW": 480,
+          "thumbH": 759,
+          "thumbBytes": 14439,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        },
+        "mobile": {
+          "segments": [
+            {
+              "image": "/record/shots/contact-us-mobile.avif",
+              "w": 390,
+              "h": 3199,
+              "bytes": 86789
+            }
+          ],
+          "thumb": "/record/shots/thumbs/contact-us-mobile.avif",
+          "thumbW": 390,
+          "thumbH": 3199,
+          "thumbBytes": 74269,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        }
+      }
+    },
+    {
+      "routeId": "/fellowship/",
+      "kind": "page",
+      "title": "INSTAR Lab R&D Fellowships — International and Resident Scholars",
+      "status": "success",
+      "contentHash": "31b6c7dd93d17fe823845fbadd68ac0b591dd139f4088e8ebd062a1101192d05",
+      "capturedAt": "2026-09-16T19:22:48.183Z",
+      "selfCapture": false,
+      "depictsGeneration": null,
+      "failure": null,
+      "artifacts": {
+        "desktop": {
+          "segments": [
+            {
+              "image": "/record/shots/fellowship-desktop.avif",
+              "w": 1440,
+              "h": 4903,
+              "bytes": 266348
+            }
+          ],
+          "thumb": "/record/shots/thumbs/fellowship-desktop.avif",
+          "thumbW": 480,
+          "thumbH": 1634,
+          "thumbBytes": 36662,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        },
+        "mobile": {
+          "segments": [
+            {
+              "image": "/record/shots/fellowship-mobile.avif",
+              "w": 390,
+              "h": 7834,
+              "bytes": 249855
+            }
+          ],
+          "thumb": "/record/shots/thumbs/fellowship-mobile.avif",
+          "thumbW": 390,
+          "thumbH": 7834,
+          "thumbBytes": 210903,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        }
+      }
+    },
+    {
+      "routeId": "/labs/biometric-security/",
+      "kind": "page",
+      "title": "Biometrics & Drone Sensing — INSTAR Lab",
+      "status": "success",
+      "contentHash": "1d74e362b2e6b2c217db29ff280f8e338a2084356df81dee9e68f786f7365f28",
+      "capturedAt": "2026-09-16T19:22:58.602Z",
+      "selfCapture": false,
+      "depictsGeneration": null,
+      "failure": null,
+      "artifacts": {
+        "desktop": {
+          "segments": [
+            {
+              "image": "/record/shots/labs-biometric-security-desktop.avif",
+              "w": 1440,
+              "h": 4037,
+              "bytes": 214041
+            }
+          ],
+          "thumb": "/record/shots/thumbs/labs-biometric-security-desktop.avif",
+          "thumbW": 480,
+          "thumbH": 1346,
+          "thumbBytes": 29745,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        },
+        "mobile": {
+          "segments": [
+            {
+              "image": "/record/shots/labs-biometric-security-mobile.avif",
+              "w": 390,
+              "h": 6291,
+              "bytes": 186891
+            }
+          ],
+          "thumb": "/record/shots/thumbs/labs-biometric-security-mobile.avif",
+          "thumbW": 390,
+          "thumbH": 6291,
+          "thumbBytes": 159971,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        }
+      }
+    },
+    {
+      "routeId": "/labs/cognitive-ai/",
+      "kind": "page",
+      "title": "Cognitive AI & Persona Systems — INSTAR Lab",
+      "status": "success",
+      "contentHash": "1955f56f7bc9c72b7f2809295b7560dcb7ee1bc2b17005d2d014af7800d9a3a5",
+      "capturedAt": "2026-09-16T19:23:01.909Z",
+      "selfCapture": false,
+      "depictsGeneration": null,
+      "failure": null,
+      "artifacts": {
+        "desktop": {
+          "segments": [
+            {
+              "image": "/record/shots/labs-cognitive-ai-desktop.avif",
+              "w": 1440,
+              "h": 3976,
+              "bytes": 203888
+            }
+          ],
+          "thumb": "/record/shots/thumbs/labs-cognitive-ai-desktop.avif",
+          "thumbW": 480,
+          "thumbH": 1325,
+          "thumbBytes": 31749,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        },
+        "mobile": {
+          "segments": [
+            {
+              "image": "/record/shots/labs-cognitive-ai-mobile.avif",
+              "w": 390,
+              "h": 5972,
+              "bytes": 165781
+            }
+          ],
+          "thumb": "/record/shots/thumbs/labs-cognitive-ai-mobile.avif",
+          "thumbW": 390,
+          "thumbH": 5972,
+          "thumbBytes": 142706,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        }
+      }
+    },
+    {
+      "routeId": "/labs/sovereign-ai/",
+      "kind": "page",
+      "title": "Sovereign AI Laboratory — INSTAR Lab",
+      "status": "success",
+      "contentHash": "caa8cf48730b65db7468dacdbf2d41cbebf3a39383b3cd6e77d288ed248283e5",
+      "capturedAt": "2026-09-16T19:23:16.929Z",
+      "selfCapture": false,
+      "depictsGeneration": null,
+      "failure": null,
+      "artifacts": {
+        "desktop": {
+          "segments": [
+            {
+              "image": "/record/shots/labs-sovereign-ai-desktop.avif",
+              "w": 1440,
+              "h": 3951,
+              "bytes": 201042
+            }
+          ],
+          "thumb": "/record/shots/thumbs/labs-sovereign-ai-desktop.avif",
+          "thumbW": 480,
+          "thumbH": 1317,
+          "thumbBytes": 29499,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        },
+        "mobile": {
+          "segments": [
+            {
+              "image": "/record/shots/labs-sovereign-ai-mobile.avif",
+              "w": 390,
+              "h": 6171,
+              "bytes": 171318
+            }
+          ],
+          "thumb": "/record/shots/thumbs/labs-sovereign-ai-mobile.avif",
+          "thumbW": 390,
+          "thumbH": 6171,
+          "thumbBytes": 146885,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        }
+      }
+    },
+    {
+      "routeId": "/mission/",
+      "kind": "page",
+      "title": "Our Mission — INSTAR Lab",
+      "status": "success",
+      "contentHash": "d872750b7cf66f69106dfd89e403d1a5966878d88a3234b86ca61d1ca646a1e1",
+      "capturedAt": "2026-09-16T19:23:22.287Z",
+      "selfCapture": false,
+      "depictsGeneration": null,
+      "failure": null,
+      "artifacts": {
+        "desktop": {
+          "segments": [
+            {
+              "image": "/record/shots/mission-desktop.avif",
+              "w": 1440,
+              "h": 2188,
+              "bytes": 100017
+            }
+          ],
+          "thumb": "/record/shots/thumbs/mission-desktop.avif",
+          "thumbW": 480,
+          "thumbH": 729,
+          "thumbBytes": 12301,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        },
+        "mobile": {
+          "segments": [
+            {
+              "image": "/record/shots/mission-mobile.avif",
+              "w": 390,
+              "h": 2971,
+              "bytes": 80907
+            }
+          ],
+          "thumb": "/record/shots/thumbs/mission-mobile.avif",
+          "thumbW": 390,
+          "thumbH": 2971,
+          "thumbBytes": 68491,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        }
+      }
+    },
+    {
+      "routeId": "/news/",
+      "kind": "page",
+      "title": "News — INSTAR Lab",
+      "status": "success",
+      "contentHash": "d539626074f2771bc71c103b259e96334dcd313061b469e843bf1686d2d6cd03",
+      "capturedAt": "2026-09-16T19:23:26.304Z",
+      "selfCapture": false,
+      "depictsGeneration": null,
+      "failure": null,
+      "artifacts": {
+        "desktop": {
+          "segments": [
+            {
+              "image": "/record/shots/news-desktop.avif",
+              "w": 1440,
+              "h": 5541,
+              "bytes": 388891
+            }
+          ],
+          "thumb": "/record/shots/thumbs/news-desktop.avif",
+          "thumbW": 480,
+          "thumbH": 1847,
+          "thumbBytes": 54952,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        },
+        "mobile": {
+          "segments": [
+            {
+              "image": "/record/shots/news-mobile.avif",
+              "w": 390,
+              "h": 7689,
+              "bytes": 262185
+            }
+          ],
+          "thumb": "/record/shots/thumbs/news-mobile.avif",
+          "thumbW": 390,
+          "thumbH": 7689,
+          "thumbBytes": 227975,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        }
+      }
+    },
+    {
+      "routeId": "/news/clinical-ai-safety/",
+      "kind": "page",
+      "title": "Clinical AI Safety Research — INSTAR Lab",
+      "status": "success",
+      "contentHash": "1ab821ef0f61d4eb01c966a43fd0daabf7219009696b7f07ccdc63b0bfb0e36a",
+      "capturedAt": "2026-09-16T19:23:35.792Z",
+      "selfCapture": false,
+      "depictsGeneration": null,
+      "failure": null,
+      "artifacts": {
+        "desktop": {
+          "segments": [
+            {
+              "image": "/record/shots/news-clinical-ai-safety-desktop.avif",
+              "w": 1440,
+              "h": 5104,
+              "bytes": 311660
+            }
+          ],
+          "thumb": "/record/shots/thumbs/news-clinical-ai-safety-desktop.avif",
+          "thumbW": 480,
+          "thumbH": 1701,
+          "thumbBytes": 41088,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        },
+        "mobile": {
+          "segments": [
+            {
+              "image": "/record/shots/news-clinical-ai-safety-mobile.avif",
+              "w": 390,
+              "h": 6214,
+              "bytes": 274207
+            }
+          ],
+          "thumb": "/record/shots/thumbs/news-clinical-ai-safety-mobile.avif",
+          "thumbW": 390,
+          "thumbH": 6214,
+          "thumbBytes": 233354,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        }
+      }
+    },
+    {
+      "routeId": "/news/formal-methods-safety-critical-trust/",
+      "kind": "page",
+      "title": "Formal Methods and Trust in Safety-Critical Software — INSTAR Lab",
+      "status": "success",
+      "contentHash": "a2d18fc4f22bc09c3c839e2d810c2ad6606ca87bacf9b48223387c16b47e02fa",
+      "capturedAt": "2026-09-16T19:23:39.222Z",
+      "selfCapture": false,
+      "depictsGeneration": null,
+      "failure": null,
+      "artifacts": {
+        "desktop": {
+          "segments": [
+            {
+              "image": "/record/shots/news-formal-methods-safety-critical-trust-desktop.avif",
+              "w": 1440,
+              "h": 4773,
+              "bytes": 301813
+            }
+          ],
+          "thumb": "/record/shots/thumbs/news-formal-methods-safety-critical-trust-desktop.avif",
+          "thumbW": 480,
+          "thumbH": 1591,
+          "thumbBytes": 37403,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        },
+        "mobile": {
+          "segments": [
+            {
+              "image": "/record/shots/news-formal-methods-safety-critical-trust-mobile.avif",
+              "w": 390,
+              "h": 6025,
+              "bytes": 265795
+            }
+          ],
+          "thumb": "/record/shots/thumbs/news-formal-methods-safety-critical-trust-mobile.avif",
+          "thumbW": 390,
+          "thumbH": 6025,
+          "thumbBytes": 228218,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        }
+      }
+    },
+    {
+      "routeId": "/news/hpc-infrastructure-for-ai/",
+      "kind": "page",
+      "title": "HPC Infrastructure for AI — INSTAR Lab",
+      "status": "success",
+      "contentHash": "d01f8b92f8a95ad5cb9fe7f38b77f887c395f08670eb0d511ffc865d70454b95",
+      "capturedAt": "2026-09-16T19:24:01.514Z",
+      "selfCapture": false,
+      "depictsGeneration": null,
+      "failure": null,
+      "artifacts": {
+        "desktop": {
+          "segments": [
+            {
+              "image": "/record/shots/news-hpc-infrastructure-for-ai-desktop.avif",
+              "w": 1440,
+              "h": 5052,
+              "bytes": 337638
+            }
+          ],
+          "thumb": "/record/shots/thumbs/news-hpc-infrastructure-for-ai-desktop.avif",
+          "thumbW": 480,
+          "thumbH": 1684,
+          "thumbBytes": 41433,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        },
+        "mobile": {
+          "segments": [
+            {
+              "image": "/record/shots/news-hpc-infrastructure-for-ai-mobile.avif",
+              "w": 390,
+              "h": 6328,
+              "bytes": 274272
+            }
+          ],
+          "thumb": "/record/shots/thumbs/news-hpc-infrastructure-for-ai-mobile.avif",
+          "thumbW": 390,
+          "thumbH": 6328,
+          "thumbBytes": 232296,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        }
+      }
+    },
+    {
+      "routeId": "/news/legal-foundations-tech-governance/",
+      "kind": "page",
+      "title": "Legal Foundations for Emerging Technology Governance — INSTAR Lab",
+      "status": "success",
+      "contentHash": "6b1bd8dcdda4e7aa850c63f4a2410c7a8220bbe380133fc0655d86fb8483ae68",
+      "capturedAt": "2026-09-16T19:24:04.045Z",
+      "selfCapture": false,
+      "depictsGeneration": null,
+      "failure": null,
+      "artifacts": {
+        "desktop": {
+          "segments": [
+            {
+              "image": "/record/shots/news-legal-foundations-tech-governance-desktop.avif",
+              "w": 1440,
+              "h": 5043,
+              "bytes": 288764
+            }
+          ],
+          "thumb": "/record/shots/thumbs/news-legal-foundations-tech-governance-desktop.avif",
+          "thumbW": 480,
+          "thumbH": 1681,
+          "thumbBytes": 41039,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        },
+        "mobile": {
+          "segments": [
+            {
+              "image": "/record/shots/news-legal-foundations-tech-governance-mobile.avif",
+              "w": 390,
+              "h": 6361,
+              "bytes": 285621
+            }
+          ],
+          "thumb": "/record/shots/thumbs/news-legal-foundations-tech-governance-mobile.avif",
+          "thumbW": 390,
+          "thumbH": 6361,
+          "thumbBytes": 244733,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        }
+      }
+    },
+    {
+      "routeId": "/news/materials-science-energy-transition/",
+      "kind": "page",
+      "title": "Materials Science and the Energy Transition — INSTAR Lab",
+      "status": "success",
+      "contentHash": "0517a9489d89471e565e87df2d8b1b7ef62c39a4223c8e088fcc53ca5c15549f",
+      "capturedAt": "2026-09-16T19:24:05.256Z",
+      "selfCapture": false,
+      "depictsGeneration": null,
+      "failure": null,
+      "artifacts": {
+        "desktop": {
+          "segments": [
+            {
+              "image": "/record/shots/news-materials-science-energy-transition-desktop.avif",
+              "w": 1440,
+              "h": 4870,
+              "bytes": 303617
+            }
+          ],
+          "thumb": "/record/shots/thumbs/news-materials-science-energy-transition-desktop.avif",
+          "thumbW": 480,
+          "thumbH": 1623,
+          "thumbBytes": 38906,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        },
+        "mobile": {
+          "segments": [
+            {
+              "image": "/record/shots/news-materials-science-energy-transition-mobile.avif",
+              "w": 390,
+              "h": 6229,
+              "bytes": 280762
+            }
+          ],
+          "thumb": "/record/shots/thumbs/news-materials-science-energy-transition-mobile.avif",
+          "thumbW": 390,
+          "thumbH": 6229,
+          "thumbBytes": 240556,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        }
+      }
+    },
+    {
+      "routeId": "/news/open-data-research-philosophy/",
+      "kind": "page",
+      "title": "Open data is part of the research infrastructure — INSTAR Lab",
+      "status": "success",
+      "contentHash": "ecbb4708d9636c605241b9af54d35ae68a1cebf335d84c470a6d8d3f72e4d00b",
+      "capturedAt": "2026-09-16T19:24:31.213Z",
+      "selfCapture": false,
+      "depictsGeneration": null,
+      "failure": null,
+      "artifacts": {
+        "desktop": {
+          "segments": [
+            {
+              "image": "/record/shots/news-open-data-research-philosophy-desktop.avif",
+              "w": 1440,
+              "h": 5060,
+              "bytes": 351925
+            }
+          ],
+          "thumb": "/record/shots/thumbs/news-open-data-research-philosophy-desktop.avif",
+          "thumbW": 480,
+          "thumbH": 1687,
+          "thumbBytes": 44489,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        },
+        "mobile": {
+          "segments": [
+            {
+              "image": "/record/shots/news-open-data-research-philosophy-mobile.avif",
+              "w": 390,
+              "h": 6316,
+              "bytes": 284947
+            }
+          ],
+          "thumb": "/record/shots/thumbs/news-open-data-research-philosophy-mobile.avif",
+          "thumbW": 390,
+          "thumbH": 6316,
+          "thumbBytes": 244114,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        }
+      }
+    },
+    {
+      "routeId": "/news/precision-agriculture-open-data/",
+      "kind": "page",
+      "title": "Precision Agriculture and Open Agricultural Data — INSTAR Lab",
+      "status": "success",
+      "contentHash": "6b782a3a1af80c7ba9925d5b99aaf0d50e841bc79839de765624026aa130d3b4",
+      "capturedAt": "2026-09-16T19:24:32.738Z",
+      "selfCapture": false,
+      "depictsGeneration": null,
+      "failure": null,
+      "artifacts": {
+        "desktop": {
+          "segments": [
+            {
+              "image": "/record/shots/news-precision-agriculture-open-data-desktop.avif",
+              "w": 1440,
+              "h": 4735,
+              "bytes": 275144
+            }
+          ],
+          "thumb": "/record/shots/thumbs/news-precision-agriculture-open-data-desktop.avif",
+          "thumbW": 480,
+          "thumbH": 1578,
+          "thumbBytes": 37377,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        },
+        "mobile": {
+          "segments": [
+            {
+              "image": "/record/shots/news-precision-agriculture-open-data-mobile.avif",
+              "w": 390,
+              "h": 6313,
+              "bytes": 288134
+            }
+          ],
+          "thumb": "/record/shots/thumbs/news-precision-agriculture-open-data-mobile.avif",
+          "thumbW": 390,
+          "thumbH": 6313,
+          "thumbBytes": 245109,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        }
+      }
+    },
+    {
+      "routeId": "/news/quantum-sensing-breakthroughs/",
+      "kind": "page",
+      "title": "Quantum Sensing Breakthroughs — INSTAR Lab",
+      "status": "success",
+      "contentHash": "dfda6aaab2a71d94da2c78b79572e5883015fe0edf2cb267f22bd9e7bdffec4c",
+      "capturedAt": "2026-09-16T19:24:32.903Z",
+      "selfCapture": false,
+      "depictsGeneration": null,
+      "failure": null,
+      "artifacts": {
+        "desktop": {
+          "segments": [
+            {
+              "image": "/record/shots/news-quantum-sensing-breakthroughs-desktop.avif",
+              "w": 1440,
+              "h": 5131,
+              "bytes": 302885
+            }
+          ],
+          "thumb": "/record/shots/thumbs/news-quantum-sensing-breakthroughs-desktop.avif",
+          "thumbW": 480,
+          "thumbH": 1710,
+          "thumbBytes": 40275,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        },
+        "mobile": {
+          "segments": [
+            {
+              "image": "/record/shots/news-quantum-sensing-breakthroughs-mobile.avif",
+              "w": 390,
+              "h": 6184,
+              "bytes": 267580
+            }
+          ],
+          "thumb": "/record/shots/thumbs/news-quantum-sensing-breakthroughs-mobile.avif",
+          "thumbW": 390,
+          "thumbH": 6184,
+          "thumbBytes": 226237,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        }
+      }
+    },
+    {
+      "routeId": "/privacy/",
+      "kind": "page",
+      "title": "Privacy Policy — INSTAR Lab",
+      "status": "success",
+      "contentHash": "bd394a1f408cfb6c6f07a881222d9d3485b879bb6d7fbc91e0f576fc9add8a53",
+      "capturedAt": "2026-09-16T19:24:57.601Z",
+      "selfCapture": false,
+      "depictsGeneration": null,
+      "failure": null,
+      "artifacts": {
+        "desktop": {
+          "segments": [
+            {
+              "image": "/record/shots/privacy-desktop.avif",
+              "w": 1440,
+              "h": 2188,
+              "bytes": 110864
+            }
+          ],
+          "thumb": "/record/shots/thumbs/privacy-desktop.avif",
+          "thumbW": 480,
+          "thumbH": 729,
+          "thumbBytes": 14940,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        },
+        "mobile": {
+          "segments": [
+            {
+              "image": "/record/shots/privacy-mobile.avif",
+              "w": 390,
+              "h": 3006,
+              "bytes": 88480
+            }
+          ],
+          "thumb": "/record/shots/thumbs/privacy-mobile.avif",
+          "thumbW": 390,
+          "thumbH": 3006,
+          "thumbBytes": 75361,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        }
+      }
+    },
+    {
+      "routeId": "/record/",
+      "kind": "record",
+      "title": "INSTAR Lab public record | INSTAR Lab",
+      "status": "success",
+      "contentHash": "c288563ec421182ff4ad3f77bbae72507c7d90dd6654b40d406cdf7eeecc764c",
+      "capturedAt": "2026-09-16T19:24:58.895Z",
+      "selfCapture": false,
+      "depictsGeneration": null,
+      "failure": null,
+      "artifacts": {
+        "desktop": {
+          "segments": [
+            {
+              "image": "/record/shots/record-desktop.avif",
+              "w": 1440,
+              "h": 3571,
+              "bytes": 216910
+            }
+          ],
+          "thumb": "/record/shots/thumbs/record-desktop.avif",
+          "thumbW": 480,
+          "thumbH": 1190,
+          "thumbBytes": 25326,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        },
+        "mobile": {
+          "segments": [
+            {
+              "image": "/record/shots/record-mobile.avif",
+              "w": 390,
+              "h": 6330,
+              "bytes": 190462
+            }
+          ],
+          "thumb": "/record/shots/thumbs/record-mobile.avif",
+          "thumbW": 390,
+          "thumbH": 6330,
+          "thumbBytes": 162842,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        }
+      }
+    },
+    {
+      "routeId": "/record/affiliations/",
+      "kind": "record",
+      "title": "Affiliation register | INSTAR Lab",
+      "status": "success",
+      "contentHash": "2832830d316717cf0e7034578a92230b03f943d362a3cd2fad4bb73f56cd4658",
+      "capturedAt": "2026-09-16T19:25:00.283Z",
+      "selfCapture": false,
+      "depictsGeneration": null,
+      "failure": null,
+      "artifacts": {
+        "desktop": {
+          "segments": [
+            {
+              "image": "/record/shots/record-affiliations-desktop.avif",
+              "w": 1440,
+              "h": 4336,
+              "bytes": 409311
+            }
+          ],
+          "thumb": "/record/shots/thumbs/record-affiliations-desktop.avif",
+          "thumbW": 480,
+          "thumbH": 1445,
+          "thumbBytes": 41440,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        },
+        "mobile": {
+          "segments": [
+            {
+              "image": "/record/shots/record-affiliations-mobile.avif",
+              "w": 390,
+              "h": 12557,
+              "bytes": 152985
+            }
+          ],
+          "thumb": "/record/shots/thumbs/record-affiliations-mobile.avif",
+          "thumbW": 390,
+          "thumbH": 12557,
+          "thumbBytes": 138593,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        }
+      }
+    },
+    {
+      "routeId": "/record/corrections/",
+      "kind": "record",
+      "title": "Corrections register | INSTAR Lab",
+      "status": "success",
+      "contentHash": "c9b7bc8759c7392ad2d26d580fde82c070d90025651798a72f5dc3460c5953fc",
+      "capturedAt": "2026-09-16T19:25:13.222Z",
+      "selfCapture": false,
+      "depictsGeneration": null,
+      "failure": null,
+      "artifacts": {
+        "desktop": {
+          "segments": [
+            {
+              "image": "/record/shots/record-corrections-desktop.avif",
+              "w": 1440,
+              "h": 6714,
+              "bytes": 619659
+            }
+          ],
+          "thumb": "/record/shots/thumbs/record-corrections-desktop.avif",
+          "thumbW": 480,
+          "thumbH": 2238,
+          "thumbBytes": 59964,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        },
+        "mobile": {
+          "segments": [
+            {
+              "image": "/record/shots/record-corrections-mobile.avif",
+              "w": 390,
+              "h": 10189,
+              "bytes": 379404
+            }
+          ],
+          "thumb": "/record/shots/thumbs/record-corrections-mobile.avif",
+          "thumbW": 390,
+          "thumbH": 10189,
+          "thumbBytes": 327417,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        }
+      }
+    },
+    {
+      "routeId": "/record/federal/",
+      "kind": "record",
+      "title": "Federal and institutional research posture | INSTAR Lab",
+      "status": "success",
+      "contentHash": "5cf008d2ae10f7e5b840dc85a5c08529370e0f458564530887618475b7a5d963",
+      "capturedAt": "2026-09-16T19:25:23.946Z",
+      "selfCapture": false,
+      "depictsGeneration": null,
+      "failure": null,
+      "artifacts": {
+        "desktop": {
+          "segments": [
+            {
+              "image": "/record/shots/record-federal-desktop.avif",
+              "w": 1440,
+              "h": 3245,
+              "bytes": 241548
+            }
+          ],
+          "thumb": "/record/shots/thumbs/record-federal-desktop.avif",
+          "thumbW": 480,
+          "thumbH": 1082,
+          "thumbBytes": 28101,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        },
+        "mobile": {
+          "segments": [
+            {
+              "image": "/record/shots/record-federal-mobile.avif",
+              "w": 390,
+              "h": 5840,
+              "bytes": 224780
+            }
+          ],
+          "thumb": "/record/shots/thumbs/record-federal-mobile.avif",
+          "thumbW": 390,
+          "thumbH": 5840,
+          "thumbBytes": 193431,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        }
+      }
+    },
+    {
+      "routeId": "/record/files/",
+      "kind": "record",
+      "title": "Public documents and asset register | INSTAR Lab",
+      "status": "success",
+      "contentHash": "7a868853843767b437bdb1504bfcc274dd3781d3fc03120f4c7721e91cf576fe",
+      "capturedAt": "2026-09-16T19:25:33.372Z",
+      "selfCapture": false,
+      "depictsGeneration": null,
+      "failure": null,
+      "artifacts": {
+        "desktop": {
+          "segments": [
+            {
+              "image": "/record/shots/record-files-desktop.avif",
+              "w": 1440,
+              "h": 2555,
+              "bytes": 158065
+            }
+          ],
+          "thumb": "/record/shots/thumbs/record-files-desktop.avif",
+          "thumbW": 480,
+          "thumbH": 852,
+          "thumbBytes": 19778,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        },
+        "mobile": {
+          "segments": [
+            {
+              "image": "/record/shots/record-files-mobile.avif",
+              "w": 390,
+              "h": 4131,
+              "bytes": 78819
+            }
+          ],
+          "thumb": "/record/shots/thumbs/record-files-mobile.avif",
+          "thumbW": 390,
+          "thumbH": 4131,
+          "thumbBytes": 72976,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        }
+      }
+    },
+    {
+      "routeId": "/record/governance/",
+      "kind": "record",
+      "title": "Board and policy register | INSTAR Lab",
+      "status": "success",
+      "contentHash": "9b5f0d4074f727b72b8142cea7bcc4736c8b2e168fb3517033f3b8e14e6f98f6",
+      "capturedAt": "2026-09-16T19:25:48.233Z",
+      "selfCapture": false,
+      "depictsGeneration": null,
+      "failure": null,
+      "artifacts": {
+        "desktop": {
+          "segments": [
+            {
+              "image": "/record/shots/record-governance-desktop.avif",
+              "w": 1440,
+              "h": 9509,
+              "bytes": 476336
+            }
+          ],
+          "thumb": "/record/shots/thumbs/record-governance-desktop.avif",
+          "thumbW": 480,
+          "thumbH": 3170,
+          "thumbBytes": 52497,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        },
+        "mobile": {
+          "segments": [
+            {
+              "image": "/record/shots/record-governance-mobile.avif",
+              "w": 390,
+              "h": 15671,
+              "bytes": 212177
+            }
+          ],
+          "thumb": "/record/shots/thumbs/record-governance-mobile.avif",
+          "thumbW": 390,
+          "thumbH": 15671,
+          "thumbBytes": 192705,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        }
+      }
+    },
+    {
+      "routeId": "/record/journeys/",
+      "kind": "record",
+      "title": "Role-specific paths through the INSTAR site | INSTAR Lab",
+      "status": "success",
+      "contentHash": "7ae22157d78d849ff3e91f526c3523e803e81bc21b91d9eb8818d63eded9bce2",
+      "capturedAt": "2026-09-16T19:25:48.992Z",
+      "selfCapture": false,
+      "depictsGeneration": null,
+      "failure": null,
+      "artifacts": {
+        "desktop": {
+          "segments": [
+            {
+              "image": "/record/shots/record-journeys-desktop.avif",
+              "w": 1440,
+              "h": 3505,
+              "bytes": 207263
+            }
+          ],
+          "thumb": "/record/shots/thumbs/record-journeys-desktop.avif",
+          "thumbW": 480,
+          "thumbH": 1168,
+          "thumbBytes": 26865,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        },
+        "mobile": {
+          "segments": [
+            {
+              "image": "/record/shots/record-journeys-mobile.avif",
+              "w": 390,
+              "h": 7148,
+              "bytes": 201218
+            }
+          ],
+          "thumb": "/record/shots/thumbs/record-journeys-mobile.avif",
+          "thumbW": 390,
+          "thumbH": 7148,
+          "thumbBytes": 174622,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        }
+      }
+    },
+    {
+      "routeId": "/record/leadership/",
+      "kind": "record",
+      "title": "Leadership, governance, and affiliations | INSTAR Lab",
+      "status": "success",
+      "contentHash": "31c74230d291d87a3c778f033accad682576059e91bf90817c537595d6c89fb4",
+      "capturedAt": "2026-09-16T19:25:56.644Z",
+      "selfCapture": false,
+      "depictsGeneration": null,
+      "failure": null,
+      "artifacts": {
+        "desktop": {
+          "segments": [
+            {
+              "image": "/record/shots/record-leadership-desktop.avif",
+              "w": 1440,
+              "h": 2294,
+              "bytes": 189960
+            }
+          ],
+          "thumb": "/record/shots/thumbs/record-leadership-desktop.avif",
+          "thumbW": 480,
+          "thumbH": 765,
+          "thumbBytes": 23002,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        },
+        "mobile": {
+          "segments": [
+            {
+              "image": "/record/shots/record-leadership-mobile.avif",
+              "w": 390,
+              "h": 5243,
+              "bytes": 173269
+            }
+          ],
+          "thumb": "/record/shots/thumbs/record-leadership-mobile.avif",
+          "thumbW": 390,
+          "thumbH": 5243,
+          "thumbBytes": 150399,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        }
+      }
+    },
+    {
+      "routeId": "/record/legal/",
+      "kind": "record",
+      "title": "Legal status, filings, and the §6104(d) request path | INSTAR Lab",
+      "status": "success",
+      "contentHash": "eb966b72389059719f1fae07dbd55ee56c5d334adc840b0deaede25f56178707",
+      "capturedAt": "2026-09-16T19:26:12.390Z",
+      "selfCapture": false,
+      "depictsGeneration": null,
+      "failure": null,
+      "artifacts": {
+        "desktop": {
+          "segments": [
+            {
+              "image": "/record/shots/record-legal-desktop.avif",
+              "w": 1440,
+              "h": 5418,
+              "bytes": 500954
+            }
+          ],
+          "thumb": "/record/shots/thumbs/record-legal-desktop.avif",
+          "thumbW": 480,
+          "thumbH": 1806,
+          "thumbBytes": 51240,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        },
+        "mobile": {
+          "segments": [
+            {
+              "image": "/record/shots/record-legal-mobile.avif",
+              "w": 390,
+              "h": 10567,
+              "bytes": 236470
+            }
+          ],
+          "thumb": "/record/shots/thumbs/record-legal-mobile.avif",
+          "thumbW": 390,
+          "thumbH": 10567,
+          "thumbBytes": 211745,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        }
+      }
+    },
+    {
+      "routeId": "/record/marketing/",
+      "kind": "record",
+      "title": "INSTAR Lab positioning and public claims | INSTAR Lab",
+      "status": "success",
+      "contentHash": "3d0c7c177adc0aa8c087140e8a84b0aa7e0181ec2dcf4972d80d1cb41485a95b",
+      "capturedAt": "2026-09-16T19:26:14.272Z",
+      "selfCapture": false,
+      "depictsGeneration": null,
+      "failure": null,
+      "artifacts": {
+        "desktop": {
+          "segments": [
+            {
+              "image": "/record/shots/record-marketing-desktop.avif",
+              "w": 1440,
+              "h": 13676,
+              "bytes": 1877584
+            }
+          ],
+          "thumb": "/record/shots/thumbs/record-marketing-desktop.avif",
+          "thumbW": 480,
+          "thumbH": 4559,
+          "thumbBytes": 177654,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        },
+        "mobile": {
+          "segments": [
+            {
+              "image": "/record/shots/record-marketing-mobile-p1.avif",
+              "w": 390,
+              "h": 14775,
+              "bytes": 365932
+            },
+            {
+              "image": "/record/shots/record-marketing-mobile-p2.avif",
+              "w": 390,
+              "h": 14775,
+              "bytes": 339160
+            },
+            {
+              "image": "/record/shots/record-marketing-mobile-p3.avif",
+              "w": 390,
+              "h": 14775,
+              "bytes": 329170
+            }
+          ],
+          "thumb": "/record/shots/thumbs/record-marketing-mobile.avif",
+          "thumbW": 141,
+          "thumbH": 16000,
+          "thumbBytes": 157677,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        }
+      }
+    },
+    {
+      "routeId": "/record/metrics/",
+      "kind": "record",
+      "title": "Captured page inventory: content, media, and metadata | INSTAR Lab",
+      "status": "success",
+      "contentHash": "77cc56957fbb103abdabe468afbd008c406a28cfa36cc34f16851a0da8d89a1f",
+      "capturedAt": "2026-09-16T19:26:26.915Z",
+      "selfCapture": false,
+      "depictsGeneration": null,
+      "failure": null,
+      "artifacts": {
+        "desktop": {
+          "segments": [
+            {
+              "image": "/record/shots/record-metrics-desktop.avif",
+              "w": 1440,
+              "h": 2718,
+              "bytes": 114767
+            }
+          ],
+          "thumb": "/record/shots/thumbs/record-metrics-desktop.avif",
+          "thumbW": 480,
+          "thumbH": 906,
+          "thumbBytes": 17178,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        },
+        "mobile": {
+          "segments": [
+            {
+              "image": "/record/shots/record-metrics-mobile.avif",
+              "w": 390,
+              "h": 4058,
+              "bytes": 110657
+            }
+          ],
+          "thumb": "/record/shots/thumbs/record-metrics-mobile.avif",
+          "thumbW": 390,
+          "thumbH": 4058,
+          "thumbBytes": 97385,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        }
+      }
+    },
+    {
+      "routeId": "/record/nav/",
+      "kind": "record",
+      "title": "INSTAR Lab public site link inventory | INSTAR Lab",
+      "status": "success",
+      "contentHash": "681a4a3a46ffff80ee48cab8db5ff97588278198eebd4b1d25a0321b10b54305",
+      "capturedAt": "2026-09-16T19:26:38.930Z",
+      "selfCapture": false,
+      "depictsGeneration": null,
+      "failure": null,
+      "artifacts": {
+        "desktop": {
+          "segments": [
+            {
+              "image": "/record/shots/record-nav-desktop.avif",
+              "w": 1440,
+              "h": 15461,
+              "bytes": 1299043
+            }
+          ],
+          "thumb": "/record/shots/thumbs/record-nav-desktop.avif",
+          "thumbW": 480,
+          "thumbH": 5154,
+          "thumbBytes": 131058,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        },
+        "mobile": {
+          "segments": [
+            {
+              "image": "/record/shots/record-nav-mobile-p1.avif",
+              "w": 390,
+              "h": 12445,
+              "bytes": 368630
+            },
+            {
+              "image": "/record/shots/record-nav-mobile-p2.avif",
+              "w": 390,
+              "h": 12445,
+              "bytes": 155874
+            },
+            {
+              "image": "/record/shots/record-nav-mobile-p3.avif",
+              "w": 390,
+              "h": 12445,
+              "bytes": 151408
+            }
+          ],
+          "thumb": "/record/shots/thumbs/record-nav-mobile.avif",
+          "thumbW": 167,
+          "thumbH": 16000,
+          "thumbBytes": 140004,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        }
+      }
+    },
+    {
+      "routeId": "/record/ops/",
+      "kind": "record",
+      "title": "Static delivery and operational readiness | INSTAR Lab",
+      "status": "success",
+      "contentHash": "b766a5c84ded63d08a4a36e8eebd2c3a1b22f400058a3f943ba76c4ee79dac99",
+      "capturedAt": "2026-09-16T19:26:40.220Z",
+      "selfCapture": false,
+      "depictsGeneration": null,
+      "failure": null,
+      "artifacts": {
+        "desktop": {
+          "segments": [
+            {
+              "image": "/record/shots/record-ops-desktop.avif",
+              "w": 1440,
+              "h": 5722,
+              "bytes": 529842
+            }
+          ],
+          "thumb": "/record/shots/thumbs/record-ops-desktop.avif",
+          "thumbW": 480,
+          "thumbH": 1907,
+          "thumbBytes": 52893,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        },
+        "mobile": {
+          "segments": [
+            {
+              "image": "/record/shots/record-ops-mobile.avif",
+              "w": 390,
+              "h": 12988,
+              "bytes": 452440
+            }
+          ],
+          "thumb": "/record/shots/thumbs/record-ops-mobile.avif",
+          "thumbW": 390,
+          "thumbH": 12988,
+          "thumbBytes": 387486,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        }
+      }
+    },
+    {
+      "routeId": "/record/screens/",
+      "kind": "record",
+      "title": "See the public site in context | INSTAR Lab",
+      "status": "success",
+      "contentHash": "c9a35fc0f2c41e17a228d419826255da05be4479e055d5aa097a010d0735a880",
+      "capturedAt": "2026-09-16T19:27:25.728Z",
+      "selfCapture": true,
+      "depictsGeneration": "99511fe7507af5d0392b9972a421398aadcecbc2765a8961f875e91305846973",
+      "failure": null,
+      "artifacts": {
+        "desktop": {
+          "segments": [
+            {
+              "image": "/record/shots/record-screens-desktop-p1.avif",
+              "w": 1440,
+              "h": 14244,
+              "bytes": 415245
+            },
+            {
+              "image": "/record/shots/record-screens-desktop-p2.avif",
+              "w": 1440,
+              "h": 14244,
+              "bytes": 876568
+            }
+          ],
+          "thumb": "/record/shots/thumbs/record-screens-desktop.avif",
+          "thumbW": 480,
+          "thumbH": 9496,
+          "thumbBytes": 166678,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        },
+        "mobile": {
+          "segments": [
+            {
+              "image": "/record/shots/record-screens-mobile-p1.avif",
+              "w": 390,
+              "h": 13188,
+              "bytes": 339802
+            },
+            {
+              "image": "/record/shots/record-screens-mobile-p2.avif",
+              "w": 390,
+              "h": 13188,
+              "bytes": 300364
+            },
+            {
+              "image": "/record/shots/record-screens-mobile-p3.avif",
+              "w": 390,
+              "h": 13188,
+              "bytes": 395199
+            },
+            {
+              "image": "/record/shots/record-screens-mobile-p4.avif",
+              "w": 390,
+              "h": 13188,
+              "bytes": 401064
+            }
+          ],
+          "thumb": "/record/shots/thumbs/record-screens-mobile.avif",
+          "thumbW": 118,
+          "thumbH": 16000,
+          "thumbBytes": 144021,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        }
+      }
+    },
+    {
+      "routeId": "/record/style/",
+      "kind": "record",
+      "title": "INSTAR Lab visual system and public assets | INSTAR Lab",
+      "status": "success",
+      "contentHash": "638c6a05d90d4cd92420781cd6fa7ebe501c67b8cf6872a31fad4c5cbcf2d157",
+      "capturedAt": "2026-09-16T19:27:36.601Z",
+      "selfCapture": false,
+      "depictsGeneration": null,
+      "failure": null,
+      "artifacts": {
+        "desktop": {
+          "segments": [
+            {
+              "image": "/record/shots/record-style-desktop.avif",
+              "w": 1440,
+              "h": 2608,
+              "bytes": 142501
+            }
+          ],
+          "thumb": "/record/shots/thumbs/record-style-desktop.avif",
+          "thumbW": 480,
+          "thumbH": 869,
+          "thumbBytes": 19745,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        },
+        "mobile": {
+          "segments": [
+            {
+              "image": "/record/shots/record-style-mobile.avif",
+              "w": 390,
+              "h": 4371,
+              "bytes": 94213
+            }
+          ],
+          "thumb": "/record/shots/thumbs/record-style-mobile.avif",
+          "thumbW": 390,
+          "thumbH": 4371,
+          "thumbBytes": 86220,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        }
+      }
+    },
+    {
+      "routeId": "/record/verify/",
+      "kind": "record",
+      "title": "Source register and verification limits | INSTAR Lab",
+      "status": "success",
+      "contentHash": "79c8ca4cdc44f89b7e54f45e1e8480e3a8e6edf601c115dee5b0d9c7d6f2518c",
+      "capturedAt": "2026-09-16T19:27:55.222Z",
+      "selfCapture": false,
+      "depictsGeneration": null,
+      "failure": null,
+      "artifacts": {
+        "desktop": {
+          "segments": [
+            {
+              "image": "/record/shots/record-verify-desktop.avif",
+              "w": 1440,
+              "h": 3536,
+              "bytes": 338543
+            }
+          ],
+          "thumb": "/record/shots/thumbs/record-verify-desktop.avif",
+          "thumbW": 480,
+          "thumbH": 1179,
+          "thumbBytes": 32908,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        },
+        "mobile": {
+          "segments": [
+            {
+              "image": "/record/shots/record-verify-mobile.avif",
+              "w": 390,
+              "h": 6669,
+              "bytes": 120724
+            }
+          ],
+          "thumb": "/record/shots/thumbs/record-verify-mobile.avif",
+          "thumbW": 390,
+          "thumbH": 6669,
+          "thumbBytes": 110982,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        }
+      }
+    },
+    {
+      "routeId": "/research/",
+      "kind": "page",
+      "title": "Research — INSTAR Lab",
+      "status": "success",
+      "contentHash": "9bcfaea40cb4659e487ae68bc0785dfc161006f3b41be9e6aa4d69f3f9288360",
+      "capturedAt": "2026-09-16T19:28:09.452Z",
+      "selfCapture": false,
+      "depictsGeneration": null,
+      "failure": null,
+      "artifacts": {
+        "desktop": {
+          "segments": [
+            {
+              "image": "/record/shots/research-desktop.avif",
+              "w": 1440,
+              "h": 4699,
+              "bytes": 188900
+            }
+          ],
+          "thumb": "/record/shots/thumbs/research-desktop.avif",
+          "thumbW": 480,
+          "thumbH": 1566,
+          "thumbBytes": 29592,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        },
+        "mobile": {
+          "segments": [
+            {
+              "image": "/record/shots/research-mobile.avif",
+              "w": 390,
+              "h": 6641,
+              "bytes": 202353
+            }
+          ],
+          "thumb": "/record/shots/thumbs/research-mobile.avif",
+          "thumbW": 390,
+          "thumbH": 6641,
+          "thumbBytes": 174179,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        }
+      }
+    },
+    {
+      "routeId": "/research/consortium/",
+      "kind": "page",
+      "title": "INSTAR Consortium — Collaborative Research Network",
+      "status": "success",
+      "contentHash": "034be9450256027fd30ccc58b498235fb079a10f0116ecb1d78b6e33ec29b85b",
+      "capturedAt": "2026-09-16T19:28:20.374Z",
+      "selfCapture": false,
+      "depictsGeneration": null,
+      "failure": null,
+      "artifacts": {
+        "desktop": {
+          "segments": [
+            {
+              "image": "/record/shots/research-consortium-desktop.avif",
+              "w": 1440,
+              "h": 3644,
+              "bytes": 210020
+            }
+          ],
+          "thumb": "/record/shots/thumbs/research-consortium-desktop.avif",
+          "thumbW": 480,
+          "thumbH": 1215,
+          "thumbBytes": 31145,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        },
+        "mobile": {
+          "segments": [
+            {
+              "image": "/record/shots/research-consortium-mobile.avif",
+              "w": 390,
+              "h": 5895,
+              "bytes": 168784
+            }
+          ],
+          "thumb": "/record/shots/thumbs/research-consortium-mobile.avif",
+          "thumbW": 390,
+          "thumbH": 5895,
+          "thumbBytes": 145626,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        }
+      }
+    },
+    {
+      "routeId": "/research/current-programs/",
+      "kind": "page",
+      "title": "Current Research Programs — INSTAR Lab",
+      "status": "success",
+      "contentHash": "daa36f113c075c901ff17be517cacf8d17a16461719d8ee403e65525fa1405fb",
+      "capturedAt": "2026-09-16T19:28:35.692Z",
+      "selfCapture": false,
+      "depictsGeneration": null,
+      "failure": null,
+      "artifacts": {
+        "desktop": {
+          "segments": [
+            {
+              "image": "/record/shots/research-current-programs-desktop.avif",
+              "w": 1440,
+              "h": 3603,
+              "bytes": 174539
+            }
+          ],
+          "thumb": "/record/shots/thumbs/research-current-programs-desktop.avif",
+          "thumbW": 480,
+          "thumbH": 1201,
+          "thumbBytes": 26338,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        },
+        "mobile": {
+          "segments": [
+            {
+              "image": "/record/shots/research-current-programs-mobile.avif",
+              "w": 390,
+              "h": 5813,
+              "bytes": 151860
+            }
+          ],
+          "thumb": "/record/shots/thumbs/research-current-programs-mobile.avif",
+          "thumbW": 390,
+          "thumbH": 5813,
+          "thumbBytes": 130943,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        }
+      }
+    },
+    {
+      "routeId": "/research/facilities/",
+      "kind": "page",
+      "title": "Research Facilities — INSTAR Lab",
+      "status": "success",
+      "contentHash": "393947ecaf007f9cd940a57308d483fc9e34d60fcb219d50b26343be7d43b220",
+      "capturedAt": "2026-09-16T19:28:43.586Z",
+      "selfCapture": false,
+      "depictsGeneration": null,
+      "failure": null,
+      "artifacts": {
+        "desktop": {
+          "segments": [
+            {
+              "image": "/record/shots/research-facilities-desktop.avif",
+              "w": 1440,
+              "h": 4158,
+              "bytes": 229533
+            }
+          ],
+          "thumb": "/record/shots/thumbs/research-facilities-desktop.avif",
+          "thumbW": 480,
+          "thumbH": 1386,
+          "thumbBytes": 33246,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        },
+        "mobile": {
+          "segments": [
+            {
+              "image": "/record/shots/research-facilities-mobile.avif",
+              "w": 390,
+              "h": 6617,
+              "bytes": 185448
+            }
+          ],
+          "thumb": "/record/shots/thumbs/research-facilities-mobile.avif",
+          "thumbW": 390,
+          "thumbH": 6617,
+          "thumbBytes": 159758,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        }
+      }
+    },
+    {
+      "routeId": "/research/funding/",
+      "kind": "page",
+      "title": "Federal Research & Sponsored Programs — INSTAR Lab",
+      "status": "success",
+      "contentHash": "59b07c855be440a309352cee794835c11394bf61f36c175002fdcbfdb3546572",
+      "capturedAt": "2026-09-16T19:29:00.668Z",
+      "selfCapture": false,
+      "depictsGeneration": null,
+      "failure": null,
+      "artifacts": {
+        "desktop": {
+          "segments": [
+            {
+              "image": "/record/shots/research-funding-desktop.avif",
+              "w": 1440,
+              "h": 4083,
+              "bytes": 219558
+            }
+          ],
+          "thumb": "/record/shots/thumbs/research-funding-desktop.avif",
+          "thumbW": 480,
+          "thumbH": 1361,
+          "thumbBytes": 32173,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        },
+        "mobile": {
+          "segments": [
+            {
+              "image": "/record/shots/research-funding-mobile.avif",
+              "w": 390,
+              "h": 6608,
+              "bytes": 183236
+            }
+          ],
+          "thumb": "/record/shots/thumbs/research-funding-mobile.avif",
+          "thumbW": 390,
+          "thumbH": 6608,
+          "thumbBytes": 157213,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        }
+      }
+    },
+    {
+      "routeId": "/research/innovation/",
+      "kind": "page",
+      "title": "Research Innovation — INSTAR Lab",
+      "status": "success",
+      "contentHash": "75eb29596fde99457e1ee6a578386c079eb53aedf75abebbbd8adc83c383f556",
+      "capturedAt": "2026-09-16T19:29:07.555Z",
+      "selfCapture": false,
+      "depictsGeneration": null,
+      "failure": null,
+      "artifacts": {
+        "desktop": {
+          "segments": [
+            {
+              "image": "/record/shots/research-innovation-desktop.avif",
+              "w": 1440,
+              "h": 4747,
+              "bytes": 265139
+            }
+          ],
+          "thumb": "/record/shots/thumbs/research-innovation-desktop.avif",
+          "thumbW": 480,
+          "thumbH": 1582,
+          "thumbBytes": 39965,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        },
+        "mobile": {
+          "segments": [
+            {
+              "image": "/record/shots/research-innovation-mobile.avif",
+              "w": 390,
+              "h": 7264,
+              "bytes": 213727
+            }
+          ],
+          "thumb": "/record/shots/thumbs/research-innovation-mobile.avif",
+          "thumbW": 390,
+          "thumbH": 7264,
+          "thumbBytes": 183267,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        }
+      }
+    },
+    {
+      "routeId": "/research/open-data/",
+      "kind": "page",
+      "title": "Open Data & Public Datasets — INSTAR Lab",
+      "status": "success",
+      "contentHash": "7aacbe61efa09905b1660cb87db7d36ee9b754e5a15c15fbd3093cfbbbf8341a",
+      "capturedAt": "2026-09-16T19:29:26.027Z",
+      "selfCapture": false,
+      "depictsGeneration": null,
+      "failure": null,
+      "artifacts": {
+        "desktop": {
+          "segments": [
+            {
+              "image": "/record/shots/research-open-data-desktop.avif",
+              "w": 1440,
+              "h": 4199,
+              "bytes": 272306
+            }
+          ],
+          "thumb": "/record/shots/thumbs/research-open-data-desktop.avif",
+          "thumbW": 480,
+          "thumbH": 1400,
+          "thumbBytes": 37793,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        },
+        "mobile": {
+          "segments": [
+            {
+              "image": "/record/shots/research-open-data-mobile.avif",
+              "w": 390,
+              "h": 6969,
+              "bytes": 209894
+            }
+          ],
+          "thumb": "/record/shots/thumbs/research-open-data-mobile.avif",
+          "thumbW": 390,
+          "thumbH": 6969,
+          "thumbBytes": 179376,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        }
+      }
+    },
+    {
+      "routeId": "/research/opportunities/",
+      "kind": "page",
+      "title": "Research Opportunities — INSTAR Lab",
+      "status": "success",
+      "contentHash": "fc6aa5ea9dc2552b0c22d3ee3ce5ec3f136f4b9bc8f5dbdf06e6722e77ad89f1",
+      "capturedAt": "2026-09-16T19:29:35.556Z",
+      "selfCapture": false,
+      "depictsGeneration": null,
+      "failure": null,
+      "artifacts": {
+        "desktop": {
+          "segments": [
+            {
+              "image": "/record/shots/research-opportunities-desktop.avif",
+              "w": 1440,
+              "h": 4301,
+              "bytes": 251452
+            }
+          ],
+          "thumb": "/record/shots/thumbs/research-opportunities-desktop.avif",
+          "thumbW": 480,
+          "thumbH": 1434,
+          "thumbBytes": 33005,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        },
+        "mobile": {
+          "segments": [
+            {
+              "image": "/record/shots/research-opportunities-mobile.avif",
+              "w": 390,
+              "h": 7377,
+              "bytes": 216333
+            }
+          ],
+          "thumb": "/record/shots/thumbs/research-opportunities-mobile.avif",
+          "thumbW": 390,
+          "thumbH": 7377,
+          "thumbBytes": 186256,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        }
+      }
+    },
+    {
+      "routeId": "/research/our-process/",
+      "kind": "page",
+      "title": "Our Research Process — INSTAR Lab",
+      "status": "success",
+      "contentHash": "04830cf0f1dd4ffb98f2cf913ba1d8c830054b66fa29186a28a8b73636de8aaa",
+      "capturedAt": "2026-09-16T19:29:43.580Z",
+      "selfCapture": false,
+      "depictsGeneration": null,
+      "failure": null,
+      "artifacts": {
+        "desktop": {
+          "segments": [
+            {
+              "image": "/record/shots/research-our-process-desktop.avif",
+              "w": 1440,
+              "h": 3531,
+              "bytes": 185441
+            }
+          ],
+          "thumb": "/record/shots/thumbs/research-our-process-desktop.avif",
+          "thumbW": 480,
+          "thumbH": 1177,
+          "thumbBytes": 28486,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        },
+        "mobile": {
+          "segments": [
+            {
+              "image": "/record/shots/research-our-process-mobile.avif",
+              "w": 390,
+              "h": 5484,
+              "bytes": 159508
+            }
+          ],
+          "thumb": "/record/shots/thumbs/research-our-process-mobile.avif",
+          "thumbW": 390,
+          "thumbH": 5484,
+          "thumbBytes": 136447,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        }
+      }
+    },
+    {
+      "routeId": "/sciences/agriculture/",
+      "kind": "page",
+      "title": "Agriculture Research — INSTAR Lab Sciences",
+      "status": "success",
+      "contentHash": "27447ee1b40512cccd65709806156cec9ace0b50aa33d6a75977cec501241da4",
+      "capturedAt": "2026-09-16T19:29:53.532Z",
+      "selfCapture": false,
+      "depictsGeneration": null,
+      "failure": null,
+      "artifacts": {
+        "desktop": {
+          "segments": [
+            {
+              "image": "/record/shots/sciences-agriculture-desktop.avif",
+              "w": 1440,
+              "h": 4143,
+              "bytes": 236794
+            }
+          ],
+          "thumb": "/record/shots/thumbs/sciences-agriculture-desktop.avif",
+          "thumbW": 480,
+          "thumbH": 1381,
+          "thumbBytes": 34398,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        },
+        "mobile": {
+          "segments": [
+            {
+              "image": "/record/shots/sciences-agriculture-mobile.avif",
+              "w": 390,
+              "h": 6660,
+              "bytes": 186554
+            }
+          ],
+          "thumb": "/record/shots/thumbs/sciences-agriculture-mobile.avif",
+          "thumbW": 390,
+          "thumbH": 6660,
+          "thumbBytes": 160827,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        }
+      }
+    },
+    {
+      "routeId": "/sciences/anthropology/",
+      "kind": "page",
+      "title": "Anthropology Research — INSTAR Lab Sciences",
+      "status": "success",
+      "contentHash": "7ebeea733be17450ab4595abbadc84a1ad04c10e6eff3a85d39e35395620a9d9",
+      "capturedAt": "2026-09-16T19:30:03.610Z",
+      "selfCapture": false,
+      "depictsGeneration": null,
+      "failure": null,
+      "artifacts": {
+        "desktop": {
+          "segments": [
+            {
+              "image": "/record/shots/sciences-anthropology-desktop.avif",
+              "w": 1440,
+              "h": 4670,
+              "bytes": 234089
+            }
+          ],
+          "thumb": "/record/shots/thumbs/sciences-anthropology-desktop.avif",
+          "thumbW": 480,
+          "thumbH": 1557,
+          "thumbBytes": 34075,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        },
+        "mobile": {
+          "segments": [
+            {
+              "image": "/record/shots/sciences-anthropology-mobile.avif",
+              "w": 390,
+              "h": 7244,
+              "bytes": 199918
+            }
+          ],
+          "thumb": "/record/shots/thumbs/sciences-anthropology-mobile.avif",
+          "thumbW": 390,
+          "thumbH": 7244,
+          "thumbBytes": 172607,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        }
+      }
+    },
+    {
+      "routeId": "/sciences/archaeology/",
+      "kind": "page",
+      "title": "Archaeology Research — INSTAR Lab Sciences",
+      "status": "success",
+      "contentHash": "3507eb03bea2a24859992abfe869ab7207b9eb7756b9f6dbea937c1b976575a4",
+      "capturedAt": "2026-09-16T19:30:07.923Z",
+      "selfCapture": false,
+      "depictsGeneration": null,
+      "failure": null,
+      "artifacts": {
+        "desktop": {
+          "segments": [
+            {
+              "image": "/record/shots/sciences-archaeology-desktop.avif",
+              "w": 1440,
+              "h": 4143,
+              "bytes": 245613
+            }
+          ],
+          "thumb": "/record/shots/thumbs/sciences-archaeology-desktop.avif",
+          "thumbW": 480,
+          "thumbH": 1381,
+          "thumbBytes": 35305,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        },
+        "mobile": {
+          "segments": [
+            {
+              "image": "/record/shots/sciences-archaeology-mobile.avif",
+              "w": 390,
+              "h": 6660,
+              "bytes": 191315
+            }
+          ],
+          "thumb": "/record/shots/thumbs/sciences-archaeology-mobile.avif",
+          "thumbW": 390,
+          "thumbH": 6660,
+          "thumbBytes": 164699,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        }
+      }
+    },
+    {
+      "routeId": "/sciences/biology/",
+      "kind": "page",
+      "title": "Biology Research — INSTAR Lab Sciences",
+      "status": "success",
+      "contentHash": "9e76f316694905ef6bf6b3b5eb8f39285e860b9e0c272e1b1518aa24dbb6101c",
+      "capturedAt": "2026-09-16T19:30:22.142Z",
+      "selfCapture": false,
+      "depictsGeneration": null,
+      "failure": null,
+      "artifacts": {
+        "desktop": {
+          "segments": [
+            {
+              "image": "/record/shots/sciences-biology-desktop.avif",
+              "w": 1440,
+              "h": 4110,
+              "bytes": 203528
+            }
+          ],
+          "thumb": "/record/shots/thumbs/sciences-biology-desktop.avif",
+          "thumbW": 480,
+          "thumbH": 1370,
+          "thumbBytes": 29171,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        },
+        "mobile": {
+          "segments": [
+            {
+              "image": "/record/shots/sciences-biology-mobile.avif",
+              "w": 390,
+              "h": 6598,
+              "bytes": 176445
+            }
+          ],
+          "thumb": "/record/shots/thumbs/sciences-biology-mobile.avif",
+          "thumbW": 390,
+          "thumbH": 6598,
+          "thumbBytes": 151583,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        }
+      }
+    },
+    {
+      "routeId": "/sciences/chemistry/",
+      "kind": "page",
+      "title": "Chemistry Research — INSTAR Lab Sciences",
+      "status": "success",
+      "contentHash": "1d1eb19ceb105c537d42608980b27b0c0858a0a1ead0282c800db7853b93cfce",
+      "capturedAt": "2026-09-16T19:30:35.576Z",
+      "selfCapture": false,
+      "depictsGeneration": null,
+      "failure": null,
+      "artifacts": {
+        "desktop": {
+          "segments": [
+            {
+              "image": "/record/shots/sciences-chemistry-desktop.avif",
+              "w": 1440,
+              "h": 4110,
+              "bytes": 209108
+            }
+          ],
+          "thumb": "/record/shots/thumbs/sciences-chemistry-desktop.avif",
+          "thumbW": 480,
+          "thumbH": 1370,
+          "thumbBytes": 29760,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        },
+        "mobile": {
+          "segments": [
+            {
+              "image": "/record/shots/sciences-chemistry-mobile.avif",
+              "w": 390,
+              "h": 6660,
+              "bytes": 176760
+            }
+          ],
+          "thumb": "/record/shots/thumbs/sciences-chemistry-mobile.avif",
+          "thumbW": 390,
+          "thumbH": 6660,
+          "thumbBytes": 152971,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        }
+      }
+    },
+    {
+      "routeId": "/sciences/cognitive-sciences/",
+      "kind": "page",
+      "title": "Cognitive Sciences Research — INSTAR Lab Sciences",
+      "status": "success",
+      "contentHash": "07586e005398bc2f425315cf28331aa76f11f4bc1e3791a2d179011152f4a68a",
+      "capturedAt": "2026-09-16T19:30:38.364Z",
+      "selfCapture": false,
+      "depictsGeneration": null,
+      "failure": null,
+      "artifacts": {
+        "desktop": {
+          "segments": [
+            {
+              "image": "/record/shots/sciences-cognitive-sciences-desktop.avif",
+              "w": 1440,
+              "h": 4670,
+              "bytes": 247456
+            }
+          ],
+          "thumb": "/record/shots/thumbs/sciences-cognitive-sciences-desktop.avif",
+          "thumbW": 480,
+          "thumbH": 1557,
+          "thumbBytes": 36146,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        },
+        "mobile": {
+          "segments": [
+            {
+              "image": "/record/shots/sciences-cognitive-sciences-mobile.avif",
+              "w": 390,
+              "h": 7333,
+              "bytes": 205911
+            }
+          ],
+          "thumb": "/record/shots/thumbs/sciences-cognitive-sciences-mobile.avif",
+          "thumbW": 390,
+          "thumbH": 7333,
+          "thumbBytes": 175554,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        }
+      }
+    },
+    {
+      "routeId": "/sciences/economics/",
+      "kind": "page",
+      "title": "Economics Research — INSTAR Lab Sciences",
+      "status": "success",
+      "contentHash": "14257f48d27537623ef53b51f9e7ada0eed5ea358a8a672331f7c562ca19409d",
+      "capturedAt": "2026-09-16T19:30:48.595Z",
+      "selfCapture": false,
+      "depictsGeneration": null,
+      "failure": null,
+      "artifacts": {
+        "desktop": {
+          "segments": [
+            {
+              "image": "/record/shots/sciences-economics-desktop.avif",
+              "w": 1440,
+              "h": 4143,
+              "bytes": 224261
+            }
+          ],
+          "thumb": "/record/shots/thumbs/sciences-economics-desktop.avif",
+          "thumbW": 480,
+          "thumbH": 1381,
+          "thumbBytes": 31642,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        },
+        "mobile": {
+          "segments": [
+            {
+              "image": "/record/shots/sciences-economics-mobile.avif",
+              "w": 390,
+              "h": 6711,
+              "bytes": 186413
+            }
+          ],
+          "thumb": "/record/shots/thumbs/sciences-economics-mobile.avif",
+          "thumbW": 390,
+          "thumbH": 6711,
+          "thumbBytes": 160235,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        }
+      }
+    },
+    {
+      "routeId": "/sciences/energy/",
+      "kind": "page",
+      "title": "Energy Research — INSTAR Lab Sciences",
+      "status": "success",
+      "contentHash": "2fb08c32c6890f37bda17ff74a340104bd63b5c62332c278626028fcaf9829d7",
+      "capturedAt": "2026-09-16T19:31:02.992Z",
+      "selfCapture": false,
+      "depictsGeneration": null,
+      "failure": null,
+      "artifacts": {
+        "desktop": {
+          "segments": [
+            {
+              "image": "/record/shots/sciences-energy-desktop.avif",
+              "w": 1440,
+              "h": 4110,
+              "bytes": 211506
+            }
+          ],
+          "thumb": "/record/shots/thumbs/sciences-energy-desktop.avif",
+          "thumbW": 480,
+          "thumbH": 1370,
+          "thumbBytes": 29949,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        },
+        "mobile": {
+          "segments": [
+            {
+              "image": "/record/shots/sciences-energy-mobile.avif",
+              "w": 390,
+              "h": 6598,
+              "bytes": 179244
+            }
+          ],
+          "thumb": "/record/shots/thumbs/sciences-energy-mobile.avif",
+          "thumbW": 390,
+          "thumbH": 6598,
+          "thumbBytes": 153828,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        }
+      }
+    },
+    {
+      "routeId": "/sciences/genetics/",
+      "kind": "page",
+      "title": "Genetics Research — INSTAR Lab Sciences",
+      "status": "success",
+      "contentHash": "cb832f32403c2bfc19b472a2434d47d5e2e2444261c0349fb6a58909928cc64e",
+      "capturedAt": "2026-09-16T19:31:08.832Z",
+      "selfCapture": false,
+      "depictsGeneration": null,
+      "failure": null,
+      "artifacts": {
+        "desktop": {
+          "segments": [
+            {
+              "image": "/record/shots/sciences-genetics-desktop.avif",
+              "w": 1440,
+              "h": 4637,
+              "bytes": 242824
+            }
+          ],
+          "thumb": "/record/shots/thumbs/sciences-genetics-desktop.avif",
+          "thumbW": 480,
+          "thumbH": 1546,
+          "thumbBytes": 36136,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        },
+        "mobile": {
+          "segments": [
+            {
+              "image": "/record/shots/sciences-genetics-mobile.avif",
+              "w": 390,
+              "h": 7180,
+              "bytes": 200090
+            }
+          ],
+          "thumb": "/record/shots/thumbs/sciences-genetics-mobile.avif",
+          "thumbW": 390,
+          "thumbH": 7180,
+          "thumbBytes": 173378,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        }
+      }
+    },
+    {
+      "routeId": "/sciences/geology/",
+      "kind": "page",
+      "title": "Geology Research — INSTAR Lab Sciences",
+      "status": "success",
+      "contentHash": "c2f7ed9f9092a25cc86aa40d87c9b32df948cc80c23daac98672c3ffea632028",
+      "capturedAt": "2026-09-16T19:31:15.022Z",
+      "selfCapture": false,
+      "depictsGeneration": null,
+      "failure": null,
+      "artifacts": {
+        "desktop": {
+          "segments": [
+            {
+              "image": "/record/shots/sciences-geology-desktop.avif",
+              "w": 1440,
+              "h": 4110,
+              "bytes": 229646
+            }
+          ],
+          "thumb": "/record/shots/thumbs/sciences-geology-desktop.avif",
+          "thumbW": 480,
+          "thumbH": 1370,
+          "thumbBytes": 33756,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        },
+        "mobile": {
+          "segments": [
+            {
+              "image": "/record/shots/sciences-geology-mobile.avif",
+              "w": 390,
+              "h": 6598,
+              "bytes": 185944
+            }
+          ],
+          "thumb": "/record/shots/thumbs/sciences-geology-mobile.avif",
+          "thumbW": 390,
+          "thumbH": 6598,
+          "thumbBytes": 159869,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        }
+      }
+    },
+    {
+      "routeId": "/sciences/kinesiology/",
+      "kind": "page",
+      "title": "Kinesiology Research — INSTAR Lab Sciences",
+      "status": "success",
+      "contentHash": "8f4e61c926789a5a86033cdbe40f87a18ef145da2f2e23bb72c06d64b7c87134",
+      "capturedAt": "2026-09-16T19:31:29.052Z",
+      "selfCapture": false,
+      "depictsGeneration": null,
+      "failure": null,
+      "artifacts": {
+        "desktop": {
+          "segments": [
+            {
+              "image": "/record/shots/sciences-kinesiology-desktop.avif",
+              "w": 1440,
+              "h": 4143,
+              "bytes": 212651
+            }
+          ],
+          "thumb": "/record/shots/thumbs/sciences-kinesiology-desktop.avif",
+          "thumbW": 480,
+          "thumbH": 1381,
+          "thumbBytes": 30241,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        },
+        "mobile": {
+          "segments": [
+            {
+              "image": "/record/shots/sciences-kinesiology-mobile.avif",
+              "w": 390,
+              "h": 6608,
+              "bytes": 184571
+            }
+          ],
+          "thumb": "/record/shots/thumbs/sciences-kinesiology-mobile.avif",
+          "thumbW": 390,
+          "thumbH": 6608,
+          "thumbBytes": 159424,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        }
+      }
+    },
+    {
+      "routeId": "/sciences/law/",
+      "kind": "page",
+      "title": "Law & Legal Research — INSTAR Lab Sciences",
+      "status": "success",
+      "contentHash": "caa794638a37b1e1c2509c6742e94618c180ed645726feb4c330e2456720ce99",
+      "capturedAt": "2026-09-16T19:31:39.486Z",
+      "selfCapture": false,
+      "depictsGeneration": null,
+      "failure": null,
+      "artifacts": {
+        "desktop": {
+          "segments": [
+            {
+              "image": "/record/shots/sciences-law-desktop.avif",
+              "w": 1440,
+              "h": 4637,
+              "bytes": 241317
+            }
+          ],
+          "thumb": "/record/shots/thumbs/sciences-law-desktop.avif",
+          "thumbW": 480,
+          "thumbH": 1546,
+          "thumbBytes": 35183,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        },
+        "mobile": {
+          "segments": [
+            {
+              "image": "/record/shots/sciences-law-mobile.avif",
+              "w": 390,
+              "h": 7165,
+              "bytes": 196299
+            }
+          ],
+          "thumb": "/record/shots/thumbs/sciences-law-mobile.avif",
+          "thumbW": 390,
+          "thumbH": 7165,
+          "thumbBytes": 168815,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        }
+      }
+    },
+    {
+      "routeId": "/sciences/linguistics/",
+      "kind": "page",
+      "title": "Linguistics Research — INSTAR Lab Sciences",
+      "status": "success",
+      "contentHash": "7b683194772d9c75d72fbb258f7efb3ab1e5e763e62a9c8ba3dbd9bae0787cf0",
+      "capturedAt": "2026-09-16T19:31:48.717Z",
+      "selfCapture": false,
+      "depictsGeneration": null,
+      "failure": null,
+      "artifacts": {
+        "desktop": {
+          "segments": [
+            {
+              "image": "/record/shots/sciences-linguistics-desktop.avif",
+              "w": 1440,
+              "h": 4143,
+              "bytes": 215420
+            }
+          ],
+          "thumb": "/record/shots/thumbs/sciences-linguistics-desktop.avif",
+          "thumbW": 480,
+          "thumbH": 1381,
+          "thumbBytes": 30150,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        },
+        "mobile": {
+          "segments": [
+            {
+              "image": "/record/shots/sciences-linguistics-mobile.avif",
+              "w": 390,
+              "h": 6660,
+              "bytes": 178640
+            }
+          ],
+          "thumb": "/record/shots/thumbs/sciences-linguistics-mobile.avif",
+          "thumbW": 390,
+          "thumbH": 6660,
+          "thumbBytes": 154736,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        }
+      }
+    },
+    {
+      "routeId": "/sciences/materials-science/",
+      "kind": "page",
+      "title": "Materials Science Research — INSTAR Lab Sciences",
+      "status": "success",
+      "contentHash": "4e1cb69f836c0f856cc2d27150b7349519a850e0cf06fa380d46a95fdd806f69",
+      "capturedAt": "2026-09-16T19:32:00.573Z",
+      "selfCapture": false,
+      "depictsGeneration": null,
+      "failure": null,
+      "artifacts": {
+        "desktop": {
+          "segments": [
+            {
+              "image": "/record/shots/sciences-materials-science-desktop.avif",
+              "w": 1440,
+              "h": 4670,
+              "bytes": 266239
+            }
+          ],
+          "thumb": "/record/shots/thumbs/sciences-materials-science-desktop.avif",
+          "thumbW": 480,
+          "thumbH": 1557,
+          "thumbBytes": 39793,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        },
+        "mobile": {
+          "segments": [
+            {
+              "image": "/record/shots/sciences-materials-science-mobile.avif",
+              "w": 390,
+              "h": 7244,
+              "bytes": 214359
+            }
+          ],
+          "thumb": "/record/shots/thumbs/sciences-materials-science-mobile.avif",
+          "thumbW": 390,
+          "thumbH": 7244,
+          "thumbBytes": 185247,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        }
+      }
+    },
+    {
+      "routeId": "/sciences/medicine/",
+      "kind": "page",
+      "title": "Medicine & Health Research — INSTAR Lab Sciences",
+      "status": "success",
+      "contentHash": "d92c29192191a279403cb2dd20aa587998f677d3fdb2ad676a3fd1deb2415530",
+      "capturedAt": "2026-09-16T19:32:10.038Z",
+      "selfCapture": false,
+      "depictsGeneration": null,
+      "failure": null,
+      "artifacts": {
+        "desktop": {
+          "segments": [
+            {
+              "image": "/record/shots/sciences-medicine-desktop.avif",
+              "w": 1440,
+              "h": 4637,
+              "bytes": 236855
+            }
+          ],
+          "thumb": "/record/shots/thumbs/sciences-medicine-desktop.avif",
+          "thumbW": 480,
+          "thumbH": 1546,
+          "thumbBytes": 35108,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        },
+        "mobile": {
+          "segments": [
+            {
+              "image": "/record/shots/sciences-medicine-mobile.avif",
+              "w": 390,
+              "h": 7217,
+              "bytes": 196570
+            }
+          ],
+          "thumb": "/record/shots/thumbs/sciences-medicine-mobile.avif",
+          "thumbW": 390,
+          "thumbH": 7217,
+          "thumbBytes": 168515,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        }
+      }
+    },
+    {
+      "routeId": "/sciences/neuroscience/",
+      "kind": "page",
+      "title": "Neuroscience Research — INSTAR Lab Sciences",
+      "status": "success",
+      "contentHash": "a8e83e95025522d848fcb14048f9f6d6a91fc94650b033c3cb5704092c85ea20",
+      "capturedAt": "2026-09-16T19:32:15.324Z",
+      "selfCapture": false,
+      "depictsGeneration": null,
+      "failure": null,
+      "artifacts": {
+        "desktop": {
+          "segments": [
+            {
+              "image": "/record/shots/sciences-neuroscience-desktop.avif",
+              "w": 1440,
+              "h": 4143,
+              "bytes": 224830
+            }
+          ],
+          "thumb": "/record/shots/thumbs/sciences-neuroscience-desktop.avif",
+          "thumbW": 480,
+          "thumbH": 1381,
+          "thumbBytes": 33065,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        },
+        "mobile": {
+          "segments": [
+            {
+              "image": "/record/shots/sciences-neuroscience-mobile.avif",
+              "w": 390,
+              "h": 6660,
+              "bytes": 182094
+            }
+          ],
+          "thumb": "/record/shots/thumbs/sciences-neuroscience-mobile.avif",
+          "thumbW": 390,
+          "thumbH": 6660,
+          "thumbBytes": 157159,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        }
+      }
+    },
+    {
+      "routeId": "/sciences/ocean-science/",
+      "kind": "page",
+      "title": "Ocean Science Research — INSTAR Lab Sciences",
+      "status": "success",
+      "contentHash": "549e2ade73c5e645c767fe8aa20b750891c84f50c37e412772ebd2b4bb1799c1",
+      "capturedAt": "2026-09-16T19:32:25.410Z",
+      "selfCapture": false,
+      "depictsGeneration": null,
+      "failure": null,
+      "artifacts": {
+        "desktop": {
+          "segments": [
+            {
+              "image": "/record/shots/sciences-ocean-science-desktop.avif",
+              "w": 1440,
+              "h": 4637,
+              "bytes": 249591
+            }
+          ],
+          "thumb": "/record/shots/thumbs/sciences-ocean-science-desktop.avif",
+          "thumbW": 480,
+          "thumbH": 1546,
+          "thumbBytes": 36046,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        },
+        "mobile": {
+          "segments": [
+            {
+              "image": "/record/shots/sciences-ocean-science-mobile.avif",
+              "w": 390,
+              "h": 7219,
+              "bytes": 201082
+            }
+          ],
+          "thumb": "/record/shots/thumbs/sciences-ocean-science-mobile.avif",
+          "thumbW": 390,
+          "thumbH": 7219,
+          "thumbBytes": 172439,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        }
+      }
+    },
+    {
+      "routeId": "/sciences/outer-space/",
+      "kind": "page",
+      "title": "Outer Space Research — INSTAR Lab Sciences",
+      "status": "success",
+      "contentHash": "0cf00de5b8c83085c12225afc42eb4a8976d3f84b02ae134a98ded5adb01d6a7",
+      "capturedAt": "2026-09-16T19:32:31.379Z",
+      "selfCapture": false,
+      "depictsGeneration": null,
+      "failure": null,
+      "artifacts": {
+        "desktop": {
+          "segments": [
+            {
+              "image": "/record/shots/sciences-outer-space-desktop.avif",
+              "w": 1440,
+              "h": 4637,
+              "bytes": 241122
+            }
+          ],
+          "thumb": "/record/shots/thumbs/sciences-outer-space-desktop.avif",
+          "thumbW": 480,
+          "thumbH": 1546,
+          "thumbBytes": 35027,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        },
+        "mobile": {
+          "segments": [
+            {
+              "image": "/record/shots/sciences-outer-space-mobile.avif",
+              "w": 390,
+              "h": 7193,
+              "bytes": 198095
+            }
+          ],
+          "thumb": "/record/shots/thumbs/sciences-outer-space-mobile.avif",
+          "thumbW": 390,
+          "thumbH": 7193,
+          "thumbBytes": 168807,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        }
+      }
+    },
+    {
+      "routeId": "/sciences/physics/",
+      "kind": "page",
+      "title": "Physics Research — INSTAR Lab Sciences",
+      "status": "success",
+      "contentHash": "39b05eae464262425a89af8865915e1ceddf540bf06dbe6bdb6b8da6216acd87",
+      "capturedAt": "2026-09-16T19:32:37.336Z",
+      "selfCapture": false,
+      "depictsGeneration": null,
+      "failure": null,
+      "artifacts": {
+        "desktop": {
+          "segments": [
+            {
+              "image": "/record/shots/sciences-physics-desktop.avif",
+              "w": 1440,
+              "h": 4637,
+              "bytes": 263565
+            }
+          ],
+          "thumb": "/record/shots/thumbs/sciences-physics-desktop.avif",
+          "thumbW": 480,
+          "thumbH": 1546,
+          "thumbBytes": 40169,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        },
+        "mobile": {
+          "segments": [
+            {
+              "image": "/record/shots/sciences-physics-mobile.avif",
+              "w": 390,
+              "h": 7155,
+              "bytes": 208601
+            }
+          ],
+          "thumb": "/record/shots/thumbs/sciences-physics-mobile.avif",
+          "thumbW": 390,
+          "thumbH": 7155,
+          "thumbBytes": 179683,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        }
+      }
+    },
+    {
+      "routeId": "/sciences/physiology/",
+      "kind": "page",
+      "title": "Physiology Research — INSTAR Lab Sciences",
+      "status": "success",
+      "contentHash": "d3cd3f4b3bc8b2d85045cb1cabe7c726f201fcea1a7c52629d9fa6e69f91997b",
+      "capturedAt": "2026-09-16T19:32:47.489Z",
+      "selfCapture": false,
+      "depictsGeneration": null,
+      "failure": null,
+      "artifacts": {
+        "desktop": {
+          "segments": [
+            {
+              "image": "/record/shots/sciences-physiology-desktop.avif",
+              "w": 1440,
+              "h": 4143,
+              "bytes": 210345
+            }
+          ],
+          "thumb": "/record/shots/thumbs/sciences-physiology-desktop.avif",
+          "thumbW": 480,
+          "thumbH": 1381,
+          "thumbBytes": 29755,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        },
+        "mobile": {
+          "segments": [
+            {
+              "image": "/record/shots/sciences-physiology-mobile.avif",
+              "w": 390,
+              "h": 6660,
+              "bytes": 175144
+            }
+          ],
+          "thumb": "/record/shots/thumbs/sciences-physiology-mobile.avif",
+          "thumbW": 390,
+          "thumbH": 6660,
+          "thumbBytes": 151345,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        }
+      }
+    },
+    {
+      "routeId": "/sciences/psychology/",
+      "kind": "page",
+      "title": "Psychology Research — INSTAR Lab Sciences",
+      "status": "success",
+      "contentHash": "c14486cef69ff074c2513a4c507a2f9719dfa1ad4ee18d0c5cf64d119b5c12ab",
+      "capturedAt": "2026-09-16T19:32:52.804Z",
+      "selfCapture": false,
+      "depictsGeneration": null,
+      "failure": null,
+      "artifacts": {
+        "desktop": {
+          "segments": [
+            {
+              "image": "/record/shots/sciences-psychology-desktop.avif",
+              "w": 1440,
+              "h": 4670,
+              "bytes": 228612
+            }
+          ],
+          "thumb": "/record/shots/thumbs/sciences-psychology-desktop.avif",
+          "thumbW": 480,
+          "thumbH": 1557,
+          "thumbBytes": 32798,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        },
+        "mobile": {
+          "segments": [
+            {
+              "image": "/record/shots/sciences-psychology-mobile.avif",
+              "w": 390,
+              "h": 7217,
+              "bytes": 194930
+            }
+          ],
+          "thumb": "/record/shots/thumbs/sciences-psychology-mobile.avif",
+          "thumbW": 390,
+          "thumbH": 7217,
+          "thumbBytes": 166515,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        }
+      }
+    },
+    {
+      "routeId": "/sciences/sociology/",
+      "kind": "page",
+      "title": "Sociology Research — INSTAR Lab Sciences",
+      "status": "success",
+      "contentHash": "5818f6563f4cc77535941468800b569190292947d7da9524d083a1e0fa960626",
+      "capturedAt": "2026-09-16T19:33:00.534Z",
+      "selfCapture": false,
+      "depictsGeneration": null,
+      "failure": null,
+      "artifacts": {
+        "desktop": {
+          "segments": [
+            {
+              "image": "/record/shots/sciences-sociology-desktop.avif",
+              "w": 1440,
+              "h": 4110,
+              "bytes": 222996
+            }
+          ],
+          "thumb": "/record/shots/thumbs/sciences-sociology-desktop.avif",
+          "thumbW": 480,
+          "thumbH": 1370,
+          "thumbBytes": 32526,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        },
+        "mobile": {
+          "segments": [
+            {
+              "image": "/record/shots/sciences-sociology-mobile.avif",
+              "w": 390,
+              "h": 6660,
+              "bytes": 181994
+            }
+          ],
+          "thumb": "/record/shots/thumbs/sciences-sociology-mobile.avif",
+          "thumbW": 390,
+          "thumbH": 6660,
+          "thumbBytes": 157204,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        }
+      }
+    },
+    {
+      "routeId": "/search/",
+      "kind": "utility",
+      "title": "Search — INSTAR Lab",
+      "status": "success",
+      "contentHash": "b90b3d6a18dbd4b0c0ea7d28d92d42c0b5e02f4d76d9ee62e07b8bc8d067d72d",
+      "capturedAt": "2026-09-16T19:33:07.582Z",
+      "selfCapture": false,
+      "depictsGeneration": null,
+      "failure": null,
+      "artifacts": {
+        "desktop": {
+          "segments": [
+            {
+              "image": "/record/shots/search-desktop.avif",
+              "w": 1440,
+              "h": 7756,
+              "bytes": 722143
+            }
+          ],
+          "thumb": "/record/shots/thumbs/search-desktop.avif",
+          "thumbW": 480,
+          "thumbH": 2585,
+          "thumbBytes": 77558,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        },
+        "mobile": {
+          "segments": [
+            {
+              "image": "/record/shots/search-mobile-p1.avif",
+              "w": 390,
+              "h": 10015,
+              "bytes": 354236
+            },
+            {
+              "image": "/record/shots/search-mobile-p2.avif",
+              "w": 390,
+              "h": 10015,
+              "bytes": 375354
+            }
+          ],
+          "thumb": "/record/shots/thumbs/search-mobile.avif",
+          "thumbW": 312,
+          "thumbH": 16000,
+          "thumbBytes": 404140,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        }
+      }
+    },
+    {
+      "routeId": "/tech-transfer/enterprise-rd/",
+      "kind": "page",
+      "title": "Enterprise R&D — INSTAR Lab Technology Transfer",
+      "status": "success",
+      "contentHash": "cfea96b0df8f45e7922634f6b29b75f671a0d909de86c9c5cd59f84736ac8b2e",
+      "capturedAt": "2026-09-16T19:33:14.035Z",
+      "selfCapture": false,
+      "depictsGeneration": null,
+      "failure": null,
+      "artifacts": {
+        "desktop": {
+          "segments": [
+            {
+              "image": "/record/shots/tech-transfer-enterprise-rd-desktop.avif",
+              "w": 1440,
+              "h": 4123,
+              "bytes": 228785
+            }
+          ],
+          "thumb": "/record/shots/thumbs/tech-transfer-enterprise-rd-desktop.avif",
+          "thumbW": 480,
+          "thumbH": 1374,
+          "thumbBytes": 33667,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        },
+        "mobile": {
+          "segments": [
+            {
+              "image": "/record/shots/tech-transfer-enterprise-rd-mobile.avif",
+              "w": 390,
+              "h": 7010,
+              "bytes": 204638
+            }
+          ],
+          "thumb": "/record/shots/thumbs/tech-transfer-enterprise-rd-mobile.avif",
+          "thumbW": 390,
+          "thumbH": 7010,
+          "thumbBytes": 174014,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        }
+      }
+    },
+    {
+      "routeId": "/tech-transfer/portfolio/",
+      "kind": "page",
+      "title": "Research Portfolio — INSTAR Lab Technology Transfer",
+      "status": "success",
+      "contentHash": "c37bf3dcffa966d7932d377f4681b30342c6cb18649e915845c3595e3ff31f23",
+      "capturedAt": "2026-09-16T19:33:20.988Z",
+      "selfCapture": false,
+      "depictsGeneration": null,
+      "failure": null,
+      "artifacts": {
+        "desktop": {
+          "segments": [
+            {
+              "image": "/record/shots/tech-transfer-portfolio-desktop.avif",
+              "w": 1440,
+              "h": 4098,
+              "bytes": 218172
+            }
+          ],
+          "thumb": "/record/shots/thumbs/tech-transfer-portfolio-desktop.avif",
+          "thumbW": 480,
+          "thumbH": 1366,
+          "thumbBytes": 32254,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        },
+        "mobile": {
+          "segments": [
+            {
+              "image": "/record/shots/tech-transfer-portfolio-mobile.avif",
+              "w": 390,
+              "h": 6397,
+              "bytes": 180253
+            }
+          ],
+          "thumb": "/record/shots/thumbs/tech-transfer-portfolio-mobile.avif",
+          "thumbW": 390,
+          "thumbH": 6397,
+          "thumbBytes": 155141,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        }
+      }
+    },
+    {
+      "routeId": "/tech-transfer/sttr-programs/",
+      "kind": "page",
+      "title": "STTR Programs — INSTAR Lab Technology Transfer",
+      "status": "success",
+      "contentHash": "5bd82755435fc5c9c6259271f690916f1c7eb765f2bf690e3b61f218b522e6f4",
+      "capturedAt": "2026-09-16T19:33:32.311Z",
+      "selfCapture": false,
+      "depictsGeneration": null,
+      "failure": null,
+      "artifacts": {
+        "desktop": {
+          "segments": [
+            {
+              "image": "/record/shots/tech-transfer-sttr-programs-desktop.avif",
+              "w": 1440,
+              "h": 4089,
+              "bytes": 220787
+            }
+          ],
+          "thumb": "/record/shots/thumbs/tech-transfer-sttr-programs-desktop.avif",
+          "thumbW": 480,
+          "thumbH": 1363,
+          "thumbBytes": 31002,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        },
+        "mobile": {
+          "segments": [
+            {
+              "image": "/record/shots/tech-transfer-sttr-programs-mobile.avif",
+              "w": 390,
+              "h": 6855,
+              "bytes": 195764
+            }
+          ],
+          "thumb": "/record/shots/thumbs/tech-transfer-sttr-programs-mobile.avif",
+          "thumbW": 390,
+          "thumbH": 6855,
+          "thumbBytes": 167545,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        }
+      }
+    },
+    {
+      "routeId": "/tech-transfer/workshops-events/",
+      "kind": "page",
+      "title": "Workshops & Events — INSTAR Lab Technology Transfer",
+      "status": "success",
+      "contentHash": "d68b5d1eb6285a564bffaa4b0ef8c2bcc61bdaf2dbf833addde74eea2aea54fe",
+      "capturedAt": "2026-09-16T19:33:40.224Z",
+      "selfCapture": false,
+      "depictsGeneration": null,
+      "failure": null,
+      "artifacts": {
+        "desktop": {
+          "segments": [
+            {
+              "image": "/record/shots/tech-transfer-workshops-events-desktop.avif",
+              "w": 1440,
+              "h": 3535,
+              "bytes": 186298
+            }
+          ],
+          "thumb": "/record/shots/thumbs/tech-transfer-workshops-events-desktop.avif",
+          "thumbW": 480,
+          "thumbH": 1178,
+          "thumbBytes": 27614,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        },
+        "mobile": {
+          "segments": [
+            {
+              "image": "/record/shots/tech-transfer-workshops-events-mobile.avif",
+              "w": 390,
+              "h": 5536,
+              "bytes": 154234
+            }
+          ],
+          "thumb": "/record/shots/thumbs/tech-transfer-workshops-events-mobile.avif",
+          "thumbW": 390,
+          "thumbH": 5536,
+          "thumbBytes": 131824,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        }
+      }
+    },
+    {
+      "routeId": "/technology/augmented-reality/",
+      "kind": "page",
+      "title": "Augmented Reality Research — INSTAR Lab Technology",
+      "status": "success",
+      "contentHash": "cfbb3ba713b14db9cf6df22c7832d68df259ddc822ce2818dbfc3c00c58e208c",
+      "capturedAt": "2026-09-16T19:33:52.018Z",
+      "selfCapture": false,
+      "depictsGeneration": null,
+      "failure": null,
+      "artifacts": {
+        "desktop": {
+          "segments": [
+            {
+              "image": "/record/shots/technology-augmented-reality-desktop.avif",
+              "w": 1440,
+              "h": 4670,
+              "bytes": 251782
+            }
+          ],
+          "thumb": "/record/shots/thumbs/technology-augmented-reality-desktop.avif",
+          "thumbW": 480,
+          "thumbH": 1557,
+          "thumbBytes": 36645,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        },
+        "mobile": {
+          "segments": [
+            {
+              "image": "/record/shots/technology-augmented-reality-mobile.avif",
+              "w": 390,
+              "h": 7295,
+              "bytes": 213502
+            }
+          ],
+          "thumb": "/record/shots/thumbs/technology-augmented-reality-mobile.avif",
+          "thumbW": 390,
+          "thumbH": 7295,
+          "thumbBytes": 182501,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        }
+      }
+    },
+    {
+      "routeId": "/technology/computer-science/",
+      "kind": "page",
+      "title": "Computer Science Research — INSTAR Lab Technology",
+      "status": "success",
+      "contentHash": "2e5a8117993afea099103796252cf830c04e001f23ec4d9d2fa9a209f3cccc44",
+      "capturedAt": "2026-09-16T19:33:53.380Z",
+      "selfCapture": false,
+      "depictsGeneration": null,
+      "failure": null,
+      "artifacts": {
+        "desktop": {
+          "segments": [
+            {
+              "image": "/record/shots/technology-computer-science-desktop.avif",
+              "w": 1440,
+              "h": 4088,
+              "bytes": 226572
+            }
+          ],
+          "thumb": "/record/shots/thumbs/technology-computer-science-desktop.avif",
+          "thumbW": 480,
+          "thumbH": 1363,
+          "thumbBytes": 32408,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        },
+        "mobile": {
+          "segments": [
+            {
+              "image": "/record/shots/technology-computer-science-mobile.avif",
+              "w": 390,
+              "h": 6860,
+              "bytes": 196421
+            }
+          ],
+          "thumb": "/record/shots/thumbs/technology-computer-science-mobile.avif",
+          "thumbW": 390,
+          "thumbH": 6860,
+          "thumbBytes": 169675,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        }
+      }
+    },
+    {
+      "routeId": "/technology/data-science/",
+      "kind": "page",
+      "title": "Data Science Research — INSTAR Lab Technology",
+      "status": "success",
+      "contentHash": "6c8e31732b66f71a832303f3a06d282d1ae3c667fc1c99e7f3abc8f76427a4a3",
+      "capturedAt": "2026-09-16T19:34:00.929Z",
+      "selfCapture": false,
+      "depictsGeneration": null,
+      "failure": null,
+      "artifacts": {
+        "desktop": {
+          "segments": [
+            {
+              "image": "/record/shots/technology-data-science-desktop.avif",
+              "w": 1440,
+              "h": 4056,
+              "bytes": 230490
+            }
+          ],
+          "thumb": "/record/shots/thumbs/technology-data-science-desktop.avif",
+          "thumbW": 480,
+          "thumbH": 1352,
+          "thumbBytes": 31785,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        },
+        "mobile": {
+          "segments": [
+            {
+              "image": "/record/shots/technology-data-science-mobile.avif",
+              "w": 390,
+              "h": 6808,
+              "bytes": 194080
+            }
+          ],
+          "thumb": "/record/shots/thumbs/technology-data-science-mobile.avif",
+          "thumbW": 390,
+          "thumbH": 6808,
+          "thumbBytes": 166225,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        }
+      }
+    },
+    {
+      "routeId": "/technology/formal-methods/",
+      "kind": "page",
+      "title": "Formal Methods Research — INSTAR Lab Technology",
+      "status": "success",
+      "contentHash": "3629ac6b973f7dd70d2fa28c4c1e086aa35faf727cc2f2a8671b26e1c72f42e7",
+      "capturedAt": "2026-09-16T19:34:19.889Z",
+      "selfCapture": false,
+      "depictsGeneration": null,
+      "failure": null,
+      "artifacts": {
+        "desktop": {
+          "segments": [
+            {
+              "image": "/record/shots/technology-formal-methods-desktop.avif",
+              "w": 1440,
+              "h": 4638,
+              "bytes": 250617
+            }
+          ],
+          "thumb": "/record/shots/thumbs/technology-formal-methods-desktop.avif",
+          "thumbW": 480,
+          "thumbH": 1546,
+          "thumbBytes": 35949,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        },
+        "mobile": {
+          "segments": [
+            {
+              "image": "/record/shots/technology-formal-methods-mobile.avif",
+              "w": 390,
+              "h": 7295,
+              "bytes": 211293
+            }
+          ],
+          "thumb": "/record/shots/thumbs/technology-formal-methods-mobile.avif",
+          "thumbW": 390,
+          "thumbH": 7295,
+          "thumbBytes": 181128,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        }
+      }
+    },
+    {
+      "routeId": "/technology/machine-intelligence/",
+      "kind": "page",
+      "title": "Machine Intelligence Research — INSTAR Lab Technology",
+      "status": "success",
+      "contentHash": "6798c487684522baf24f39b6237b3c3589d9c8d286d4128f55107d3bb4e64069",
+      "capturedAt": "2026-09-16T19:34:20.683Z",
+      "selfCapture": false,
+      "depictsGeneration": null,
+      "failure": null,
+      "artifacts": {
+        "desktop": {
+          "segments": [
+            {
+              "image": "/record/shots/technology-machine-intelligence-desktop.avif",
+              "w": 1440,
+              "h": 4670,
+              "bytes": 264344
+            }
+          ],
+          "thumb": "/record/shots/thumbs/technology-machine-intelligence-desktop.avif",
+          "thumbW": 480,
+          "thumbH": 1557,
+          "thumbBytes": 39543,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        },
+        "mobile": {
+          "segments": [
+            {
+              "image": "/record/shots/technology-machine-intelligence-mobile.avif",
+              "w": 390,
+              "h": 7281,
+              "bytes": 217915
+            }
+          ],
+          "thumb": "/record/shots/thumbs/technology-machine-intelligence-mobile.avif",
+          "thumbW": 390,
+          "thumbH": 7281,
+          "thumbBytes": 188288,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        }
+      }
+    },
+    {
+      "routeId": "/technology/natural-language-processing/",
+      "kind": "page",
+      "title": "Natural Language Processing Research — INSTAR Lab Technology",
+      "status": "success",
+      "contentHash": "415f82c590fe590689d5a0cdff3357c78ddd8c32f06e4624430fe12b3773b3d4",
+      "capturedAt": "2026-09-16T19:34:23.412Z",
+      "selfCapture": false,
+      "depictsGeneration": null,
+      "failure": null,
+      "artifacts": {
+        "desktop": {
+          "segments": [
+            {
+              "image": "/record/shots/technology-natural-language-processing-desktop.avif",
+              "w": 1440,
+              "h": 4088,
+              "bytes": 233755
+            }
+          ],
+          "thumb": "/record/shots/thumbs/technology-natural-language-processing-desktop.avif",
+          "thumbW": 480,
+          "thumbH": 1363,
+          "thumbBytes": 33188,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        },
+        "mobile": {
+          "segments": [
+            {
+              "image": "/record/shots/technology-natural-language-processing-mobile.avif",
+              "w": 390,
+              "h": 6991,
+              "bytes": 204510
+            }
+          ],
+          "thumb": "/record/shots/thumbs/technology-natural-language-processing-mobile.avif",
+          "thumbW": 390,
+          "thumbH": 6991,
+          "thumbBytes": 175534,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        }
+      }
+    },
+    {
+      "routeId": "/technology/quantum-computing/",
+      "kind": "page",
+      "title": "Quantum Computing Research — INSTAR Lab Technology",
+      "status": "success",
+      "contentHash": "bd89d0c62a8fa557d4ffccf4731cba9bd2956a1117478077943706efc820f587",
+      "capturedAt": "2026-09-16T19:34:42.000Z",
+      "selfCapture": false,
+      "depictsGeneration": null,
+      "failure": null,
+      "artifacts": {
+        "desktop": {
+          "segments": [
+            {
+              "image": "/record/shots/technology-quantum-computing-desktop.avif",
+              "w": 1440,
+              "h": 4670,
+              "bytes": 250158
+            }
+          ],
+          "thumb": "/record/shots/thumbs/technology-quantum-computing-desktop.avif",
+          "thumbW": 480,
+          "thumbH": 1557,
+          "thumbBytes": 36501,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        },
+        "mobile": {
+          "segments": [
+            {
+              "image": "/record/shots/technology-quantum-computing-mobile.avif",
+              "w": 390,
+              "h": 7281,
+              "bytes": 210909
+            }
+          ],
+          "thumb": "/record/shots/thumbs/technology-quantum-computing-mobile.avif",
+          "thumbW": 390,
+          "thumbH": 7281,
+          "thumbBytes": 180867,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        }
+      }
+    },
+    {
+      "routeId": "/terms/",
+      "kind": "page",
+      "title": "Terms of Use — INSTAR Lab",
+      "status": "success",
+      "contentHash": "74bc6a643da9b15740f9a61877e6b96face5d5b01bad12509fc93db12552efd3",
+      "capturedAt": "2026-09-16T19:34:45.225Z",
+      "selfCapture": false,
+      "depictsGeneration": null,
+      "failure": null,
+      "artifacts": {
+        "desktop": {
+          "segments": [
+            {
+              "image": "/record/shots/terms-desktop.avif",
+              "w": 1440,
+              "h": 2188,
+              "bytes": 112553
+            }
+          ],
+          "thumb": "/record/shots/thumbs/terms-desktop.avif",
+          "thumbW": 480,
+          "thumbH": 729,
+          "thumbBytes": 15149,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        },
+        "mobile": {
+          "segments": [
+            {
+              "image": "/record/shots/terms-mobile.avif",
+              "w": 390,
+              "h": 3032,
+              "bytes": 90664
+            }
+          ],
+          "thumb": "/record/shots/thumbs/terms-mobile.avif",
+          "thumbW": 390,
+          "thumbH": 3032,
+          "thumbBytes": 77897,
+          "httpStatus": 200,
+          "unsettledImages": 0
+        }
+      }
+    }
+  ]
 }
