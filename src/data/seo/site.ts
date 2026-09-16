@@ -20,8 +20,14 @@ export interface SeoSiteIdentity {
 }
 
 /**
- * The custom domain redirects the apex host to www. Keep absolute discovery
- * URLs on the host visitors and crawlers actually receive.
+ * Canonical-host decision (gh#335): www is the single canonical host.
+ *
+ * The custom domain redirects the apex host to www, so keep absolute
+ * discovery URLs on the host visitors and crawlers actually receive. That is
+ * why this origin, `public/CNAME`, `public/robots.txt`, the sitemap, and
+ * every canonical/OG URL the shared shell emits all use www: one host, no
+ * authority split. There are no non-www absolute URLs in src/ — keep it that
+ * way so a future edit cannot reintroduce the duplicate-content signal.
  */
 export const siteOrigin = 'https://www.instarlab.org' as const;
 

@@ -157,7 +157,7 @@ export const instarResearchTechnologySciencesRoutes = [
   },
   {
     family: 'sciences', slug: 'cognitive-sciences', path: '/sciences/cognitive-sciences/', key: 'cognitive-sciences',
-    title: 'Cognitive Sciences Research — INSTAR Lab',
+    title: 'Cognitive Sciences Research — INSTAR Lab Sciences',
     description: 'INSTAR Lab researches cognition, learning, and mental representation through computational modeling, neuroscience, and interdisciplinary approaches spanning psychology and AI.',
     heading: 'COGNITIVE SCIENCES', banner: 'img/banners/sciences-cognitive-sciences.avif', primaryMedia: '../../img/pages/cognitive-sciences/hero.avif',
     composition: 'science-narrative', pageSignature: 'orientation → discipline focus → research evidence → open-data guardrail → invitation',
@@ -203,7 +203,7 @@ export const instarResearchTechnologySciencesRoutes = [
   },
   {
     family: 'sciences', slug: 'materials-science', path: '/sciences/materials-science/', key: 'materials-science',
-    title: 'Materials Science Research — INSTAR Lab', description: 'Use AI-assisted discovery, quantum modeling, simulation, and characterization to investigate materials for energy, computing, and resilient infrastructure.', heading: 'MATERIALS SCIENCE', banner: 'img/banners/sciences-materials-science.avif', primaryMedia: '../../img/pages/materials-science/hero.avif',
+    title: 'Materials Science Research — INSTAR Lab Sciences', description: 'Use AI-assisted discovery, quantum modeling, simulation, and characterization to investigate materials for energy, computing, and resilient infrastructure.', heading: 'MATERIALS SCIENCE', banner: 'img/banners/sciences-materials-science.avif', primaryMedia: '../../img/pages/materials-science/hero.avif',
     composition: 'science-narrative', pageSignature: 'orientation → discipline focus → research evidence → open-data guardrail → invitation',
   },
   {
