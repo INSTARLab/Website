@@ -45,7 +45,7 @@ export function relatedArticles(
     .filter((candidate) => candidate.id !== article.id)
     .map((candidate) => ({
       article: candidate,
-      overlap: candidate.data.topics.reduce<number>(
+      overlap: candidate.data.topics.reduce(
         (score: number, topic: ArticleTopic) => score + (topics.has(topic.toLocaleLowerCase()) ? 1 : 0),
         0,
       ),
