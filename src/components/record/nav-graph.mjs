@@ -787,7 +787,12 @@ export function buildLinkGraph(input) {
   if (!Array.isArray(journeys)) throw new TypeError('buildLinkGraph expects journeys as an array.');
   const base = input?.base ?? '/';
   const origin = input?.origin ?? DEFAULT_ORIGIN;
-  const generator = input?.generator ?? 'src/components/record/nav-graph.mjs';
+  // Path-free provenance label: the RR-301 repository-path gate fails any
+  // JSON endpoint whose body carries a `src/…` locator, and structured data
+  // must not publish repository paths (the corrections register keeps commit
+  // locators out of structured data for the same reason). Name the derivation,
+  // not the file that implements it.
+  const generator = input?.generator ?? 'record link-graph derivation (RRP-203)';
   const inventoryPaths = input?.inventory;
   if (inventoryPaths !== undefined && !Array.isArray(inventoryPaths)) {
     throw new TypeError('buildLinkGraph expects inventory as an array of route ids.');

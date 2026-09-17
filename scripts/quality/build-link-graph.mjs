@@ -138,7 +138,10 @@ const linkGraph = buildLinkGraph({
   inventory: [...compatNodes.keys()],
   base: options.base,
   origin: options.origin,
-  generator: "scripts/quality/build-link-graph.mjs + src/components/record/nav-graph.mjs",
+  // Path-free provenance label (never `src/…`): the RR-301 repository-path
+  // browser gate fails any JSON endpoint whose body carries a repository
+  // locator, so the generator names the derivation, not the files behind it.
+  generator: "record link-graph builder over the production build (RRP-203)",
 });
 
 const nodeIds = new Set(linkGraph.nodes.map((node) => node.id));

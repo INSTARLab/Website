@@ -234,6 +234,17 @@
   --bs-btn-focus-shadow-rgb: 16, 114, 186;
 }
 
+/* RRP-204 (#29). `.btn-outline-secondary` ships Bootstrap's #6c757d ink,
+ * which is 4.19:1 on the record ground (#edf3f8) — below AA for the small
+ * preview/finder/graph button labels. Bind the resting ink to the record's
+ * accessible muted token (5.20:1 on the same ground); hover keeps white ink
+ * on the secondary fill (4.83:1) and the border already clears the 3:1
+ * non-text threshold, so neither is rebound. */
+.record-body .btn-outline-secondary {
+  --bs-btn-color: var(--color-muted);
+  --bs-btn-focus-shadow-rgb: 88, 103, 117;
+}
+
 .record-body .progress-bar {
   --bs-progress-bar-bg: var(--color-brand);
 }

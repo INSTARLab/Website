@@ -124,7 +124,15 @@ const finderOptions = [
 
     <section class="record-section mt-5" aria-labelledby="nav-topology-title">
       <div class="d-flex flex-wrap justify-content-between align-items-end gap-3 mb-3">
-        <div><p class="record-section__label mb-2">Topology</p><h2 id="nav-topology-title" class="visually-hidden">Recorded link topology</h2></div>
+        {/*
+          RRP-204 (#29): this section heading must not repeat the RouteGraph
+          card title ("Recorded link topology") rendered below — the
+          navigable-outline gate fails pages that reuse a heading name. The
+          section keeps its generic name and stable id; the card keeps the
+          specific title. Touch only this line without coordinating with the
+          topology lane: the two names must stay distinct.
+        */}
+        <div><p class="record-section__label mb-2">Topology</p><h2 id="nav-topology-title" class="visually-hidden">Topology</h2></div>
       </div>
       <RouteGraph
         nodes={universe.nodes}

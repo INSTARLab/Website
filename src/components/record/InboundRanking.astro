@@ -32,7 +32,7 @@ const barWidth = (inbound: number) => `${Math.max(4, Math.round((inbound / peak)
   <div class="card-body p-4">
     <p class="record-section__label mb-2">Attention</p>
     <TitleTag id={`${id}-title`} class="mb-1">Top inbound pages</TitleTag>
-    <p class="small text-body-secondary">Where recorded journey flow concentrates. Counts are indegree over journey-step edges; next-action exits are excluded. Selecting a row previews the route and pins it in the topology below.</p>
+    <p class="small text-body-secondary">Where recorded journey flow concentrates. Counts are indegree over journey-step edges; next-action exits are excluded. Selecting a row previews the route and pins it in the topology below; the pinned row is exposed as the current item in the ranking.</p>
     {rows.length === 0 ? (
       <p class="small text-body-secondary mb-0" role="status">No journey flow is recorded yet.</p>
     ) : (
@@ -40,7 +40,7 @@ const barWidth = (inbound: number) => `${Math.max(4, Math.round((inbound / peak)
         <ol class="list-unstyled mb-0">
           {head.map((row) => (
             <li class="py-2 border-bottom" data-inbound-row={row.path}>
-              <a class="d-flex justify-content-between gap-2 text-decoration-none" href={recordHref(row.path)} data-inbound-link={row.path} aria-pressed="false">
+              <a class="d-flex justify-content-between gap-2 text-decoration-none" href={recordHref(row.path)} data-inbound-link={row.path}>
                 <span><strong>{row.title}</strong> {!row.inInventory && <span class="badge text-bg-warning ms-1">Journey route</span>}<span class="d-block small text-body-secondary">{row.path} · {row.journeys.join(' · ')}</span></span>
                 <strong class="font-monospace" aria-label={`${row.inbound} inbound journey steps`}>{row.inbound}</strong>
               </a>
@@ -54,7 +54,7 @@ const barWidth = (inbound: number) => `${Math.max(4, Math.round((inbound / peak)
             <ol class="list-unstyled mb-0" start={topN + 1}>
               {tail.map((row) => (
                 <li class="py-2 border-bottom" data-inbound-row={row.path}>
-                  <a class="d-flex justify-content-between gap-2 text-decoration-none" href={recordHref(row.path)} data-inbound-link={row.path} aria-pressed="false">
+                  <a class="d-flex justify-content-between gap-2 text-decoration-none" href={recordHref(row.path)} data-inbound-link={row.path}>
                     <span><strong>{row.title}</strong> {!row.inInventory && <span class="badge text-bg-warning ms-1">Journey route</span>}<span class="d-block small text-body-secondary">{row.path} · {row.journeys.join(' · ')}</span></span>
                     <strong class="font-monospace" aria-label={`${row.inbound} inbound journey steps`}>{row.inbound}</strong>
                   </a>

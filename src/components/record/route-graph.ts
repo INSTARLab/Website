@@ -39,8 +39,13 @@ function initGraph(root: HTMLElement): void {
   let pinned: string | null = null;
   const applyPin = (path: string | null): void => {
     pinned = path;
+    // `aria-pressed` is not a valid state for links (axe aria-allowed-attr),
+    // so the pinned ranking row is exposed as the current item in the
+    // ranking set instead. The rows stay plain links, so without scripts
+    // they navigate.
     for (const link of document.querySelectorAll<HTMLAnchorElement>('[data-inbound-link]')) {
-      link.setAttribute('aria-pressed', String(link.dataset.inboundLink === path));
+      if (link.dataset.inboundLink === path && path !== null) link.setAttribute('aria-current', 'true');
+      else link.removeAttribute('aria-current');
     }
     dimExcept(path ? neighbourhood(path) : null);
     if (path) preview(path);
