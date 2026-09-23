@@ -1,10 +1,10 @@
 # INSTAR Lab
 
-> INSTAR Lab Inc. is a 501(c)(3) nonprofit research institute conducting applied research in AI, quantum science, high-performance computing, health sciences, energy, space exploration, and the sciences for federal and institutional research partners.
+> The said corporation has a main purpose of advancing the Omniverse in scientific discovery to enhance research, development, theory, education, innovation, societal growth, sustainability, and stewardship of intelligent life forces by addressing challenges through transformative solutions and multidimensional exploration.
 
 ## Key pages
 - [About](https://www.instarlab.org/community/about-us/): Organization overview, research capacity, and governance
-- [Mission](https://www.instarlab.org/mission/): How INSTAR frames rigorous, interdisciplinary research
+- [Mission](https://www.instarlab.org/mission/): The said corporation has a main purpose of advancing the Omniverse in scientific discovery to enhance research, development, theory, education, innovation, societal growth, sustainability, and stewardship of intelligent life forces by addressing challenges through transformative solutions and multidimensional exploration.
 - [Research](https://www.instarlab.org/research/current-programs/): Active research programs and translational approach
 - [Sciences](https://www.instarlab.org/sciences/physics/): Scientific domains and AI-enabled research methods
 - [Technology](https://www.instarlab.org/technology/computer-science/): Technical methods and capabilities
