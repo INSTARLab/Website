@@ -21,7 +21,9 @@ const routeKindLabel = (kind: (typeof sitePageRecords)[number]['kind']) => ({ co
 
 // Visual sitemap derivations. The universe joins the route inventory with the
 // journey-only stops the recorded paths traverse; the ranking, finder, graph,
-// and preview all read this one derivation so they cannot disagree.
+// and preview all read this one derivation so they cannot disagree. The graph
+// and finder use it as their server-rendered journey fallback, then enhance
+// from the generated post-build linkGraph endpoint when that artifact exists.
 const universe = buildNavUniverse(sitePageRecords, recordJourneys);
 const ranking = inboundRanking(universe);
 const directoryEntries = families.flatMap((family) => sitePageRecords.filter((entry) => entry.family === family));

@@ -57,13 +57,17 @@ Assert that CSS returns `200` with `text/css`, media requests do not fail, and
 the browser console has no MIME-type errors. A matching commit SHA is not
 proof that the CDN has served the new asset paths.
 
-The `mirror` job runs only for the GitLab `gh-pages` pipeline. It confirms that
-the authoritative GitLab ref still equals the pipeline SHA, clones the
-existing GitHub `gh-pages` history, replaces that worktree with `dist/`, and
-compares file manifests before committing. It rechecks both remotes and uses a
-normal fast-forward push, so a concurrent GitHub update or GitLab promotion
-fails closed. GitLab and GitHub commit IDs intentionally differ because the
-GitHub commit contains the generated artifact.
+The `mirror` job runs only for the GitLab `gh-pages` pipeline. It builds the
+root artifact and runs `scripts/quality/validate-astro-artifact.sh` against
+that exact `dist/` before staging files or accessing either remote. The demo
+quality job calls the same validator for both `/Website/` and `/` artifacts.
+The mirror then confirms that the authoritative GitLab ref still equals the
+pipeline SHA, clones the existing GitHub `gh-pages` history, replaces that
+worktree with `dist/`, and compares file manifests before committing. It
+rechecks both remotes and uses a normal fast-forward push, so a concurrent
+GitHub update or GitLab promotion fails closed. GitLab and GitHub commit IDs
+intentionally differ because the GitHub commit contains the generated
+artifact.
 
 ## Required browser matrix
 

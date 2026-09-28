@@ -94,6 +94,21 @@ test("the home route keeps keyboard focus in the document", async ({ page }) => 
   expect(focusedElement).not.toBe("BODY");
 });
 
+test("research updates expose the RSS feed alongside the email fallback", async ({ page, baseURL }) => {
+  const configuredBase = new URL(baseURL ?? "http://127.0.0.1/");
+  const basePath = configuredBase.pathname.endsWith("/") ? configuredBase.pathname : `${configuredBase.pathname}/`;
+  await page.goto(`${configuredBase.origin}${basePath}`, { waitUntil: "domcontentloaded" });
+
+  const updates = page.locator(".site-footer__panel--newsletter");
+  const feed = updates.getByRole("link", { name: "Research updates RSS feed" });
+  await expect(feed).toBeVisible();
+  await expect(feed).toHaveAttribute("href", `${basePath}rss.xml`);
+  await expect(updates.getByRole("link", { name: /Email info@instarlab.org to receive research briefs/ })).toHaveAttribute(
+    "href",
+    "mailto:info@instarlab.org?subject=Research%20updates",
+  );
+});
+
 test("the client router preserves the editorial shell across navigation", async ({ page }) => {
   await page.goto("/", { waitUntil: "domcontentloaded" });
   await page.locator('.home-masthead__actions a[href="/research/current-programs/"]').click();
@@ -128,6 +143,55 @@ test("applicant and research routes keep route-appropriate framing", async ({ pa
       await expect(page.locator("main")).toContainText(route.required);
       const mainText = await page.locator("main").innerText();
       expect(mainText).not.toMatch(/what a sponsor should be able to evaluate|program officer|contracting team|solicitation|output a sponsor can evaluate/i);
+    });
+  }
+});
+
+test("community and exchange routes keep audience framing and source-defined actions", async ({ page }) => {
+  const routes = [
+    {
+      path: "/community/about-us/",
+      heading: "What to understand before choosing a next step.",
+      required: "Give a reader a clear view of the institution",
+      heroAction: "Continue with INSTAR",
+      sourceAction: "Review the leadership and institutional capacity.",
+      generic: /program officer|contracting team|what a sponsor should be able to evaluate|sponsor or collaborator/i,
+    },
+    {
+      path: "/community/careers/",
+      heading: "What a prospective researcher should know before applying.",
+      required: "Review the role families, current openings, and fellowship pathway",
+      heroAction: "Explore roles and fellowships",
+      sourceAction: "Express interest in a research or technical role.",
+      generic: /what a sponsor should be able to evaluate|sponsor or collaborator/i,
+    },
+    {
+      path: "/community/support/",
+      heading: "How to choose a way to support the work.",
+      required: "Review the one-time gift and Friends membership options",
+      heroAction: "Ask about support options",
+      sourceAction: "Choose a one-time gift or recurring Friends membership.",
+      generic: /what a sponsor should be able to evaluate|sponsor or collaborator/i,
+    },
+    {
+      path: "/tech-transfer/workshops-events/",
+      heading: "What a participant should know before joining an exchange.",
+      required: "Compare the workshop, seminar, and knowledge-exchange formats",
+      heroAction: "Request a research briefing or technical exchange",
+      sourceAction: "Request a research briefing or technical exchange.",
+      generic: /what a sponsor should be able to evaluate|sponsor or collaborator/i,
+    },
+  ];
+
+  for (const route of routes) {
+    await test.step(route.path, async () => {
+      await page.goto(route.path, { waitUntil: "domcontentloaded" });
+      await expect(page.locator(".editorial-brief h2")).toHaveText(route.heading);
+      await expect(page.locator("main")).toContainText(route.required);
+      await expect(page.locator(".editorial-actions").getByRole("link", { name: route.heroAction })).toBeVisible();
+      await expect(page.locator("main")).toContainText(route.sourceAction);
+      const mainText = await page.locator("main").innerText();
+      expect(mainText).not.toMatch(route.generic);
     });
   }
 });

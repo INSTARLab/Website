@@ -7,11 +7,9 @@
  * same source produces two different artifacts: one mounted below the GitLab
  * Pages project subpath, and one served from the CNAME root at
  * https://instarlab.org. A defect that exists at only one of the two bases is
- * invisible to a gate that builds only the other one — which is exactly the
- * hole this exists to close. `quality:astro-artifact` validated the
- * `/Website/` build; the artifact that actually ships is the root build, and
- * the only thing that ever looked at it was `mirror`, on the promotion branch,
- * after the release decision had already been taken.
+ * invisible to a gate that builds only the other one. The demo quality job
+ * checks both bases, and the gh-pages mirror checks its freshly rebuilt root
+ * artifact again before any remote publication.
  *
  * Two invariants are asserted, and both are true of whichever base is expected:
  *

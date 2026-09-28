@@ -30,11 +30,9 @@ pages:
     - echo "Building GitLab Pages with base ${ASTRO_BASE}"
     - npx --yes --package=pnpm@12.4.1 pnpm install --frozen-lockfile
     # The artifact that ships to GitHub Pages is the CNAME-rooted one, and it is
-    # built here — from the same source and the same node_modules — so that
-    # `quality:astro-artifact` can validate it on demo. Before this, the only
-    # job that ever built or checked the root configuration was `mirror`, on the
-    # promotion branch, after the release decision had been taken: a defect that
-    # existed at base / alone failed late instead of early.
+    # built here — from the same source and the same node_modules — so the demo
+    # gate can validate both deployment bases. The gh-pages mirror repeats the
+    # full suite against its freshly built root artifact before publication.
     - ASTRO_BASE=/ npx --yes --package=pnpm@12.4.1 pnpm run build
     - mv dist dist-root
     - npx --yes --package=pnpm@12.4.1 pnpm run build
@@ -59,9 +57,9 @@ pages:
 #
 # Both artifacts are validated, because a defect can exist at one base and not
 # the other. `dist` is the artifact mounted below the GitLab Pages project
-# subpath; `dist-root` is the CNAME-rooted artifact that actually ships to
-# GitHub Pages. Validating only the first left the shipped configuration with no
-# artifact-quality coverage at all until `mirror` ran at promotion time.
+# subpath; `dist-root` is the CNAME-rooted artifact that ships to GitHub Pages.
+# The gh-pages mirror repeats the shared suite against its own root build before
+# it stages or publishes files.
 quality:astro-artifact:
   stage: .post
   image: node:22-bookworm-slim
@@ -74,48 +72,16 @@ quality:astro-artifact:
   script:
     - |
       set -eu
-      # Every check is a script or a `test -f`, so running the suite twice costs
-      # no second install and no second build: the Pages job already produced
-      # both artifacts and this job's whole budget is process start-up.
-      check_artifact() {
-        dir="$1"
-        base="$2"
-        node scripts/quality/route-ledger.mjs --dist "$dir" --strict
-        node scripts/quality/check-dist-links.mjs --dist "$dir" --base "$base"
-        node scripts/quality/check-dist-sitemap.mjs --dist "$dir" --origin https://www.instarlab.org --base "$base"
-        node scripts/quality/media-audit.mjs --dist "$dir" --strict
-        node scripts/quality/check-dist-provenance.mjs --dist "$dir"
-        node scripts/quality/validate-dist-metadata.mjs --dist "$dir"
-        # RRP-201: the screenshot archive is a 100% coverage gate, not a
-        # sample. This is the dist-only check (no browser in this image): it
-        # fails when any ledger route lacks a current capture for this exact
-        # build, so a missing or stale capture blocks completeness here.
-        node scripts/quality/capture-record-visuals.mjs --check --dist "$dir" --base "$base" --strict
-        ASTRO_DIST_DIR="$dir" node tests/seo/structured-data.test.mjs
-        test -f "$dir/rss.xml"
-        test -f "$dir/pagefind/pagefind.js"
-        # check-dist-links.mjs only resolves references that appear in rendered
-        # HTML, so a file that is required by convention and never linked from a
-        # page is structurally invisible to it — which is how a live 404 for
-        # this exact path survived a green pipeline. Assert the artifact
-        # directly.
-        test -f "$dir/.well-known/security.txt"
-      }
-
       echo "Validating the GitLab Pages artifact (base ${ASTRO_BASE})"
-      check_artifact dist "${ASTRO_BASE}"
-      node scripts/quality/check-dist-base.mjs --dist dist --base "${ASTRO_BASE}"
+      sh scripts/quality/validate-astro-artifact.sh dist "${ASTRO_BASE}"
 
       echo "Validating the shipped GitHub Pages artifact (base /)"
-      check_artifact dist-root /
-      # The root artifact is additionally scanned for the Pages mount a base
-      # leak would carry. The reverse scan is not meaningful: at base
-      # /Website/ every `/`-prefixed URL is the expected form, so there is no
-      # second base to look for. A runner without CI_PAGES_URL resolves to base
-      # /, where the two artifacts are the same build and there is no leak to
-      # hunt either.
+      # The shared validator also runs in the mirror job against the artifact
+      # it publishes, so a rebuilt artifact cannot bypass these checks.
       if [ "${ASTRO_BASE}" != "/" ]; then
-        node scripts/quality/check-dist-base.mjs --dist dist-root --base / --other-base "${ASTRO_BASE}"
+        sh scripts/quality/validate-astro-artifact.sh dist-root / "${ASTRO_BASE}"
+      else
+        sh scripts/quality/validate-astro-artifact.sh dist-root /
       fi
   rules:
     - if: '$CI_COMMIT_BRANCH == "demo"'
@@ -161,26 +127,18 @@ mirror:
       # This artifact ships to the CNAME-rooted site at https://instarlab.org,
       # where every route and asset URL must be root-relative. If ASTRO_BASE
       # stops being "/" the build silently switches to the GitLab project
-      # subpath (/Website/) and the published site 404s. No other job covers
-      # this: quality:astro-artifact only runs on demo and validates the
-      # /Website/ build, so assert the invariant on the artifact that actually
-      # ships, and fail closed when a check cannot run at all.
+      # subpath (/Website/) and the published site 404s. Run the full artifact
+      # suite before any remote write, and fail closed when a check cannot run.
       if [ "${ASTRO_BASE:-}" != "/" ]; then
         echo "Refusing to mirror: ASTRO_BASE must be / for the CNAME-rooted site, got '${ASTRO_BASE:-<unset>}'" >&2
         exit 1
       fi
 
-      # The base contract, as the same script the demo-side gate runs, so the
-      # staging gate and the promotion gate enforce one rule instead of two
-      # copies of it. It replaces an inline
-      # `grep -rIlF -e '/Website/' dist`, which could not tell the GitLab Pages
-      # base from the public GitHub mirror this site cites at
-      # https://github.com/INSTARLab/Website/commit/<sha>: the repository is
-      # named Website, so that legitimate cross-host citation read as a leaked
-      # base and the job refused to release a correct artifact. The script tests
-      # position rather than value, and it still fails closed — an unreadable
-      # tree, a missing entry document or an absent asset each exit non-zero.
-      node scripts/quality/check-dist-base.mjs --dist dist --base / --other-base /Website/
+      # The same strict route, link, sitemap, media, provenance, metadata,
+      # capture, structured-data, required-file, and base gates run on demo.
+      # Strip the write token from validator processes; any failure exits
+      # before artifact staging or remote access.
+      env -u GITHUB_TOKEN sh scripts/quality/validate-astro-artifact.sh dist / /Website/
 
       artifact_dir="$(mktemp -d)"
       cp -a dist/. "${artifact_dir}/"

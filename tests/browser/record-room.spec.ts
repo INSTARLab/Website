@@ -254,6 +254,7 @@ test('Record visual sitemap keeps directory, ranking, preview, graph and finder 
   const graph = await (await request.get('/record/graph.json')).json();
   const metrics = await (await request.get('/record/page-metrics.json')).json();
   await page.goto('/record/nav/');
+  const topologyNodes = graph.linkGraph?.nodes ?? graph.nodes;
 
   // The numbered directory covers the same inventory the table and graph do.
   const directoryPaths = await page.locator('[data-directory-path]').all();
@@ -281,25 +282,212 @@ test('Record visual sitemap keeps directory, ranking, preview, graph and finder 
 
   // The topology renders one node per stop plus a text fallback, and choosing
   // a node updates the preview without navigating.
-  await expect(page.locator('[data-graph-node]')).toHaveCount(graph.nodes.length);
+  await expect(page.locator('[data-graph-node]')).toHaveCount(topologyNodes.length);
   await expect(page.locator('[data-graph-fallback]')).toContainText('Topology as text');
   const previewBefore = await page.locator('[data-route-preview] [data-preview-path]').textContent();
-  await page.locator('[data-graph-node]').first().dispatchEvent('click');
+  await page.locator('[data-graph-node]').first().locator('text').click();
   await expect(page.locator('[data-route-preview] [data-preview-path]')).not.toHaveText(previewBefore ?? '');
 
   // The finder returns a recorded path for a connected pair, an honest dead
   // end for a disconnected pair, and clears on Escape.
-  await page.locator('[data-finder-from]').selectOption('/mission/');
-  await page.locator('[data-finder-to]').selectOption('/record/federal/');
+  const observedPath = graph.linkGraph?.contentEdges?.[0] ?? graph.edges[0];
+  expect(observedPath?.source).toBeTruthy();
+  expect(observedPath?.target).toBeTruthy();
+  await page.locator('[data-finder-from]').selectOption(observedPath.source);
+  await page.locator('[data-finder-to]').selectOption(observedPath.target);
   await page.locator('[data-finder-find]').click();
   await expect(page.locator('[data-finder-summary]')).toBeFocused();
   expect(await page.locator('[data-finder-result] ol li').count()).toBeGreaterThanOrEqual(2);
   await page.locator('[data-finder-from]').selectOption('/contact-us/');
   await page.locator('[data-finder-to]').selectOption('/mission/');
   await page.locator('[data-finder-find]').click();
-  await expect(page.locator('[data-finder-result]')).toContainText('No recorded path');
+  await expect(page.locator('[data-finder-result]')).toContainText('No observed content path');
   await page.keyboard.press('Escape');
   await expect(page.locator('[data-finder-result]')).toContainText('Choose two stops');
+});
+
+test('Record topology loads observed graph provenance, separates chrome, and keeps path semantics explicit', async ({ page, request, context }) => {
+  const graph = await (await request.get('/record/graph.json')).json();
+  const observed = graph.linkGraph;
+  expect(observed?.schemaVersion).toBe(2);
+  await page.goto('/record/nav/', { waitUntil: 'networkidle' });
+
+  const topology = page.locator('[data-route-graph]');
+  await expect(topology).toHaveAttribute('data-graph-state', 'loaded');
+  await expect(topology.locator('[data-graph-status]')).toContainText(`${observed.provenance.documentCount} documents`);
+  await expect(topology.locator('[data-graph-provenance]')).toContainText(`${observed.summary.contentPairs} content pairs`);
+  await expect(topology.locator('[data-graph-edge-zone="content"]')).toHaveCount(observed.contentEdges.length);
+  await expect(topology.locator('[data-graph-edge-zone="chrome"]')).toHaveCount(observed.chromeEdges.length);
+  await expect(topology.locator('[data-graph-edge-zone="journey"]')).toHaveCount(observed.journeyOverlay.length);
+  await expect(topology.locator('[data-graph-chrome-layer]')).toHaveAttribute('hidden', '');
+  await expect(topology.locator('[data-graph-journey-list] [data-graph-journey]')).toHaveCount(observed.journeyOverlay.length);
+  await expect(topology.locator('[data-graph-content-list] [data-graph-content-edge]')).toHaveCount(observed.contentEdges.length);
+  await expect(topology.locator('[data-graph-chrome-list] [data-graph-chrome-edge]')).toHaveCount(observed.chromeEdges.length);
+  await expect(topology.locator('[data-graph-content-list] [data-graph-content-edge]').first()).toContainText(observed.contentEdges[0].source);
+  await expect(topology.locator('[data-graph-chrome-list] [data-graph-chrome-edge]').first()).toContainText(observed.chromeEdges[0].target);
+  const graphEndpoint = await topology.getAttribute('data-graph-endpoint');
+  const graphBase = graphEndpoint!.replace(/\/record\/graph\.json$/, '');
+  const firstNode = topology.locator('[data-graph-node]').first();
+  const firstNodePath = await firstNode.getAttribute('data-graph-node');
+  expect(await firstNode.getAttribute('href')).toBe(`${graphBase}${firstNodePath}`);
+  await firstNode.locator('text').click();
+  await expect(page.locator('[data-preview-path]')).toHaveText(firstNodePath!);
+  await expect(page.locator('[data-preview-link]')).toHaveAttribute('href', `${graphBase}${firstNodePath}`);
+  await expect(page.locator('[data-preview-recents] a').first()).toHaveAttribute('href', `${graphBase}${firstNodePath}`);
+  await context.grantPermissions(['clipboard-read', 'clipboard-write'], { origin: new URL(page.url()).origin });
+  await page.locator('[data-preview-copy]').click();
+  await expect.poll(() => page.evaluate(() => navigator.clipboard.readText())).toContain(`${graphBase}${firstNodePath}`);
+
+  await topology.locator('[data-graph-chrome-toggle]').check();
+  await expect(topology.locator('[data-graph-chrome-layer]')).not.toHaveAttribute('hidden', '');
+  await topology.locator('[data-graph-chrome-toggle]').uncheck();
+  await expect(topology.locator('[data-graph-chrome-layer]')).toHaveAttribute('hidden', '');
+
+  const contentPairs = new Set(observed.contentEdges.map((edge: { source: string; target: string }) => `${edge.source} ${edge.target}`));
+  const reaches = (edges: Array<{ source: string; target: string }>, from: string, to: string): boolean => {
+    const forward = new Map<string, string[]>();
+    for (const edge of edges) forward.set(edge.source, [...(forward.get(edge.source) ?? []), edge.target]);
+    const queue = [from];
+    const seen = new Set([from]);
+    while (queue.length > 0) {
+      const current = queue.shift()!;
+      if (current === to) return true;
+      for (const next of forward.get(current) ?? []) if (!seen.has(next)) { seen.add(next); queue.push(next); }
+    }
+    return false;
+  };
+  const chromeOnly = observed.chromeEdges.find((edge: { source: string; target: string }) =>
+    !contentPairs.has(`${edge.source} ${edge.target}`)
+      && !reaches(observed.contentEdges, edge.source, edge.target)
+      && reaches([...observed.contentEdges, ...observed.chromeEdges], edge.source, edge.target));
+  expect(chromeOnly).toBeTruthy();
+  const chromeSource = topology.locator(`[data-graph-node="${chromeOnly.source}"]`);
+  const chromeTarget = topology.locator(`[data-graph-node="${chromeOnly.target}"]`);
+  await chromeSource.focus();
+  await expect(chromeTarget).toHaveClass(/is-dim/);
+  await topology.locator('[data-graph-chrome-toggle]').check();
+  await chromeSource.focus();
+  await expect(chromeTarget).not.toHaveClass(/is-dim/);
+  await topology.locator('[data-graph-chrome-toggle]').uncheck();
+  await expect(page.locator('[data-route-finder]')).toHaveAttribute('data-finder-state', 'loaded');
+  await page.locator('[data-finder-from]').selectOption(chromeOnly.source);
+  await page.locator('[data-finder-to]').selectOption(chromeOnly.target);
+  await page.locator('[data-finder-find]').click();
+  await expect(page.locator('[data-finder-result]')).toContainText('No observed content path');
+  await page.locator('[data-finder-chrome]').check();
+  await page.locator('[data-finder-find]').click();
+  await expect(page.locator('[data-finder-result]')).toContainText('including header/footer links');
+  await expect(page.locator('[data-finder-result]')).not.toContainText('No recorded path');
+  expect(await page.locator('[data-finder-result] ol a').first().getAttribute('href')).toBe(`${graphBase}${chromeOnly.source}`);
+});
+
+test('Record topology keeps the authored graph and finder when the build graph fetch fails', async ({ page }) => {
+  await page.route('**/record/graph.json', (route) => route.abort());
+  await page.goto('/record/nav/', { waitUntil: 'networkidle' });
+  await expect(page.locator('[data-route-graph]')).toHaveAttribute('data-graph-state', 'journey-fallback');
+  await expect(page.locator('[data-graph-status]')).toContainText('authored journey fallback');
+  await expect(page.locator('[data-graph-chrome-toggle]')).toBeDisabled();
+  await expect(page.locator('[data-graph-edge-zone="journey"]')).toHaveCount(18);
+  await expect(page.locator('[data-route-finder]')).toHaveAttribute('data-finder-state', 'journey-fallback');
+  await page.locator('[data-finder-from]').selectOption('/mission/');
+  await page.locator('[data-finder-to]').selectOption('/record/federal/');
+  await page.locator('[data-finder-find]').click();
+  await expect(page.locator('[data-finder-result] ol li')).toHaveCount(6);
+  await expect(page.locator('[data-finder-result]')).toContainText('Recorded journey path');
+  await expect(page.locator('[data-finder-source]')).toContainText('authored journey graph');
+});
+
+test('Record topology node activation preserves preview, keyboard rows and native new tabs', async ({ page, context, isMobile }) => {
+  await page.goto('/record/nav/', { waitUntil: 'networkidle' });
+  const node = page.locator('[data-graph-node]').first();
+  const path = await node.getAttribute('data-graph-node');
+  const href = await node.getAttribute('href');
+  expect(path).toBeTruthy();
+  expect(href).toBeTruthy();
+
+  // Locator clicks use real mouse input: synthetic events miss pointer
+  // capture retargeting, which previously swallowed clicks on SVG nodes.
+  await node.locator('text').click();
+  await expect(page).toHaveURL(/\/record\/nav\/$/);
+  await expect(page.locator('[data-preview-path]')).toHaveText(path!);
+  await node.focus();
+  await page.keyboard.press('Enter');
+  const row = page.locator('[data-route-item]').filter({ has: page.locator('code', { hasText: new RegExp(`^${path!.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}$`) }) });
+  await expect(row.locator('a[href]').first()).toBeFocused();
+
+  // Mobile browsers do not offer the desktop modifier/middle-click gesture.
+  if (!isMobile) {
+    for (const link of [node, page.locator('[data-inbound-link]').first()]) {
+      const destination = new URL((await link.getAttribute('href'))!, page.url()).href;
+      for (const gesture of ['modified', 'middle', 'target'] as const) {
+        if (gesture === 'target') await link.evaluate((element) => element.setAttribute('target', '_blank'));
+        const opened = context.waitForEvent('page');
+        const target = link === node ? link.locator('text') : link;
+        await target.click(gesture === 'modified' ? { modifiers: ['ControlOrMeta'] } : gesture === 'middle' ? { button: 'middle' } : {});
+        const tab = await opened;
+        await expect(tab).toHaveURL(destination);
+        await tab.close();
+        await expect(page).toHaveURL(/\/record\/nav\/$/);
+        if (gesture === 'target') await link.evaluate((element) => element.removeAttribute('target'));
+      }
+    }
+  }
+});
+
+for (const activation of ['click', 'Enter'] as const) {
+  test(`Record topology journey-only node follows its link with ${activation}`, async ({ page }) => {
+    await page.goto('/record/nav/', { waitUntil: 'networkidle' });
+    const node = page.locator('[data-graph-node]').first();
+    const path = await node.getAttribute('data-graph-node');
+    const destination = new URL((await node.getAttribute('href'))!, page.url()).href;
+    // Today's graph inventory covers all stops. Model the supported
+    // journey-only state by removing this stop's inventory row.
+    await page.locator('[data-route-item]').evaluateAll((rows, route) => {
+      for (const row of rows) if (row.querySelector('code')?.textContent?.trim() === route) row.remove();
+    }, path);
+    if (activation === 'click') await node.locator('text').click();
+    else {
+      await node.focus();
+      await page.keyboard.press('Enter');
+    }
+    await expect(page).toHaveURL(destination);
+  });
+}
+
+test('Record topology Enter follows the route when its inventory row is filtered out', async ({ page }) => {
+  await page.goto('/record/nav/', { waitUntil: 'networkidle' });
+  const node = page.locator('[data-graph-node]').first();
+  const destination = new URL((await node.getAttribute('href'))!, page.url()).href;
+  await page.locator('[data-route-filter]').fill('no-route-exists-with-this-text');
+  await expect(page.locator('[data-route-item]:visible')).toHaveCount(0);
+  await node.focus();
+  await page.keyboard.press('Enter');
+  await expect(page).toHaveURL(destination);
+});
+
+test('Record topology background drag pans while node clicks preserve the viewBox', async ({ page }) => {
+  await page.goto('/record/nav/', { waitUntil: 'networkidle' });
+  const svg = page.locator('[data-graph-svg]');
+  const nodeText = page.locator('[data-graph-node]').first().locator('text');
+  const home = await svg.getAttribute('viewBox');
+  await nodeText.click();
+  await expect(svg).toHaveAttribute('viewBox', home!);
+
+  // Scroll the top-left graph background into view. Using mouse down/move/up
+  // exercises pointer capture and drag state instead of synthetic events.
+  await svg.scrollIntoViewIfNeeded();
+  await svg.evaluate((element) => { element.parentElement!.scrollLeft = 0; });
+  const box = await svg.boundingBox();
+  expect(box).not.toBeNull();
+  await page.mouse.move(box!.x + 4, box!.y + 4);
+  await page.mouse.down();
+  await page.mouse.move(box!.x + 44, box!.y + 28, { steps: 4 });
+  await page.mouse.up();
+  await expect(svg).not.toHaveAttribute('viewBox', home!);
+
+  const panned = await svg.getAttribute('viewBox');
+  await nodeText.click();
+  await expect(svg).toHaveAttribute('viewBox', panned!);
 });
 
 

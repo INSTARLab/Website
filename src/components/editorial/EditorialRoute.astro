@@ -18,10 +18,83 @@ interface Props {
 }
 
 const { route, related } = Astro.props;
+const jobsDataUrl = `${import.meta.env.BASE_URL}data/jobs.json`;
+const grantsDataUrl = `${import.meta.env.BASE_URL}data/grants.json`;
 const modeLabel = (mode: string) => mode.replaceAll('-', ' ');
 const primaryHref = familyRoot(route.family);
 const isArticle = route.type === 'article';
 const signature = route.signature.slice(0, 5);
+const routeFraming = route.path === '/community/careers/'
+  ? {
+      briefHeading: 'What a prospective researcher should know before applying.',
+      briefContext: 'Review the role families, current openings, and fellowship pathway before choosing a next step.',
+      heroActionLabel: 'Explore roles and fellowships',
+      heroActionHref: '/fellowship/',
+      decisionLabel: 'Future roles and fellowships',
+      decisionActionLabel: 'Express interest in a future role',
+      decisionActionHref: '/contact-us/',
+    }
+  : route.path === '/community/support/'
+    ? {
+        briefHeading: 'How to choose a way to support the work.',
+        briefContext: 'Review the one-time gift and Friends membership options described on this page.',
+        heroActionLabel: 'Ask about support options',
+        heroActionHref: '/contact-us/',
+        decisionLabel: 'Support the research',
+        decisionActionLabel: 'Ask about supporting INSTAR',
+        decisionActionHref: '/contact-us/',
+      }
+    : route.path === '/tech-transfer/workshops-events/'
+      ? {
+          briefHeading: 'What a participant should know before joining an exchange.',
+          briefContext: 'Compare the workshop, seminar, and knowledge-exchange formats before requesting a briefing.',
+          heroActionLabel: 'Request a research briefing or technical exchange',
+          heroActionHref: '/contact-us/',
+          decisionLabel: 'Knowledge exchange',
+          decisionActionLabel: 'Request a research briefing',
+          decisionActionHref: '/contact-us/',
+        }
+      : route.family === 'fellowship'
+        ? {
+            briefHeading: 'What a prospective fellow should know before applying.',
+            briefContext: 'Compare the program choices and application handoff before selecting a fellowship pathway.',
+            heroActionLabel: 'Compare fellowship pathways',
+            heroActionHref: '/fellowship/',
+            decisionLabel: 'Fellowship application',
+            decisionActionLabel: 'Ask about fellowship pathways',
+            decisionActionHref: '/contact-us/',
+          }
+        : isArticle
+          ? {
+              briefHeading: 'What the evidence supports.',
+              briefContext: 'Keep the question, evidence, and limits visible while deciding what to inspect next.',
+              heroActionLabel: 'Discuss a research question',
+              heroActionHref: '/contact-us/',
+              decisionLabel: 'Research conversation',
+              decisionActionLabel: 'Discuss a research question',
+              decisionActionHref: '/contact-us/',
+            }
+          : {
+              briefHeading: route.family === 'community' ? 'What to understand before choosing a next step.' : 'What a sponsor should be able to evaluate.',
+              briefContext: route.family === 'community'
+                ? 'Review the route details and source-defined next action before contacting INSTAR.'
+                : 'INSTAR states the question, the method, the evidence, the limitations, and the next decision so a researcher, program officer, or contracting team can assess fit.',
+              heroActionLabel: route.family === 'community' ? 'Continue with INSTAR' : 'Discuss a research requirement',
+              heroActionHref: '/contact-us/',
+              decisionLabel: route.family === 'community' ? 'Next step' : 'Sponsor or collaborator',
+              decisionActionLabel: route.family === 'community' ? 'Continue with INSTAR' : 'Discuss a research requirement',
+              decisionActionHref: '/contact-us/',
+            };
+const shellRoute = route.family === 'community'
+  ? {
+      ...route,
+      // The About Us source job predates this audience-aware shell and names
+      // institutional readers in a way that leaks sponsor language into every
+      // mode section. Keep the source-defined task while making the public
+      // framing readable for any community visitor.
+      pageJob: route.pageJob.replace('a program officer, contracting team, or research collaborator', 'a reader'),
+    }
+  : route;
 const modeSections = route.signature.filter(
   (mode): mode is Exclude<EditorialVisualMode, 'orientation' | 'connection'> => mode !== 'orientation' && mode !== 'connection',
 );
@@ -77,7 +150,7 @@ const heroAsset = publicMediaFor(heroUrl, {
           <p class="editorial-dek">{route.description}</p>
           <div class="editorial-actions">
             <a class="editorial-button editorial-button--primary" href={primaryHref}>Explore {familyLabel(route.family).toLowerCase()} <Icon name="arrow-up-right" size="1rem" /></a>
-            <a class="editorial-button editorial-button--quiet" href="/contact-us/">Discuss a research requirement <Icon name="arrow-right" size="1rem" /></a>
+            <a class="editorial-button editorial-button--quiet" href={routeFraming.heroActionHref}>{routeFraming.heroActionLabel} <Icon name="arrow-right" size="1rem" /></a>
           </div>
         </div>
         <EditorialMedia asset={heroAsset} figureClass="editorial-hero__media" class="editorial-hero__image" picture={false} />
@@ -98,27 +171,27 @@ const heroAsset = publicMediaFor(heroUrl, {
     <section class="editorial-brief editorial-container" aria-labelledby="editorial-brief-title">
       <div class="editorial-section-label">Decision brief</div>
       <div class="editorial-brief__grid">
-        <h2 id="editorial-brief-title">{isArticle ? 'What the evidence supports.' : route.family === 'community' || route.family === 'fellowship' ? 'Assess whether to engage.' : 'What a sponsor should be able to evaluate.'}</h2>
+        <h2 id="editorial-brief-title">{routeFraming.briefHeading}</h2>
         <div class="editorial-brief__body">
-          <p class="editorial-lead">{route.pageJob}</p>
-          <p>INSTAR states the question, the method, the evidence, the limitations, and the next decision so a researcher, program officer, or contracting team can assess fit.</p>
+          <p class="editorial-lead">{shellRoute.pageJob}</p>
+          <p>{routeFraming.briefContext}</p>
         </div>
       </div>
     </section>
 
     {modeSections.map((mode) => (
-      <RouteModeSection mode={mode} route={route} />
+      <RouteModeSection mode={mode} route={shellRoute} />
     ))}
 
     {!modeSections.includes('participation') ? (
       <section class="editorial-decision editorial-container" aria-labelledby="editorial-decision-title">
         <div class="editorial-decision__stamp" aria-hidden="true">INSTAR<br />/ / /</div>
         <div class="editorial-decision__copy">
-          <div class="editorial-section-label">Sponsor or collaborator</div>
+          <div class="editorial-section-label">{routeFraming.decisionLabel}</div>
           <h2 id="editorial-decision-title">{route.readyAction}</h2>
           <p>{route.earlyAction}</p>
         </div>
-        <a class="editorial-button editorial-button--primary" href="/contact-us/">Discuss a research requirement <Icon name="arrow-up-right" size="1rem" /></a>
+        <a class="editorial-button editorial-button--primary" href={routeFraming.decisionActionHref}>{routeFraming.decisionActionLabel} <Icon name="arrow-up-right" size="1rem" /></a>
       </section>
     ) : null}
 
@@ -142,13 +215,13 @@ const heroAsset = publicMediaFor(heroUrl, {
         </div>
         <a class="editorial-button editorial-button--primary" href="/contact-us/">Express interest in a future role <Icon name="arrow-up-right" size="1rem" /></a>
       </section>
-      <script>
+      <script define:vars={{ jobsDataUrl }}>
         (async () => {
           const mount = document.querySelector('[data-jobs-list]');
           if (!(mount instanceof HTMLElement)) return;
           let payload = null;
           try {
-            const response = await fetch('/data/jobs.json', { headers: { accept: 'application/json' } });
+            const response = await fetch(jobsDataUrl, { headers: { accept: 'application/json' } });
             if (!response.ok) return;
             payload = await response.json();
           } catch {
@@ -231,7 +304,7 @@ const heroAsset = publicMediaFor(heroUrl, {
           </table>
         </div>
       </section>
-      <script>
+      <script define:vars={{ grantsDataUrl }}>
         (async () => {
           const root = document.querySelector('[data-grants]');
           if (!(root instanceof HTMLElement)) return;
@@ -241,7 +314,7 @@ const heroAsset = publicMediaFor(heroUrl, {
           if (!(rows instanceof HTMLElement)) return;
           let items = [];
           try {
-            const response = await fetch('/data/grants.json', { headers: { accept: 'application/json' } });
+            const response = await fetch(grantsDataUrl, { headers: { accept: 'application/json' } });
             if (!response.ok) return;
             const payload = await response.json();
             if (Array.isArray(payload?.opportunities)) items = payload.opportunities;

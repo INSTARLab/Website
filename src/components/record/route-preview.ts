@@ -33,9 +33,10 @@ interface PreviewEntry {
 const RECENTS_KEY = 'instarlab-record-recent-routes';
 const RECENTS_MAX = 6;
 
-function baseHref(): string {
-  const base = document.querySelector('base')?.getAttribute('href') ?? '/';
-  return base.endsWith('/') ? base.slice(0, -1) : base;
+function baseHref(root: HTMLElement): string {
+  const base = root.dataset.previewBase ?? '/';
+  if (base === '/') return '';
+  return `/${base.replace(/^\/+|\/+$/g, '')}`;
 }
 
 function readRecents(): string[] {
@@ -66,6 +67,7 @@ function initPreview(root: HTMLElement): void {
     routes = [];
   }
   if (routes.length === 0) return;
+  const base = baseHref(root);
   const byPath = new Map(routes.map((entry) => [entry.path, entry]));
 
   const kicker = root.querySelector<HTMLElement>('[data-preview-kicker]');
@@ -96,7 +98,7 @@ function initPreview(root: HTMLElement): void {
       if (!entry) continue;
       const item = document.createElement('li');
       const link = document.createElement('a');
-      link.href = baseHref() + entry.path;
+      link.href = base + entry.path;
       link.textContent = `${entry.number} · ${entry.title}`;
       link.addEventListener('click', (event) => {
         event.preventDefault();
@@ -112,7 +114,7 @@ function initPreview(root: HTMLElement): void {
     if (!entry || !nameLink) return;
     currentPath = entry.path;
     if (kicker) kicker.textContent = `${entry.number} · ${entry.family ?? 'Journey route'}`;
-    nameLink.href = baseHref() + entry.path;
+    nameLink.href = base + entry.path;
     nameLink.textContent = entry.title;
     if (pathEl) pathEl.textContent = entry.path;
     if (description) description.textContent = entry.description;
@@ -120,10 +122,10 @@ function initPreview(root: HTMLElement): void {
       visualWrap.innerHTML = '';
       if (entry.visual) {
         const link = document.createElement('a');
-        link.href = baseHref() + entry.visual.href;
+        link.href = base + entry.visual.href;
         const image = document.createElement('img');
         image.className = 'img-fluid rounded border';
-        image.src = baseHref() + entry.visual.src;
+        image.src = base + entry.visual.src;
         image.alt = entry.visual.alt;
         image.width = entry.visual.width;
         image.height = entry.visual.height;
@@ -170,7 +172,7 @@ function initPreview(root: HTMLElement): void {
   });
 
   copyButton?.addEventListener('click', async () => {
-    const url = new URL(baseHref() + currentPath, window.location.href).toString();
+    const url = new URL(base + currentPath, window.location.href).toString();
     let copied = false;
     try {
       await navigator.clipboard.writeText(url);

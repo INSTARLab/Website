@@ -61,9 +61,10 @@ for (const edge of [...contentEdges, ...weakEdges]) {
   }
 }
 const inventoryTotal = nodes.filter((node) => node.inInventory).length;
+const graphEndpoint = recordHref('/record/graph.json');
 ---
 
-<section class="card shadow-sm" aria-labelledby={`${id}-title`} data-route-graph>
+<section class="card shadow-sm" aria-labelledby={`${id}-title`} data-route-graph data-graph-endpoint={graphEndpoint}>
   <div class="card-body p-4">
     <div class="d-flex flex-wrap justify-content-between align-items-baseline gap-2 mb-1">
       <div>
@@ -76,12 +77,14 @@ const inventoryTotal = nodes.filter((node) => node.inInventory).length;
         <button class="btn btn-outline-secondary" type="button" data-graph-reset>Reset</button>
       </div>
     </div>
-    <p class="small text-body-secondary">{connectedInventory.size} of {inventoryTotal} inventory routes appear in a recorded journey across {journeyCount} journeys. Solid lines are journey steps; dashed lines are next-action exits. Choosing a node previews the route; <kbd>Enter</kbd> on a node moves to its inventory-table row.</p>
-    <div class="d-flex flex-wrap gap-3 small mb-3" aria-label="Lane key">
-      {lanes.map((lane) => (
-        <span class="d-inline-flex align-items-center gap-1"><span class="d-inline-block rounded-circle" aria-hidden="true" style={`width: 0.7rem; height: 0.7rem; background: ${laneColor(lane)};`}></span>{lane}</span>
-      ))}
-      <span class="d-inline-flex align-items-center gap-1"><span class="d-inline-block" aria-hidden="true" style="width: 1.4rem; border-top: 2px dashed #526675;"></span>Next-action exit</span>
+    <p class="small text-body-secondary" data-graph-description>{connectedInventory.size} of {inventoryTotal} inventory routes appear in a recorded journey across {journeyCount} journeys. Solid lines are journey steps; dashed lines are next-action exits. Choosing a node previews the route; <kbd>Enter</kbd> on a node moves to its inventory-table row.</p>
+    <p class="small text-body-secondary mb-3" role="status" aria-live="polite" data-graph-status data-graph-state="journey-fallback">Showing the authored journey graph while the post-build link graph loads.</p>
+    <div class="d-flex flex-wrap gap-3 small mb-3" aria-label="Graph layers">
+      <label class="form-check form-check-inline mb-0"><input class="form-check-input" type="checkbox" data-graph-content-toggle checked /> <span class="form-check-label">Observed content links</span></label>
+      <label class="form-check form-check-inline mb-0"><input class="form-check-input" type="checkbox" data-graph-chrome-toggle disabled /> <span class="form-check-label">Header/footer links</span></label>
+      <span class="d-inline-flex align-items-center gap-1"><span class="d-inline-block" aria-hidden="true" style="width: 1.4rem; border-top: 2px solid #176b8c;"></span>Observed content</span>
+      <span class="d-inline-flex align-items-center gap-1"><span class="d-inline-block" aria-hidden="true" style="width: 1.4rem; border-top: 2px dashed #7c3aed;"></span>Journey overlay</span>
+      <span class="d-inline-flex align-items-center gap-1"><span class="d-inline-block" aria-hidden="true" style="width: 1.4rem; border-top: 2px dotted #a31f4d;"></span>Header/footer</span>
     </div>
     {/* The svg keeps role="group" (not img): its nodes are operable links, and
       an img role would hide them from assistive technology. The details table
@@ -96,26 +99,27 @@ const inventoryTotal = nodes.filter((node) => node.inInventory).length;
         height={Math.min(svgHeight, 560)}
         style="max-width: none;"
       >
-        <g aria-hidden="true">
+        <g aria-hidden="true" data-graph-lanes>
           {lanes.map((lane, laneIndex) => (
             <text x={PAD + laneIndex * LANE_WIDTH + 12} y={PAD + 20} font-size="12" font-weight="700" fill="#526675">{lane}</text>
           ))}
         </g>
-        <g aria-hidden="true" stroke="#9ebdcc" stroke-width="1.5" opacity="0.55">
+        <g aria-hidden="true" data-graph-content-layer data-graph-layer="content" stroke="#9ebdcc" stroke-width="1.5" opacity="0.55">
           {contentEdges.map((edge) => {
             const from = position.get(edge.source);
             const to = position.get(edge.target);
-            return from && to ? <line x1={from.x} y1={from.y} x2={to.x} y2={to.y} data-graph-edge={`${edge.source} ${edge.target}`} /> : null;
+            return from && to ? <line x1={from.x} y1={from.y} x2={to.x} y2={to.y} data-graph-edge={`${edge.source} ${edge.target}`} data-graph-edge-zone="journey" /> : null;
           })}
         </g>
-        <g aria-hidden="true" stroke="#526675" stroke-width="1.5" stroke-dasharray="5 4" opacity="0.7">
+        <g aria-hidden="true" data-graph-journey-layer data-graph-layer="journey" stroke="#526675" stroke-width="1.5" stroke-dasharray="5 4" opacity="0.7">
           {weakEdges.map((edge) => {
             const from = position.get(edge.source);
             const to = position.get(edge.target);
-            return from && to ? <line x1={from.x} y1={from.y} x2={to.x} y2={to.y} data-graph-edge={`${edge.source} ${edge.target}`} /> : null;
+            return from && to ? <line x1={from.x} y1={from.y} x2={to.x} y2={to.y} data-graph-edge={`${edge.source} ${edge.target}`} data-graph-edge-zone="journey" /> : null;
           })}
         </g>
-        <g>
+        <g aria-hidden="true" data-graph-chrome-layer data-graph-layer="chrome" hidden></g>
+        <g data-graph-nodes>
           {nodes.map((node) => {
             const at = position.get(node.path);
             if (!at) return null;
@@ -136,19 +140,25 @@ const inventoryTotal = nodes.filter((node) => node.inInventory).length;
       <div class="row g-4 mt-1">
         <div class="col-12 col-lg-6">
           <p class="small fw-bold mb-1">Stops</p>
-          <ul class="small mb-0">
+          <ul class="small mb-0" data-graph-stop-list>
             {nodes.map((node) => <li><a href={recordHref(node.path)}>{node.title}</a> <span class="text-body-secondary">{node.path}{node.inInventory ? '' : ' · journey route'}</span></li>)}
           </ul>
         </div>
         <div class="col-12 col-lg-6">
-          <p class="small fw-bold mb-1">Links</p>
-          <ul class="small mb-0">
-            {contentEdges.map((edge) => <li>{titleOf(edge.source)} → {titleOf(edge.target)} <span class="text-body-secondary">({edge.journey})</span></li>)}
+          <p class="small fw-bold mb-1">Observed content relationships</p>
+          <p class="small text-body-secondary mb-1" data-graph-observed-note>Built content and header/footer relationships load when the post-build graph is available.</p>
+          <ul class="small mb-3" data-graph-content-list aria-label="Observed content relationships"></ul>
+          <p class="small fw-bold mb-1">Observed header/footer relationships</p>
+          <ul class="small mb-3" data-graph-chrome-list aria-label="Observed header/footer relationships"></ul>
+          <p class="small fw-bold mb-1">Authored journey overlays</p>
+          <ul class="small mb-0" data-graph-journey-list aria-label="Authored journey overlays">
+            {contentEdges.map((edge) => <li>{titleOf(edge.source)} → {titleOf(edge.target)} <span class="text-body-secondary">({edge.journey} step)</span></li>)}
             {weakEdges.map((edge) => <li>{titleOf(edge.source)} → {titleOf(edge.target)} <span class="text-body-secondary">({edge.journey} next action)</span></li>)}
           </ul>
         </div>
       </div>
     </details>
+    <div class="small text-body-secondary mt-3" data-graph-provenance hidden></div>
     <p class="small text-body-secondary mt-3 mb-0">Source: <a href={recordHref('/record/verify/')}>Record journey manifest (SRC-002)</a> · <a href={recordHref('/record/journeys/')}>Inspect the journeys</a></p>
   </div>
 </section>

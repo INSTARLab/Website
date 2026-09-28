@@ -16,6 +16,8 @@ const telephoneHref = `tel:${siteIdentity.telephone.replaceAll('-', '')}`;
 const streetAddress = siteIdentity.address.streetAddress;
 const localityAddress = `${siteIdentity.address.addressLocality}, ${siteIdentity.address.addressRegion} ${siteIdentity.address.postalCode}`;
 const mapsHref = `https://maps.google.com/?q=${encodeURIComponent(`${streetAddress} ${localityAddress}`)}`;
+const baseUrl = import.meta.env.BASE_URL;
+const rssHref = `${baseUrl}${baseUrl.endsWith('/') ? '' : '/'}rss.xml`;
 ---
 
 <footer class="site-footer">
@@ -60,7 +62,10 @@ const mapsHref = `https://maps.google.com/?q=${encodeURIComponent(`${streetAddre
             <button type="submit">Subscribe <Icon name="arrow-right" size="0.95rem" /></button>
           </form>
         ) : (
-          <p><a href="mailto:info@instarlab.org?subject=Research%20updates">Email info@instarlab.org to receive research briefs</a></p>
+          <>
+            <p><a href="mailto:info@instarlab.org?subject=Research%20updates">Email info@instarlab.org to receive research briefs</a></p>
+            <p><a href={rssHref} aria-label="Research updates RSS feed">Research updates RSS feed</a></p>
+          </>
         )}
       </section>
     </div>

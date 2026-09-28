@@ -66,3 +66,21 @@ test("news topic filtering narrows the archive and announces the result", async 
   await page.locator('[data-topic-filter="all"]').click();
   await expect(page.locator("[data-topic-card][hidden]")).toHaveCount(0);
 });
+
+test("editorial data requests stay under the configured deployment base", async ({ page, baseURL }) => {
+  const configuredBase = new URL(baseURL ?? "http://127.0.0.1/");
+  const basePath = configuredBase.pathname.endsWith("/") ? configuredBase.pathname : `${configuredBase.pathname}/`;
+  const routeURL = (path: string) => new URL(path.replace(/^\/+/, ""), `${configuredBase.origin}${basePath}`).toString();
+  const requestedPaths: string[] = [];
+
+  page.on("request", (request) => {
+    const pathname = new URL(request.url()).pathname;
+    if (pathname.endsWith("/data/jobs.json") || pathname.endsWith("/data/grants.json")) requestedPaths.push(pathname);
+  });
+
+  await page.goto(routeURL("community/careers/"), { waitUntil: "domcontentloaded" });
+  await expect.poll(() => requestedPaths).toContain(`${basePath}data/jobs.json`);
+
+  await page.goto(routeURL("research/opportunities/"), { waitUntil: "domcontentloaded" });
+  await expect.poll(() => requestedPaths).toContain(`${basePath}data/grants.json`);
+});
