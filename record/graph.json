@@ -314,6 +314,12 @@
       "kind": "editorial"
     },
     {
+      "id": "/research/outputs/",
+      "label": "Research Outputs — INSTAR Lab",
+      "family": "Research",
+      "kind": "editorial"
+    },
+    {
       "id": "/research/publications/",
       "label": "Research Publications & Outputs — INSTAR Lab",
       "family": "Research",
@@ -607,17 +613,17 @@
       "generator": "scripts/quality/build-link-graph.mjs + src/components/record/nav-graph.mjs",
       "base": "/",
       "origin": "https://www.instarlab.org",
-      "routeCount": 90,
-      "documentCount": 90,
+      "routeCount": 91,
+      "documentCount": 91,
       "unzoned": [],
       "aliases": [],
       "undocumented": [],
-      "generatedAt": "2026-09-29T20:13:20.657Z"
+      "generatedAt": "2026-09-29T20:19:24.752Z"
     },
     "summary": {
-      "nodes": 90,
-      "contentPairs": 988,
-      "chromePairs": 5491,
+      "nodes": 91,
+      "contentPairs": 1003,
+      "chromePairs": 5566,
       "journeyLinks": 18,
       "observedJourneyLinks": 18,
       "orphans": 2,
@@ -635,7 +641,7 @@
         "aliasOf": null,
         "inboundContent": 26,
         "outboundContent": 32,
-        "inboundChrome": 73,
+        "inboundChrome": 74,
         "outboundChrome": 74,
         "journeys": []
       },
@@ -680,7 +686,7 @@
         "aliasOf": null,
         "inboundContent": 16,
         "outboundContent": 1,
-        "inboundChrome": 73,
+        "inboundChrome": 74,
         "outboundChrome": 74,
         "journeys": []
       },
@@ -695,7 +701,7 @@
         "aliasOf": null,
         "inboundContent": 13,
         "outboundContent": 5,
-        "inboundChrome": 73,
+        "inboundChrome": 74,
         "outboundChrome": 74,
         "journeys": [
           "supporter"
@@ -712,7 +718,7 @@
         "aliasOf": null,
         "inboundContent": 11,
         "outboundContent": 5,
-        "inboundChrome": 73,
+        "inboundChrome": 74,
         "outboundChrome": 74,
         "journeys": [
           "researcher"
@@ -744,7 +750,7 @@
         "aliasOf": null,
         "inboundContent": 10,
         "outboundContent": 5,
-        "inboundChrome": 73,
+        "inboundChrome": 74,
         "outboundChrome": 74,
         "journeys": []
       },
@@ -759,7 +765,7 @@
         "aliasOf": null,
         "inboundContent": 12,
         "outboundContent": 5,
-        "inboundChrome": 73,
+        "inboundChrome": 74,
         "outboundChrome": 74,
         "journeys": [
           "institutional-partner"
@@ -776,7 +782,7 @@
         "aliasOf": null,
         "inboundContent": 8,
         "outboundContent": 5,
-        "inboundChrome": 73,
+        "inboundChrome": 74,
         "outboundChrome": 74,
         "journeys": [
           "supporter"
@@ -793,7 +799,7 @@
         "aliasOf": null,
         "inboundContent": 6,
         "outboundContent": 5,
-        "inboundChrome": 73,
+        "inboundChrome": 74,
         "outboundChrome": 74,
         "journeys": [
           "technical-collaborator"
@@ -808,9 +814,9 @@
         "inLedger": true,
         "inInventory": true,
         "aliasOf": null,
-        "inboundContent": 68,
+        "inboundContent": 69,
         "outboundContent": 0,
-        "inboundChrome": 73,
+        "inboundChrome": 74,
         "outboundChrome": 74,
         "journeys": [
           "institutional-partner",
@@ -843,7 +849,7 @@
         "aliasOf": null,
         "inboundContent": 7,
         "outboundContent": 0,
-        "inboundChrome": 73,
+        "inboundChrome": 74,
         "outboundChrome": 74,
         "journeys": [
           "researcher"
@@ -860,7 +866,7 @@
         "aliasOf": null,
         "inboundContent": 7,
         "outboundContent": 3,
-        "inboundChrome": 73,
+        "inboundChrome": 74,
         "outboundChrome": 74,
         "journeys": []
       },
@@ -875,7 +881,7 @@
         "aliasOf": null,
         "inboundContent": 7,
         "outboundContent": 3,
-        "inboundChrome": 73,
+        "inboundChrome": 74,
         "outboundChrome": 74,
         "journeys": []
       },
@@ -890,7 +896,7 @@
         "aliasOf": null,
         "inboundContent": 8,
         "outboundContent": 3,
-        "inboundChrome": 73,
+        "inboundChrome": 74,
         "outboundChrome": 74,
         "journeys": [
           "technical-collaborator"
@@ -907,7 +913,7 @@
         "aliasOf": null,
         "inboundContent": 7,
         "outboundContent": 1,
-        "inboundChrome": 73,
+        "inboundChrome": 74,
         "outboundChrome": 74,
         "journeys": [
           "supporter"
@@ -922,9 +928,9 @@
         "inLedger": true,
         "inInventory": true,
         "aliasOf": null,
-        "inboundContent": 15,
+        "inboundContent": 16,
         "outboundContent": 8,
-        "inboundChrome": 73,
+        "inboundChrome": 74,
         "outboundChrome": 74,
         "journeys": [
           "researcher"
@@ -1076,7 +1082,7 @@
         "aliasOf": null,
         "inboundContent": 16,
         "outboundContent": 1,
-        "inboundChrome": 73,
+        "inboundChrome": 74,
         "outboundChrome": 74,
         "journeys": []
       },
@@ -1091,7 +1097,7 @@
         "aliasOf": null,
         "inboundContent": 17,
         "outboundContent": 19,
-        "inboundChrome": 74,
+        "inboundChrome": 75,
         "outboundChrome": 0,
         "journeys": []
       },
@@ -1106,7 +1112,7 @@
         "aliasOf": null,
         "inboundContent": 15,
         "outboundContent": 19,
-        "inboundChrome": 74,
+        "inboundChrome": 75,
         "outboundChrome": 0,
         "journeys": []
       },
@@ -1121,7 +1127,7 @@
         "aliasOf": null,
         "inboundContent": 16,
         "outboundContent": 20,
-        "inboundChrome": 74,
+        "inboundChrome": 75,
         "outboundChrome": 0,
         "journeys": []
       },
@@ -1136,7 +1142,7 @@
         "aliasOf": null,
         "inboundContent": 15,
         "outboundContent": 25,
-        "inboundChrome": 74,
+        "inboundChrome": 75,
         "outboundChrome": 0,
         "journeys": [
           "program-officer"
@@ -1153,7 +1159,7 @@
         "aliasOf": null,
         "inboundContent": 15,
         "outboundContent": 19,
-        "inboundChrome": 74,
+        "inboundChrome": 75,
         "outboundChrome": 0,
         "journeys": []
       },
@@ -1168,7 +1174,7 @@
         "aliasOf": null,
         "inboundContent": 15,
         "outboundContent": 19,
-        "inboundChrome": 74,
+        "inboundChrome": 75,
         "outboundChrome": 0,
         "journeys": []
       },
@@ -1183,7 +1189,7 @@
         "aliasOf": null,
         "inboundContent": 15,
         "outboundContent": 38,
-        "inboundChrome": 74,
+        "inboundChrome": 75,
         "outboundChrome": 0,
         "journeys": []
       },
@@ -1198,7 +1204,7 @@
         "aliasOf": null,
         "inboundContent": 15,
         "outboundContent": 23,
-        "inboundChrome": 74,
+        "inboundChrome": 75,
         "outboundChrome": 0,
         "journeys": []
       },
@@ -1213,7 +1219,7 @@
         "aliasOf": null,
         "inboundContent": 16,
         "outboundContent": 19,
-        "inboundChrome": 74,
+        "inboundChrome": 75,
         "outboundChrome": 0,
         "journeys": []
       },
@@ -1227,8 +1233,8 @@
         "inInventory": true,
         "aliasOf": null,
         "inboundContent": 15,
-        "outboundContent": 82,
-        "inboundChrome": 74,
+        "outboundContent": 83,
+        "inboundChrome": 75,
         "outboundChrome": 0,
         "journeys": []
       },
@@ -1243,7 +1249,7 @@
         "aliasOf": null,
         "inboundContent": 15,
         "outboundContent": 19,
-        "inboundChrome": 74,
+        "inboundChrome": 75,
         "outboundChrome": 0,
         "journeys": []
       },
@@ -1257,8 +1263,8 @@
         "inInventory": true,
         "aliasOf": null,
         "inboundContent": 15,
-        "outboundContent": 86,
-        "inboundChrome": 74,
+        "outboundContent": 87,
+        "inboundChrome": 75,
         "outboundChrome": 0,
         "journeys": []
       },
@@ -1273,7 +1279,7 @@
         "aliasOf": null,
         "inboundContent": 15,
         "outboundContent": 19,
-        "inboundChrome": 74,
+        "inboundChrome": 75,
         "outboundChrome": 0,
         "journeys": []
       },
@@ -1288,7 +1294,7 @@
         "aliasOf": null,
         "inboundContent": 15,
         "outboundContent": 86,
-        "inboundChrome": 74,
+        "inboundChrome": 75,
         "outboundChrome": 0,
         "journeys": []
       },
@@ -1303,7 +1309,7 @@
         "aliasOf": null,
         "inboundContent": 15,
         "outboundContent": 19,
-        "inboundChrome": 74,
+        "inboundChrome": 75,
         "outboundChrome": 0,
         "journeys": []
       },
@@ -1318,7 +1324,7 @@
         "aliasOf": null,
         "inboundContent": 15,
         "outboundContent": 20,
-        "inboundChrome": 74,
+        "inboundChrome": 75,
         "outboundChrome": 0,
         "journeys": []
       },
@@ -1331,8 +1337,8 @@
         "inLedger": true,
         "inInventory": true,
         "aliasOf": null,
-        "inboundContent": 9,
-        "outboundContent": 9,
+        "inboundContent": 10,
+        "outboundContent": 10,
         "inboundChrome": 0,
         "outboundChrome": 75,
         "journeys": []
@@ -1346,9 +1352,9 @@
         "inLedger": true,
         "inInventory": true,
         "aliasOf": null,
-        "inboundContent": 14,
+        "inboundContent": 15,
         "outboundContent": 6,
-        "inboundChrome": 73,
+        "inboundChrome": 74,
         "outboundChrome": 74,
         "journeys": []
       },
@@ -1361,9 +1367,9 @@
         "inLedger": true,
         "inInventory": true,
         "aliasOf": null,
-        "inboundContent": 18,
-        "outboundContent": 9,
-        "inboundChrome": 73,
+        "inboundContent": 19,
+        "outboundContent": 10,
+        "inboundChrome": 74,
         "outboundChrome": 74,
         "journeys": [
           "program-officer",
@@ -1379,9 +1385,9 @@
         "inLedger": true,
         "inInventory": true,
         "aliasOf": null,
-        "inboundContent": 15,
+        "inboundContent": 16,
         "outboundContent": 6,
-        "inboundChrome": 73,
+        "inboundChrome": 74,
         "outboundChrome": 74,
         "journeys": [
           "program-officer"
@@ -1396,9 +1402,9 @@
         "inLedger": true,
         "inInventory": true,
         "aliasOf": null,
-        "inboundContent": 14,
+        "inboundContent": 12,
         "outboundContent": 6,
-        "inboundChrome": 73,
+        "inboundChrome": 74,
         "outboundChrome": 74,
         "journeys": []
       },
@@ -1413,7 +1419,7 @@
         "aliasOf": null,
         "inboundContent": 9,
         "outboundContent": 6,
-        "inboundChrome": 73,
+        "inboundChrome": 74,
         "outboundChrome": 74,
         "journeys": [
           "technical-collaborator"
@@ -1428,9 +1434,9 @@
         "inLedger": true,
         "inInventory": true,
         "aliasOf": null,
-        "inboundContent": 7,
+        "inboundContent": 8,
         "outboundContent": 6,
-        "inboundChrome": 73,
+        "inboundChrome": 74,
         "outboundChrome": 74,
         "journeys": [
           "researcher"
@@ -1445,9 +1451,9 @@
         "inLedger": true,
         "inInventory": true,
         "aliasOf": null,
-        "inboundContent": 7,
+        "inboundContent": 8,
         "outboundContent": 6,
-        "inboundChrome": 73,
+        "inboundChrome": 74,
         "outboundChrome": 74,
         "journeys": []
       },
@@ -1462,11 +1468,26 @@
         "aliasOf": null,
         "inboundContent": 9,
         "outboundContent": 2,
-        "inboundChrome": 73,
+        "inboundChrome": 74,
         "outboundChrome": 74,
         "journeys": [
           "program-officer"
         ]
+      },
+      {
+        "id": "/research/outputs/",
+        "title": "Research Outputs — INSTAR Lab",
+        "family": "Research",
+        "kind": "editorial",
+        "indexable": true,
+        "inLedger": true,
+        "inInventory": true,
+        "aliasOf": null,
+        "inboundContent": 7,
+        "outboundContent": 10,
+        "inboundChrome": 0,
+        "outboundChrome": 75,
+        "journeys": []
       },
       {
         "id": "/research/publications/",
@@ -1477,7 +1498,7 @@
         "inLedger": true,
         "inInventory": true,
         "aliasOf": null,
-        "inboundContent": 5,
+        "inboundContent": 6,
         "outboundContent": 6,
         "inboundChrome": 0,
         "outboundChrome": 75,
@@ -1494,7 +1515,7 @@
         "aliasOf": null,
         "inboundContent": 16,
         "outboundContent": 6,
-        "inboundChrome": 73,
+        "inboundChrome": 74,
         "outboundChrome": 74,
         "journeys": []
       },
@@ -1509,7 +1530,7 @@
         "aliasOf": null,
         "inboundContent": 14,
         "outboundContent": 6,
-        "inboundChrome": 73,
+        "inboundChrome": 74,
         "outboundChrome": 74,
         "journeys": []
       },
@@ -1524,7 +1545,7 @@
         "aliasOf": null,
         "inboundContent": 16,
         "outboundContent": 6,
-        "inboundChrome": 73,
+        "inboundChrome": 74,
         "outboundChrome": 74,
         "journeys": []
       },
@@ -1539,7 +1560,7 @@
         "aliasOf": null,
         "inboundContent": 15,
         "outboundContent": 6,
-        "inboundChrome": 73,
+        "inboundChrome": 74,
         "outboundChrome": 74,
         "journeys": []
       },
@@ -1554,7 +1575,7 @@
         "aliasOf": null,
         "inboundContent": 15,
         "outboundContent": 6,
-        "inboundChrome": 73,
+        "inboundChrome": 74,
         "outboundChrome": 74,
         "journeys": []
       },
@@ -1569,7 +1590,7 @@
         "aliasOf": null,
         "inboundContent": 13,
         "outboundContent": 6,
-        "inboundChrome": 73,
+        "inboundChrome": 74,
         "outboundChrome": 74,
         "journeys": []
       },
@@ -1584,7 +1605,7 @@
         "aliasOf": null,
         "inboundContent": 8,
         "outboundContent": 6,
-        "inboundChrome": 73,
+        "inboundChrome": 74,
         "outboundChrome": 74,
         "journeys": []
       },
@@ -1599,7 +1620,7 @@
         "aliasOf": null,
         "inboundContent": 5,
         "outboundContent": 6,
-        "inboundChrome": 73,
+        "inboundChrome": 74,
         "outboundChrome": 74,
         "journeys": []
       },
@@ -1614,7 +1635,7 @@
         "aliasOf": null,
         "inboundContent": 14,
         "outboundContent": 6,
-        "inboundChrome": 73,
+        "inboundChrome": 74,
         "outboundChrome": 74,
         "journeys": []
       },
@@ -1629,7 +1650,7 @@
         "aliasOf": null,
         "inboundContent": 4,
         "outboundContent": 6,
-        "inboundChrome": 73,
+        "inboundChrome": 74,
         "outboundChrome": 74,
         "journeys": []
       },
@@ -1644,7 +1665,7 @@
         "aliasOf": null,
         "inboundContent": 4,
         "outboundContent": 6,
-        "inboundChrome": 73,
+        "inboundChrome": 74,
         "outboundChrome": 74,
         "journeys": []
       },
@@ -1659,7 +1680,7 @@
         "aliasOf": null,
         "inboundContent": 13,
         "outboundContent": 6,
-        "inboundChrome": 73,
+        "inboundChrome": 74,
         "outboundChrome": 74,
         "journeys": []
       },
@@ -1674,7 +1695,7 @@
         "aliasOf": null,
         "inboundContent": 4,
         "outboundContent": 6,
-        "inboundChrome": 73,
+        "inboundChrome": 74,
         "outboundChrome": 74,
         "journeys": []
       },
@@ -1689,7 +1710,7 @@
         "aliasOf": null,
         "inboundContent": 8,
         "outboundContent": 6,
-        "inboundChrome": 73,
+        "inboundChrome": 74,
         "outboundChrome": 74,
         "journeys": []
       },
@@ -1704,7 +1725,7 @@
         "aliasOf": null,
         "inboundContent": 4,
         "outboundContent": 6,
-        "inboundChrome": 73,
+        "inboundChrome": 74,
         "outboundChrome": 74,
         "journeys": []
       },
@@ -1719,7 +1740,7 @@
         "aliasOf": null,
         "inboundContent": 4,
         "outboundContent": 6,
-        "inboundChrome": 73,
+        "inboundChrome": 74,
         "outboundChrome": 74,
         "journeys": []
       },
@@ -1734,7 +1755,7 @@
         "aliasOf": null,
         "inboundContent": 4,
         "outboundContent": 6,
-        "inboundChrome": 73,
+        "inboundChrome": 74,
         "outboundChrome": 74,
         "journeys": []
       },
@@ -1749,7 +1770,7 @@
         "aliasOf": null,
         "inboundContent": 5,
         "outboundContent": 6,
-        "inboundChrome": 73,
+        "inboundChrome": 74,
         "outboundChrome": 74,
         "journeys": []
       },
@@ -1764,7 +1785,7 @@
         "aliasOf": null,
         "inboundContent": 26,
         "outboundContent": 5,
-        "inboundChrome": 73,
+        "inboundChrome": 74,
         "outboundChrome": 74,
         "journeys": []
       },
@@ -1779,7 +1800,7 @@
         "aliasOf": null,
         "inboundContent": 4,
         "outboundContent": 6,
-        "inboundChrome": 73,
+        "inboundChrome": 74,
         "outboundChrome": 74,
         "journeys": []
       },
@@ -1794,7 +1815,7 @@
         "aliasOf": null,
         "inboundContent": 4,
         "outboundContent": 6,
-        "inboundChrome": 73,
+        "inboundChrome": 74,
         "outboundChrome": 74,
         "journeys": []
       },
@@ -1809,7 +1830,7 @@
         "aliasOf": null,
         "inboundContent": 4,
         "outboundContent": 6,
-        "inboundChrome": 73,
+        "inboundChrome": 74,
         "outboundChrome": 74,
         "journeys": []
       },
@@ -1823,8 +1844,8 @@
         "inInventory": false,
         "aliasOf": null,
         "inboundContent": 2,
-        "outboundContent": 66,
-        "inboundChrome": 73,
+        "outboundContent": 67,
+        "inboundChrome": 74,
         "outboundChrome": 74,
         "journeys": []
       },
@@ -1839,7 +1860,7 @@
         "aliasOf": null,
         "inboundContent": 8,
         "outboundContent": 4,
-        "inboundChrome": 73,
+        "inboundChrome": 74,
         "outboundChrome": 74,
         "journeys": [
           "institutional-partner"
@@ -1856,7 +1877,7 @@
         "aliasOf": null,
         "inboundContent": 8,
         "outboundContent": 4,
-        "inboundChrome": 73,
+        "inboundChrome": 74,
         "outboundChrome": 74,
         "journeys": [
           "institutional-partner"
@@ -1873,7 +1894,7 @@
         "aliasOf": null,
         "inboundContent": 9,
         "outboundContent": 4,
-        "inboundChrome": 73,
+        "inboundChrome": 74,
         "outboundChrome": 74,
         "journeys": [
           "institutional-partner"
@@ -1888,9 +1909,9 @@
         "inLedger": true,
         "inInventory": true,
         "aliasOf": null,
-        "inboundContent": 7,
+        "inboundContent": 8,
         "outboundContent": 4,
-        "inboundChrome": 73,
+        "inboundChrome": 74,
         "outboundChrome": 74,
         "journeys": []
       },
@@ -1905,7 +1926,7 @@
         "aliasOf": null,
         "inboundContent": 11,
         "outboundContent": 5,
-        "inboundChrome": 73,
+        "inboundChrome": 74,
         "outboundChrome": 74,
         "journeys": []
       },
@@ -1920,7 +1941,7 @@
         "aliasOf": null,
         "inboundContent": 12,
         "outboundContent": 5,
-        "inboundChrome": 73,
+        "inboundChrome": 74,
         "outboundChrome": 74,
         "journeys": [
           "technical-collaborator"
@@ -1937,7 +1958,7 @@
         "aliasOf": null,
         "inboundContent": 7,
         "outboundContent": 5,
-        "inboundChrome": 73,
+        "inboundChrome": 74,
         "outboundChrome": 74,
         "journeys": []
       },
@@ -1952,7 +1973,7 @@
         "aliasOf": null,
         "inboundContent": 10,
         "outboundContent": 5,
-        "inboundChrome": 73,
+        "inboundChrome": 74,
         "outboundChrome": 74,
         "journeys": []
       },
@@ -1967,7 +1988,7 @@
         "aliasOf": null,
         "inboundContent": 8,
         "outboundContent": 5,
-        "inboundChrome": 73,
+        "inboundChrome": 74,
         "outboundChrome": 74,
         "journeys": []
       },
@@ -1982,7 +2003,7 @@
         "aliasOf": null,
         "inboundContent": 7,
         "outboundContent": 5,
-        "inboundChrome": 73,
+        "inboundChrome": 74,
         "outboundChrome": 74,
         "journeys": []
       },
@@ -1997,7 +2018,7 @@
         "aliasOf": null,
         "inboundContent": 8,
         "outboundContent": 5,
-        "inboundChrome": 73,
+        "inboundChrome": 74,
         "outboundChrome": 74,
         "journeys": []
       },
@@ -2012,7 +2033,7 @@
         "aliasOf": null,
         "inboundContent": 16,
         "outboundContent": 1,
-        "inboundChrome": 73,
+        "inboundChrome": 74,
         "outboundChrome": 74,
         "journeys": []
       }
@@ -4378,6 +4399,12 @@
       },
       {
         "source": "/record/marketing/",
+        "target": "/research/outputs/",
+        "occurrences": 2,
+        "label": "/research/outputs/"
+      },
+      {
+        "source": "/record/marketing/",
         "target": "/research/publications/",
         "occurrences": 2,
         "label": "/research/publications/"
@@ -4728,43 +4755,43 @@
         "source": "/record/nav/",
         "target": "/community/about-us/",
         "occurrences": 7,
-        "label": "48. About Us — INSTAR Lab Community"
+        "label": "49. About Us — INSTAR Lab Community"
       },
       {
         "source": "/record/nav/",
         "target": "/community/careers/",
         "occurrences": 5,
-        "label": "49. Careers at INSTAR Lab — Research &amp; Science Jobs"
+        "label": "50. Careers at INSTAR Lab — Research &amp; Science Jobs"
       },
       {
         "source": "/record/nav/",
         "target": "/community/contact/",
         "occurrences": 4,
-        "label": "50. Research &amp; Partnership Inquiries — INSTAR Lab"
+        "label": "51. Research &amp; Partnership Inquiries — INSTAR Lab"
       },
       {
         "source": "/record/nav/",
         "target": "/community/leadership/",
         "occurrences": 4,
-        "label": "51. Research Leadership &amp; Governance — INSTAR Lab"
+        "label": "52. Research Leadership &amp; Governance — INSTAR Lab"
       },
       {
         "source": "/record/nav/",
         "target": "/community/partner/",
         "occurrences": 4,
-        "label": "52. Partner With INSTAR Lab — Research &amp; Philanthropy"
+        "label": "53. Partner With INSTAR Lab — Research &amp; Philanthropy"
       },
       {
         "source": "/record/nav/",
         "target": "/community/support/",
         "occurrences": 5,
-        "label": "53. Give to INSTAR Lab — One-Time Gifts &amp; Friends Membership"
+        "label": "54. Give to INSTAR Lab — One-Time Gifts &amp; Friends Membership"
       },
       {
         "source": "/record/nav/",
         "target": "/community/work-with-us/",
         "occurrences": 5,
-        "label": "54. Work With INSTAR Lab — Collaboration Opportunities"
+        "label": "55. Work With INSTAR Lab — Collaboration Opportunities"
       },
       {
         "source": "/record/nav/",
@@ -4776,25 +4803,25 @@
         "source": "/record/nav/",
         "target": "/fellowship/",
         "occurrences": 4,
-        "label": "67. INSTAR Lab R&amp;D Fellowships — International and Resident Scholars"
+        "label": "68. INSTAR Lab R&amp;D Fellowships — International and Resident Scholars"
       },
       {
         "source": "/record/nav/",
         "target": "/labs/biometric-security/",
         "occurrences": 4,
-        "label": "55. Biometrics &amp; Drone Sensing — INSTAR Lab"
+        "label": "56. Biometrics &amp; Drone Sensing — INSTAR Lab"
       },
       {
         "source": "/record/nav/",
         "target": "/labs/cognitive-ai/",
         "occurrences": 4,
-        "label": "56. Cognitive AI &amp; Persona Systems — INSTAR Lab"
+        "label": "57. Cognitive AI &amp; Persona Systems — INSTAR Lab"
       },
       {
         "source": "/record/nav/",
         "target": "/labs/sovereign-ai/",
         "occurrences": 5,
-        "label": "57. Sovereign AI Laboratory — INSTAR Lab"
+        "label": "58. Sovereign AI Laboratory — INSTAR Lab"
       },
       {
         "source": "/record/nav/",
@@ -4806,55 +4833,55 @@
         "source": "/record/nav/",
         "target": "/news/",
         "occurrences": 5,
-        "label": "58. News — INSTAR Lab"
+        "label": "59. News — INSTAR Lab"
       },
       {
         "source": "/record/nav/",
         "target": "/news/clinical-ai-safety/",
         "occurrences": 4,
-        "label": "59. Clinical AI Safety Research — INSTAR Lab"
+        "label": "60. Clinical AI Safety Research — INSTAR Lab"
       },
       {
         "source": "/record/nav/",
         "target": "/news/formal-methods-safety-critical-trust/",
         "occurrences": 4,
-        "label": "60. Formal Methods and Trust in Safety-Critical Software — INSTAR Lab"
+        "label": "61. Formal Methods and Trust in Safety-Critical Software — INSTAR Lab"
       },
       {
         "source": "/record/nav/",
         "target": "/news/hpc-infrastructure-for-ai/",
         "occurrences": 4,
-        "label": "61. HPC Infrastructure for AI — INSTAR Lab"
+        "label": "62. HPC Infrastructure for AI — INSTAR Lab"
       },
       {
         "source": "/record/nav/",
         "target": "/news/legal-foundations-tech-governance/",
         "occurrences": 4,
-        "label": "62. Legal Foundations for Emerging Technology Governance — INSTAR Lab"
+        "label": "63. Legal Foundations for Emerging Technology Governance — INSTAR Lab"
       },
       {
         "source": "/record/nav/",
         "target": "/news/materials-science-energy-transition/",
         "occurrences": 4,
-        "label": "63. Materials Science and the Energy Transition — INSTAR Lab"
+        "label": "64. Materials Science and the Energy Transition — INSTAR Lab"
       },
       {
         "source": "/record/nav/",
         "target": "/news/open-data-research-philosophy/",
         "occurrences": 4,
-        "label": "64. Why INSTAR Lab Commits to Open Data — INSTAR Lab"
+        "label": "65. Why INSTAR Lab Commits to Open Data — INSTAR Lab"
       },
       {
         "source": "/record/nav/",
         "target": "/news/precision-agriculture-open-data/",
         "occurrences": 4,
-        "label": "65. Precision Agriculture and Open Agricultural Data — INSTAR Lab"
+        "label": "66. Precision Agriculture and Open Agricultural Data — INSTAR Lab"
       },
       {
         "source": "/record/nav/",
         "target": "/news/quantum-sensing-breakthroughs/",
         "occurrences": 4,
-        "label": "66. Quantum Sensing Breakthroughs — INSTAR Lab"
+        "label": "67. Quantum Sensing Breakthroughs — INSTAR Lab"
       },
       {
         "source": "/record/nav/",
@@ -5008,207 +5035,213 @@
       },
       {
         "source": "/record/nav/",
+        "target": "/research/outputs/",
+        "occurrences": 4,
+        "label": "18. Research Outputs — INSTAR Lab"
+      },
+      {
+        "source": "/record/nav/",
         "target": "/research/publications/",
         "occurrences": 4,
-        "label": "18. Research Publications &amp; Outputs — INSTAR Lab"
+        "label": "19. Research Publications &amp; Outputs — INSTAR Lab"
       },
       {
         "source": "/record/nav/",
         "target": "/sciences/agriculture/",
         "occurrences": 4,
-        "label": "26. Agriculture Research — INSTAR Lab Sciences"
+        "label": "27. Agriculture Research — INSTAR Lab Sciences"
       },
       {
         "source": "/record/nav/",
         "target": "/sciences/anthropology/",
         "occurrences": 4,
-        "label": "27. Anthropology Research — INSTAR Lab Sciences"
+        "label": "28. Anthropology Research — INSTAR Lab Sciences"
       },
       {
         "source": "/record/nav/",
         "target": "/sciences/archaeology/",
         "occurrences": 4,
-        "label": "28. Archaeology Research — INSTAR Lab Sciences"
+        "label": "29. Archaeology Research — INSTAR Lab Sciences"
       },
       {
         "source": "/record/nav/",
         "target": "/sciences/biology/",
         "occurrences": 4,
-        "label": "29. Biology Research — INSTAR Lab Sciences"
+        "label": "30. Biology Research — INSTAR Lab Sciences"
       },
       {
         "source": "/record/nav/",
         "target": "/sciences/chemistry/",
         "occurrences": 4,
-        "label": "30. Chemistry Research — INSTAR Lab Sciences"
+        "label": "31. Chemistry Research — INSTAR Lab Sciences"
       },
       {
         "source": "/record/nav/",
         "target": "/sciences/cognitive-sciences/",
         "occurrences": 4,
-        "label": "31. Cognitive Sciences Research — INSTAR Lab Sciences"
+        "label": "32. Cognitive Sciences Research — INSTAR Lab Sciences"
       },
       {
         "source": "/record/nav/",
         "target": "/sciences/economics/",
         "occurrences": 4,
-        "label": "32. Economics Research — INSTAR Lab Sciences"
+        "label": "33. Economics Research — INSTAR Lab Sciences"
       },
       {
         "source": "/record/nav/",
         "target": "/sciences/energy/",
         "occurrences": 4,
-        "label": "33. Energy Research — INSTAR Lab Sciences"
+        "label": "34. Energy Research — INSTAR Lab Sciences"
       },
       {
         "source": "/record/nav/",
         "target": "/sciences/genetics/",
         "occurrences": 4,
-        "label": "34. Genetics Research — INSTAR Lab Sciences"
+        "label": "35. Genetics Research — INSTAR Lab Sciences"
       },
       {
         "source": "/record/nav/",
         "target": "/sciences/geology/",
         "occurrences": 4,
-        "label": "35. Geology Research — INSTAR Lab Sciences"
+        "label": "36. Geology Research — INSTAR Lab Sciences"
       },
       {
         "source": "/record/nav/",
         "target": "/sciences/kinesiology/",
         "occurrences": 4,
-        "label": "36. Kinesiology Research — INSTAR Lab Sciences"
+        "label": "37. Kinesiology Research — INSTAR Lab Sciences"
       },
       {
         "source": "/record/nav/",
         "target": "/sciences/law/",
         "occurrences": 4,
-        "label": "37. Law &amp; Legal Research — INSTAR Lab Sciences"
+        "label": "38. Law &amp; Legal Research — INSTAR Lab Sciences"
       },
       {
         "source": "/record/nav/",
         "target": "/sciences/linguistics/",
         "occurrences": 4,
-        "label": "38. Linguistics Research — INSTAR Lab Sciences"
+        "label": "39. Linguistics Research — INSTAR Lab Sciences"
       },
       {
         "source": "/record/nav/",
         "target": "/sciences/materials-science/",
         "occurrences": 4,
-        "label": "39. Materials Science Research — INSTAR Lab Sciences"
+        "label": "40. Materials Science Research — INSTAR Lab Sciences"
       },
       {
         "source": "/record/nav/",
         "target": "/sciences/medicine/",
         "occurrences": 4,
-        "label": "40. Medicine &amp; Health Research — INSTAR Lab Sciences"
+        "label": "41. Medicine &amp; Health Research — INSTAR Lab Sciences"
       },
       {
         "source": "/record/nav/",
         "target": "/sciences/neuroscience/",
         "occurrences": 4,
-        "label": "41. Neuroscience Research — INSTAR Lab Sciences"
+        "label": "42. Neuroscience Research — INSTAR Lab Sciences"
       },
       {
         "source": "/record/nav/",
         "target": "/sciences/ocean-science/",
         "occurrences": 4,
-        "label": "42. Ocean Science Research — INSTAR Lab Sciences"
+        "label": "43. Ocean Science Research — INSTAR Lab Sciences"
       },
       {
         "source": "/record/nav/",
         "target": "/sciences/outer-space/",
         "occurrences": 4,
-        "label": "43. Outer Space Research — INSTAR Lab Sciences"
+        "label": "44. Outer Space Research — INSTAR Lab Sciences"
       },
       {
         "source": "/record/nav/",
         "target": "/sciences/physics/",
         "occurrences": 4,
-        "label": "44. Physics Research — INSTAR Lab Sciences"
+        "label": "45. Physics Research — INSTAR Lab Sciences"
       },
       {
         "source": "/record/nav/",
         "target": "/sciences/physiology/",
         "occurrences": 4,
-        "label": "45. Physiology Research — INSTAR Lab Sciences"
+        "label": "46. Physiology Research — INSTAR Lab Sciences"
       },
       {
         "source": "/record/nav/",
         "target": "/sciences/psychology/",
         "occurrences": 4,
-        "label": "46. Psychology Research — INSTAR Lab Sciences"
+        "label": "47. Psychology Research — INSTAR Lab Sciences"
       },
       {
         "source": "/record/nav/",
         "target": "/sciences/sociology/",
         "occurrences": 4,
-        "label": "47. Sociology Research — INSTAR Lab Sciences"
+        "label": "48. Sociology Research — INSTAR Lab Sciences"
       },
       {
         "source": "/record/nav/",
         "target": "/tech-transfer/enterprise-rd/",
         "occurrences": 5,
-        "label": "68. Enterprise R&amp;D — INSTAR Lab Technology Transfer"
+        "label": "69. Enterprise R&amp;D — INSTAR Lab Technology Transfer"
       },
       {
         "source": "/record/nav/",
         "target": "/tech-transfer/portfolio/",
         "occurrences": 5,
-        "label": "69. Research Portfolio — INSTAR Lab Technology Transfer"
+        "label": "70. Research Portfolio — INSTAR Lab Technology Transfer"
       },
       {
         "source": "/record/nav/",
         "target": "/tech-transfer/sttr-programs/",
         "occurrences": 5,
-        "label": "70. STTR Programs — INSTAR Lab Technology Transfer"
+        "label": "71. STTR Programs — INSTAR Lab Technology Transfer"
       },
       {
         "source": "/record/nav/",
         "target": "/tech-transfer/workshops-events/",
         "occurrences": 4,
-        "label": "71. Workshops &amp; Events — INSTAR Lab Technology Transfer"
+        "label": "72. Workshops &amp; Events — INSTAR Lab Technology Transfer"
       },
       {
         "source": "/record/nav/",
         "target": "/technology/augmented-reality/",
         "occurrences": 4,
-        "label": "19. Augmented Reality Research — INSTAR Lab Technology"
+        "label": "20. Augmented Reality Research — INSTAR Lab Technology"
       },
       {
         "source": "/record/nav/",
         "target": "/technology/computer-science/",
         "occurrences": 5,
-        "label": "20. Computer Science Research — INSTAR Lab Technology"
+        "label": "21. Computer Science Research — INSTAR Lab Technology"
       },
       {
         "source": "/record/nav/",
         "target": "/technology/data-science/",
         "occurrences": 4,
-        "label": "21. Data Science Research — INSTAR Lab Technology"
+        "label": "22. Data Science Research — INSTAR Lab Technology"
       },
       {
         "source": "/record/nav/",
         "target": "/technology/formal-methods/",
         "occurrences": 4,
-        "label": "22. Formal Methods Research — INSTAR Lab Technology"
+        "label": "23. Formal Methods Research — INSTAR Lab Technology"
       },
       {
         "source": "/record/nav/",
         "target": "/technology/machine-intelligence/",
         "occurrences": 4,
-        "label": "23. Machine Intelligence Research — INSTAR Lab Technology"
+        "label": "24. Machine Intelligence Research — INSTAR Lab Technology"
       },
       {
         "source": "/record/nav/",
         "target": "/technology/natural-language-processing/",
         "occurrences": 4,
-        "label": "24. Natural Language Processing Research — INSTAR Lab Technology"
+        "label": "25. Natural Language Processing Research — INSTAR Lab Technology"
       },
       {
         "source": "/record/nav/",
         "target": "/technology/quantum-computing/",
         "occurrences": 4,
-        "label": "25. Quantum Computing Research — INSTAR Lab Technology"
+        "label": "26. Quantum Computing Research — INSTAR Lab Technology"
       },
       {
         "source": "/record/nav/",
@@ -6135,6 +6168,12 @@
         "label": "01 OUR PROCESS Our Research Process — INSTAR Lab See how questions, methods, evi"
       },
       {
+        "source": "/research/",
+        "target": "/research/outputs/",
+        "occurrences": 1,
+        "label": "01 OUTPUTS Research Outputs — INSTAR Lab Review the outputs hub for the publicat"
+      },
+      {
         "source": "/research/consortium/",
         "target": "/contact-us/",
         "occurrences": 2,
@@ -6220,9 +6259,15 @@
       },
       {
         "source": "/research/current-programs/",
+        "target": "/research/outputs/",
+        "occurrences": 2,
+        "label": "07 OUTPUTS Research Outputs — INSTAR Lab Open portfolio route"
+      },
+      {
+        "source": "/research/current-programs/",
         "target": "/research/publications/",
         "occurrences": 2,
-        "label": "08 PUBLICATIONS Research Publications &amp; Outputs — INSTAR Lab Open portfolio "
+        "label": "09 PUBLICATIONS Research Publications &amp; Outputs — INSTAR Lab Open portfolio "
       },
       {
         "source": "/research/facilities/",
@@ -6250,9 +6295,9 @@
       },
       {
         "source": "/research/facilities/",
-        "target": "/research/funding/",
+        "target": "/research/outputs/",
         "occurrences": 1,
-        "label": "Research Federal Research &amp; Sponsored Programs — INSTAR Lab ↗"
+        "label": "Research Research Outputs — INSTAR Lab ↗"
       },
       {
         "source": "/research/facilities/",
@@ -6417,6 +6462,66 @@
         "label": "Browse current programs"
       },
       {
+        "source": "/research/outputs/",
+        "target": "/contact-us/",
+        "occurrences": 2,
+        "label": "Discuss a research requirement"
+      },
+      {
+        "source": "/research/outputs/",
+        "target": "/news/",
+        "occurrences": 1,
+        "label": "Research briefs"
+      },
+      {
+        "source": "/research/outputs/",
+        "target": "/research/",
+        "occurrences": 2,
+        "label": "Explore research"
+      },
+      {
+        "source": "/research/outputs/",
+        "target": "/research/consortium/",
+        "occurrences": 1,
+        "label": "Research INSTAR Consortium — Collaborative Research Network ↗"
+      },
+      {
+        "source": "/research/outputs/",
+        "target": "/research/current-programs/",
+        "occurrences": 1,
+        "label": "Research Current Research Programs — INSTAR Lab ↗"
+      },
+      {
+        "source": "/research/outputs/",
+        "target": "/research/facilities/",
+        "occurrences": 1,
+        "label": "Research Research Facilities — INSTAR Lab ↗"
+      },
+      {
+        "source": "/research/outputs/",
+        "target": "/research/open-data/",
+        "occurrences": 1,
+        "label": "Open data and public datasets"
+      },
+      {
+        "source": "/research/outputs/",
+        "target": "/research/opportunities/",
+        "occurrences": 1,
+        "label": "Research opportunities"
+      },
+      {
+        "source": "/research/outputs/",
+        "target": "/research/publications/",
+        "occurrences": 2,
+        "label": "Verified publications and outputs"
+      },
+      {
+        "source": "/research/outputs/",
+        "target": "/tech-transfer/workshops-events/",
+        "occurrences": 1,
+        "label": "Workshops and events"
+      },
+      {
         "source": "/research/publications/",
         "target": "/contact-us/",
         "occurrences": 3,
@@ -6448,9 +6553,9 @@
       },
       {
         "source": "/research/publications/",
-        "target": "/research/funding/",
+        "target": "/research/outputs/",
         "occurrences": 1,
-        "label": "Research Federal Research &amp; Sponsored Programs — INSTAR Lab ↗"
+        "label": "Research Research Outputs — INSTAR Lab ↗"
       },
       {
         "source": "/sciences/agriculture/",
@@ -7429,6 +7534,12 @@
         "target": "/research/our-process/",
         "occurrences": 1,
         "label": "Research Our Research Process — INSTAR Lab Review how INSTAR Lab frames research"
+      },
+      {
+        "source": "/search/",
+        "target": "/research/outputs/",
+        "occurrences": 1,
+        "label": "Research Research Outputs — INSTAR Lab A discovery index of INSTAR Lab research "
       },
       {
         "source": "/search/",
@@ -24900,6 +25011,456 @@
       },
       {
         "source": "/research/our-process/",
+        "target": "/terms/",
+        "occurrences": 1,
+        "label": "Terms of use"
+      },
+      {
+        "source": "/research/outputs/",
+        "target": "/",
+        "occurrences": 1,
+        "label": ""
+      },
+      {
+        "source": "/research/outputs/",
+        "target": "/accessibility/",
+        "occurrences": 1,
+        "label": "Accessibility"
+      },
+      {
+        "source": "/research/outputs/",
+        "target": "/community/about-us/",
+        "occurrences": 3,
+        "label": "About Us"
+      },
+      {
+        "source": "/research/outputs/",
+        "target": "/community/careers/",
+        "occurrences": 3,
+        "label": "Careers"
+      },
+      {
+        "source": "/research/outputs/",
+        "target": "/community/leadership/",
+        "occurrences": 2,
+        "label": "Leadership"
+      },
+      {
+        "source": "/research/outputs/",
+        "target": "/community/partner/",
+        "occurrences": 2,
+        "label": "Partner"
+      },
+      {
+        "source": "/research/outputs/",
+        "target": "/community/support/",
+        "occurrences": 1,
+        "label": "Donate"
+      },
+      {
+        "source": "/research/outputs/",
+        "target": "/community/work-with-us/",
+        "occurrences": 2,
+        "label": "Collaborate"
+      },
+      {
+        "source": "/research/outputs/",
+        "target": "/contact-us/",
+        "occurrences": 3,
+        "label": "Contact"
+      },
+      {
+        "source": "/research/outputs/",
+        "target": "/fellowship/",
+        "occurrences": 3,
+        "label": "Fellowship"
+      },
+      {
+        "source": "/research/outputs/",
+        "target": "/labs/biometric-security/",
+        "occurrences": 2,
+        "label": "Biometrics &amp; Drone Sensing"
+      },
+      {
+        "source": "/research/outputs/",
+        "target": "/labs/cognitive-ai/",
+        "occurrences": 2,
+        "label": "Cognitive AI &amp; Persona Systems"
+      },
+      {
+        "source": "/research/outputs/",
+        "target": "/labs/sovereign-ai/",
+        "occurrences": 2,
+        "label": "Sovereign AI Laboratory"
+      },
+      {
+        "source": "/research/outputs/",
+        "target": "/mission/",
+        "occurrences": 2,
+        "label": "Mission"
+      },
+      {
+        "source": "/research/outputs/",
+        "target": "/news/",
+        "occurrences": 2,
+        "label": "Research Briefs"
+      },
+      {
+        "source": "/research/outputs/",
+        "target": "/privacy/",
+        "occurrences": 1,
+        "label": "Privacy policy"
+      },
+      {
+        "source": "/research/outputs/",
+        "target": "/record/",
+        "occurrences": 2,
+        "label": "Record room"
+      },
+      {
+        "source": "/research/outputs/",
+        "target": "/record/affiliations/",
+        "occurrences": 2,
+        "label": "Affiliations"
+      },
+      {
+        "source": "/research/outputs/",
+        "target": "/record/corrections/",
+        "occurrences": 2,
+        "label": "Corrections"
+      },
+      {
+        "source": "/research/outputs/",
+        "target": "/record/federal/",
+        "occurrences": 2,
+        "label": "Federal"
+      },
+      {
+        "source": "/research/outputs/",
+        "target": "/record/files/",
+        "occurrences": 2,
+        "label": "Documents"
+      },
+      {
+        "source": "/research/outputs/",
+        "target": "/record/governance/",
+        "occurrences": 2,
+        "label": "Governance"
+      },
+      {
+        "source": "/research/outputs/",
+        "target": "/record/journeys/",
+        "occurrences": 2,
+        "label": "Decision briefs"
+      },
+      {
+        "source": "/research/outputs/",
+        "target": "/record/leadership/",
+        "occurrences": 2,
+        "label": "Leadership"
+      },
+      {
+        "source": "/research/outputs/",
+        "target": "/record/legal/",
+        "occurrences": 2,
+        "label": "Legal"
+      },
+      {
+        "source": "/research/outputs/",
+        "target": "/record/marketing/",
+        "occurrences": 2,
+        "label": "Positioning"
+      },
+      {
+        "source": "/research/outputs/",
+        "target": "/record/metrics/",
+        "occurrences": 2,
+        "label": "Inventory"
+      },
+      {
+        "source": "/research/outputs/",
+        "target": "/record/nav/",
+        "occurrences": 2,
+        "label": "Site map"
+      },
+      {
+        "source": "/research/outputs/",
+        "target": "/record/ops/",
+        "occurrences": 2,
+        "label": "Ops"
+      },
+      {
+        "source": "/research/outputs/",
+        "target": "/record/screens/",
+        "occurrences": 2,
+        "label": "Visuals"
+      },
+      {
+        "source": "/research/outputs/",
+        "target": "/record/style/",
+        "occurrences": 2,
+        "label": "Style"
+      },
+      {
+        "source": "/research/outputs/",
+        "target": "/record/verify/",
+        "occurrences": 2,
+        "label": "Sources"
+      },
+      {
+        "source": "/research/outputs/",
+        "target": "/research/consortium/",
+        "occurrences": 2,
+        "label": "INSTAR Consortium"
+      },
+      {
+        "source": "/research/outputs/",
+        "target": "/research/current-programs/",
+        "occurrences": 3,
+        "label": "Review research programs"
+      },
+      {
+        "source": "/research/outputs/",
+        "target": "/research/facilities/",
+        "occurrences": 2,
+        "label": "Facilities"
+      },
+      {
+        "source": "/research/outputs/",
+        "target": "/research/funding/",
+        "occurrences": 3,
+        "label": "Funding"
+      },
+      {
+        "source": "/research/outputs/",
+        "target": "/research/innovation/",
+        "occurrences": 2,
+        "label": "Innovation"
+      },
+      {
+        "source": "/research/outputs/",
+        "target": "/research/open-data/",
+        "occurrences": 2,
+        "label": "Open Data"
+      },
+      {
+        "source": "/research/outputs/",
+        "target": "/research/opportunities/",
+        "occurrences": 2,
+        "label": "Opportunities"
+      },
+      {
+        "source": "/research/outputs/",
+        "target": "/research/our-process/",
+        "occurrences": 3,
+        "label": "Our Process"
+      },
+      {
+        "source": "/research/outputs/",
+        "target": "/sciences/agriculture/",
+        "occurrences": 2,
+        "label": "Agriculture"
+      },
+      {
+        "source": "/research/outputs/",
+        "target": "/sciences/anthropology/",
+        "occurrences": 2,
+        "label": "Anthropology"
+      },
+      {
+        "source": "/research/outputs/",
+        "target": "/sciences/archaeology/",
+        "occurrences": 2,
+        "label": "Archaeology"
+      },
+      {
+        "source": "/research/outputs/",
+        "target": "/sciences/biology/",
+        "occurrences": 2,
+        "label": "Biology"
+      },
+      {
+        "source": "/research/outputs/",
+        "target": "/sciences/chemistry/",
+        "occurrences": 2,
+        "label": "Chemistry"
+      },
+      {
+        "source": "/research/outputs/",
+        "target": "/sciences/cognitive-sciences/",
+        "occurrences": 2,
+        "label": "Cognitive Sciences"
+      },
+      {
+        "source": "/research/outputs/",
+        "target": "/sciences/economics/",
+        "occurrences": 2,
+        "label": "Economics"
+      },
+      {
+        "source": "/research/outputs/",
+        "target": "/sciences/energy/",
+        "occurrences": 3,
+        "label": "Energy"
+      },
+      {
+        "source": "/research/outputs/",
+        "target": "/sciences/genetics/",
+        "occurrences": 2,
+        "label": "Genetics"
+      },
+      {
+        "source": "/research/outputs/",
+        "target": "/sciences/geology/",
+        "occurrences": 2,
+        "label": "Geology"
+      },
+      {
+        "source": "/research/outputs/",
+        "target": "/sciences/kinesiology/",
+        "occurrences": 2,
+        "label": "Kinesiology"
+      },
+      {
+        "source": "/research/outputs/",
+        "target": "/sciences/law/",
+        "occurrences": 2,
+        "label": "Law"
+      },
+      {
+        "source": "/research/outputs/",
+        "target": "/sciences/linguistics/",
+        "occurrences": 2,
+        "label": "Linguistics"
+      },
+      {
+        "source": "/research/outputs/",
+        "target": "/sciences/materials-science/",
+        "occurrences": 2,
+        "label": "Materials Science"
+      },
+      {
+        "source": "/research/outputs/",
+        "target": "/sciences/medicine/",
+        "occurrences": 3,
+        "label": "Medicine"
+      },
+      {
+        "source": "/research/outputs/",
+        "target": "/sciences/neuroscience/",
+        "occurrences": 2,
+        "label": "Neuroscience"
+      },
+      {
+        "source": "/research/outputs/",
+        "target": "/sciences/ocean-science/",
+        "occurrences": 2,
+        "label": "Ocean Science"
+      },
+      {
+        "source": "/research/outputs/",
+        "target": "/sciences/outer-space/",
+        "occurrences": 2,
+        "label": "Outer Space"
+      },
+      {
+        "source": "/research/outputs/",
+        "target": "/sciences/physics/",
+        "occurrences": 2,
+        "label": "Physics"
+      },
+      {
+        "source": "/research/outputs/",
+        "target": "/sciences/physiology/",
+        "occurrences": 2,
+        "label": "Physiology"
+      },
+      {
+        "source": "/research/outputs/",
+        "target": "/sciences/psychology/",
+        "occurrences": 2,
+        "label": "Psychology"
+      },
+      {
+        "source": "/research/outputs/",
+        "target": "/sciences/sociology/",
+        "occurrences": 2,
+        "label": "Sociology"
+      },
+      {
+        "source": "/research/outputs/",
+        "target": "/search/",
+        "occurrences": 2,
+        "label": "Search"
+      },
+      {
+        "source": "/research/outputs/",
+        "target": "/tech-transfer/enterprise-rd/",
+        "occurrences": 2,
+        "label": "Enterprise R&amp;D"
+      },
+      {
+        "source": "/research/outputs/",
+        "target": "/tech-transfer/portfolio/",
+        "occurrences": 2,
+        "label": "Portfolio"
+      },
+      {
+        "source": "/research/outputs/",
+        "target": "/tech-transfer/sttr-programs/",
+        "occurrences": 2,
+        "label": "STTR Programs"
+      },
+      {
+        "source": "/research/outputs/",
+        "target": "/tech-transfer/workshops-events/",
+        "occurrences": 2,
+        "label": "Workshops &amp; Events"
+      },
+      {
+        "source": "/research/outputs/",
+        "target": "/technology/augmented-reality/",
+        "occurrences": 2,
+        "label": "Augmented Reality"
+      },
+      {
+        "source": "/research/outputs/",
+        "target": "/technology/computer-science/",
+        "occurrences": 3,
+        "label": "Computer Science"
+      },
+      {
+        "source": "/research/outputs/",
+        "target": "/technology/data-science/",
+        "occurrences": 3,
+        "label": "Data Science"
+      },
+      {
+        "source": "/research/outputs/",
+        "target": "/technology/formal-methods/",
+        "occurrences": 2,
+        "label": "Formal Methods"
+      },
+      {
+        "source": "/research/outputs/",
+        "target": "/technology/machine-intelligence/",
+        "occurrences": 3,
+        "label": "Machine Intelligence"
+      },
+      {
+        "source": "/research/outputs/",
+        "target": "/technology/natural-language-processing/",
+        "occurrences": 2,
+        "label": "Natural Language Processing"
+      },
+      {
+        "source": "/research/outputs/",
+        "target": "/technology/quantum-computing/",
+        "occurrences": 3,
+        "label": "Quantum Computing"
+      },
+      {
+        "source": "/research/outputs/",
         "target": "/terms/",
         "occurrences": 1,
         "label": "Terms of use"
