@@ -618,7 +618,7 @@
       "unzoned": [],
       "aliases": [],
       "undocumented": [],
-      "generatedAt": "2026-09-29T21:35:51.887Z"
+      "generatedAt": "2026-09-29T21:41:50.862Z"
     },
     "summary": {
       "nodes": 91,
@@ -5384,13 +5384,13 @@
       {
         "source": "/record/screens/",
         "target": "/",
-        "occurrences": 2,
+        "occurrences": 4,
         "label": "Return to instarlab.org"
       },
       {
         "source": "/record/screens/",
         "target": "/404.html",
-        "occurrences": 1,
+        "occurrences": 2,
         "label": "Open canonical route ↗"
       },
       {
