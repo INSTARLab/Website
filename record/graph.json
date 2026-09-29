@@ -618,11 +618,11 @@
       "unzoned": [],
       "aliases": [],
       "undocumented": [],
-      "generatedAt": "2026-09-29T20:31:56.593Z"
+      "generatedAt": "2026-09-29T20:44:32.807Z"
     },
     "summary": {
       "nodes": 91,
-      "contentPairs": 1005,
+      "contentPairs": 1006,
       "chromePairs": 5566,
       "journeyLinks": 18,
       "observedJourneyLinks": 18,
@@ -700,7 +700,7 @@
         "inInventory": true,
         "aliasOf": null,
         "inboundContent": 13,
-        "outboundContent": 5,
+        "outboundContent": 6,
         "inboundChrome": 74,
         "outboundChrome": 74,
         "journeys": [
@@ -1125,7 +1125,7 @@
         "inLedger": true,
         "inInventory": true,
         "aliasOf": null,
-        "inboundContent": 16,
+        "inboundContent": 17,
         "outboundContent": 20,
         "inboundChrome": 75,
         "outboundChrome": 0,
@@ -2296,6 +2296,12 @@
         "target": "/contact-us/",
         "occurrences": 2,
         "label": "Discuss a research requirement"
+      },
+      {
+        "source": "/community/about-us/",
+        "target": "/record/corrections/",
+        "occurrences": 1,
+        "label": "Corrections register"
       },
       {
         "source": "/community/careers/",
