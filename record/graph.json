@@ -618,11 +618,11 @@
       "unzoned": [],
       "aliases": [],
       "undocumented": [],
-      "generatedAt": "2026-09-29T20:55:33.860Z"
+      "generatedAt": "2026-09-29T21:02:30.535Z"
     },
     "summary": {
       "nodes": 91,
-      "contentPairs": 1006,
+      "contentPairs": 1008,
       "chromePairs": 5566,
       "journeyLinks": 18,
       "observedJourneyLinks": 18,
@@ -716,7 +716,7 @@
         "inLedger": true,
         "inInventory": true,
         "aliasOf": null,
-        "inboundContent": 11,
+        "inboundContent": 12,
         "outboundContent": 5,
         "inboundChrome": 74,
         "outboundChrome": 74,
@@ -847,7 +847,7 @@
         "inLedger": true,
         "inInventory": true,
         "aliasOf": null,
-        "inboundContent": 7,
+        "inboundContent": 8,
         "outboundContent": 0,
         "inboundChrome": 74,
         "outboundChrome": 74,
@@ -1452,7 +1452,7 @@
         "inInventory": true,
         "aliasOf": null,
         "inboundContent": 8,
-        "outboundContent": 6,
+        "outboundContent": 8,
         "inboundChrome": 74,
         "outboundChrome": 74,
         "journeys": []
@@ -6433,9 +6433,21 @@
       },
       {
         "source": "/research/opportunities/",
+        "target": "/community/careers/",
+        "occurrences": 1,
+        "label": "careers route"
+      },
+      {
+        "source": "/research/opportunities/",
         "target": "/contact-us/",
-        "occurrences": 2,
+        "occurrences": 8,
         "label": "Discuss a research requirement"
+      },
+      {
+        "source": "/research/opportunities/",
+        "target": "/fellowship/",
+        "occurrences": 1,
+        "label": "fellowship page"
       },
       {
         "source": "/research/opportunities/",
@@ -6464,8 +6476,8 @@
       {
         "source": "/research/opportunities/",
         "target": "/research/funding/",
-        "occurrences": 1,
-        "label": "Research Federal Research &amp; Sponsored Programs — INSTAR Lab ↗"
+        "occurrences": 2,
+        "label": "funding route"
       },
       {
         "source": "/research/our-process/",

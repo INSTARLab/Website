@@ -1,0 +1,11 @@
+{
+  "updated": "2026-09-17",
+  "contact": "/contact-us/",
+  "categories": [
+    { "id": "research-positions", "items": [] },
+    { "id": "fellowship-slots", "items": [] },
+    { "id": "collaborations", "items": [] },
+    { "id": "student-roles", "items": [] },
+    { "id": "internships", "items": [] }
+  ]
+}
