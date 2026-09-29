@@ -1,0 +1,40 @@
+{
+  "updated": "2026-09-17",
+  "issue": 310,
+  "contact": "/contact-us/",
+  "contactEmail": "mailto:info@instarlab.org",
+  "tax": {
+    "ein": "85-0845517",
+    "classification": "501(c)(3) public charity under IRC section 170(b)(1)(A)(vi)",
+    "determinationLetter": "/docs/irs-determination-letter-85-0845517.pdf",
+    "form990": "Not reported",
+    "refundPolicy": "Not reported"
+  },
+  "oneTime": {
+    "status": "pending-owner",
+    "note": "Online one-time giving opens after owner review. Until then every option below routes to the contact path instead of a payment processor.",
+    "options": [
+      { "id": "onetime-25", "label": "$25", "amountUsd": 25, "href": null },
+      { "id": "onetime-100", "label": "$100", "amountUsd": 100, "href": null },
+      { "id": "onetime-500", "label": "$500", "amountUsd": 500, "href": null },
+      { "id": "onetime-custom", "label": "Custom", "amountUsd": null, "minimumUsd": 5, "href": null }
+    ]
+  },
+  "friends": {
+    "status": "pending-owner",
+    "note": "Friends of INSTAR is a recurring annual membership with recognition-only benefits. Payment links stay owner-gated until the amounts below receive final sign-off.",
+    "benefits": [
+      "Supporters newsletter",
+      "Annual impact report",
+      "Supporters wall recognition",
+      "Research briefing and event access"
+    ],
+    "portalHref": null,
+    "tiers": [
+      { "id": "friend", "name": "Friend", "annualUsd": 60, "href": null },
+      { "id": "supporter", "name": "Supporter", "annualUsd": 180, "href": null },
+      { "id": "patron", "name": "Patron", "annualUsd": 600, "href": null },
+      { "id": "benefactor", "name": "Benefactor", "annualUsd": 1200, "href": null }
+    ]
+  }
+}
