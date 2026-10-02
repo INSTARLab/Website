@@ -610,7 +610,7 @@
   "linkGraph": {
     "schemaVersion": 2,
     "provenance": {
-      "generator": "scripts/quality/build-link-graph.mjs + src/components/record/nav-graph.mjs",
+      "generator": "record link-graph builder over the production build (RRP-203)",
       "base": "/",
       "origin": "https://www.instarlab.org",
       "routeCount": 91,
@@ -618,15 +618,15 @@
       "unzoned": [],
       "aliases": [],
       "undocumented": [],
-      "generatedAt": "2026-09-29T21:41:50.862Z"
+      "generatedAt": "2026-10-02T03:13:20.258Z"
     },
     "summary": {
       "nodes": 91,
-      "contentPairs": 1008,
+      "contentPairs": 1013,
       "chromePairs": 5566,
       "journeyLinks": 18,
       "observedJourneyLinks": 18,
-      "orphans": 2,
+      "orphans": 0,
       "missingCount": 0
     },
     "nodes": [
@@ -717,7 +717,7 @@
         "inInventory": true,
         "aliasOf": null,
         "inboundContent": 12,
-        "outboundContent": 5,
+        "outboundContent": 6,
         "inboundChrome": 74,
         "outboundChrome": 74,
         "journeys": [
@@ -832,7 +832,7 @@
         "inLedger": true,
         "inInventory": false,
         "aliasOf": null,
-        "inboundContent": 0,
+        "inboundContent": 1,
         "outboundContent": 11,
         "inboundChrome": 0,
         "outboundChrome": 75,
@@ -847,7 +847,7 @@
         "inLedger": true,
         "inInventory": true,
         "aliasOf": null,
-        "inboundContent": 8,
+        "inboundContent": 9,
         "outboundContent": 0,
         "inboundChrome": 74,
         "outboundChrome": 74,
@@ -1065,7 +1065,7 @@
         "inLedger": true,
         "inInventory": false,
         "aliasOf": null,
-        "inboundContent": 0,
+        "inboundContent": 1,
         "outboundContent": 2,
         "inboundChrome": 0,
         "outboundChrome": 75,
@@ -1293,7 +1293,7 @@
         "inInventory": true,
         "aliasOf": null,
         "inboundContent": 15,
-        "outboundContent": 86,
+        "outboundContent": 90,
         "inboundChrome": 75,
         "outboundChrome": 0,
         "journeys": []
@@ -1483,7 +1483,7 @@
         "inLedger": true,
         "inInventory": true,
         "aliasOf": null,
-        "inboundContent": 7,
+        "inboundContent": 8,
         "outboundContent": 10,
         "inboundChrome": 0,
         "outboundChrome": 75,
@@ -1498,7 +1498,7 @@
         "inLedger": true,
         "inInventory": true,
         "aliasOf": null,
-        "inboundContent": 6,
+        "inboundContent": 7,
         "outboundContent": 6,
         "inboundChrome": 0,
         "outboundChrome": 75,
@@ -2295,7 +2295,7 @@
         "source": "/community/about-us/",
         "target": "/contact-us/",
         "occurrences": 2,
-        "label": "Discuss a research requirement"
+        "label": "Continue with INSTAR"
       },
       {
         "source": "/community/about-us/",
@@ -2330,8 +2330,14 @@
       {
         "source": "/community/careers/",
         "target": "/contact-us/",
-        "occurrences": 3,
-        "label": "Discuss a research requirement"
+        "occurrences": 2,
+        "label": "Ready to discuss scope Express interest in a research or technical role."
+      },
+      {
+        "source": "/community/careers/",
+        "target": "/fellowship/",
+        "occurrences": 1,
+        "label": "Explore roles and fellowships"
       },
       {
         "source": "/community/contact/",
@@ -2361,7 +2367,7 @@
         "source": "/community/contact/",
         "target": "/contact-us/",
         "occurrences": 2,
-        "label": "Discuss a research requirement"
+        "label": "Continue with INSTAR"
       },
       {
         "source": "/community/leadership/",
@@ -2391,7 +2397,7 @@
         "source": "/community/leadership/",
         "target": "/contact-us/",
         "occurrences": 3,
-        "label": "Discuss a research requirement"
+        "label": "Continue with INSTAR"
       },
       {
         "source": "/community/leadership/",
@@ -2427,7 +2433,7 @@
         "source": "/community/partner/",
         "target": "/contact-us/",
         "occurrences": 2,
-        "label": "Discuss a research requirement"
+        "label": "Continue with INSTAR"
       },
       {
         "source": "/community/partner/",
@@ -2463,7 +2469,7 @@
         "source": "/community/support/",
         "target": "/contact-us/",
         "occurrences": 3,
-        "label": "Discuss a research requirement"
+        "label": "Ask about support options"
       },
       {
         "source": "/community/work-with-us/",
@@ -2493,7 +2499,7 @@
         "source": "/community/work-with-us/",
         "target": "/contact-us/",
         "occurrences": 2,
-        "label": "Discuss a research requirement"
+        "label": "Continue with INSTAR"
       },
       {
         "source": "/faq/",
@@ -5455,6 +5461,12 @@
       },
       {
         "source": "/record/screens/",
+        "target": "/faq/",
+        "occurrences": 1,
+        "label": "Open canonical route ↗"
+      },
+      {
+        "source": "/record/screens/",
         "target": "/fellowship/",
         "occurrences": 1,
         "label": "Open canonical route ↗"
@@ -5534,6 +5546,12 @@
       {
         "source": "/record/screens/",
         "target": "/news/quantum-sensing-breakthroughs/",
+        "occurrences": 1,
+        "label": "Open canonical route ↗"
+      },
+      {
+        "source": "/record/screens/",
+        "target": "/press/",
         "occurrences": 1,
         "label": "Open canonical route ↗"
       },
@@ -5684,6 +5702,18 @@
       {
         "source": "/record/screens/",
         "target": "/research/our-process/",
+        "occurrences": 1,
+        "label": "Open canonical route ↗"
+      },
+      {
+        "source": "/record/screens/",
+        "target": "/research/outputs/",
+        "occurrences": 1,
+        "label": "Open canonical route ↗"
+      },
+      {
+        "source": "/record/screens/",
+        "target": "/research/publications/",
         "occurrences": 1,
         "label": "Open canonical route ↗"
       },
@@ -7851,7 +7881,7 @@
         "source": "/tech-transfer/workshops-events/",
         "target": "/contact-us/",
         "occurrences": 3,
-        "label": "Discuss a research requirement"
+        "label": "Request a research briefing or technical exchange"
       },
       {
         "source": "/tech-transfer/workshops-events/",
@@ -41562,7 +41592,7 @@
         "target": "/fellowship/",
         "journey": "researcher",
         "kind": "next-action",
-        "observed": "chrome"
+        "observed": "content"
       },
       {
         "source": "/community/partner/",
@@ -41614,10 +41644,7 @@
         "observed": "chrome"
       }
     ],
-    "orphans": [
-      "/faq/",
-      "/press/"
-    ],
+    "orphans": [],
     "missing": []
   }
 }
