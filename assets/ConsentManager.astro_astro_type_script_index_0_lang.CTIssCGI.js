@@ -1,0 +1,1 @@
+import{t as e}from"./preload-helper.B3nfOi5I.js";document.querySelector(`[data-consent-root]`)&&e(()=>import(`./consent.54lntr73.js`),[]);
