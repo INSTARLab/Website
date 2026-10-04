@@ -613,17 +613,17 @@
       "generator": "record link-graph builder over the production build (RRP-203)",
       "base": "/",
       "origin": "https://www.instarlab.org",
-      "routeCount": 91,
-      "documentCount": 91,
+      "routeCount": 92,
+      "documentCount": 92,
       "unzoned": [],
       "aliases": [],
       "undocumented": [],
-      "generatedAt": "2026-10-02T04:37:11.667Z"
+      "generatedAt": "2026-10-04T22:16:12.907Z"
     },
     "summary": {
-      "nodes": 91,
-      "contentPairs": 1013,
-      "chromePairs": 5566,
+      "nodes": 92,
+      "contentPairs": 1008,
+      "chromePairs": 5641,
       "journeyLinks": 18,
       "observedJourneyLinks": 18,
       "orphans": 0,
@@ -641,7 +641,7 @@
         "aliasOf": null,
         "inboundContent": 26,
         "outboundContent": 32,
-        "inboundChrome": 74,
+        "inboundChrome": 75,
         "outboundChrome": 74,
         "journeys": []
       },
@@ -686,7 +686,7 @@
         "aliasOf": null,
         "inboundContent": 16,
         "outboundContent": 1,
-        "inboundChrome": 74,
+        "inboundChrome": 75,
         "outboundChrome": 74,
         "journeys": []
       },
@@ -701,7 +701,7 @@
         "aliasOf": null,
         "inboundContent": 13,
         "outboundContent": 6,
-        "inboundChrome": 74,
+        "inboundChrome": 75,
         "outboundChrome": 74,
         "journeys": [
           "supporter"
@@ -718,7 +718,7 @@
         "aliasOf": null,
         "inboundContent": 12,
         "outboundContent": 6,
-        "inboundChrome": 74,
+        "inboundChrome": 75,
         "outboundChrome": 74,
         "journeys": [
           "researcher"
@@ -750,7 +750,7 @@
         "aliasOf": null,
         "inboundContent": 10,
         "outboundContent": 6,
-        "inboundChrome": 74,
+        "inboundChrome": 75,
         "outboundChrome": 74,
         "journeys": []
       },
@@ -765,7 +765,7 @@
         "aliasOf": null,
         "inboundContent": 12,
         "outboundContent": 6,
-        "inboundChrome": 74,
+        "inboundChrome": 75,
         "outboundChrome": 74,
         "journeys": [
           "institutional-partner"
@@ -782,7 +782,7 @@
         "aliasOf": null,
         "inboundContent": 8,
         "outboundContent": 5,
-        "inboundChrome": 74,
+        "inboundChrome": 75,
         "outboundChrome": 74,
         "journeys": [
           "supporter"
@@ -799,7 +799,7 @@
         "aliasOf": null,
         "inboundContent": 6,
         "outboundContent": 5,
-        "inboundChrome": 74,
+        "inboundChrome": 75,
         "outboundChrome": 74,
         "journeys": [
           "technical-collaborator"
@@ -814,9 +814,9 @@
         "inLedger": true,
         "inInventory": true,
         "aliasOf": null,
-        "inboundContent": 69,
+        "inboundContent": 67,
         "outboundContent": 0,
-        "inboundChrome": 74,
+        "inboundChrome": 75,
         "outboundChrome": 74,
         "journeys": [
           "institutional-partner",
@@ -849,7 +849,7 @@
         "aliasOf": null,
         "inboundContent": 9,
         "outboundContent": 0,
-        "inboundChrome": 74,
+        "inboundChrome": 75,
         "outboundChrome": 74,
         "journeys": [
           "researcher"
@@ -866,7 +866,7 @@
         "aliasOf": null,
         "inboundContent": 7,
         "outboundContent": 3,
-        "inboundChrome": 74,
+        "inboundChrome": 75,
         "outboundChrome": 74,
         "journeys": []
       },
@@ -881,7 +881,7 @@
         "aliasOf": null,
         "inboundContent": 7,
         "outboundContent": 3,
-        "inboundChrome": 74,
+        "inboundChrome": 75,
         "outboundChrome": 74,
         "journeys": []
       },
@@ -896,7 +896,7 @@
         "aliasOf": null,
         "inboundContent": 8,
         "outboundContent": 3,
-        "inboundChrome": 74,
+        "inboundChrome": 75,
         "outboundChrome": 74,
         "journeys": [
           "technical-collaborator"
@@ -913,7 +913,7 @@
         "aliasOf": null,
         "inboundContent": 7,
         "outboundContent": 1,
-        "inboundChrome": 74,
+        "inboundChrome": 75,
         "outboundChrome": 74,
         "journeys": [
           "supporter"
@@ -930,7 +930,7 @@
         "aliasOf": null,
         "inboundContent": 16,
         "outboundContent": 8,
-        "inboundChrome": 74,
+        "inboundChrome": 75,
         "outboundChrome": 74,
         "journeys": [
           "researcher"
@@ -1082,7 +1082,7 @@
         "aliasOf": null,
         "inboundContent": 16,
         "outboundContent": 1,
-        "inboundChrome": 74,
+        "inboundChrome": 75,
         "outboundChrome": 74,
         "journeys": []
       },
@@ -1097,7 +1097,7 @@
         "aliasOf": null,
         "inboundContent": 17,
         "outboundContent": 19,
-        "inboundChrome": 75,
+        "inboundChrome": 76,
         "outboundChrome": 0,
         "journeys": []
       },
@@ -1112,7 +1112,7 @@
         "aliasOf": null,
         "inboundContent": 15,
         "outboundContent": 19,
-        "inboundChrome": 75,
+        "inboundChrome": 76,
         "outboundChrome": 0,
         "journeys": []
       },
@@ -1127,7 +1127,7 @@
         "aliasOf": null,
         "inboundContent": 17,
         "outboundContent": 20,
-        "inboundChrome": 75,
+        "inboundChrome": 76,
         "outboundChrome": 0,
         "journeys": []
       },
@@ -1142,7 +1142,7 @@
         "aliasOf": null,
         "inboundContent": 15,
         "outboundContent": 25,
-        "inboundChrome": 75,
+        "inboundChrome": 76,
         "outboundChrome": 0,
         "journeys": [
           "program-officer"
@@ -1159,7 +1159,7 @@
         "aliasOf": null,
         "inboundContent": 15,
         "outboundContent": 19,
-        "inboundChrome": 75,
+        "inboundChrome": 76,
         "outboundChrome": 0,
         "journeys": []
       },
@@ -1174,7 +1174,7 @@
         "aliasOf": null,
         "inboundContent": 16,
         "outboundContent": 19,
-        "inboundChrome": 75,
+        "inboundChrome": 76,
         "outboundChrome": 0,
         "journeys": []
       },
@@ -1189,7 +1189,7 @@
         "aliasOf": null,
         "inboundContent": 15,
         "outboundContent": 38,
-        "inboundChrome": 75,
+        "inboundChrome": 76,
         "outboundChrome": 0,
         "journeys": []
       },
@@ -1204,7 +1204,7 @@
         "aliasOf": null,
         "inboundContent": 15,
         "outboundContent": 23,
-        "inboundChrome": 75,
+        "inboundChrome": 76,
         "outboundChrome": 0,
         "journeys": []
       },
@@ -1219,7 +1219,7 @@
         "aliasOf": null,
         "inboundContent": 16,
         "outboundContent": 19,
-        "inboundChrome": 75,
+        "inboundChrome": 76,
         "outboundChrome": 0,
         "journeys": []
       },
@@ -1234,7 +1234,7 @@
         "aliasOf": null,
         "inboundContent": 15,
         "outboundContent": 83,
-        "inboundChrome": 75,
+        "inboundChrome": 76,
         "outboundChrome": 0,
         "journeys": []
       },
@@ -1249,7 +1249,7 @@
         "aliasOf": null,
         "inboundContent": 15,
         "outboundContent": 19,
-        "inboundChrome": 75,
+        "inboundChrome": 76,
         "outboundChrome": 0,
         "journeys": []
       },
@@ -1264,7 +1264,7 @@
         "aliasOf": null,
         "inboundContent": 15,
         "outboundContent": 87,
-        "inboundChrome": 75,
+        "inboundChrome": 76,
         "outboundChrome": 0,
         "journeys": []
       },
@@ -1279,7 +1279,7 @@
         "aliasOf": null,
         "inboundContent": 15,
         "outboundContent": 19,
-        "inboundChrome": 75,
+        "inboundChrome": 76,
         "outboundChrome": 0,
         "journeys": []
       },
@@ -1293,8 +1293,8 @@
         "inInventory": true,
         "aliasOf": null,
         "inboundContent": 15,
-        "outboundContent": 90,
-        "inboundChrome": 75,
+        "outboundContent": 91,
+        "inboundChrome": 76,
         "outboundChrome": 0,
         "journeys": []
       },
@@ -1309,7 +1309,7 @@
         "aliasOf": null,
         "inboundContent": 15,
         "outboundContent": 19,
-        "inboundChrome": 75,
+        "inboundChrome": 76,
         "outboundChrome": 0,
         "journeys": []
       },
@@ -1324,7 +1324,7 @@
         "aliasOf": null,
         "inboundContent": 15,
         "outboundContent": 20,
-        "inboundChrome": 75,
+        "inboundChrome": 76,
         "outboundChrome": 0,
         "journeys": []
       },
@@ -1337,7 +1337,7 @@
         "inLedger": true,
         "inInventory": true,
         "aliasOf": null,
-        "inboundContent": 10,
+        "inboundContent": 9,
         "outboundContent": 10,
         "inboundChrome": 0,
         "outboundChrome": 75,
@@ -1352,9 +1352,9 @@
         "inLedger": true,
         "inInventory": true,
         "aliasOf": null,
-        "inboundContent": 16,
+        "inboundContent": 15,
         "outboundContent": 6,
-        "inboundChrome": 74,
+        "inboundChrome": 75,
         "outboundChrome": 74,
         "journeys": []
       },
@@ -1367,9 +1367,9 @@
         "inLedger": true,
         "inInventory": true,
         "aliasOf": null,
-        "inboundContent": 19,
+        "inboundContent": 18,
         "outboundContent": 10,
-        "inboundChrome": 74,
+        "inboundChrome": 75,
         "outboundChrome": 74,
         "journeys": [
           "program-officer",
@@ -1385,9 +1385,9 @@
         "inLedger": true,
         "inInventory": true,
         "aliasOf": null,
-        "inboundContent": 16,
+        "inboundContent": 15,
         "outboundContent": 6,
-        "inboundChrome": 74,
+        "inboundChrome": 75,
         "outboundChrome": 74,
         "journeys": [
           "program-officer"
@@ -1402,9 +1402,9 @@
         "inLedger": true,
         "inInventory": true,
         "aliasOf": null,
-        "inboundContent": 12,
-        "outboundContent": 6,
-        "inboundChrome": 74,
+        "inboundContent": 13,
+        "outboundContent": 1,
+        "inboundChrome": 75,
         "outboundChrome": 74,
         "journeys": []
       },
@@ -1417,9 +1417,9 @@
         "inLedger": true,
         "inInventory": true,
         "aliasOf": null,
-        "inboundContent": 9,
+        "inboundContent": 8,
         "outboundContent": 6,
-        "inboundChrome": 74,
+        "inboundChrome": 75,
         "outboundChrome": 74,
         "journeys": [
           "technical-collaborator"
@@ -1436,7 +1436,7 @@
         "aliasOf": null,
         "inboundContent": 8,
         "outboundContent": 6,
-        "inboundChrome": 74,
+        "inboundChrome": 75,
         "outboundChrome": 74,
         "journeys": [
           "researcher"
@@ -1453,7 +1453,7 @@
         "aliasOf": null,
         "inboundContent": 8,
         "outboundContent": 8,
-        "inboundChrome": 74,
+        "inboundChrome": 75,
         "outboundChrome": 74,
         "journeys": []
       },
@@ -1468,7 +1468,7 @@
         "aliasOf": null,
         "inboundContent": 9,
         "outboundContent": 2,
-        "inboundChrome": 74,
+        "inboundChrome": 75,
         "outboundChrome": 74,
         "journeys": [
           "program-officer"
@@ -1515,7 +1515,7 @@
         "aliasOf": null,
         "inboundContent": 16,
         "outboundContent": 6,
-        "inboundChrome": 74,
+        "inboundChrome": 75,
         "outboundChrome": 74,
         "journeys": []
       },
@@ -1530,7 +1530,7 @@
         "aliasOf": null,
         "inboundContent": 14,
         "outboundContent": 6,
-        "inboundChrome": 74,
+        "inboundChrome": 75,
         "outboundChrome": 74,
         "journeys": []
       },
@@ -1545,7 +1545,7 @@
         "aliasOf": null,
         "inboundContent": 16,
         "outboundContent": 6,
-        "inboundChrome": 74,
+        "inboundChrome": 75,
         "outboundChrome": 74,
         "journeys": []
       },
@@ -1560,7 +1560,7 @@
         "aliasOf": null,
         "inboundContent": 15,
         "outboundContent": 6,
-        "inboundChrome": 74,
+        "inboundChrome": 75,
         "outboundChrome": 74,
         "journeys": []
       },
@@ -1575,7 +1575,7 @@
         "aliasOf": null,
         "inboundContent": 15,
         "outboundContent": 6,
-        "inboundChrome": 74,
+        "inboundChrome": 75,
         "outboundChrome": 74,
         "journeys": []
       },
@@ -1590,7 +1590,7 @@
         "aliasOf": null,
         "inboundContent": 13,
         "outboundContent": 6,
-        "inboundChrome": 74,
+        "inboundChrome": 75,
         "outboundChrome": 74,
         "journeys": []
       },
@@ -1605,7 +1605,7 @@
         "aliasOf": null,
         "inboundContent": 8,
         "outboundContent": 6,
-        "inboundChrome": 74,
+        "inboundChrome": 75,
         "outboundChrome": 74,
         "journeys": []
       },
@@ -1620,7 +1620,7 @@
         "aliasOf": null,
         "inboundContent": 5,
         "outboundContent": 6,
-        "inboundChrome": 74,
+        "inboundChrome": 75,
         "outboundChrome": 74,
         "journeys": []
       },
@@ -1635,7 +1635,7 @@
         "aliasOf": null,
         "inboundContent": 14,
         "outboundContent": 6,
-        "inboundChrome": 74,
+        "inboundChrome": 75,
         "outboundChrome": 74,
         "journeys": []
       },
@@ -1650,7 +1650,7 @@
         "aliasOf": null,
         "inboundContent": 4,
         "outboundContent": 6,
-        "inboundChrome": 74,
+        "inboundChrome": 75,
         "outboundChrome": 74,
         "journeys": []
       },
@@ -1665,7 +1665,7 @@
         "aliasOf": null,
         "inboundContent": 4,
         "outboundContent": 6,
-        "inboundChrome": 74,
+        "inboundChrome": 75,
         "outboundChrome": 74,
         "journeys": []
       },
@@ -1680,7 +1680,7 @@
         "aliasOf": null,
         "inboundContent": 13,
         "outboundContent": 6,
-        "inboundChrome": 74,
+        "inboundChrome": 75,
         "outboundChrome": 74,
         "journeys": []
       },
@@ -1695,7 +1695,7 @@
         "aliasOf": null,
         "inboundContent": 4,
         "outboundContent": 6,
-        "inboundChrome": 74,
+        "inboundChrome": 75,
         "outboundChrome": 74,
         "journeys": []
       },
@@ -1710,7 +1710,7 @@
         "aliasOf": null,
         "inboundContent": 8,
         "outboundContent": 6,
-        "inboundChrome": 74,
+        "inboundChrome": 75,
         "outboundChrome": 74,
         "journeys": []
       },
@@ -1725,7 +1725,7 @@
         "aliasOf": null,
         "inboundContent": 4,
         "outboundContent": 6,
-        "inboundChrome": 74,
+        "inboundChrome": 75,
         "outboundChrome": 74,
         "journeys": []
       },
@@ -1740,7 +1740,7 @@
         "aliasOf": null,
         "inboundContent": 4,
         "outboundContent": 6,
-        "inboundChrome": 74,
+        "inboundChrome": 75,
         "outboundChrome": 74,
         "journeys": []
       },
@@ -1755,7 +1755,7 @@
         "aliasOf": null,
         "inboundContent": 4,
         "outboundContent": 6,
-        "inboundChrome": 74,
+        "inboundChrome": 75,
         "outboundChrome": 74,
         "journeys": []
       },
@@ -1770,7 +1770,7 @@
         "aliasOf": null,
         "inboundContent": 5,
         "outboundContent": 6,
-        "inboundChrome": 74,
+        "inboundChrome": 75,
         "outboundChrome": 74,
         "journeys": []
       },
@@ -1785,7 +1785,7 @@
         "aliasOf": null,
         "inboundContent": 26,
         "outboundContent": 5,
-        "inboundChrome": 74,
+        "inboundChrome": 75,
         "outboundChrome": 74,
         "journeys": []
       },
@@ -1800,7 +1800,7 @@
         "aliasOf": null,
         "inboundContent": 4,
         "outboundContent": 6,
-        "inboundChrome": 74,
+        "inboundChrome": 75,
         "outboundChrome": 74,
         "journeys": []
       },
@@ -1815,7 +1815,7 @@
         "aliasOf": null,
         "inboundContent": 4,
         "outboundContent": 6,
-        "inboundChrome": 74,
+        "inboundChrome": 75,
         "outboundChrome": 74,
         "journeys": []
       },
@@ -1830,7 +1830,7 @@
         "aliasOf": null,
         "inboundContent": 4,
         "outboundContent": 6,
-        "inboundChrome": 74,
+        "inboundChrome": 75,
         "outboundChrome": 74,
         "journeys": []
       },
@@ -1845,7 +1845,7 @@
         "aliasOf": null,
         "inboundContent": 2,
         "outboundContent": 67,
-        "inboundChrome": 74,
+        "inboundChrome": 75,
         "outboundChrome": 74,
         "journeys": []
       },
@@ -1858,9 +1858,9 @@
         "inLedger": true,
         "inInventory": true,
         "aliasOf": null,
-        "inboundContent": 8,
+        "inboundContent": 7,
         "outboundContent": 4,
-        "inboundChrome": 74,
+        "inboundChrome": 75,
         "outboundChrome": 74,
         "journeys": [
           "institutional-partner"
@@ -1875,13 +1875,28 @@
         "inLedger": true,
         "inInventory": true,
         "aliasOf": null,
-        "inboundContent": 8,
+        "inboundContent": 7,
         "outboundContent": 4,
-        "inboundChrome": 74,
+        "inboundChrome": 75,
         "outboundChrome": 74,
         "journeys": [
           "institutional-partner"
         ]
+      },
+      {
+        "id": "/tech-transfer/sttr-partner/",
+        "title": "Partner With a Nonprofit Research Institution for STTR — INSTAR Lab",
+        "family": null,
+        "kind": null,
+        "indexable": true,
+        "inLedger": true,
+        "inInventory": false,
+        "aliasOf": null,
+        "inboundContent": 3,
+        "outboundContent": 1,
+        "inboundChrome": 0,
+        "outboundChrome": 75,
+        "journeys": []
       },
       {
         "id": "/tech-transfer/sttr-programs/",
@@ -1892,9 +1907,9 @@
         "inLedger": true,
         "inInventory": true,
         "aliasOf": null,
-        "inboundContent": 9,
-        "outboundContent": 4,
-        "inboundChrome": 74,
+        "inboundContent": 10,
+        "outboundContent": 2,
+        "inboundChrome": 75,
         "outboundChrome": 74,
         "journeys": [
           "institutional-partner"
@@ -1909,9 +1924,9 @@
         "inLedger": true,
         "inInventory": true,
         "aliasOf": null,
-        "inboundContent": 8,
+        "inboundContent": 7,
         "outboundContent": 4,
-        "inboundChrome": 74,
+        "inboundChrome": 75,
         "outboundChrome": 74,
         "journeys": []
       },
@@ -1926,7 +1941,7 @@
         "aliasOf": null,
         "inboundContent": 11,
         "outboundContent": 5,
-        "inboundChrome": 74,
+        "inboundChrome": 75,
         "outboundChrome": 74,
         "journeys": []
       },
@@ -1941,7 +1956,7 @@
         "aliasOf": null,
         "inboundContent": 12,
         "outboundContent": 5,
-        "inboundChrome": 74,
+        "inboundChrome": 75,
         "outboundChrome": 74,
         "journeys": [
           "technical-collaborator"
@@ -1958,7 +1973,7 @@
         "aliasOf": null,
         "inboundContent": 7,
         "outboundContent": 5,
-        "inboundChrome": 74,
+        "inboundChrome": 75,
         "outboundChrome": 74,
         "journeys": []
       },
@@ -1973,7 +1988,7 @@
         "aliasOf": null,
         "inboundContent": 10,
         "outboundContent": 5,
-        "inboundChrome": 74,
+        "inboundChrome": 75,
         "outboundChrome": 74,
         "journeys": []
       },
@@ -1988,7 +2003,7 @@
         "aliasOf": null,
         "inboundContent": 8,
         "outboundContent": 5,
-        "inboundChrome": 74,
+        "inboundChrome": 75,
         "outboundChrome": 74,
         "journeys": []
       },
@@ -2003,7 +2018,7 @@
         "aliasOf": null,
         "inboundContent": 7,
         "outboundContent": 5,
-        "inboundChrome": 74,
+        "inboundChrome": 75,
         "outboundChrome": 74,
         "journeys": []
       },
@@ -2018,7 +2033,7 @@
         "aliasOf": null,
         "inboundContent": 8,
         "outboundContent": 5,
-        "inboundChrome": 74,
+        "inboundChrome": 75,
         "outboundChrome": 74,
         "journeys": []
       },
@@ -2033,7 +2048,7 @@
         "aliasOf": null,
         "inboundContent": 16,
         "outboundContent": 1,
-        "inboundChrome": 74,
+        "inboundChrome": 75,
         "outboundChrome": 74,
         "journeys": []
       }
@@ -5869,6 +5884,12 @@
       },
       {
         "source": "/record/screens/",
+        "target": "/tech-transfer/sttr-partner/",
+        "occurrences": 1,
+        "label": "Open canonical route ↗"
+      },
+      {
+        "source": "/record/screens/",
         "target": "/tech-transfer/sttr-programs/",
         "occurrences": 1,
         "label": "Open canonical route ↗"
@@ -6355,39 +6376,9 @@
       },
       {
         "source": "/research/funding/",
-        "target": "/contact-us/",
-        "occurrences": 2,
-        "label": "Discuss a research requirement"
-      },
-      {
-        "source": "/research/funding/",
-        "target": "/research/",
-        "occurrences": 3,
-        "label": "Explore research"
-      },
-      {
-        "source": "/research/funding/",
-        "target": "/research/consortium/",
+        "target": "/tech-transfer/sttr-partner/",
         "occurrences": 1,
-        "label": "Research INSTAR Consortium — Collaborative Research Network ↗"
-      },
-      {
-        "source": "/research/funding/",
-        "target": "/research/current-programs/",
-        "occurrences": 1,
-        "label": "Research Current Research Programs — INSTAR Lab ↗"
-      },
-      {
-        "source": "/research/funding/",
-        "target": "/research/facilities/",
-        "occurrences": 1,
-        "label": "Research Research Facilities — INSTAR Lab ↗"
-      },
-      {
-        "source": "/research/funding/",
-        "target": "/research/innovation/",
-        "occurrences": 1,
-        "label": "Research Research Innovation — INSTAR Lab ↗"
+        "label": "See how INSTAR Lab works as an STTR partner"
       },
       {
         "source": "/research/innovation/",
@@ -7854,28 +7845,22 @@
         "label": "Tech transfer Workshops &amp; Events — INSTAR Lab Technology Transfer ↗"
       },
       {
+        "source": "/tech-transfer/sttr-partner/",
+        "target": "/tech-transfer/sttr-programs/",
+        "occurrences": 1,
+        "label": "Read how STTR works"
+      },
+      {
         "source": "/tech-transfer/sttr-programs/",
-        "target": "/contact-us/",
+        "target": "/research/funding/",
+        "occurrences": 1,
+        "label": "Read the funding guide"
+      },
+      {
+        "source": "/tech-transfer/sttr-programs/",
+        "target": "/tech-transfer/sttr-partner/",
         "occurrences": 2,
-        "label": "Discuss a research requirement"
-      },
-      {
-        "source": "/tech-transfer/sttr-programs/",
-        "target": "/tech-transfer/enterprise-rd/",
-        "occurrences": 1,
-        "label": "Tech transfer Enterprise R&amp;D — INSTAR Lab Technology Transfer ↗"
-      },
-      {
-        "source": "/tech-transfer/sttr-programs/",
-        "target": "/tech-transfer/portfolio/",
-        "occurrences": 4,
-        "label": "Explore tech transfer"
-      },
-      {
-        "source": "/tech-transfer/sttr-programs/",
-        "target": "/tech-transfer/workshops-events/",
-        "occurrences": 1,
-        "label": "Tech transfer Workshops &amp; Events — INSTAR Lab Technology Transfer ↗"
+        "label": "Partner checklist and contact"
       },
       {
         "source": "/tech-transfer/workshops-events/",
@@ -37076,6 +37061,456 @@
         "label": "Terms of use"
       },
       {
+        "source": "/tech-transfer/sttr-partner/",
+        "target": "/",
+        "occurrences": 1,
+        "label": ""
+      },
+      {
+        "source": "/tech-transfer/sttr-partner/",
+        "target": "/accessibility/",
+        "occurrences": 1,
+        "label": "Accessibility"
+      },
+      {
+        "source": "/tech-transfer/sttr-partner/",
+        "target": "/community/about-us/",
+        "occurrences": 3,
+        "label": "About Us"
+      },
+      {
+        "source": "/tech-transfer/sttr-partner/",
+        "target": "/community/careers/",
+        "occurrences": 3,
+        "label": "Careers"
+      },
+      {
+        "source": "/tech-transfer/sttr-partner/",
+        "target": "/community/leadership/",
+        "occurrences": 2,
+        "label": "Leadership"
+      },
+      {
+        "source": "/tech-transfer/sttr-partner/",
+        "target": "/community/partner/",
+        "occurrences": 2,
+        "label": "Partner"
+      },
+      {
+        "source": "/tech-transfer/sttr-partner/",
+        "target": "/community/support/",
+        "occurrences": 1,
+        "label": "Donate"
+      },
+      {
+        "source": "/tech-transfer/sttr-partner/",
+        "target": "/community/work-with-us/",
+        "occurrences": 2,
+        "label": "Collaborate"
+      },
+      {
+        "source": "/tech-transfer/sttr-partner/",
+        "target": "/contact-us/",
+        "occurrences": 3,
+        "label": "Contact"
+      },
+      {
+        "source": "/tech-transfer/sttr-partner/",
+        "target": "/fellowship/",
+        "occurrences": 3,
+        "label": "Fellowship"
+      },
+      {
+        "source": "/tech-transfer/sttr-partner/",
+        "target": "/labs/biometric-security/",
+        "occurrences": 2,
+        "label": "Biometrics &amp; Drone Sensing"
+      },
+      {
+        "source": "/tech-transfer/sttr-partner/",
+        "target": "/labs/cognitive-ai/",
+        "occurrences": 2,
+        "label": "Cognitive AI &amp; Persona Systems"
+      },
+      {
+        "source": "/tech-transfer/sttr-partner/",
+        "target": "/labs/sovereign-ai/",
+        "occurrences": 2,
+        "label": "Sovereign AI Laboratory"
+      },
+      {
+        "source": "/tech-transfer/sttr-partner/",
+        "target": "/mission/",
+        "occurrences": 2,
+        "label": "Mission"
+      },
+      {
+        "source": "/tech-transfer/sttr-partner/",
+        "target": "/news/",
+        "occurrences": 2,
+        "label": "Research Briefs"
+      },
+      {
+        "source": "/tech-transfer/sttr-partner/",
+        "target": "/privacy/",
+        "occurrences": 1,
+        "label": "Privacy policy"
+      },
+      {
+        "source": "/tech-transfer/sttr-partner/",
+        "target": "/record/",
+        "occurrences": 2,
+        "label": "Record room"
+      },
+      {
+        "source": "/tech-transfer/sttr-partner/",
+        "target": "/record/affiliations/",
+        "occurrences": 2,
+        "label": "Affiliations"
+      },
+      {
+        "source": "/tech-transfer/sttr-partner/",
+        "target": "/record/corrections/",
+        "occurrences": 2,
+        "label": "Corrections"
+      },
+      {
+        "source": "/tech-transfer/sttr-partner/",
+        "target": "/record/federal/",
+        "occurrences": 2,
+        "label": "Federal"
+      },
+      {
+        "source": "/tech-transfer/sttr-partner/",
+        "target": "/record/files/",
+        "occurrences": 2,
+        "label": "Documents"
+      },
+      {
+        "source": "/tech-transfer/sttr-partner/",
+        "target": "/record/governance/",
+        "occurrences": 2,
+        "label": "Governance"
+      },
+      {
+        "source": "/tech-transfer/sttr-partner/",
+        "target": "/record/journeys/",
+        "occurrences": 2,
+        "label": "Decision briefs"
+      },
+      {
+        "source": "/tech-transfer/sttr-partner/",
+        "target": "/record/leadership/",
+        "occurrences": 2,
+        "label": "Leadership"
+      },
+      {
+        "source": "/tech-transfer/sttr-partner/",
+        "target": "/record/legal/",
+        "occurrences": 2,
+        "label": "Legal"
+      },
+      {
+        "source": "/tech-transfer/sttr-partner/",
+        "target": "/record/marketing/",
+        "occurrences": 2,
+        "label": "Positioning"
+      },
+      {
+        "source": "/tech-transfer/sttr-partner/",
+        "target": "/record/metrics/",
+        "occurrences": 2,
+        "label": "Inventory"
+      },
+      {
+        "source": "/tech-transfer/sttr-partner/",
+        "target": "/record/nav/",
+        "occurrences": 2,
+        "label": "Site map"
+      },
+      {
+        "source": "/tech-transfer/sttr-partner/",
+        "target": "/record/ops/",
+        "occurrences": 2,
+        "label": "Ops"
+      },
+      {
+        "source": "/tech-transfer/sttr-partner/",
+        "target": "/record/screens/",
+        "occurrences": 2,
+        "label": "Visuals"
+      },
+      {
+        "source": "/tech-transfer/sttr-partner/",
+        "target": "/record/style/",
+        "occurrences": 2,
+        "label": "Style"
+      },
+      {
+        "source": "/tech-transfer/sttr-partner/",
+        "target": "/record/verify/",
+        "occurrences": 2,
+        "label": "Sources"
+      },
+      {
+        "source": "/tech-transfer/sttr-partner/",
+        "target": "/research/consortium/",
+        "occurrences": 2,
+        "label": "INSTAR Consortium"
+      },
+      {
+        "source": "/tech-transfer/sttr-partner/",
+        "target": "/research/current-programs/",
+        "occurrences": 3,
+        "label": "Review research programs"
+      },
+      {
+        "source": "/tech-transfer/sttr-partner/",
+        "target": "/research/facilities/",
+        "occurrences": 2,
+        "label": "Facilities"
+      },
+      {
+        "source": "/tech-transfer/sttr-partner/",
+        "target": "/research/funding/",
+        "occurrences": 3,
+        "label": "Funding"
+      },
+      {
+        "source": "/tech-transfer/sttr-partner/",
+        "target": "/research/innovation/",
+        "occurrences": 2,
+        "label": "Innovation"
+      },
+      {
+        "source": "/tech-transfer/sttr-partner/",
+        "target": "/research/open-data/",
+        "occurrences": 2,
+        "label": "Open Data"
+      },
+      {
+        "source": "/tech-transfer/sttr-partner/",
+        "target": "/research/opportunities/",
+        "occurrences": 2,
+        "label": "Opportunities"
+      },
+      {
+        "source": "/tech-transfer/sttr-partner/",
+        "target": "/research/our-process/",
+        "occurrences": 3,
+        "label": "Our Process"
+      },
+      {
+        "source": "/tech-transfer/sttr-partner/",
+        "target": "/sciences/agriculture/",
+        "occurrences": 2,
+        "label": "Agriculture"
+      },
+      {
+        "source": "/tech-transfer/sttr-partner/",
+        "target": "/sciences/anthropology/",
+        "occurrences": 2,
+        "label": "Anthropology"
+      },
+      {
+        "source": "/tech-transfer/sttr-partner/",
+        "target": "/sciences/archaeology/",
+        "occurrences": 2,
+        "label": "Archaeology"
+      },
+      {
+        "source": "/tech-transfer/sttr-partner/",
+        "target": "/sciences/biology/",
+        "occurrences": 2,
+        "label": "Biology"
+      },
+      {
+        "source": "/tech-transfer/sttr-partner/",
+        "target": "/sciences/chemistry/",
+        "occurrences": 2,
+        "label": "Chemistry"
+      },
+      {
+        "source": "/tech-transfer/sttr-partner/",
+        "target": "/sciences/cognitive-sciences/",
+        "occurrences": 2,
+        "label": "Cognitive Sciences"
+      },
+      {
+        "source": "/tech-transfer/sttr-partner/",
+        "target": "/sciences/economics/",
+        "occurrences": 2,
+        "label": "Economics"
+      },
+      {
+        "source": "/tech-transfer/sttr-partner/",
+        "target": "/sciences/energy/",
+        "occurrences": 3,
+        "label": "Energy"
+      },
+      {
+        "source": "/tech-transfer/sttr-partner/",
+        "target": "/sciences/genetics/",
+        "occurrences": 2,
+        "label": "Genetics"
+      },
+      {
+        "source": "/tech-transfer/sttr-partner/",
+        "target": "/sciences/geology/",
+        "occurrences": 2,
+        "label": "Geology"
+      },
+      {
+        "source": "/tech-transfer/sttr-partner/",
+        "target": "/sciences/kinesiology/",
+        "occurrences": 2,
+        "label": "Kinesiology"
+      },
+      {
+        "source": "/tech-transfer/sttr-partner/",
+        "target": "/sciences/law/",
+        "occurrences": 2,
+        "label": "Law"
+      },
+      {
+        "source": "/tech-transfer/sttr-partner/",
+        "target": "/sciences/linguistics/",
+        "occurrences": 2,
+        "label": "Linguistics"
+      },
+      {
+        "source": "/tech-transfer/sttr-partner/",
+        "target": "/sciences/materials-science/",
+        "occurrences": 2,
+        "label": "Materials Science"
+      },
+      {
+        "source": "/tech-transfer/sttr-partner/",
+        "target": "/sciences/medicine/",
+        "occurrences": 3,
+        "label": "Medicine"
+      },
+      {
+        "source": "/tech-transfer/sttr-partner/",
+        "target": "/sciences/neuroscience/",
+        "occurrences": 2,
+        "label": "Neuroscience"
+      },
+      {
+        "source": "/tech-transfer/sttr-partner/",
+        "target": "/sciences/ocean-science/",
+        "occurrences": 2,
+        "label": "Ocean Science"
+      },
+      {
+        "source": "/tech-transfer/sttr-partner/",
+        "target": "/sciences/outer-space/",
+        "occurrences": 2,
+        "label": "Outer Space"
+      },
+      {
+        "source": "/tech-transfer/sttr-partner/",
+        "target": "/sciences/physics/",
+        "occurrences": 2,
+        "label": "Physics"
+      },
+      {
+        "source": "/tech-transfer/sttr-partner/",
+        "target": "/sciences/physiology/",
+        "occurrences": 2,
+        "label": "Physiology"
+      },
+      {
+        "source": "/tech-transfer/sttr-partner/",
+        "target": "/sciences/psychology/",
+        "occurrences": 2,
+        "label": "Psychology"
+      },
+      {
+        "source": "/tech-transfer/sttr-partner/",
+        "target": "/sciences/sociology/",
+        "occurrences": 2,
+        "label": "Sociology"
+      },
+      {
+        "source": "/tech-transfer/sttr-partner/",
+        "target": "/search/",
+        "occurrences": 2,
+        "label": "Search"
+      },
+      {
+        "source": "/tech-transfer/sttr-partner/",
+        "target": "/tech-transfer/enterprise-rd/",
+        "occurrences": 2,
+        "label": "Enterprise R&amp;D"
+      },
+      {
+        "source": "/tech-transfer/sttr-partner/",
+        "target": "/tech-transfer/portfolio/",
+        "occurrences": 2,
+        "label": "Portfolio"
+      },
+      {
+        "source": "/tech-transfer/sttr-partner/",
+        "target": "/tech-transfer/sttr-programs/",
+        "occurrences": 2,
+        "label": "STTR Programs"
+      },
+      {
+        "source": "/tech-transfer/sttr-partner/",
+        "target": "/tech-transfer/workshops-events/",
+        "occurrences": 2,
+        "label": "Workshops &amp; Events"
+      },
+      {
+        "source": "/tech-transfer/sttr-partner/",
+        "target": "/technology/augmented-reality/",
+        "occurrences": 2,
+        "label": "Augmented Reality"
+      },
+      {
+        "source": "/tech-transfer/sttr-partner/",
+        "target": "/technology/computer-science/",
+        "occurrences": 3,
+        "label": "Computer Science"
+      },
+      {
+        "source": "/tech-transfer/sttr-partner/",
+        "target": "/technology/data-science/",
+        "occurrences": 3,
+        "label": "Data Science"
+      },
+      {
+        "source": "/tech-transfer/sttr-partner/",
+        "target": "/technology/formal-methods/",
+        "occurrences": 2,
+        "label": "Formal Methods"
+      },
+      {
+        "source": "/tech-transfer/sttr-partner/",
+        "target": "/technology/machine-intelligence/",
+        "occurrences": 3,
+        "label": "Machine Intelligence"
+      },
+      {
+        "source": "/tech-transfer/sttr-partner/",
+        "target": "/technology/natural-language-processing/",
+        "occurrences": 2,
+        "label": "Natural Language Processing"
+      },
+      {
+        "source": "/tech-transfer/sttr-partner/",
+        "target": "/technology/quantum-computing/",
+        "occurrences": 3,
+        "label": "Quantum Computing"
+      },
+      {
+        "source": "/tech-transfer/sttr-partner/",
+        "target": "/terms/",
+        "occurrences": 1,
+        "label": "Terms of use"
+      },
+      {
         "source": "/tech-transfer/sttr-programs/",
         "target": "/",
         "occurrences": 1,
@@ -41606,7 +42041,7 @@
         "target": "/tech-transfer/enterprise-rd/",
         "journey": "institutional-partner",
         "kind": "step",
-        "observed": "content"
+        "observed": "chrome"
       },
       {
         "source": "/tech-transfer/enterprise-rd/",
