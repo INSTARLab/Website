@@ -74,6 +74,12 @@
       "kind": "core"
     },
     {
+      "id": "/cookies-and-partners/",
+      "label": "Cookies and Partners — INSTAR Lab",
+      "family": "Core",
+      "kind": "core"
+    },
+    {
       "id": "/fellowship/",
       "label": "INSTAR Lab R&D Fellowships — International and Resident Scholars",
       "family": "Fellowship",
@@ -613,17 +619,17 @@
       "generator": "record link-graph builder over the production build (RRP-203)",
       "base": "/",
       "origin": "https://www.instarlab.org",
-      "routeCount": 92,
-      "documentCount": 92,
+      "routeCount": 93,
+      "documentCount": 93,
       "unzoned": [],
       "aliases": [],
       "undocumented": [],
-      "generatedAt": "2026-10-05T00:28:45.437Z"
+      "generatedAt": "2026-10-05T02:32:35.715Z"
     },
     "summary": {
-      "nodes": 92,
-      "contentPairs": 1008,
-      "chromePairs": 5641,
+      "nodes": 93,
+      "contentPairs": 1012,
+      "chromePairs": 5792,
       "journeyLinks": 18,
       "observedJourneyLinks": 18,
       "orphans": 0,
@@ -641,8 +647,8 @@
         "aliasOf": null,
         "inboundContent": 26,
         "outboundContent": 32,
-        "inboundChrome": 75,
-        "outboundChrome": 74,
+        "inboundChrome": 76,
+        "outboundChrome": 75,
         "journeys": []
       },
       {
@@ -657,7 +663,7 @@
         "inboundContent": 2,
         "outboundContent": 4,
         "inboundChrome": 0,
-        "outboundChrome": 75,
+        "outboundChrome": 76,
         "journeys": []
       },
       {
@@ -672,7 +678,7 @@
         "inboundContent": 3,
         "outboundContent": 1,
         "inboundChrome": 0,
-        "outboundChrome": 75,
+        "outboundChrome": 76,
         "journeys": []
       },
       {
@@ -686,8 +692,8 @@
         "aliasOf": null,
         "inboundContent": 16,
         "outboundContent": 1,
-        "inboundChrome": 75,
-        "outboundChrome": 74,
+        "inboundChrome": 76,
+        "outboundChrome": 75,
         "journeys": []
       },
       {
@@ -701,8 +707,8 @@
         "aliasOf": null,
         "inboundContent": 13,
         "outboundContent": 6,
-        "inboundChrome": 75,
-        "outboundChrome": 74,
+        "inboundChrome": 76,
+        "outboundChrome": 75,
         "journeys": [
           "supporter"
         ]
@@ -718,8 +724,8 @@
         "aliasOf": null,
         "inboundContent": 12,
         "outboundContent": 6,
-        "inboundChrome": 75,
-        "outboundChrome": 74,
+        "inboundChrome": 76,
+        "outboundChrome": 75,
         "journeys": [
           "researcher"
         ]
@@ -736,7 +742,7 @@
         "inboundContent": 10,
         "outboundContent": 5,
         "inboundChrome": 0,
-        "outboundChrome": 75,
+        "outboundChrome": 76,
         "journeys": []
       },
       {
@@ -750,8 +756,8 @@
         "aliasOf": null,
         "inboundContent": 10,
         "outboundContent": 6,
-        "inboundChrome": 75,
-        "outboundChrome": 74,
+        "inboundChrome": 76,
+        "outboundChrome": 75,
         "journeys": []
       },
       {
@@ -765,8 +771,8 @@
         "aliasOf": null,
         "inboundContent": 12,
         "outboundContent": 6,
-        "inboundChrome": 75,
-        "outboundChrome": 74,
+        "inboundChrome": 76,
+        "outboundChrome": 75,
         "journeys": [
           "institutional-partner"
         ]
@@ -782,8 +788,8 @@
         "aliasOf": null,
         "inboundContent": 8,
         "outboundContent": 5,
-        "inboundChrome": 75,
-        "outboundChrome": 74,
+        "inboundChrome": 76,
+        "outboundChrome": 75,
         "journeys": [
           "supporter"
         ]
@@ -799,8 +805,8 @@
         "aliasOf": null,
         "inboundContent": 6,
         "outboundContent": 5,
-        "inboundChrome": 75,
-        "outboundChrome": 74,
+        "inboundChrome": 76,
+        "outboundChrome": 75,
         "journeys": [
           "technical-collaborator"
         ]
@@ -816,12 +822,27 @@
         "aliasOf": null,
         "inboundContent": 67,
         "outboundContent": 0,
-        "inboundChrome": 75,
-        "outboundChrome": 74,
+        "inboundChrome": 76,
+        "outboundChrome": 75,
         "journeys": [
           "institutional-partner",
           "program-officer"
         ]
+      },
+      {
+        "id": "/cookies-and-partners/",
+        "title": "Cookies and Partners — INSTAR Lab",
+        "family": "Core",
+        "kind": "core",
+        "indexable": true,
+        "inLedger": true,
+        "inInventory": true,
+        "aliasOf": null,
+        "inboundContent": 3,
+        "outboundContent": 1,
+        "inboundChrome": 76,
+        "outboundChrome": 75,
+        "journeys": []
       },
       {
         "id": "/faq/",
@@ -835,7 +856,7 @@
         "inboundContent": 1,
         "outboundContent": 11,
         "inboundChrome": 0,
-        "outboundChrome": 75,
+        "outboundChrome": 76,
         "journeys": []
       },
       {
@@ -849,8 +870,8 @@
         "aliasOf": null,
         "inboundContent": 9,
         "outboundContent": 0,
-        "inboundChrome": 75,
-        "outboundChrome": 74,
+        "inboundChrome": 76,
+        "outboundChrome": 75,
         "journeys": [
           "researcher"
         ]
@@ -866,8 +887,8 @@
         "aliasOf": null,
         "inboundContent": 7,
         "outboundContent": 3,
-        "inboundChrome": 75,
-        "outboundChrome": 74,
+        "inboundChrome": 76,
+        "outboundChrome": 75,
         "journeys": []
       },
       {
@@ -881,8 +902,8 @@
         "aliasOf": null,
         "inboundContent": 7,
         "outboundContent": 3,
-        "inboundChrome": 75,
-        "outboundChrome": 74,
+        "inboundChrome": 76,
+        "outboundChrome": 75,
         "journeys": []
       },
       {
@@ -896,8 +917,8 @@
         "aliasOf": null,
         "inboundContent": 8,
         "outboundContent": 3,
-        "inboundChrome": 75,
-        "outboundChrome": 74,
+        "inboundChrome": 76,
+        "outboundChrome": 75,
         "journeys": [
           "technical-collaborator"
         ]
@@ -913,8 +934,8 @@
         "aliasOf": null,
         "inboundContent": 7,
         "outboundContent": 1,
-        "inboundChrome": 75,
-        "outboundChrome": 74,
+        "inboundChrome": 76,
+        "outboundChrome": 75,
         "journeys": [
           "supporter"
         ]
@@ -930,8 +951,8 @@
         "aliasOf": null,
         "inboundContent": 16,
         "outboundContent": 8,
-        "inboundChrome": 75,
-        "outboundChrome": 74,
+        "inboundChrome": 76,
+        "outboundChrome": 75,
         "journeys": [
           "researcher"
         ]
@@ -948,7 +969,7 @@
         "inboundContent": 6,
         "outboundContent": 5,
         "inboundChrome": 0,
-        "outboundChrome": 75,
+        "outboundChrome": 76,
         "journeys": []
       },
       {
@@ -963,7 +984,7 @@
         "inboundContent": 8,
         "outboundContent": 5,
         "inboundChrome": 0,
-        "outboundChrome": 75,
+        "outboundChrome": 76,
         "journeys": []
       },
       {
@@ -978,7 +999,7 @@
         "inboundContent": 6,
         "outboundContent": 5,
         "inboundChrome": 0,
-        "outboundChrome": 75,
+        "outboundChrome": 76,
         "journeys": []
       },
       {
@@ -993,7 +1014,7 @@
         "inboundContent": 13,
         "outboundContent": 5,
         "inboundChrome": 0,
-        "outboundChrome": 75,
+        "outboundChrome": 76,
         "journeys": []
       },
       {
@@ -1008,7 +1029,7 @@
         "inboundContent": 12,
         "outboundContent": 5,
         "inboundChrome": 0,
-        "outboundChrome": 75,
+        "outboundChrome": 76,
         "journeys": []
       },
       {
@@ -1023,7 +1044,7 @@
         "inboundContent": 12,
         "outboundContent": 5,
         "inboundChrome": 0,
-        "outboundChrome": 75,
+        "outboundChrome": 76,
         "journeys": []
       },
       {
@@ -1038,7 +1059,7 @@
         "inboundContent": 6,
         "outboundContent": 5,
         "inboundChrome": 0,
-        "outboundChrome": 75,
+        "outboundChrome": 76,
         "journeys": []
       },
       {
@@ -1053,7 +1074,7 @@
         "inboundContent": 5,
         "outboundContent": 5,
         "inboundChrome": 0,
-        "outboundChrome": 75,
+        "outboundChrome": 76,
         "journeys": []
       },
       {
@@ -1068,7 +1089,7 @@
         "inboundContent": 1,
         "outboundContent": 2,
         "inboundChrome": 0,
-        "outboundChrome": 75,
+        "outboundChrome": 76,
         "journeys": []
       },
       {
@@ -1080,10 +1101,10 @@
         "inLedger": true,
         "inInventory": true,
         "aliasOf": null,
-        "inboundContent": 16,
-        "outboundContent": 1,
-        "inboundChrome": 75,
-        "outboundChrome": 74,
+        "inboundContent": 17,
+        "outboundContent": 2,
+        "inboundChrome": 76,
+        "outboundChrome": 75,
         "journeys": []
       },
       {
@@ -1097,7 +1118,7 @@
         "aliasOf": null,
         "inboundContent": 17,
         "outboundContent": 19,
-        "inboundChrome": 76,
+        "inboundChrome": 77,
         "outboundChrome": 0,
         "journeys": []
       },
@@ -1112,7 +1133,7 @@
         "aliasOf": null,
         "inboundContent": 15,
         "outboundContent": 19,
-        "inboundChrome": 76,
+        "inboundChrome": 77,
         "outboundChrome": 0,
         "journeys": []
       },
@@ -1127,7 +1148,7 @@
         "aliasOf": null,
         "inboundContent": 17,
         "outboundContent": 20,
-        "inboundChrome": 76,
+        "inboundChrome": 77,
         "outboundChrome": 0,
         "journeys": []
       },
@@ -1142,7 +1163,7 @@
         "aliasOf": null,
         "inboundContent": 15,
         "outboundContent": 25,
-        "inboundChrome": 76,
+        "inboundChrome": 77,
         "outboundChrome": 0,
         "journeys": [
           "program-officer"
@@ -1159,7 +1180,7 @@
         "aliasOf": null,
         "inboundContent": 15,
         "outboundContent": 19,
-        "inboundChrome": 76,
+        "inboundChrome": 77,
         "outboundChrome": 0,
         "journeys": []
       },
@@ -1174,7 +1195,7 @@
         "aliasOf": null,
         "inboundContent": 16,
         "outboundContent": 19,
-        "inboundChrome": 76,
+        "inboundChrome": 77,
         "outboundChrome": 0,
         "journeys": []
       },
@@ -1189,7 +1210,7 @@
         "aliasOf": null,
         "inboundContent": 15,
         "outboundContent": 38,
-        "inboundChrome": 76,
+        "inboundChrome": 77,
         "outboundChrome": 0,
         "journeys": []
       },
@@ -1204,7 +1225,7 @@
         "aliasOf": null,
         "inboundContent": 15,
         "outboundContent": 23,
-        "inboundChrome": 76,
+        "inboundChrome": 77,
         "outboundChrome": 0,
         "journeys": []
       },
@@ -1219,7 +1240,7 @@
         "aliasOf": null,
         "inboundContent": 16,
         "outboundContent": 19,
-        "inboundChrome": 76,
+        "inboundChrome": 77,
         "outboundChrome": 0,
         "journeys": []
       },
@@ -1234,7 +1255,7 @@
         "aliasOf": null,
         "inboundContent": 15,
         "outboundContent": 83,
-        "inboundChrome": 76,
+        "inboundChrome": 77,
         "outboundChrome": 0,
         "journeys": []
       },
@@ -1249,7 +1270,7 @@
         "aliasOf": null,
         "inboundContent": 15,
         "outboundContent": 19,
-        "inboundChrome": 76,
+        "inboundChrome": 77,
         "outboundChrome": 0,
         "journeys": []
       },
@@ -1263,8 +1284,8 @@
         "inInventory": true,
         "aliasOf": null,
         "inboundContent": 15,
-        "outboundContent": 87,
-        "inboundChrome": 76,
+        "outboundContent": 88,
+        "inboundChrome": 77,
         "outboundChrome": 0,
         "journeys": []
       },
@@ -1279,7 +1300,7 @@
         "aliasOf": null,
         "inboundContent": 15,
         "outboundContent": 19,
-        "inboundChrome": 76,
+        "inboundChrome": 77,
         "outboundChrome": 0,
         "journeys": []
       },
@@ -1293,8 +1314,8 @@
         "inInventory": true,
         "aliasOf": null,
         "inboundContent": 15,
-        "outboundContent": 91,
-        "inboundChrome": 76,
+        "outboundContent": 92,
+        "inboundChrome": 77,
         "outboundChrome": 0,
         "journeys": []
       },
@@ -1309,7 +1330,7 @@
         "aliasOf": null,
         "inboundContent": 15,
         "outboundContent": 19,
-        "inboundChrome": 76,
+        "inboundChrome": 77,
         "outboundChrome": 0,
         "journeys": []
       },
@@ -1324,7 +1345,7 @@
         "aliasOf": null,
         "inboundContent": 15,
         "outboundContent": 20,
-        "inboundChrome": 76,
+        "inboundChrome": 77,
         "outboundChrome": 0,
         "journeys": []
       },
@@ -1340,7 +1361,7 @@
         "inboundContent": 9,
         "outboundContent": 10,
         "inboundChrome": 0,
-        "outboundChrome": 75,
+        "outboundChrome": 76,
         "journeys": []
       },
       {
@@ -1354,8 +1375,8 @@
         "aliasOf": null,
         "inboundContent": 15,
         "outboundContent": 6,
-        "inboundChrome": 75,
-        "outboundChrome": 74,
+        "inboundChrome": 76,
+        "outboundChrome": 75,
         "journeys": []
       },
       {
@@ -1369,8 +1390,8 @@
         "aliasOf": null,
         "inboundContent": 18,
         "outboundContent": 10,
-        "inboundChrome": 75,
-        "outboundChrome": 74,
+        "inboundChrome": 76,
+        "outboundChrome": 75,
         "journeys": [
           "program-officer",
           "supporter"
@@ -1387,8 +1408,8 @@
         "aliasOf": null,
         "inboundContent": 15,
         "outboundContent": 6,
-        "inboundChrome": 75,
-        "outboundChrome": 74,
+        "inboundChrome": 76,
+        "outboundChrome": 75,
         "journeys": [
           "program-officer"
         ]
@@ -1404,8 +1425,8 @@
         "aliasOf": null,
         "inboundContent": 13,
         "outboundContent": 1,
-        "inboundChrome": 75,
-        "outboundChrome": 74,
+        "inboundChrome": 76,
+        "outboundChrome": 75,
         "journeys": []
       },
       {
@@ -1419,8 +1440,8 @@
         "aliasOf": null,
         "inboundContent": 8,
         "outboundContent": 6,
-        "inboundChrome": 75,
-        "outboundChrome": 74,
+        "inboundChrome": 76,
+        "outboundChrome": 75,
         "journeys": [
           "technical-collaborator"
         ]
@@ -1436,8 +1457,8 @@
         "aliasOf": null,
         "inboundContent": 8,
         "outboundContent": 6,
-        "inboundChrome": 75,
-        "outboundChrome": 74,
+        "inboundChrome": 76,
+        "outboundChrome": 75,
         "journeys": [
           "researcher"
         ]
@@ -1453,8 +1474,8 @@
         "aliasOf": null,
         "inboundContent": 8,
         "outboundContent": 8,
-        "inboundChrome": 75,
-        "outboundChrome": 74,
+        "inboundChrome": 76,
+        "outboundChrome": 75,
         "journeys": []
       },
       {
@@ -1468,8 +1489,8 @@
         "aliasOf": null,
         "inboundContent": 9,
         "outboundContent": 2,
-        "inboundChrome": 75,
-        "outboundChrome": 74,
+        "inboundChrome": 76,
+        "outboundChrome": 75,
         "journeys": [
           "program-officer"
         ]
@@ -1486,7 +1507,7 @@
         "inboundContent": 8,
         "outboundContent": 10,
         "inboundChrome": 0,
-        "outboundChrome": 75,
+        "outboundChrome": 76,
         "journeys": []
       },
       {
@@ -1501,7 +1522,7 @@
         "inboundContent": 7,
         "outboundContent": 6,
         "inboundChrome": 0,
-        "outboundChrome": 75,
+        "outboundChrome": 76,
         "journeys": []
       },
       {
@@ -1515,8 +1536,8 @@
         "aliasOf": null,
         "inboundContent": 16,
         "outboundContent": 6,
-        "inboundChrome": 75,
-        "outboundChrome": 74,
+        "inboundChrome": 76,
+        "outboundChrome": 75,
         "journeys": []
       },
       {
@@ -1530,8 +1551,8 @@
         "aliasOf": null,
         "inboundContent": 14,
         "outboundContent": 6,
-        "inboundChrome": 75,
-        "outboundChrome": 74,
+        "inboundChrome": 76,
+        "outboundChrome": 75,
         "journeys": []
       },
       {
@@ -1545,8 +1566,8 @@
         "aliasOf": null,
         "inboundContent": 16,
         "outboundContent": 6,
-        "inboundChrome": 75,
-        "outboundChrome": 74,
+        "inboundChrome": 76,
+        "outboundChrome": 75,
         "journeys": []
       },
       {
@@ -1560,8 +1581,8 @@
         "aliasOf": null,
         "inboundContent": 15,
         "outboundContent": 6,
-        "inboundChrome": 75,
-        "outboundChrome": 74,
+        "inboundChrome": 76,
+        "outboundChrome": 75,
         "journeys": []
       },
       {
@@ -1575,8 +1596,8 @@
         "aliasOf": null,
         "inboundContent": 15,
         "outboundContent": 6,
-        "inboundChrome": 75,
-        "outboundChrome": 74,
+        "inboundChrome": 76,
+        "outboundChrome": 75,
         "journeys": []
       },
       {
@@ -1590,8 +1611,8 @@
         "aliasOf": null,
         "inboundContent": 13,
         "outboundContent": 6,
-        "inboundChrome": 75,
-        "outboundChrome": 74,
+        "inboundChrome": 76,
+        "outboundChrome": 75,
         "journeys": []
       },
       {
@@ -1605,8 +1626,8 @@
         "aliasOf": null,
         "inboundContent": 8,
         "outboundContent": 6,
-        "inboundChrome": 75,
-        "outboundChrome": 74,
+        "inboundChrome": 76,
+        "outboundChrome": 75,
         "journeys": []
       },
       {
@@ -1620,8 +1641,8 @@
         "aliasOf": null,
         "inboundContent": 5,
         "outboundContent": 6,
-        "inboundChrome": 75,
-        "outboundChrome": 74,
+        "inboundChrome": 76,
+        "outboundChrome": 75,
         "journeys": []
       },
       {
@@ -1635,8 +1656,8 @@
         "aliasOf": null,
         "inboundContent": 14,
         "outboundContent": 6,
-        "inboundChrome": 75,
-        "outboundChrome": 74,
+        "inboundChrome": 76,
+        "outboundChrome": 75,
         "journeys": []
       },
       {
@@ -1650,8 +1671,8 @@
         "aliasOf": null,
         "inboundContent": 4,
         "outboundContent": 6,
-        "inboundChrome": 75,
-        "outboundChrome": 74,
+        "inboundChrome": 76,
+        "outboundChrome": 75,
         "journeys": []
       },
       {
@@ -1665,8 +1686,8 @@
         "aliasOf": null,
         "inboundContent": 4,
         "outboundContent": 6,
-        "inboundChrome": 75,
-        "outboundChrome": 74,
+        "inboundChrome": 76,
+        "outboundChrome": 75,
         "journeys": []
       },
       {
@@ -1680,8 +1701,8 @@
         "aliasOf": null,
         "inboundContent": 13,
         "outboundContent": 6,
-        "inboundChrome": 75,
-        "outboundChrome": 74,
+        "inboundChrome": 76,
+        "outboundChrome": 75,
         "journeys": []
       },
       {
@@ -1695,8 +1716,8 @@
         "aliasOf": null,
         "inboundContent": 4,
         "outboundContent": 6,
-        "inboundChrome": 75,
-        "outboundChrome": 74,
+        "inboundChrome": 76,
+        "outboundChrome": 75,
         "journeys": []
       },
       {
@@ -1710,8 +1731,8 @@
         "aliasOf": null,
         "inboundContent": 8,
         "outboundContent": 6,
-        "inboundChrome": 75,
-        "outboundChrome": 74,
+        "inboundChrome": 76,
+        "outboundChrome": 75,
         "journeys": []
       },
       {
@@ -1725,8 +1746,8 @@
         "aliasOf": null,
         "inboundContent": 4,
         "outboundContent": 6,
-        "inboundChrome": 75,
-        "outboundChrome": 74,
+        "inboundChrome": 76,
+        "outboundChrome": 75,
         "journeys": []
       },
       {
@@ -1740,8 +1761,8 @@
         "aliasOf": null,
         "inboundContent": 4,
         "outboundContent": 6,
-        "inboundChrome": 75,
-        "outboundChrome": 74,
+        "inboundChrome": 76,
+        "outboundChrome": 75,
         "journeys": []
       },
       {
@@ -1755,8 +1776,8 @@
         "aliasOf": null,
         "inboundContent": 4,
         "outboundContent": 6,
-        "inboundChrome": 75,
-        "outboundChrome": 74,
+        "inboundChrome": 76,
+        "outboundChrome": 75,
         "journeys": []
       },
       {
@@ -1770,8 +1791,8 @@
         "aliasOf": null,
         "inboundContent": 5,
         "outboundContent": 6,
-        "inboundChrome": 75,
-        "outboundChrome": 74,
+        "inboundChrome": 76,
+        "outboundChrome": 75,
         "journeys": []
       },
       {
@@ -1785,8 +1806,8 @@
         "aliasOf": null,
         "inboundContent": 26,
         "outboundContent": 5,
-        "inboundChrome": 75,
-        "outboundChrome": 74,
+        "inboundChrome": 76,
+        "outboundChrome": 75,
         "journeys": []
       },
       {
@@ -1800,8 +1821,8 @@
         "aliasOf": null,
         "inboundContent": 4,
         "outboundContent": 6,
-        "inboundChrome": 75,
-        "outboundChrome": 74,
+        "inboundChrome": 76,
+        "outboundChrome": 75,
         "journeys": []
       },
       {
@@ -1815,8 +1836,8 @@
         "aliasOf": null,
         "inboundContent": 4,
         "outboundContent": 6,
-        "inboundChrome": 75,
-        "outboundChrome": 74,
+        "inboundChrome": 76,
+        "outboundChrome": 75,
         "journeys": []
       },
       {
@@ -1830,8 +1851,8 @@
         "aliasOf": null,
         "inboundContent": 4,
         "outboundContent": 6,
-        "inboundChrome": 75,
-        "outboundChrome": 74,
+        "inboundChrome": 76,
+        "outboundChrome": 75,
         "journeys": []
       },
       {
@@ -1845,8 +1866,8 @@
         "aliasOf": null,
         "inboundContent": 2,
         "outboundContent": 67,
-        "inboundChrome": 75,
-        "outboundChrome": 74,
+        "inboundChrome": 76,
+        "outboundChrome": 75,
         "journeys": []
       },
       {
@@ -1860,8 +1881,8 @@
         "aliasOf": null,
         "inboundContent": 7,
         "outboundContent": 4,
-        "inboundChrome": 75,
-        "outboundChrome": 74,
+        "inboundChrome": 76,
+        "outboundChrome": 75,
         "journeys": [
           "institutional-partner"
         ]
@@ -1877,8 +1898,8 @@
         "aliasOf": null,
         "inboundContent": 7,
         "outboundContent": 4,
-        "inboundChrome": 75,
-        "outboundChrome": 74,
+        "inboundChrome": 76,
+        "outboundChrome": 75,
         "journeys": [
           "institutional-partner"
         ]
@@ -1895,7 +1916,7 @@
         "inboundContent": 3,
         "outboundContent": 1,
         "inboundChrome": 0,
-        "outboundChrome": 75,
+        "outboundChrome": 76,
         "journeys": []
       },
       {
@@ -1909,8 +1930,8 @@
         "aliasOf": null,
         "inboundContent": 10,
         "outboundContent": 2,
-        "inboundChrome": 75,
-        "outboundChrome": 74,
+        "inboundChrome": 76,
+        "outboundChrome": 75,
         "journeys": [
           "institutional-partner"
         ]
@@ -1926,8 +1947,8 @@
         "aliasOf": null,
         "inboundContent": 7,
         "outboundContent": 4,
-        "inboundChrome": 75,
-        "outboundChrome": 74,
+        "inboundChrome": 76,
+        "outboundChrome": 75,
         "journeys": []
       },
       {
@@ -1941,8 +1962,8 @@
         "aliasOf": null,
         "inboundContent": 11,
         "outboundContent": 5,
-        "inboundChrome": 75,
-        "outboundChrome": 74,
+        "inboundChrome": 76,
+        "outboundChrome": 75,
         "journeys": []
       },
       {
@@ -1956,8 +1977,8 @@
         "aliasOf": null,
         "inboundContent": 12,
         "outboundContent": 5,
-        "inboundChrome": 75,
-        "outboundChrome": 74,
+        "inboundChrome": 76,
+        "outboundChrome": 75,
         "journeys": [
           "technical-collaborator"
         ]
@@ -1973,8 +1994,8 @@
         "aliasOf": null,
         "inboundContent": 7,
         "outboundContent": 5,
-        "inboundChrome": 75,
-        "outboundChrome": 74,
+        "inboundChrome": 76,
+        "outboundChrome": 75,
         "journeys": []
       },
       {
@@ -1988,8 +2009,8 @@
         "aliasOf": null,
         "inboundContent": 10,
         "outboundContent": 5,
-        "inboundChrome": 75,
-        "outboundChrome": 74,
+        "inboundChrome": 76,
+        "outboundChrome": 75,
         "journeys": []
       },
       {
@@ -2003,8 +2024,8 @@
         "aliasOf": null,
         "inboundContent": 8,
         "outboundContent": 5,
-        "inboundChrome": 75,
-        "outboundChrome": 74,
+        "inboundChrome": 76,
+        "outboundChrome": 75,
         "journeys": []
       },
       {
@@ -2018,8 +2039,8 @@
         "aliasOf": null,
         "inboundContent": 7,
         "outboundContent": 5,
-        "inboundChrome": 75,
-        "outboundChrome": 74,
+        "inboundChrome": 76,
+        "outboundChrome": 75,
         "journeys": []
       },
       {
@@ -2033,8 +2054,8 @@
         "aliasOf": null,
         "inboundContent": 8,
         "outboundContent": 5,
-        "inboundChrome": 75,
-        "outboundChrome": 74,
+        "inboundChrome": 76,
+        "outboundChrome": 75,
         "journeys": []
       },
       {
@@ -2048,8 +2069,8 @@
         "aliasOf": null,
         "inboundContent": 16,
         "outboundContent": 1,
-        "inboundChrome": 75,
-        "outboundChrome": 74,
+        "inboundChrome": 76,
+        "outboundChrome": 75,
         "journeys": []
       }
     ],
@@ -2517,6 +2538,12 @@
         "label": "Continue with INSTAR"
       },
       {
+        "source": "/cookies-and-partners/",
+        "target": "/privacy/",
+        "occurrences": 1,
+        "label": "Privacy Policy"
+      },
+      {
         "source": "/faq/",
         "target": "/community/about-us/",
         "occurrences": 1,
@@ -2947,6 +2974,12 @@
         "target": "/contact-us/",
         "occurrences": 1,
         "label": "Discuss a research requirement ↗"
+      },
+      {
+        "source": "/privacy/",
+        "target": "/cookies-and-partners/",
+        "occurrences": 2,
+        "label": "Open the Cookies and partners directory"
       },
       {
         "source": "/record/",
@@ -4794,43 +4827,43 @@
         "source": "/record/nav/",
         "target": "/community/about-us/",
         "occurrences": 7,
-        "label": "49. About Us — INSTAR Lab Community"
+        "label": "50. About Us — INSTAR Lab Community"
       },
       {
         "source": "/record/nav/",
         "target": "/community/careers/",
         "occurrences": 5,
-        "label": "50. Careers at INSTAR Lab — Research &amp; Science Jobs"
+        "label": "51. Careers at INSTAR Lab — Research &amp; Science Jobs"
       },
       {
         "source": "/record/nav/",
         "target": "/community/contact/",
         "occurrences": 4,
-        "label": "51. Research &amp; Partnership Inquiries — INSTAR Lab"
+        "label": "52. Research &amp; Partnership Inquiries — INSTAR Lab"
       },
       {
         "source": "/record/nav/",
         "target": "/community/leadership/",
         "occurrences": 4,
-        "label": "52. Research Leadership &amp; Governance — INSTAR Lab"
+        "label": "53. Research Leadership &amp; Governance — INSTAR Lab"
       },
       {
         "source": "/record/nav/",
         "target": "/community/partner/",
         "occurrences": 4,
-        "label": "53. Partner With INSTAR Lab — Research &amp; Philanthropy"
+        "label": "54. Partner With INSTAR Lab — Research &amp; Philanthropy"
       },
       {
         "source": "/record/nav/",
         "target": "/community/support/",
         "occurrences": 5,
-        "label": "54. Give to INSTAR Lab — One-Time Gifts &amp; Friends Membership"
+        "label": "55. Give to INSTAR Lab — One-Time Gifts &amp; Friends Membership"
       },
       {
         "source": "/record/nav/",
         "target": "/community/work-with-us/",
         "occurrences": 5,
-        "label": "55. Work With INSTAR Lab — Collaboration Opportunities"
+        "label": "56. Work With INSTAR Lab — Collaboration Opportunities"
       },
       {
         "source": "/record/nav/",
@@ -4840,93 +4873,99 @@
       },
       {
         "source": "/record/nav/",
+        "target": "/cookies-and-partners/",
+        "occurrences": 4,
+        "label": "06. Cookies and Partners — INSTAR Lab"
+      },
+      {
+        "source": "/record/nav/",
         "target": "/fellowship/",
         "occurrences": 4,
-        "label": "68. INSTAR Lab R&amp;D Fellowships — International and Resident Scholars"
+        "label": "69. INSTAR Lab R&amp;D Fellowships — International and Resident Scholars"
       },
       {
         "source": "/record/nav/",
         "target": "/labs/biometric-security/",
         "occurrences": 4,
-        "label": "56. Biometrics &amp; Drone Sensing — INSTAR Lab"
+        "label": "57. Biometrics &amp; Drone Sensing — INSTAR Lab"
       },
       {
         "source": "/record/nav/",
         "target": "/labs/cognitive-ai/",
         "occurrences": 4,
-        "label": "57. Cognitive AI &amp; Persona Systems — INSTAR Lab"
+        "label": "58. Cognitive AI &amp; Persona Systems — INSTAR Lab"
       },
       {
         "source": "/record/nav/",
         "target": "/labs/sovereign-ai/",
         "occurrences": 5,
-        "label": "58. Sovereign AI Laboratory — INSTAR Lab"
+        "label": "59. Sovereign AI Laboratory — INSTAR Lab"
       },
       {
         "source": "/record/nav/",
         "target": "/mission/",
         "occurrences": 4,
-        "label": "06. Our Mission — INSTAR Lab"
+        "label": "07. Our Mission — INSTAR Lab"
       },
       {
         "source": "/record/nav/",
         "target": "/news/",
         "occurrences": 5,
-        "label": "59. News — INSTAR Lab"
+        "label": "60. News — INSTAR Lab"
       },
       {
         "source": "/record/nav/",
         "target": "/news/clinical-ai-safety/",
         "occurrences": 4,
-        "label": "60. Clinical AI Safety Research — INSTAR Lab"
+        "label": "61. Clinical AI Safety Research — INSTAR Lab"
       },
       {
         "source": "/record/nav/",
         "target": "/news/formal-methods-safety-critical-trust/",
         "occurrences": 4,
-        "label": "61. Formal Methods and Trust in Safety-Critical Software — INSTAR Lab"
+        "label": "62. Formal Methods and Trust in Safety-Critical Software — INSTAR Lab"
       },
       {
         "source": "/record/nav/",
         "target": "/news/hpc-infrastructure-for-ai/",
         "occurrences": 4,
-        "label": "62. HPC Infrastructure for AI — INSTAR Lab"
+        "label": "63. HPC Infrastructure for AI — INSTAR Lab"
       },
       {
         "source": "/record/nav/",
         "target": "/news/legal-foundations-tech-governance/",
         "occurrences": 4,
-        "label": "63. Legal Foundations for Emerging Technology Governance — INSTAR Lab"
+        "label": "64. Legal Foundations for Emerging Technology Governance — INSTAR Lab"
       },
       {
         "source": "/record/nav/",
         "target": "/news/materials-science-energy-transition/",
         "occurrences": 4,
-        "label": "64. Materials Science and the Energy Transition — INSTAR Lab"
+        "label": "65. Materials Science and the Energy Transition — INSTAR Lab"
       },
       {
         "source": "/record/nav/",
         "target": "/news/open-data-research-philosophy/",
         "occurrences": 4,
-        "label": "65. Why INSTAR Lab Commits to Open Data — INSTAR Lab"
+        "label": "66. Why INSTAR Lab Commits to Open Data — INSTAR Lab"
       },
       {
         "source": "/record/nav/",
         "target": "/news/precision-agriculture-open-data/",
         "occurrences": 4,
-        "label": "66. Precision Agriculture and Open Agricultural Data — INSTAR Lab"
+        "label": "67. Precision Agriculture and Open Agricultural Data — INSTAR Lab"
       },
       {
         "source": "/record/nav/",
         "target": "/news/quantum-sensing-breakthroughs/",
         "occurrences": 4,
-        "label": "67. Quantum Sensing Breakthroughs — INSTAR Lab"
+        "label": "68. Quantum Sensing Breakthroughs — INSTAR Lab"
       },
       {
         "source": "/record/nav/",
         "target": "/privacy/",
         "occurrences": 5,
-        "label": "07. Privacy Policy — INSTAR Lab"
+        "label": "08. Privacy Policy — INSTAR Lab"
       },
       {
         "source": "/record/nav/",
@@ -5022,271 +5061,271 @@
         "source": "/record/nav/",
         "target": "/research/",
         "occurrences": 4,
-        "label": "09. Research"
+        "label": "10. Research"
       },
       {
         "source": "/record/nav/",
         "target": "/research/consortium/",
         "occurrences": 4,
-        "label": "10. INSTAR Consortium — Collaborative Research Network"
+        "label": "11. INSTAR Consortium — Collaborative Research Network"
       },
       {
         "source": "/record/nav/",
         "target": "/research/current-programs/",
         "occurrences": 5,
-        "label": "11. Current Research Programs — INSTAR Lab"
+        "label": "12. Current Research Programs — INSTAR Lab"
       },
       {
         "source": "/record/nav/",
         "target": "/research/facilities/",
         "occurrences": 5,
-        "label": "12. Research Facilities — INSTAR Lab"
+        "label": "13. Research Facilities — INSTAR Lab"
       },
       {
         "source": "/record/nav/",
         "target": "/research/funding/",
         "occurrences": 4,
-        "label": "13. Federal Research &amp; Sponsored Programs — INSTAR Lab"
+        "label": "14. Federal Research &amp; Sponsored Programs — INSTAR Lab"
       },
       {
         "source": "/record/nav/",
         "target": "/research/innovation/",
         "occurrences": 4,
-        "label": "14. Research Innovation — INSTAR Lab"
+        "label": "15. Research Innovation — INSTAR Lab"
       },
       {
         "source": "/record/nav/",
         "target": "/research/open-data/",
         "occurrences": 5,
-        "label": "15. Open Data &amp; Public Datasets — INSTAR Lab"
+        "label": "16. Open Data &amp; Public Datasets — INSTAR Lab"
       },
       {
         "source": "/record/nav/",
         "target": "/research/opportunities/",
         "occurrences": 4,
-        "label": "16. Research Opportunities — INSTAR Lab"
+        "label": "17. Research Opportunities — INSTAR Lab"
       },
       {
         "source": "/record/nav/",
         "target": "/research/our-process/",
         "occurrences": 5,
-        "label": "17. Our Research Process — INSTAR Lab"
+        "label": "18. Our Research Process — INSTAR Lab"
       },
       {
         "source": "/record/nav/",
         "target": "/research/outputs/",
         "occurrences": 4,
-        "label": "18. Research Outputs — INSTAR Lab"
+        "label": "19. Research Outputs — INSTAR Lab"
       },
       {
         "source": "/record/nav/",
         "target": "/research/publications/",
         "occurrences": 4,
-        "label": "19. Research Publications &amp; Outputs — INSTAR Lab"
+        "label": "20. Research Publications &amp; Outputs — INSTAR Lab"
       },
       {
         "source": "/record/nav/",
         "target": "/sciences/agriculture/",
         "occurrences": 4,
-        "label": "27. Agriculture Research — INSTAR Lab Sciences"
+        "label": "28. Agriculture Research — INSTAR Lab Sciences"
       },
       {
         "source": "/record/nav/",
         "target": "/sciences/anthropology/",
         "occurrences": 4,
-        "label": "28. Anthropology Research — INSTAR Lab Sciences"
+        "label": "29. Anthropology Research — INSTAR Lab Sciences"
       },
       {
         "source": "/record/nav/",
         "target": "/sciences/archaeology/",
         "occurrences": 4,
-        "label": "29. Archaeology Research — INSTAR Lab Sciences"
+        "label": "30. Archaeology Research — INSTAR Lab Sciences"
       },
       {
         "source": "/record/nav/",
         "target": "/sciences/biology/",
         "occurrences": 4,
-        "label": "30. Biology Research — INSTAR Lab Sciences"
+        "label": "31. Biology Research — INSTAR Lab Sciences"
       },
       {
         "source": "/record/nav/",
         "target": "/sciences/chemistry/",
         "occurrences": 4,
-        "label": "31. Chemistry Research — INSTAR Lab Sciences"
+        "label": "32. Chemistry Research — INSTAR Lab Sciences"
       },
       {
         "source": "/record/nav/",
         "target": "/sciences/cognitive-sciences/",
         "occurrences": 4,
-        "label": "32. Cognitive Sciences Research — INSTAR Lab Sciences"
+        "label": "33. Cognitive Sciences Research — INSTAR Lab Sciences"
       },
       {
         "source": "/record/nav/",
         "target": "/sciences/economics/",
         "occurrences": 4,
-        "label": "33. Economics Research — INSTAR Lab Sciences"
+        "label": "34. Economics Research — INSTAR Lab Sciences"
       },
       {
         "source": "/record/nav/",
         "target": "/sciences/energy/",
         "occurrences": 4,
-        "label": "34. Energy Research — INSTAR Lab Sciences"
+        "label": "35. Energy Research — INSTAR Lab Sciences"
       },
       {
         "source": "/record/nav/",
         "target": "/sciences/genetics/",
         "occurrences": 4,
-        "label": "35. Genetics Research — INSTAR Lab Sciences"
+        "label": "36. Genetics Research — INSTAR Lab Sciences"
       },
       {
         "source": "/record/nav/",
         "target": "/sciences/geology/",
         "occurrences": 4,
-        "label": "36. Geology Research — INSTAR Lab Sciences"
+        "label": "37. Geology Research — INSTAR Lab Sciences"
       },
       {
         "source": "/record/nav/",
         "target": "/sciences/kinesiology/",
         "occurrences": 4,
-        "label": "37. Kinesiology Research — INSTAR Lab Sciences"
+        "label": "38. Kinesiology Research — INSTAR Lab Sciences"
       },
       {
         "source": "/record/nav/",
         "target": "/sciences/law/",
         "occurrences": 4,
-        "label": "38. Law &amp; Legal Research — INSTAR Lab Sciences"
+        "label": "39. Law &amp; Legal Research — INSTAR Lab Sciences"
       },
       {
         "source": "/record/nav/",
         "target": "/sciences/linguistics/",
         "occurrences": 4,
-        "label": "39. Linguistics Research — INSTAR Lab Sciences"
+        "label": "40. Linguistics Research — INSTAR Lab Sciences"
       },
       {
         "source": "/record/nav/",
         "target": "/sciences/materials-science/",
         "occurrences": 4,
-        "label": "40. Materials Science Research — INSTAR Lab Sciences"
+        "label": "41. Materials Science Research — INSTAR Lab Sciences"
       },
       {
         "source": "/record/nav/",
         "target": "/sciences/medicine/",
         "occurrences": 4,
-        "label": "41. Medicine &amp; Health Research — INSTAR Lab Sciences"
+        "label": "42. Medicine &amp; Health Research — INSTAR Lab Sciences"
       },
       {
         "source": "/record/nav/",
         "target": "/sciences/neuroscience/",
         "occurrences": 4,
-        "label": "42. Neuroscience Research — INSTAR Lab Sciences"
+        "label": "43. Neuroscience Research — INSTAR Lab Sciences"
       },
       {
         "source": "/record/nav/",
         "target": "/sciences/ocean-science/",
         "occurrences": 4,
-        "label": "43. Ocean Science Research — INSTAR Lab Sciences"
+        "label": "44. Ocean Science Research — INSTAR Lab Sciences"
       },
       {
         "source": "/record/nav/",
         "target": "/sciences/outer-space/",
         "occurrences": 4,
-        "label": "44. Outer Space Research — INSTAR Lab Sciences"
+        "label": "45. Outer Space Research — INSTAR Lab Sciences"
       },
       {
         "source": "/record/nav/",
         "target": "/sciences/physics/",
         "occurrences": 4,
-        "label": "45. Physics Research — INSTAR Lab Sciences"
+        "label": "46. Physics Research — INSTAR Lab Sciences"
       },
       {
         "source": "/record/nav/",
         "target": "/sciences/physiology/",
         "occurrences": 4,
-        "label": "46. Physiology Research — INSTAR Lab Sciences"
+        "label": "47. Physiology Research — INSTAR Lab Sciences"
       },
       {
         "source": "/record/nav/",
         "target": "/sciences/psychology/",
         "occurrences": 4,
-        "label": "47. Psychology Research — INSTAR Lab Sciences"
+        "label": "48. Psychology Research — INSTAR Lab Sciences"
       },
       {
         "source": "/record/nav/",
         "target": "/sciences/sociology/",
         "occurrences": 4,
-        "label": "48. Sociology Research — INSTAR Lab Sciences"
+        "label": "49. Sociology Research — INSTAR Lab Sciences"
       },
       {
         "source": "/record/nav/",
         "target": "/tech-transfer/enterprise-rd/",
         "occurrences": 5,
-        "label": "69. Enterprise R&amp;D — INSTAR Lab Technology Transfer"
+        "label": "70. Enterprise R&amp;D — INSTAR Lab Technology Transfer"
       },
       {
         "source": "/record/nav/",
         "target": "/tech-transfer/portfolio/",
         "occurrences": 5,
-        "label": "70. Research Portfolio — INSTAR Lab Technology Transfer"
+        "label": "71. Research Portfolio — INSTAR Lab Technology Transfer"
       },
       {
         "source": "/record/nav/",
         "target": "/tech-transfer/sttr-programs/",
         "occurrences": 5,
-        "label": "71. STTR Programs — INSTAR Lab Technology Transfer"
+        "label": "72. STTR Programs — INSTAR Lab Technology Transfer"
       },
       {
         "source": "/record/nav/",
         "target": "/tech-transfer/workshops-events/",
         "occurrences": 4,
-        "label": "72. Workshops &amp; Events — INSTAR Lab Technology Transfer"
+        "label": "73. Workshops &amp; Events — INSTAR Lab Technology Transfer"
       },
       {
         "source": "/record/nav/",
         "target": "/technology/augmented-reality/",
         "occurrences": 4,
-        "label": "20. Augmented Reality Research — INSTAR Lab Technology"
+        "label": "21. Augmented Reality Research — INSTAR Lab Technology"
       },
       {
         "source": "/record/nav/",
         "target": "/technology/computer-science/",
         "occurrences": 5,
-        "label": "21. Computer Science Research — INSTAR Lab Technology"
+        "label": "22. Computer Science Research — INSTAR Lab Technology"
       },
       {
         "source": "/record/nav/",
         "target": "/technology/data-science/",
         "occurrences": 4,
-        "label": "22. Data Science Research — INSTAR Lab Technology"
+        "label": "23. Data Science Research — INSTAR Lab Technology"
       },
       {
         "source": "/record/nav/",
         "target": "/technology/formal-methods/",
         "occurrences": 4,
-        "label": "23. Formal Methods Research — INSTAR Lab Technology"
+        "label": "24. Formal Methods Research — INSTAR Lab Technology"
       },
       {
         "source": "/record/nav/",
         "target": "/technology/machine-intelligence/",
         "occurrences": 4,
-        "label": "24. Machine Intelligence Research — INSTAR Lab Technology"
+        "label": "25. Machine Intelligence Research — INSTAR Lab Technology"
       },
       {
         "source": "/record/nav/",
         "target": "/technology/natural-language-processing/",
         "occurrences": 4,
-        "label": "25. Natural Language Processing Research — INSTAR Lab Technology"
+        "label": "26. Natural Language Processing Research — INSTAR Lab Technology"
       },
       {
         "source": "/record/nav/",
         "target": "/technology/quantum-computing/",
         "occurrences": 4,
-        "label": "26. Quantum Computing Research — INSTAR Lab Technology"
+        "label": "27. Quantum Computing Research — INSTAR Lab Technology"
       },
       {
         "source": "/record/nav/",
         "target": "/terms/",
         "occurrences": 5,
-        "label": "08. Terms of Use — INSTAR Lab"
+        "label": "09. Terms of Use — INSTAR Lab"
       },
       {
         "source": "/record/ops/",
@@ -5471,6 +5510,12 @@
       {
         "source": "/record/screens/",
         "target": "/contact-us/",
+        "occurrences": 1,
+        "label": "Open canonical route ↗"
+      },
+      {
+        "source": "/record/screens/",
+        "target": "/cookies-and-partners/",
         "occurrences": 1,
         "label": "Open canonical route ↗"
       },
@@ -8154,6 +8199,12 @@
       },
       {
         "source": "/",
+        "target": "/cookies-and-partners/",
+        "occurrences": 5,
+        "label": "Cookies and partners"
+      },
+      {
+        "source": "/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -8191,7 +8242,7 @@
       {
         "source": "/",
         "target": "/privacy/",
-        "occurrences": 3,
+        "occurrences": 2,
         "label": "Privacy policy"
       },
       {
@@ -8604,6 +8655,12 @@
       },
       {
         "source": "/404.html",
+        "target": "/cookies-and-partners/",
+        "occurrences": 5,
+        "label": "Cookies and partners"
+      },
+      {
+        "source": "/404.html",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -8641,7 +8698,7 @@
       {
         "source": "/404.html",
         "target": "/privacy/",
-        "occurrences": 3,
+        "occurrences": 2,
         "label": "Privacy policy"
       },
       {
@@ -9054,6 +9111,12 @@
       },
       {
         "source": "/about/",
+        "target": "/cookies-and-partners/",
+        "occurrences": 5,
+        "label": "Cookies and partners"
+      },
+      {
+        "source": "/about/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -9091,7 +9154,7 @@
       {
         "source": "/about/",
         "target": "/privacy/",
-        "occurrences": 3,
+        "occurrences": 2,
         "label": "Privacy policy"
       },
       {
@@ -9498,6 +9561,12 @@
       },
       {
         "source": "/accessibility/",
+        "target": "/cookies-and-partners/",
+        "occurrences": 5,
+        "label": "Cookies and partners"
+      },
+      {
+        "source": "/accessibility/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -9535,7 +9604,7 @@
       {
         "source": "/accessibility/",
         "target": "/privacy/",
-        "occurrences": 3,
+        "occurrences": 2,
         "label": "Privacy policy"
       },
       {
@@ -9942,6 +10011,12 @@
       },
       {
         "source": "/community/about-us/",
+        "target": "/cookies-and-partners/",
+        "occurrences": 5,
+        "label": "Cookies and partners"
+      },
+      {
+        "source": "/community/about-us/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -9979,7 +10054,7 @@
       {
         "source": "/community/about-us/",
         "target": "/privacy/",
-        "occurrences": 3,
+        "occurrences": 2,
         "label": "Privacy policy"
       },
       {
@@ -10386,6 +10461,12 @@
       },
       {
         "source": "/community/careers/",
+        "target": "/cookies-and-partners/",
+        "occurrences": 5,
+        "label": "Cookies and partners"
+      },
+      {
+        "source": "/community/careers/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -10423,7 +10504,7 @@
       {
         "source": "/community/careers/",
         "target": "/privacy/",
-        "occurrences": 3,
+        "occurrences": 2,
         "label": "Privacy policy"
       },
       {
@@ -10836,6 +10917,12 @@
       },
       {
         "source": "/community/contact/",
+        "target": "/cookies-and-partners/",
+        "occurrences": 5,
+        "label": "Cookies and partners"
+      },
+      {
+        "source": "/community/contact/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -10873,7 +10960,7 @@
       {
         "source": "/community/contact/",
         "target": "/privacy/",
-        "occurrences": 3,
+        "occurrences": 2,
         "label": "Privacy policy"
       },
       {
@@ -11280,6 +11367,12 @@
       },
       {
         "source": "/community/leadership/",
+        "target": "/cookies-and-partners/",
+        "occurrences": 5,
+        "label": "Cookies and partners"
+      },
+      {
+        "source": "/community/leadership/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -11317,7 +11410,7 @@
       {
         "source": "/community/leadership/",
         "target": "/privacy/",
-        "occurrences": 3,
+        "occurrences": 2,
         "label": "Privacy policy"
       },
       {
@@ -11724,6 +11817,12 @@
       },
       {
         "source": "/community/partner/",
+        "target": "/cookies-and-partners/",
+        "occurrences": 5,
+        "label": "Cookies and partners"
+      },
+      {
+        "source": "/community/partner/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -11761,7 +11860,7 @@
       {
         "source": "/community/partner/",
         "target": "/privacy/",
-        "occurrences": 3,
+        "occurrences": 2,
         "label": "Privacy policy"
       },
       {
@@ -12168,6 +12267,12 @@
       },
       {
         "source": "/community/support/",
+        "target": "/cookies-and-partners/",
+        "occurrences": 5,
+        "label": "Cookies and partners"
+      },
+      {
+        "source": "/community/support/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -12205,7 +12310,7 @@
       {
         "source": "/community/support/",
         "target": "/privacy/",
-        "occurrences": 3,
+        "occurrences": 2,
         "label": "Privacy policy"
       },
       {
@@ -12612,6 +12717,12 @@
       },
       {
         "source": "/community/work-with-us/",
+        "target": "/cookies-and-partners/",
+        "occurrences": 5,
+        "label": "Cookies and partners"
+      },
+      {
+        "source": "/community/work-with-us/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -12649,7 +12760,7 @@
       {
         "source": "/community/work-with-us/",
         "target": "/privacy/",
-        "occurrences": 3,
+        "occurrences": 2,
         "label": "Privacy policy"
       },
       {
@@ -13056,6 +13167,12 @@
       },
       {
         "source": "/contact-us/",
+        "target": "/cookies-and-partners/",
+        "occurrences": 5,
+        "label": "Cookies and partners"
+      },
+      {
+        "source": "/contact-us/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -13093,7 +13210,7 @@
       {
         "source": "/contact-us/",
         "target": "/privacy/",
-        "occurrences": 3,
+        "occurrences": 2,
         "label": "Privacy policy"
       },
       {
@@ -13446,6 +13563,456 @@
       },
       {
         "source": "/contact-us/",
+        "target": "/terms/",
+        "occurrences": 1,
+        "label": "Terms of use"
+      },
+      {
+        "source": "/cookies-and-partners/",
+        "target": "/",
+        "occurrences": 1,
+        "label": ""
+      },
+      {
+        "source": "/cookies-and-partners/",
+        "target": "/accessibility/",
+        "occurrences": 1,
+        "label": "Accessibility"
+      },
+      {
+        "source": "/cookies-and-partners/",
+        "target": "/community/about-us/",
+        "occurrences": 3,
+        "label": "About Us"
+      },
+      {
+        "source": "/cookies-and-partners/",
+        "target": "/community/careers/",
+        "occurrences": 3,
+        "label": "Careers"
+      },
+      {
+        "source": "/cookies-and-partners/",
+        "target": "/community/leadership/",
+        "occurrences": 2,
+        "label": "Leadership"
+      },
+      {
+        "source": "/cookies-and-partners/",
+        "target": "/community/partner/",
+        "occurrences": 2,
+        "label": "Partner"
+      },
+      {
+        "source": "/cookies-and-partners/",
+        "target": "/community/support/",
+        "occurrences": 1,
+        "label": "Donate"
+      },
+      {
+        "source": "/cookies-and-partners/",
+        "target": "/community/work-with-us/",
+        "occurrences": 2,
+        "label": "Collaborate"
+      },
+      {
+        "source": "/cookies-and-partners/",
+        "target": "/contact-us/",
+        "occurrences": 3,
+        "label": "Contact"
+      },
+      {
+        "source": "/cookies-and-partners/",
+        "target": "/fellowship/",
+        "occurrences": 3,
+        "label": "Fellowship"
+      },
+      {
+        "source": "/cookies-and-partners/",
+        "target": "/labs/biometric-security/",
+        "occurrences": 2,
+        "label": "Biometrics &amp; Drone Sensing"
+      },
+      {
+        "source": "/cookies-and-partners/",
+        "target": "/labs/cognitive-ai/",
+        "occurrences": 2,
+        "label": "Cognitive AI &amp; Persona Systems"
+      },
+      {
+        "source": "/cookies-and-partners/",
+        "target": "/labs/sovereign-ai/",
+        "occurrences": 2,
+        "label": "Sovereign AI Laboratory"
+      },
+      {
+        "source": "/cookies-and-partners/",
+        "target": "/mission/",
+        "occurrences": 2,
+        "label": "Mission"
+      },
+      {
+        "source": "/cookies-and-partners/",
+        "target": "/news/",
+        "occurrences": 2,
+        "label": "Research Briefs"
+      },
+      {
+        "source": "/cookies-and-partners/",
+        "target": "/privacy/",
+        "occurrences": 2,
+        "label": "Privacy policy"
+      },
+      {
+        "source": "/cookies-and-partners/",
+        "target": "/record/",
+        "occurrences": 2,
+        "label": "Record room"
+      },
+      {
+        "source": "/cookies-and-partners/",
+        "target": "/record/affiliations/",
+        "occurrences": 2,
+        "label": "Affiliations"
+      },
+      {
+        "source": "/cookies-and-partners/",
+        "target": "/record/corrections/",
+        "occurrences": 2,
+        "label": "Corrections"
+      },
+      {
+        "source": "/cookies-and-partners/",
+        "target": "/record/federal/",
+        "occurrences": 2,
+        "label": "Federal"
+      },
+      {
+        "source": "/cookies-and-partners/",
+        "target": "/record/files/",
+        "occurrences": 2,
+        "label": "Documents"
+      },
+      {
+        "source": "/cookies-and-partners/",
+        "target": "/record/governance/",
+        "occurrences": 2,
+        "label": "Governance"
+      },
+      {
+        "source": "/cookies-and-partners/",
+        "target": "/record/journeys/",
+        "occurrences": 2,
+        "label": "Decision briefs"
+      },
+      {
+        "source": "/cookies-and-partners/",
+        "target": "/record/leadership/",
+        "occurrences": 2,
+        "label": "Leadership"
+      },
+      {
+        "source": "/cookies-and-partners/",
+        "target": "/record/legal/",
+        "occurrences": 2,
+        "label": "Legal"
+      },
+      {
+        "source": "/cookies-and-partners/",
+        "target": "/record/marketing/",
+        "occurrences": 2,
+        "label": "Positioning"
+      },
+      {
+        "source": "/cookies-and-partners/",
+        "target": "/record/metrics/",
+        "occurrences": 2,
+        "label": "Inventory"
+      },
+      {
+        "source": "/cookies-and-partners/",
+        "target": "/record/nav/",
+        "occurrences": 2,
+        "label": "Site map"
+      },
+      {
+        "source": "/cookies-and-partners/",
+        "target": "/record/ops/",
+        "occurrences": 2,
+        "label": "Ops"
+      },
+      {
+        "source": "/cookies-and-partners/",
+        "target": "/record/screens/",
+        "occurrences": 2,
+        "label": "Visuals"
+      },
+      {
+        "source": "/cookies-and-partners/",
+        "target": "/record/style/",
+        "occurrences": 2,
+        "label": "Style"
+      },
+      {
+        "source": "/cookies-and-partners/",
+        "target": "/record/verify/",
+        "occurrences": 2,
+        "label": "Sources"
+      },
+      {
+        "source": "/cookies-and-partners/",
+        "target": "/research/consortium/",
+        "occurrences": 2,
+        "label": "INSTAR Consortium"
+      },
+      {
+        "source": "/cookies-and-partners/",
+        "target": "/research/current-programs/",
+        "occurrences": 3,
+        "label": "Review research programs"
+      },
+      {
+        "source": "/cookies-and-partners/",
+        "target": "/research/facilities/",
+        "occurrences": 2,
+        "label": "Facilities"
+      },
+      {
+        "source": "/cookies-and-partners/",
+        "target": "/research/funding/",
+        "occurrences": 3,
+        "label": "Funding"
+      },
+      {
+        "source": "/cookies-and-partners/",
+        "target": "/research/innovation/",
+        "occurrences": 2,
+        "label": "Innovation"
+      },
+      {
+        "source": "/cookies-and-partners/",
+        "target": "/research/open-data/",
+        "occurrences": 2,
+        "label": "Open Data"
+      },
+      {
+        "source": "/cookies-and-partners/",
+        "target": "/research/opportunities/",
+        "occurrences": 2,
+        "label": "Opportunities"
+      },
+      {
+        "source": "/cookies-and-partners/",
+        "target": "/research/our-process/",
+        "occurrences": 3,
+        "label": "Our Process"
+      },
+      {
+        "source": "/cookies-and-partners/",
+        "target": "/sciences/agriculture/",
+        "occurrences": 2,
+        "label": "Agriculture"
+      },
+      {
+        "source": "/cookies-and-partners/",
+        "target": "/sciences/anthropology/",
+        "occurrences": 2,
+        "label": "Anthropology"
+      },
+      {
+        "source": "/cookies-and-partners/",
+        "target": "/sciences/archaeology/",
+        "occurrences": 2,
+        "label": "Archaeology"
+      },
+      {
+        "source": "/cookies-and-partners/",
+        "target": "/sciences/biology/",
+        "occurrences": 2,
+        "label": "Biology"
+      },
+      {
+        "source": "/cookies-and-partners/",
+        "target": "/sciences/chemistry/",
+        "occurrences": 2,
+        "label": "Chemistry"
+      },
+      {
+        "source": "/cookies-and-partners/",
+        "target": "/sciences/cognitive-sciences/",
+        "occurrences": 2,
+        "label": "Cognitive Sciences"
+      },
+      {
+        "source": "/cookies-and-partners/",
+        "target": "/sciences/economics/",
+        "occurrences": 2,
+        "label": "Economics"
+      },
+      {
+        "source": "/cookies-and-partners/",
+        "target": "/sciences/energy/",
+        "occurrences": 3,
+        "label": "Energy"
+      },
+      {
+        "source": "/cookies-and-partners/",
+        "target": "/sciences/genetics/",
+        "occurrences": 2,
+        "label": "Genetics"
+      },
+      {
+        "source": "/cookies-and-partners/",
+        "target": "/sciences/geology/",
+        "occurrences": 2,
+        "label": "Geology"
+      },
+      {
+        "source": "/cookies-and-partners/",
+        "target": "/sciences/kinesiology/",
+        "occurrences": 2,
+        "label": "Kinesiology"
+      },
+      {
+        "source": "/cookies-and-partners/",
+        "target": "/sciences/law/",
+        "occurrences": 2,
+        "label": "Law"
+      },
+      {
+        "source": "/cookies-and-partners/",
+        "target": "/sciences/linguistics/",
+        "occurrences": 2,
+        "label": "Linguistics"
+      },
+      {
+        "source": "/cookies-and-partners/",
+        "target": "/sciences/materials-science/",
+        "occurrences": 2,
+        "label": "Materials Science"
+      },
+      {
+        "source": "/cookies-and-partners/",
+        "target": "/sciences/medicine/",
+        "occurrences": 3,
+        "label": "Medicine"
+      },
+      {
+        "source": "/cookies-and-partners/",
+        "target": "/sciences/neuroscience/",
+        "occurrences": 2,
+        "label": "Neuroscience"
+      },
+      {
+        "source": "/cookies-and-partners/",
+        "target": "/sciences/ocean-science/",
+        "occurrences": 2,
+        "label": "Ocean Science"
+      },
+      {
+        "source": "/cookies-and-partners/",
+        "target": "/sciences/outer-space/",
+        "occurrences": 2,
+        "label": "Outer Space"
+      },
+      {
+        "source": "/cookies-and-partners/",
+        "target": "/sciences/physics/",
+        "occurrences": 2,
+        "label": "Physics"
+      },
+      {
+        "source": "/cookies-and-partners/",
+        "target": "/sciences/physiology/",
+        "occurrences": 2,
+        "label": "Physiology"
+      },
+      {
+        "source": "/cookies-and-partners/",
+        "target": "/sciences/psychology/",
+        "occurrences": 2,
+        "label": "Psychology"
+      },
+      {
+        "source": "/cookies-and-partners/",
+        "target": "/sciences/sociology/",
+        "occurrences": 2,
+        "label": "Sociology"
+      },
+      {
+        "source": "/cookies-and-partners/",
+        "target": "/search/",
+        "occurrences": 2,
+        "label": "Search"
+      },
+      {
+        "source": "/cookies-and-partners/",
+        "target": "/tech-transfer/enterprise-rd/",
+        "occurrences": 2,
+        "label": "Enterprise R&amp;D"
+      },
+      {
+        "source": "/cookies-and-partners/",
+        "target": "/tech-transfer/portfolio/",
+        "occurrences": 2,
+        "label": "Portfolio"
+      },
+      {
+        "source": "/cookies-and-partners/",
+        "target": "/tech-transfer/sttr-programs/",
+        "occurrences": 2,
+        "label": "STTR Programs"
+      },
+      {
+        "source": "/cookies-and-partners/",
+        "target": "/tech-transfer/workshops-events/",
+        "occurrences": 2,
+        "label": "Workshops &amp; Events"
+      },
+      {
+        "source": "/cookies-and-partners/",
+        "target": "/technology/augmented-reality/",
+        "occurrences": 2,
+        "label": "Augmented Reality"
+      },
+      {
+        "source": "/cookies-and-partners/",
+        "target": "/technology/computer-science/",
+        "occurrences": 3,
+        "label": "Computer Science"
+      },
+      {
+        "source": "/cookies-and-partners/",
+        "target": "/technology/data-science/",
+        "occurrences": 3,
+        "label": "Data Science"
+      },
+      {
+        "source": "/cookies-and-partners/",
+        "target": "/technology/formal-methods/",
+        "occurrences": 2,
+        "label": "Formal Methods"
+      },
+      {
+        "source": "/cookies-and-partners/",
+        "target": "/technology/machine-intelligence/",
+        "occurrences": 3,
+        "label": "Machine Intelligence"
+      },
+      {
+        "source": "/cookies-and-partners/",
+        "target": "/technology/natural-language-processing/",
+        "occurrences": 2,
+        "label": "Natural Language Processing"
+      },
+      {
+        "source": "/cookies-and-partners/",
+        "target": "/technology/quantum-computing/",
+        "occurrences": 3,
+        "label": "Quantum Computing"
+      },
+      {
+        "source": "/cookies-and-partners/",
         "target": "/terms/",
         "occurrences": 1,
         "label": "Terms of use"
@@ -13506,6 +14073,12 @@
       },
       {
         "source": "/faq/",
+        "target": "/cookies-and-partners/",
+        "occurrences": 5,
+        "label": "Cookies and partners"
+      },
+      {
+        "source": "/faq/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -13543,7 +14116,7 @@
       {
         "source": "/faq/",
         "target": "/privacy/",
-        "occurrences": 3,
+        "occurrences": 2,
         "label": "Privacy policy"
       },
       {
@@ -13956,6 +14529,12 @@
       },
       {
         "source": "/fellowship/",
+        "target": "/cookies-and-partners/",
+        "occurrences": 5,
+        "label": "Cookies and partners"
+      },
+      {
+        "source": "/fellowship/",
         "target": "/labs/biometric-security/",
         "occurrences": 2,
         "label": "Biometrics &amp; Drone Sensing"
@@ -13987,7 +14566,7 @@
       {
         "source": "/fellowship/",
         "target": "/privacy/",
-        "occurrences": 3,
+        "occurrences": 2,
         "label": "Privacy policy"
       },
       {
@@ -14400,6 +14979,12 @@
       },
       {
         "source": "/labs/biometric-security/",
+        "target": "/cookies-and-partners/",
+        "occurrences": 5,
+        "label": "Cookies and partners"
+      },
+      {
+        "source": "/labs/biometric-security/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -14431,7 +15016,7 @@
       {
         "source": "/labs/biometric-security/",
         "target": "/privacy/",
-        "occurrences": 3,
+        "occurrences": 2,
         "label": "Privacy policy"
       },
       {
@@ -14844,6 +15429,12 @@
       },
       {
         "source": "/labs/cognitive-ai/",
+        "target": "/cookies-and-partners/",
+        "occurrences": 5,
+        "label": "Cookies and partners"
+      },
+      {
+        "source": "/labs/cognitive-ai/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -14875,7 +15466,7 @@
       {
         "source": "/labs/cognitive-ai/",
         "target": "/privacy/",
-        "occurrences": 3,
+        "occurrences": 2,
         "label": "Privacy policy"
       },
       {
@@ -15288,6 +15879,12 @@
       },
       {
         "source": "/labs/sovereign-ai/",
+        "target": "/cookies-and-partners/",
+        "occurrences": 5,
+        "label": "Cookies and partners"
+      },
+      {
+        "source": "/labs/sovereign-ai/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -15319,7 +15916,7 @@
       {
         "source": "/labs/sovereign-ai/",
         "target": "/privacy/",
-        "occurrences": 3,
+        "occurrences": 2,
         "label": "Privacy policy"
       },
       {
@@ -15732,6 +16329,12 @@
       },
       {
         "source": "/mission/",
+        "target": "/cookies-and-partners/",
+        "occurrences": 5,
+        "label": "Cookies and partners"
+      },
+      {
+        "source": "/mission/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -15763,7 +16366,7 @@
       {
         "source": "/mission/",
         "target": "/privacy/",
-        "occurrences": 3,
+        "occurrences": 2,
         "label": "Privacy policy"
       },
       {
@@ -16176,6 +16779,12 @@
       },
       {
         "source": "/news/",
+        "target": "/cookies-and-partners/",
+        "occurrences": 5,
+        "label": "Cookies and partners"
+      },
+      {
+        "source": "/news/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -16207,7 +16816,7 @@
       {
         "source": "/news/",
         "target": "/privacy/",
-        "occurrences": 3,
+        "occurrences": 2,
         "label": "Privacy policy"
       },
       {
@@ -16620,6 +17229,12 @@
       },
       {
         "source": "/news/clinical-ai-safety/",
+        "target": "/cookies-and-partners/",
+        "occurrences": 5,
+        "label": "Cookies and partners"
+      },
+      {
+        "source": "/news/clinical-ai-safety/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -16657,7 +17272,7 @@
       {
         "source": "/news/clinical-ai-safety/",
         "target": "/privacy/",
-        "occurrences": 3,
+        "occurrences": 2,
         "label": "Privacy policy"
       },
       {
@@ -17070,6 +17685,12 @@
       },
       {
         "source": "/news/formal-methods-safety-critical-trust/",
+        "target": "/cookies-and-partners/",
+        "occurrences": 5,
+        "label": "Cookies and partners"
+      },
+      {
+        "source": "/news/formal-methods-safety-critical-trust/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -17107,7 +17728,7 @@
       {
         "source": "/news/formal-methods-safety-critical-trust/",
         "target": "/privacy/",
-        "occurrences": 3,
+        "occurrences": 2,
         "label": "Privacy policy"
       },
       {
@@ -17520,6 +18141,12 @@
       },
       {
         "source": "/news/hpc-infrastructure-for-ai/",
+        "target": "/cookies-and-partners/",
+        "occurrences": 5,
+        "label": "Cookies and partners"
+      },
+      {
+        "source": "/news/hpc-infrastructure-for-ai/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -17557,7 +18184,7 @@
       {
         "source": "/news/hpc-infrastructure-for-ai/",
         "target": "/privacy/",
-        "occurrences": 3,
+        "occurrences": 2,
         "label": "Privacy policy"
       },
       {
@@ -17970,6 +18597,12 @@
       },
       {
         "source": "/news/legal-foundations-tech-governance/",
+        "target": "/cookies-and-partners/",
+        "occurrences": 5,
+        "label": "Cookies and partners"
+      },
+      {
+        "source": "/news/legal-foundations-tech-governance/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -18007,7 +18640,7 @@
       {
         "source": "/news/legal-foundations-tech-governance/",
         "target": "/privacy/",
-        "occurrences": 3,
+        "occurrences": 2,
         "label": "Privacy policy"
       },
       {
@@ -18420,6 +19053,12 @@
       },
       {
         "source": "/news/materials-science-energy-transition/",
+        "target": "/cookies-and-partners/",
+        "occurrences": 5,
+        "label": "Cookies and partners"
+      },
+      {
+        "source": "/news/materials-science-energy-transition/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -18457,7 +19096,7 @@
       {
         "source": "/news/materials-science-energy-transition/",
         "target": "/privacy/",
-        "occurrences": 3,
+        "occurrences": 2,
         "label": "Privacy policy"
       },
       {
@@ -18870,6 +19509,12 @@
       },
       {
         "source": "/news/open-data-research-philosophy/",
+        "target": "/cookies-and-partners/",
+        "occurrences": 5,
+        "label": "Cookies and partners"
+      },
+      {
+        "source": "/news/open-data-research-philosophy/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -18907,7 +19552,7 @@
       {
         "source": "/news/open-data-research-philosophy/",
         "target": "/privacy/",
-        "occurrences": 3,
+        "occurrences": 2,
         "label": "Privacy policy"
       },
       {
@@ -19320,6 +19965,12 @@
       },
       {
         "source": "/news/precision-agriculture-open-data/",
+        "target": "/cookies-and-partners/",
+        "occurrences": 5,
+        "label": "Cookies and partners"
+      },
+      {
+        "source": "/news/precision-agriculture-open-data/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -19357,7 +20008,7 @@
       {
         "source": "/news/precision-agriculture-open-data/",
         "target": "/privacy/",
-        "occurrences": 3,
+        "occurrences": 2,
         "label": "Privacy policy"
       },
       {
@@ -19770,6 +20421,12 @@
       },
       {
         "source": "/news/quantum-sensing-breakthroughs/",
+        "target": "/cookies-and-partners/",
+        "occurrences": 5,
+        "label": "Cookies and partners"
+      },
+      {
+        "source": "/news/quantum-sensing-breakthroughs/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -19807,7 +20464,7 @@
       {
         "source": "/news/quantum-sensing-breakthroughs/",
         "target": "/privacy/",
-        "occurrences": 3,
+        "occurrences": 2,
         "label": "Privacy policy"
       },
       {
@@ -20220,6 +20877,12 @@
       },
       {
         "source": "/press/",
+        "target": "/cookies-and-partners/",
+        "occurrences": 5,
+        "label": "Cookies and partners"
+      },
+      {
+        "source": "/press/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -20257,7 +20920,7 @@
       {
         "source": "/press/",
         "target": "/privacy/",
-        "occurrences": 3,
+        "occurrences": 2,
         "label": "Privacy policy"
       },
       {
@@ -20667,6 +21330,12 @@
         "target": "/contact-us/",
         "occurrences": 3,
         "label": "Contact"
+      },
+      {
+        "source": "/privacy/",
+        "target": "/cookies-and-partners/",
+        "occurrences": 5,
+        "label": "Cookies and partners"
       },
       {
         "source": "/privacy/",
@@ -21114,6 +21783,12 @@
       },
       {
         "source": "/research/",
+        "target": "/cookies-and-partners/",
+        "occurrences": 5,
+        "label": "Cookies and partners"
+      },
+      {
+        "source": "/research/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -21151,7 +21826,7 @@
       {
         "source": "/research/",
         "target": "/privacy/",
-        "occurrences": 3,
+        "occurrences": 2,
         "label": "Privacy policy"
       },
       {
@@ -21564,6 +22239,12 @@
       },
       {
         "source": "/research/consortium/",
+        "target": "/cookies-and-partners/",
+        "occurrences": 5,
+        "label": "Cookies and partners"
+      },
+      {
+        "source": "/research/consortium/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -21601,7 +22282,7 @@
       {
         "source": "/research/consortium/",
         "target": "/privacy/",
-        "occurrences": 3,
+        "occurrences": 2,
         "label": "Privacy policy"
       },
       {
@@ -22008,6 +22689,12 @@
       },
       {
         "source": "/research/current-programs/",
+        "target": "/cookies-and-partners/",
+        "occurrences": 5,
+        "label": "Cookies and partners"
+      },
+      {
+        "source": "/research/current-programs/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -22045,7 +22732,7 @@
       {
         "source": "/research/current-programs/",
         "target": "/privacy/",
-        "occurrences": 3,
+        "occurrences": 2,
         "label": "Privacy policy"
       },
       {
@@ -22452,6 +23139,12 @@
       },
       {
         "source": "/research/facilities/",
+        "target": "/cookies-and-partners/",
+        "occurrences": 5,
+        "label": "Cookies and partners"
+      },
+      {
+        "source": "/research/facilities/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -22489,7 +23182,7 @@
       {
         "source": "/research/facilities/",
         "target": "/privacy/",
-        "occurrences": 3,
+        "occurrences": 2,
         "label": "Privacy policy"
       },
       {
@@ -22896,6 +23589,12 @@
       },
       {
         "source": "/research/funding/",
+        "target": "/cookies-and-partners/",
+        "occurrences": 5,
+        "label": "Cookies and partners"
+      },
+      {
+        "source": "/research/funding/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -22933,7 +23632,7 @@
       {
         "source": "/research/funding/",
         "target": "/privacy/",
-        "occurrences": 3,
+        "occurrences": 2,
         "label": "Privacy policy"
       },
       {
@@ -23340,6 +24039,12 @@
       },
       {
         "source": "/research/innovation/",
+        "target": "/cookies-and-partners/",
+        "occurrences": 5,
+        "label": "Cookies and partners"
+      },
+      {
+        "source": "/research/innovation/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -23377,7 +24082,7 @@
       {
         "source": "/research/innovation/",
         "target": "/privacy/",
-        "occurrences": 3,
+        "occurrences": 2,
         "label": "Privacy policy"
       },
       {
@@ -23784,6 +24489,12 @@
       },
       {
         "source": "/research/open-data/",
+        "target": "/cookies-and-partners/",
+        "occurrences": 5,
+        "label": "Cookies and partners"
+      },
+      {
+        "source": "/research/open-data/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -23821,7 +24532,7 @@
       {
         "source": "/research/open-data/",
         "target": "/privacy/",
-        "occurrences": 3,
+        "occurrences": 2,
         "label": "Privacy policy"
       },
       {
@@ -24228,6 +24939,12 @@
       },
       {
         "source": "/research/opportunities/",
+        "target": "/cookies-and-partners/",
+        "occurrences": 5,
+        "label": "Cookies and partners"
+      },
+      {
+        "source": "/research/opportunities/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -24265,7 +24982,7 @@
       {
         "source": "/research/opportunities/",
         "target": "/privacy/",
-        "occurrences": 3,
+        "occurrences": 2,
         "label": "Privacy policy"
       },
       {
@@ -24672,6 +25389,12 @@
       },
       {
         "source": "/research/our-process/",
+        "target": "/cookies-and-partners/",
+        "occurrences": 5,
+        "label": "Cookies and partners"
+      },
+      {
+        "source": "/research/our-process/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -24709,7 +25432,7 @@
       {
         "source": "/research/our-process/",
         "target": "/privacy/",
-        "occurrences": 3,
+        "occurrences": 2,
         "label": "Privacy policy"
       },
       {
@@ -25116,6 +25839,12 @@
       },
       {
         "source": "/research/outputs/",
+        "target": "/cookies-and-partners/",
+        "occurrences": 5,
+        "label": "Cookies and partners"
+      },
+      {
+        "source": "/research/outputs/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -25153,7 +25882,7 @@
       {
         "source": "/research/outputs/",
         "target": "/privacy/",
-        "occurrences": 3,
+        "occurrences": 2,
         "label": "Privacy policy"
       },
       {
@@ -25566,6 +26295,12 @@
       },
       {
         "source": "/research/publications/",
+        "target": "/cookies-and-partners/",
+        "occurrences": 5,
+        "label": "Cookies and partners"
+      },
+      {
+        "source": "/research/publications/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -25603,7 +26338,7 @@
       {
         "source": "/research/publications/",
         "target": "/privacy/",
-        "occurrences": 3,
+        "occurrences": 2,
         "label": "Privacy policy"
       },
       {
@@ -26016,6 +26751,12 @@
       },
       {
         "source": "/sciences/agriculture/",
+        "target": "/cookies-and-partners/",
+        "occurrences": 5,
+        "label": "Cookies and partners"
+      },
+      {
+        "source": "/sciences/agriculture/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -26053,7 +26794,7 @@
       {
         "source": "/sciences/agriculture/",
         "target": "/privacy/",
-        "occurrences": 3,
+        "occurrences": 2,
         "label": "Privacy policy"
       },
       {
@@ -26460,6 +27201,12 @@
       },
       {
         "source": "/sciences/anthropology/",
+        "target": "/cookies-and-partners/",
+        "occurrences": 5,
+        "label": "Cookies and partners"
+      },
+      {
+        "source": "/sciences/anthropology/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -26497,7 +27244,7 @@
       {
         "source": "/sciences/anthropology/",
         "target": "/privacy/",
-        "occurrences": 3,
+        "occurrences": 2,
         "label": "Privacy policy"
       },
       {
@@ -26904,6 +27651,12 @@
       },
       {
         "source": "/sciences/archaeology/",
+        "target": "/cookies-and-partners/",
+        "occurrences": 5,
+        "label": "Cookies and partners"
+      },
+      {
+        "source": "/sciences/archaeology/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -26941,7 +27694,7 @@
       {
         "source": "/sciences/archaeology/",
         "target": "/privacy/",
-        "occurrences": 3,
+        "occurrences": 2,
         "label": "Privacy policy"
       },
       {
@@ -27348,6 +28101,12 @@
       },
       {
         "source": "/sciences/biology/",
+        "target": "/cookies-and-partners/",
+        "occurrences": 5,
+        "label": "Cookies and partners"
+      },
+      {
+        "source": "/sciences/biology/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -27385,7 +28144,7 @@
       {
         "source": "/sciences/biology/",
         "target": "/privacy/",
-        "occurrences": 3,
+        "occurrences": 2,
         "label": "Privacy policy"
       },
       {
@@ -27792,6 +28551,12 @@
       },
       {
         "source": "/sciences/chemistry/",
+        "target": "/cookies-and-partners/",
+        "occurrences": 5,
+        "label": "Cookies and partners"
+      },
+      {
+        "source": "/sciences/chemistry/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -27829,7 +28594,7 @@
       {
         "source": "/sciences/chemistry/",
         "target": "/privacy/",
-        "occurrences": 3,
+        "occurrences": 2,
         "label": "Privacy policy"
       },
       {
@@ -28236,6 +29001,12 @@
       },
       {
         "source": "/sciences/cognitive-sciences/",
+        "target": "/cookies-and-partners/",
+        "occurrences": 5,
+        "label": "Cookies and partners"
+      },
+      {
+        "source": "/sciences/cognitive-sciences/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -28273,7 +29044,7 @@
       {
         "source": "/sciences/cognitive-sciences/",
         "target": "/privacy/",
-        "occurrences": 3,
+        "occurrences": 2,
         "label": "Privacy policy"
       },
       {
@@ -28680,6 +29451,12 @@
       },
       {
         "source": "/sciences/economics/",
+        "target": "/cookies-and-partners/",
+        "occurrences": 5,
+        "label": "Cookies and partners"
+      },
+      {
+        "source": "/sciences/economics/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -28717,7 +29494,7 @@
       {
         "source": "/sciences/economics/",
         "target": "/privacy/",
-        "occurrences": 3,
+        "occurrences": 2,
         "label": "Privacy policy"
       },
       {
@@ -29124,6 +29901,12 @@
       },
       {
         "source": "/sciences/energy/",
+        "target": "/cookies-and-partners/",
+        "occurrences": 5,
+        "label": "Cookies and partners"
+      },
+      {
+        "source": "/sciences/energy/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -29161,7 +29944,7 @@
       {
         "source": "/sciences/energy/",
         "target": "/privacy/",
-        "occurrences": 3,
+        "occurrences": 2,
         "label": "Privacy policy"
       },
       {
@@ -29568,6 +30351,12 @@
       },
       {
         "source": "/sciences/genetics/",
+        "target": "/cookies-and-partners/",
+        "occurrences": 5,
+        "label": "Cookies and partners"
+      },
+      {
+        "source": "/sciences/genetics/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -29605,7 +30394,7 @@
       {
         "source": "/sciences/genetics/",
         "target": "/privacy/",
-        "occurrences": 3,
+        "occurrences": 2,
         "label": "Privacy policy"
       },
       {
@@ -30012,6 +30801,12 @@
       },
       {
         "source": "/sciences/geology/",
+        "target": "/cookies-and-partners/",
+        "occurrences": 5,
+        "label": "Cookies and partners"
+      },
+      {
+        "source": "/sciences/geology/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -30049,7 +30844,7 @@
       {
         "source": "/sciences/geology/",
         "target": "/privacy/",
-        "occurrences": 3,
+        "occurrences": 2,
         "label": "Privacy policy"
       },
       {
@@ -30456,6 +31251,12 @@
       },
       {
         "source": "/sciences/kinesiology/",
+        "target": "/cookies-and-partners/",
+        "occurrences": 5,
+        "label": "Cookies and partners"
+      },
+      {
+        "source": "/sciences/kinesiology/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -30493,7 +31294,7 @@
       {
         "source": "/sciences/kinesiology/",
         "target": "/privacy/",
-        "occurrences": 3,
+        "occurrences": 2,
         "label": "Privacy policy"
       },
       {
@@ -30900,6 +31701,12 @@
       },
       {
         "source": "/sciences/law/",
+        "target": "/cookies-and-partners/",
+        "occurrences": 5,
+        "label": "Cookies and partners"
+      },
+      {
+        "source": "/sciences/law/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -30937,7 +31744,7 @@
       {
         "source": "/sciences/law/",
         "target": "/privacy/",
-        "occurrences": 3,
+        "occurrences": 2,
         "label": "Privacy policy"
       },
       {
@@ -31344,6 +32151,12 @@
       },
       {
         "source": "/sciences/linguistics/",
+        "target": "/cookies-and-partners/",
+        "occurrences": 5,
+        "label": "Cookies and partners"
+      },
+      {
+        "source": "/sciences/linguistics/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -31381,7 +32194,7 @@
       {
         "source": "/sciences/linguistics/",
         "target": "/privacy/",
-        "occurrences": 3,
+        "occurrences": 2,
         "label": "Privacy policy"
       },
       {
@@ -31788,6 +32601,12 @@
       },
       {
         "source": "/sciences/materials-science/",
+        "target": "/cookies-and-partners/",
+        "occurrences": 5,
+        "label": "Cookies and partners"
+      },
+      {
+        "source": "/sciences/materials-science/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -31825,7 +32644,7 @@
       {
         "source": "/sciences/materials-science/",
         "target": "/privacy/",
-        "occurrences": 3,
+        "occurrences": 2,
         "label": "Privacy policy"
       },
       {
@@ -32232,6 +33051,12 @@
       },
       {
         "source": "/sciences/medicine/",
+        "target": "/cookies-and-partners/",
+        "occurrences": 5,
+        "label": "Cookies and partners"
+      },
+      {
+        "source": "/sciences/medicine/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -32269,7 +33094,7 @@
       {
         "source": "/sciences/medicine/",
         "target": "/privacy/",
-        "occurrences": 3,
+        "occurrences": 2,
         "label": "Privacy policy"
       },
       {
@@ -32676,6 +33501,12 @@
       },
       {
         "source": "/sciences/neuroscience/",
+        "target": "/cookies-and-partners/",
+        "occurrences": 5,
+        "label": "Cookies and partners"
+      },
+      {
+        "source": "/sciences/neuroscience/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -32713,7 +33544,7 @@
       {
         "source": "/sciences/neuroscience/",
         "target": "/privacy/",
-        "occurrences": 3,
+        "occurrences": 2,
         "label": "Privacy policy"
       },
       {
@@ -33120,6 +33951,12 @@
       },
       {
         "source": "/sciences/ocean-science/",
+        "target": "/cookies-and-partners/",
+        "occurrences": 5,
+        "label": "Cookies and partners"
+      },
+      {
+        "source": "/sciences/ocean-science/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -33157,7 +33994,7 @@
       {
         "source": "/sciences/ocean-science/",
         "target": "/privacy/",
-        "occurrences": 3,
+        "occurrences": 2,
         "label": "Privacy policy"
       },
       {
@@ -33564,6 +34401,12 @@
       },
       {
         "source": "/sciences/outer-space/",
+        "target": "/cookies-and-partners/",
+        "occurrences": 5,
+        "label": "Cookies and partners"
+      },
+      {
+        "source": "/sciences/outer-space/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -33601,7 +34444,7 @@
       {
         "source": "/sciences/outer-space/",
         "target": "/privacy/",
-        "occurrences": 3,
+        "occurrences": 2,
         "label": "Privacy policy"
       },
       {
@@ -34008,6 +34851,12 @@
       },
       {
         "source": "/sciences/physics/",
+        "target": "/cookies-and-partners/",
+        "occurrences": 5,
+        "label": "Cookies and partners"
+      },
+      {
+        "source": "/sciences/physics/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -34045,7 +34894,7 @@
       {
         "source": "/sciences/physics/",
         "target": "/privacy/",
-        "occurrences": 3,
+        "occurrences": 2,
         "label": "Privacy policy"
       },
       {
@@ -34452,6 +35301,12 @@
       },
       {
         "source": "/sciences/physiology/",
+        "target": "/cookies-and-partners/",
+        "occurrences": 5,
+        "label": "Cookies and partners"
+      },
+      {
+        "source": "/sciences/physiology/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -34489,7 +35344,7 @@
       {
         "source": "/sciences/physiology/",
         "target": "/privacy/",
-        "occurrences": 3,
+        "occurrences": 2,
         "label": "Privacy policy"
       },
       {
@@ -34896,6 +35751,12 @@
       },
       {
         "source": "/sciences/psychology/",
+        "target": "/cookies-and-partners/",
+        "occurrences": 5,
+        "label": "Cookies and partners"
+      },
+      {
+        "source": "/sciences/psychology/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -34933,7 +35794,7 @@
       {
         "source": "/sciences/psychology/",
         "target": "/privacy/",
-        "occurrences": 3,
+        "occurrences": 2,
         "label": "Privacy policy"
       },
       {
@@ -35340,6 +36201,12 @@
       },
       {
         "source": "/sciences/sociology/",
+        "target": "/cookies-and-partners/",
+        "occurrences": 5,
+        "label": "Cookies and partners"
+      },
+      {
+        "source": "/sciences/sociology/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -35377,7 +36244,7 @@
       {
         "source": "/sciences/sociology/",
         "target": "/privacy/",
-        "occurrences": 3,
+        "occurrences": 2,
         "label": "Privacy policy"
       },
       {
@@ -35784,6 +36651,12 @@
       },
       {
         "source": "/search/",
+        "target": "/cookies-and-partners/",
+        "occurrences": 5,
+        "label": "Cookies and partners"
+      },
+      {
+        "source": "/search/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -35821,7 +36694,7 @@
       {
         "source": "/search/",
         "target": "/privacy/",
-        "occurrences": 3,
+        "occurrences": 2,
         "label": "Privacy policy"
       },
       {
@@ -36228,6 +37101,12 @@
       },
       {
         "source": "/tech-transfer/enterprise-rd/",
+        "target": "/cookies-and-partners/",
+        "occurrences": 5,
+        "label": "Cookies and partners"
+      },
+      {
+        "source": "/tech-transfer/enterprise-rd/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -36265,7 +37144,7 @@
       {
         "source": "/tech-transfer/enterprise-rd/",
         "target": "/privacy/",
-        "occurrences": 3,
+        "occurrences": 2,
         "label": "Privacy policy"
       },
       {
@@ -36672,6 +37551,12 @@
       },
       {
         "source": "/tech-transfer/portfolio/",
+        "target": "/cookies-and-partners/",
+        "occurrences": 5,
+        "label": "Cookies and partners"
+      },
+      {
+        "source": "/tech-transfer/portfolio/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -36709,7 +37594,7 @@
       {
         "source": "/tech-transfer/portfolio/",
         "target": "/privacy/",
-        "occurrences": 3,
+        "occurrences": 2,
         "label": "Privacy policy"
       },
       {
@@ -37116,6 +38001,12 @@
       },
       {
         "source": "/tech-transfer/sttr-partner/",
+        "target": "/cookies-and-partners/",
+        "occurrences": 5,
+        "label": "Cookies and partners"
+      },
+      {
+        "source": "/tech-transfer/sttr-partner/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -37153,7 +38044,7 @@
       {
         "source": "/tech-transfer/sttr-partner/",
         "target": "/privacy/",
-        "occurrences": 3,
+        "occurrences": 2,
         "label": "Privacy policy"
       },
       {
@@ -37566,6 +38457,12 @@
       },
       {
         "source": "/tech-transfer/sttr-programs/",
+        "target": "/cookies-and-partners/",
+        "occurrences": 5,
+        "label": "Cookies and partners"
+      },
+      {
+        "source": "/tech-transfer/sttr-programs/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -37603,7 +38500,7 @@
       {
         "source": "/tech-transfer/sttr-programs/",
         "target": "/privacy/",
-        "occurrences": 3,
+        "occurrences": 2,
         "label": "Privacy policy"
       },
       {
@@ -38010,6 +38907,12 @@
       },
       {
         "source": "/tech-transfer/workshops-events/",
+        "target": "/cookies-and-partners/",
+        "occurrences": 5,
+        "label": "Cookies and partners"
+      },
+      {
+        "source": "/tech-transfer/workshops-events/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -38047,7 +38950,7 @@
       {
         "source": "/tech-transfer/workshops-events/",
         "target": "/privacy/",
-        "occurrences": 3,
+        "occurrences": 2,
         "label": "Privacy policy"
       },
       {
@@ -38454,6 +39357,12 @@
       },
       {
         "source": "/technology/augmented-reality/",
+        "target": "/cookies-and-partners/",
+        "occurrences": 5,
+        "label": "Cookies and partners"
+      },
+      {
+        "source": "/technology/augmented-reality/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -38491,7 +39400,7 @@
       {
         "source": "/technology/augmented-reality/",
         "target": "/privacy/",
-        "occurrences": 3,
+        "occurrences": 2,
         "label": "Privacy policy"
       },
       {
@@ -38898,6 +39807,12 @@
       },
       {
         "source": "/technology/computer-science/",
+        "target": "/cookies-and-partners/",
+        "occurrences": 5,
+        "label": "Cookies and partners"
+      },
+      {
+        "source": "/technology/computer-science/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -38935,7 +39850,7 @@
       {
         "source": "/technology/computer-science/",
         "target": "/privacy/",
-        "occurrences": 3,
+        "occurrences": 2,
         "label": "Privacy policy"
       },
       {
@@ -39342,6 +40257,12 @@
       },
       {
         "source": "/technology/data-science/",
+        "target": "/cookies-and-partners/",
+        "occurrences": 5,
+        "label": "Cookies and partners"
+      },
+      {
+        "source": "/technology/data-science/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -39379,7 +40300,7 @@
       {
         "source": "/technology/data-science/",
         "target": "/privacy/",
-        "occurrences": 3,
+        "occurrences": 2,
         "label": "Privacy policy"
       },
       {
@@ -39786,6 +40707,12 @@
       },
       {
         "source": "/technology/formal-methods/",
+        "target": "/cookies-and-partners/",
+        "occurrences": 5,
+        "label": "Cookies and partners"
+      },
+      {
+        "source": "/technology/formal-methods/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -39823,7 +40750,7 @@
       {
         "source": "/technology/formal-methods/",
         "target": "/privacy/",
-        "occurrences": 3,
+        "occurrences": 2,
         "label": "Privacy policy"
       },
       {
@@ -40230,6 +41157,12 @@
       },
       {
         "source": "/technology/machine-intelligence/",
+        "target": "/cookies-and-partners/",
+        "occurrences": 5,
+        "label": "Cookies and partners"
+      },
+      {
+        "source": "/technology/machine-intelligence/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -40267,7 +41200,7 @@
       {
         "source": "/technology/machine-intelligence/",
         "target": "/privacy/",
-        "occurrences": 3,
+        "occurrences": 2,
         "label": "Privacy policy"
       },
       {
@@ -40674,6 +41607,12 @@
       },
       {
         "source": "/technology/natural-language-processing/",
+        "target": "/cookies-and-partners/",
+        "occurrences": 5,
+        "label": "Cookies and partners"
+      },
+      {
+        "source": "/technology/natural-language-processing/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -40711,7 +41650,7 @@
       {
         "source": "/technology/natural-language-processing/",
         "target": "/privacy/",
-        "occurrences": 3,
+        "occurrences": 2,
         "label": "Privacy policy"
       },
       {
@@ -41118,6 +42057,12 @@
       },
       {
         "source": "/technology/quantum-computing/",
+        "target": "/cookies-and-partners/",
+        "occurrences": 5,
+        "label": "Cookies and partners"
+      },
+      {
+        "source": "/technology/quantum-computing/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -41155,7 +42100,7 @@
       {
         "source": "/technology/quantum-computing/",
         "target": "/privacy/",
-        "occurrences": 3,
+        "occurrences": 2,
         "label": "Privacy policy"
       },
       {
@@ -41562,6 +42507,12 @@
       },
       {
         "source": "/terms/",
+        "target": "/cookies-and-partners/",
+        "occurrences": 5,
+        "label": "Cookies and partners"
+      },
+      {
+        "source": "/terms/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -41599,7 +42550,7 @@
       {
         "source": "/terms/",
         "target": "/privacy/",
-        "occurrences": 3,
+        "occurrences": 2,
         "label": "Privacy policy"
       },
       {
