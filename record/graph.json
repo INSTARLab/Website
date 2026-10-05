@@ -624,11 +624,11 @@
       "unzoned": [],
       "aliases": [],
       "undocumented": [],
-      "generatedAt": "2026-10-05T05:21:19.130Z"
+      "generatedAt": "2026-10-05T06:03:59.536Z"
     },
     "summary": {
       "nodes": 93,
-      "contentPairs": 1012,
+      "contentPairs": 1015,
       "chromePairs": 5792,
       "journeyLinks": 18,
       "observedJourneyLinks": 18,
@@ -821,7 +821,7 @@
         "inInventory": true,
         "aliasOf": null,
         "inboundContent": 67,
-        "outboundContent": 0,
+        "outboundContent": 1,
         "inboundChrome": 76,
         "outboundChrome": 75,
         "journeys": [
@@ -869,7 +869,7 @@
         "inInventory": true,
         "aliasOf": null,
         "inboundContent": 9,
-        "outboundContent": 0,
+        "outboundContent": 1,
         "inboundChrome": 76,
         "outboundChrome": 75,
         "journeys": [
@@ -1101,7 +1101,7 @@
         "inLedger": true,
         "inInventory": true,
         "aliasOf": null,
-        "inboundContent": 17,
+        "inboundContent": 20,
         "outboundContent": 2,
         "inboundChrome": 76,
         "outboundChrome": 75,
@@ -1914,7 +1914,7 @@
         "inInventory": false,
         "aliasOf": null,
         "inboundContent": 3,
-        "outboundContent": 1,
+        "outboundContent": 2,
         "inboundChrome": 0,
         "outboundChrome": 76,
         "journeys": []
@@ -2538,9 +2538,15 @@
         "label": "Continue with INSTAR"
       },
       {
-        "source": "/cookies-and-partners/",
+        "source": "/contact-us/",
         "target": "/privacy/",
         "occurrences": 1,
+        "label": "How we use it and your choices"
+      },
+      {
+        "source": "/cookies-and-partners/",
+        "target": "/privacy/",
+        "occurrences": 2,
         "label": "Privacy Policy"
       },
       {
@@ -2608,6 +2614,12 @@
         "target": "/research/current-programs/",
         "occurrences": 1,
         "label": "Published research programs"
+      },
+      {
+        "source": "/fellowship/",
+        "target": "/privacy/",
+        "occurrences": 1,
+        "label": "How we use it and your choices"
       },
       {
         "source": "/labs/biometric-security/",
@@ -7891,6 +7903,12 @@
       },
       {
         "source": "/tech-transfer/sttr-partner/",
+        "target": "/privacy/",
+        "occurrences": 1,
+        "label": "How we use it and your choices"
+      },
+      {
+        "source": "/tech-transfer/sttr-partner/",
         "target": "/tech-transfer/sttr-programs/",
         "occurrences": 1,
         "label": "Read how STTR works"
@@ -8242,7 +8260,7 @@
       {
         "source": "/",
         "target": "/privacy/",
-        "occurrences": 2,
+        "occurrences": 3,
         "label": "Privacy policy"
       },
       {
@@ -8698,7 +8716,7 @@
       {
         "source": "/404.html",
         "target": "/privacy/",
-        "occurrences": 2,
+        "occurrences": 3,
         "label": "Privacy policy"
       },
       {
@@ -9154,7 +9172,7 @@
       {
         "source": "/about/",
         "target": "/privacy/",
-        "occurrences": 2,
+        "occurrences": 3,
         "label": "Privacy policy"
       },
       {
@@ -9604,7 +9622,7 @@
       {
         "source": "/accessibility/",
         "target": "/privacy/",
-        "occurrences": 2,
+        "occurrences": 3,
         "label": "Privacy policy"
       },
       {
@@ -10054,7 +10072,7 @@
       {
         "source": "/community/about-us/",
         "target": "/privacy/",
-        "occurrences": 2,
+        "occurrences": 3,
         "label": "Privacy policy"
       },
       {
@@ -10504,7 +10522,7 @@
       {
         "source": "/community/careers/",
         "target": "/privacy/",
-        "occurrences": 2,
+        "occurrences": 3,
         "label": "Privacy policy"
       },
       {
@@ -10960,7 +10978,7 @@
       {
         "source": "/community/contact/",
         "target": "/privacy/",
-        "occurrences": 2,
+        "occurrences": 3,
         "label": "Privacy policy"
       },
       {
@@ -11410,7 +11428,7 @@
       {
         "source": "/community/leadership/",
         "target": "/privacy/",
-        "occurrences": 2,
+        "occurrences": 3,
         "label": "Privacy policy"
       },
       {
@@ -11860,7 +11878,7 @@
       {
         "source": "/community/partner/",
         "target": "/privacy/",
-        "occurrences": 2,
+        "occurrences": 3,
         "label": "Privacy policy"
       },
       {
@@ -12310,7 +12328,7 @@
       {
         "source": "/community/support/",
         "target": "/privacy/",
-        "occurrences": 2,
+        "occurrences": 3,
         "label": "Privacy policy"
       },
       {
@@ -12760,7 +12778,7 @@
       {
         "source": "/community/work-with-us/",
         "target": "/privacy/",
-        "occurrences": 2,
+        "occurrences": 3,
         "label": "Privacy policy"
       },
       {
@@ -13210,7 +13228,7 @@
       {
         "source": "/contact-us/",
         "target": "/privacy/",
-        "occurrences": 2,
+        "occurrences": 3,
         "label": "Privacy policy"
       },
       {
@@ -13660,7 +13678,7 @@
       {
         "source": "/cookies-and-partners/",
         "target": "/privacy/",
-        "occurrences": 2,
+        "occurrences": 3,
         "label": "Privacy policy"
       },
       {
@@ -14116,7 +14134,7 @@
       {
         "source": "/faq/",
         "target": "/privacy/",
-        "occurrences": 2,
+        "occurrences": 3,
         "label": "Privacy policy"
       },
       {
@@ -14566,7 +14584,7 @@
       {
         "source": "/fellowship/",
         "target": "/privacy/",
-        "occurrences": 2,
+        "occurrences": 3,
         "label": "Privacy policy"
       },
       {
@@ -15016,7 +15034,7 @@
       {
         "source": "/labs/biometric-security/",
         "target": "/privacy/",
-        "occurrences": 2,
+        "occurrences": 3,
         "label": "Privacy policy"
       },
       {
@@ -15466,7 +15484,7 @@
       {
         "source": "/labs/cognitive-ai/",
         "target": "/privacy/",
-        "occurrences": 2,
+        "occurrences": 3,
         "label": "Privacy policy"
       },
       {
@@ -15916,7 +15934,7 @@
       {
         "source": "/labs/sovereign-ai/",
         "target": "/privacy/",
-        "occurrences": 2,
+        "occurrences": 3,
         "label": "Privacy policy"
       },
       {
@@ -16366,7 +16384,7 @@
       {
         "source": "/mission/",
         "target": "/privacy/",
-        "occurrences": 2,
+        "occurrences": 3,
         "label": "Privacy policy"
       },
       {
@@ -16816,7 +16834,7 @@
       {
         "source": "/news/",
         "target": "/privacy/",
-        "occurrences": 2,
+        "occurrences": 3,
         "label": "Privacy policy"
       },
       {
@@ -17272,7 +17290,7 @@
       {
         "source": "/news/clinical-ai-safety/",
         "target": "/privacy/",
-        "occurrences": 2,
+        "occurrences": 3,
         "label": "Privacy policy"
       },
       {
@@ -17728,7 +17746,7 @@
       {
         "source": "/news/formal-methods-safety-critical-trust/",
         "target": "/privacy/",
-        "occurrences": 2,
+        "occurrences": 3,
         "label": "Privacy policy"
       },
       {
@@ -18184,7 +18202,7 @@
       {
         "source": "/news/hpc-infrastructure-for-ai/",
         "target": "/privacy/",
-        "occurrences": 2,
+        "occurrences": 3,
         "label": "Privacy policy"
       },
       {
@@ -18640,7 +18658,7 @@
       {
         "source": "/news/legal-foundations-tech-governance/",
         "target": "/privacy/",
-        "occurrences": 2,
+        "occurrences": 3,
         "label": "Privacy policy"
       },
       {
@@ -19096,7 +19114,7 @@
       {
         "source": "/news/materials-science-energy-transition/",
         "target": "/privacy/",
-        "occurrences": 2,
+        "occurrences": 3,
         "label": "Privacy policy"
       },
       {
@@ -19552,7 +19570,7 @@
       {
         "source": "/news/open-data-research-philosophy/",
         "target": "/privacy/",
-        "occurrences": 2,
+        "occurrences": 3,
         "label": "Privacy policy"
       },
       {
@@ -20008,7 +20026,7 @@
       {
         "source": "/news/precision-agriculture-open-data/",
         "target": "/privacy/",
-        "occurrences": 2,
+        "occurrences": 3,
         "label": "Privacy policy"
       },
       {
@@ -20464,7 +20482,7 @@
       {
         "source": "/news/quantum-sensing-breakthroughs/",
         "target": "/privacy/",
-        "occurrences": 2,
+        "occurrences": 3,
         "label": "Privacy policy"
       },
       {
@@ -20920,7 +20938,7 @@
       {
         "source": "/press/",
         "target": "/privacy/",
-        "occurrences": 2,
+        "occurrences": 3,
         "label": "Privacy policy"
       },
       {
@@ -21826,7 +21844,7 @@
       {
         "source": "/research/",
         "target": "/privacy/",
-        "occurrences": 2,
+        "occurrences": 3,
         "label": "Privacy policy"
       },
       {
@@ -22282,7 +22300,7 @@
       {
         "source": "/research/consortium/",
         "target": "/privacy/",
-        "occurrences": 2,
+        "occurrences": 3,
         "label": "Privacy policy"
       },
       {
@@ -22732,7 +22750,7 @@
       {
         "source": "/research/current-programs/",
         "target": "/privacy/",
-        "occurrences": 2,
+        "occurrences": 3,
         "label": "Privacy policy"
       },
       {
@@ -23182,7 +23200,7 @@
       {
         "source": "/research/facilities/",
         "target": "/privacy/",
-        "occurrences": 2,
+        "occurrences": 3,
         "label": "Privacy policy"
       },
       {
@@ -23632,7 +23650,7 @@
       {
         "source": "/research/funding/",
         "target": "/privacy/",
-        "occurrences": 2,
+        "occurrences": 3,
         "label": "Privacy policy"
       },
       {
@@ -24082,7 +24100,7 @@
       {
         "source": "/research/innovation/",
         "target": "/privacy/",
-        "occurrences": 2,
+        "occurrences": 3,
         "label": "Privacy policy"
       },
       {
@@ -24532,7 +24550,7 @@
       {
         "source": "/research/open-data/",
         "target": "/privacy/",
-        "occurrences": 2,
+        "occurrences": 3,
         "label": "Privacy policy"
       },
       {
@@ -24982,7 +25000,7 @@
       {
         "source": "/research/opportunities/",
         "target": "/privacy/",
-        "occurrences": 2,
+        "occurrences": 3,
         "label": "Privacy policy"
       },
       {
@@ -25432,7 +25450,7 @@
       {
         "source": "/research/our-process/",
         "target": "/privacy/",
-        "occurrences": 2,
+        "occurrences": 3,
         "label": "Privacy policy"
       },
       {
@@ -25882,7 +25900,7 @@
       {
         "source": "/research/outputs/",
         "target": "/privacy/",
-        "occurrences": 2,
+        "occurrences": 3,
         "label": "Privacy policy"
       },
       {
@@ -26338,7 +26356,7 @@
       {
         "source": "/research/publications/",
         "target": "/privacy/",
-        "occurrences": 2,
+        "occurrences": 3,
         "label": "Privacy policy"
       },
       {
@@ -26794,7 +26812,7 @@
       {
         "source": "/sciences/agriculture/",
         "target": "/privacy/",
-        "occurrences": 2,
+        "occurrences": 3,
         "label": "Privacy policy"
       },
       {
@@ -27244,7 +27262,7 @@
       {
         "source": "/sciences/anthropology/",
         "target": "/privacy/",
-        "occurrences": 2,
+        "occurrences": 3,
         "label": "Privacy policy"
       },
       {
@@ -27694,7 +27712,7 @@
       {
         "source": "/sciences/archaeology/",
         "target": "/privacy/",
-        "occurrences": 2,
+        "occurrences": 3,
         "label": "Privacy policy"
       },
       {
@@ -28144,7 +28162,7 @@
       {
         "source": "/sciences/biology/",
         "target": "/privacy/",
-        "occurrences": 2,
+        "occurrences": 3,
         "label": "Privacy policy"
       },
       {
@@ -28594,7 +28612,7 @@
       {
         "source": "/sciences/chemistry/",
         "target": "/privacy/",
-        "occurrences": 2,
+        "occurrences": 3,
         "label": "Privacy policy"
       },
       {
@@ -29044,7 +29062,7 @@
       {
         "source": "/sciences/cognitive-sciences/",
         "target": "/privacy/",
-        "occurrences": 2,
+        "occurrences": 3,
         "label": "Privacy policy"
       },
       {
@@ -29494,7 +29512,7 @@
       {
         "source": "/sciences/economics/",
         "target": "/privacy/",
-        "occurrences": 2,
+        "occurrences": 3,
         "label": "Privacy policy"
       },
       {
@@ -29944,7 +29962,7 @@
       {
         "source": "/sciences/energy/",
         "target": "/privacy/",
-        "occurrences": 2,
+        "occurrences": 3,
         "label": "Privacy policy"
       },
       {
@@ -30394,7 +30412,7 @@
       {
         "source": "/sciences/genetics/",
         "target": "/privacy/",
-        "occurrences": 2,
+        "occurrences": 3,
         "label": "Privacy policy"
       },
       {
@@ -30844,7 +30862,7 @@
       {
         "source": "/sciences/geology/",
         "target": "/privacy/",
-        "occurrences": 2,
+        "occurrences": 3,
         "label": "Privacy policy"
       },
       {
@@ -31294,7 +31312,7 @@
       {
         "source": "/sciences/kinesiology/",
         "target": "/privacy/",
-        "occurrences": 2,
+        "occurrences": 3,
         "label": "Privacy policy"
       },
       {
@@ -31744,7 +31762,7 @@
       {
         "source": "/sciences/law/",
         "target": "/privacy/",
-        "occurrences": 2,
+        "occurrences": 3,
         "label": "Privacy policy"
       },
       {
@@ -32194,7 +32212,7 @@
       {
         "source": "/sciences/linguistics/",
         "target": "/privacy/",
-        "occurrences": 2,
+        "occurrences": 3,
         "label": "Privacy policy"
       },
       {
@@ -32644,7 +32662,7 @@
       {
         "source": "/sciences/materials-science/",
         "target": "/privacy/",
-        "occurrences": 2,
+        "occurrences": 3,
         "label": "Privacy policy"
       },
       {
@@ -33094,7 +33112,7 @@
       {
         "source": "/sciences/medicine/",
         "target": "/privacy/",
-        "occurrences": 2,
+        "occurrences": 3,
         "label": "Privacy policy"
       },
       {
@@ -33544,7 +33562,7 @@
       {
         "source": "/sciences/neuroscience/",
         "target": "/privacy/",
-        "occurrences": 2,
+        "occurrences": 3,
         "label": "Privacy policy"
       },
       {
@@ -33994,7 +34012,7 @@
       {
         "source": "/sciences/ocean-science/",
         "target": "/privacy/",
-        "occurrences": 2,
+        "occurrences": 3,
         "label": "Privacy policy"
       },
       {
@@ -34444,7 +34462,7 @@
       {
         "source": "/sciences/outer-space/",
         "target": "/privacy/",
-        "occurrences": 2,
+        "occurrences": 3,
         "label": "Privacy policy"
       },
       {
@@ -34894,7 +34912,7 @@
       {
         "source": "/sciences/physics/",
         "target": "/privacy/",
-        "occurrences": 2,
+        "occurrences": 3,
         "label": "Privacy policy"
       },
       {
@@ -35344,7 +35362,7 @@
       {
         "source": "/sciences/physiology/",
         "target": "/privacy/",
-        "occurrences": 2,
+        "occurrences": 3,
         "label": "Privacy policy"
       },
       {
@@ -35794,7 +35812,7 @@
       {
         "source": "/sciences/psychology/",
         "target": "/privacy/",
-        "occurrences": 2,
+        "occurrences": 3,
         "label": "Privacy policy"
       },
       {
@@ -36244,7 +36262,7 @@
       {
         "source": "/sciences/sociology/",
         "target": "/privacy/",
-        "occurrences": 2,
+        "occurrences": 3,
         "label": "Privacy policy"
       },
       {
@@ -36694,7 +36712,7 @@
       {
         "source": "/search/",
         "target": "/privacy/",
-        "occurrences": 2,
+        "occurrences": 3,
         "label": "Privacy policy"
       },
       {
@@ -37144,7 +37162,7 @@
       {
         "source": "/tech-transfer/enterprise-rd/",
         "target": "/privacy/",
-        "occurrences": 2,
+        "occurrences": 3,
         "label": "Privacy policy"
       },
       {
@@ -37594,7 +37612,7 @@
       {
         "source": "/tech-transfer/portfolio/",
         "target": "/privacy/",
-        "occurrences": 2,
+        "occurrences": 3,
         "label": "Privacy policy"
       },
       {
@@ -38044,7 +38062,7 @@
       {
         "source": "/tech-transfer/sttr-partner/",
         "target": "/privacy/",
-        "occurrences": 2,
+        "occurrences": 3,
         "label": "Privacy policy"
       },
       {
@@ -38500,7 +38518,7 @@
       {
         "source": "/tech-transfer/sttr-programs/",
         "target": "/privacy/",
-        "occurrences": 2,
+        "occurrences": 3,
         "label": "Privacy policy"
       },
       {
@@ -38950,7 +38968,7 @@
       {
         "source": "/tech-transfer/workshops-events/",
         "target": "/privacy/",
-        "occurrences": 2,
+        "occurrences": 3,
         "label": "Privacy policy"
       },
       {
@@ -39400,7 +39418,7 @@
       {
         "source": "/technology/augmented-reality/",
         "target": "/privacy/",
-        "occurrences": 2,
+        "occurrences": 3,
         "label": "Privacy policy"
       },
       {
@@ -39850,7 +39868,7 @@
       {
         "source": "/technology/computer-science/",
         "target": "/privacy/",
-        "occurrences": 2,
+        "occurrences": 3,
         "label": "Privacy policy"
       },
       {
@@ -40300,7 +40318,7 @@
       {
         "source": "/technology/data-science/",
         "target": "/privacy/",
-        "occurrences": 2,
+        "occurrences": 3,
         "label": "Privacy policy"
       },
       {
@@ -40750,7 +40768,7 @@
       {
         "source": "/technology/formal-methods/",
         "target": "/privacy/",
-        "occurrences": 2,
+        "occurrences": 3,
         "label": "Privacy policy"
       },
       {
@@ -41200,7 +41218,7 @@
       {
         "source": "/technology/machine-intelligence/",
         "target": "/privacy/",
-        "occurrences": 2,
+        "occurrences": 3,
         "label": "Privacy policy"
       },
       {
@@ -41650,7 +41668,7 @@
       {
         "source": "/technology/natural-language-processing/",
         "target": "/privacy/",
-        "occurrences": 2,
+        "occurrences": 3,
         "label": "Privacy policy"
       },
       {
@@ -42100,7 +42118,7 @@
       {
         "source": "/technology/quantum-computing/",
         "target": "/privacy/",
-        "occurrences": 2,
+        "occurrences": 3,
         "label": "Privacy policy"
       },
       {
@@ -42550,7 +42568,7 @@
       {
         "source": "/terms/",
         "target": "/privacy/",
-        "occurrences": 2,
+        "occurrences": 3,
         "label": "Privacy policy"
       },
       {
