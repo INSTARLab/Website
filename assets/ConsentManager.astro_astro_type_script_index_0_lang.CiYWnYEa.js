@@ -1,0 +1,2 @@
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["assets/consent.Bhhrwxbn.js","assets/preload-helper.B3nfOi5I.js"])))=>i.map(i=>d[i]);
+import{t as e}from"./preload-helper.B3nfOi5I.js";document.querySelector(`[data-consent-root]`)&&e(()=>import(`./consent.Bhhrwxbn.js`),__vite__mapDeps([0,1])),document.querySelector(`[data-consent-root][data-cwa-token]`)&&e(()=>import(`./cwa.BfKHBhpo.js`),[]);
