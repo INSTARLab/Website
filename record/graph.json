@@ -619,17 +619,17 @@
       "generator": "record link-graph builder over the production build (RRP-203)",
       "base": "/",
       "origin": "https://www.instarlab.org",
-      "routeCount": 93,
-      "documentCount": 93,
+      "routeCount": 94,
+      "documentCount": 94,
       "unzoned": [],
       "aliases": [],
       "undocumented": [],
-      "generatedAt": "2026-10-18T07:18:04.992Z"
+      "generatedAt": "2026-10-23T20:48:44.650Z"
     },
     "summary": {
-      "nodes": 93,
-      "contentPairs": 1015,
-      "chromePairs": 5792,
+      "nodes": 94,
+      "contentPairs": 1039,
+      "chromePairs": 6099,
       "journeyLinks": 18,
       "observedJourneyLinks": 18,
       "orphans": 0,
@@ -645,10 +645,10 @@
         "inLedger": true,
         "inInventory": true,
         "aliasOf": null,
-        "inboundContent": 26,
+        "inboundContent": 27,
         "outboundContent": 32,
-        "inboundChrome": 76,
-        "outboundChrome": 75,
+        "inboundChrome": 77,
+        "outboundChrome": 78,
         "journeys": []
       },
       {
@@ -663,7 +663,7 @@
         "inboundContent": 2,
         "outboundContent": 4,
         "inboundChrome": 0,
-        "outboundChrome": 76,
+        "outboundChrome": 79,
         "journeys": []
       },
       {
@@ -678,7 +678,7 @@
         "inboundContent": 3,
         "outboundContent": 1,
         "inboundChrome": 0,
-        "outboundChrome": 76,
+        "outboundChrome": 79,
         "journeys": []
       },
       {
@@ -692,8 +692,23 @@
         "aliasOf": null,
         "inboundContent": 16,
         "outboundContent": 1,
-        "inboundChrome": 76,
-        "outboundChrome": 75,
+        "inboundChrome": 77,
+        "outboundChrome": 78,
+        "journeys": []
+      },
+      {
+        "id": "/capability-statement/",
+        "title": "Capability Statement — INSTAR Lab",
+        "family": null,
+        "kind": null,
+        "indexable": true,
+        "inLedger": true,
+        "inInventory": false,
+        "aliasOf": null,
+        "inboundContent": 2,
+        "outboundContent": 22,
+        "inboundChrome": 77,
+        "outboundChrome": 78,
         "journeys": []
       },
       {
@@ -707,8 +722,8 @@
         "aliasOf": null,
         "inboundContent": 13,
         "outboundContent": 6,
-        "inboundChrome": 76,
-        "outboundChrome": 75,
+        "inboundChrome": 77,
+        "outboundChrome": 78,
         "journeys": [
           "supporter"
         ]
@@ -724,8 +739,8 @@
         "aliasOf": null,
         "inboundContent": 12,
         "outboundContent": 6,
-        "inboundChrome": 76,
-        "outboundChrome": 75,
+        "inboundChrome": 77,
+        "outboundChrome": 78,
         "journeys": [
           "researcher"
         ]
@@ -742,7 +757,7 @@
         "inboundContent": 10,
         "outboundContent": 5,
         "inboundChrome": 0,
-        "outboundChrome": 76,
+        "outboundChrome": 79,
         "journeys": []
       },
       {
@@ -756,8 +771,8 @@
         "aliasOf": null,
         "inboundContent": 10,
         "outboundContent": 6,
-        "inboundChrome": 76,
-        "outboundChrome": 75,
+        "inboundChrome": 77,
+        "outboundChrome": 78,
         "journeys": []
       },
       {
@@ -769,10 +784,10 @@
         "inLedger": true,
         "inInventory": true,
         "aliasOf": null,
-        "inboundContent": 12,
+        "inboundContent": 13,
         "outboundContent": 6,
-        "inboundChrome": 76,
-        "outboundChrome": 75,
+        "inboundChrome": 77,
+        "outboundChrome": 78,
         "journeys": [
           "institutional-partner"
         ]
@@ -788,8 +803,8 @@
         "aliasOf": null,
         "inboundContent": 8,
         "outboundContent": 5,
-        "inboundChrome": 76,
-        "outboundChrome": 75,
+        "inboundChrome": 77,
+        "outboundChrome": 78,
         "journeys": [
           "supporter"
         ]
@@ -805,8 +820,8 @@
         "aliasOf": null,
         "inboundContent": 6,
         "outboundContent": 5,
-        "inboundChrome": 76,
-        "outboundChrome": 75,
+        "inboundChrome": 77,
+        "outboundChrome": 78,
         "journeys": [
           "technical-collaborator"
         ]
@@ -822,8 +837,8 @@
         "aliasOf": null,
         "inboundContent": 67,
         "outboundContent": 1,
-        "inboundChrome": 76,
-        "outboundChrome": 75,
+        "inboundChrome": 77,
+        "outboundChrome": 78,
         "journeys": [
           "institutional-partner",
           "program-officer"
@@ -840,8 +855,8 @@
         "aliasOf": null,
         "inboundContent": 3,
         "outboundContent": 1,
-        "inboundChrome": 76,
-        "outboundChrome": 75,
+        "inboundChrome": 77,
+        "outboundChrome": 78,
         "journeys": []
       },
       {
@@ -855,8 +870,8 @@
         "aliasOf": null,
         "inboundContent": 1,
         "outboundContent": 11,
-        "inboundChrome": 0,
-        "outboundChrome": 76,
+        "inboundChrome": 77,
+        "outboundChrome": 78,
         "journeys": []
       },
       {
@@ -868,10 +883,10 @@
         "inLedger": true,
         "inInventory": true,
         "aliasOf": null,
-        "inboundContent": 9,
+        "inboundContent": 10,
         "outboundContent": 1,
-        "inboundChrome": 76,
-        "outboundChrome": 75,
+        "inboundChrome": 77,
+        "outboundChrome": 78,
         "journeys": [
           "researcher"
         ]
@@ -885,10 +900,10 @@
         "inLedger": true,
         "inInventory": true,
         "aliasOf": null,
-        "inboundContent": 7,
+        "inboundContent": 8,
         "outboundContent": 3,
-        "inboundChrome": 76,
-        "outboundChrome": 75,
+        "inboundChrome": 77,
+        "outboundChrome": 78,
         "journeys": []
       },
       {
@@ -900,10 +915,10 @@
         "inLedger": true,
         "inInventory": true,
         "aliasOf": null,
-        "inboundContent": 7,
+        "inboundContent": 8,
         "outboundContent": 3,
-        "inboundChrome": 76,
-        "outboundChrome": 75,
+        "inboundChrome": 77,
+        "outboundChrome": 78,
         "journeys": []
       },
       {
@@ -915,10 +930,10 @@
         "inLedger": true,
         "inInventory": true,
         "aliasOf": null,
-        "inboundContent": 8,
+        "inboundContent": 9,
         "outboundContent": 3,
-        "inboundChrome": 76,
-        "outboundChrome": 75,
+        "inboundChrome": 77,
+        "outboundChrome": 78,
         "journeys": [
           "technical-collaborator"
         ]
@@ -934,8 +949,8 @@
         "aliasOf": null,
         "inboundContent": 7,
         "outboundContent": 1,
-        "inboundChrome": 76,
-        "outboundChrome": 75,
+        "inboundChrome": 77,
+        "outboundChrome": 78,
         "journeys": [
           "supporter"
         ]
@@ -951,8 +966,8 @@
         "aliasOf": null,
         "inboundContent": 16,
         "outboundContent": 8,
-        "inboundChrome": 76,
-        "outboundChrome": 75,
+        "inboundChrome": 77,
+        "outboundChrome": 78,
         "journeys": [
           "researcher"
         ]
@@ -969,7 +984,7 @@
         "inboundContent": 6,
         "outboundContent": 5,
         "inboundChrome": 0,
-        "outboundChrome": 76,
+        "outboundChrome": 79,
         "journeys": []
       },
       {
@@ -984,7 +999,7 @@
         "inboundContent": 8,
         "outboundContent": 5,
         "inboundChrome": 0,
-        "outboundChrome": 76,
+        "outboundChrome": 79,
         "journeys": []
       },
       {
@@ -999,7 +1014,7 @@
         "inboundContent": 6,
         "outboundContent": 5,
         "inboundChrome": 0,
-        "outboundChrome": 76,
+        "outboundChrome": 79,
         "journeys": []
       },
       {
@@ -1014,7 +1029,7 @@
         "inboundContent": 13,
         "outboundContent": 5,
         "inboundChrome": 0,
-        "outboundChrome": 76,
+        "outboundChrome": 79,
         "journeys": []
       },
       {
@@ -1029,7 +1044,7 @@
         "inboundContent": 12,
         "outboundContent": 5,
         "inboundChrome": 0,
-        "outboundChrome": 76,
+        "outboundChrome": 79,
         "journeys": []
       },
       {
@@ -1044,7 +1059,7 @@
         "inboundContent": 12,
         "outboundContent": 5,
         "inboundChrome": 0,
-        "outboundChrome": 76,
+        "outboundChrome": 79,
         "journeys": []
       },
       {
@@ -1059,7 +1074,7 @@
         "inboundContent": 6,
         "outboundContent": 5,
         "inboundChrome": 0,
-        "outboundChrome": 76,
+        "outboundChrome": 79,
         "journeys": []
       },
       {
@@ -1074,7 +1089,7 @@
         "inboundContent": 5,
         "outboundContent": 5,
         "inboundChrome": 0,
-        "outboundChrome": 76,
+        "outboundChrome": 79,
         "journeys": []
       },
       {
@@ -1087,9 +1102,9 @@
         "inInventory": false,
         "aliasOf": null,
         "inboundContent": 1,
-        "outboundContent": 2,
-        "inboundChrome": 0,
-        "outboundChrome": 76,
+        "outboundContent": 3,
+        "inboundChrome": 77,
+        "outboundChrome": 78,
         "journeys": []
       },
       {
@@ -1103,8 +1118,8 @@
         "aliasOf": null,
         "inboundContent": 20,
         "outboundContent": 2,
-        "inboundChrome": 76,
-        "outboundChrome": 75,
+        "inboundChrome": 77,
+        "outboundChrome": 78,
         "journeys": []
       },
       {
@@ -1118,7 +1133,7 @@
         "aliasOf": null,
         "inboundContent": 17,
         "outboundContent": 19,
-        "inboundChrome": 77,
+        "inboundChrome": 78,
         "outboundChrome": 0,
         "journeys": []
       },
@@ -1133,7 +1148,7 @@
         "aliasOf": null,
         "inboundContent": 15,
         "outboundContent": 19,
-        "inboundChrome": 77,
+        "inboundChrome": 78,
         "outboundChrome": 0,
         "journeys": []
       },
@@ -1148,7 +1163,7 @@
         "aliasOf": null,
         "inboundContent": 17,
         "outboundContent": 20,
-        "inboundChrome": 77,
+        "inboundChrome": 78,
         "outboundChrome": 0,
         "journeys": []
       },
@@ -1163,7 +1178,7 @@
         "aliasOf": null,
         "inboundContent": 15,
         "outboundContent": 25,
-        "inboundChrome": 77,
+        "inboundChrome": 78,
         "outboundChrome": 0,
         "journeys": [
           "program-officer"
@@ -1180,7 +1195,7 @@
         "aliasOf": null,
         "inboundContent": 15,
         "outboundContent": 19,
-        "inboundChrome": 77,
+        "inboundChrome": 78,
         "outboundChrome": 0,
         "journeys": []
       },
@@ -1195,7 +1210,7 @@
         "aliasOf": null,
         "inboundContent": 16,
         "outboundContent": 19,
-        "inboundChrome": 77,
+        "inboundChrome": 78,
         "outboundChrome": 0,
         "journeys": []
       },
@@ -1210,7 +1225,7 @@
         "aliasOf": null,
         "inboundContent": 15,
         "outboundContent": 38,
-        "inboundChrome": 77,
+        "inboundChrome": 78,
         "outboundChrome": 0,
         "journeys": []
       },
@@ -1225,7 +1240,7 @@
         "aliasOf": null,
         "inboundContent": 15,
         "outboundContent": 23,
-        "inboundChrome": 77,
+        "inboundChrome": 78,
         "outboundChrome": 0,
         "journeys": []
       },
@@ -1240,7 +1255,7 @@
         "aliasOf": null,
         "inboundContent": 16,
         "outboundContent": 19,
-        "inboundChrome": 77,
+        "inboundChrome": 78,
         "outboundChrome": 0,
         "journeys": []
       },
@@ -1255,7 +1270,7 @@
         "aliasOf": null,
         "inboundContent": 15,
         "outboundContent": 83,
-        "inboundChrome": 77,
+        "inboundChrome": 78,
         "outboundChrome": 0,
         "journeys": []
       },
@@ -1270,7 +1285,7 @@
         "aliasOf": null,
         "inboundContent": 15,
         "outboundContent": 19,
-        "inboundChrome": 77,
+        "inboundChrome": 78,
         "outboundChrome": 0,
         "journeys": []
       },
@@ -1285,7 +1300,7 @@
         "aliasOf": null,
         "inboundContent": 15,
         "outboundContent": 88,
-        "inboundChrome": 77,
+        "inboundChrome": 78,
         "outboundChrome": 0,
         "journeys": []
       },
@@ -1300,7 +1315,7 @@
         "aliasOf": null,
         "inboundContent": 15,
         "outboundContent": 19,
-        "inboundChrome": 77,
+        "inboundChrome": 78,
         "outboundChrome": 0,
         "journeys": []
       },
@@ -1314,8 +1329,8 @@
         "inInventory": true,
         "aliasOf": null,
         "inboundContent": 15,
-        "outboundContent": 92,
-        "inboundChrome": 77,
+        "outboundContent": 93,
+        "inboundChrome": 78,
         "outboundChrome": 0,
         "journeys": []
       },
@@ -1330,7 +1345,7 @@
         "aliasOf": null,
         "inboundContent": 15,
         "outboundContent": 19,
-        "inboundChrome": 77,
+        "inboundChrome": 78,
         "outboundChrome": 0,
         "journeys": []
       },
@@ -1345,7 +1360,7 @@
         "aliasOf": null,
         "inboundContent": 15,
         "outboundContent": 20,
-        "inboundChrome": 77,
+        "inboundChrome": 78,
         "outboundChrome": 0,
         "journeys": []
       },
@@ -1361,7 +1376,7 @@
         "inboundContent": 9,
         "outboundContent": 10,
         "inboundChrome": 0,
-        "outboundChrome": 76,
+        "outboundChrome": 79,
         "journeys": []
       },
       {
@@ -1375,8 +1390,8 @@
         "aliasOf": null,
         "inboundContent": 15,
         "outboundContent": 6,
-        "inboundChrome": 76,
-        "outboundChrome": 75,
+        "inboundChrome": 77,
+        "outboundChrome": 78,
         "journeys": []
       },
       {
@@ -1390,8 +1405,8 @@
         "aliasOf": null,
         "inboundContent": 18,
         "outboundContent": 10,
-        "inboundChrome": 76,
-        "outboundChrome": 75,
+        "inboundChrome": 77,
+        "outboundChrome": 78,
         "journeys": [
           "program-officer",
           "supporter"
@@ -1408,8 +1423,8 @@
         "aliasOf": null,
         "inboundContent": 15,
         "outboundContent": 6,
-        "inboundChrome": 76,
-        "outboundChrome": 75,
+        "inboundChrome": 77,
+        "outboundChrome": 78,
         "journeys": [
           "program-officer"
         ]
@@ -1423,10 +1438,10 @@
         "inLedger": true,
         "inInventory": true,
         "aliasOf": null,
-        "inboundContent": 13,
+        "inboundContent": 14,
         "outboundContent": 1,
-        "inboundChrome": 76,
-        "outboundChrome": 75,
+        "inboundChrome": 77,
+        "outboundChrome": 78,
         "journeys": []
       },
       {
@@ -1440,8 +1455,8 @@
         "aliasOf": null,
         "inboundContent": 8,
         "outboundContent": 6,
-        "inboundChrome": 76,
-        "outboundChrome": 75,
+        "inboundChrome": 77,
+        "outboundChrome": 78,
         "journeys": [
           "technical-collaborator"
         ]
@@ -1457,8 +1472,8 @@
         "aliasOf": null,
         "inboundContent": 8,
         "outboundContent": 6,
-        "inboundChrome": 76,
-        "outboundChrome": 75,
+        "inboundChrome": 77,
+        "outboundChrome": 78,
         "journeys": [
           "researcher"
         ]
@@ -1474,8 +1489,8 @@
         "aliasOf": null,
         "inboundContent": 8,
         "outboundContent": 8,
-        "inboundChrome": 76,
-        "outboundChrome": 75,
+        "inboundChrome": 77,
+        "outboundChrome": 78,
         "journeys": []
       },
       {
@@ -1489,8 +1504,8 @@
         "aliasOf": null,
         "inboundContent": 9,
         "outboundContent": 2,
-        "inboundChrome": 76,
-        "outboundChrome": 75,
+        "inboundChrome": 77,
+        "outboundChrome": 78,
         "journeys": [
           "program-officer"
         ]
@@ -1507,7 +1522,7 @@
         "inboundContent": 8,
         "outboundContent": 10,
         "inboundChrome": 0,
-        "outboundChrome": 76,
+        "outboundChrome": 79,
         "journeys": []
       },
       {
@@ -1522,7 +1537,7 @@
         "inboundContent": 7,
         "outboundContent": 6,
         "inboundChrome": 0,
-        "outboundChrome": 76,
+        "outboundChrome": 79,
         "journeys": []
       },
       {
@@ -1536,8 +1551,8 @@
         "aliasOf": null,
         "inboundContent": 16,
         "outboundContent": 6,
-        "inboundChrome": 76,
-        "outboundChrome": 75,
+        "inboundChrome": 77,
+        "outboundChrome": 78,
         "journeys": []
       },
       {
@@ -1551,8 +1566,8 @@
         "aliasOf": null,
         "inboundContent": 14,
         "outboundContent": 6,
-        "inboundChrome": 76,
-        "outboundChrome": 75,
+        "inboundChrome": 77,
+        "outboundChrome": 78,
         "journeys": []
       },
       {
@@ -1566,8 +1581,8 @@
         "aliasOf": null,
         "inboundContent": 16,
         "outboundContent": 6,
-        "inboundChrome": 76,
-        "outboundChrome": 75,
+        "inboundChrome": 77,
+        "outboundChrome": 78,
         "journeys": []
       },
       {
@@ -1581,8 +1596,8 @@
         "aliasOf": null,
         "inboundContent": 15,
         "outboundContent": 6,
-        "inboundChrome": 76,
-        "outboundChrome": 75,
+        "inboundChrome": 77,
+        "outboundChrome": 78,
         "journeys": []
       },
       {
@@ -1596,8 +1611,8 @@
         "aliasOf": null,
         "inboundContent": 15,
         "outboundContent": 6,
-        "inboundChrome": 76,
-        "outboundChrome": 75,
+        "inboundChrome": 77,
+        "outboundChrome": 78,
         "journeys": []
       },
       {
@@ -1609,10 +1624,10 @@
         "inLedger": true,
         "inInventory": true,
         "aliasOf": null,
-        "inboundContent": 13,
+        "inboundContent": 14,
         "outboundContent": 6,
-        "inboundChrome": 76,
-        "outboundChrome": 75,
+        "inboundChrome": 77,
+        "outboundChrome": 78,
         "journeys": []
       },
       {
@@ -1626,8 +1641,8 @@
         "aliasOf": null,
         "inboundContent": 8,
         "outboundContent": 6,
-        "inboundChrome": 76,
-        "outboundChrome": 75,
+        "inboundChrome": 77,
+        "outboundChrome": 78,
         "journeys": []
       },
       {
@@ -1639,10 +1654,10 @@
         "inLedger": true,
         "inInventory": true,
         "aliasOf": null,
-        "inboundContent": 5,
+        "inboundContent": 6,
         "outboundContent": 6,
-        "inboundChrome": 76,
-        "outboundChrome": 75,
+        "inboundChrome": 77,
+        "outboundChrome": 78,
         "journeys": []
       },
       {
@@ -1654,10 +1669,10 @@
         "inLedger": true,
         "inInventory": true,
         "aliasOf": null,
-        "inboundContent": 14,
+        "inboundContent": 15,
         "outboundContent": 6,
-        "inboundChrome": 76,
-        "outboundChrome": 75,
+        "inboundChrome": 77,
+        "outboundChrome": 78,
         "journeys": []
       },
       {
@@ -1671,8 +1686,8 @@
         "aliasOf": null,
         "inboundContent": 4,
         "outboundContent": 6,
-        "inboundChrome": 76,
-        "outboundChrome": 75,
+        "inboundChrome": 77,
+        "outboundChrome": 78,
         "journeys": []
       },
       {
@@ -1686,8 +1701,8 @@
         "aliasOf": null,
         "inboundContent": 4,
         "outboundContent": 6,
-        "inboundChrome": 76,
-        "outboundChrome": 75,
+        "inboundChrome": 77,
+        "outboundChrome": 78,
         "journeys": []
       },
       {
@@ -1701,8 +1716,8 @@
         "aliasOf": null,
         "inboundContent": 13,
         "outboundContent": 6,
-        "inboundChrome": 76,
-        "outboundChrome": 75,
+        "inboundChrome": 77,
+        "outboundChrome": 78,
         "journeys": []
       },
       {
@@ -1716,8 +1731,8 @@
         "aliasOf": null,
         "inboundContent": 4,
         "outboundContent": 6,
-        "inboundChrome": 76,
-        "outboundChrome": 75,
+        "inboundChrome": 77,
+        "outboundChrome": 78,
         "journeys": []
       },
       {
@@ -1729,10 +1744,10 @@
         "inLedger": true,
         "inInventory": true,
         "aliasOf": null,
-        "inboundContent": 8,
+        "inboundContent": 9,
         "outboundContent": 6,
-        "inboundChrome": 76,
-        "outboundChrome": 75,
+        "inboundChrome": 77,
+        "outboundChrome": 78,
         "journeys": []
       },
       {
@@ -1744,10 +1759,10 @@
         "inLedger": true,
         "inInventory": true,
         "aliasOf": null,
-        "inboundContent": 4,
+        "inboundContent": 5,
         "outboundContent": 6,
-        "inboundChrome": 76,
-        "outboundChrome": 75,
+        "inboundChrome": 77,
+        "outboundChrome": 78,
         "journeys": []
       },
       {
@@ -1759,10 +1774,10 @@
         "inLedger": true,
         "inInventory": true,
         "aliasOf": null,
-        "inboundContent": 4,
+        "inboundContent": 5,
         "outboundContent": 6,
-        "inboundChrome": 76,
-        "outboundChrome": 75,
+        "inboundChrome": 77,
+        "outboundChrome": 78,
         "journeys": []
       },
       {
@@ -1776,8 +1791,8 @@
         "aliasOf": null,
         "inboundContent": 4,
         "outboundContent": 6,
-        "inboundChrome": 76,
-        "outboundChrome": 75,
+        "inboundChrome": 77,
+        "outboundChrome": 78,
         "journeys": []
       },
       {
@@ -1789,10 +1804,10 @@
         "inLedger": true,
         "inInventory": true,
         "aliasOf": null,
-        "inboundContent": 5,
+        "inboundContent": 6,
         "outboundContent": 6,
-        "inboundChrome": 76,
-        "outboundChrome": 75,
+        "inboundChrome": 77,
+        "outboundChrome": 78,
         "journeys": []
       },
       {
@@ -1804,10 +1819,10 @@
         "inLedger": true,
         "inInventory": true,
         "aliasOf": null,
-        "inboundContent": 26,
+        "inboundContent": 27,
         "outboundContent": 5,
-        "inboundChrome": 76,
-        "outboundChrome": 75,
+        "inboundChrome": 77,
+        "outboundChrome": 78,
         "journeys": []
       },
       {
@@ -1821,8 +1836,8 @@
         "aliasOf": null,
         "inboundContent": 4,
         "outboundContent": 6,
-        "inboundChrome": 76,
-        "outboundChrome": 75,
+        "inboundChrome": 77,
+        "outboundChrome": 78,
         "journeys": []
       },
       {
@@ -1836,8 +1851,8 @@
         "aliasOf": null,
         "inboundContent": 4,
         "outboundContent": 6,
-        "inboundChrome": 76,
-        "outboundChrome": 75,
+        "inboundChrome": 77,
+        "outboundChrome": 78,
         "journeys": []
       },
       {
@@ -1851,8 +1866,8 @@
         "aliasOf": null,
         "inboundContent": 4,
         "outboundContent": 6,
-        "inboundChrome": 76,
-        "outboundChrome": 75,
+        "inboundChrome": 77,
+        "outboundChrome": 78,
         "journeys": []
       },
       {
@@ -1866,8 +1881,8 @@
         "aliasOf": null,
         "inboundContent": 2,
         "outboundContent": 67,
-        "inboundChrome": 76,
-        "outboundChrome": 75,
+        "inboundChrome": 77,
+        "outboundChrome": 78,
         "journeys": []
       },
       {
@@ -1881,8 +1896,8 @@
         "aliasOf": null,
         "inboundContent": 7,
         "outboundContent": 4,
-        "inboundChrome": 76,
-        "outboundChrome": 75,
+        "inboundChrome": 77,
+        "outboundChrome": 78,
         "journeys": [
           "institutional-partner"
         ]
@@ -1898,8 +1913,8 @@
         "aliasOf": null,
         "inboundContent": 7,
         "outboundContent": 4,
-        "inboundChrome": 76,
-        "outboundChrome": 75,
+        "inboundChrome": 77,
+        "outboundChrome": 78,
         "journeys": [
           "institutional-partner"
         ]
@@ -1913,10 +1928,10 @@
         "inLedger": true,
         "inInventory": false,
         "aliasOf": null,
-        "inboundContent": 3,
+        "inboundContent": 4,
         "outboundContent": 2,
         "inboundChrome": 0,
-        "outboundChrome": 76,
+        "outboundChrome": 79,
         "journeys": []
       },
       {
@@ -1930,8 +1945,8 @@
         "aliasOf": null,
         "inboundContent": 10,
         "outboundContent": 2,
-        "inboundChrome": 76,
-        "outboundChrome": 75,
+        "inboundChrome": 77,
+        "outboundChrome": 78,
         "journeys": [
           "institutional-partner"
         ]
@@ -1947,8 +1962,8 @@
         "aliasOf": null,
         "inboundContent": 7,
         "outboundContent": 4,
-        "inboundChrome": 76,
-        "outboundChrome": 75,
+        "inboundChrome": 77,
+        "outboundChrome": 78,
         "journeys": []
       },
       {
@@ -1962,8 +1977,8 @@
         "aliasOf": null,
         "inboundContent": 11,
         "outboundContent": 5,
-        "inboundChrome": 76,
-        "outboundChrome": 75,
+        "inboundChrome": 77,
+        "outboundChrome": 78,
         "journeys": []
       },
       {
@@ -1975,10 +1990,10 @@
         "inLedger": true,
         "inInventory": true,
         "aliasOf": null,
-        "inboundContent": 12,
+        "inboundContent": 13,
         "outboundContent": 5,
-        "inboundChrome": 76,
-        "outboundChrome": 75,
+        "inboundChrome": 77,
+        "outboundChrome": 78,
         "journeys": [
           "technical-collaborator"
         ]
@@ -1992,10 +2007,10 @@
         "inLedger": true,
         "inInventory": true,
         "aliasOf": null,
-        "inboundContent": 7,
+        "inboundContent": 8,
         "outboundContent": 5,
-        "inboundChrome": 76,
-        "outboundChrome": 75,
+        "inboundChrome": 77,
+        "outboundChrome": 78,
         "journeys": []
       },
       {
@@ -2007,10 +2022,10 @@
         "inLedger": true,
         "inInventory": true,
         "aliasOf": null,
-        "inboundContent": 10,
+        "inboundContent": 11,
         "outboundContent": 5,
-        "inboundChrome": 76,
-        "outboundChrome": 75,
+        "inboundChrome": 77,
+        "outboundChrome": 78,
         "journeys": []
       },
       {
@@ -2022,10 +2037,10 @@
         "inLedger": true,
         "inInventory": true,
         "aliasOf": null,
-        "inboundContent": 8,
+        "inboundContent": 9,
         "outboundContent": 5,
-        "inboundChrome": 76,
-        "outboundChrome": 75,
+        "inboundChrome": 77,
+        "outboundChrome": 78,
         "journeys": []
       },
       {
@@ -2037,10 +2052,10 @@
         "inLedger": true,
         "inInventory": true,
         "aliasOf": null,
-        "inboundContent": 7,
+        "inboundContent": 8,
         "outboundContent": 5,
-        "inboundChrome": 76,
-        "outboundChrome": 75,
+        "inboundChrome": 77,
+        "outboundChrome": 78,
         "journeys": []
       },
       {
@@ -2052,10 +2067,10 @@
         "inLedger": true,
         "inInventory": true,
         "aliasOf": null,
-        "inboundContent": 8,
+        "inboundContent": 9,
         "outboundContent": 5,
-        "inboundChrome": 76,
-        "outboundChrome": 75,
+        "inboundChrome": 77,
+        "outboundChrome": 78,
         "journeys": []
       },
       {
@@ -2069,8 +2084,8 @@
         "aliasOf": null,
         "inboundContent": 16,
         "outboundContent": 1,
-        "inboundChrome": 76,
-        "outboundChrome": 75,
+        "inboundChrome": 77,
+        "outboundChrome": 78,
         "journeys": []
       }
     ],
@@ -2169,7 +2184,7 @@
         "source": "/",
         "target": "/research/funding/",
         "occurrences": 2,
-        "label": "Review energy funding ↗"
+        "label": "Federal funding guide ↗"
       },
       {
         "source": "/",
@@ -2304,6 +2319,138 @@
         "label": "Discuss a research requirement ↗"
       },
       {
+        "source": "/capability-statement/",
+        "target": "/",
+        "occurrences": 1,
+        "label": "www.instarlab.org"
+      },
+      {
+        "source": "/capability-statement/",
+        "target": "/community/partner/",
+        "occurrences": 1,
+        "label": "Research and philanthropic partnership"
+      },
+      {
+        "source": "/capability-statement/",
+        "target": "/fellowship/",
+        "occurrences": 1,
+        "label": "R&amp;D Fellowships"
+      },
+      {
+        "source": "/capability-statement/",
+        "target": "/labs/biometric-security/",
+        "occurrences": 1,
+        "label": "Biometrics &amp; Drone Sensing"
+      },
+      {
+        "source": "/capability-statement/",
+        "target": "/labs/cognitive-ai/",
+        "occurrences": 1,
+        "label": "Cognitive AI &amp; Persona Systems"
+      },
+      {
+        "source": "/capability-statement/",
+        "target": "/labs/sovereign-ai/",
+        "occurrences": 1,
+        "label": "Sovereign AI Laboratory"
+      },
+      {
+        "source": "/capability-statement/",
+        "target": "/research/funding/",
+        "occurrences": 1,
+        "label": "Federal research funding"
+      },
+      {
+        "source": "/capability-statement/",
+        "target": "/sciences/cognitive-sciences/",
+        "occurrences": 1,
+        "label": "Cognitive Sciences"
+      },
+      {
+        "source": "/capability-statement/",
+        "target": "/sciences/energy/",
+        "occurrences": 1,
+        "label": "Energy"
+      },
+      {
+        "source": "/capability-statement/",
+        "target": "/sciences/genetics/",
+        "occurrences": 1,
+        "label": "Genetics"
+      },
+      {
+        "source": "/capability-statement/",
+        "target": "/sciences/materials-science/",
+        "occurrences": 1,
+        "label": "Materials Science"
+      },
+      {
+        "source": "/capability-statement/",
+        "target": "/sciences/medicine/",
+        "occurrences": 1,
+        "label": "Medicine"
+      },
+      {
+        "source": "/capability-statement/",
+        "target": "/sciences/neuroscience/",
+        "occurrences": 1,
+        "label": "Neuroscience"
+      },
+      {
+        "source": "/capability-statement/",
+        "target": "/sciences/outer-space/",
+        "occurrences": 1,
+        "label": "Outer Space"
+      },
+      {
+        "source": "/capability-statement/",
+        "target": "/sciences/physics/",
+        "occurrences": 1,
+        "label": "Physics"
+      },
+      {
+        "source": "/capability-statement/",
+        "target": "/tech-transfer/sttr-partner/",
+        "occurrences": 1,
+        "label": "STTR research institution partner"
+      },
+      {
+        "source": "/capability-statement/",
+        "target": "/technology/computer-science/",
+        "occurrences": 1,
+        "label": "Computer Science"
+      },
+      {
+        "source": "/capability-statement/",
+        "target": "/technology/data-science/",
+        "occurrences": 1,
+        "label": "Data Science"
+      },
+      {
+        "source": "/capability-statement/",
+        "target": "/technology/formal-methods/",
+        "occurrences": 1,
+        "label": "Formal Methods"
+      },
+      {
+        "source": "/capability-statement/",
+        "target": "/technology/machine-intelligence/",
+        "occurrences": 1,
+        "label": "Machine Intelligence"
+      },
+      {
+        "source": "/capability-statement/",
+        "target": "/technology/natural-language-processing/",
+        "occurrences": 1,
+        "label": "Natural Language Processing"
+      },
+      {
+        "source": "/capability-statement/",
+        "target": "/technology/quantum-computing/",
+        "occurrences": 1,
+        "label": "Quantum Computing"
+      },
+      {
         "source": "/community/about-us/",
         "target": "/community/careers/",
         "occurrences": 1,
@@ -2367,7 +2514,7 @@
         "source": "/community/careers/",
         "target": "/contact-us/",
         "occurrences": 2,
-        "label": "Ready to discuss scope Express interest in a research or technical role."
+        "label": "Express interest in a future role"
       },
       {
         "source": "/community/careers/",
@@ -2968,6 +3115,12 @@
         "target": "/news/open-data-research-philosophy/",
         "occurrences": 1,
         "label": "open data Open data is part of the research infrastructure ↗"
+      },
+      {
+        "source": "/press/",
+        "target": "/capability-statement/",
+        "occurrences": 1,
+        "label": "Capability statement"
       },
       {
         "source": "/press/",
@@ -5479,6 +5632,12 @@
       },
       {
         "source": "/record/screens/",
+        "target": "/capability-statement/",
+        "occurrences": 1,
+        "label": "Open canonical route ↗"
+      },
+      {
+        "source": "/record/screens/",
         "target": "/community/about-us/",
         "occurrences": 1,
         "label": "Open canonical route ↗"
@@ -6518,7 +6677,7 @@
       {
         "source": "/research/opportunities/",
         "target": "/contact-us/",
-        "occurrences": 8,
+        "occurrences": 4,
         "label": "Discuss a research requirement"
       },
       {
@@ -7467,13 +7626,13 @@
         "source": "/search/",
         "target": "/community/about-us/",
         "occurrences": 1,
-        "label": "Community About Us — INSTAR Lab Community Learn who we are: INSTAR Lab is a 501("
+        "label": "Community About Us — INSTAR Lab Community INSTAR Lab is a 501(c)(3) nonprofit re"
       },
       {
         "source": "/search/",
         "target": "/community/careers/",
         "occurrences": 1,
-        "label": "Community Careers at INSTAR Lab — Research &amp; Science Jobs Explore research a"
+        "label": "Community Careers at INSTAR Lab — Research &amp; Science Jobs Learn how to expre"
       },
       {
         "source": "/search/",
@@ -7485,7 +7644,7 @@
         "source": "/search/",
         "target": "/community/leadership/",
         "occurrences": 1,
-        "label": "Community Research Leadership &amp; Governance — INSTAR Lab Meet the scientists,"
+        "label": "Community Research Leadership &amp; Governance — INSTAR Lab Leadership and gover"
       },
       {
         "source": "/search/",
@@ -7503,7 +7662,7 @@
         "source": "/search/",
         "target": "/community/work-with-us/",
         "occurrences": 1,
-        "label": "Community Work With INSTAR Lab — Collaboration Opportunities Explore ways to wor"
+        "label": "Community Work With INSTAR Lab — Collaboration Opportunities Ways to work with I"
       },
       {
         "source": "/search/",
@@ -7599,13 +7758,13 @@
         "source": "/search/",
         "target": "/research/consortium/",
         "occurrences": 1,
-        "label": "Research INSTAR Consortium — Collaborative Research Network The INSTAR Consortiu"
+        "label": "Research INSTAR Consortium — Collaborative Research Network INSTAR’s network of "
       },
       {
         "source": "/search/",
         "target": "/research/current-programs/",
         "occurrences": 1,
-        "label": "Research Current Research Programs — INSTAR Lab Review the INSTAR Lab research p"
+        "label": "Research Current Research Programs — INSTAR Lab The INSTAR Lab research portfoli"
       },
       {
         "source": "/search/",
@@ -7629,13 +7788,13 @@
         "source": "/search/",
         "target": "/research/open-data/",
         "occurrences": 1,
-        "label": "Research Open Data &amp; Public Datasets — INSTAR Lab INSTAR Lab uses open and w"
+        "label": "Research Open Data &amp; Public Datasets — INSTAR Lab INSTAR Lab uses open, well"
       },
       {
         "source": "/search/",
         "target": "/research/opportunities/",
         "occurrences": 1,
-        "label": "Research Research Opportunities — INSTAR Lab Review engagement opportunities at "
+        "label": "Research Research Opportunities — INSTAR Lab Engagement opportunities at INSTAR "
       },
       {
         "source": "/search/",
@@ -7797,7 +7956,7 @@
         "source": "/search/",
         "target": "/tech-transfer/portfolio/",
         "occurrences": 1,
-        "label": "Tech transfer Research Portfolio — INSTAR Lab Technology Transfer INSTAR Lab’s r"
+        "label": "Tech transfer Research Portfolio — INSTAR Lab Technology Transfer INSTAR Lab’s t"
       },
       {
         "source": "/search/",
@@ -7809,13 +7968,13 @@
         "source": "/search/",
         "target": "/tech-transfer/workshops-events/",
         "occurrences": 1,
-        "label": "Tech transfer Workshops &amp; Events — INSTAR Lab Technology Transfer INSTAR con"
+        "label": "Tech transfer Workshops &amp; Events — INSTAR Lab Technology Transfer Workshop a"
       },
       {
         "source": "/search/",
         "target": "/technology/augmented-reality/",
         "occurrences": 1,
-        "label": "Technology Augmented Reality Research — INSTAR Lab Technology INSTAR applies adv"
+        "label": "Technology Augmented Reality Research — INSTAR Lab Technology Augmented reality "
       },
       {
         "source": "/search/",
@@ -7839,7 +7998,7 @@
         "source": "/search/",
         "target": "/technology/machine-intelligence/",
         "occurrences": 1,
-        "label": "Technology Machine Intelligence Research — INSTAR Lab Technology Research advanc"
+        "label": "Technology Machine Intelligence Research — INSTAR Lab Technology Research on adv"
       },
       {
         "source": "/search/",
@@ -8175,6 +8334,12 @@
       },
       {
         "source": "/",
+        "target": "/capability-statement/",
+        "occurrences": 1,
+        "label": "Capability statement"
+      },
+      {
+        "source": "/",
         "target": "/community/about-us/",
         "occurrences": 3,
         "label": "About Us"
@@ -8223,6 +8388,12 @@
       },
       {
         "source": "/",
+        "target": "/faq/",
+        "occurrences": 1,
+        "label": "FAQ"
+      },
+      {
+        "source": "/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -8256,6 +8427,12 @@
         "target": "/news/",
         "occurrences": 2,
         "label": "Research Briefs"
+      },
+      {
+        "source": "/",
+        "target": "/press/",
+        "occurrences": 1,
+        "label": "Press kit"
       },
       {
         "source": "/",
@@ -8631,6 +8808,12 @@
       },
       {
         "source": "/404.html",
+        "target": "/capability-statement/",
+        "occurrences": 1,
+        "label": "Capability statement"
+      },
+      {
+        "source": "/404.html",
         "target": "/community/about-us/",
         "occurrences": 3,
         "label": "About Us"
@@ -8679,6 +8862,12 @@
       },
       {
         "source": "/404.html",
+        "target": "/faq/",
+        "occurrences": 1,
+        "label": "FAQ"
+      },
+      {
+        "source": "/404.html",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -8712,6 +8901,12 @@
         "target": "/news/",
         "occurrences": 2,
         "label": "Research Briefs"
+      },
+      {
+        "source": "/404.html",
+        "target": "/press/",
+        "occurrences": 1,
+        "label": "Press kit"
       },
       {
         "source": "/404.html",
@@ -9087,6 +9282,12 @@
       },
       {
         "source": "/about/",
+        "target": "/capability-statement/",
+        "occurrences": 1,
+        "label": "Capability statement"
+      },
+      {
+        "source": "/about/",
         "target": "/community/about-us/",
         "occurrences": 3,
         "label": "About Us"
@@ -9135,6 +9336,12 @@
       },
       {
         "source": "/about/",
+        "target": "/faq/",
+        "occurrences": 1,
+        "label": "FAQ"
+      },
+      {
+        "source": "/about/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -9168,6 +9375,12 @@
         "target": "/news/",
         "occurrences": 2,
         "label": "Research Briefs"
+      },
+      {
+        "source": "/about/",
+        "target": "/press/",
+        "occurrences": 1,
+        "label": "Press kit"
       },
       {
         "source": "/about/",
@@ -9537,6 +9750,12 @@
       },
       {
         "source": "/accessibility/",
+        "target": "/capability-statement/",
+        "occurrences": 1,
+        "label": "Capability statement"
+      },
+      {
+        "source": "/accessibility/",
         "target": "/community/about-us/",
         "occurrences": 3,
         "label": "About Us"
@@ -9585,6 +9804,12 @@
       },
       {
         "source": "/accessibility/",
+        "target": "/faq/",
+        "occurrences": 1,
+        "label": "FAQ"
+      },
+      {
+        "source": "/accessibility/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -9618,6 +9843,12 @@
         "target": "/news/",
         "occurrences": 2,
         "label": "Research Briefs"
+      },
+      {
+        "source": "/accessibility/",
+        "target": "/press/",
+        "occurrences": 1,
+        "label": "Press kit"
       },
       {
         "source": "/accessibility/",
@@ -9975,6 +10206,474 @@
       },
       {
         "source": "/accessibility/",
+        "target": "/terms/",
+        "occurrences": 1,
+        "label": "Terms of use"
+      },
+      {
+        "source": "/capability-statement/",
+        "target": "/",
+        "occurrences": 1,
+        "label": ""
+      },
+      {
+        "source": "/capability-statement/",
+        "target": "/accessibility/",
+        "occurrences": 1,
+        "label": "Accessibility"
+      },
+      {
+        "source": "/capability-statement/",
+        "target": "/community/about-us/",
+        "occurrences": 3,
+        "label": "About Us"
+      },
+      {
+        "source": "/capability-statement/",
+        "target": "/community/careers/",
+        "occurrences": 3,
+        "label": "Careers"
+      },
+      {
+        "source": "/capability-statement/",
+        "target": "/community/leadership/",
+        "occurrences": 2,
+        "label": "Leadership"
+      },
+      {
+        "source": "/capability-statement/",
+        "target": "/community/partner/",
+        "occurrences": 2,
+        "label": "Partner"
+      },
+      {
+        "source": "/capability-statement/",
+        "target": "/community/support/",
+        "occurrences": 1,
+        "label": "Donate"
+      },
+      {
+        "source": "/capability-statement/",
+        "target": "/community/work-with-us/",
+        "occurrences": 2,
+        "label": "Collaborate"
+      },
+      {
+        "source": "/capability-statement/",
+        "target": "/contact-us/",
+        "occurrences": 3,
+        "label": "Contact"
+      },
+      {
+        "source": "/capability-statement/",
+        "target": "/cookies-and-partners/",
+        "occurrences": 5,
+        "label": "Cookies and partners"
+      },
+      {
+        "source": "/capability-statement/",
+        "target": "/faq/",
+        "occurrences": 1,
+        "label": "FAQ"
+      },
+      {
+        "source": "/capability-statement/",
+        "target": "/fellowship/",
+        "occurrences": 3,
+        "label": "Fellowship"
+      },
+      {
+        "source": "/capability-statement/",
+        "target": "/labs/biometric-security/",
+        "occurrences": 2,
+        "label": "Biometrics &amp; Drone Sensing"
+      },
+      {
+        "source": "/capability-statement/",
+        "target": "/labs/cognitive-ai/",
+        "occurrences": 2,
+        "label": "Cognitive AI &amp; Persona Systems"
+      },
+      {
+        "source": "/capability-statement/",
+        "target": "/labs/sovereign-ai/",
+        "occurrences": 2,
+        "label": "Sovereign AI Laboratory"
+      },
+      {
+        "source": "/capability-statement/",
+        "target": "/mission/",
+        "occurrences": 2,
+        "label": "Mission"
+      },
+      {
+        "source": "/capability-statement/",
+        "target": "/news/",
+        "occurrences": 2,
+        "label": "Research Briefs"
+      },
+      {
+        "source": "/capability-statement/",
+        "target": "/press/",
+        "occurrences": 1,
+        "label": "Press kit"
+      },
+      {
+        "source": "/capability-statement/",
+        "target": "/privacy/",
+        "occurrences": 3,
+        "label": "Privacy policy"
+      },
+      {
+        "source": "/capability-statement/",
+        "target": "/record/",
+        "occurrences": 2,
+        "label": "Record room"
+      },
+      {
+        "source": "/capability-statement/",
+        "target": "/record/affiliations/",
+        "occurrences": 2,
+        "label": "Affiliations"
+      },
+      {
+        "source": "/capability-statement/",
+        "target": "/record/corrections/",
+        "occurrences": 2,
+        "label": "Corrections"
+      },
+      {
+        "source": "/capability-statement/",
+        "target": "/record/federal/",
+        "occurrences": 2,
+        "label": "Federal"
+      },
+      {
+        "source": "/capability-statement/",
+        "target": "/record/files/",
+        "occurrences": 2,
+        "label": "Documents"
+      },
+      {
+        "source": "/capability-statement/",
+        "target": "/record/governance/",
+        "occurrences": 2,
+        "label": "Governance"
+      },
+      {
+        "source": "/capability-statement/",
+        "target": "/record/journeys/",
+        "occurrences": 2,
+        "label": "Decision briefs"
+      },
+      {
+        "source": "/capability-statement/",
+        "target": "/record/leadership/",
+        "occurrences": 2,
+        "label": "Leadership"
+      },
+      {
+        "source": "/capability-statement/",
+        "target": "/record/legal/",
+        "occurrences": 2,
+        "label": "Legal"
+      },
+      {
+        "source": "/capability-statement/",
+        "target": "/record/marketing/",
+        "occurrences": 2,
+        "label": "Positioning"
+      },
+      {
+        "source": "/capability-statement/",
+        "target": "/record/metrics/",
+        "occurrences": 2,
+        "label": "Inventory"
+      },
+      {
+        "source": "/capability-statement/",
+        "target": "/record/nav/",
+        "occurrences": 2,
+        "label": "Site map"
+      },
+      {
+        "source": "/capability-statement/",
+        "target": "/record/ops/",
+        "occurrences": 2,
+        "label": "Ops"
+      },
+      {
+        "source": "/capability-statement/",
+        "target": "/record/screens/",
+        "occurrences": 2,
+        "label": "Visuals"
+      },
+      {
+        "source": "/capability-statement/",
+        "target": "/record/style/",
+        "occurrences": 2,
+        "label": "Style"
+      },
+      {
+        "source": "/capability-statement/",
+        "target": "/record/verify/",
+        "occurrences": 2,
+        "label": "Sources"
+      },
+      {
+        "source": "/capability-statement/",
+        "target": "/research/consortium/",
+        "occurrences": 2,
+        "label": "INSTAR Consortium"
+      },
+      {
+        "source": "/capability-statement/",
+        "target": "/research/current-programs/",
+        "occurrences": 3,
+        "label": "Review research programs"
+      },
+      {
+        "source": "/capability-statement/",
+        "target": "/research/facilities/",
+        "occurrences": 2,
+        "label": "Facilities"
+      },
+      {
+        "source": "/capability-statement/",
+        "target": "/research/funding/",
+        "occurrences": 3,
+        "label": "Funding"
+      },
+      {
+        "source": "/capability-statement/",
+        "target": "/research/innovation/",
+        "occurrences": 2,
+        "label": "Innovation"
+      },
+      {
+        "source": "/capability-statement/",
+        "target": "/research/open-data/",
+        "occurrences": 2,
+        "label": "Open Data"
+      },
+      {
+        "source": "/capability-statement/",
+        "target": "/research/opportunities/",
+        "occurrences": 2,
+        "label": "Opportunities"
+      },
+      {
+        "source": "/capability-statement/",
+        "target": "/research/our-process/",
+        "occurrences": 3,
+        "label": "Our Process"
+      },
+      {
+        "source": "/capability-statement/",
+        "target": "/sciences/agriculture/",
+        "occurrences": 2,
+        "label": "Agriculture"
+      },
+      {
+        "source": "/capability-statement/",
+        "target": "/sciences/anthropology/",
+        "occurrences": 2,
+        "label": "Anthropology"
+      },
+      {
+        "source": "/capability-statement/",
+        "target": "/sciences/archaeology/",
+        "occurrences": 2,
+        "label": "Archaeology"
+      },
+      {
+        "source": "/capability-statement/",
+        "target": "/sciences/biology/",
+        "occurrences": 2,
+        "label": "Biology"
+      },
+      {
+        "source": "/capability-statement/",
+        "target": "/sciences/chemistry/",
+        "occurrences": 2,
+        "label": "Chemistry"
+      },
+      {
+        "source": "/capability-statement/",
+        "target": "/sciences/cognitive-sciences/",
+        "occurrences": 2,
+        "label": "Cognitive Sciences"
+      },
+      {
+        "source": "/capability-statement/",
+        "target": "/sciences/economics/",
+        "occurrences": 2,
+        "label": "Economics"
+      },
+      {
+        "source": "/capability-statement/",
+        "target": "/sciences/energy/",
+        "occurrences": 3,
+        "label": "Energy"
+      },
+      {
+        "source": "/capability-statement/",
+        "target": "/sciences/genetics/",
+        "occurrences": 2,
+        "label": "Genetics"
+      },
+      {
+        "source": "/capability-statement/",
+        "target": "/sciences/geology/",
+        "occurrences": 2,
+        "label": "Geology"
+      },
+      {
+        "source": "/capability-statement/",
+        "target": "/sciences/kinesiology/",
+        "occurrences": 2,
+        "label": "Kinesiology"
+      },
+      {
+        "source": "/capability-statement/",
+        "target": "/sciences/law/",
+        "occurrences": 2,
+        "label": "Law"
+      },
+      {
+        "source": "/capability-statement/",
+        "target": "/sciences/linguistics/",
+        "occurrences": 2,
+        "label": "Linguistics"
+      },
+      {
+        "source": "/capability-statement/",
+        "target": "/sciences/materials-science/",
+        "occurrences": 2,
+        "label": "Materials Science"
+      },
+      {
+        "source": "/capability-statement/",
+        "target": "/sciences/medicine/",
+        "occurrences": 3,
+        "label": "Medicine"
+      },
+      {
+        "source": "/capability-statement/",
+        "target": "/sciences/neuroscience/",
+        "occurrences": 2,
+        "label": "Neuroscience"
+      },
+      {
+        "source": "/capability-statement/",
+        "target": "/sciences/ocean-science/",
+        "occurrences": 2,
+        "label": "Ocean Science"
+      },
+      {
+        "source": "/capability-statement/",
+        "target": "/sciences/outer-space/",
+        "occurrences": 2,
+        "label": "Outer Space"
+      },
+      {
+        "source": "/capability-statement/",
+        "target": "/sciences/physics/",
+        "occurrences": 2,
+        "label": "Physics"
+      },
+      {
+        "source": "/capability-statement/",
+        "target": "/sciences/physiology/",
+        "occurrences": 2,
+        "label": "Physiology"
+      },
+      {
+        "source": "/capability-statement/",
+        "target": "/sciences/psychology/",
+        "occurrences": 2,
+        "label": "Psychology"
+      },
+      {
+        "source": "/capability-statement/",
+        "target": "/sciences/sociology/",
+        "occurrences": 2,
+        "label": "Sociology"
+      },
+      {
+        "source": "/capability-statement/",
+        "target": "/search/",
+        "occurrences": 2,
+        "label": "Search"
+      },
+      {
+        "source": "/capability-statement/",
+        "target": "/tech-transfer/enterprise-rd/",
+        "occurrences": 2,
+        "label": "Enterprise R&amp;D"
+      },
+      {
+        "source": "/capability-statement/",
+        "target": "/tech-transfer/portfolio/",
+        "occurrences": 2,
+        "label": "Portfolio"
+      },
+      {
+        "source": "/capability-statement/",
+        "target": "/tech-transfer/sttr-programs/",
+        "occurrences": 2,
+        "label": "STTR Programs"
+      },
+      {
+        "source": "/capability-statement/",
+        "target": "/tech-transfer/workshops-events/",
+        "occurrences": 2,
+        "label": "Workshops &amp; Events"
+      },
+      {
+        "source": "/capability-statement/",
+        "target": "/technology/augmented-reality/",
+        "occurrences": 2,
+        "label": "Augmented Reality"
+      },
+      {
+        "source": "/capability-statement/",
+        "target": "/technology/computer-science/",
+        "occurrences": 3,
+        "label": "Computer Science"
+      },
+      {
+        "source": "/capability-statement/",
+        "target": "/technology/data-science/",
+        "occurrences": 3,
+        "label": "Data Science"
+      },
+      {
+        "source": "/capability-statement/",
+        "target": "/technology/formal-methods/",
+        "occurrences": 2,
+        "label": "Formal Methods"
+      },
+      {
+        "source": "/capability-statement/",
+        "target": "/technology/machine-intelligence/",
+        "occurrences": 3,
+        "label": "Machine Intelligence"
+      },
+      {
+        "source": "/capability-statement/",
+        "target": "/technology/natural-language-processing/",
+        "occurrences": 2,
+        "label": "Natural Language Processing"
+      },
+      {
+        "source": "/capability-statement/",
+        "target": "/technology/quantum-computing/",
+        "occurrences": 3,
+        "label": "Quantum Computing"
+      },
+      {
+        "source": "/capability-statement/",
         "target": "/terms/",
         "occurrences": 1,
         "label": "Terms of use"
@@ -9993,6 +10692,12 @@
       },
       {
         "source": "/community/about-us/",
+        "target": "/capability-statement/",
+        "occurrences": 1,
+        "label": "Capability statement"
+      },
+      {
+        "source": "/community/about-us/",
         "target": "/community/careers/",
         "occurrences": 3,
         "label": "Careers"
@@ -10035,6 +10740,12 @@
       },
       {
         "source": "/community/about-us/",
+        "target": "/faq/",
+        "occurrences": 1,
+        "label": "FAQ"
+      },
+      {
+        "source": "/community/about-us/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -10068,6 +10779,12 @@
         "target": "/news/",
         "occurrences": 2,
         "label": "Research Briefs"
+      },
+      {
+        "source": "/community/about-us/",
+        "target": "/press/",
+        "occurrences": 1,
+        "label": "Press kit"
       },
       {
         "source": "/community/about-us/",
@@ -10443,6 +11160,12 @@
       },
       {
         "source": "/community/careers/",
+        "target": "/capability-statement/",
+        "occurrences": 1,
+        "label": "Capability statement"
+      },
+      {
+        "source": "/community/careers/",
         "target": "/community/about-us/",
         "occurrences": 3,
         "label": "About Us"
@@ -10485,6 +11208,12 @@
       },
       {
         "source": "/community/careers/",
+        "target": "/faq/",
+        "occurrences": 1,
+        "label": "FAQ"
+      },
+      {
+        "source": "/community/careers/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -10518,6 +11247,12 @@
         "target": "/news/",
         "occurrences": 2,
         "label": "Research Briefs"
+      },
+      {
+        "source": "/community/careers/",
+        "target": "/press/",
+        "occurrences": 1,
+        "label": "Press kit"
       },
       {
         "source": "/community/careers/",
@@ -10893,6 +11628,12 @@
       },
       {
         "source": "/community/contact/",
+        "target": "/capability-statement/",
+        "occurrences": 1,
+        "label": "Capability statement"
+      },
+      {
+        "source": "/community/contact/",
         "target": "/community/about-us/",
         "occurrences": 3,
         "label": "About Us"
@@ -10941,6 +11682,12 @@
       },
       {
         "source": "/community/contact/",
+        "target": "/faq/",
+        "occurrences": 1,
+        "label": "FAQ"
+      },
+      {
+        "source": "/community/contact/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -10974,6 +11721,12 @@
         "target": "/news/",
         "occurrences": 2,
         "label": "Research Briefs"
+      },
+      {
+        "source": "/community/contact/",
+        "target": "/press/",
+        "occurrences": 1,
+        "label": "Press kit"
       },
       {
         "source": "/community/contact/",
@@ -11349,6 +12102,12 @@
       },
       {
         "source": "/community/leadership/",
+        "target": "/capability-statement/",
+        "occurrences": 1,
+        "label": "Capability statement"
+      },
+      {
+        "source": "/community/leadership/",
         "target": "/community/about-us/",
         "occurrences": 3,
         "label": "About Us"
@@ -11391,6 +12150,12 @@
       },
       {
         "source": "/community/leadership/",
+        "target": "/faq/",
+        "occurrences": 1,
+        "label": "FAQ"
+      },
+      {
+        "source": "/community/leadership/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -11424,6 +12189,12 @@
         "target": "/news/",
         "occurrences": 2,
         "label": "Research Briefs"
+      },
+      {
+        "source": "/community/leadership/",
+        "target": "/press/",
+        "occurrences": 1,
+        "label": "Press kit"
       },
       {
         "source": "/community/leadership/",
@@ -11799,6 +12570,12 @@
       },
       {
         "source": "/community/partner/",
+        "target": "/capability-statement/",
+        "occurrences": 1,
+        "label": "Capability statement"
+      },
+      {
+        "source": "/community/partner/",
         "target": "/community/about-us/",
         "occurrences": 3,
         "label": "About Us"
@@ -11841,6 +12618,12 @@
       },
       {
         "source": "/community/partner/",
+        "target": "/faq/",
+        "occurrences": 1,
+        "label": "FAQ"
+      },
+      {
+        "source": "/community/partner/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -11874,6 +12657,12 @@
         "target": "/news/",
         "occurrences": 2,
         "label": "Research Briefs"
+      },
+      {
+        "source": "/community/partner/",
+        "target": "/press/",
+        "occurrences": 1,
+        "label": "Press kit"
       },
       {
         "source": "/community/partner/",
@@ -12249,6 +13038,12 @@
       },
       {
         "source": "/community/support/",
+        "target": "/capability-statement/",
+        "occurrences": 1,
+        "label": "Capability statement"
+      },
+      {
+        "source": "/community/support/",
         "target": "/community/about-us/",
         "occurrences": 3,
         "label": "About Us"
@@ -12291,6 +13086,12 @@
       },
       {
         "source": "/community/support/",
+        "target": "/faq/",
+        "occurrences": 1,
+        "label": "FAQ"
+      },
+      {
+        "source": "/community/support/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -12324,6 +13125,12 @@
         "target": "/news/",
         "occurrences": 2,
         "label": "Research Briefs"
+      },
+      {
+        "source": "/community/support/",
+        "target": "/press/",
+        "occurrences": 1,
+        "label": "Press kit"
       },
       {
         "source": "/community/support/",
@@ -12699,6 +13506,12 @@
       },
       {
         "source": "/community/work-with-us/",
+        "target": "/capability-statement/",
+        "occurrences": 1,
+        "label": "Capability statement"
+      },
+      {
+        "source": "/community/work-with-us/",
         "target": "/community/about-us/",
         "occurrences": 3,
         "label": "About Us"
@@ -12741,6 +13554,12 @@
       },
       {
         "source": "/community/work-with-us/",
+        "target": "/faq/",
+        "occurrences": 1,
+        "label": "FAQ"
+      },
+      {
+        "source": "/community/work-with-us/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -12774,6 +13593,12 @@
         "target": "/news/",
         "occurrences": 2,
         "label": "Research Briefs"
+      },
+      {
+        "source": "/community/work-with-us/",
+        "target": "/press/",
+        "occurrences": 1,
+        "label": "Press kit"
       },
       {
         "source": "/community/work-with-us/",
@@ -13149,6 +13974,12 @@
       },
       {
         "source": "/contact-us/",
+        "target": "/capability-statement/",
+        "occurrences": 1,
+        "label": "Capability statement"
+      },
+      {
+        "source": "/contact-us/",
         "target": "/community/about-us/",
         "occurrences": 3,
         "label": "About Us"
@@ -13191,6 +14022,12 @@
       },
       {
         "source": "/contact-us/",
+        "target": "/faq/",
+        "occurrences": 1,
+        "label": "FAQ"
+      },
+      {
+        "source": "/contact-us/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -13224,6 +14061,12 @@
         "target": "/news/",
         "occurrences": 2,
         "label": "Research Briefs"
+      },
+      {
+        "source": "/contact-us/",
+        "target": "/press/",
+        "occurrences": 1,
+        "label": "Press kit"
       },
       {
         "source": "/contact-us/",
@@ -13599,6 +14442,12 @@
       },
       {
         "source": "/cookies-and-partners/",
+        "target": "/capability-statement/",
+        "occurrences": 1,
+        "label": "Capability statement"
+      },
+      {
+        "source": "/cookies-and-partners/",
         "target": "/community/about-us/",
         "occurrences": 3,
         "label": "About Us"
@@ -13641,6 +14490,12 @@
       },
       {
         "source": "/cookies-and-partners/",
+        "target": "/faq/",
+        "occurrences": 1,
+        "label": "FAQ"
+      },
+      {
+        "source": "/cookies-and-partners/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -13674,6 +14529,12 @@
         "target": "/news/",
         "occurrences": 2,
         "label": "Research Briefs"
+      },
+      {
+        "source": "/cookies-and-partners/",
+        "target": "/press/",
+        "occurrences": 1,
+        "label": "Press kit"
       },
       {
         "source": "/cookies-and-partners/",
@@ -14049,6 +14910,12 @@
       },
       {
         "source": "/faq/",
+        "target": "/capability-statement/",
+        "occurrences": 1,
+        "label": "Capability statement"
+      },
+      {
+        "source": "/faq/",
         "target": "/community/about-us/",
         "occurrences": 3,
         "label": "About Us"
@@ -14130,6 +14997,12 @@
         "target": "/news/",
         "occurrences": 2,
         "label": "Research Briefs"
+      },
+      {
+        "source": "/faq/",
+        "target": "/press/",
+        "occurrences": 1,
+        "label": "Press kit"
       },
       {
         "source": "/faq/",
@@ -14505,6 +15378,12 @@
       },
       {
         "source": "/fellowship/",
+        "target": "/capability-statement/",
+        "occurrences": 1,
+        "label": "Capability statement"
+      },
+      {
+        "source": "/fellowship/",
         "target": "/community/about-us/",
         "occurrences": 3,
         "label": "About Us"
@@ -14553,6 +15432,12 @@
       },
       {
         "source": "/fellowship/",
+        "target": "/faq/",
+        "occurrences": 1,
+        "label": "FAQ"
+      },
+      {
+        "source": "/fellowship/",
         "target": "/labs/biometric-security/",
         "occurrences": 2,
         "label": "Biometrics &amp; Drone Sensing"
@@ -14580,6 +15465,12 @@
         "target": "/news/",
         "occurrences": 2,
         "label": "Research Briefs"
+      },
+      {
+        "source": "/fellowship/",
+        "target": "/press/",
+        "occurrences": 1,
+        "label": "Press kit"
       },
       {
         "source": "/fellowship/",
@@ -14955,6 +15846,12 @@
       },
       {
         "source": "/labs/biometric-security/",
+        "target": "/capability-statement/",
+        "occurrences": 1,
+        "label": "Capability statement"
+      },
+      {
+        "source": "/labs/biometric-security/",
         "target": "/community/about-us/",
         "occurrences": 3,
         "label": "About Us"
@@ -15003,6 +15900,12 @@
       },
       {
         "source": "/labs/biometric-security/",
+        "target": "/faq/",
+        "occurrences": 1,
+        "label": "FAQ"
+      },
+      {
+        "source": "/labs/biometric-security/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -15030,6 +15933,12 @@
         "target": "/news/",
         "occurrences": 2,
         "label": "Research Briefs"
+      },
+      {
+        "source": "/labs/biometric-security/",
+        "target": "/press/",
+        "occurrences": 1,
+        "label": "Press kit"
       },
       {
         "source": "/labs/biometric-security/",
@@ -15405,6 +16314,12 @@
       },
       {
         "source": "/labs/cognitive-ai/",
+        "target": "/capability-statement/",
+        "occurrences": 1,
+        "label": "Capability statement"
+      },
+      {
+        "source": "/labs/cognitive-ai/",
         "target": "/community/about-us/",
         "occurrences": 3,
         "label": "About Us"
@@ -15453,6 +16368,12 @@
       },
       {
         "source": "/labs/cognitive-ai/",
+        "target": "/faq/",
+        "occurrences": 1,
+        "label": "FAQ"
+      },
+      {
+        "source": "/labs/cognitive-ai/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -15480,6 +16401,12 @@
         "target": "/news/",
         "occurrences": 2,
         "label": "Research Briefs"
+      },
+      {
+        "source": "/labs/cognitive-ai/",
+        "target": "/press/",
+        "occurrences": 1,
+        "label": "Press kit"
       },
       {
         "source": "/labs/cognitive-ai/",
@@ -15855,6 +16782,12 @@
       },
       {
         "source": "/labs/sovereign-ai/",
+        "target": "/capability-statement/",
+        "occurrences": 1,
+        "label": "Capability statement"
+      },
+      {
+        "source": "/labs/sovereign-ai/",
         "target": "/community/about-us/",
         "occurrences": 3,
         "label": "About Us"
@@ -15903,6 +16836,12 @@
       },
       {
         "source": "/labs/sovereign-ai/",
+        "target": "/faq/",
+        "occurrences": 1,
+        "label": "FAQ"
+      },
+      {
+        "source": "/labs/sovereign-ai/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -15930,6 +16869,12 @@
         "target": "/news/",
         "occurrences": 2,
         "label": "Research Briefs"
+      },
+      {
+        "source": "/labs/sovereign-ai/",
+        "target": "/press/",
+        "occurrences": 1,
+        "label": "Press kit"
       },
       {
         "source": "/labs/sovereign-ai/",
@@ -16305,6 +17250,12 @@
       },
       {
         "source": "/mission/",
+        "target": "/capability-statement/",
+        "occurrences": 1,
+        "label": "Capability statement"
+      },
+      {
+        "source": "/mission/",
         "target": "/community/about-us/",
         "occurrences": 3,
         "label": "About Us"
@@ -16353,6 +17304,12 @@
       },
       {
         "source": "/mission/",
+        "target": "/faq/",
+        "occurrences": 1,
+        "label": "FAQ"
+      },
+      {
+        "source": "/mission/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -16380,6 +17337,12 @@
         "target": "/news/",
         "occurrences": 2,
         "label": "Research Briefs"
+      },
+      {
+        "source": "/mission/",
+        "target": "/press/",
+        "occurrences": 1,
+        "label": "Press kit"
       },
       {
         "source": "/mission/",
@@ -16755,6 +17718,12 @@
       },
       {
         "source": "/news/",
+        "target": "/capability-statement/",
+        "occurrences": 1,
+        "label": "Capability statement"
+      },
+      {
+        "source": "/news/",
         "target": "/community/about-us/",
         "occurrences": 3,
         "label": "About Us"
@@ -16803,6 +17772,12 @@
       },
       {
         "source": "/news/",
+        "target": "/faq/",
+        "occurrences": 1,
+        "label": "FAQ"
+      },
+      {
+        "source": "/news/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -16830,6 +17805,12 @@
         "target": "/mission/",
         "occurrences": 2,
         "label": "Mission"
+      },
+      {
+        "source": "/news/",
+        "target": "/press/",
+        "occurrences": 1,
+        "label": "Press kit"
       },
       {
         "source": "/news/",
@@ -17205,6 +18186,12 @@
       },
       {
         "source": "/news/clinical-ai-safety/",
+        "target": "/capability-statement/",
+        "occurrences": 1,
+        "label": "Capability statement"
+      },
+      {
+        "source": "/news/clinical-ai-safety/",
         "target": "/community/about-us/",
         "occurrences": 3,
         "label": "About Us"
@@ -17253,6 +18240,12 @@
       },
       {
         "source": "/news/clinical-ai-safety/",
+        "target": "/faq/",
+        "occurrences": 1,
+        "label": "FAQ"
+      },
+      {
+        "source": "/news/clinical-ai-safety/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -17286,6 +18279,12 @@
         "target": "/news/",
         "occurrences": 2,
         "label": "Research Briefs"
+      },
+      {
+        "source": "/news/clinical-ai-safety/",
+        "target": "/press/",
+        "occurrences": 1,
+        "label": "Press kit"
       },
       {
         "source": "/news/clinical-ai-safety/",
@@ -17661,6 +18660,12 @@
       },
       {
         "source": "/news/formal-methods-safety-critical-trust/",
+        "target": "/capability-statement/",
+        "occurrences": 1,
+        "label": "Capability statement"
+      },
+      {
+        "source": "/news/formal-methods-safety-critical-trust/",
         "target": "/community/about-us/",
         "occurrences": 3,
         "label": "About Us"
@@ -17709,6 +18714,12 @@
       },
       {
         "source": "/news/formal-methods-safety-critical-trust/",
+        "target": "/faq/",
+        "occurrences": 1,
+        "label": "FAQ"
+      },
+      {
+        "source": "/news/formal-methods-safety-critical-trust/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -17742,6 +18753,12 @@
         "target": "/news/",
         "occurrences": 2,
         "label": "Research Briefs"
+      },
+      {
+        "source": "/news/formal-methods-safety-critical-trust/",
+        "target": "/press/",
+        "occurrences": 1,
+        "label": "Press kit"
       },
       {
         "source": "/news/formal-methods-safety-critical-trust/",
@@ -18117,6 +19134,12 @@
       },
       {
         "source": "/news/hpc-infrastructure-for-ai/",
+        "target": "/capability-statement/",
+        "occurrences": 1,
+        "label": "Capability statement"
+      },
+      {
+        "source": "/news/hpc-infrastructure-for-ai/",
         "target": "/community/about-us/",
         "occurrences": 3,
         "label": "About Us"
@@ -18165,6 +19188,12 @@
       },
       {
         "source": "/news/hpc-infrastructure-for-ai/",
+        "target": "/faq/",
+        "occurrences": 1,
+        "label": "FAQ"
+      },
+      {
+        "source": "/news/hpc-infrastructure-for-ai/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -18198,6 +19227,12 @@
         "target": "/news/",
         "occurrences": 2,
         "label": "Research Briefs"
+      },
+      {
+        "source": "/news/hpc-infrastructure-for-ai/",
+        "target": "/press/",
+        "occurrences": 1,
+        "label": "Press kit"
       },
       {
         "source": "/news/hpc-infrastructure-for-ai/",
@@ -18573,6 +19608,12 @@
       },
       {
         "source": "/news/legal-foundations-tech-governance/",
+        "target": "/capability-statement/",
+        "occurrences": 1,
+        "label": "Capability statement"
+      },
+      {
+        "source": "/news/legal-foundations-tech-governance/",
         "target": "/community/about-us/",
         "occurrences": 3,
         "label": "About Us"
@@ -18621,6 +19662,12 @@
       },
       {
         "source": "/news/legal-foundations-tech-governance/",
+        "target": "/faq/",
+        "occurrences": 1,
+        "label": "FAQ"
+      },
+      {
+        "source": "/news/legal-foundations-tech-governance/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -18654,6 +19701,12 @@
         "target": "/news/",
         "occurrences": 2,
         "label": "Research Briefs"
+      },
+      {
+        "source": "/news/legal-foundations-tech-governance/",
+        "target": "/press/",
+        "occurrences": 1,
+        "label": "Press kit"
       },
       {
         "source": "/news/legal-foundations-tech-governance/",
@@ -19029,6 +20082,12 @@
       },
       {
         "source": "/news/materials-science-energy-transition/",
+        "target": "/capability-statement/",
+        "occurrences": 1,
+        "label": "Capability statement"
+      },
+      {
+        "source": "/news/materials-science-energy-transition/",
         "target": "/community/about-us/",
         "occurrences": 3,
         "label": "About Us"
@@ -19077,6 +20136,12 @@
       },
       {
         "source": "/news/materials-science-energy-transition/",
+        "target": "/faq/",
+        "occurrences": 1,
+        "label": "FAQ"
+      },
+      {
+        "source": "/news/materials-science-energy-transition/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -19110,6 +20175,12 @@
         "target": "/news/",
         "occurrences": 2,
         "label": "Research Briefs"
+      },
+      {
+        "source": "/news/materials-science-energy-transition/",
+        "target": "/press/",
+        "occurrences": 1,
+        "label": "Press kit"
       },
       {
         "source": "/news/materials-science-energy-transition/",
@@ -19485,6 +20556,12 @@
       },
       {
         "source": "/news/open-data-research-philosophy/",
+        "target": "/capability-statement/",
+        "occurrences": 1,
+        "label": "Capability statement"
+      },
+      {
+        "source": "/news/open-data-research-philosophy/",
         "target": "/community/about-us/",
         "occurrences": 3,
         "label": "About Us"
@@ -19533,6 +20610,12 @@
       },
       {
         "source": "/news/open-data-research-philosophy/",
+        "target": "/faq/",
+        "occurrences": 1,
+        "label": "FAQ"
+      },
+      {
+        "source": "/news/open-data-research-philosophy/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -19566,6 +20649,12 @@
         "target": "/news/",
         "occurrences": 2,
         "label": "Research Briefs"
+      },
+      {
+        "source": "/news/open-data-research-philosophy/",
+        "target": "/press/",
+        "occurrences": 1,
+        "label": "Press kit"
       },
       {
         "source": "/news/open-data-research-philosophy/",
@@ -19941,6 +21030,12 @@
       },
       {
         "source": "/news/precision-agriculture-open-data/",
+        "target": "/capability-statement/",
+        "occurrences": 1,
+        "label": "Capability statement"
+      },
+      {
+        "source": "/news/precision-agriculture-open-data/",
         "target": "/community/about-us/",
         "occurrences": 3,
         "label": "About Us"
@@ -19989,6 +21084,12 @@
       },
       {
         "source": "/news/precision-agriculture-open-data/",
+        "target": "/faq/",
+        "occurrences": 1,
+        "label": "FAQ"
+      },
+      {
+        "source": "/news/precision-agriculture-open-data/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -20022,6 +21123,12 @@
         "target": "/news/",
         "occurrences": 2,
         "label": "Research Briefs"
+      },
+      {
+        "source": "/news/precision-agriculture-open-data/",
+        "target": "/press/",
+        "occurrences": 1,
+        "label": "Press kit"
       },
       {
         "source": "/news/precision-agriculture-open-data/",
@@ -20397,6 +21504,12 @@
       },
       {
         "source": "/news/quantum-sensing-breakthroughs/",
+        "target": "/capability-statement/",
+        "occurrences": 1,
+        "label": "Capability statement"
+      },
+      {
+        "source": "/news/quantum-sensing-breakthroughs/",
         "target": "/community/about-us/",
         "occurrences": 3,
         "label": "About Us"
@@ -20445,6 +21558,12 @@
       },
       {
         "source": "/news/quantum-sensing-breakthroughs/",
+        "target": "/faq/",
+        "occurrences": 1,
+        "label": "FAQ"
+      },
+      {
+        "source": "/news/quantum-sensing-breakthroughs/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -20478,6 +21597,12 @@
         "target": "/news/",
         "occurrences": 2,
         "label": "Research Briefs"
+      },
+      {
+        "source": "/news/quantum-sensing-breakthroughs/",
+        "target": "/press/",
+        "occurrences": 1,
+        "label": "Press kit"
       },
       {
         "source": "/news/quantum-sensing-breakthroughs/",
@@ -20853,6 +21978,12 @@
       },
       {
         "source": "/press/",
+        "target": "/capability-statement/",
+        "occurrences": 1,
+        "label": "Capability statement"
+      },
+      {
+        "source": "/press/",
         "target": "/community/about-us/",
         "occurrences": 3,
         "label": "About Us"
@@ -20898,6 +22029,12 @@
         "target": "/cookies-and-partners/",
         "occurrences": 5,
         "label": "Cookies and partners"
+      },
+      {
+        "source": "/press/",
+        "target": "/faq/",
+        "occurrences": 1,
+        "label": "FAQ"
       },
       {
         "source": "/press/",
@@ -21309,6 +22446,12 @@
       },
       {
         "source": "/privacy/",
+        "target": "/capability-statement/",
+        "occurrences": 1,
+        "label": "Capability statement"
+      },
+      {
+        "source": "/privacy/",
         "target": "/community/about-us/",
         "occurrences": 3,
         "label": "About Us"
@@ -21357,6 +22500,12 @@
       },
       {
         "source": "/privacy/",
+        "target": "/faq/",
+        "occurrences": 1,
+        "label": "FAQ"
+      },
+      {
+        "source": "/privacy/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -21390,6 +22539,12 @@
         "target": "/news/",
         "occurrences": 2,
         "label": "Research Briefs"
+      },
+      {
+        "source": "/privacy/",
+        "target": "/press/",
+        "occurrences": 1,
+        "label": "Press kit"
       },
       {
         "source": "/privacy/",
@@ -21759,6 +22914,12 @@
       },
       {
         "source": "/research/",
+        "target": "/capability-statement/",
+        "occurrences": 1,
+        "label": "Capability statement"
+      },
+      {
+        "source": "/research/",
         "target": "/community/about-us/",
         "occurrences": 3,
         "label": "About Us"
@@ -21807,6 +22968,12 @@
       },
       {
         "source": "/research/",
+        "target": "/faq/",
+        "occurrences": 1,
+        "label": "FAQ"
+      },
+      {
+        "source": "/research/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -21840,6 +23007,12 @@
         "target": "/news/",
         "occurrences": 2,
         "label": "Research Briefs"
+      },
+      {
+        "source": "/research/",
+        "target": "/press/",
+        "occurrences": 1,
+        "label": "Press kit"
       },
       {
         "source": "/research/",
@@ -22215,6 +23388,12 @@
       },
       {
         "source": "/research/consortium/",
+        "target": "/capability-statement/",
+        "occurrences": 1,
+        "label": "Capability statement"
+      },
+      {
+        "source": "/research/consortium/",
         "target": "/community/about-us/",
         "occurrences": 3,
         "label": "About Us"
@@ -22263,6 +23442,12 @@
       },
       {
         "source": "/research/consortium/",
+        "target": "/faq/",
+        "occurrences": 1,
+        "label": "FAQ"
+      },
+      {
+        "source": "/research/consortium/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -22296,6 +23481,12 @@
         "target": "/news/",
         "occurrences": 2,
         "label": "Research Briefs"
+      },
+      {
+        "source": "/research/consortium/",
+        "target": "/press/",
+        "occurrences": 1,
+        "label": "Press kit"
       },
       {
         "source": "/research/consortium/",
@@ -22665,6 +23856,12 @@
       },
       {
         "source": "/research/current-programs/",
+        "target": "/capability-statement/",
+        "occurrences": 1,
+        "label": "Capability statement"
+      },
+      {
+        "source": "/research/current-programs/",
         "target": "/community/about-us/",
         "occurrences": 3,
         "label": "About Us"
@@ -22713,6 +23910,12 @@
       },
       {
         "source": "/research/current-programs/",
+        "target": "/faq/",
+        "occurrences": 1,
+        "label": "FAQ"
+      },
+      {
+        "source": "/research/current-programs/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -22746,6 +23949,12 @@
         "target": "/news/",
         "occurrences": 2,
         "label": "Research Briefs"
+      },
+      {
+        "source": "/research/current-programs/",
+        "target": "/press/",
+        "occurrences": 1,
+        "label": "Press kit"
       },
       {
         "source": "/research/current-programs/",
@@ -23115,6 +24324,12 @@
       },
       {
         "source": "/research/facilities/",
+        "target": "/capability-statement/",
+        "occurrences": 1,
+        "label": "Capability statement"
+      },
+      {
+        "source": "/research/facilities/",
         "target": "/community/about-us/",
         "occurrences": 3,
         "label": "About Us"
@@ -23163,6 +24378,12 @@
       },
       {
         "source": "/research/facilities/",
+        "target": "/faq/",
+        "occurrences": 1,
+        "label": "FAQ"
+      },
+      {
+        "source": "/research/facilities/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -23196,6 +24417,12 @@
         "target": "/news/",
         "occurrences": 2,
         "label": "Research Briefs"
+      },
+      {
+        "source": "/research/facilities/",
+        "target": "/press/",
+        "occurrences": 1,
+        "label": "Press kit"
       },
       {
         "source": "/research/facilities/",
@@ -23565,6 +24792,12 @@
       },
       {
         "source": "/research/funding/",
+        "target": "/capability-statement/",
+        "occurrences": 1,
+        "label": "Capability statement"
+      },
+      {
+        "source": "/research/funding/",
         "target": "/community/about-us/",
         "occurrences": 3,
         "label": "About Us"
@@ -23613,6 +24846,12 @@
       },
       {
         "source": "/research/funding/",
+        "target": "/faq/",
+        "occurrences": 1,
+        "label": "FAQ"
+      },
+      {
+        "source": "/research/funding/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -23646,6 +24885,12 @@
         "target": "/news/",
         "occurrences": 2,
         "label": "Research Briefs"
+      },
+      {
+        "source": "/research/funding/",
+        "target": "/press/",
+        "occurrences": 1,
+        "label": "Press kit"
       },
       {
         "source": "/research/funding/",
@@ -24015,6 +25260,12 @@
       },
       {
         "source": "/research/innovation/",
+        "target": "/capability-statement/",
+        "occurrences": 1,
+        "label": "Capability statement"
+      },
+      {
+        "source": "/research/innovation/",
         "target": "/community/about-us/",
         "occurrences": 3,
         "label": "About Us"
@@ -24063,6 +25314,12 @@
       },
       {
         "source": "/research/innovation/",
+        "target": "/faq/",
+        "occurrences": 1,
+        "label": "FAQ"
+      },
+      {
+        "source": "/research/innovation/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -24096,6 +25353,12 @@
         "target": "/news/",
         "occurrences": 2,
         "label": "Research Briefs"
+      },
+      {
+        "source": "/research/innovation/",
+        "target": "/press/",
+        "occurrences": 1,
+        "label": "Press kit"
       },
       {
         "source": "/research/innovation/",
@@ -24465,6 +25728,12 @@
       },
       {
         "source": "/research/open-data/",
+        "target": "/capability-statement/",
+        "occurrences": 1,
+        "label": "Capability statement"
+      },
+      {
+        "source": "/research/open-data/",
         "target": "/community/about-us/",
         "occurrences": 3,
         "label": "About Us"
@@ -24513,6 +25782,12 @@
       },
       {
         "source": "/research/open-data/",
+        "target": "/faq/",
+        "occurrences": 1,
+        "label": "FAQ"
+      },
+      {
+        "source": "/research/open-data/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -24546,6 +25821,12 @@
         "target": "/news/",
         "occurrences": 2,
         "label": "Research Briefs"
+      },
+      {
+        "source": "/research/open-data/",
+        "target": "/press/",
+        "occurrences": 1,
+        "label": "Press kit"
       },
       {
         "source": "/research/open-data/",
@@ -24915,6 +26196,12 @@
       },
       {
         "source": "/research/opportunities/",
+        "target": "/capability-statement/",
+        "occurrences": 1,
+        "label": "Capability statement"
+      },
+      {
+        "source": "/research/opportunities/",
         "target": "/community/about-us/",
         "occurrences": 3,
         "label": "About Us"
@@ -24963,6 +26250,12 @@
       },
       {
         "source": "/research/opportunities/",
+        "target": "/faq/",
+        "occurrences": 1,
+        "label": "FAQ"
+      },
+      {
+        "source": "/research/opportunities/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -24996,6 +26289,12 @@
         "target": "/news/",
         "occurrences": 2,
         "label": "Research Briefs"
+      },
+      {
+        "source": "/research/opportunities/",
+        "target": "/press/",
+        "occurrences": 1,
+        "label": "Press kit"
       },
       {
         "source": "/research/opportunities/",
@@ -25365,6 +26664,12 @@
       },
       {
         "source": "/research/our-process/",
+        "target": "/capability-statement/",
+        "occurrences": 1,
+        "label": "Capability statement"
+      },
+      {
+        "source": "/research/our-process/",
         "target": "/community/about-us/",
         "occurrences": 3,
         "label": "About Us"
@@ -25413,6 +26718,12 @@
       },
       {
         "source": "/research/our-process/",
+        "target": "/faq/",
+        "occurrences": 1,
+        "label": "FAQ"
+      },
+      {
+        "source": "/research/our-process/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -25446,6 +26757,12 @@
         "target": "/news/",
         "occurrences": 2,
         "label": "Research Briefs"
+      },
+      {
+        "source": "/research/our-process/",
+        "target": "/press/",
+        "occurrences": 1,
+        "label": "Press kit"
       },
       {
         "source": "/research/our-process/",
@@ -25815,6 +27132,12 @@
       },
       {
         "source": "/research/outputs/",
+        "target": "/capability-statement/",
+        "occurrences": 1,
+        "label": "Capability statement"
+      },
+      {
+        "source": "/research/outputs/",
         "target": "/community/about-us/",
         "occurrences": 3,
         "label": "About Us"
@@ -25863,6 +27186,12 @@
       },
       {
         "source": "/research/outputs/",
+        "target": "/faq/",
+        "occurrences": 1,
+        "label": "FAQ"
+      },
+      {
+        "source": "/research/outputs/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -25896,6 +27225,12 @@
         "target": "/news/",
         "occurrences": 2,
         "label": "Research Briefs"
+      },
+      {
+        "source": "/research/outputs/",
+        "target": "/press/",
+        "occurrences": 1,
+        "label": "Press kit"
       },
       {
         "source": "/research/outputs/",
@@ -26271,6 +27606,12 @@
       },
       {
         "source": "/research/publications/",
+        "target": "/capability-statement/",
+        "occurrences": 1,
+        "label": "Capability statement"
+      },
+      {
+        "source": "/research/publications/",
         "target": "/community/about-us/",
         "occurrences": 3,
         "label": "About Us"
@@ -26319,6 +27660,12 @@
       },
       {
         "source": "/research/publications/",
+        "target": "/faq/",
+        "occurrences": 1,
+        "label": "FAQ"
+      },
+      {
+        "source": "/research/publications/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -26352,6 +27699,12 @@
         "target": "/news/",
         "occurrences": 2,
         "label": "Research Briefs"
+      },
+      {
+        "source": "/research/publications/",
+        "target": "/press/",
+        "occurrences": 1,
+        "label": "Press kit"
       },
       {
         "source": "/research/publications/",
@@ -26727,6 +28080,12 @@
       },
       {
         "source": "/sciences/agriculture/",
+        "target": "/capability-statement/",
+        "occurrences": 1,
+        "label": "Capability statement"
+      },
+      {
+        "source": "/sciences/agriculture/",
         "target": "/community/about-us/",
         "occurrences": 3,
         "label": "About Us"
@@ -26775,6 +28134,12 @@
       },
       {
         "source": "/sciences/agriculture/",
+        "target": "/faq/",
+        "occurrences": 1,
+        "label": "FAQ"
+      },
+      {
+        "source": "/sciences/agriculture/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -26808,6 +28173,12 @@
         "target": "/news/",
         "occurrences": 2,
         "label": "Research Briefs"
+      },
+      {
+        "source": "/sciences/agriculture/",
+        "target": "/press/",
+        "occurrences": 1,
+        "label": "Press kit"
       },
       {
         "source": "/sciences/agriculture/",
@@ -27177,6 +28548,12 @@
       },
       {
         "source": "/sciences/anthropology/",
+        "target": "/capability-statement/",
+        "occurrences": 1,
+        "label": "Capability statement"
+      },
+      {
+        "source": "/sciences/anthropology/",
         "target": "/community/about-us/",
         "occurrences": 3,
         "label": "About Us"
@@ -27225,6 +28602,12 @@
       },
       {
         "source": "/sciences/anthropology/",
+        "target": "/faq/",
+        "occurrences": 1,
+        "label": "FAQ"
+      },
+      {
+        "source": "/sciences/anthropology/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -27258,6 +28641,12 @@
         "target": "/news/",
         "occurrences": 2,
         "label": "Research Briefs"
+      },
+      {
+        "source": "/sciences/anthropology/",
+        "target": "/press/",
+        "occurrences": 1,
+        "label": "Press kit"
       },
       {
         "source": "/sciences/anthropology/",
@@ -27627,6 +29016,12 @@
       },
       {
         "source": "/sciences/archaeology/",
+        "target": "/capability-statement/",
+        "occurrences": 1,
+        "label": "Capability statement"
+      },
+      {
+        "source": "/sciences/archaeology/",
         "target": "/community/about-us/",
         "occurrences": 3,
         "label": "About Us"
@@ -27675,6 +29070,12 @@
       },
       {
         "source": "/sciences/archaeology/",
+        "target": "/faq/",
+        "occurrences": 1,
+        "label": "FAQ"
+      },
+      {
+        "source": "/sciences/archaeology/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -27708,6 +29109,12 @@
         "target": "/news/",
         "occurrences": 2,
         "label": "Research Briefs"
+      },
+      {
+        "source": "/sciences/archaeology/",
+        "target": "/press/",
+        "occurrences": 1,
+        "label": "Press kit"
       },
       {
         "source": "/sciences/archaeology/",
@@ -28077,6 +29484,12 @@
       },
       {
         "source": "/sciences/biology/",
+        "target": "/capability-statement/",
+        "occurrences": 1,
+        "label": "Capability statement"
+      },
+      {
+        "source": "/sciences/biology/",
         "target": "/community/about-us/",
         "occurrences": 3,
         "label": "About Us"
@@ -28125,6 +29538,12 @@
       },
       {
         "source": "/sciences/biology/",
+        "target": "/faq/",
+        "occurrences": 1,
+        "label": "FAQ"
+      },
+      {
+        "source": "/sciences/biology/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -28158,6 +29577,12 @@
         "target": "/news/",
         "occurrences": 2,
         "label": "Research Briefs"
+      },
+      {
+        "source": "/sciences/biology/",
+        "target": "/press/",
+        "occurrences": 1,
+        "label": "Press kit"
       },
       {
         "source": "/sciences/biology/",
@@ -28527,6 +29952,12 @@
       },
       {
         "source": "/sciences/chemistry/",
+        "target": "/capability-statement/",
+        "occurrences": 1,
+        "label": "Capability statement"
+      },
+      {
+        "source": "/sciences/chemistry/",
         "target": "/community/about-us/",
         "occurrences": 3,
         "label": "About Us"
@@ -28575,6 +30006,12 @@
       },
       {
         "source": "/sciences/chemistry/",
+        "target": "/faq/",
+        "occurrences": 1,
+        "label": "FAQ"
+      },
+      {
+        "source": "/sciences/chemistry/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -28608,6 +30045,12 @@
         "target": "/news/",
         "occurrences": 2,
         "label": "Research Briefs"
+      },
+      {
+        "source": "/sciences/chemistry/",
+        "target": "/press/",
+        "occurrences": 1,
+        "label": "Press kit"
       },
       {
         "source": "/sciences/chemistry/",
@@ -28977,6 +30420,12 @@
       },
       {
         "source": "/sciences/cognitive-sciences/",
+        "target": "/capability-statement/",
+        "occurrences": 1,
+        "label": "Capability statement"
+      },
+      {
+        "source": "/sciences/cognitive-sciences/",
         "target": "/community/about-us/",
         "occurrences": 3,
         "label": "About Us"
@@ -29025,6 +30474,12 @@
       },
       {
         "source": "/sciences/cognitive-sciences/",
+        "target": "/faq/",
+        "occurrences": 1,
+        "label": "FAQ"
+      },
+      {
+        "source": "/sciences/cognitive-sciences/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -29058,6 +30513,12 @@
         "target": "/news/",
         "occurrences": 2,
         "label": "Research Briefs"
+      },
+      {
+        "source": "/sciences/cognitive-sciences/",
+        "target": "/press/",
+        "occurrences": 1,
+        "label": "Press kit"
       },
       {
         "source": "/sciences/cognitive-sciences/",
@@ -29427,6 +30888,12 @@
       },
       {
         "source": "/sciences/economics/",
+        "target": "/capability-statement/",
+        "occurrences": 1,
+        "label": "Capability statement"
+      },
+      {
+        "source": "/sciences/economics/",
         "target": "/community/about-us/",
         "occurrences": 3,
         "label": "About Us"
@@ -29475,6 +30942,12 @@
       },
       {
         "source": "/sciences/economics/",
+        "target": "/faq/",
+        "occurrences": 1,
+        "label": "FAQ"
+      },
+      {
+        "source": "/sciences/economics/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -29508,6 +30981,12 @@
         "target": "/news/",
         "occurrences": 2,
         "label": "Research Briefs"
+      },
+      {
+        "source": "/sciences/economics/",
+        "target": "/press/",
+        "occurrences": 1,
+        "label": "Press kit"
       },
       {
         "source": "/sciences/economics/",
@@ -29877,6 +31356,12 @@
       },
       {
         "source": "/sciences/energy/",
+        "target": "/capability-statement/",
+        "occurrences": 1,
+        "label": "Capability statement"
+      },
+      {
+        "source": "/sciences/energy/",
         "target": "/community/about-us/",
         "occurrences": 3,
         "label": "About Us"
@@ -29925,6 +31410,12 @@
       },
       {
         "source": "/sciences/energy/",
+        "target": "/faq/",
+        "occurrences": 1,
+        "label": "FAQ"
+      },
+      {
+        "source": "/sciences/energy/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -29958,6 +31449,12 @@
         "target": "/news/",
         "occurrences": 2,
         "label": "Research Briefs"
+      },
+      {
+        "source": "/sciences/energy/",
+        "target": "/press/",
+        "occurrences": 1,
+        "label": "Press kit"
       },
       {
         "source": "/sciences/energy/",
@@ -30327,6 +31824,12 @@
       },
       {
         "source": "/sciences/genetics/",
+        "target": "/capability-statement/",
+        "occurrences": 1,
+        "label": "Capability statement"
+      },
+      {
+        "source": "/sciences/genetics/",
         "target": "/community/about-us/",
         "occurrences": 3,
         "label": "About Us"
@@ -30375,6 +31878,12 @@
       },
       {
         "source": "/sciences/genetics/",
+        "target": "/faq/",
+        "occurrences": 1,
+        "label": "FAQ"
+      },
+      {
+        "source": "/sciences/genetics/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -30408,6 +31917,12 @@
         "target": "/news/",
         "occurrences": 2,
         "label": "Research Briefs"
+      },
+      {
+        "source": "/sciences/genetics/",
+        "target": "/press/",
+        "occurrences": 1,
+        "label": "Press kit"
       },
       {
         "source": "/sciences/genetics/",
@@ -30777,6 +32292,12 @@
       },
       {
         "source": "/sciences/geology/",
+        "target": "/capability-statement/",
+        "occurrences": 1,
+        "label": "Capability statement"
+      },
+      {
+        "source": "/sciences/geology/",
         "target": "/community/about-us/",
         "occurrences": 3,
         "label": "About Us"
@@ -30825,6 +32346,12 @@
       },
       {
         "source": "/sciences/geology/",
+        "target": "/faq/",
+        "occurrences": 1,
+        "label": "FAQ"
+      },
+      {
+        "source": "/sciences/geology/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -30858,6 +32385,12 @@
         "target": "/news/",
         "occurrences": 2,
         "label": "Research Briefs"
+      },
+      {
+        "source": "/sciences/geology/",
+        "target": "/press/",
+        "occurrences": 1,
+        "label": "Press kit"
       },
       {
         "source": "/sciences/geology/",
@@ -31227,6 +32760,12 @@
       },
       {
         "source": "/sciences/kinesiology/",
+        "target": "/capability-statement/",
+        "occurrences": 1,
+        "label": "Capability statement"
+      },
+      {
+        "source": "/sciences/kinesiology/",
         "target": "/community/about-us/",
         "occurrences": 3,
         "label": "About Us"
@@ -31275,6 +32814,12 @@
       },
       {
         "source": "/sciences/kinesiology/",
+        "target": "/faq/",
+        "occurrences": 1,
+        "label": "FAQ"
+      },
+      {
+        "source": "/sciences/kinesiology/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -31308,6 +32853,12 @@
         "target": "/news/",
         "occurrences": 2,
         "label": "Research Briefs"
+      },
+      {
+        "source": "/sciences/kinesiology/",
+        "target": "/press/",
+        "occurrences": 1,
+        "label": "Press kit"
       },
       {
         "source": "/sciences/kinesiology/",
@@ -31677,6 +33228,12 @@
       },
       {
         "source": "/sciences/law/",
+        "target": "/capability-statement/",
+        "occurrences": 1,
+        "label": "Capability statement"
+      },
+      {
+        "source": "/sciences/law/",
         "target": "/community/about-us/",
         "occurrences": 3,
         "label": "About Us"
@@ -31725,6 +33282,12 @@
       },
       {
         "source": "/sciences/law/",
+        "target": "/faq/",
+        "occurrences": 1,
+        "label": "FAQ"
+      },
+      {
+        "source": "/sciences/law/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -31758,6 +33321,12 @@
         "target": "/news/",
         "occurrences": 2,
         "label": "Research Briefs"
+      },
+      {
+        "source": "/sciences/law/",
+        "target": "/press/",
+        "occurrences": 1,
+        "label": "Press kit"
       },
       {
         "source": "/sciences/law/",
@@ -32127,6 +33696,12 @@
       },
       {
         "source": "/sciences/linguistics/",
+        "target": "/capability-statement/",
+        "occurrences": 1,
+        "label": "Capability statement"
+      },
+      {
+        "source": "/sciences/linguistics/",
         "target": "/community/about-us/",
         "occurrences": 3,
         "label": "About Us"
@@ -32175,6 +33750,12 @@
       },
       {
         "source": "/sciences/linguistics/",
+        "target": "/faq/",
+        "occurrences": 1,
+        "label": "FAQ"
+      },
+      {
+        "source": "/sciences/linguistics/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -32208,6 +33789,12 @@
         "target": "/news/",
         "occurrences": 2,
         "label": "Research Briefs"
+      },
+      {
+        "source": "/sciences/linguistics/",
+        "target": "/press/",
+        "occurrences": 1,
+        "label": "Press kit"
       },
       {
         "source": "/sciences/linguistics/",
@@ -32577,6 +34164,12 @@
       },
       {
         "source": "/sciences/materials-science/",
+        "target": "/capability-statement/",
+        "occurrences": 1,
+        "label": "Capability statement"
+      },
+      {
+        "source": "/sciences/materials-science/",
         "target": "/community/about-us/",
         "occurrences": 3,
         "label": "About Us"
@@ -32625,6 +34218,12 @@
       },
       {
         "source": "/sciences/materials-science/",
+        "target": "/faq/",
+        "occurrences": 1,
+        "label": "FAQ"
+      },
+      {
+        "source": "/sciences/materials-science/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -32658,6 +34257,12 @@
         "target": "/news/",
         "occurrences": 2,
         "label": "Research Briefs"
+      },
+      {
+        "source": "/sciences/materials-science/",
+        "target": "/press/",
+        "occurrences": 1,
+        "label": "Press kit"
       },
       {
         "source": "/sciences/materials-science/",
@@ -33027,6 +34632,12 @@
       },
       {
         "source": "/sciences/medicine/",
+        "target": "/capability-statement/",
+        "occurrences": 1,
+        "label": "Capability statement"
+      },
+      {
+        "source": "/sciences/medicine/",
         "target": "/community/about-us/",
         "occurrences": 3,
         "label": "About Us"
@@ -33075,6 +34686,12 @@
       },
       {
         "source": "/sciences/medicine/",
+        "target": "/faq/",
+        "occurrences": 1,
+        "label": "FAQ"
+      },
+      {
+        "source": "/sciences/medicine/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -33108,6 +34725,12 @@
         "target": "/news/",
         "occurrences": 2,
         "label": "Research Briefs"
+      },
+      {
+        "source": "/sciences/medicine/",
+        "target": "/press/",
+        "occurrences": 1,
+        "label": "Press kit"
       },
       {
         "source": "/sciences/medicine/",
@@ -33477,6 +35100,12 @@
       },
       {
         "source": "/sciences/neuroscience/",
+        "target": "/capability-statement/",
+        "occurrences": 1,
+        "label": "Capability statement"
+      },
+      {
+        "source": "/sciences/neuroscience/",
         "target": "/community/about-us/",
         "occurrences": 3,
         "label": "About Us"
@@ -33525,6 +35154,12 @@
       },
       {
         "source": "/sciences/neuroscience/",
+        "target": "/faq/",
+        "occurrences": 1,
+        "label": "FAQ"
+      },
+      {
+        "source": "/sciences/neuroscience/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -33558,6 +35193,12 @@
         "target": "/news/",
         "occurrences": 2,
         "label": "Research Briefs"
+      },
+      {
+        "source": "/sciences/neuroscience/",
+        "target": "/press/",
+        "occurrences": 1,
+        "label": "Press kit"
       },
       {
         "source": "/sciences/neuroscience/",
@@ -33927,6 +35568,12 @@
       },
       {
         "source": "/sciences/ocean-science/",
+        "target": "/capability-statement/",
+        "occurrences": 1,
+        "label": "Capability statement"
+      },
+      {
+        "source": "/sciences/ocean-science/",
         "target": "/community/about-us/",
         "occurrences": 3,
         "label": "About Us"
@@ -33975,6 +35622,12 @@
       },
       {
         "source": "/sciences/ocean-science/",
+        "target": "/faq/",
+        "occurrences": 1,
+        "label": "FAQ"
+      },
+      {
+        "source": "/sciences/ocean-science/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -34008,6 +35661,12 @@
         "target": "/news/",
         "occurrences": 2,
         "label": "Research Briefs"
+      },
+      {
+        "source": "/sciences/ocean-science/",
+        "target": "/press/",
+        "occurrences": 1,
+        "label": "Press kit"
       },
       {
         "source": "/sciences/ocean-science/",
@@ -34377,6 +36036,12 @@
       },
       {
         "source": "/sciences/outer-space/",
+        "target": "/capability-statement/",
+        "occurrences": 1,
+        "label": "Capability statement"
+      },
+      {
+        "source": "/sciences/outer-space/",
         "target": "/community/about-us/",
         "occurrences": 3,
         "label": "About Us"
@@ -34425,6 +36090,12 @@
       },
       {
         "source": "/sciences/outer-space/",
+        "target": "/faq/",
+        "occurrences": 1,
+        "label": "FAQ"
+      },
+      {
+        "source": "/sciences/outer-space/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -34458,6 +36129,12 @@
         "target": "/news/",
         "occurrences": 2,
         "label": "Research Briefs"
+      },
+      {
+        "source": "/sciences/outer-space/",
+        "target": "/press/",
+        "occurrences": 1,
+        "label": "Press kit"
       },
       {
         "source": "/sciences/outer-space/",
@@ -34827,6 +36504,12 @@
       },
       {
         "source": "/sciences/physics/",
+        "target": "/capability-statement/",
+        "occurrences": 1,
+        "label": "Capability statement"
+      },
+      {
+        "source": "/sciences/physics/",
         "target": "/community/about-us/",
         "occurrences": 3,
         "label": "About Us"
@@ -34875,6 +36558,12 @@
       },
       {
         "source": "/sciences/physics/",
+        "target": "/faq/",
+        "occurrences": 1,
+        "label": "FAQ"
+      },
+      {
+        "source": "/sciences/physics/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -34908,6 +36597,12 @@
         "target": "/news/",
         "occurrences": 2,
         "label": "Research Briefs"
+      },
+      {
+        "source": "/sciences/physics/",
+        "target": "/press/",
+        "occurrences": 1,
+        "label": "Press kit"
       },
       {
         "source": "/sciences/physics/",
@@ -35277,6 +36972,12 @@
       },
       {
         "source": "/sciences/physiology/",
+        "target": "/capability-statement/",
+        "occurrences": 1,
+        "label": "Capability statement"
+      },
+      {
+        "source": "/sciences/physiology/",
         "target": "/community/about-us/",
         "occurrences": 3,
         "label": "About Us"
@@ -35325,6 +37026,12 @@
       },
       {
         "source": "/sciences/physiology/",
+        "target": "/faq/",
+        "occurrences": 1,
+        "label": "FAQ"
+      },
+      {
+        "source": "/sciences/physiology/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -35358,6 +37065,12 @@
         "target": "/news/",
         "occurrences": 2,
         "label": "Research Briefs"
+      },
+      {
+        "source": "/sciences/physiology/",
+        "target": "/press/",
+        "occurrences": 1,
+        "label": "Press kit"
       },
       {
         "source": "/sciences/physiology/",
@@ -35727,6 +37440,12 @@
       },
       {
         "source": "/sciences/psychology/",
+        "target": "/capability-statement/",
+        "occurrences": 1,
+        "label": "Capability statement"
+      },
+      {
+        "source": "/sciences/psychology/",
         "target": "/community/about-us/",
         "occurrences": 3,
         "label": "About Us"
@@ -35775,6 +37494,12 @@
       },
       {
         "source": "/sciences/psychology/",
+        "target": "/faq/",
+        "occurrences": 1,
+        "label": "FAQ"
+      },
+      {
+        "source": "/sciences/psychology/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -35808,6 +37533,12 @@
         "target": "/news/",
         "occurrences": 2,
         "label": "Research Briefs"
+      },
+      {
+        "source": "/sciences/psychology/",
+        "target": "/press/",
+        "occurrences": 1,
+        "label": "Press kit"
       },
       {
         "source": "/sciences/psychology/",
@@ -36177,6 +37908,12 @@
       },
       {
         "source": "/sciences/sociology/",
+        "target": "/capability-statement/",
+        "occurrences": 1,
+        "label": "Capability statement"
+      },
+      {
+        "source": "/sciences/sociology/",
         "target": "/community/about-us/",
         "occurrences": 3,
         "label": "About Us"
@@ -36225,6 +37962,12 @@
       },
       {
         "source": "/sciences/sociology/",
+        "target": "/faq/",
+        "occurrences": 1,
+        "label": "FAQ"
+      },
+      {
+        "source": "/sciences/sociology/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -36258,6 +38001,12 @@
         "target": "/news/",
         "occurrences": 2,
         "label": "Research Briefs"
+      },
+      {
+        "source": "/sciences/sociology/",
+        "target": "/press/",
+        "occurrences": 1,
+        "label": "Press kit"
       },
       {
         "source": "/sciences/sociology/",
@@ -36627,6 +38376,12 @@
       },
       {
         "source": "/search/",
+        "target": "/capability-statement/",
+        "occurrences": 1,
+        "label": "Capability statement"
+      },
+      {
+        "source": "/search/",
         "target": "/community/about-us/",
         "occurrences": 3,
         "label": "About Us"
@@ -36675,6 +38430,12 @@
       },
       {
         "source": "/search/",
+        "target": "/faq/",
+        "occurrences": 1,
+        "label": "FAQ"
+      },
+      {
+        "source": "/search/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -36708,6 +38469,12 @@
         "target": "/news/",
         "occurrences": 2,
         "label": "Research Briefs"
+      },
+      {
+        "source": "/search/",
+        "target": "/press/",
+        "occurrences": 1,
+        "label": "Press kit"
       },
       {
         "source": "/search/",
@@ -37077,6 +38844,12 @@
       },
       {
         "source": "/tech-transfer/enterprise-rd/",
+        "target": "/capability-statement/",
+        "occurrences": 1,
+        "label": "Capability statement"
+      },
+      {
+        "source": "/tech-transfer/enterprise-rd/",
         "target": "/community/about-us/",
         "occurrences": 3,
         "label": "About Us"
@@ -37125,6 +38898,12 @@
       },
       {
         "source": "/tech-transfer/enterprise-rd/",
+        "target": "/faq/",
+        "occurrences": 1,
+        "label": "FAQ"
+      },
+      {
+        "source": "/tech-transfer/enterprise-rd/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -37158,6 +38937,12 @@
         "target": "/news/",
         "occurrences": 2,
         "label": "Research Briefs"
+      },
+      {
+        "source": "/tech-transfer/enterprise-rd/",
+        "target": "/press/",
+        "occurrences": 1,
+        "label": "Press kit"
       },
       {
         "source": "/tech-transfer/enterprise-rd/",
@@ -37527,6 +39312,12 @@
       },
       {
         "source": "/tech-transfer/portfolio/",
+        "target": "/capability-statement/",
+        "occurrences": 1,
+        "label": "Capability statement"
+      },
+      {
+        "source": "/tech-transfer/portfolio/",
         "target": "/community/about-us/",
         "occurrences": 3,
         "label": "About Us"
@@ -37575,6 +39366,12 @@
       },
       {
         "source": "/tech-transfer/portfolio/",
+        "target": "/faq/",
+        "occurrences": 1,
+        "label": "FAQ"
+      },
+      {
+        "source": "/tech-transfer/portfolio/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -37608,6 +39405,12 @@
         "target": "/news/",
         "occurrences": 2,
         "label": "Research Briefs"
+      },
+      {
+        "source": "/tech-transfer/portfolio/",
+        "target": "/press/",
+        "occurrences": 1,
+        "label": "Press kit"
       },
       {
         "source": "/tech-transfer/portfolio/",
@@ -37977,6 +39780,12 @@
       },
       {
         "source": "/tech-transfer/sttr-partner/",
+        "target": "/capability-statement/",
+        "occurrences": 1,
+        "label": "Capability statement"
+      },
+      {
+        "source": "/tech-transfer/sttr-partner/",
         "target": "/community/about-us/",
         "occurrences": 3,
         "label": "About Us"
@@ -38025,6 +39834,12 @@
       },
       {
         "source": "/tech-transfer/sttr-partner/",
+        "target": "/faq/",
+        "occurrences": 1,
+        "label": "FAQ"
+      },
+      {
+        "source": "/tech-transfer/sttr-partner/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -38058,6 +39873,12 @@
         "target": "/news/",
         "occurrences": 2,
         "label": "Research Briefs"
+      },
+      {
+        "source": "/tech-transfer/sttr-partner/",
+        "target": "/press/",
+        "occurrences": 1,
+        "label": "Press kit"
       },
       {
         "source": "/tech-transfer/sttr-partner/",
@@ -38433,6 +40254,12 @@
       },
       {
         "source": "/tech-transfer/sttr-programs/",
+        "target": "/capability-statement/",
+        "occurrences": 1,
+        "label": "Capability statement"
+      },
+      {
+        "source": "/tech-transfer/sttr-programs/",
         "target": "/community/about-us/",
         "occurrences": 3,
         "label": "About Us"
@@ -38481,6 +40308,12 @@
       },
       {
         "source": "/tech-transfer/sttr-programs/",
+        "target": "/faq/",
+        "occurrences": 1,
+        "label": "FAQ"
+      },
+      {
+        "source": "/tech-transfer/sttr-programs/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -38514,6 +40347,12 @@
         "target": "/news/",
         "occurrences": 2,
         "label": "Research Briefs"
+      },
+      {
+        "source": "/tech-transfer/sttr-programs/",
+        "target": "/press/",
+        "occurrences": 1,
+        "label": "Press kit"
       },
       {
         "source": "/tech-transfer/sttr-programs/",
@@ -38883,6 +40722,12 @@
       },
       {
         "source": "/tech-transfer/workshops-events/",
+        "target": "/capability-statement/",
+        "occurrences": 1,
+        "label": "Capability statement"
+      },
+      {
+        "source": "/tech-transfer/workshops-events/",
         "target": "/community/about-us/",
         "occurrences": 3,
         "label": "About Us"
@@ -38931,6 +40776,12 @@
       },
       {
         "source": "/tech-transfer/workshops-events/",
+        "target": "/faq/",
+        "occurrences": 1,
+        "label": "FAQ"
+      },
+      {
+        "source": "/tech-transfer/workshops-events/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -38964,6 +40815,12 @@
         "target": "/news/",
         "occurrences": 2,
         "label": "Research Briefs"
+      },
+      {
+        "source": "/tech-transfer/workshops-events/",
+        "target": "/press/",
+        "occurrences": 1,
+        "label": "Press kit"
       },
       {
         "source": "/tech-transfer/workshops-events/",
@@ -39333,6 +41190,12 @@
       },
       {
         "source": "/technology/augmented-reality/",
+        "target": "/capability-statement/",
+        "occurrences": 1,
+        "label": "Capability statement"
+      },
+      {
+        "source": "/technology/augmented-reality/",
         "target": "/community/about-us/",
         "occurrences": 3,
         "label": "About Us"
@@ -39381,6 +41244,12 @@
       },
       {
         "source": "/technology/augmented-reality/",
+        "target": "/faq/",
+        "occurrences": 1,
+        "label": "FAQ"
+      },
+      {
+        "source": "/technology/augmented-reality/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -39414,6 +41283,12 @@
         "target": "/news/",
         "occurrences": 2,
         "label": "Research Briefs"
+      },
+      {
+        "source": "/technology/augmented-reality/",
+        "target": "/press/",
+        "occurrences": 1,
+        "label": "Press kit"
       },
       {
         "source": "/technology/augmented-reality/",
@@ -39783,6 +41658,12 @@
       },
       {
         "source": "/technology/computer-science/",
+        "target": "/capability-statement/",
+        "occurrences": 1,
+        "label": "Capability statement"
+      },
+      {
+        "source": "/technology/computer-science/",
         "target": "/community/about-us/",
         "occurrences": 3,
         "label": "About Us"
@@ -39831,6 +41712,12 @@
       },
       {
         "source": "/technology/computer-science/",
+        "target": "/faq/",
+        "occurrences": 1,
+        "label": "FAQ"
+      },
+      {
+        "source": "/technology/computer-science/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -39864,6 +41751,12 @@
         "target": "/news/",
         "occurrences": 2,
         "label": "Research Briefs"
+      },
+      {
+        "source": "/technology/computer-science/",
+        "target": "/press/",
+        "occurrences": 1,
+        "label": "Press kit"
       },
       {
         "source": "/technology/computer-science/",
@@ -40233,6 +42126,12 @@
       },
       {
         "source": "/technology/data-science/",
+        "target": "/capability-statement/",
+        "occurrences": 1,
+        "label": "Capability statement"
+      },
+      {
+        "source": "/technology/data-science/",
         "target": "/community/about-us/",
         "occurrences": 3,
         "label": "About Us"
@@ -40281,6 +42180,12 @@
       },
       {
         "source": "/technology/data-science/",
+        "target": "/faq/",
+        "occurrences": 1,
+        "label": "FAQ"
+      },
+      {
+        "source": "/technology/data-science/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -40314,6 +42219,12 @@
         "target": "/news/",
         "occurrences": 2,
         "label": "Research Briefs"
+      },
+      {
+        "source": "/technology/data-science/",
+        "target": "/press/",
+        "occurrences": 1,
+        "label": "Press kit"
       },
       {
         "source": "/technology/data-science/",
@@ -40683,6 +42594,12 @@
       },
       {
         "source": "/technology/formal-methods/",
+        "target": "/capability-statement/",
+        "occurrences": 1,
+        "label": "Capability statement"
+      },
+      {
+        "source": "/technology/formal-methods/",
         "target": "/community/about-us/",
         "occurrences": 3,
         "label": "About Us"
@@ -40731,6 +42648,12 @@
       },
       {
         "source": "/technology/formal-methods/",
+        "target": "/faq/",
+        "occurrences": 1,
+        "label": "FAQ"
+      },
+      {
+        "source": "/technology/formal-methods/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -40764,6 +42687,12 @@
         "target": "/news/",
         "occurrences": 2,
         "label": "Research Briefs"
+      },
+      {
+        "source": "/technology/formal-methods/",
+        "target": "/press/",
+        "occurrences": 1,
+        "label": "Press kit"
       },
       {
         "source": "/technology/formal-methods/",
@@ -41133,6 +43062,12 @@
       },
       {
         "source": "/technology/machine-intelligence/",
+        "target": "/capability-statement/",
+        "occurrences": 1,
+        "label": "Capability statement"
+      },
+      {
+        "source": "/technology/machine-intelligence/",
         "target": "/community/about-us/",
         "occurrences": 3,
         "label": "About Us"
@@ -41181,6 +43116,12 @@
       },
       {
         "source": "/technology/machine-intelligence/",
+        "target": "/faq/",
+        "occurrences": 1,
+        "label": "FAQ"
+      },
+      {
+        "source": "/technology/machine-intelligence/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -41214,6 +43155,12 @@
         "target": "/news/",
         "occurrences": 2,
         "label": "Research Briefs"
+      },
+      {
+        "source": "/technology/machine-intelligence/",
+        "target": "/press/",
+        "occurrences": 1,
+        "label": "Press kit"
       },
       {
         "source": "/technology/machine-intelligence/",
@@ -41583,6 +43530,12 @@
       },
       {
         "source": "/technology/natural-language-processing/",
+        "target": "/capability-statement/",
+        "occurrences": 1,
+        "label": "Capability statement"
+      },
+      {
+        "source": "/technology/natural-language-processing/",
         "target": "/community/about-us/",
         "occurrences": 3,
         "label": "About Us"
@@ -41631,6 +43584,12 @@
       },
       {
         "source": "/technology/natural-language-processing/",
+        "target": "/faq/",
+        "occurrences": 1,
+        "label": "FAQ"
+      },
+      {
+        "source": "/technology/natural-language-processing/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -41664,6 +43623,12 @@
         "target": "/news/",
         "occurrences": 2,
         "label": "Research Briefs"
+      },
+      {
+        "source": "/technology/natural-language-processing/",
+        "target": "/press/",
+        "occurrences": 1,
+        "label": "Press kit"
       },
       {
         "source": "/technology/natural-language-processing/",
@@ -42033,6 +43998,12 @@
       },
       {
         "source": "/technology/quantum-computing/",
+        "target": "/capability-statement/",
+        "occurrences": 1,
+        "label": "Capability statement"
+      },
+      {
+        "source": "/technology/quantum-computing/",
         "target": "/community/about-us/",
         "occurrences": 3,
         "label": "About Us"
@@ -42081,6 +44052,12 @@
       },
       {
         "source": "/technology/quantum-computing/",
+        "target": "/faq/",
+        "occurrences": 1,
+        "label": "FAQ"
+      },
+      {
+        "source": "/technology/quantum-computing/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -42114,6 +44091,12 @@
         "target": "/news/",
         "occurrences": 2,
         "label": "Research Briefs"
+      },
+      {
+        "source": "/technology/quantum-computing/",
+        "target": "/press/",
+        "occurrences": 1,
+        "label": "Press kit"
       },
       {
         "source": "/technology/quantum-computing/",
@@ -42483,6 +44466,12 @@
       },
       {
         "source": "/terms/",
+        "target": "/capability-statement/",
+        "occurrences": 1,
+        "label": "Capability statement"
+      },
+      {
+        "source": "/terms/",
         "target": "/community/about-us/",
         "occurrences": 3,
         "label": "About Us"
@@ -42531,6 +44520,12 @@
       },
       {
         "source": "/terms/",
+        "target": "/faq/",
+        "occurrences": 1,
+        "label": "FAQ"
+      },
+      {
+        "source": "/terms/",
         "target": "/fellowship/",
         "occurrences": 3,
         "label": "Fellowship"
@@ -42564,6 +44559,12 @@
         "target": "/news/",
         "occurrences": 2,
         "label": "Research Briefs"
+      },
+      {
+        "source": "/terms/",
+        "target": "/press/",
+        "occurrences": 1,
+        "label": "Press kit"
       },
       {
         "source": "/terms/",

@@ -12,10 +12,13 @@
 - [Community](https://www.instarlab.org/community/about-us/): Leadership, careers, partnerships, and support
 - [News](https://www.instarlab.org/news/): Research updates and editorial briefs
 - [Contact](https://www.instarlab.org/contact-us/): Federal research, contracts, partnerships, and general inquiries
+- [Capability statement](https://www.instarlab.org/capability-statement/): One-page summary of research areas, ways to partner, and verifiable nonprofit standing ([PDF](https://www.instarlab.org/docs/INSTAR_Lab_Capability_Statement.pdf))
+- [Press kit](https://www.instarlab.org/press/): Boilerplate, brand marks, and media contact paths
+- [FAQ](https://www.instarlab.org/faq/): Common questions about the organization, its standing, and how to engage
 
 ## Organization facts
 - Legal name: INSTAR Lab Inc.
-- Status: 501(c)(3) nonprofit research institute
+- Status: 501(c)(3) public charity under IRC 170(b)(1)(A)(vi); EIN 85-0845517 (IRS determination letter: https://www.instarlab.org/docs/irs-determination-letter-85-0845517.pdf)
 - Founded: 2020
 - Location: 125 Frederick St, Marietta, OH 45750-3407, USA
 - Contact: info@instarlab.org, 929-229-2917
