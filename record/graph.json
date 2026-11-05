@@ -122,8 +122,26 @@
       "kind": "editorial"
     },
     {
+      "id": "/news/brain-scan-studies/",
+      "label": "What a Brain Scan Study Can and Cannot Tell You — INSTAR Lab",
+      "family": "Research brief",
+      "kind": "editorial"
+    },
+    {
       "id": "/news/clinical-ai-safety/",
       "label": "Clinical AI Safety Research — INSTAR Lab",
+      "family": "Research brief",
+      "kind": "editorial"
+    },
+    {
+      "id": "/news/coral-heat-stress/",
+      "label": "What a Coral Heat-Stress Map Can and Cannot Tell You — INSTAR Lab",
+      "family": "Research brief",
+      "kind": "editorial"
+    },
+    {
+      "id": "/news/exoplanet-detections/",
+      "label": "What an Exoplanet Detection Can and Cannot Tell You — INSTAR Lab",
       "family": "Research brief",
       "kind": "editorial"
     },
@@ -158,14 +176,32 @@
       "kind": "editorial"
     },
     {
+      "id": "/news/polygenic-scores/",
+      "label": "What a Polygenic Score Can and Cannot Tell You — INSTAR Lab",
+      "family": "Research brief",
+      "kind": "editorial"
+    },
+    {
       "id": "/news/precision-agriculture-open-data/",
       "label": "Precision Agriculture and Open Agricultural Data — INSTAR Lab",
       "family": "Research brief",
       "kind": "editorial"
     },
     {
+      "id": "/news/psychology-replication/",
+      "label": "What a Single Psychology Study Can and Cannot Tell You — INSTAR Lab",
+      "family": "Research brief",
+      "kind": "editorial"
+    },
+    {
       "id": "/news/quantum-sensing-breakthroughs/",
       "label": "Quantum Sensing Breakthroughs — INSTAR Lab",
+      "family": "Research brief",
+      "kind": "editorial"
+    },
+    {
+      "id": "/news/radiocarbon-dates/",
+      "label": "What a Radiocarbon Date Can and Cannot Tell You — INSTAR Lab",
       "family": "Research brief",
       "kind": "editorial"
     },
@@ -631,17 +667,17 @@
       "generator": "record link-graph builder over the production build (RRP-203)",
       "base": "/",
       "origin": "https://www.instarlab.org",
-      "routeCount": 118,
-      "documentCount": 118,
+      "routeCount": 124,
+      "documentCount": 124,
       "unzoned": [],
       "aliases": [],
       "undocumented": [],
-      "generatedAt": "2026-10-29T05:08:01.071Z"
+      "generatedAt": "2026-11-05T08:41:21.208Z"
     },
     "summary": {
-      "nodes": 118,
-      "contentPairs": 1766,
-      "chromePairs": 8500,
+      "nodes": 124,
+      "contentPairs": 1887,
+      "chromePairs": 9004,
       "journeyLinks": 18,
       "observedJourneyLinks": 18,
       "orphans": 0,
@@ -657,9 +693,9 @@
         "inLedger": true,
         "inInventory": true,
         "aliasOf": null,
-        "inboundContent": 66,
+        "inboundContent": 72,
         "outboundContent": 32,
-        "inboundChrome": 101,
+        "inboundChrome": 107,
         "outboundChrome": 83,
         "journeys": []
       },
@@ -704,7 +740,7 @@
         "aliasOf": null,
         "inboundContent": 16,
         "outboundContent": 1,
-        "inboundChrome": 101,
+        "inboundChrome": 107,
         "outboundChrome": 83,
         "journeys": []
       },
@@ -719,7 +755,7 @@
         "aliasOf": null,
         "inboundContent": 4,
         "outboundContent": 22,
-        "inboundChrome": 101,
+        "inboundChrome": 107,
         "outboundChrome": 83,
         "journeys": []
       },
@@ -734,7 +770,7 @@
         "aliasOf": null,
         "inboundContent": 8,
         "outboundContent": 10,
-        "inboundChrome": 101,
+        "inboundChrome": 107,
         "outboundChrome": 83,
         "journeys": []
       },
@@ -749,7 +785,7 @@
         "aliasOf": null,
         "inboundContent": 14,
         "outboundContent": 7,
-        "inboundChrome": 101,
+        "inboundChrome": 107,
         "outboundChrome": 83,
         "journeys": [
           "supporter"
@@ -766,7 +802,7 @@
         "aliasOf": null,
         "inboundContent": 13,
         "outboundContent": 7,
-        "inboundChrome": 101,
+        "inboundChrome": 107,
         "outboundChrome": 83,
         "journeys": [
           "researcher"
@@ -798,7 +834,7 @@
         "aliasOf": null,
         "inboundContent": 11,
         "outboundContent": 7,
-        "inboundChrome": 101,
+        "inboundChrome": 107,
         "outboundChrome": 83,
         "journeys": []
       },
@@ -813,7 +849,7 @@
         "aliasOf": null,
         "inboundContent": 15,
         "outboundContent": 7,
-        "inboundChrome": 101,
+        "inboundChrome": 107,
         "outboundChrome": 83,
         "journeys": [
           "institutional-partner"
@@ -830,7 +866,7 @@
         "aliasOf": null,
         "inboundContent": 10,
         "outboundContent": 6,
-        "inboundChrome": 101,
+        "inboundChrome": 107,
         "outboundChrome": 83,
         "journeys": [
           "supporter"
@@ -847,7 +883,7 @@
         "aliasOf": null,
         "inboundContent": 7,
         "outboundContent": 6,
-        "inboundChrome": 101,
+        "inboundChrome": 107,
         "outboundChrome": 83,
         "journeys": [
           "technical-collaborator"
@@ -864,7 +900,7 @@
         "aliasOf": null,
         "inboundContent": 69,
         "outboundContent": 1,
-        "inboundChrome": 101,
+        "inboundChrome": 107,
         "outboundChrome": 83,
         "journeys": [
           "institutional-partner",
@@ -882,7 +918,7 @@
         "aliasOf": null,
         "inboundContent": 3,
         "outboundContent": 1,
-        "inboundChrome": 101,
+        "inboundChrome": 107,
         "outboundChrome": 83,
         "journeys": []
       },
@@ -897,7 +933,7 @@
         "aliasOf": null,
         "inboundContent": 2,
         "outboundContent": 14,
-        "inboundChrome": 101,
+        "inboundChrome": 107,
         "outboundChrome": 83,
         "journeys": []
       },
@@ -912,7 +948,7 @@
         "aliasOf": null,
         "inboundContent": 12,
         "outboundContent": 1,
-        "inboundChrome": 101,
+        "inboundChrome": 107,
         "outboundChrome": 83,
         "journeys": [
           "researcher"
@@ -1064,7 +1100,7 @@
         "aliasOf": null,
         "inboundContent": 6,
         "outboundContent": 8,
-        "inboundChrome": 101,
+        "inboundChrome": 107,
         "outboundChrome": 83,
         "journeys": []
       },
@@ -1079,7 +1115,7 @@
         "aliasOf": null,
         "inboundContent": 9,
         "outboundContent": 11,
-        "inboundChrome": 101,
+        "inboundChrome": 107,
         "outboundChrome": 83,
         "journeys": []
       },
@@ -1094,7 +1130,7 @@
         "aliasOf": null,
         "inboundContent": 10,
         "outboundContent": 11,
-        "inboundChrome": 101,
+        "inboundChrome": 107,
         "outboundChrome": 83,
         "journeys": []
       },
@@ -1109,7 +1145,7 @@
         "aliasOf": null,
         "inboundContent": 16,
         "outboundContent": 14,
-        "inboundChrome": 101,
+        "inboundChrome": 107,
         "outboundChrome": 83,
         "journeys": [
           "technical-collaborator"
@@ -1126,7 +1162,7 @@
         "aliasOf": null,
         "inboundContent": 7,
         "outboundContent": 1,
-        "inboundChrome": 101,
+        "inboundChrome": 107,
         "outboundChrome": 83,
         "journeys": [
           "supporter"
@@ -1141,9 +1177,9 @@
         "inLedger": true,
         "inInventory": true,
         "aliasOf": null,
-        "inboundContent": 18,
-        "outboundContent": 10,
-        "inboundChrome": 101,
+        "inboundContent": 24,
+        "outboundContent": 16,
+        "inboundChrome": 107,
         "outboundChrome": 83,
         "journeys": [
           "researcher"
@@ -1158,8 +1194,23 @@
         "inLedger": true,
         "inInventory": true,
         "aliasOf": null,
-        "inboundContent": 25,
-        "outboundContent": 13,
+        "inboundContent": 19,
+        "outboundContent": 14,
+        "inboundChrome": 0,
+        "outboundChrome": 84,
+        "journeys": []
+      },
+      {
+        "id": "/news/brain-scan-studies/",
+        "title": "What a Brain Scan Study Can and Cannot Tell You — INSTAR Lab",
+        "family": "Research brief",
+        "kind": "editorial",
+        "indexable": true,
+        "inLedger": true,
+        "inInventory": true,
+        "aliasOf": null,
+        "inboundContent": 27,
+        "outboundContent": 8,
         "inboundChrome": 0,
         "outboundChrome": 84,
         "journeys": []
@@ -1174,7 +1225,37 @@
         "inInventory": true,
         "aliasOf": null,
         "inboundContent": 17,
-        "outboundContent": 11,
+        "outboundContent": 12,
+        "inboundChrome": 0,
+        "outboundChrome": 84,
+        "journeys": []
+      },
+      {
+        "id": "/news/coral-heat-stress/",
+        "title": "What a Coral Heat-Stress Map Can and Cannot Tell You — INSTAR Lab",
+        "family": "Research brief",
+        "kind": "editorial",
+        "indexable": true,
+        "inLedger": true,
+        "inInventory": true,
+        "aliasOf": null,
+        "inboundContent": 19,
+        "outboundContent": 9,
+        "inboundChrome": 0,
+        "outboundChrome": 84,
+        "journeys": []
+      },
+      {
+        "id": "/news/exoplanet-detections/",
+        "title": "What an Exoplanet Detection Can and Cannot Tell You — INSTAR Lab",
+        "family": "Research brief",
+        "kind": "editorial",
+        "indexable": true,
+        "inLedger": true,
+        "inInventory": true,
+        "aliasOf": null,
+        "inboundContent": 25,
+        "outboundContent": 8,
         "inboundChrome": 0,
         "outboundChrome": 84,
         "journeys": []
@@ -1188,7 +1269,7 @@
         "inLedger": true,
         "inInventory": true,
         "aliasOf": null,
-        "inboundContent": 12,
+        "inboundContent": 11,
         "outboundContent": 7,
         "inboundChrome": 0,
         "outboundChrome": 84,
@@ -1203,7 +1284,7 @@
         "inLedger": true,
         "inInventory": true,
         "aliasOf": null,
-        "inboundContent": 12,
+        "inboundContent": 11,
         "outboundContent": 7,
         "inboundChrome": 0,
         "outboundChrome": 84,
@@ -1218,8 +1299,8 @@
         "inLedger": true,
         "inInventory": true,
         "aliasOf": null,
-        "inboundContent": 17,
-        "outboundContent": 11,
+        "inboundContent": 16,
+        "outboundContent": 12,
         "inboundChrome": 0,
         "outboundChrome": 84,
         "journeys": []
@@ -1248,8 +1329,23 @@
         "inLedger": true,
         "inInventory": true,
         "aliasOf": null,
-        "inboundContent": 23,
+        "inboundContent": 16,
         "outboundContent": 10,
+        "inboundChrome": 0,
+        "outboundChrome": 84,
+        "journeys": []
+      },
+      {
+        "id": "/news/polygenic-scores/",
+        "title": "What a Polygenic Score Can and Cannot Tell You — INSTAR Lab",
+        "family": "Research brief",
+        "kind": "editorial",
+        "indexable": true,
+        "inLedger": true,
+        "inInventory": true,
+        "aliasOf": null,
+        "inboundContent": 16,
+        "outboundContent": 8,
         "inboundChrome": 0,
         "outboundChrome": 84,
         "journeys": []
@@ -1270,6 +1366,21 @@
         "journeys": []
       },
       {
+        "id": "/news/psychology-replication/",
+        "title": "What a Single Psychology Study Can and Cannot Tell You — INSTAR Lab",
+        "family": "Research brief",
+        "kind": "editorial",
+        "indexable": true,
+        "inLedger": true,
+        "inInventory": true,
+        "aliasOf": null,
+        "inboundContent": 16,
+        "outboundContent": 10,
+        "inboundChrome": 0,
+        "outboundChrome": 84,
+        "journeys": []
+      },
+      {
         "id": "/news/quantum-sensing-breakthroughs/",
         "title": "Quantum Sensing Breakthroughs — INSTAR Lab",
         "family": "Research brief",
@@ -1285,6 +1396,21 @@
         "journeys": []
       },
       {
+        "id": "/news/radiocarbon-dates/",
+        "title": "What a Radiocarbon Date Can and Cannot Tell You — INSTAR Lab",
+        "family": "Research brief",
+        "kind": "editorial",
+        "indexable": true,
+        "inLedger": true,
+        "inInventory": true,
+        "aliasOf": null,
+        "inboundContent": 11,
+        "outboundContent": 8,
+        "inboundChrome": 0,
+        "outboundChrome": 84,
+        "journeys": []
+      },
+      {
         "id": "/news/wearable-heart-rate/",
         "title": "What a Wearable Heart-Rate Reading Can and Cannot Tell You — INSTAR Lab",
         "family": "Research brief",
@@ -1293,7 +1419,7 @@
         "inLedger": true,
         "inInventory": true,
         "aliasOf": null,
-        "inboundContent": 21,
+        "inboundContent": 13,
         "outboundContent": 9,
         "inboundChrome": 0,
         "outboundChrome": 84,
@@ -1310,7 +1436,7 @@
         "aliasOf": null,
         "inboundContent": 1,
         "outboundContent": 7,
-        "inboundChrome": 101,
+        "inboundChrome": 107,
         "outboundChrome": 83,
         "journeys": []
       },
@@ -1325,7 +1451,7 @@
         "aliasOf": null,
         "inboundContent": 20,
         "outboundContent": 2,
-        "inboundChrome": 101,
+        "inboundChrome": 107,
         "outboundChrome": 83,
         "journeys": []
       },
@@ -1340,7 +1466,7 @@
         "aliasOf": null,
         "inboundContent": 20,
         "outboundContent": 19,
-        "inboundChrome": 102,
+        "inboundChrome": 108,
         "outboundChrome": 0,
         "journeys": []
       },
@@ -1355,7 +1481,7 @@
         "aliasOf": null,
         "inboundContent": 16,
         "outboundContent": 19,
-        "inboundChrome": 102,
+        "inboundChrome": 108,
         "outboundChrome": 0,
         "journeys": []
       },
@@ -1370,7 +1496,7 @@
         "aliasOf": null,
         "inboundContent": 18,
         "outboundContent": 20,
-        "inboundChrome": 102,
+        "inboundChrome": 108,
         "outboundChrome": 0,
         "journeys": []
       },
@@ -1385,7 +1511,7 @@
         "aliasOf": null,
         "inboundContent": 15,
         "outboundContent": 25,
-        "inboundChrome": 102,
+        "inboundChrome": 108,
         "outboundChrome": 0,
         "journeys": [
           "program-officer"
@@ -1402,7 +1528,7 @@
         "aliasOf": null,
         "inboundContent": 15,
         "outboundContent": 19,
-        "inboundChrome": 102,
+        "inboundChrome": 108,
         "outboundChrome": 0,
         "journeys": []
       },
@@ -1417,7 +1543,7 @@
         "aliasOf": null,
         "inboundContent": 17,
         "outboundContent": 19,
-        "inboundChrome": 102,
+        "inboundChrome": 108,
         "outboundChrome": 0,
         "journeys": []
       },
@@ -1432,7 +1558,7 @@
         "aliasOf": null,
         "inboundContent": 15,
         "outboundContent": 38,
-        "inboundChrome": 102,
+        "inboundChrome": 108,
         "outboundChrome": 0,
         "journeys": []
       },
@@ -1447,7 +1573,7 @@
         "aliasOf": null,
         "inboundContent": 15,
         "outboundContent": 23,
-        "inboundChrome": 102,
+        "inboundChrome": 108,
         "outboundChrome": 0,
         "journeys": []
       },
@@ -1462,7 +1588,7 @@
         "aliasOf": null,
         "inboundContent": 18,
         "outboundContent": 19,
-        "inboundChrome": 102,
+        "inboundChrome": 108,
         "outboundChrome": 0,
         "journeys": []
       },
@@ -1476,8 +1602,8 @@
         "inInventory": true,
         "aliasOf": null,
         "inboundContent": 15,
-        "outboundContent": 85,
-        "inboundChrome": 102,
+        "outboundContent": 91,
+        "inboundChrome": 108,
         "outboundChrome": 0,
         "journeys": []
       },
@@ -1492,7 +1618,7 @@
         "aliasOf": null,
         "inboundContent": 15,
         "outboundContent": 19,
-        "inboundChrome": 102,
+        "inboundChrome": 108,
         "outboundChrome": 0,
         "journeys": []
       },
@@ -1506,8 +1632,8 @@
         "inInventory": true,
         "aliasOf": null,
         "inboundContent": 15,
-        "outboundContent": 90,
-        "inboundChrome": 102,
+        "outboundContent": 96,
+        "inboundChrome": 108,
         "outboundChrome": 0,
         "journeys": []
       },
@@ -1522,7 +1648,7 @@
         "aliasOf": null,
         "inboundContent": 16,
         "outboundContent": 19,
-        "inboundChrome": 102,
+        "inboundChrome": 108,
         "outboundChrome": 0,
         "journeys": []
       },
@@ -1536,8 +1662,8 @@
         "inInventory": true,
         "aliasOf": null,
         "inboundContent": 16,
-        "outboundContent": 117,
-        "inboundChrome": 102,
+        "outboundContent": 123,
+        "inboundChrome": 108,
         "outboundChrome": 0,
         "journeys": []
       },
@@ -1552,7 +1678,7 @@
         "aliasOf": null,
         "inboundContent": 15,
         "outboundContent": 19,
-        "inboundChrome": 102,
+        "inboundChrome": 108,
         "outboundChrome": 0,
         "journeys": []
       },
@@ -1567,7 +1693,7 @@
         "aliasOf": null,
         "inboundContent": 22,
         "outboundContent": 21,
-        "inboundChrome": 102,
+        "inboundChrome": 108,
         "outboundChrome": 0,
         "journeys": []
       },
@@ -1596,7 +1722,7 @@
         "inInventory": false,
         "aliasOf": null,
         "inboundContent": 3,
-        "outboundContent": 46,
+        "outboundContent": 52,
         "inboundChrome": 0,
         "outboundChrome": 84,
         "journeys": []
@@ -1627,7 +1753,7 @@
         "aliasOf": null,
         "inboundContent": 16,
         "outboundContent": 6,
-        "inboundChrome": 101,
+        "inboundChrome": 107,
         "outboundChrome": 83,
         "journeys": []
       },
@@ -1642,7 +1768,7 @@
         "aliasOf": null,
         "inboundContent": 21,
         "outboundContent": 10,
-        "inboundChrome": 101,
+        "inboundChrome": 107,
         "outboundChrome": 83,
         "journeys": [
           "program-officer",
@@ -1660,7 +1786,7 @@
         "aliasOf": null,
         "inboundContent": 16,
         "outboundContent": 6,
-        "inboundChrome": 101,
+        "inboundChrome": 107,
         "outboundChrome": 83,
         "journeys": [
           "program-officer"
@@ -1677,7 +1803,7 @@
         "aliasOf": null,
         "inboundContent": 44,
         "outboundContent": 1,
-        "inboundChrome": 101,
+        "inboundChrome": 107,
         "outboundChrome": 83,
         "journeys": []
       },
@@ -1705,7 +1831,7 @@
         "inLedger": true,
         "inInventory": false,
         "aliasOf": null,
-        "inboundContent": 9,
+        "inboundContent": 15,
         "outboundContent": 9,
         "inboundChrome": 0,
         "outboundChrome": 84,
@@ -1721,7 +1847,7 @@
         "inInventory": false,
         "aliasOf": null,
         "inboundContent": 7,
-        "outboundContent": 56,
+        "outboundContent": 62,
         "inboundChrome": 0,
         "outboundChrome": 84,
         "journeys": []
@@ -1737,7 +1863,7 @@
         "aliasOf": null,
         "inboundContent": 9,
         "outboundContent": 6,
-        "inboundChrome": 101,
+        "inboundChrome": 107,
         "outboundChrome": 83,
         "journeys": [
           "technical-collaborator"
@@ -1754,7 +1880,7 @@
         "aliasOf": null,
         "inboundContent": 40,
         "outboundContent": 33,
-        "inboundChrome": 101,
+        "inboundChrome": 107,
         "outboundChrome": 83,
         "journeys": [
           "researcher"
@@ -1786,7 +1912,7 @@
         "aliasOf": null,
         "inboundContent": 8,
         "outboundContent": 8,
-        "inboundChrome": 101,
+        "inboundChrome": 107,
         "outboundChrome": 83,
         "journeys": []
       },
@@ -1801,7 +1927,7 @@
         "aliasOf": null,
         "inboundContent": 10,
         "outboundContent": 2,
-        "inboundChrome": 101,
+        "inboundChrome": 107,
         "outboundChrome": 83,
         "journeys": [
           "program-officer"
@@ -1817,7 +1943,7 @@
         "inInventory": true,
         "aliasOf": null,
         "inboundContent": 12,
-        "outboundContent": 56,
+        "outboundContent": 62,
         "inboundChrome": 0,
         "outboundChrome": 84,
         "journeys": []
@@ -1832,7 +1958,7 @@
         "inInventory": true,
         "aliasOf": null,
         "inboundContent": 9,
-        "outboundContent": 17,
+        "outboundContent": 23,
         "inboundChrome": 0,
         "outboundChrome": 84,
         "journeys": []
@@ -1846,8 +1972,8 @@
         "inLedger": true,
         "inInventory": false,
         "aliasOf": null,
-        "inboundContent": 47,
-        "outboundContent": 43,
+        "inboundContent": 53,
+        "outboundContent": 49,
         "inboundChrome": 0,
         "outboundChrome": 84,
         "journeys": []
@@ -1863,7 +1989,7 @@
         "aliasOf": null,
         "inboundContent": 26,
         "outboundContent": 27,
-        "inboundChrome": 101,
+        "inboundChrome": 107,
         "outboundChrome": 83,
         "journeys": []
       },
@@ -1878,7 +2004,7 @@
         "aliasOf": null,
         "inboundContent": 15,
         "outboundContent": 13,
-        "inboundChrome": 101,
+        "inboundChrome": 107,
         "outboundChrome": 83,
         "journeys": []
       },
@@ -1893,7 +2019,7 @@
         "aliasOf": null,
         "inboundContent": 16,
         "outboundContent": 11,
-        "inboundChrome": 101,
+        "inboundChrome": 107,
         "outboundChrome": 83,
         "journeys": []
       },
@@ -1906,9 +2032,9 @@
         "inLedger": true,
         "inInventory": true,
         "aliasOf": null,
-        "inboundContent": 13,
-        "outboundContent": 9,
-        "inboundChrome": 101,
+        "inboundContent": 14,
+        "outboundContent": 10,
+        "inboundChrome": 107,
         "outboundChrome": 83,
         "journeys": []
       },
@@ -1923,7 +2049,7 @@
         "aliasOf": null,
         "inboundContent": 15,
         "outboundContent": 13,
-        "inboundChrome": 101,
+        "inboundChrome": 107,
         "outboundChrome": 83,
         "journeys": []
       },
@@ -1938,7 +2064,7 @@
         "aliasOf": null,
         "inboundContent": 16,
         "outboundContent": 13,
-        "inboundChrome": 101,
+        "inboundChrome": 107,
         "outboundChrome": 83,
         "journeys": []
       },
@@ -1951,9 +2077,9 @@
         "inLedger": true,
         "inInventory": true,
         "aliasOf": null,
-        "inboundContent": 16,
-        "outboundContent": 14,
-        "inboundChrome": 101,
+        "inboundContent": 17,
+        "outboundContent": 15,
+        "inboundChrome": 107,
         "outboundChrome": 83,
         "journeys": []
       },
@@ -1968,7 +2094,7 @@
         "aliasOf": null,
         "inboundContent": 12,
         "outboundContent": 9,
-        "inboundChrome": 101,
+        "inboundChrome": 107,
         "outboundChrome": 83,
         "journeys": []
       },
@@ -1983,7 +2109,7 @@
         "aliasOf": null,
         "inboundContent": 20,
         "outboundContent": 13,
-        "inboundChrome": 101,
+        "inboundChrome": 107,
         "outboundChrome": 83,
         "journeys": []
       },
@@ -1996,9 +2122,9 @@
         "inLedger": true,
         "inInventory": true,
         "aliasOf": null,
-        "inboundContent": 16,
-        "outboundContent": 11,
-        "inboundChrome": 101,
+        "inboundContent": 17,
+        "outboundContent": 12,
+        "inboundChrome": 107,
         "outboundChrome": 83,
         "journeys": []
       },
@@ -2013,7 +2139,7 @@
         "aliasOf": null,
         "inboundContent": 14,
         "outboundContent": 12,
-        "inboundChrome": 101,
+        "inboundChrome": 107,
         "outboundChrome": 83,
         "journeys": []
       },
@@ -2028,7 +2154,7 @@
         "aliasOf": null,
         "inboundContent": 13,
         "outboundContent": 13,
-        "inboundChrome": 101,
+        "inboundChrome": 107,
         "outboundChrome": 83,
         "journeys": []
       },
@@ -2043,7 +2169,7 @@
         "aliasOf": null,
         "inboundContent": 19,
         "outboundContent": 13,
-        "inboundChrome": 101,
+        "inboundChrome": 107,
         "outboundChrome": 83,
         "journeys": []
       },
@@ -2058,7 +2184,7 @@
         "aliasOf": null,
         "inboundContent": 14,
         "outboundContent": 9,
-        "inboundChrome": 101,
+        "inboundChrome": 107,
         "outboundChrome": 83,
         "journeys": []
       },
@@ -2073,7 +2199,7 @@
         "aliasOf": null,
         "inboundContent": 18,
         "outboundContent": 13,
-        "inboundChrome": 101,
+        "inboundChrome": 107,
         "outboundChrome": 83,
         "journeys": []
       },
@@ -2088,7 +2214,7 @@
         "aliasOf": null,
         "inboundContent": 17,
         "outboundContent": 13,
-        "inboundChrome": 101,
+        "inboundChrome": 107,
         "outboundChrome": 83,
         "journeys": []
       },
@@ -2101,9 +2227,9 @@
         "inLedger": true,
         "inInventory": true,
         "aliasOf": null,
-        "inboundContent": 17,
-        "outboundContent": 12,
-        "inboundChrome": 101,
+        "inboundContent": 18,
+        "outboundContent": 13,
+        "inboundChrome": 107,
         "outboundChrome": 83,
         "journeys": []
       },
@@ -2116,9 +2242,9 @@
         "inLedger": true,
         "inInventory": true,
         "aliasOf": null,
-        "inboundContent": 14,
-        "outboundContent": 12,
-        "inboundChrome": 101,
+        "inboundContent": 15,
+        "outboundContent": 13,
+        "inboundChrome": 107,
         "outboundChrome": 83,
         "journeys": []
       },
@@ -2131,9 +2257,9 @@
         "inLedger": true,
         "inInventory": true,
         "aliasOf": null,
-        "inboundContent": 16,
-        "outboundContent": 12,
-        "inboundChrome": 101,
+        "inboundContent": 17,
+        "outboundContent": 13,
+        "inboundChrome": 107,
         "outboundChrome": 83,
         "journeys": []
       },
@@ -2148,7 +2274,7 @@
         "aliasOf": null,
         "inboundContent": 18,
         "outboundContent": 13,
-        "inboundChrome": 101,
+        "inboundChrome": 107,
         "outboundChrome": 83,
         "journeys": []
       },
@@ -2163,7 +2289,7 @@
         "aliasOf": null,
         "inboundContent": 18,
         "outboundContent": 13,
-        "inboundChrome": 101,
+        "inboundChrome": 107,
         "outboundChrome": 83,
         "journeys": []
       },
@@ -2176,9 +2302,9 @@
         "inLedger": true,
         "inInventory": true,
         "aliasOf": null,
-        "inboundContent": 16,
-        "outboundContent": 12,
-        "inboundChrome": 101,
+        "inboundContent": 17,
+        "outboundContent": 13,
+        "inboundChrome": 107,
         "outboundChrome": 83,
         "journeys": []
       },
@@ -2193,7 +2319,7 @@
         "aliasOf": null,
         "inboundContent": 13,
         "outboundContent": 9,
-        "inboundChrome": 101,
+        "inboundChrome": 107,
         "outboundChrome": 83,
         "journeys": []
       },
@@ -2207,8 +2333,8 @@
         "inInventory": false,
         "aliasOf": null,
         "inboundContent": 2,
-        "outboundContent": 69,
-        "inboundChrome": 101,
+        "outboundContent": 75,
+        "inboundChrome": 107,
         "outboundChrome": 83,
         "journeys": []
       },
@@ -2223,7 +2349,7 @@
         "aliasOf": null,
         "inboundContent": 4,
         "outboundContent": 8,
-        "inboundChrome": 101,
+        "inboundChrome": 107,
         "outboundChrome": 83,
         "journeys": []
       },
@@ -2238,7 +2364,7 @@
         "aliasOf": null,
         "inboundContent": 8,
         "outboundContent": 5,
-        "inboundChrome": 101,
+        "inboundChrome": 107,
         "outboundChrome": 83,
         "journeys": [
           "institutional-partner"
@@ -2255,7 +2381,7 @@
         "aliasOf": null,
         "inboundContent": 8,
         "outboundContent": 5,
-        "inboundChrome": 101,
+        "inboundChrome": 107,
         "outboundChrome": 83,
         "journeys": [
           "institutional-partner"
@@ -2287,7 +2413,7 @@
         "aliasOf": null,
         "inboundContent": 13,
         "outboundContent": 5,
-        "inboundChrome": 101,
+        "inboundChrome": 107,
         "outboundChrome": 83,
         "journeys": [
           "institutional-partner"
@@ -2304,7 +2430,7 @@
         "aliasOf": null,
         "inboundContent": 7,
         "outboundContent": 5,
-        "inboundChrome": 101,
+        "inboundChrome": 107,
         "outboundChrome": 83,
         "journeys": []
       },
@@ -2319,7 +2445,7 @@
         "aliasOf": null,
         "inboundContent": 11,
         "outboundContent": 12,
-        "inboundChrome": 101,
+        "inboundChrome": 107,
         "outboundChrome": 83,
         "journeys": []
       },
@@ -2334,7 +2460,7 @@
         "aliasOf": null,
         "inboundContent": 13,
         "outboundContent": 10,
-        "inboundChrome": 101,
+        "inboundChrome": 107,
         "outboundChrome": 83,
         "journeys": []
       },
@@ -2349,7 +2475,7 @@
         "aliasOf": null,
         "inboundContent": 22,
         "outboundContent": 12,
-        "inboundChrome": 101,
+        "inboundChrome": 107,
         "outboundChrome": 83,
         "journeys": [
           "technical-collaborator"
@@ -2366,7 +2492,7 @@
         "aliasOf": null,
         "inboundContent": 39,
         "outboundContent": 13,
-        "inboundChrome": 101,
+        "inboundChrome": 107,
         "outboundChrome": 83,
         "journeys": []
       },
@@ -2381,7 +2507,7 @@
         "aliasOf": null,
         "inboundContent": 18,
         "outboundContent": 11,
-        "inboundChrome": 101,
+        "inboundChrome": 107,
         "outboundChrome": 83,
         "journeys": []
       },
@@ -2396,7 +2522,7 @@
         "aliasOf": null,
         "inboundContent": 45,
         "outboundContent": 17,
-        "inboundChrome": 101,
+        "inboundChrome": 107,
         "outboundChrome": 83,
         "journeys": []
       },
@@ -2411,7 +2537,7 @@
         "aliasOf": null,
         "inboundContent": 24,
         "outboundContent": 15,
-        "inboundChrome": 101,
+        "inboundChrome": 107,
         "outboundChrome": 83,
         "journeys": []
       },
@@ -2426,7 +2552,7 @@
         "aliasOf": null,
         "inboundContent": 20,
         "outboundContent": 12,
-        "inboundChrome": 101,
+        "inboundChrome": 107,
         "outboundChrome": 83,
         "journeys": []
       },
@@ -2441,7 +2567,7 @@
         "aliasOf": null,
         "inboundContent": 16,
         "outboundContent": 1,
-        "inboundChrome": 101,
+        "inboundChrome": 107,
         "outboundChrome": 83,
         "journeys": []
       },
@@ -2518,21 +2644,21 @@
       },
       {
         "source": "/",
+        "target": "/news/brain-scan-studies/",
+        "occurrences": 1,
+        "label": "Research brief What a Brain Scan Study Can and Cannot Tell You — INSTAR Lab Foll"
+      },
+      {
+        "source": "/",
         "target": "/news/clinical-ai-safety/",
         "occurrences": 1,
-        "label": "Research brief Clinical AI Safety Research — INSTAR Lab Follow the proof"
+        "label": "Research brief Clinical AI Safety Research — INSTAR Lab See the compute constrai"
       },
       {
         "source": "/",
-        "target": "/news/formal-methods-safety-critical-trust/",
+        "target": "/news/coral-heat-stress/",
         "occurrences": 1,
-        "label": "Research brief Formal Methods and Trust in Safety-Critical Software — INSTAR Lab"
-      },
-      {
-        "source": "/",
-        "target": "/news/hpc-infrastructure-for-ai/",
-        "occurrences": 1,
-        "label": "Research brief HPC Infrastructure for AI — INSTAR Lab Read the governance frame"
+        "label": "Research brief What a Coral Heat-Stress Map Can and Cannot Tell You — INSTAR Lab"
       },
       {
         "source": "/",
@@ -3766,9 +3892,27 @@
       },
       {
         "source": "/news/",
+        "target": "/news/brain-scan-studies/",
+        "occurrences": 3,
+        "label": "What a Brain Scan Study Can and Cannot Tell You"
+      },
+      {
+        "source": "/news/",
         "target": "/news/clinical-ai-safety/",
         "occurrences": 3,
         "label": "Clinical AI Safety Research"
+      },
+      {
+        "source": "/news/",
+        "target": "/news/coral-heat-stress/",
+        "occurrences": 3,
+        "label": "What a Coral Heat-Stress Map Can and Cannot Tell You"
+      },
+      {
+        "source": "/news/",
+        "target": "/news/exoplanet-detections/",
+        "occurrences": 3,
+        "label": "What an Exoplanet Detection Can and Cannot Tell You"
       },
       {
         "source": "/news/",
@@ -3802,15 +3946,33 @@
       },
       {
         "source": "/news/",
+        "target": "/news/polygenic-scores/",
+        "occurrences": 3,
+        "label": "What a Polygenic Score Can and Cannot Tell You"
+      },
+      {
+        "source": "/news/",
         "target": "/news/precision-agriculture-open-data/",
         "occurrences": 3,
         "label": "Precision Agriculture and Open Agricultural Data"
       },
       {
         "source": "/news/",
+        "target": "/news/psychology-replication/",
+        "occurrences": 3,
+        "label": "What a Single Psychology Study Can and Cannot Tell You"
+      },
+      {
+        "source": "/news/",
         "target": "/news/quantum-sensing-breakthroughs/",
         "occurrences": 3,
         "label": "Quantum Sensing Breakthroughs"
+      },
+      {
+        "source": "/news/",
+        "target": "/news/radiocarbon-dates/",
+        "occurrences": 3,
+        "label": "What a Radiocarbon Date Can and Cannot Tell You"
       },
       {
         "source": "/news/",
@@ -3844,27 +4006,33 @@
       },
       {
         "source": "/news/ai-benchmark-scores/",
+        "target": "/news/brain-scan-studies/",
+        "occurrences": 1,
+        "label": "neuroscience What a Brain Scan Study Can and Cannot Tell You ↗"
+      },
+      {
+        "source": "/news/ai-benchmark-scores/",
         "target": "/news/clinical-ai-safety/",
         "occurrences": 1,
         "label": "Clinical AI Safety Research"
       },
       {
         "source": "/news/ai-benchmark-scores/",
+        "target": "/news/exoplanet-detections/",
+        "occurrences": 1,
+        "label": "astronomy What an Exoplanet Detection Can and Cannot Tell You ↗"
+      },
+      {
+        "source": "/news/ai-benchmark-scores/",
         "target": "/news/legal-foundations-tech-governance/",
-        "occurrences": 2,
+        "occurrences": 1,
         "label": "Legal Foundations for Emerging Technology Governance"
       },
       {
         "source": "/news/ai-benchmark-scores/",
-        "target": "/news/open-data-research-philosophy/",
+        "target": "/news/polygenic-scores/",
         "occurrences": 1,
-        "label": "open data Open data is part of the research infrastructure ↗"
-      },
-      {
-        "source": "/news/ai-benchmark-scores/",
-        "target": "/news/wearable-heart-rate/",
-        "occurrences": 1,
-        "label": "wearable sensors What a Wearable Heart-Rate Reading Can and Cannot Tell You ↗"
+        "label": "genetics What a Polygenic Score Can and Cannot Tell You ↗"
       },
       {
         "source": "/news/ai-benchmark-scores/",
@@ -3897,6 +4065,54 @@
         "label": "natural language processing program page"
       },
       {
+        "source": "/news/brain-scan-studies/",
+        "target": "/",
+        "occurrences": 1,
+        "label": "Home"
+      },
+      {
+        "source": "/news/brain-scan-studies/",
+        "target": "/news/",
+        "occurrences": 1,
+        "label": "News"
+      },
+      {
+        "source": "/news/brain-scan-studies/",
+        "target": "/news/exoplanet-detections/",
+        "occurrences": 1,
+        "label": "astronomy What an Exoplanet Detection Can and Cannot Tell You ↗"
+      },
+      {
+        "source": "/news/brain-scan-studies/",
+        "target": "/news/polygenic-scores/",
+        "occurrences": 1,
+        "label": "genetics What a Polygenic Score Can and Cannot Tell You ↗"
+      },
+      {
+        "source": "/news/brain-scan-studies/",
+        "target": "/news/psychology-replication/",
+        "occurrences": 2,
+        "label": "psychology replication"
+      },
+      {
+        "source": "/news/brain-scan-studies/",
+        "target": "/research/how-we-check/",
+        "occurrences": 1,
+        "label": "how this site checks a fact"
+      },
+      {
+        "source": "/news/brain-scan-studies/",
+        "target": "/research/sources/",
+        "occurrences": 10,
+        "label": "In the sources library (entry for National Institute of Biomedical Imaging and B"
+      },
+      {
+        "source": "/news/brain-scan-studies/",
+        "target": "/sciences/neuroscience/",
+        "occurrences": 3,
+        "label": "neuroscience"
+      },
+      {
         "source": "/news/clinical-ai-safety/",
         "target": "/",
         "occurrences": 1,
@@ -3917,26 +4133,32 @@
       {
         "source": "/news/clinical-ai-safety/",
         "target": "/news/ai-benchmark-scores/",
-        "occurrences": 2,
+        "occurrences": 1,
         "label": "What an AI Benchmark Score Does and Does Not Tell You"
+      },
+      {
+        "source": "/news/clinical-ai-safety/",
+        "target": "/news/brain-scan-studies/",
+        "occurrences": 1,
+        "label": "neuroscience What a Brain Scan Study Can and Cannot Tell You ↗"
+      },
+      {
+        "source": "/news/clinical-ai-safety/",
+        "target": "/news/coral-heat-stress/",
+        "occurrences": 1,
+        "label": "ocean science What a Coral Heat-Stress Map Can and Cannot Tell You ↗"
+      },
+      {
+        "source": "/news/clinical-ai-safety/",
+        "target": "/news/exoplanet-detections/",
+        "occurrences": 1,
+        "label": "astronomy What an Exoplanet Detection Can and Cannot Tell You ↗"
       },
       {
         "source": "/news/clinical-ai-safety/",
         "target": "/news/legal-foundations-tech-governance/",
         "occurrences": 1,
         "label": "Legal Foundations for Emerging Technology Governance"
-      },
-      {
-        "source": "/news/clinical-ai-safety/",
-        "target": "/news/open-data-research-philosophy/",
-        "occurrences": 1,
-        "label": "open data Open data is part of the research infrastructure ↗"
-      },
-      {
-        "source": "/news/clinical-ai-safety/",
-        "target": "/news/wearable-heart-rate/",
-        "occurrences": 1,
-        "label": "wearable sensors What a Wearable Heart-Rate Reading Can and Cannot Tell You ↗"
       },
       {
         "source": "/news/clinical-ai-safety/",
@@ -3963,6 +4185,108 @@
         "label": "Machine Intelligence"
       },
       {
+        "source": "/news/coral-heat-stress/",
+        "target": "/",
+        "occurrences": 1,
+        "label": "Home"
+      },
+      {
+        "source": "/news/coral-heat-stress/",
+        "target": "/news/",
+        "occurrences": 1,
+        "label": "News"
+      },
+      {
+        "source": "/news/coral-heat-stress/",
+        "target": "/news/brain-scan-studies/",
+        "occurrences": 1,
+        "label": "neuroscience What a Brain Scan Study Can and Cannot Tell You ↗"
+      },
+      {
+        "source": "/news/coral-heat-stress/",
+        "target": "/news/exoplanet-detections/",
+        "occurrences": 1,
+        "label": "astronomy What an Exoplanet Detection Can and Cannot Tell You ↗"
+      },
+      {
+        "source": "/news/coral-heat-stress/",
+        "target": "/news/precision-agriculture-open-data/",
+        "occurrences": 1,
+        "label": "precision agriculture Precision Agriculture and Open Agricultural Data ↗"
+      },
+      {
+        "source": "/news/coral-heat-stress/",
+        "target": "/news/wearable-heart-rate/",
+        "occurrences": 1,
+        "label": "wearable heart-rate readings"
+      },
+      {
+        "source": "/news/coral-heat-stress/",
+        "target": "/research/how-we-check/",
+        "occurrences": 1,
+        "label": "how this site checks a fact"
+      },
+      {
+        "source": "/news/coral-heat-stress/",
+        "target": "/research/sources/",
+        "occurrences": 6,
+        "label": "In the sources library (entry for NOAA Coral Reef Watch, Methodology, Product De"
+      },
+      {
+        "source": "/news/coral-heat-stress/",
+        "target": "/sciences/ocean-science/",
+        "occurrences": 1,
+        "label": "ocean science"
+      },
+      {
+        "source": "/news/exoplanet-detections/",
+        "target": "/",
+        "occurrences": 1,
+        "label": "Home"
+      },
+      {
+        "source": "/news/exoplanet-detections/",
+        "target": "/news/",
+        "occurrences": 1,
+        "label": "News"
+      },
+      {
+        "source": "/news/exoplanet-detections/",
+        "target": "/news/brain-scan-studies/",
+        "occurrences": 2,
+        "label": "brain scan studies"
+      },
+      {
+        "source": "/news/exoplanet-detections/",
+        "target": "/news/polygenic-scores/",
+        "occurrences": 1,
+        "label": "genetics What a Polygenic Score Can and Cannot Tell You ↗"
+      },
+      {
+        "source": "/news/exoplanet-detections/",
+        "target": "/news/psychology-replication/",
+        "occurrences": 1,
+        "label": "psychology What a Single Psychology Study Can and Cannot Tell You ↗"
+      },
+      {
+        "source": "/news/exoplanet-detections/",
+        "target": "/research/how-we-check/",
+        "occurrences": 1,
+        "label": "how this site checks a fact"
+      },
+      {
+        "source": "/news/exoplanet-detections/",
+        "target": "/research/sources/",
+        "occurrences": 14,
+        "label": "In the sources library (entry for NASA Science, What’s a transit?, National Aero"
+      },
+      {
+        "source": "/news/exoplanet-detections/",
+        "target": "/sciences/outer-space/",
+        "occurrences": 1,
+        "label": "outer space"
+      },
+      {
         "source": "/news/formal-methods-safety-critical-trust/",
         "target": "/",
         "occurrences": 1,
@@ -3976,21 +4300,21 @@
       },
       {
         "source": "/news/formal-methods-safety-critical-trust/",
-        "target": "/news/ai-benchmark-scores/",
+        "target": "/news/brain-scan-studies/",
         "occurrences": 1,
-        "label": "AI evaluation What an AI Benchmark Score Does and Does Not Tell You ↗"
+        "label": "neuroscience What a Brain Scan Study Can and Cannot Tell You ↗"
       },
       {
         "source": "/news/formal-methods-safety-critical-trust/",
-        "target": "/news/open-data-research-philosophy/",
+        "target": "/news/coral-heat-stress/",
         "occurrences": 1,
-        "label": "open data Open data is part of the research infrastructure ↗"
+        "label": "ocean science What a Coral Heat-Stress Map Can and Cannot Tell You ↗"
       },
       {
         "source": "/news/formal-methods-safety-critical-trust/",
-        "target": "/news/wearable-heart-rate/",
+        "target": "/news/exoplanet-detections/",
         "occurrences": 1,
-        "label": "wearable sensors What a Wearable Heart-Rate Reading Can and Cannot Tell You ↗"
+        "label": "astronomy What an Exoplanet Detection Can and Cannot Tell You ↗"
       },
       {
         "source": "/news/formal-methods-safety-critical-trust/",
@@ -4018,27 +4342,27 @@
       },
       {
         "source": "/news/hpc-infrastructure-for-ai/",
-        "target": "/news/ai-benchmark-scores/",
+        "target": "/news/brain-scan-studies/",
         "occurrences": 1,
-        "label": "AI evaluation What an AI Benchmark Score Does and Does Not Tell You ↗"
+        "label": "neuroscience What a Brain Scan Study Can and Cannot Tell You ↗"
+      },
+      {
+        "source": "/news/hpc-infrastructure-for-ai/",
+        "target": "/news/coral-heat-stress/",
+        "occurrences": 1,
+        "label": "ocean science What a Coral Heat-Stress Map Can and Cannot Tell You ↗"
+      },
+      {
+        "source": "/news/hpc-infrastructure-for-ai/",
+        "target": "/news/exoplanet-detections/",
+        "occurrences": 1,
+        "label": "astronomy What an Exoplanet Detection Can and Cannot Tell You ↗"
       },
       {
         "source": "/news/hpc-infrastructure-for-ai/",
         "target": "/news/legal-foundations-tech-governance/",
         "occurrences": 1,
         "label": "Legal Foundations for Emerging Technology Governance"
-      },
-      {
-        "source": "/news/hpc-infrastructure-for-ai/",
-        "target": "/news/open-data-research-philosophy/",
-        "occurrences": 1,
-        "label": "open data Open data is part of the research infrastructure ↗"
-      },
-      {
-        "source": "/news/hpc-infrastructure-for-ai/",
-        "target": "/news/wearable-heart-rate/",
-        "occurrences": 1,
-        "label": "wearable sensors What a Wearable Heart-Rate Reading Can and Cannot Tell You ↗"
       },
       {
         "source": "/news/hpc-infrastructure-for-ai/",
@@ -4067,8 +4391,14 @@
       {
         "source": "/news/legal-foundations-tech-governance/",
         "target": "/news/ai-benchmark-scores/",
-        "occurrences": 2,
+        "occurrences": 1,
         "label": "What an AI Benchmark Score Does and Does Not Tell You"
+      },
+      {
+        "source": "/news/legal-foundations-tech-governance/",
+        "target": "/news/brain-scan-studies/",
+        "occurrences": 1,
+        "label": "neuroscience What a Brain Scan Study Can and Cannot Tell You ↗"
       },
       {
         "source": "/news/legal-foundations-tech-governance/",
@@ -4078,21 +4408,21 @@
       },
       {
         "source": "/news/legal-foundations-tech-governance/",
+        "target": "/news/coral-heat-stress/",
+        "occurrences": 1,
+        "label": "ocean science What a Coral Heat-Stress Map Can and Cannot Tell You ↗"
+      },
+      {
+        "source": "/news/legal-foundations-tech-governance/",
+        "target": "/news/exoplanet-detections/",
+        "occurrences": 1,
+        "label": "astronomy What an Exoplanet Detection Can and Cannot Tell You ↗"
+      },
+      {
+        "source": "/news/legal-foundations-tech-governance/",
         "target": "/news/hpc-infrastructure-for-ai/",
         "occurrences": 1,
         "label": "HPC Infrastructure for AI"
-      },
-      {
-        "source": "/news/legal-foundations-tech-governance/",
-        "target": "/news/open-data-research-philosophy/",
-        "occurrences": 1,
-        "label": "open data Open data is part of the research infrastructure ↗"
-      },
-      {
-        "source": "/news/legal-foundations-tech-governance/",
-        "target": "/news/wearable-heart-rate/",
-        "occurrences": 1,
-        "label": "wearable sensors What a Wearable Heart-Rate Reading Can and Cannot Tell You ↗"
       },
       {
         "source": "/news/legal-foundations-tech-governance/",
@@ -4126,21 +4456,21 @@
       },
       {
         "source": "/news/materials-science-energy-transition/",
-        "target": "/news/ai-benchmark-scores/",
+        "target": "/news/brain-scan-studies/",
         "occurrences": 1,
-        "label": "AI evaluation What an AI Benchmark Score Does and Does Not Tell You ↗"
+        "label": "neuroscience What a Brain Scan Study Can and Cannot Tell You ↗"
       },
       {
         "source": "/news/materials-science-energy-transition/",
-        "target": "/news/open-data-research-philosophy/",
+        "target": "/news/coral-heat-stress/",
         "occurrences": 1,
-        "label": "open data Open data is part of the research infrastructure ↗"
+        "label": "ocean science What a Coral Heat-Stress Map Can and Cannot Tell You ↗"
       },
       {
         "source": "/news/materials-science-energy-transition/",
-        "target": "/news/wearable-heart-rate/",
+        "target": "/news/exoplanet-detections/",
         "occurrences": 1,
-        "label": "wearable sensors What a Wearable Heart-Rate Reading Can and Cannot Tell You ↗"
+        "label": "astronomy What an Exoplanet Detection Can and Cannot Tell You ↗"
       },
       {
         "source": "/news/materials-science-energy-transition/",
@@ -4168,21 +4498,21 @@
       },
       {
         "source": "/news/open-data-research-philosophy/",
-        "target": "/news/ai-benchmark-scores/",
+        "target": "/news/brain-scan-studies/",
         "occurrences": 1,
-        "label": "AI evaluation What an AI Benchmark Score Does and Does Not Tell You ↗"
+        "label": "neuroscience What a Brain Scan Study Can and Cannot Tell You ↗"
       },
       {
         "source": "/news/open-data-research-philosophy/",
-        "target": "/news/precision-agriculture-open-data/",
+        "target": "/news/exoplanet-detections/",
         "occurrences": 1,
-        "label": "precision agriculture Precision Agriculture and Open Agricultural Data ↗"
+        "label": "astronomy What an Exoplanet Detection Can and Cannot Tell You ↗"
       },
       {
         "source": "/news/open-data-research-philosophy/",
-        "target": "/news/wearable-heart-rate/",
-        "occurrences": 1,
-        "label": "wearable sensors What a Wearable Heart-Rate Reading Can and Cannot Tell You ↗"
+        "target": "/news/psychology-replication/",
+        "occurrences": 2,
+        "label": "What a Single Psychology Study Can and Cannot Tell You"
       },
       {
         "source": "/news/open-data-research-philosophy/",
@@ -4215,6 +4545,54 @@
         "label": "Data Science"
       },
       {
+        "source": "/news/polygenic-scores/",
+        "target": "/",
+        "occurrences": 1,
+        "label": "Home"
+      },
+      {
+        "source": "/news/polygenic-scores/",
+        "target": "/news/",
+        "occurrences": 1,
+        "label": "News"
+      },
+      {
+        "source": "/news/polygenic-scores/",
+        "target": "/news/brain-scan-studies/",
+        "occurrences": 1,
+        "label": "neuroscience What a Brain Scan Study Can and Cannot Tell You ↗"
+      },
+      {
+        "source": "/news/polygenic-scores/",
+        "target": "/news/exoplanet-detections/",
+        "occurrences": 1,
+        "label": "astronomy What an Exoplanet Detection Can and Cannot Tell You ↗"
+      },
+      {
+        "source": "/news/polygenic-scores/",
+        "target": "/news/psychology-replication/",
+        "occurrences": 2,
+        "label": "psychology replication"
+      },
+      {
+        "source": "/news/polygenic-scores/",
+        "target": "/research/how-we-check/",
+        "occurrences": 1,
+        "label": "how this site checks a fact"
+      },
+      {
+        "source": "/news/polygenic-scores/",
+        "target": "/research/sources/",
+        "occurrences": 6,
+        "label": "In the sources library (entry for National Human Genome Research Institute, Poly"
+      },
+      {
+        "source": "/news/polygenic-scores/",
+        "target": "/sciences/genetics/",
+        "occurrences": 2,
+        "label": "genetics"
+      },
+      {
         "source": "/news/precision-agriculture-open-data/",
         "target": "/",
         "occurrences": 1,
@@ -4228,21 +4606,21 @@
       },
       {
         "source": "/news/precision-agriculture-open-data/",
-        "target": "/news/ai-benchmark-scores/",
+        "target": "/news/brain-scan-studies/",
         "occurrences": 1,
-        "label": "AI evaluation What an AI Benchmark Score Does and Does Not Tell You ↗"
+        "label": "neuroscience What a Brain Scan Study Can and Cannot Tell You ↗"
+      },
+      {
+        "source": "/news/precision-agriculture-open-data/",
+        "target": "/news/coral-heat-stress/",
+        "occurrences": 1,
+        "label": "ocean science What a Coral Heat-Stress Map Can and Cannot Tell You ↗"
       },
       {
         "source": "/news/precision-agriculture-open-data/",
         "target": "/news/open-data-research-philosophy/",
         "occurrences": 1,
         "label": "open data Open data is part of the research infrastructure ↗"
-      },
-      {
-        "source": "/news/precision-agriculture-open-data/",
-        "target": "/news/wearable-heart-rate/",
-        "occurrences": 1,
-        "label": "wearable sensors What a Wearable Heart-Rate Reading Can and Cannot Tell You ↗"
       },
       {
         "source": "/news/precision-agriculture-open-data/",
@@ -4251,6 +4629,66 @@
         "label": "In the sources library (entry for Mulla (2013), Twenty five years of remote sens"
       },
       {
+        "source": "/news/psychology-replication/",
+        "target": "/",
+        "occurrences": 1,
+        "label": "Home"
+      },
+      {
+        "source": "/news/psychology-replication/",
+        "target": "/news/",
+        "occurrences": 1,
+        "label": "News"
+      },
+      {
+        "source": "/news/psychology-replication/",
+        "target": "/news/ai-benchmark-scores/",
+        "occurrences": 1,
+        "label": "AI benchmark scores"
+      },
+      {
+        "source": "/news/psychology-replication/",
+        "target": "/news/brain-scan-studies/",
+        "occurrences": 1,
+        "label": "neuroscience What a Brain Scan Study Can and Cannot Tell You ↗"
+      },
+      {
+        "source": "/news/psychology-replication/",
+        "target": "/news/exoplanet-detections/",
+        "occurrences": 1,
+        "label": "astronomy What an Exoplanet Detection Can and Cannot Tell You ↗"
+      },
+      {
+        "source": "/news/psychology-replication/",
+        "target": "/news/open-data-research-philosophy/",
+        "occurrences": 2,
+        "label": "Open data is part of the research infrastructure"
+      },
+      {
+        "source": "/news/psychology-replication/",
+        "target": "/research/how-we-check/",
+        "occurrences": 1,
+        "label": "how this site checks a fact"
+      },
+      {
+        "source": "/news/psychology-replication/",
+        "target": "/research/sources/",
+        "occurrences": 5,
+        "label": "in the sources library (entry for Estimating the reproducibility of psychologica"
+      },
+      {
+        "source": "/news/psychology-replication/",
+        "target": "/sciences/cognitive-sciences/",
+        "occurrences": 2,
+        "label": "cognitive sciences"
+      },
+      {
+        "source": "/news/psychology-replication/",
+        "target": "/sciences/psychology/",
+        "occurrences": 5,
+        "label": "psychology"
+      },
+      {
         "source": "/news/quantum-sensing-breakthroughs/",
         "target": "/",
         "occurrences": 1,
@@ -4264,21 +4702,21 @@
       },
       {
         "source": "/news/quantum-sensing-breakthroughs/",
-        "target": "/news/ai-benchmark-scores/",
+        "target": "/news/brain-scan-studies/",
         "occurrences": 1,
-        "label": "AI evaluation What an AI Benchmark Score Does and Does Not Tell You ↗"
+        "label": "neuroscience What a Brain Scan Study Can and Cannot Tell You ↗"
       },
       {
         "source": "/news/quantum-sensing-breakthroughs/",
-        "target": "/news/open-data-research-philosophy/",
+        "target": "/news/coral-heat-stress/",
         "occurrences": 1,
-        "label": "open data Open data is part of the research infrastructure ↗"
+        "label": "ocean science What a Coral Heat-Stress Map Can and Cannot Tell You ↗"
       },
       {
         "source": "/news/quantum-sensing-breakthroughs/",
-        "target": "/news/wearable-heart-rate/",
+        "target": "/news/exoplanet-detections/",
         "occurrences": 1,
-        "label": "wearable sensors What a Wearable Heart-Rate Reading Can and Cannot Tell You ↗"
+        "label": "astronomy What an Exoplanet Detection Can and Cannot Tell You ↗"
       },
       {
         "source": "/news/quantum-sensing-breakthroughs/",
@@ -4293,6 +4731,54 @@
         "label": "Quantum Computing"
       },
       {
+        "source": "/news/radiocarbon-dates/",
+        "target": "/",
+        "occurrences": 1,
+        "label": "Home"
+      },
+      {
+        "source": "/news/radiocarbon-dates/",
+        "target": "/news/",
+        "occurrences": 1,
+        "label": "News"
+      },
+      {
+        "source": "/news/radiocarbon-dates/",
+        "target": "/news/brain-scan-studies/",
+        "occurrences": 1,
+        "label": "neuroscience What a Brain Scan Study Can and Cannot Tell You ↗"
+      },
+      {
+        "source": "/news/radiocarbon-dates/",
+        "target": "/news/exoplanet-detections/",
+        "occurrences": 1,
+        "label": "astronomy What an Exoplanet Detection Can and Cannot Tell You ↗"
+      },
+      {
+        "source": "/news/radiocarbon-dates/",
+        "target": "/news/polygenic-scores/",
+        "occurrences": 1,
+        "label": "genetics What a Polygenic Score Can and Cannot Tell You ↗"
+      },
+      {
+        "source": "/news/radiocarbon-dates/",
+        "target": "/research/how-we-check/",
+        "occurrences": 1,
+        "label": "how this site checks a fact"
+      },
+      {
+        "source": "/news/radiocarbon-dates/",
+        "target": "/research/sources/",
+        "occurrences": 12,
+        "label": "In the sources library (entry for Hajdas et al. (2021), Radiocarbon dating, Natu"
+      },
+      {
+        "source": "/news/radiocarbon-dates/",
+        "target": "/sciences/archaeology/",
+        "occurrences": 1,
+        "label": "archaeology"
+      },
+      {
         "source": "/news/wearable-heart-rate/",
         "target": "/",
         "occurrences": 1,
@@ -4306,21 +4792,21 @@
       },
       {
         "source": "/news/wearable-heart-rate/",
-        "target": "/news/ai-benchmark-scores/",
+        "target": "/news/brain-scan-studies/",
         "occurrences": 1,
-        "label": "AI evaluation What an AI Benchmark Score Does and Does Not Tell You ↗"
+        "label": "neuroscience What a Brain Scan Study Can and Cannot Tell You ↗"
       },
       {
         "source": "/news/wearable-heart-rate/",
-        "target": "/news/legal-foundations-tech-governance/",
+        "target": "/news/exoplanet-detections/",
         "occurrences": 1,
-        "label": "technology law Legal Foundations for Emerging Technology Governance ↗"
+        "label": "astronomy What an Exoplanet Detection Can and Cannot Tell You ↗"
       },
       {
         "source": "/news/wearable-heart-rate/",
-        "target": "/news/open-data-research-philosophy/",
+        "target": "/news/polygenic-scores/",
         "occurrences": 1,
-        "label": "open data Open data is part of the research infrastructure ↗"
+        "label": "genetics What a Polygenic Score Can and Cannot Tell You ↗"
       },
       {
         "source": "/news/wearable-heart-rate/",
@@ -5704,9 +6190,27 @@
       },
       {
         "source": "/record/marketing/",
+        "target": "/news/brain-scan-studies/",
+        "occurrences": 2,
+        "label": "/news/brain-scan-studies/"
+      },
+      {
+        "source": "/record/marketing/",
         "target": "/news/clinical-ai-safety/",
         "occurrences": 2,
         "label": "/news/clinical-ai-safety/"
+      },
+      {
+        "source": "/record/marketing/",
+        "target": "/news/coral-heat-stress/",
+        "occurrences": 2,
+        "label": "/news/coral-heat-stress/"
+      },
+      {
+        "source": "/record/marketing/",
+        "target": "/news/exoplanet-detections/",
+        "occurrences": 2,
+        "label": "/news/exoplanet-detections/"
       },
       {
         "source": "/record/marketing/",
@@ -5740,15 +6244,33 @@
       },
       {
         "source": "/record/marketing/",
+        "target": "/news/polygenic-scores/",
+        "occurrences": 2,
+        "label": "/news/polygenic-scores/"
+      },
+      {
+        "source": "/record/marketing/",
         "target": "/news/precision-agriculture-open-data/",
         "occurrences": 2,
         "label": "/news/precision-agriculture-open-data/"
       },
       {
         "source": "/record/marketing/",
+        "target": "/news/psychology-replication/",
+        "occurrences": 2,
+        "label": "/news/psychology-replication/"
+      },
+      {
+        "source": "/record/marketing/",
         "target": "/news/quantum-sensing-breakthroughs/",
         "occurrences": 2,
         "label": "/news/quantum-sensing-breakthroughs/"
+      },
+      {
+        "source": "/record/marketing/",
+        "target": "/news/radiocarbon-dates/",
+        "occurrences": 2,
+        "label": "/news/radiocarbon-dates/"
       },
       {
         "source": "/record/marketing/",
@@ -6312,7 +6834,7 @@
         "source": "/record/nav/",
         "target": "/fellowship/",
         "occurrences": 4,
-        "label": "71. INSTAR Lab R&amp;D Fellowships — International and Resident Scholars"
+        "label": "77. INSTAR Lab R&amp;D Fellowships — International and Resident Scholars"
       },
       {
         "source": "/record/nav/",
@@ -6352,57 +6874,93 @@
       },
       {
         "source": "/record/nav/",
+        "target": "/news/brain-scan-studies/",
+        "occurrences": 4,
+        "label": "62. What a Brain Scan Study Can and Cannot Tell You — INSTAR Lab"
+      },
+      {
+        "source": "/record/nav/",
         "target": "/news/clinical-ai-safety/",
         "occurrences": 4,
-        "label": "62. Clinical AI Safety Research — INSTAR Lab"
+        "label": "63. Clinical AI Safety Research — INSTAR Lab"
+      },
+      {
+        "source": "/record/nav/",
+        "target": "/news/coral-heat-stress/",
+        "occurrences": 4,
+        "label": "64. What a Coral Heat-Stress Map Can and Cannot Tell You — INSTAR Lab"
+      },
+      {
+        "source": "/record/nav/",
+        "target": "/news/exoplanet-detections/",
+        "occurrences": 4,
+        "label": "65. What an Exoplanet Detection Can and Cannot Tell You — INSTAR Lab"
       },
       {
         "source": "/record/nav/",
         "target": "/news/formal-methods-safety-critical-trust/",
         "occurrences": 4,
-        "label": "63. Formal Methods and Trust in Safety-Critical Software — INSTAR Lab"
+        "label": "66. Formal Methods and Trust in Safety-Critical Software — INSTAR Lab"
       },
       {
         "source": "/record/nav/",
         "target": "/news/hpc-infrastructure-for-ai/",
         "occurrences": 4,
-        "label": "64. HPC Infrastructure for AI — INSTAR Lab"
+        "label": "67. HPC Infrastructure for AI — INSTAR Lab"
       },
       {
         "source": "/record/nav/",
         "target": "/news/legal-foundations-tech-governance/",
         "occurrences": 4,
-        "label": "65. Legal Foundations for Emerging Technology Governance — INSTAR Lab"
+        "label": "68. Legal Foundations for Emerging Technology Governance — INSTAR Lab"
       },
       {
         "source": "/record/nav/",
         "target": "/news/materials-science-energy-transition/",
         "occurrences": 4,
-        "label": "66. Materials Science and the Energy Transition — INSTAR Lab"
+        "label": "69. Materials Science and the Energy Transition — INSTAR Lab"
       },
       {
         "source": "/record/nav/",
         "target": "/news/open-data-research-philosophy/",
         "occurrences": 4,
-        "label": "67. Why INSTAR Lab Commits to Open Data — INSTAR Lab"
+        "label": "70. Why INSTAR Lab Commits to Open Data — INSTAR Lab"
+      },
+      {
+        "source": "/record/nav/",
+        "target": "/news/polygenic-scores/",
+        "occurrences": 4,
+        "label": "71. What a Polygenic Score Can and Cannot Tell You — INSTAR Lab"
       },
       {
         "source": "/record/nav/",
         "target": "/news/precision-agriculture-open-data/",
         "occurrences": 4,
-        "label": "68. Precision Agriculture and Open Agricultural Data — INSTAR Lab"
+        "label": "72. Precision Agriculture and Open Agricultural Data — INSTAR Lab"
+      },
+      {
+        "source": "/record/nav/",
+        "target": "/news/psychology-replication/",
+        "occurrences": 4,
+        "label": "73. What a Single Psychology Study Can and Cannot Tell You — INSTAR Lab"
       },
       {
         "source": "/record/nav/",
         "target": "/news/quantum-sensing-breakthroughs/",
         "occurrences": 4,
-        "label": "69. Quantum Sensing Breakthroughs — INSTAR Lab"
+        "label": "74. Quantum Sensing Breakthroughs — INSTAR Lab"
+      },
+      {
+        "source": "/record/nav/",
+        "target": "/news/radiocarbon-dates/",
+        "occurrences": 4,
+        "label": "75. What a Radiocarbon Date Can and Cannot Tell You — INSTAR Lab"
       },
       {
         "source": "/record/nav/",
         "target": "/news/wearable-heart-rate/",
         "occurrences": 4,
-        "label": "70. What a Wearable Heart-Rate Reading Can and Cannot Tell You — INSTAR Lab"
+        "label": "76. What a Wearable Heart-Rate Reading Can and Cannot Tell You — INSTAR Lab"
       },
       {
         "source": "/record/nav/",
@@ -6702,25 +7260,25 @@
         "source": "/record/nav/",
         "target": "/tech-transfer/enterprise-rd/",
         "occurrences": 5,
-        "label": "72. Enterprise R&amp;D — INSTAR Lab Technology Transfer"
+        "label": "78. Enterprise R&amp;D — INSTAR Lab Technology Transfer"
       },
       {
         "source": "/record/nav/",
         "target": "/tech-transfer/portfolio/",
         "occurrences": 5,
-        "label": "73. Research Portfolio — INSTAR Lab Technology Transfer"
+        "label": "79. Research Portfolio — INSTAR Lab Technology Transfer"
       },
       {
         "source": "/record/nav/",
         "target": "/tech-transfer/sttr-programs/",
         "occurrences": 5,
-        "label": "74. STTR Programs — INSTAR Lab Technology Transfer"
+        "label": "80. STTR Programs — INSTAR Lab Technology Transfer"
       },
       {
         "source": "/record/nav/",
         "target": "/tech-transfer/workshops-events/",
         "occurrences": 4,
-        "label": "75. Workshops &amp; Events — INSTAR Lab Technology Transfer"
+        "label": "81. Workshops &amp; Events — INSTAR Lab Technology Transfer"
       },
       {
         "source": "/record/nav/",
@@ -7084,7 +7642,25 @@
       },
       {
         "source": "/record/screens/",
+        "target": "/news/brain-scan-studies/",
+        "occurrences": 1,
+        "label": "Open canonical route ↗"
+      },
+      {
+        "source": "/record/screens/",
         "target": "/news/clinical-ai-safety/",
+        "occurrences": 1,
+        "label": "Open canonical route ↗"
+      },
+      {
+        "source": "/record/screens/",
+        "target": "/news/coral-heat-stress/",
+        "occurrences": 1,
+        "label": "Open canonical route ↗"
+      },
+      {
+        "source": "/record/screens/",
+        "target": "/news/exoplanet-detections/",
         "occurrences": 1,
         "label": "Open canonical route ↗"
       },
@@ -7120,13 +7696,31 @@
       },
       {
         "source": "/record/screens/",
+        "target": "/news/polygenic-scores/",
+        "occurrences": 1,
+        "label": "Open canonical route ↗"
+      },
+      {
+        "source": "/record/screens/",
         "target": "/news/precision-agriculture-open-data/",
         "occurrences": 1,
         "label": "Open canonical route ↗"
       },
       {
         "source": "/record/screens/",
+        "target": "/news/psychology-replication/",
+        "occurrences": 1,
+        "label": "Open canonical route ↗"
+      },
+      {
+        "source": "/record/screens/",
         "target": "/news/quantum-sensing-breakthroughs/",
+        "occurrences": 1,
+        "label": "Open canonical route ↗"
+      },
+      {
+        "source": "/record/screens/",
+        "target": "/news/radiocarbon-dates/",
         "occurrences": 1,
         "label": "Open canonical route ↗"
       },
@@ -7960,9 +8554,27 @@
       },
       {
         "source": "/research/at-a-glance/",
+        "target": "/news/brain-scan-studies/",
+        "occurrences": 2,
+        "label": "What a Brain Scan Study Can and Cannot Tell You"
+      },
+      {
+        "source": "/research/at-a-glance/",
         "target": "/news/clinical-ai-safety/",
         "occurrences": 2,
         "label": "Clinical AI Safety Research"
+      },
+      {
+        "source": "/research/at-a-glance/",
+        "target": "/news/coral-heat-stress/",
+        "occurrences": 2,
+        "label": "What a Coral Heat-Stress Map Can and Cannot Tell You"
+      },
+      {
+        "source": "/research/at-a-glance/",
+        "target": "/news/exoplanet-detections/",
+        "occurrences": 2,
+        "label": "What an Exoplanet Detection Can and Cannot Tell You"
       },
       {
         "source": "/research/at-a-glance/",
@@ -7996,15 +8608,33 @@
       },
       {
         "source": "/research/at-a-glance/",
+        "target": "/news/polygenic-scores/",
+        "occurrences": 2,
+        "label": "What a Polygenic Score Can and Cannot Tell You"
+      },
+      {
+        "source": "/research/at-a-glance/",
         "target": "/news/precision-agriculture-open-data/",
         "occurrences": 2,
         "label": "Precision Agriculture and Open Agricultural Data"
       },
       {
         "source": "/research/at-a-glance/",
+        "target": "/news/psychology-replication/",
+        "occurrences": 2,
+        "label": "What a Single Psychology Study Can and Cannot Tell You"
+      },
+      {
+        "source": "/research/at-a-glance/",
         "target": "/news/quantum-sensing-breakthroughs/",
         "occurrences": 2,
         "label": "Quantum Sensing Breakthroughs"
+      },
+      {
+        "source": "/research/at-a-glance/",
+        "target": "/news/radiocarbon-dates/",
+        "occurrences": 2,
+        "label": "What a Radiocarbon Date Can and Cannot Tell You"
       },
       {
         "source": "/research/at-a-glance/",
@@ -8800,9 +9430,27 @@
       },
       {
         "source": "/research/index/",
+        "target": "/news/brain-scan-studies/",
+        "occurrences": 1,
+        "label": "What a Brain Scan Study Can and Cannot Tell You"
+      },
+      {
+        "source": "/research/index/",
         "target": "/news/clinical-ai-safety/",
         "occurrences": 1,
         "label": "Clinical AI Safety Research"
+      },
+      {
+        "source": "/research/index/",
+        "target": "/news/coral-heat-stress/",
+        "occurrences": 1,
+        "label": "What a Coral Heat-Stress Map Can and Cannot Tell You"
+      },
+      {
+        "source": "/research/index/",
+        "target": "/news/exoplanet-detections/",
+        "occurrences": 1,
+        "label": "What an Exoplanet Detection Can and Cannot Tell You"
       },
       {
         "source": "/research/index/",
@@ -8836,15 +9484,33 @@
       },
       {
         "source": "/research/index/",
+        "target": "/news/polygenic-scores/",
+        "occurrences": 1,
+        "label": "What a Polygenic Score Can and Cannot Tell You"
+      },
+      {
+        "source": "/research/index/",
         "target": "/news/precision-agriculture-open-data/",
         "occurrences": 1,
         "label": "Precision Agriculture and Open Agricultural Data"
       },
       {
         "source": "/research/index/",
+        "target": "/news/psychology-replication/",
+        "occurrences": 1,
+        "label": "What a Single Psychology Study Can and Cannot Tell You"
+      },
+      {
+        "source": "/research/index/",
         "target": "/news/quantum-sensing-breakthroughs/",
         "occurrences": 1,
         "label": "Quantum Sensing Breakthroughs"
+      },
+      {
+        "source": "/research/index/",
+        "target": "/news/radiocarbon-dates/",
+        "occurrences": 1,
+        "label": "What a Radiocarbon Date Can and Cannot Tell You"
       },
       {
         "source": "/research/index/",
@@ -9436,9 +10102,27 @@
       },
       {
         "source": "/research/outputs/",
+        "target": "/news/brain-scan-studies/",
+        "occurrences": 1,
+        "label": "What a Brain Scan Study Can and Cannot Tell You"
+      },
+      {
+        "source": "/research/outputs/",
         "target": "/news/clinical-ai-safety/",
         "occurrences": 1,
         "label": "Clinical AI Safety Research"
+      },
+      {
+        "source": "/research/outputs/",
+        "target": "/news/coral-heat-stress/",
+        "occurrences": 1,
+        "label": "What a Coral Heat-Stress Map Can and Cannot Tell You"
+      },
+      {
+        "source": "/research/outputs/",
+        "target": "/news/exoplanet-detections/",
+        "occurrences": 1,
+        "label": "What an Exoplanet Detection Can and Cannot Tell You"
       },
       {
         "source": "/research/outputs/",
@@ -9472,15 +10156,33 @@
       },
       {
         "source": "/research/outputs/",
+        "target": "/news/polygenic-scores/",
+        "occurrences": 1,
+        "label": "What a Polygenic Score Can and Cannot Tell You"
+      },
+      {
+        "source": "/research/outputs/",
         "target": "/news/precision-agriculture-open-data/",
         "occurrences": 1,
         "label": "Precision Agriculture and Open Agricultural Data"
       },
       {
         "source": "/research/outputs/",
+        "target": "/news/psychology-replication/",
+        "occurrences": 1,
+        "label": "What a Single Psychology Study Can and Cannot Tell You"
+      },
+      {
+        "source": "/research/outputs/",
         "target": "/news/quantum-sensing-breakthroughs/",
         "occurrences": 1,
         "label": "Quantum Sensing Breakthroughs"
+      },
+      {
+        "source": "/research/outputs/",
+        "target": "/news/radiocarbon-dates/",
+        "occurrences": 1,
+        "label": "What a Radiocarbon Date Can and Cannot Tell You"
       },
       {
         "source": "/research/outputs/",
@@ -9760,9 +10462,27 @@
       },
       {
         "source": "/research/publications/",
+        "target": "/news/brain-scan-studies/",
+        "occurrences": 1,
+        "label": "What a Brain Scan Study Can and Cannot Tell You"
+      },
+      {
+        "source": "/research/publications/",
         "target": "/news/clinical-ai-safety/",
         "occurrences": 1,
         "label": "Clinical AI Safety Research"
+      },
+      {
+        "source": "/research/publications/",
+        "target": "/news/coral-heat-stress/",
+        "occurrences": 1,
+        "label": "What a Coral Heat-Stress Map Can and Cannot Tell You"
+      },
+      {
+        "source": "/research/publications/",
+        "target": "/news/exoplanet-detections/",
+        "occurrences": 1,
+        "label": "What an Exoplanet Detection Can and Cannot Tell You"
       },
       {
         "source": "/research/publications/",
@@ -9796,15 +10516,33 @@
       },
       {
         "source": "/research/publications/",
+        "target": "/news/polygenic-scores/",
+        "occurrences": 1,
+        "label": "What a Polygenic Score Can and Cannot Tell You"
+      },
+      {
+        "source": "/research/publications/",
         "target": "/news/precision-agriculture-open-data/",
         "occurrences": 1,
         "label": "Precision Agriculture and Open Agricultural Data"
       },
       {
         "source": "/research/publications/",
+        "target": "/news/psychology-replication/",
+        "occurrences": 1,
+        "label": "What a Single Psychology Study Can and Cannot Tell You"
+      },
+      {
+        "source": "/research/publications/",
         "target": "/news/quantum-sensing-breakthroughs/",
         "occurrences": 1,
         "label": "Quantum Sensing Breakthroughs"
+      },
+      {
+        "source": "/research/publications/",
+        "target": "/news/radiocarbon-dates/",
+        "occurrences": 1,
+        "label": "What a Radiocarbon Date Can and Cannot Tell You"
       },
       {
         "source": "/research/publications/",
@@ -9874,9 +10612,27 @@
       },
       {
         "source": "/research/sources/",
+        "target": "/news/brain-scan-studies/",
+        "occurrences": 10,
+        "label": "What a Brain Scan Study Can and Cannot Tell You"
+      },
+      {
+        "source": "/research/sources/",
         "target": "/news/clinical-ai-safety/",
         "occurrences": 6,
         "label": "Clinical AI Safety Research"
+      },
+      {
+        "source": "/research/sources/",
+        "target": "/news/coral-heat-stress/",
+        "occurrences": 6,
+        "label": "What a Coral Heat-Stress Map Can and Cannot Tell You"
+      },
+      {
+        "source": "/research/sources/",
+        "target": "/news/exoplanet-detections/",
+        "occurrences": 14,
+        "label": "What an Exoplanet Detection Can and Cannot Tell You"
       },
       {
         "source": "/research/sources/",
@@ -9910,15 +10666,33 @@
       },
       {
         "source": "/research/sources/",
+        "target": "/news/polygenic-scores/",
+        "occurrences": 6,
+        "label": "What a Polygenic Score Can and Cannot Tell You"
+      },
+      {
+        "source": "/research/sources/",
         "target": "/news/precision-agriculture-open-data/",
         "occurrences": 5,
         "label": "Precision Agriculture and Open Agricultural Data"
       },
       {
         "source": "/research/sources/",
+        "target": "/news/psychology-replication/",
+        "occurrences": 6,
+        "label": "What a Single Psychology Study Can and Cannot Tell You"
+      },
+      {
+        "source": "/research/sources/",
         "target": "/news/quantum-sensing-breakthroughs/",
         "occurrences": 5,
         "label": "Quantum Sensing Breakthroughs"
+      },
+      {
+        "source": "/research/sources/",
+        "target": "/news/radiocarbon-dates/",
+        "occurrences": 12,
+        "label": "What a Radiocarbon Date Can and Cannot Tell You"
       },
       {
         "source": "/research/sources/",
@@ -10426,6 +11200,12 @@
       },
       {
         "source": "/sciences/archaeology/",
+        "target": "/news/radiocarbon-dates/",
+        "occurrences": 1,
+        "label": "archaeology What a Radiocarbon Date Can and Cannot Tell You ↗"
+      },
+      {
+        "source": "/sciences/archaeology/",
         "target": "/research/funding/",
         "occurrences": 1,
         "label": "research funding"
@@ -10648,6 +11428,12 @@
       },
       {
         "source": "/sciences/cognitive-sciences/",
+        "target": "/news/psychology-replication/",
+        "occurrences": 2,
+        "label": "What a Single Psychology Study Can and Cannot Tell You"
+      },
+      {
+        "source": "/sciences/cognitive-sciences/",
         "target": "/research/funding/",
         "occurrences": 1,
         "label": "Funding"
@@ -10855,6 +11641,12 @@
         "target": "/funders/",
         "occurrences": 1,
         "label": "For Funders"
+      },
+      {
+        "source": "/sciences/genetics/",
+        "target": "/news/polygenic-scores/",
+        "occurrences": 2,
+        "label": "What a Polygenic Score Can and Cannot Tell You"
       },
       {
         "source": "/sciences/genetics/",
@@ -11362,6 +12154,12 @@
       },
       {
         "source": "/sciences/neuroscience/",
+        "target": "/news/brain-scan-studies/",
+        "occurrences": 3,
+        "label": "What a Brain Scan Study Can and Cannot Tell You"
+      },
+      {
+        "source": "/sciences/neuroscience/",
         "target": "/research/funding/",
         "occurrences": 1,
         "label": "Funding"
@@ -11425,6 +12223,12 @@
         "target": "/contact-us/",
         "occurrences": 1,
         "label": "Discuss a technical research need with INSTAR"
+      },
+      {
+        "source": "/sciences/ocean-science/",
+        "target": "/news/coral-heat-stress/",
+        "occurrences": 1,
+        "label": "ocean science What a Coral Heat-Stress Map Can and Cannot Tell You ↗"
       },
       {
         "source": "/sciences/ocean-science/",
@@ -11497,6 +12301,12 @@
         "target": "/contact-us/",
         "occurrences": 1,
         "label": "Discuss a technical research need with INSTAR"
+      },
+      {
+        "source": "/sciences/outer-space/",
+        "target": "/news/exoplanet-detections/",
+        "occurrences": 1,
+        "label": "astronomy What an Exoplanet Detection Can and Cannot Tell You ↗"
       },
       {
         "source": "/sciences/outer-space/",
@@ -11734,6 +12544,12 @@
       },
       {
         "source": "/sciences/psychology/",
+        "target": "/news/psychology-replication/",
+        "occurrences": 5,
+        "label": "What a Single Psychology Study Can and Cannot Tell You"
+      },
+      {
+        "source": "/sciences/psychology/",
         "target": "/research/funding/",
         "occurrences": 1,
         "label": "research funding"
@@ -11944,9 +12760,27 @@
       },
       {
         "source": "/search/",
+        "target": "/news/brain-scan-studies/",
+        "occurrences": 1,
+        "label": "Research brief What a Brain Scan Study Can and Cannot Tell You — INSTAR Lab An I"
+      },
+      {
+        "source": "/search/",
         "target": "/news/clinical-ai-safety/",
         "occurrences": 1,
         "label": "Research brief Clinical AI Safety Research — INSTAR Lab An INSTAR Lab research b"
+      },
+      {
+        "source": "/search/",
+        "target": "/news/coral-heat-stress/",
+        "occurrences": 1,
+        "label": "Research brief What a Coral Heat-Stress Map Can and Cannot Tell You — INSTAR Lab"
+      },
+      {
+        "source": "/search/",
+        "target": "/news/exoplanet-detections/",
+        "occurrences": 1,
+        "label": "Research brief What an Exoplanet Detection Can and Cannot Tell You — INSTAR Lab "
       },
       {
         "source": "/search/",
@@ -11980,15 +12814,33 @@
       },
       {
         "source": "/search/",
+        "target": "/news/polygenic-scores/",
+        "occurrences": 1,
+        "label": "Research brief What a Polygenic Score Can and Cannot Tell You — INSTAR Lab An IN"
+      },
+      {
+        "source": "/search/",
         "target": "/news/precision-agriculture-open-data/",
         "occurrences": 1,
         "label": "Research brief Precision Agriculture and Open Agricultural Data — INSTAR Lab An "
       },
       {
         "source": "/search/",
+        "target": "/news/psychology-replication/",
+        "occurrences": 1,
+        "label": "Research brief What a Single Psychology Study Can and Cannot Tell You — INSTAR L"
+      },
+      {
+        "source": "/search/",
         "target": "/news/quantum-sensing-breakthroughs/",
         "occurrences": 1,
         "label": "Research brief Quantum Sensing Breakthroughs — INSTAR Lab An INSTAR Lab research"
+      },
+      {
+        "source": "/search/",
+        "target": "/news/radiocarbon-dates/",
+        "occurrences": 1,
+        "label": "Research brief What a Radiocarbon Date Can and Cannot Tell You — INSTAR Lab An I"
       },
       {
         "source": "/search/",
@@ -29573,6 +30425,510 @@
         "label": "Terms of use"
       },
       {
+        "source": "/news/brain-scan-studies/",
+        "target": "/",
+        "occurrences": 1,
+        "label": ""
+      },
+      {
+        "source": "/news/brain-scan-studies/",
+        "target": "/accessibility/",
+        "occurrences": 1,
+        "label": "Accessibility"
+      },
+      {
+        "source": "/news/brain-scan-studies/",
+        "target": "/capability-statement/",
+        "occurrences": 1,
+        "label": "Capability statement"
+      },
+      {
+        "source": "/news/brain-scan-studies/",
+        "target": "/community/",
+        "occurrences": 2,
+        "label": "All community pages"
+      },
+      {
+        "source": "/news/brain-scan-studies/",
+        "target": "/community/about-us/",
+        "occurrences": 3,
+        "label": "About Us"
+      },
+      {
+        "source": "/news/brain-scan-studies/",
+        "target": "/community/careers/",
+        "occurrences": 3,
+        "label": "Careers"
+      },
+      {
+        "source": "/news/brain-scan-studies/",
+        "target": "/community/leadership/",
+        "occurrences": 2,
+        "label": "Leadership"
+      },
+      {
+        "source": "/news/brain-scan-studies/",
+        "target": "/community/partner/",
+        "occurrences": 2,
+        "label": "Partner"
+      },
+      {
+        "source": "/news/brain-scan-studies/",
+        "target": "/community/support/",
+        "occurrences": 1,
+        "label": "Donate"
+      },
+      {
+        "source": "/news/brain-scan-studies/",
+        "target": "/community/work-with-us/",
+        "occurrences": 2,
+        "label": "Collaborate"
+      },
+      {
+        "source": "/news/brain-scan-studies/",
+        "target": "/contact-us/",
+        "occurrences": 3,
+        "label": "Contact"
+      },
+      {
+        "source": "/news/brain-scan-studies/",
+        "target": "/cookies-and-partners/",
+        "occurrences": 5,
+        "label": "Cookies and partners"
+      },
+      {
+        "source": "/news/brain-scan-studies/",
+        "target": "/faq/",
+        "occurrences": 1,
+        "label": "FAQ"
+      },
+      {
+        "source": "/news/brain-scan-studies/",
+        "target": "/fellowship/",
+        "occurrences": 3,
+        "label": "Fellowship"
+      },
+      {
+        "source": "/news/brain-scan-studies/",
+        "target": "/labs/",
+        "occurrences": 2,
+        "label": "All laboratories"
+      },
+      {
+        "source": "/news/brain-scan-studies/",
+        "target": "/labs/biometric-security/",
+        "occurrences": 2,
+        "label": "Biometrics &amp; Drone Sensing"
+      },
+      {
+        "source": "/news/brain-scan-studies/",
+        "target": "/labs/cognitive-ai/",
+        "occurrences": 2,
+        "label": "Cognitive AI &amp; Persona Systems"
+      },
+      {
+        "source": "/news/brain-scan-studies/",
+        "target": "/labs/sovereign-ai/",
+        "occurrences": 2,
+        "label": "Sovereign AI Laboratory"
+      },
+      {
+        "source": "/news/brain-scan-studies/",
+        "target": "/mission/",
+        "occurrences": 2,
+        "label": "Mission"
+      },
+      {
+        "source": "/news/brain-scan-studies/",
+        "target": "/news/",
+        "occurrences": 2,
+        "label": "Research Briefs"
+      },
+      {
+        "source": "/news/brain-scan-studies/",
+        "target": "/press/",
+        "occurrences": 1,
+        "label": "Press kit"
+      },
+      {
+        "source": "/news/brain-scan-studies/",
+        "target": "/privacy/",
+        "occurrences": 3,
+        "label": "Privacy policy"
+      },
+      {
+        "source": "/news/brain-scan-studies/",
+        "target": "/record/",
+        "occurrences": 2,
+        "label": "Record room"
+      },
+      {
+        "source": "/news/brain-scan-studies/",
+        "target": "/record/affiliations/",
+        "occurrences": 2,
+        "label": "Affiliations"
+      },
+      {
+        "source": "/news/brain-scan-studies/",
+        "target": "/record/corrections/",
+        "occurrences": 2,
+        "label": "Corrections"
+      },
+      {
+        "source": "/news/brain-scan-studies/",
+        "target": "/record/federal/",
+        "occurrences": 2,
+        "label": "Federal"
+      },
+      {
+        "source": "/news/brain-scan-studies/",
+        "target": "/record/files/",
+        "occurrences": 2,
+        "label": "Documents"
+      },
+      {
+        "source": "/news/brain-scan-studies/",
+        "target": "/record/governance/",
+        "occurrences": 2,
+        "label": "Governance"
+      },
+      {
+        "source": "/news/brain-scan-studies/",
+        "target": "/record/journeys/",
+        "occurrences": 2,
+        "label": "Decision briefs"
+      },
+      {
+        "source": "/news/brain-scan-studies/",
+        "target": "/record/leadership/",
+        "occurrences": 2,
+        "label": "Leadership"
+      },
+      {
+        "source": "/news/brain-scan-studies/",
+        "target": "/record/legal/",
+        "occurrences": 2,
+        "label": "Legal"
+      },
+      {
+        "source": "/news/brain-scan-studies/",
+        "target": "/record/marketing/",
+        "occurrences": 2,
+        "label": "Positioning"
+      },
+      {
+        "source": "/news/brain-scan-studies/",
+        "target": "/record/metrics/",
+        "occurrences": 2,
+        "label": "Inventory"
+      },
+      {
+        "source": "/news/brain-scan-studies/",
+        "target": "/record/nav/",
+        "occurrences": 2,
+        "label": "Site map"
+      },
+      {
+        "source": "/news/brain-scan-studies/",
+        "target": "/record/ops/",
+        "occurrences": 2,
+        "label": "Ops"
+      },
+      {
+        "source": "/news/brain-scan-studies/",
+        "target": "/record/screens/",
+        "occurrences": 2,
+        "label": "Visuals"
+      },
+      {
+        "source": "/news/brain-scan-studies/",
+        "target": "/record/style/",
+        "occurrences": 2,
+        "label": "Style"
+      },
+      {
+        "source": "/news/brain-scan-studies/",
+        "target": "/record/verify/",
+        "occurrences": 2,
+        "label": "Sources"
+      },
+      {
+        "source": "/news/brain-scan-studies/",
+        "target": "/research/consortium/",
+        "occurrences": 2,
+        "label": "INSTAR Consortium"
+      },
+      {
+        "source": "/news/brain-scan-studies/",
+        "target": "/research/current-programs/",
+        "occurrences": 3,
+        "label": "Review research programs"
+      },
+      {
+        "source": "/news/brain-scan-studies/",
+        "target": "/research/facilities/",
+        "occurrences": 2,
+        "label": "Facilities"
+      },
+      {
+        "source": "/news/brain-scan-studies/",
+        "target": "/research/funding/",
+        "occurrences": 3,
+        "label": "Funding"
+      },
+      {
+        "source": "/news/brain-scan-studies/",
+        "target": "/research/innovation/",
+        "occurrences": 2,
+        "label": "Innovation"
+      },
+      {
+        "source": "/news/brain-scan-studies/",
+        "target": "/research/open-data/",
+        "occurrences": 2,
+        "label": "Open Data"
+      },
+      {
+        "source": "/news/brain-scan-studies/",
+        "target": "/research/opportunities/",
+        "occurrences": 2,
+        "label": "Opportunities"
+      },
+      {
+        "source": "/news/brain-scan-studies/",
+        "target": "/research/our-process/",
+        "occurrences": 3,
+        "label": "Our Process"
+      },
+      {
+        "source": "/news/brain-scan-studies/",
+        "target": "/sciences/",
+        "occurrences": 2,
+        "label": "All sciences pages"
+      },
+      {
+        "source": "/news/brain-scan-studies/",
+        "target": "/sciences/agriculture/",
+        "occurrences": 2,
+        "label": "Agriculture"
+      },
+      {
+        "source": "/news/brain-scan-studies/",
+        "target": "/sciences/anthropology/",
+        "occurrences": 2,
+        "label": "Anthropology"
+      },
+      {
+        "source": "/news/brain-scan-studies/",
+        "target": "/sciences/archaeology/",
+        "occurrences": 2,
+        "label": "Archaeology"
+      },
+      {
+        "source": "/news/brain-scan-studies/",
+        "target": "/sciences/biology/",
+        "occurrences": 2,
+        "label": "Biology"
+      },
+      {
+        "source": "/news/brain-scan-studies/",
+        "target": "/sciences/chemistry/",
+        "occurrences": 2,
+        "label": "Chemistry"
+      },
+      {
+        "source": "/news/brain-scan-studies/",
+        "target": "/sciences/cognitive-sciences/",
+        "occurrences": 2,
+        "label": "Cognitive Sciences"
+      },
+      {
+        "source": "/news/brain-scan-studies/",
+        "target": "/sciences/economics/",
+        "occurrences": 2,
+        "label": "Economics"
+      },
+      {
+        "source": "/news/brain-scan-studies/",
+        "target": "/sciences/energy/",
+        "occurrences": 3,
+        "label": "Energy"
+      },
+      {
+        "source": "/news/brain-scan-studies/",
+        "target": "/sciences/genetics/",
+        "occurrences": 2,
+        "label": "Genetics"
+      },
+      {
+        "source": "/news/brain-scan-studies/",
+        "target": "/sciences/geology/",
+        "occurrences": 2,
+        "label": "Geology"
+      },
+      {
+        "source": "/news/brain-scan-studies/",
+        "target": "/sciences/kinesiology/",
+        "occurrences": 2,
+        "label": "Kinesiology"
+      },
+      {
+        "source": "/news/brain-scan-studies/",
+        "target": "/sciences/law/",
+        "occurrences": 2,
+        "label": "Law"
+      },
+      {
+        "source": "/news/brain-scan-studies/",
+        "target": "/sciences/linguistics/",
+        "occurrences": 2,
+        "label": "Linguistics"
+      },
+      {
+        "source": "/news/brain-scan-studies/",
+        "target": "/sciences/materials-science/",
+        "occurrences": 2,
+        "label": "Materials Science"
+      },
+      {
+        "source": "/news/brain-scan-studies/",
+        "target": "/sciences/medicine/",
+        "occurrences": 3,
+        "label": "Medicine"
+      },
+      {
+        "source": "/news/brain-scan-studies/",
+        "target": "/sciences/neuroscience/",
+        "occurrences": 2,
+        "label": "Neuroscience"
+      },
+      {
+        "source": "/news/brain-scan-studies/",
+        "target": "/sciences/ocean-science/",
+        "occurrences": 2,
+        "label": "Ocean Science"
+      },
+      {
+        "source": "/news/brain-scan-studies/",
+        "target": "/sciences/outer-space/",
+        "occurrences": 2,
+        "label": "Outer Space"
+      },
+      {
+        "source": "/news/brain-scan-studies/",
+        "target": "/sciences/physics/",
+        "occurrences": 2,
+        "label": "Physics"
+      },
+      {
+        "source": "/news/brain-scan-studies/",
+        "target": "/sciences/physiology/",
+        "occurrences": 2,
+        "label": "Physiology"
+      },
+      {
+        "source": "/news/brain-scan-studies/",
+        "target": "/sciences/psychology/",
+        "occurrences": 2,
+        "label": "Psychology"
+      },
+      {
+        "source": "/news/brain-scan-studies/",
+        "target": "/sciences/sociology/",
+        "occurrences": 2,
+        "label": "Sociology"
+      },
+      {
+        "source": "/news/brain-scan-studies/",
+        "target": "/search/",
+        "occurrences": 2,
+        "label": "Search"
+      },
+      {
+        "source": "/news/brain-scan-studies/",
+        "target": "/tech-transfer/",
+        "occurrences": 2,
+        "label": "All technology transfer pages"
+      },
+      {
+        "source": "/news/brain-scan-studies/",
+        "target": "/tech-transfer/enterprise-rd/",
+        "occurrences": 2,
+        "label": "Enterprise R&amp;D"
+      },
+      {
+        "source": "/news/brain-scan-studies/",
+        "target": "/tech-transfer/portfolio/",
+        "occurrences": 2,
+        "label": "Portfolio"
+      },
+      {
+        "source": "/news/brain-scan-studies/",
+        "target": "/tech-transfer/sttr-programs/",
+        "occurrences": 2,
+        "label": "STTR Programs"
+      },
+      {
+        "source": "/news/brain-scan-studies/",
+        "target": "/tech-transfer/workshops-events/",
+        "occurrences": 2,
+        "label": "Workshops &amp; Events"
+      },
+      {
+        "source": "/news/brain-scan-studies/",
+        "target": "/technology/",
+        "occurrences": 2,
+        "label": "All technology pages"
+      },
+      {
+        "source": "/news/brain-scan-studies/",
+        "target": "/technology/augmented-reality/",
+        "occurrences": 2,
+        "label": "Augmented Reality"
+      },
+      {
+        "source": "/news/brain-scan-studies/",
+        "target": "/technology/computer-science/",
+        "occurrences": 3,
+        "label": "Computer Science"
+      },
+      {
+        "source": "/news/brain-scan-studies/",
+        "target": "/technology/data-science/",
+        "occurrences": 3,
+        "label": "Data Science"
+      },
+      {
+        "source": "/news/brain-scan-studies/",
+        "target": "/technology/formal-methods/",
+        "occurrences": 2,
+        "label": "Formal Methods"
+      },
+      {
+        "source": "/news/brain-scan-studies/",
+        "target": "/technology/machine-intelligence/",
+        "occurrences": 3,
+        "label": "Machine Intelligence"
+      },
+      {
+        "source": "/news/brain-scan-studies/",
+        "target": "/technology/natural-language-processing/",
+        "occurrences": 2,
+        "label": "Natural Language Processing"
+      },
+      {
+        "source": "/news/brain-scan-studies/",
+        "target": "/technology/quantum-computing/",
+        "occurrences": 3,
+        "label": "Quantum Computing"
+      },
+      {
+        "source": "/news/brain-scan-studies/",
+        "target": "/terms/",
+        "occurrences": 1,
+        "label": "Terms of use"
+      },
+      {
         "source": "/news/clinical-ai-safety/",
         "target": "/",
         "occurrences": 1,
@@ -30072,6 +31428,1014 @@
       },
       {
         "source": "/news/clinical-ai-safety/",
+        "target": "/terms/",
+        "occurrences": 1,
+        "label": "Terms of use"
+      },
+      {
+        "source": "/news/coral-heat-stress/",
+        "target": "/",
+        "occurrences": 1,
+        "label": ""
+      },
+      {
+        "source": "/news/coral-heat-stress/",
+        "target": "/accessibility/",
+        "occurrences": 1,
+        "label": "Accessibility"
+      },
+      {
+        "source": "/news/coral-heat-stress/",
+        "target": "/capability-statement/",
+        "occurrences": 1,
+        "label": "Capability statement"
+      },
+      {
+        "source": "/news/coral-heat-stress/",
+        "target": "/community/",
+        "occurrences": 2,
+        "label": "All community pages"
+      },
+      {
+        "source": "/news/coral-heat-stress/",
+        "target": "/community/about-us/",
+        "occurrences": 3,
+        "label": "About Us"
+      },
+      {
+        "source": "/news/coral-heat-stress/",
+        "target": "/community/careers/",
+        "occurrences": 3,
+        "label": "Careers"
+      },
+      {
+        "source": "/news/coral-heat-stress/",
+        "target": "/community/leadership/",
+        "occurrences": 2,
+        "label": "Leadership"
+      },
+      {
+        "source": "/news/coral-heat-stress/",
+        "target": "/community/partner/",
+        "occurrences": 2,
+        "label": "Partner"
+      },
+      {
+        "source": "/news/coral-heat-stress/",
+        "target": "/community/support/",
+        "occurrences": 1,
+        "label": "Donate"
+      },
+      {
+        "source": "/news/coral-heat-stress/",
+        "target": "/community/work-with-us/",
+        "occurrences": 2,
+        "label": "Collaborate"
+      },
+      {
+        "source": "/news/coral-heat-stress/",
+        "target": "/contact-us/",
+        "occurrences": 3,
+        "label": "Contact"
+      },
+      {
+        "source": "/news/coral-heat-stress/",
+        "target": "/cookies-and-partners/",
+        "occurrences": 5,
+        "label": "Cookies and partners"
+      },
+      {
+        "source": "/news/coral-heat-stress/",
+        "target": "/faq/",
+        "occurrences": 1,
+        "label": "FAQ"
+      },
+      {
+        "source": "/news/coral-heat-stress/",
+        "target": "/fellowship/",
+        "occurrences": 3,
+        "label": "Fellowship"
+      },
+      {
+        "source": "/news/coral-heat-stress/",
+        "target": "/labs/",
+        "occurrences": 2,
+        "label": "All laboratories"
+      },
+      {
+        "source": "/news/coral-heat-stress/",
+        "target": "/labs/biometric-security/",
+        "occurrences": 2,
+        "label": "Biometrics &amp; Drone Sensing"
+      },
+      {
+        "source": "/news/coral-heat-stress/",
+        "target": "/labs/cognitive-ai/",
+        "occurrences": 2,
+        "label": "Cognitive AI &amp; Persona Systems"
+      },
+      {
+        "source": "/news/coral-heat-stress/",
+        "target": "/labs/sovereign-ai/",
+        "occurrences": 2,
+        "label": "Sovereign AI Laboratory"
+      },
+      {
+        "source": "/news/coral-heat-stress/",
+        "target": "/mission/",
+        "occurrences": 2,
+        "label": "Mission"
+      },
+      {
+        "source": "/news/coral-heat-stress/",
+        "target": "/news/",
+        "occurrences": 2,
+        "label": "Research Briefs"
+      },
+      {
+        "source": "/news/coral-heat-stress/",
+        "target": "/press/",
+        "occurrences": 1,
+        "label": "Press kit"
+      },
+      {
+        "source": "/news/coral-heat-stress/",
+        "target": "/privacy/",
+        "occurrences": 3,
+        "label": "Privacy policy"
+      },
+      {
+        "source": "/news/coral-heat-stress/",
+        "target": "/record/",
+        "occurrences": 2,
+        "label": "Record room"
+      },
+      {
+        "source": "/news/coral-heat-stress/",
+        "target": "/record/affiliations/",
+        "occurrences": 2,
+        "label": "Affiliations"
+      },
+      {
+        "source": "/news/coral-heat-stress/",
+        "target": "/record/corrections/",
+        "occurrences": 2,
+        "label": "Corrections"
+      },
+      {
+        "source": "/news/coral-heat-stress/",
+        "target": "/record/federal/",
+        "occurrences": 2,
+        "label": "Federal"
+      },
+      {
+        "source": "/news/coral-heat-stress/",
+        "target": "/record/files/",
+        "occurrences": 2,
+        "label": "Documents"
+      },
+      {
+        "source": "/news/coral-heat-stress/",
+        "target": "/record/governance/",
+        "occurrences": 2,
+        "label": "Governance"
+      },
+      {
+        "source": "/news/coral-heat-stress/",
+        "target": "/record/journeys/",
+        "occurrences": 2,
+        "label": "Decision briefs"
+      },
+      {
+        "source": "/news/coral-heat-stress/",
+        "target": "/record/leadership/",
+        "occurrences": 2,
+        "label": "Leadership"
+      },
+      {
+        "source": "/news/coral-heat-stress/",
+        "target": "/record/legal/",
+        "occurrences": 2,
+        "label": "Legal"
+      },
+      {
+        "source": "/news/coral-heat-stress/",
+        "target": "/record/marketing/",
+        "occurrences": 2,
+        "label": "Positioning"
+      },
+      {
+        "source": "/news/coral-heat-stress/",
+        "target": "/record/metrics/",
+        "occurrences": 2,
+        "label": "Inventory"
+      },
+      {
+        "source": "/news/coral-heat-stress/",
+        "target": "/record/nav/",
+        "occurrences": 2,
+        "label": "Site map"
+      },
+      {
+        "source": "/news/coral-heat-stress/",
+        "target": "/record/ops/",
+        "occurrences": 2,
+        "label": "Ops"
+      },
+      {
+        "source": "/news/coral-heat-stress/",
+        "target": "/record/screens/",
+        "occurrences": 2,
+        "label": "Visuals"
+      },
+      {
+        "source": "/news/coral-heat-stress/",
+        "target": "/record/style/",
+        "occurrences": 2,
+        "label": "Style"
+      },
+      {
+        "source": "/news/coral-heat-stress/",
+        "target": "/record/verify/",
+        "occurrences": 2,
+        "label": "Sources"
+      },
+      {
+        "source": "/news/coral-heat-stress/",
+        "target": "/research/consortium/",
+        "occurrences": 2,
+        "label": "INSTAR Consortium"
+      },
+      {
+        "source": "/news/coral-heat-stress/",
+        "target": "/research/current-programs/",
+        "occurrences": 3,
+        "label": "Review research programs"
+      },
+      {
+        "source": "/news/coral-heat-stress/",
+        "target": "/research/facilities/",
+        "occurrences": 2,
+        "label": "Facilities"
+      },
+      {
+        "source": "/news/coral-heat-stress/",
+        "target": "/research/funding/",
+        "occurrences": 3,
+        "label": "Funding"
+      },
+      {
+        "source": "/news/coral-heat-stress/",
+        "target": "/research/innovation/",
+        "occurrences": 2,
+        "label": "Innovation"
+      },
+      {
+        "source": "/news/coral-heat-stress/",
+        "target": "/research/open-data/",
+        "occurrences": 2,
+        "label": "Open Data"
+      },
+      {
+        "source": "/news/coral-heat-stress/",
+        "target": "/research/opportunities/",
+        "occurrences": 2,
+        "label": "Opportunities"
+      },
+      {
+        "source": "/news/coral-heat-stress/",
+        "target": "/research/our-process/",
+        "occurrences": 3,
+        "label": "Our Process"
+      },
+      {
+        "source": "/news/coral-heat-stress/",
+        "target": "/sciences/",
+        "occurrences": 2,
+        "label": "All sciences pages"
+      },
+      {
+        "source": "/news/coral-heat-stress/",
+        "target": "/sciences/agriculture/",
+        "occurrences": 2,
+        "label": "Agriculture"
+      },
+      {
+        "source": "/news/coral-heat-stress/",
+        "target": "/sciences/anthropology/",
+        "occurrences": 2,
+        "label": "Anthropology"
+      },
+      {
+        "source": "/news/coral-heat-stress/",
+        "target": "/sciences/archaeology/",
+        "occurrences": 2,
+        "label": "Archaeology"
+      },
+      {
+        "source": "/news/coral-heat-stress/",
+        "target": "/sciences/biology/",
+        "occurrences": 2,
+        "label": "Biology"
+      },
+      {
+        "source": "/news/coral-heat-stress/",
+        "target": "/sciences/chemistry/",
+        "occurrences": 2,
+        "label": "Chemistry"
+      },
+      {
+        "source": "/news/coral-heat-stress/",
+        "target": "/sciences/cognitive-sciences/",
+        "occurrences": 2,
+        "label": "Cognitive Sciences"
+      },
+      {
+        "source": "/news/coral-heat-stress/",
+        "target": "/sciences/economics/",
+        "occurrences": 2,
+        "label": "Economics"
+      },
+      {
+        "source": "/news/coral-heat-stress/",
+        "target": "/sciences/energy/",
+        "occurrences": 3,
+        "label": "Energy"
+      },
+      {
+        "source": "/news/coral-heat-stress/",
+        "target": "/sciences/genetics/",
+        "occurrences": 2,
+        "label": "Genetics"
+      },
+      {
+        "source": "/news/coral-heat-stress/",
+        "target": "/sciences/geology/",
+        "occurrences": 2,
+        "label": "Geology"
+      },
+      {
+        "source": "/news/coral-heat-stress/",
+        "target": "/sciences/kinesiology/",
+        "occurrences": 2,
+        "label": "Kinesiology"
+      },
+      {
+        "source": "/news/coral-heat-stress/",
+        "target": "/sciences/law/",
+        "occurrences": 2,
+        "label": "Law"
+      },
+      {
+        "source": "/news/coral-heat-stress/",
+        "target": "/sciences/linguistics/",
+        "occurrences": 2,
+        "label": "Linguistics"
+      },
+      {
+        "source": "/news/coral-heat-stress/",
+        "target": "/sciences/materials-science/",
+        "occurrences": 2,
+        "label": "Materials Science"
+      },
+      {
+        "source": "/news/coral-heat-stress/",
+        "target": "/sciences/medicine/",
+        "occurrences": 3,
+        "label": "Medicine"
+      },
+      {
+        "source": "/news/coral-heat-stress/",
+        "target": "/sciences/neuroscience/",
+        "occurrences": 2,
+        "label": "Neuroscience"
+      },
+      {
+        "source": "/news/coral-heat-stress/",
+        "target": "/sciences/ocean-science/",
+        "occurrences": 2,
+        "label": "Ocean Science"
+      },
+      {
+        "source": "/news/coral-heat-stress/",
+        "target": "/sciences/outer-space/",
+        "occurrences": 2,
+        "label": "Outer Space"
+      },
+      {
+        "source": "/news/coral-heat-stress/",
+        "target": "/sciences/physics/",
+        "occurrences": 2,
+        "label": "Physics"
+      },
+      {
+        "source": "/news/coral-heat-stress/",
+        "target": "/sciences/physiology/",
+        "occurrences": 2,
+        "label": "Physiology"
+      },
+      {
+        "source": "/news/coral-heat-stress/",
+        "target": "/sciences/psychology/",
+        "occurrences": 2,
+        "label": "Psychology"
+      },
+      {
+        "source": "/news/coral-heat-stress/",
+        "target": "/sciences/sociology/",
+        "occurrences": 2,
+        "label": "Sociology"
+      },
+      {
+        "source": "/news/coral-heat-stress/",
+        "target": "/search/",
+        "occurrences": 2,
+        "label": "Search"
+      },
+      {
+        "source": "/news/coral-heat-stress/",
+        "target": "/tech-transfer/",
+        "occurrences": 2,
+        "label": "All technology transfer pages"
+      },
+      {
+        "source": "/news/coral-heat-stress/",
+        "target": "/tech-transfer/enterprise-rd/",
+        "occurrences": 2,
+        "label": "Enterprise R&amp;D"
+      },
+      {
+        "source": "/news/coral-heat-stress/",
+        "target": "/tech-transfer/portfolio/",
+        "occurrences": 2,
+        "label": "Portfolio"
+      },
+      {
+        "source": "/news/coral-heat-stress/",
+        "target": "/tech-transfer/sttr-programs/",
+        "occurrences": 2,
+        "label": "STTR Programs"
+      },
+      {
+        "source": "/news/coral-heat-stress/",
+        "target": "/tech-transfer/workshops-events/",
+        "occurrences": 2,
+        "label": "Workshops &amp; Events"
+      },
+      {
+        "source": "/news/coral-heat-stress/",
+        "target": "/technology/",
+        "occurrences": 2,
+        "label": "All technology pages"
+      },
+      {
+        "source": "/news/coral-heat-stress/",
+        "target": "/technology/augmented-reality/",
+        "occurrences": 2,
+        "label": "Augmented Reality"
+      },
+      {
+        "source": "/news/coral-heat-stress/",
+        "target": "/technology/computer-science/",
+        "occurrences": 3,
+        "label": "Computer Science"
+      },
+      {
+        "source": "/news/coral-heat-stress/",
+        "target": "/technology/data-science/",
+        "occurrences": 3,
+        "label": "Data Science"
+      },
+      {
+        "source": "/news/coral-heat-stress/",
+        "target": "/technology/formal-methods/",
+        "occurrences": 2,
+        "label": "Formal Methods"
+      },
+      {
+        "source": "/news/coral-heat-stress/",
+        "target": "/technology/machine-intelligence/",
+        "occurrences": 3,
+        "label": "Machine Intelligence"
+      },
+      {
+        "source": "/news/coral-heat-stress/",
+        "target": "/technology/natural-language-processing/",
+        "occurrences": 2,
+        "label": "Natural Language Processing"
+      },
+      {
+        "source": "/news/coral-heat-stress/",
+        "target": "/technology/quantum-computing/",
+        "occurrences": 3,
+        "label": "Quantum Computing"
+      },
+      {
+        "source": "/news/coral-heat-stress/",
+        "target": "/terms/",
+        "occurrences": 1,
+        "label": "Terms of use"
+      },
+      {
+        "source": "/news/exoplanet-detections/",
+        "target": "/",
+        "occurrences": 1,
+        "label": ""
+      },
+      {
+        "source": "/news/exoplanet-detections/",
+        "target": "/accessibility/",
+        "occurrences": 1,
+        "label": "Accessibility"
+      },
+      {
+        "source": "/news/exoplanet-detections/",
+        "target": "/capability-statement/",
+        "occurrences": 1,
+        "label": "Capability statement"
+      },
+      {
+        "source": "/news/exoplanet-detections/",
+        "target": "/community/",
+        "occurrences": 2,
+        "label": "All community pages"
+      },
+      {
+        "source": "/news/exoplanet-detections/",
+        "target": "/community/about-us/",
+        "occurrences": 3,
+        "label": "About Us"
+      },
+      {
+        "source": "/news/exoplanet-detections/",
+        "target": "/community/careers/",
+        "occurrences": 3,
+        "label": "Careers"
+      },
+      {
+        "source": "/news/exoplanet-detections/",
+        "target": "/community/leadership/",
+        "occurrences": 2,
+        "label": "Leadership"
+      },
+      {
+        "source": "/news/exoplanet-detections/",
+        "target": "/community/partner/",
+        "occurrences": 2,
+        "label": "Partner"
+      },
+      {
+        "source": "/news/exoplanet-detections/",
+        "target": "/community/support/",
+        "occurrences": 1,
+        "label": "Donate"
+      },
+      {
+        "source": "/news/exoplanet-detections/",
+        "target": "/community/work-with-us/",
+        "occurrences": 2,
+        "label": "Collaborate"
+      },
+      {
+        "source": "/news/exoplanet-detections/",
+        "target": "/contact-us/",
+        "occurrences": 3,
+        "label": "Contact"
+      },
+      {
+        "source": "/news/exoplanet-detections/",
+        "target": "/cookies-and-partners/",
+        "occurrences": 5,
+        "label": "Cookies and partners"
+      },
+      {
+        "source": "/news/exoplanet-detections/",
+        "target": "/faq/",
+        "occurrences": 1,
+        "label": "FAQ"
+      },
+      {
+        "source": "/news/exoplanet-detections/",
+        "target": "/fellowship/",
+        "occurrences": 3,
+        "label": "Fellowship"
+      },
+      {
+        "source": "/news/exoplanet-detections/",
+        "target": "/labs/",
+        "occurrences": 2,
+        "label": "All laboratories"
+      },
+      {
+        "source": "/news/exoplanet-detections/",
+        "target": "/labs/biometric-security/",
+        "occurrences": 2,
+        "label": "Biometrics &amp; Drone Sensing"
+      },
+      {
+        "source": "/news/exoplanet-detections/",
+        "target": "/labs/cognitive-ai/",
+        "occurrences": 2,
+        "label": "Cognitive AI &amp; Persona Systems"
+      },
+      {
+        "source": "/news/exoplanet-detections/",
+        "target": "/labs/sovereign-ai/",
+        "occurrences": 2,
+        "label": "Sovereign AI Laboratory"
+      },
+      {
+        "source": "/news/exoplanet-detections/",
+        "target": "/mission/",
+        "occurrences": 2,
+        "label": "Mission"
+      },
+      {
+        "source": "/news/exoplanet-detections/",
+        "target": "/news/",
+        "occurrences": 2,
+        "label": "Research Briefs"
+      },
+      {
+        "source": "/news/exoplanet-detections/",
+        "target": "/press/",
+        "occurrences": 1,
+        "label": "Press kit"
+      },
+      {
+        "source": "/news/exoplanet-detections/",
+        "target": "/privacy/",
+        "occurrences": 3,
+        "label": "Privacy policy"
+      },
+      {
+        "source": "/news/exoplanet-detections/",
+        "target": "/record/",
+        "occurrences": 2,
+        "label": "Record room"
+      },
+      {
+        "source": "/news/exoplanet-detections/",
+        "target": "/record/affiliations/",
+        "occurrences": 2,
+        "label": "Affiliations"
+      },
+      {
+        "source": "/news/exoplanet-detections/",
+        "target": "/record/corrections/",
+        "occurrences": 2,
+        "label": "Corrections"
+      },
+      {
+        "source": "/news/exoplanet-detections/",
+        "target": "/record/federal/",
+        "occurrences": 2,
+        "label": "Federal"
+      },
+      {
+        "source": "/news/exoplanet-detections/",
+        "target": "/record/files/",
+        "occurrences": 2,
+        "label": "Documents"
+      },
+      {
+        "source": "/news/exoplanet-detections/",
+        "target": "/record/governance/",
+        "occurrences": 2,
+        "label": "Governance"
+      },
+      {
+        "source": "/news/exoplanet-detections/",
+        "target": "/record/journeys/",
+        "occurrences": 2,
+        "label": "Decision briefs"
+      },
+      {
+        "source": "/news/exoplanet-detections/",
+        "target": "/record/leadership/",
+        "occurrences": 2,
+        "label": "Leadership"
+      },
+      {
+        "source": "/news/exoplanet-detections/",
+        "target": "/record/legal/",
+        "occurrences": 2,
+        "label": "Legal"
+      },
+      {
+        "source": "/news/exoplanet-detections/",
+        "target": "/record/marketing/",
+        "occurrences": 2,
+        "label": "Positioning"
+      },
+      {
+        "source": "/news/exoplanet-detections/",
+        "target": "/record/metrics/",
+        "occurrences": 2,
+        "label": "Inventory"
+      },
+      {
+        "source": "/news/exoplanet-detections/",
+        "target": "/record/nav/",
+        "occurrences": 2,
+        "label": "Site map"
+      },
+      {
+        "source": "/news/exoplanet-detections/",
+        "target": "/record/ops/",
+        "occurrences": 2,
+        "label": "Ops"
+      },
+      {
+        "source": "/news/exoplanet-detections/",
+        "target": "/record/screens/",
+        "occurrences": 2,
+        "label": "Visuals"
+      },
+      {
+        "source": "/news/exoplanet-detections/",
+        "target": "/record/style/",
+        "occurrences": 2,
+        "label": "Style"
+      },
+      {
+        "source": "/news/exoplanet-detections/",
+        "target": "/record/verify/",
+        "occurrences": 2,
+        "label": "Sources"
+      },
+      {
+        "source": "/news/exoplanet-detections/",
+        "target": "/research/consortium/",
+        "occurrences": 2,
+        "label": "INSTAR Consortium"
+      },
+      {
+        "source": "/news/exoplanet-detections/",
+        "target": "/research/current-programs/",
+        "occurrences": 3,
+        "label": "Review research programs"
+      },
+      {
+        "source": "/news/exoplanet-detections/",
+        "target": "/research/facilities/",
+        "occurrences": 2,
+        "label": "Facilities"
+      },
+      {
+        "source": "/news/exoplanet-detections/",
+        "target": "/research/funding/",
+        "occurrences": 3,
+        "label": "Funding"
+      },
+      {
+        "source": "/news/exoplanet-detections/",
+        "target": "/research/innovation/",
+        "occurrences": 2,
+        "label": "Innovation"
+      },
+      {
+        "source": "/news/exoplanet-detections/",
+        "target": "/research/open-data/",
+        "occurrences": 2,
+        "label": "Open Data"
+      },
+      {
+        "source": "/news/exoplanet-detections/",
+        "target": "/research/opportunities/",
+        "occurrences": 2,
+        "label": "Opportunities"
+      },
+      {
+        "source": "/news/exoplanet-detections/",
+        "target": "/research/our-process/",
+        "occurrences": 3,
+        "label": "Our Process"
+      },
+      {
+        "source": "/news/exoplanet-detections/",
+        "target": "/sciences/",
+        "occurrences": 2,
+        "label": "All sciences pages"
+      },
+      {
+        "source": "/news/exoplanet-detections/",
+        "target": "/sciences/agriculture/",
+        "occurrences": 2,
+        "label": "Agriculture"
+      },
+      {
+        "source": "/news/exoplanet-detections/",
+        "target": "/sciences/anthropology/",
+        "occurrences": 2,
+        "label": "Anthropology"
+      },
+      {
+        "source": "/news/exoplanet-detections/",
+        "target": "/sciences/archaeology/",
+        "occurrences": 2,
+        "label": "Archaeology"
+      },
+      {
+        "source": "/news/exoplanet-detections/",
+        "target": "/sciences/biology/",
+        "occurrences": 2,
+        "label": "Biology"
+      },
+      {
+        "source": "/news/exoplanet-detections/",
+        "target": "/sciences/chemistry/",
+        "occurrences": 2,
+        "label": "Chemistry"
+      },
+      {
+        "source": "/news/exoplanet-detections/",
+        "target": "/sciences/cognitive-sciences/",
+        "occurrences": 2,
+        "label": "Cognitive Sciences"
+      },
+      {
+        "source": "/news/exoplanet-detections/",
+        "target": "/sciences/economics/",
+        "occurrences": 2,
+        "label": "Economics"
+      },
+      {
+        "source": "/news/exoplanet-detections/",
+        "target": "/sciences/energy/",
+        "occurrences": 3,
+        "label": "Energy"
+      },
+      {
+        "source": "/news/exoplanet-detections/",
+        "target": "/sciences/genetics/",
+        "occurrences": 2,
+        "label": "Genetics"
+      },
+      {
+        "source": "/news/exoplanet-detections/",
+        "target": "/sciences/geology/",
+        "occurrences": 2,
+        "label": "Geology"
+      },
+      {
+        "source": "/news/exoplanet-detections/",
+        "target": "/sciences/kinesiology/",
+        "occurrences": 2,
+        "label": "Kinesiology"
+      },
+      {
+        "source": "/news/exoplanet-detections/",
+        "target": "/sciences/law/",
+        "occurrences": 2,
+        "label": "Law"
+      },
+      {
+        "source": "/news/exoplanet-detections/",
+        "target": "/sciences/linguistics/",
+        "occurrences": 2,
+        "label": "Linguistics"
+      },
+      {
+        "source": "/news/exoplanet-detections/",
+        "target": "/sciences/materials-science/",
+        "occurrences": 2,
+        "label": "Materials Science"
+      },
+      {
+        "source": "/news/exoplanet-detections/",
+        "target": "/sciences/medicine/",
+        "occurrences": 3,
+        "label": "Medicine"
+      },
+      {
+        "source": "/news/exoplanet-detections/",
+        "target": "/sciences/neuroscience/",
+        "occurrences": 2,
+        "label": "Neuroscience"
+      },
+      {
+        "source": "/news/exoplanet-detections/",
+        "target": "/sciences/ocean-science/",
+        "occurrences": 2,
+        "label": "Ocean Science"
+      },
+      {
+        "source": "/news/exoplanet-detections/",
+        "target": "/sciences/outer-space/",
+        "occurrences": 2,
+        "label": "Outer Space"
+      },
+      {
+        "source": "/news/exoplanet-detections/",
+        "target": "/sciences/physics/",
+        "occurrences": 2,
+        "label": "Physics"
+      },
+      {
+        "source": "/news/exoplanet-detections/",
+        "target": "/sciences/physiology/",
+        "occurrences": 2,
+        "label": "Physiology"
+      },
+      {
+        "source": "/news/exoplanet-detections/",
+        "target": "/sciences/psychology/",
+        "occurrences": 2,
+        "label": "Psychology"
+      },
+      {
+        "source": "/news/exoplanet-detections/",
+        "target": "/sciences/sociology/",
+        "occurrences": 2,
+        "label": "Sociology"
+      },
+      {
+        "source": "/news/exoplanet-detections/",
+        "target": "/search/",
+        "occurrences": 2,
+        "label": "Search"
+      },
+      {
+        "source": "/news/exoplanet-detections/",
+        "target": "/tech-transfer/",
+        "occurrences": 2,
+        "label": "All technology transfer pages"
+      },
+      {
+        "source": "/news/exoplanet-detections/",
+        "target": "/tech-transfer/enterprise-rd/",
+        "occurrences": 2,
+        "label": "Enterprise R&amp;D"
+      },
+      {
+        "source": "/news/exoplanet-detections/",
+        "target": "/tech-transfer/portfolio/",
+        "occurrences": 2,
+        "label": "Portfolio"
+      },
+      {
+        "source": "/news/exoplanet-detections/",
+        "target": "/tech-transfer/sttr-programs/",
+        "occurrences": 2,
+        "label": "STTR Programs"
+      },
+      {
+        "source": "/news/exoplanet-detections/",
+        "target": "/tech-transfer/workshops-events/",
+        "occurrences": 2,
+        "label": "Workshops &amp; Events"
+      },
+      {
+        "source": "/news/exoplanet-detections/",
+        "target": "/technology/",
+        "occurrences": 2,
+        "label": "All technology pages"
+      },
+      {
+        "source": "/news/exoplanet-detections/",
+        "target": "/technology/augmented-reality/",
+        "occurrences": 2,
+        "label": "Augmented Reality"
+      },
+      {
+        "source": "/news/exoplanet-detections/",
+        "target": "/technology/computer-science/",
+        "occurrences": 3,
+        "label": "Computer Science"
+      },
+      {
+        "source": "/news/exoplanet-detections/",
+        "target": "/technology/data-science/",
+        "occurrences": 3,
+        "label": "Data Science"
+      },
+      {
+        "source": "/news/exoplanet-detections/",
+        "target": "/technology/formal-methods/",
+        "occurrences": 2,
+        "label": "Formal Methods"
+      },
+      {
+        "source": "/news/exoplanet-detections/",
+        "target": "/technology/machine-intelligence/",
+        "occurrences": 3,
+        "label": "Machine Intelligence"
+      },
+      {
+        "source": "/news/exoplanet-detections/",
+        "target": "/technology/natural-language-processing/",
+        "occurrences": 2,
+        "label": "Natural Language Processing"
+      },
+      {
+        "source": "/news/exoplanet-detections/",
+        "target": "/technology/quantum-computing/",
+        "occurrences": 3,
+        "label": "Quantum Computing"
+      },
+      {
+        "source": "/news/exoplanet-detections/",
         "target": "/terms/",
         "occurrences": 1,
         "label": "Terms of use"
@@ -32597,6 +34961,510 @@
         "label": "Terms of use"
       },
       {
+        "source": "/news/polygenic-scores/",
+        "target": "/",
+        "occurrences": 1,
+        "label": ""
+      },
+      {
+        "source": "/news/polygenic-scores/",
+        "target": "/accessibility/",
+        "occurrences": 1,
+        "label": "Accessibility"
+      },
+      {
+        "source": "/news/polygenic-scores/",
+        "target": "/capability-statement/",
+        "occurrences": 1,
+        "label": "Capability statement"
+      },
+      {
+        "source": "/news/polygenic-scores/",
+        "target": "/community/",
+        "occurrences": 2,
+        "label": "All community pages"
+      },
+      {
+        "source": "/news/polygenic-scores/",
+        "target": "/community/about-us/",
+        "occurrences": 3,
+        "label": "About Us"
+      },
+      {
+        "source": "/news/polygenic-scores/",
+        "target": "/community/careers/",
+        "occurrences": 3,
+        "label": "Careers"
+      },
+      {
+        "source": "/news/polygenic-scores/",
+        "target": "/community/leadership/",
+        "occurrences": 2,
+        "label": "Leadership"
+      },
+      {
+        "source": "/news/polygenic-scores/",
+        "target": "/community/partner/",
+        "occurrences": 2,
+        "label": "Partner"
+      },
+      {
+        "source": "/news/polygenic-scores/",
+        "target": "/community/support/",
+        "occurrences": 1,
+        "label": "Donate"
+      },
+      {
+        "source": "/news/polygenic-scores/",
+        "target": "/community/work-with-us/",
+        "occurrences": 2,
+        "label": "Collaborate"
+      },
+      {
+        "source": "/news/polygenic-scores/",
+        "target": "/contact-us/",
+        "occurrences": 3,
+        "label": "Contact"
+      },
+      {
+        "source": "/news/polygenic-scores/",
+        "target": "/cookies-and-partners/",
+        "occurrences": 5,
+        "label": "Cookies and partners"
+      },
+      {
+        "source": "/news/polygenic-scores/",
+        "target": "/faq/",
+        "occurrences": 1,
+        "label": "FAQ"
+      },
+      {
+        "source": "/news/polygenic-scores/",
+        "target": "/fellowship/",
+        "occurrences": 3,
+        "label": "Fellowship"
+      },
+      {
+        "source": "/news/polygenic-scores/",
+        "target": "/labs/",
+        "occurrences": 2,
+        "label": "All laboratories"
+      },
+      {
+        "source": "/news/polygenic-scores/",
+        "target": "/labs/biometric-security/",
+        "occurrences": 2,
+        "label": "Biometrics &amp; Drone Sensing"
+      },
+      {
+        "source": "/news/polygenic-scores/",
+        "target": "/labs/cognitive-ai/",
+        "occurrences": 2,
+        "label": "Cognitive AI &amp; Persona Systems"
+      },
+      {
+        "source": "/news/polygenic-scores/",
+        "target": "/labs/sovereign-ai/",
+        "occurrences": 2,
+        "label": "Sovereign AI Laboratory"
+      },
+      {
+        "source": "/news/polygenic-scores/",
+        "target": "/mission/",
+        "occurrences": 2,
+        "label": "Mission"
+      },
+      {
+        "source": "/news/polygenic-scores/",
+        "target": "/news/",
+        "occurrences": 2,
+        "label": "Research Briefs"
+      },
+      {
+        "source": "/news/polygenic-scores/",
+        "target": "/press/",
+        "occurrences": 1,
+        "label": "Press kit"
+      },
+      {
+        "source": "/news/polygenic-scores/",
+        "target": "/privacy/",
+        "occurrences": 3,
+        "label": "Privacy policy"
+      },
+      {
+        "source": "/news/polygenic-scores/",
+        "target": "/record/",
+        "occurrences": 2,
+        "label": "Record room"
+      },
+      {
+        "source": "/news/polygenic-scores/",
+        "target": "/record/affiliations/",
+        "occurrences": 2,
+        "label": "Affiliations"
+      },
+      {
+        "source": "/news/polygenic-scores/",
+        "target": "/record/corrections/",
+        "occurrences": 2,
+        "label": "Corrections"
+      },
+      {
+        "source": "/news/polygenic-scores/",
+        "target": "/record/federal/",
+        "occurrences": 2,
+        "label": "Federal"
+      },
+      {
+        "source": "/news/polygenic-scores/",
+        "target": "/record/files/",
+        "occurrences": 2,
+        "label": "Documents"
+      },
+      {
+        "source": "/news/polygenic-scores/",
+        "target": "/record/governance/",
+        "occurrences": 2,
+        "label": "Governance"
+      },
+      {
+        "source": "/news/polygenic-scores/",
+        "target": "/record/journeys/",
+        "occurrences": 2,
+        "label": "Decision briefs"
+      },
+      {
+        "source": "/news/polygenic-scores/",
+        "target": "/record/leadership/",
+        "occurrences": 2,
+        "label": "Leadership"
+      },
+      {
+        "source": "/news/polygenic-scores/",
+        "target": "/record/legal/",
+        "occurrences": 2,
+        "label": "Legal"
+      },
+      {
+        "source": "/news/polygenic-scores/",
+        "target": "/record/marketing/",
+        "occurrences": 2,
+        "label": "Positioning"
+      },
+      {
+        "source": "/news/polygenic-scores/",
+        "target": "/record/metrics/",
+        "occurrences": 2,
+        "label": "Inventory"
+      },
+      {
+        "source": "/news/polygenic-scores/",
+        "target": "/record/nav/",
+        "occurrences": 2,
+        "label": "Site map"
+      },
+      {
+        "source": "/news/polygenic-scores/",
+        "target": "/record/ops/",
+        "occurrences": 2,
+        "label": "Ops"
+      },
+      {
+        "source": "/news/polygenic-scores/",
+        "target": "/record/screens/",
+        "occurrences": 2,
+        "label": "Visuals"
+      },
+      {
+        "source": "/news/polygenic-scores/",
+        "target": "/record/style/",
+        "occurrences": 2,
+        "label": "Style"
+      },
+      {
+        "source": "/news/polygenic-scores/",
+        "target": "/record/verify/",
+        "occurrences": 2,
+        "label": "Sources"
+      },
+      {
+        "source": "/news/polygenic-scores/",
+        "target": "/research/consortium/",
+        "occurrences": 2,
+        "label": "INSTAR Consortium"
+      },
+      {
+        "source": "/news/polygenic-scores/",
+        "target": "/research/current-programs/",
+        "occurrences": 3,
+        "label": "Review research programs"
+      },
+      {
+        "source": "/news/polygenic-scores/",
+        "target": "/research/facilities/",
+        "occurrences": 2,
+        "label": "Facilities"
+      },
+      {
+        "source": "/news/polygenic-scores/",
+        "target": "/research/funding/",
+        "occurrences": 3,
+        "label": "Funding"
+      },
+      {
+        "source": "/news/polygenic-scores/",
+        "target": "/research/innovation/",
+        "occurrences": 2,
+        "label": "Innovation"
+      },
+      {
+        "source": "/news/polygenic-scores/",
+        "target": "/research/open-data/",
+        "occurrences": 2,
+        "label": "Open Data"
+      },
+      {
+        "source": "/news/polygenic-scores/",
+        "target": "/research/opportunities/",
+        "occurrences": 2,
+        "label": "Opportunities"
+      },
+      {
+        "source": "/news/polygenic-scores/",
+        "target": "/research/our-process/",
+        "occurrences": 3,
+        "label": "Our Process"
+      },
+      {
+        "source": "/news/polygenic-scores/",
+        "target": "/sciences/",
+        "occurrences": 2,
+        "label": "All sciences pages"
+      },
+      {
+        "source": "/news/polygenic-scores/",
+        "target": "/sciences/agriculture/",
+        "occurrences": 2,
+        "label": "Agriculture"
+      },
+      {
+        "source": "/news/polygenic-scores/",
+        "target": "/sciences/anthropology/",
+        "occurrences": 2,
+        "label": "Anthropology"
+      },
+      {
+        "source": "/news/polygenic-scores/",
+        "target": "/sciences/archaeology/",
+        "occurrences": 2,
+        "label": "Archaeology"
+      },
+      {
+        "source": "/news/polygenic-scores/",
+        "target": "/sciences/biology/",
+        "occurrences": 2,
+        "label": "Biology"
+      },
+      {
+        "source": "/news/polygenic-scores/",
+        "target": "/sciences/chemistry/",
+        "occurrences": 2,
+        "label": "Chemistry"
+      },
+      {
+        "source": "/news/polygenic-scores/",
+        "target": "/sciences/cognitive-sciences/",
+        "occurrences": 2,
+        "label": "Cognitive Sciences"
+      },
+      {
+        "source": "/news/polygenic-scores/",
+        "target": "/sciences/economics/",
+        "occurrences": 2,
+        "label": "Economics"
+      },
+      {
+        "source": "/news/polygenic-scores/",
+        "target": "/sciences/energy/",
+        "occurrences": 3,
+        "label": "Energy"
+      },
+      {
+        "source": "/news/polygenic-scores/",
+        "target": "/sciences/genetics/",
+        "occurrences": 2,
+        "label": "Genetics"
+      },
+      {
+        "source": "/news/polygenic-scores/",
+        "target": "/sciences/geology/",
+        "occurrences": 2,
+        "label": "Geology"
+      },
+      {
+        "source": "/news/polygenic-scores/",
+        "target": "/sciences/kinesiology/",
+        "occurrences": 2,
+        "label": "Kinesiology"
+      },
+      {
+        "source": "/news/polygenic-scores/",
+        "target": "/sciences/law/",
+        "occurrences": 2,
+        "label": "Law"
+      },
+      {
+        "source": "/news/polygenic-scores/",
+        "target": "/sciences/linguistics/",
+        "occurrences": 2,
+        "label": "Linguistics"
+      },
+      {
+        "source": "/news/polygenic-scores/",
+        "target": "/sciences/materials-science/",
+        "occurrences": 2,
+        "label": "Materials Science"
+      },
+      {
+        "source": "/news/polygenic-scores/",
+        "target": "/sciences/medicine/",
+        "occurrences": 3,
+        "label": "Medicine"
+      },
+      {
+        "source": "/news/polygenic-scores/",
+        "target": "/sciences/neuroscience/",
+        "occurrences": 2,
+        "label": "Neuroscience"
+      },
+      {
+        "source": "/news/polygenic-scores/",
+        "target": "/sciences/ocean-science/",
+        "occurrences": 2,
+        "label": "Ocean Science"
+      },
+      {
+        "source": "/news/polygenic-scores/",
+        "target": "/sciences/outer-space/",
+        "occurrences": 2,
+        "label": "Outer Space"
+      },
+      {
+        "source": "/news/polygenic-scores/",
+        "target": "/sciences/physics/",
+        "occurrences": 2,
+        "label": "Physics"
+      },
+      {
+        "source": "/news/polygenic-scores/",
+        "target": "/sciences/physiology/",
+        "occurrences": 2,
+        "label": "Physiology"
+      },
+      {
+        "source": "/news/polygenic-scores/",
+        "target": "/sciences/psychology/",
+        "occurrences": 2,
+        "label": "Psychology"
+      },
+      {
+        "source": "/news/polygenic-scores/",
+        "target": "/sciences/sociology/",
+        "occurrences": 2,
+        "label": "Sociology"
+      },
+      {
+        "source": "/news/polygenic-scores/",
+        "target": "/search/",
+        "occurrences": 2,
+        "label": "Search"
+      },
+      {
+        "source": "/news/polygenic-scores/",
+        "target": "/tech-transfer/",
+        "occurrences": 2,
+        "label": "All technology transfer pages"
+      },
+      {
+        "source": "/news/polygenic-scores/",
+        "target": "/tech-transfer/enterprise-rd/",
+        "occurrences": 2,
+        "label": "Enterprise R&amp;D"
+      },
+      {
+        "source": "/news/polygenic-scores/",
+        "target": "/tech-transfer/portfolio/",
+        "occurrences": 2,
+        "label": "Portfolio"
+      },
+      {
+        "source": "/news/polygenic-scores/",
+        "target": "/tech-transfer/sttr-programs/",
+        "occurrences": 2,
+        "label": "STTR Programs"
+      },
+      {
+        "source": "/news/polygenic-scores/",
+        "target": "/tech-transfer/workshops-events/",
+        "occurrences": 2,
+        "label": "Workshops &amp; Events"
+      },
+      {
+        "source": "/news/polygenic-scores/",
+        "target": "/technology/",
+        "occurrences": 2,
+        "label": "All technology pages"
+      },
+      {
+        "source": "/news/polygenic-scores/",
+        "target": "/technology/augmented-reality/",
+        "occurrences": 2,
+        "label": "Augmented Reality"
+      },
+      {
+        "source": "/news/polygenic-scores/",
+        "target": "/technology/computer-science/",
+        "occurrences": 3,
+        "label": "Computer Science"
+      },
+      {
+        "source": "/news/polygenic-scores/",
+        "target": "/technology/data-science/",
+        "occurrences": 3,
+        "label": "Data Science"
+      },
+      {
+        "source": "/news/polygenic-scores/",
+        "target": "/technology/formal-methods/",
+        "occurrences": 2,
+        "label": "Formal Methods"
+      },
+      {
+        "source": "/news/polygenic-scores/",
+        "target": "/technology/machine-intelligence/",
+        "occurrences": 3,
+        "label": "Machine Intelligence"
+      },
+      {
+        "source": "/news/polygenic-scores/",
+        "target": "/technology/natural-language-processing/",
+        "occurrences": 2,
+        "label": "Natural Language Processing"
+      },
+      {
+        "source": "/news/polygenic-scores/",
+        "target": "/technology/quantum-computing/",
+        "occurrences": 3,
+        "label": "Quantum Computing"
+      },
+      {
+        "source": "/news/polygenic-scores/",
+        "target": "/terms/",
+        "occurrences": 1,
+        "label": "Terms of use"
+      },
+      {
         "source": "/news/precision-agriculture-open-data/",
         "target": "/",
         "occurrences": 1,
@@ -33101,6 +35969,510 @@
         "label": "Terms of use"
       },
       {
+        "source": "/news/psychology-replication/",
+        "target": "/",
+        "occurrences": 1,
+        "label": ""
+      },
+      {
+        "source": "/news/psychology-replication/",
+        "target": "/accessibility/",
+        "occurrences": 1,
+        "label": "Accessibility"
+      },
+      {
+        "source": "/news/psychology-replication/",
+        "target": "/capability-statement/",
+        "occurrences": 1,
+        "label": "Capability statement"
+      },
+      {
+        "source": "/news/psychology-replication/",
+        "target": "/community/",
+        "occurrences": 2,
+        "label": "All community pages"
+      },
+      {
+        "source": "/news/psychology-replication/",
+        "target": "/community/about-us/",
+        "occurrences": 3,
+        "label": "About Us"
+      },
+      {
+        "source": "/news/psychology-replication/",
+        "target": "/community/careers/",
+        "occurrences": 3,
+        "label": "Careers"
+      },
+      {
+        "source": "/news/psychology-replication/",
+        "target": "/community/leadership/",
+        "occurrences": 2,
+        "label": "Leadership"
+      },
+      {
+        "source": "/news/psychology-replication/",
+        "target": "/community/partner/",
+        "occurrences": 2,
+        "label": "Partner"
+      },
+      {
+        "source": "/news/psychology-replication/",
+        "target": "/community/support/",
+        "occurrences": 1,
+        "label": "Donate"
+      },
+      {
+        "source": "/news/psychology-replication/",
+        "target": "/community/work-with-us/",
+        "occurrences": 2,
+        "label": "Collaborate"
+      },
+      {
+        "source": "/news/psychology-replication/",
+        "target": "/contact-us/",
+        "occurrences": 3,
+        "label": "Contact"
+      },
+      {
+        "source": "/news/psychology-replication/",
+        "target": "/cookies-and-partners/",
+        "occurrences": 5,
+        "label": "Cookies and partners"
+      },
+      {
+        "source": "/news/psychology-replication/",
+        "target": "/faq/",
+        "occurrences": 1,
+        "label": "FAQ"
+      },
+      {
+        "source": "/news/psychology-replication/",
+        "target": "/fellowship/",
+        "occurrences": 3,
+        "label": "Fellowship"
+      },
+      {
+        "source": "/news/psychology-replication/",
+        "target": "/labs/",
+        "occurrences": 2,
+        "label": "All laboratories"
+      },
+      {
+        "source": "/news/psychology-replication/",
+        "target": "/labs/biometric-security/",
+        "occurrences": 2,
+        "label": "Biometrics &amp; Drone Sensing"
+      },
+      {
+        "source": "/news/psychology-replication/",
+        "target": "/labs/cognitive-ai/",
+        "occurrences": 2,
+        "label": "Cognitive AI &amp; Persona Systems"
+      },
+      {
+        "source": "/news/psychology-replication/",
+        "target": "/labs/sovereign-ai/",
+        "occurrences": 2,
+        "label": "Sovereign AI Laboratory"
+      },
+      {
+        "source": "/news/psychology-replication/",
+        "target": "/mission/",
+        "occurrences": 2,
+        "label": "Mission"
+      },
+      {
+        "source": "/news/psychology-replication/",
+        "target": "/news/",
+        "occurrences": 2,
+        "label": "Research Briefs"
+      },
+      {
+        "source": "/news/psychology-replication/",
+        "target": "/press/",
+        "occurrences": 1,
+        "label": "Press kit"
+      },
+      {
+        "source": "/news/psychology-replication/",
+        "target": "/privacy/",
+        "occurrences": 3,
+        "label": "Privacy policy"
+      },
+      {
+        "source": "/news/psychology-replication/",
+        "target": "/record/",
+        "occurrences": 2,
+        "label": "Record room"
+      },
+      {
+        "source": "/news/psychology-replication/",
+        "target": "/record/affiliations/",
+        "occurrences": 2,
+        "label": "Affiliations"
+      },
+      {
+        "source": "/news/psychology-replication/",
+        "target": "/record/corrections/",
+        "occurrences": 2,
+        "label": "Corrections"
+      },
+      {
+        "source": "/news/psychology-replication/",
+        "target": "/record/federal/",
+        "occurrences": 2,
+        "label": "Federal"
+      },
+      {
+        "source": "/news/psychology-replication/",
+        "target": "/record/files/",
+        "occurrences": 2,
+        "label": "Documents"
+      },
+      {
+        "source": "/news/psychology-replication/",
+        "target": "/record/governance/",
+        "occurrences": 2,
+        "label": "Governance"
+      },
+      {
+        "source": "/news/psychology-replication/",
+        "target": "/record/journeys/",
+        "occurrences": 2,
+        "label": "Decision briefs"
+      },
+      {
+        "source": "/news/psychology-replication/",
+        "target": "/record/leadership/",
+        "occurrences": 2,
+        "label": "Leadership"
+      },
+      {
+        "source": "/news/psychology-replication/",
+        "target": "/record/legal/",
+        "occurrences": 2,
+        "label": "Legal"
+      },
+      {
+        "source": "/news/psychology-replication/",
+        "target": "/record/marketing/",
+        "occurrences": 2,
+        "label": "Positioning"
+      },
+      {
+        "source": "/news/psychology-replication/",
+        "target": "/record/metrics/",
+        "occurrences": 2,
+        "label": "Inventory"
+      },
+      {
+        "source": "/news/psychology-replication/",
+        "target": "/record/nav/",
+        "occurrences": 2,
+        "label": "Site map"
+      },
+      {
+        "source": "/news/psychology-replication/",
+        "target": "/record/ops/",
+        "occurrences": 2,
+        "label": "Ops"
+      },
+      {
+        "source": "/news/psychology-replication/",
+        "target": "/record/screens/",
+        "occurrences": 2,
+        "label": "Visuals"
+      },
+      {
+        "source": "/news/psychology-replication/",
+        "target": "/record/style/",
+        "occurrences": 2,
+        "label": "Style"
+      },
+      {
+        "source": "/news/psychology-replication/",
+        "target": "/record/verify/",
+        "occurrences": 2,
+        "label": "Sources"
+      },
+      {
+        "source": "/news/psychology-replication/",
+        "target": "/research/consortium/",
+        "occurrences": 2,
+        "label": "INSTAR Consortium"
+      },
+      {
+        "source": "/news/psychology-replication/",
+        "target": "/research/current-programs/",
+        "occurrences": 3,
+        "label": "Review research programs"
+      },
+      {
+        "source": "/news/psychology-replication/",
+        "target": "/research/facilities/",
+        "occurrences": 2,
+        "label": "Facilities"
+      },
+      {
+        "source": "/news/psychology-replication/",
+        "target": "/research/funding/",
+        "occurrences": 3,
+        "label": "Funding"
+      },
+      {
+        "source": "/news/psychology-replication/",
+        "target": "/research/innovation/",
+        "occurrences": 2,
+        "label": "Innovation"
+      },
+      {
+        "source": "/news/psychology-replication/",
+        "target": "/research/open-data/",
+        "occurrences": 2,
+        "label": "Open Data"
+      },
+      {
+        "source": "/news/psychology-replication/",
+        "target": "/research/opportunities/",
+        "occurrences": 2,
+        "label": "Opportunities"
+      },
+      {
+        "source": "/news/psychology-replication/",
+        "target": "/research/our-process/",
+        "occurrences": 3,
+        "label": "Our Process"
+      },
+      {
+        "source": "/news/psychology-replication/",
+        "target": "/sciences/",
+        "occurrences": 2,
+        "label": "All sciences pages"
+      },
+      {
+        "source": "/news/psychology-replication/",
+        "target": "/sciences/agriculture/",
+        "occurrences": 2,
+        "label": "Agriculture"
+      },
+      {
+        "source": "/news/psychology-replication/",
+        "target": "/sciences/anthropology/",
+        "occurrences": 2,
+        "label": "Anthropology"
+      },
+      {
+        "source": "/news/psychology-replication/",
+        "target": "/sciences/archaeology/",
+        "occurrences": 2,
+        "label": "Archaeology"
+      },
+      {
+        "source": "/news/psychology-replication/",
+        "target": "/sciences/biology/",
+        "occurrences": 2,
+        "label": "Biology"
+      },
+      {
+        "source": "/news/psychology-replication/",
+        "target": "/sciences/chemistry/",
+        "occurrences": 2,
+        "label": "Chemistry"
+      },
+      {
+        "source": "/news/psychology-replication/",
+        "target": "/sciences/cognitive-sciences/",
+        "occurrences": 2,
+        "label": "Cognitive Sciences"
+      },
+      {
+        "source": "/news/psychology-replication/",
+        "target": "/sciences/economics/",
+        "occurrences": 2,
+        "label": "Economics"
+      },
+      {
+        "source": "/news/psychology-replication/",
+        "target": "/sciences/energy/",
+        "occurrences": 3,
+        "label": "Energy"
+      },
+      {
+        "source": "/news/psychology-replication/",
+        "target": "/sciences/genetics/",
+        "occurrences": 2,
+        "label": "Genetics"
+      },
+      {
+        "source": "/news/psychology-replication/",
+        "target": "/sciences/geology/",
+        "occurrences": 2,
+        "label": "Geology"
+      },
+      {
+        "source": "/news/psychology-replication/",
+        "target": "/sciences/kinesiology/",
+        "occurrences": 2,
+        "label": "Kinesiology"
+      },
+      {
+        "source": "/news/psychology-replication/",
+        "target": "/sciences/law/",
+        "occurrences": 2,
+        "label": "Law"
+      },
+      {
+        "source": "/news/psychology-replication/",
+        "target": "/sciences/linguistics/",
+        "occurrences": 2,
+        "label": "Linguistics"
+      },
+      {
+        "source": "/news/psychology-replication/",
+        "target": "/sciences/materials-science/",
+        "occurrences": 2,
+        "label": "Materials Science"
+      },
+      {
+        "source": "/news/psychology-replication/",
+        "target": "/sciences/medicine/",
+        "occurrences": 3,
+        "label": "Medicine"
+      },
+      {
+        "source": "/news/psychology-replication/",
+        "target": "/sciences/neuroscience/",
+        "occurrences": 2,
+        "label": "Neuroscience"
+      },
+      {
+        "source": "/news/psychology-replication/",
+        "target": "/sciences/ocean-science/",
+        "occurrences": 2,
+        "label": "Ocean Science"
+      },
+      {
+        "source": "/news/psychology-replication/",
+        "target": "/sciences/outer-space/",
+        "occurrences": 2,
+        "label": "Outer Space"
+      },
+      {
+        "source": "/news/psychology-replication/",
+        "target": "/sciences/physics/",
+        "occurrences": 2,
+        "label": "Physics"
+      },
+      {
+        "source": "/news/psychology-replication/",
+        "target": "/sciences/physiology/",
+        "occurrences": 2,
+        "label": "Physiology"
+      },
+      {
+        "source": "/news/psychology-replication/",
+        "target": "/sciences/psychology/",
+        "occurrences": 2,
+        "label": "Psychology"
+      },
+      {
+        "source": "/news/psychology-replication/",
+        "target": "/sciences/sociology/",
+        "occurrences": 2,
+        "label": "Sociology"
+      },
+      {
+        "source": "/news/psychology-replication/",
+        "target": "/search/",
+        "occurrences": 2,
+        "label": "Search"
+      },
+      {
+        "source": "/news/psychology-replication/",
+        "target": "/tech-transfer/",
+        "occurrences": 2,
+        "label": "All technology transfer pages"
+      },
+      {
+        "source": "/news/psychology-replication/",
+        "target": "/tech-transfer/enterprise-rd/",
+        "occurrences": 2,
+        "label": "Enterprise R&amp;D"
+      },
+      {
+        "source": "/news/psychology-replication/",
+        "target": "/tech-transfer/portfolio/",
+        "occurrences": 2,
+        "label": "Portfolio"
+      },
+      {
+        "source": "/news/psychology-replication/",
+        "target": "/tech-transfer/sttr-programs/",
+        "occurrences": 2,
+        "label": "STTR Programs"
+      },
+      {
+        "source": "/news/psychology-replication/",
+        "target": "/tech-transfer/workshops-events/",
+        "occurrences": 2,
+        "label": "Workshops &amp; Events"
+      },
+      {
+        "source": "/news/psychology-replication/",
+        "target": "/technology/",
+        "occurrences": 2,
+        "label": "All technology pages"
+      },
+      {
+        "source": "/news/psychology-replication/",
+        "target": "/technology/augmented-reality/",
+        "occurrences": 2,
+        "label": "Augmented Reality"
+      },
+      {
+        "source": "/news/psychology-replication/",
+        "target": "/technology/computer-science/",
+        "occurrences": 3,
+        "label": "Computer Science"
+      },
+      {
+        "source": "/news/psychology-replication/",
+        "target": "/technology/data-science/",
+        "occurrences": 3,
+        "label": "Data Science"
+      },
+      {
+        "source": "/news/psychology-replication/",
+        "target": "/technology/formal-methods/",
+        "occurrences": 2,
+        "label": "Formal Methods"
+      },
+      {
+        "source": "/news/psychology-replication/",
+        "target": "/technology/machine-intelligence/",
+        "occurrences": 3,
+        "label": "Machine Intelligence"
+      },
+      {
+        "source": "/news/psychology-replication/",
+        "target": "/technology/natural-language-processing/",
+        "occurrences": 2,
+        "label": "Natural Language Processing"
+      },
+      {
+        "source": "/news/psychology-replication/",
+        "target": "/technology/quantum-computing/",
+        "occurrences": 3,
+        "label": "Quantum Computing"
+      },
+      {
+        "source": "/news/psychology-replication/",
+        "target": "/terms/",
+        "occurrences": 1,
+        "label": "Terms of use"
+      },
+      {
         "source": "/news/quantum-sensing-breakthroughs/",
         "target": "/",
         "occurrences": 1,
@@ -33600,6 +36972,510 @@
       },
       {
         "source": "/news/quantum-sensing-breakthroughs/",
+        "target": "/terms/",
+        "occurrences": 1,
+        "label": "Terms of use"
+      },
+      {
+        "source": "/news/radiocarbon-dates/",
+        "target": "/",
+        "occurrences": 1,
+        "label": ""
+      },
+      {
+        "source": "/news/radiocarbon-dates/",
+        "target": "/accessibility/",
+        "occurrences": 1,
+        "label": "Accessibility"
+      },
+      {
+        "source": "/news/radiocarbon-dates/",
+        "target": "/capability-statement/",
+        "occurrences": 1,
+        "label": "Capability statement"
+      },
+      {
+        "source": "/news/radiocarbon-dates/",
+        "target": "/community/",
+        "occurrences": 2,
+        "label": "All community pages"
+      },
+      {
+        "source": "/news/radiocarbon-dates/",
+        "target": "/community/about-us/",
+        "occurrences": 3,
+        "label": "About Us"
+      },
+      {
+        "source": "/news/radiocarbon-dates/",
+        "target": "/community/careers/",
+        "occurrences": 3,
+        "label": "Careers"
+      },
+      {
+        "source": "/news/radiocarbon-dates/",
+        "target": "/community/leadership/",
+        "occurrences": 2,
+        "label": "Leadership"
+      },
+      {
+        "source": "/news/radiocarbon-dates/",
+        "target": "/community/partner/",
+        "occurrences": 2,
+        "label": "Partner"
+      },
+      {
+        "source": "/news/radiocarbon-dates/",
+        "target": "/community/support/",
+        "occurrences": 1,
+        "label": "Donate"
+      },
+      {
+        "source": "/news/radiocarbon-dates/",
+        "target": "/community/work-with-us/",
+        "occurrences": 2,
+        "label": "Collaborate"
+      },
+      {
+        "source": "/news/radiocarbon-dates/",
+        "target": "/contact-us/",
+        "occurrences": 3,
+        "label": "Contact"
+      },
+      {
+        "source": "/news/radiocarbon-dates/",
+        "target": "/cookies-and-partners/",
+        "occurrences": 5,
+        "label": "Cookies and partners"
+      },
+      {
+        "source": "/news/radiocarbon-dates/",
+        "target": "/faq/",
+        "occurrences": 1,
+        "label": "FAQ"
+      },
+      {
+        "source": "/news/radiocarbon-dates/",
+        "target": "/fellowship/",
+        "occurrences": 3,
+        "label": "Fellowship"
+      },
+      {
+        "source": "/news/radiocarbon-dates/",
+        "target": "/labs/",
+        "occurrences": 2,
+        "label": "All laboratories"
+      },
+      {
+        "source": "/news/radiocarbon-dates/",
+        "target": "/labs/biometric-security/",
+        "occurrences": 2,
+        "label": "Biometrics &amp; Drone Sensing"
+      },
+      {
+        "source": "/news/radiocarbon-dates/",
+        "target": "/labs/cognitive-ai/",
+        "occurrences": 2,
+        "label": "Cognitive AI &amp; Persona Systems"
+      },
+      {
+        "source": "/news/radiocarbon-dates/",
+        "target": "/labs/sovereign-ai/",
+        "occurrences": 2,
+        "label": "Sovereign AI Laboratory"
+      },
+      {
+        "source": "/news/radiocarbon-dates/",
+        "target": "/mission/",
+        "occurrences": 2,
+        "label": "Mission"
+      },
+      {
+        "source": "/news/radiocarbon-dates/",
+        "target": "/news/",
+        "occurrences": 2,
+        "label": "Research Briefs"
+      },
+      {
+        "source": "/news/radiocarbon-dates/",
+        "target": "/press/",
+        "occurrences": 1,
+        "label": "Press kit"
+      },
+      {
+        "source": "/news/radiocarbon-dates/",
+        "target": "/privacy/",
+        "occurrences": 3,
+        "label": "Privacy policy"
+      },
+      {
+        "source": "/news/radiocarbon-dates/",
+        "target": "/record/",
+        "occurrences": 2,
+        "label": "Record room"
+      },
+      {
+        "source": "/news/radiocarbon-dates/",
+        "target": "/record/affiliations/",
+        "occurrences": 2,
+        "label": "Affiliations"
+      },
+      {
+        "source": "/news/radiocarbon-dates/",
+        "target": "/record/corrections/",
+        "occurrences": 2,
+        "label": "Corrections"
+      },
+      {
+        "source": "/news/radiocarbon-dates/",
+        "target": "/record/federal/",
+        "occurrences": 2,
+        "label": "Federal"
+      },
+      {
+        "source": "/news/radiocarbon-dates/",
+        "target": "/record/files/",
+        "occurrences": 2,
+        "label": "Documents"
+      },
+      {
+        "source": "/news/radiocarbon-dates/",
+        "target": "/record/governance/",
+        "occurrences": 2,
+        "label": "Governance"
+      },
+      {
+        "source": "/news/radiocarbon-dates/",
+        "target": "/record/journeys/",
+        "occurrences": 2,
+        "label": "Decision briefs"
+      },
+      {
+        "source": "/news/radiocarbon-dates/",
+        "target": "/record/leadership/",
+        "occurrences": 2,
+        "label": "Leadership"
+      },
+      {
+        "source": "/news/radiocarbon-dates/",
+        "target": "/record/legal/",
+        "occurrences": 2,
+        "label": "Legal"
+      },
+      {
+        "source": "/news/radiocarbon-dates/",
+        "target": "/record/marketing/",
+        "occurrences": 2,
+        "label": "Positioning"
+      },
+      {
+        "source": "/news/radiocarbon-dates/",
+        "target": "/record/metrics/",
+        "occurrences": 2,
+        "label": "Inventory"
+      },
+      {
+        "source": "/news/radiocarbon-dates/",
+        "target": "/record/nav/",
+        "occurrences": 2,
+        "label": "Site map"
+      },
+      {
+        "source": "/news/radiocarbon-dates/",
+        "target": "/record/ops/",
+        "occurrences": 2,
+        "label": "Ops"
+      },
+      {
+        "source": "/news/radiocarbon-dates/",
+        "target": "/record/screens/",
+        "occurrences": 2,
+        "label": "Visuals"
+      },
+      {
+        "source": "/news/radiocarbon-dates/",
+        "target": "/record/style/",
+        "occurrences": 2,
+        "label": "Style"
+      },
+      {
+        "source": "/news/radiocarbon-dates/",
+        "target": "/record/verify/",
+        "occurrences": 2,
+        "label": "Sources"
+      },
+      {
+        "source": "/news/radiocarbon-dates/",
+        "target": "/research/consortium/",
+        "occurrences": 2,
+        "label": "INSTAR Consortium"
+      },
+      {
+        "source": "/news/radiocarbon-dates/",
+        "target": "/research/current-programs/",
+        "occurrences": 3,
+        "label": "Review research programs"
+      },
+      {
+        "source": "/news/radiocarbon-dates/",
+        "target": "/research/facilities/",
+        "occurrences": 2,
+        "label": "Facilities"
+      },
+      {
+        "source": "/news/radiocarbon-dates/",
+        "target": "/research/funding/",
+        "occurrences": 3,
+        "label": "Funding"
+      },
+      {
+        "source": "/news/radiocarbon-dates/",
+        "target": "/research/innovation/",
+        "occurrences": 2,
+        "label": "Innovation"
+      },
+      {
+        "source": "/news/radiocarbon-dates/",
+        "target": "/research/open-data/",
+        "occurrences": 2,
+        "label": "Open Data"
+      },
+      {
+        "source": "/news/radiocarbon-dates/",
+        "target": "/research/opportunities/",
+        "occurrences": 2,
+        "label": "Opportunities"
+      },
+      {
+        "source": "/news/radiocarbon-dates/",
+        "target": "/research/our-process/",
+        "occurrences": 3,
+        "label": "Our Process"
+      },
+      {
+        "source": "/news/radiocarbon-dates/",
+        "target": "/sciences/",
+        "occurrences": 2,
+        "label": "All sciences pages"
+      },
+      {
+        "source": "/news/radiocarbon-dates/",
+        "target": "/sciences/agriculture/",
+        "occurrences": 2,
+        "label": "Agriculture"
+      },
+      {
+        "source": "/news/radiocarbon-dates/",
+        "target": "/sciences/anthropology/",
+        "occurrences": 2,
+        "label": "Anthropology"
+      },
+      {
+        "source": "/news/radiocarbon-dates/",
+        "target": "/sciences/archaeology/",
+        "occurrences": 2,
+        "label": "Archaeology"
+      },
+      {
+        "source": "/news/radiocarbon-dates/",
+        "target": "/sciences/biology/",
+        "occurrences": 2,
+        "label": "Biology"
+      },
+      {
+        "source": "/news/radiocarbon-dates/",
+        "target": "/sciences/chemistry/",
+        "occurrences": 2,
+        "label": "Chemistry"
+      },
+      {
+        "source": "/news/radiocarbon-dates/",
+        "target": "/sciences/cognitive-sciences/",
+        "occurrences": 2,
+        "label": "Cognitive Sciences"
+      },
+      {
+        "source": "/news/radiocarbon-dates/",
+        "target": "/sciences/economics/",
+        "occurrences": 2,
+        "label": "Economics"
+      },
+      {
+        "source": "/news/radiocarbon-dates/",
+        "target": "/sciences/energy/",
+        "occurrences": 3,
+        "label": "Energy"
+      },
+      {
+        "source": "/news/radiocarbon-dates/",
+        "target": "/sciences/genetics/",
+        "occurrences": 2,
+        "label": "Genetics"
+      },
+      {
+        "source": "/news/radiocarbon-dates/",
+        "target": "/sciences/geology/",
+        "occurrences": 2,
+        "label": "Geology"
+      },
+      {
+        "source": "/news/radiocarbon-dates/",
+        "target": "/sciences/kinesiology/",
+        "occurrences": 2,
+        "label": "Kinesiology"
+      },
+      {
+        "source": "/news/radiocarbon-dates/",
+        "target": "/sciences/law/",
+        "occurrences": 2,
+        "label": "Law"
+      },
+      {
+        "source": "/news/radiocarbon-dates/",
+        "target": "/sciences/linguistics/",
+        "occurrences": 2,
+        "label": "Linguistics"
+      },
+      {
+        "source": "/news/radiocarbon-dates/",
+        "target": "/sciences/materials-science/",
+        "occurrences": 2,
+        "label": "Materials Science"
+      },
+      {
+        "source": "/news/radiocarbon-dates/",
+        "target": "/sciences/medicine/",
+        "occurrences": 3,
+        "label": "Medicine"
+      },
+      {
+        "source": "/news/radiocarbon-dates/",
+        "target": "/sciences/neuroscience/",
+        "occurrences": 2,
+        "label": "Neuroscience"
+      },
+      {
+        "source": "/news/radiocarbon-dates/",
+        "target": "/sciences/ocean-science/",
+        "occurrences": 2,
+        "label": "Ocean Science"
+      },
+      {
+        "source": "/news/radiocarbon-dates/",
+        "target": "/sciences/outer-space/",
+        "occurrences": 2,
+        "label": "Outer Space"
+      },
+      {
+        "source": "/news/radiocarbon-dates/",
+        "target": "/sciences/physics/",
+        "occurrences": 2,
+        "label": "Physics"
+      },
+      {
+        "source": "/news/radiocarbon-dates/",
+        "target": "/sciences/physiology/",
+        "occurrences": 2,
+        "label": "Physiology"
+      },
+      {
+        "source": "/news/radiocarbon-dates/",
+        "target": "/sciences/psychology/",
+        "occurrences": 2,
+        "label": "Psychology"
+      },
+      {
+        "source": "/news/radiocarbon-dates/",
+        "target": "/sciences/sociology/",
+        "occurrences": 2,
+        "label": "Sociology"
+      },
+      {
+        "source": "/news/radiocarbon-dates/",
+        "target": "/search/",
+        "occurrences": 2,
+        "label": "Search"
+      },
+      {
+        "source": "/news/radiocarbon-dates/",
+        "target": "/tech-transfer/",
+        "occurrences": 2,
+        "label": "All technology transfer pages"
+      },
+      {
+        "source": "/news/radiocarbon-dates/",
+        "target": "/tech-transfer/enterprise-rd/",
+        "occurrences": 2,
+        "label": "Enterprise R&amp;D"
+      },
+      {
+        "source": "/news/radiocarbon-dates/",
+        "target": "/tech-transfer/portfolio/",
+        "occurrences": 2,
+        "label": "Portfolio"
+      },
+      {
+        "source": "/news/radiocarbon-dates/",
+        "target": "/tech-transfer/sttr-programs/",
+        "occurrences": 2,
+        "label": "STTR Programs"
+      },
+      {
+        "source": "/news/radiocarbon-dates/",
+        "target": "/tech-transfer/workshops-events/",
+        "occurrences": 2,
+        "label": "Workshops &amp; Events"
+      },
+      {
+        "source": "/news/radiocarbon-dates/",
+        "target": "/technology/",
+        "occurrences": 2,
+        "label": "All technology pages"
+      },
+      {
+        "source": "/news/radiocarbon-dates/",
+        "target": "/technology/augmented-reality/",
+        "occurrences": 2,
+        "label": "Augmented Reality"
+      },
+      {
+        "source": "/news/radiocarbon-dates/",
+        "target": "/technology/computer-science/",
+        "occurrences": 3,
+        "label": "Computer Science"
+      },
+      {
+        "source": "/news/radiocarbon-dates/",
+        "target": "/technology/data-science/",
+        "occurrences": 3,
+        "label": "Data Science"
+      },
+      {
+        "source": "/news/radiocarbon-dates/",
+        "target": "/technology/formal-methods/",
+        "occurrences": 2,
+        "label": "Formal Methods"
+      },
+      {
+        "source": "/news/radiocarbon-dates/",
+        "target": "/technology/machine-intelligence/",
+        "occurrences": 3,
+        "label": "Machine Intelligence"
+      },
+      {
+        "source": "/news/radiocarbon-dates/",
+        "target": "/technology/natural-language-processing/",
+        "occurrences": 2,
+        "label": "Natural Language Processing"
+      },
+      {
+        "source": "/news/radiocarbon-dates/",
+        "target": "/technology/quantum-computing/",
+        "occurrences": 3,
+        "label": "Quantum Computing"
+      },
+      {
+        "source": "/news/radiocarbon-dates/",
         "target": "/terms/",
         "occurrences": 1,
         "label": "Terms of use"
