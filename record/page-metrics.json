@@ -1,1 +1,5318 @@
-{"sitePages":97,"indexablePages":96,"editorialPages":71,"researchBriefs":16,"publicMediaPolicies":80,"routeFamilies":11,"recordPages":16,"sourceFiles":8,"buildSurface":"Static Astro output for GitHub Pages-compatible delivery","families":[{"family":"Home","routes":1,"indexable":1},{"family":"Core","routes":8,"indexable":7},{"family":"Community","routes":7,"indexable":7},{"family":"Fellowship","routes":1,"indexable":1},{"family":"Labs","routes":3,"indexable":3},{"family":"Research brief","routes":17,"indexable":17},{"family":"Public record","routes":16,"indexable":16},{"family":"Research","routes":11,"indexable":11},{"family":"Sciences","routes":22,"indexable":22},{"family":"Tech transfer","routes":4,"indexable":4},{"family":"Technology","routes":7,"indexable":7}],"routes":[{"path":"/","title":"INSTAR Lab — Research Institute","family":"Home","kind":"core","indexable":true,"inbound":0,"journeys":[]},{"path":"/404.html","title":"Page Not Found — INSTAR Lab","family":"Core","kind":"core","indexable":false,"inbound":0,"journeys":[]},{"path":"/about/","title":"About INSTAR Lab — Nonprofit Research Institute","family":"Core","kind":"core","indexable":true,"inbound":0,"journeys":[]},{"path":"/accessibility/","title":"Accessibility Statement — INSTAR Lab","family":"Core","kind":"core","indexable":true,"inbound":0,"journeys":[]},{"path":"/community/about-us/","title":"About Us — INSTAR Lab Community","family":"Community","kind":"editorial","indexable":true,"inbound":1,"journeys":["supporter"]},{"path":"/community/careers/","title":"Careers at INSTAR Lab — Research & Science Jobs","family":"Community","kind":"editorial","indexable":true,"inbound":1,"journeys":["researcher"]},{"path":"/community/contact/","title":"Research & Partnership Inquiries — INSTAR Lab","family":"Community","kind":"editorial","indexable":true,"inbound":0,"journeys":[]},{"path":"/community/leadership/","title":"Research Leadership & Governance — INSTAR Lab","family":"Community","kind":"editorial","indexable":true,"inbound":0,"journeys":[]},{"path":"/community/partner/","title":"Partner With INSTAR Lab — Research & Philanthropy","family":"Community","kind":"editorial","indexable":true,"inbound":0,"journeys":[]},{"path":"/community/support/","title":"Give to INSTAR Lab — One-Time Gifts & Friends Membership","family":"Community","kind":"editorial","indexable":true,"inbound":1,"journeys":["supporter"]},{"path":"/community/work-with-us/","title":"Work With INSTAR Lab — Collaboration Opportunities","family":"Community","kind":"editorial","indexable":true,"inbound":1,"journeys":["technical-collaborator"]},{"path":"/contact-us/","title":"Contact INSTAR Lab — Federal Research, Contracts & Partnerships","family":"Core","kind":"core","indexable":true,"inbound":0,"journeys":[]},{"path":"/cookies-and-partners/","title":"Cookies and Partners — INSTAR Lab","family":"Core","kind":"core","indexable":true,"inbound":0,"journeys":[]},{"path":"/fellowship/","title":"INSTAR Lab R&D Fellowships — International and Resident Scholars","family":"Fellowship","kind":"editorial","indexable":true,"inbound":0,"journeys":[]},{"path":"/labs/biometric-security/","title":"Biometrics & Drone Sensing — INSTAR Lab","family":"Labs","kind":"editorial","indexable":true,"inbound":0,"journeys":[]},{"path":"/labs/cognitive-ai/","title":"Cognitive AI & Persona Systems — INSTAR Lab","family":"Labs","kind":"editorial","indexable":true,"inbound":0,"journeys":[]},{"path":"/labs/sovereign-ai/","title":"Sovereign AI Laboratory — INSTAR Lab","family":"Labs","kind":"editorial","indexable":true,"inbound":1,"journeys":["technical-collaborator"]},{"path":"/mission/","title":"Our Mission — INSTAR Lab","family":"Core","kind":"core","indexable":true,"inbound":0,"journeys":[]},{"path":"/news/","title":"News — INSTAR Lab","family":"Research brief","kind":"editorial","indexable":true,"inbound":1,"journeys":["researcher"]},{"path":"/news/ai-benchmark-scores/","title":"What an AI Benchmark Score Does and Does Not Tell You — INSTAR Lab","family":"Research brief","kind":"editorial","indexable":true,"inbound":0,"journeys":[]},{"path":"/news/brain-scan-studies/","title":"What a Brain Scan Study Can and Cannot Tell You — INSTAR Lab","family":"Research brief","kind":"editorial","indexable":true,"inbound":0,"journeys":[]},{"path":"/news/clinical-ai-safety/","title":"Clinical AI Safety Research — INSTAR Lab","family":"Research brief","kind":"editorial","indexable":true,"inbound":0,"journeys":[]},{"path":"/news/coral-heat-stress/","title":"What a Coral Heat-Stress Map Can and Cannot Tell You — INSTAR Lab","family":"Research brief","kind":"editorial","indexable":true,"inbound":0,"journeys":[]},{"path":"/news/exoplanet-detections/","title":"What an Exoplanet Detection Can and Cannot Tell You — INSTAR Lab","family":"Research brief","kind":"editorial","indexable":true,"inbound":0,"journeys":[]},{"path":"/news/formal-methods-safety-critical-trust/","title":"Formal Methods and Trust in Safety-Critical Software — INSTAR Lab","family":"Research brief","kind":"editorial","indexable":true,"inbound":0,"journeys":[]},{"path":"/news/hpc-infrastructure-for-ai/","title":"HPC Infrastructure for AI — INSTAR Lab","family":"Research brief","kind":"editorial","indexable":true,"inbound":0,"journeys":[]},{"path":"/news/legal-foundations-tech-governance/","title":"Legal Foundations for Emerging Technology Governance — INSTAR Lab","family":"Research brief","kind":"editorial","indexable":true,"inbound":0,"journeys":[]},{"path":"/news/materials-science-energy-transition/","title":"Materials Science and the Energy Transition — INSTAR Lab","family":"Research brief","kind":"editorial","indexable":true,"inbound":0,"journeys":[]},{"path":"/news/open-data-research-philosophy/","title":"Why INSTAR Lab Commits to Open Data — INSTAR Lab","family":"Research brief","kind":"editorial","indexable":true,"inbound":0,"journeys":[]},{"path":"/news/polygenic-scores/","title":"What a Polygenic Score Can and Cannot Tell You — INSTAR Lab","family":"Research brief","kind":"editorial","indexable":true,"inbound":0,"journeys":[]},{"path":"/news/precision-agriculture-open-data/","title":"Precision Agriculture and Open Agricultural Data — INSTAR Lab","family":"Research brief","kind":"editorial","indexable":true,"inbound":0,"journeys":[]},{"path":"/news/psychology-replication/","title":"What a Single Psychology Study Can and Cannot Tell You — INSTAR Lab","family":"Research brief","kind":"editorial","indexable":true,"inbound":0,"journeys":[]},{"path":"/news/quantum-sensing-breakthroughs/","title":"Quantum Sensing Breakthroughs — INSTAR Lab","family":"Research brief","kind":"editorial","indexable":true,"inbound":0,"journeys":[]},{"path":"/news/radiocarbon-dates/","title":"What a Radiocarbon Date Can and Cannot Tell You — INSTAR Lab","family":"Research brief","kind":"editorial","indexable":true,"inbound":0,"journeys":[]},{"path":"/news/wearable-heart-rate/","title":"What a Wearable Heart-Rate Reading Can and Cannot Tell You — INSTAR Lab","family":"Research brief","kind":"editorial","indexable":true,"inbound":0,"journeys":[]},{"path":"/privacy/","title":"Privacy Policy — INSTAR Lab","family":"Core","kind":"core","indexable":true,"inbound":0,"journeys":[]},{"path":"/record/","title":"INSTAR Lab public record","family":"Public record","kind":"record","indexable":true,"inbound":0,"journeys":[]},{"path":"/record/affiliations/","title":"Affiliation register","family":"Public record","kind":"record","indexable":true,"inbound":0,"journeys":[]},{"path":"/record/corrections/","title":"Corrections register","family":"Public record","kind":"record","indexable":true,"inbound":0,"journeys":[]},{"path":"/record/federal/","title":"Federal and institutional research posture","family":"Public record","kind":"record","indexable":true,"inbound":1,"journeys":["program-officer"]},{"path":"/record/files/","title":"Public documents and asset register","family":"Public record","kind":"record","indexable":true,"inbound":0,"journeys":[]},{"path":"/record/governance/","title":"Board and policy register","family":"Public record","kind":"record","indexable":true,"inbound":0,"journeys":[]},{"path":"/record/journeys/","title":"Role-specific paths through the INSTAR site","family":"Public record","kind":"record","indexable":true,"inbound":0,"journeys":[]},{"path":"/record/leadership/","title":"Leadership, governance, and affiliations","family":"Public record","kind":"record","indexable":true,"inbound":0,"journeys":[]},{"path":"/record/legal/","title":"Legal status, filings, and the §6104(d) request path","family":"Public record","kind":"record","indexable":true,"inbound":0,"journeys":[]},{"path":"/record/marketing/","title":"INSTAR Lab positioning and public claims","family":"Public record","kind":"record","indexable":true,"inbound":0,"journeys":[]},{"path":"/record/metrics/","title":"Captured page inventory: content, media, and metadata","family":"Public record","kind":"record","indexable":true,"inbound":0,"journeys":[]},{"path":"/record/nav/","title":"INSTAR Lab public site link inventory","family":"Public record","kind":"record","indexable":true,"inbound":0,"journeys":[]},{"path":"/record/ops/","title":"Static delivery and operational readiness","family":"Public record","kind":"record","indexable":true,"inbound":0,"journeys":[]},{"path":"/record/screens/","title":"See the public site in context","family":"Public record","kind":"record","indexable":true,"inbound":0,"journeys":[]},{"path":"/record/style/","title":"INSTAR Lab visual system and public assets","family":"Public record","kind":"record","indexable":true,"inbound":0,"journeys":[]},{"path":"/record/verify/","title":"Source register and verification limits","family":"Public record","kind":"record","indexable":true,"inbound":0,"journeys":[]},{"path":"/research/","title":"Research","family":"Research","kind":"section","indexable":true,"inbound":0,"journeys":[]},{"path":"/research/consortium/","title":"INSTAR Consortium — Collaborative Research Network","family":"Research","kind":"editorial","indexable":true,"inbound":0,"journeys":[]},{"path":"/research/current-programs/","title":"Current Research Programs — INSTAR Lab","family":"Research","kind":"editorial","indexable":true,"inbound":1,"journeys":["supporter"]},{"path":"/research/facilities/","title":"Research Facilities — INSTAR Lab","family":"Research","kind":"editorial","indexable":true,"inbound":1,"journeys":["program-officer"]},{"path":"/research/funding/","title":"Federal Research & Sponsored Programs — INSTAR Lab","family":"Research","kind":"editorial","indexable":true,"inbound":0,"journeys":[]},{"path":"/research/innovation/","title":"Research Innovation — INSTAR Lab","family":"Research","kind":"editorial","indexable":true,"inbound":0,"journeys":[]},{"path":"/research/open-data/","title":"Open Data & Public Datasets — INSTAR Lab","family":"Research","kind":"editorial","indexable":true,"inbound":1,"journeys":["researcher"]},{"path":"/research/opportunities/","title":"Research Opportunities — INSTAR Lab","family":"Research","kind":"editorial","indexable":true,"inbound":0,"journeys":[]},{"path":"/research/our-process/","title":"Our Research Process — INSTAR Lab","family":"Research","kind":"editorial","indexable":true,"inbound":1,"journeys":["program-officer"]},{"path":"/research/outputs/","title":"Research Outputs — INSTAR Lab","family":"Research","kind":"editorial","indexable":true,"inbound":0,"journeys":[]},{"path":"/research/publications/","title":"Research Publications — INSTAR Lab","family":"Research","kind":"editorial","indexable":true,"inbound":0,"journeys":[]},{"path":"/sciences/agriculture/","title":"Agriculture Research — INSTAR Lab Sciences","family":"Sciences","kind":"editorial","indexable":true,"inbound":0,"journeys":[]},{"path":"/sciences/anthropology/","title":"Anthropology Research — INSTAR Lab Sciences","family":"Sciences","kind":"editorial","indexable":true,"inbound":0,"journeys":[]},{"path":"/sciences/archaeology/","title":"Archaeology Research — INSTAR Lab Sciences","family":"Sciences","kind":"editorial","indexable":true,"inbound":0,"journeys":[]},{"path":"/sciences/biology/","title":"Biology Research — INSTAR Lab Sciences","family":"Sciences","kind":"editorial","indexable":true,"inbound":0,"journeys":[]},{"path":"/sciences/chemistry/","title":"Chemistry Research — INSTAR Lab Sciences","family":"Sciences","kind":"editorial","indexable":true,"inbound":0,"journeys":[]},{"path":"/sciences/cognitive-sciences/","title":"Cognitive Sciences Research — INSTAR Lab Sciences","family":"Sciences","kind":"editorial","indexable":true,"inbound":0,"journeys":[]},{"path":"/sciences/economics/","title":"Economics Research — INSTAR Lab Sciences","family":"Sciences","kind":"editorial","indexable":true,"inbound":0,"journeys":[]},{"path":"/sciences/energy/","title":"Energy Research — INSTAR Lab Sciences","family":"Sciences","kind":"editorial","indexable":true,"inbound":0,"journeys":[]},{"path":"/sciences/genetics/","title":"Genetics Research — INSTAR Lab Sciences","family":"Sciences","kind":"editorial","indexable":true,"inbound":0,"journeys":[]},{"path":"/sciences/geology/","title":"Geology Research — INSTAR Lab Sciences","family":"Sciences","kind":"editorial","indexable":true,"inbound":0,"journeys":[]},{"path":"/sciences/kinesiology/","title":"Kinesiology Research — INSTAR Lab Sciences","family":"Sciences","kind":"editorial","indexable":true,"inbound":0,"journeys":[]},{"path":"/sciences/law/","title":"Law & Legal Research — INSTAR Lab Sciences","family":"Sciences","kind":"editorial","indexable":true,"inbound":0,"journeys":[]},{"path":"/sciences/linguistics/","title":"Linguistics Research — INSTAR Lab Sciences","family":"Sciences","kind":"editorial","indexable":true,"inbound":0,"journeys":[]},{"path":"/sciences/materials-science/","title":"Materials Science Research — INSTAR Lab Sciences","family":"Sciences","kind":"editorial","indexable":true,"inbound":0,"journeys":[]},{"path":"/sciences/medicine/","title":"Medicine & Health Research — INSTAR Lab Sciences","family":"Sciences","kind":"editorial","indexable":true,"inbound":0,"journeys":[]},{"path":"/sciences/neuroscience/","title":"Neuroscience Research — INSTAR Lab Sciences","family":"Sciences","kind":"editorial","indexable":true,"inbound":0,"journeys":[]},{"path":"/sciences/ocean-science/","title":"Ocean Science Research — INSTAR Lab Sciences","family":"Sciences","kind":"editorial","indexable":true,"inbound":0,"journeys":[]},{"path":"/sciences/outer-space/","title":"Outer Space Research — INSTAR Lab Sciences","family":"Sciences","kind":"editorial","indexable":true,"inbound":0,"journeys":[]},{"path":"/sciences/physics/","title":"Physics Research — INSTAR Lab Sciences","family":"Sciences","kind":"editorial","indexable":true,"inbound":0,"journeys":[]},{"path":"/sciences/physiology/","title":"Physiology Research — INSTAR Lab Sciences","family":"Sciences","kind":"editorial","indexable":true,"inbound":0,"journeys":[]},{"path":"/sciences/psychology/","title":"Psychology Research — INSTAR Lab Sciences","family":"Sciences","kind":"editorial","indexable":true,"inbound":0,"journeys":[]},{"path":"/sciences/sociology/","title":"Sociology Research — INSTAR Lab Sciences","family":"Sciences","kind":"editorial","indexable":true,"inbound":0,"journeys":[]},{"path":"/tech-transfer/enterprise-rd/","title":"Enterprise R&D — INSTAR Lab Technology Transfer","family":"Tech transfer","kind":"editorial","indexable":true,"inbound":1,"journeys":["institutional-partner"]},{"path":"/tech-transfer/portfolio/","title":"Research Portfolio — INSTAR Lab Technology Transfer","family":"Tech transfer","kind":"editorial","indexable":true,"inbound":1,"journeys":["institutional-partner"]},{"path":"/tech-transfer/sttr-programs/","title":"STTR Programs — INSTAR Lab Technology Transfer","family":"Tech transfer","kind":"editorial","indexable":true,"inbound":1,"journeys":["institutional-partner"]},{"path":"/tech-transfer/workshops-events/","title":"Workshops & Events — INSTAR Lab Technology Transfer","family":"Tech transfer","kind":"editorial","indexable":true,"inbound":0,"journeys":[]},{"path":"/technology/augmented-reality/","title":"Augmented Reality Research — INSTAR Lab Technology","family":"Technology","kind":"editorial","indexable":true,"inbound":0,"journeys":[]},{"path":"/technology/computer-science/","title":"Computer Science Research — INSTAR Lab Technology","family":"Technology","kind":"editorial","indexable":true,"inbound":1,"journeys":["technical-collaborator"]},{"path":"/technology/data-science/","title":"Data Science Research — INSTAR Lab Technology","family":"Technology","kind":"editorial","indexable":true,"inbound":0,"journeys":[]},{"path":"/technology/formal-methods/","title":"Formal Methods Research — INSTAR Lab Technology","family":"Technology","kind":"editorial","indexable":true,"inbound":0,"journeys":[]},{"path":"/technology/machine-intelligence/","title":"Machine Intelligence Research — INSTAR Lab Technology","family":"Technology","kind":"editorial","indexable":true,"inbound":0,"journeys":[]},{"path":"/technology/natural-language-processing/","title":"Natural Language Processing Research — INSTAR Lab Technology","family":"Technology","kind":"editorial","indexable":true,"inbound":0,"journeys":[]},{"path":"/technology/quantum-computing/","title":"Quantum Computing Research — INSTAR Lab Technology","family":"Technology","kind":"editorial","indexable":true,"inbound":0,"journeys":[]},{"path":"/terms/","title":"Terms of Use — INSTAR Lab","family":"Core","kind":"core","indexable":true,"inbound":0,"journeys":[]}],"journeyCount":5}
+{
+  "sitePages": 99,
+  "indexablePages": 98,
+  "editorialPages": 73,
+  "researchBriefs": 16,
+  "publicMediaPolicies": 80,
+  "routeFamilies": 11,
+  "recordPages": 16,
+  "sourceFiles": 8,
+  "buildSurface": "Static Astro output for GitHub Pages-compatible delivery",
+  "families": [
+    {
+      "family": "Home",
+      "routes": 1,
+      "indexable": 1
+    },
+    {
+      "family": "Core",
+      "routes": 8,
+      "indexable": 7
+    },
+    {
+      "family": "Community",
+      "routes": 7,
+      "indexable": 7
+    },
+    {
+      "family": "Fellowship",
+      "routes": 1,
+      "indexable": 1
+    },
+    {
+      "family": "Labs",
+      "routes": 3,
+      "indexable": 3
+    },
+    {
+      "family": "Research brief",
+      "routes": 17,
+      "indexable": 17
+    },
+    {
+      "family": "Public record",
+      "routes": 16,
+      "indexable": 16
+    },
+    {
+      "family": "Research",
+      "routes": 11,
+      "indexable": 11
+    },
+    {
+      "family": "Sciences",
+      "routes": 22,
+      "indexable": 22
+    },
+    {
+      "family": "Tech transfer",
+      "routes": 4,
+      "indexable": 4
+    },
+    {
+      "family": "Technology",
+      "routes": 9,
+      "indexable": 9
+    }
+  ],
+  "routes": [
+    {
+      "path": "/",
+      "title": "INSTAR Lab — Research Institute",
+      "family": "Home",
+      "kind": "core",
+      "indexable": true,
+      "inbound": 0,
+      "journeys": [],
+      "capture": {
+        "status": "success",
+        "capturedAt": "2026-11-22T17:35:07.849Z",
+        "selfCapture": false,
+        "depictsGeneration": null,
+        "failure": null,
+        "desktop": {
+          "width": 1440,
+          "height": 9467,
+          "bytes": 584483,
+          "thumbBytes": 89131
+        },
+        "mobile": {
+          "width": 390,
+          "height": 16081,
+          "bytes": 462759,
+          "thumbBytes": 394167
+        },
+        "thumb": "/record/shots/thumbs/home-desktop.avif"
+      },
+      "measured": {
+        "route": "/",
+        "status": "measured",
+        "title": "INSTAR Lab — Research Institute",
+        "description": "INSTAR Lab is a 501(c)(3) nonprofit research institute advancing AI, quantum science, and applied research for federal and institutional partners.",
+        "canonical": "https://www.instarlab.org/",
+        "indexable": true,
+        "h1Count": 1,
+        "mainCount": 1,
+        "words": {
+          "content": 972,
+          "chrome": 745,
+          "total": 1717
+        },
+        "links": {
+          "content": 51,
+          "chrome": 181
+        },
+        "images": {
+          "total": 35,
+          "missingAlt": 0
+        }
+      }
+    },
+    {
+      "path": "/404.html",
+      "title": "Page Not Found — INSTAR Lab",
+      "family": "Core",
+      "kind": "core",
+      "indexable": false,
+      "inbound": 0,
+      "journeys": [],
+      "capture": {
+        "status": "success",
+        "capturedAt": "2026-11-22T17:35:07.851Z",
+        "selfCapture": false,
+        "depictsGeneration": null,
+        "failure": null,
+        "desktop": {
+          "width": 1440,
+          "height": 2095,
+          "bytes": 85637,
+          "thumbBytes": 11544
+        },
+        "mobile": {
+          "width": 390,
+          "height": 2867,
+          "bytes": 70946,
+          "thumbBytes": 60398
+        },
+        "thumb": "/record/shots/thumbs/404-desktop.avif"
+      },
+      "measured": {
+        "route": "/404.html",
+        "status": "measured",
+        "title": "Page Not Found — INSTAR Lab",
+        "description": "The page you requested could not be found. Return to the INSTAR Lab homepage to explore our research programs, fellowship, and partnership opportunities.",
+        "canonical": "https://www.instarlab.org/404.html",
+        "indexable": false,
+        "h1Count": 1,
+        "mainCount": 1,
+        "words": {
+          "content": 76,
+          "chrome": 746,
+          "total": 822
+        },
+        "links": {
+          "content": 5,
+          "chrome": 182
+        },
+        "images": {
+          "total": 2,
+          "missingAlt": 0
+        }
+      }
+    },
+    {
+      "path": "/about/",
+      "title": "About INSTAR Lab — Nonprofit Research Institute",
+      "family": "Core",
+      "kind": "core",
+      "indexable": true,
+      "inbound": 0,
+      "journeys": [],
+      "capture": {
+        "status": "success",
+        "capturedAt": "2026-11-22T17:35:07.851Z",
+        "selfCapture": false,
+        "depictsGeneration": null,
+        "failure": null,
+        "desktop": {
+          "width": 1440,
+          "height": 2457,
+          "bytes": 122244,
+          "thumbBytes": 17257
+        },
+        "mobile": {
+          "width": 390,
+          "height": 3397,
+          "bytes": 108127,
+          "thumbBytes": 92386
+        },
+        "thumb": "/record/shots/thumbs/about-desktop.avif"
+      },
+      "measured": {
+        "route": "/about/",
+        "status": "measured",
+        "title": "About INSTAR Lab — Nonprofit Research Institute",
+        "description": "About INSTAR Lab, a 501(c)(3) nonprofit research institute applying AI, quantum research, high-performance computing, and domain science to research programs.",
+        "canonical": "https://www.instarlab.org/about/",
+        "indexable": true,
+        "h1Count": 1,
+        "mainCount": 1,
+        "words": {
+          "content": 149,
+          "chrome": 747,
+          "total": 896
+        },
+        "links": {
+          "content": 1,
+          "chrome": 182
+        },
+        "images": {
+          "total": 2,
+          "missingAlt": 0
+        }
+      }
+    },
+    {
+      "path": "/accessibility/",
+      "title": "Accessibility Statement — INSTAR Lab",
+      "family": "Core",
+      "kind": "core",
+      "indexable": true,
+      "inbound": 0,
+      "journeys": [],
+      "capture": {
+        "status": "success",
+        "capturedAt": "2026-11-22T17:35:14.696Z",
+        "selfCapture": false,
+        "depictsGeneration": null,
+        "failure": null,
+        "desktop": {
+          "width": 1440,
+          "height": 2330,
+          "bytes": 112566,
+          "thumbBytes": 13754
+        },
+        "mobile": {
+          "width": 390,
+          "height": 3228,
+          "bytes": 93157,
+          "thumbBytes": 78641
+        },
+        "thumb": "/record/shots/thumbs/accessibility-desktop.avif"
+      },
+      "measured": {
+        "route": "/accessibility/",
+        "status": "measured",
+        "title": "Accessibility Statement — INSTAR Lab",
+        "description": "INSTAR Lab is committed to making its website accessible to all users. Read our accessibility statement and report issues.",
+        "canonical": "https://www.instarlab.org/accessibility/",
+        "indexable": true,
+        "h1Count": 1,
+        "mainCount": 1,
+        "words": {
+          "content": 130,
+          "chrome": 745,
+          "total": 875
+        },
+        "links": {
+          "content": 1,
+          "chrome": 181
+        },
+        "images": {
+          "total": 2,
+          "missingAlt": 0
+        }
+      }
+    },
+    {
+      "path": "/community/about-us/",
+      "title": "About Us — INSTAR Lab Community",
+      "family": "Community",
+      "kind": "editorial",
+      "indexable": true,
+      "inbound": 1,
+      "journeys": [
+        "supporter"
+      ],
+      "capture": {
+        "status": "success",
+        "capturedAt": "2026-11-23T02:21:05.725Z",
+        "selfCapture": false,
+        "depictsGeneration": null,
+        "failure": null,
+        "desktop": {
+          "width": 1440,
+          "height": 5590,
+          "bytes": 295423,
+          "thumbBytes": 39883
+        },
+        "mobile": {
+          "width": 390,
+          "height": 7270,
+          "bytes": 237329,
+          "thumbBytes": 203891
+        },
+        "thumb": "/record/shots/thumbs/community-about-us-desktop.avif"
+      },
+      "measured": {
+        "route": "/community/about-us/",
+        "status": "measured",
+        "title": "About Us — INSTAR Lab Community",
+        "description": "INSTAR Lab is a 501(c)(3) nonprofit research institute in Marietta, Ohio, advancing AI, quantum science, and applied research across the sciences.",
+        "canonical": "https://www.instarlab.org/community/about-us/",
+        "indexable": true,
+        "h1Count": 1,
+        "mainCount": 1,
+        "words": {
+          "content": 480,
+          "chrome": 746,
+          "total": 1226
+        },
+        "links": {
+          "content": 9,
+          "chrome": 179
+        },
+        "images": {
+          "total": 3,
+          "missingAlt": 0
+        }
+      }
+    },
+    {
+      "path": "/community/careers/",
+      "title": "Careers at INSTAR Lab — Research & Science Jobs",
+      "family": "Community",
+      "kind": "editorial",
+      "indexable": true,
+      "inbound": 1,
+      "journeys": [
+        "researcher"
+      ],
+      "capture": {
+        "status": "success",
+        "capturedAt": "2026-11-23T02:21:05.789Z",
+        "selfCapture": false,
+        "depictsGeneration": null,
+        "failure": null,
+        "desktop": {
+          "width": 1440,
+          "height": 3625,
+          "bytes": 166367,
+          "thumbBytes": 25958
+        },
+        "mobile": {
+          "width": 390,
+          "height": 5273,
+          "bytes": 137090,
+          "thumbBytes": 118130
+        },
+        "thumb": "/record/shots/thumbs/community-careers-desktop.avif"
+      },
+      "measured": {
+        "route": "/community/careers/",
+        "status": "measured",
+        "title": "Careers at INSTAR Lab — Research & Science Jobs",
+        "description": "Learn how to express interest in research or technical work at INSTAR Lab, a 501(c)(3) nonprofit research institute, and see the fellowship pathway.",
+        "canonical": "https://www.instarlab.org/community/careers/",
+        "indexable": true,
+        "h1Count": 1,
+        "mainCount": 1,
+        "words": {
+          "content": 222,
+          "chrome": 749,
+          "total": 971
+        },
+        "links": {
+          "content": 9,
+          "chrome": 179
+        },
+        "images": {
+          "total": 2,
+          "missingAlt": 0
+        }
+      }
+    },
+    {
+      "path": "/community/contact/",
+      "title": "Research & Partnership Inquiries — INSTAR Lab",
+      "family": "Community",
+      "kind": "editorial",
+      "indexable": true,
+      "inbound": 0,
+      "journeys": [],
+      "capture": {
+        "status": "success",
+        "capturedAt": "2026-11-23T02:21:05.792Z",
+        "selfCapture": false,
+        "depictsGeneration": null,
+        "failure": null,
+        "desktop": {
+          "width": 1440,
+          "height": 3146,
+          "bytes": 155760,
+          "thumbBytes": 23165
+        },
+        "mobile": {
+          "width": 390,
+          "height": 4755,
+          "bytes": 125529,
+          "thumbBytes": 108248
+        },
+        "thumb": "/record/shots/thumbs/community-contact-desktop.avif"
+      },
+      "measured": {
+        "route": "/community/contact/",
+        "status": "measured",
+        "title": "Research & Partnership Inquiries — INSTAR Lab",
+        "description": "Contact INSTAR Lab about NSF, NASA, DOE, USDA, or other federal research opportunities, contracts, sponsored programs, partnerships, or general inquiries.",
+        "canonical": "https://www.instarlab.org/community/contact/",
+        "indexable": true,
+        "h1Count": 1,
+        "mainCount": 1,
+        "words": {
+          "content": 178,
+          "chrome": 747,
+          "total": 925
+        },
+        "links": {
+          "content": 9,
+          "chrome": 182
+        },
+        "images": {
+          "total": 2,
+          "missingAlt": 0
+        }
+      }
+    },
+    {
+      "path": "/community/leadership/",
+      "title": "Research Leadership & Governance — INSTAR Lab",
+      "family": "Community",
+      "kind": "editorial",
+      "indexable": true,
+      "inbound": 0,
+      "journeys": [],
+      "capture": {
+        "status": "success",
+        "capturedAt": "2026-11-23T02:21:15.682Z",
+        "selfCapture": false,
+        "depictsGeneration": null,
+        "failure": null,
+        "desktop": {
+          "width": 1440,
+          "height": 4455,
+          "bytes": 174077,
+          "thumbBytes": 24525
+        },
+        "mobile": {
+          "width": 390,
+          "height": 5502,
+          "bytes": 147530,
+          "thumbBytes": 125363
+        },
+        "thumb": "/record/shots/thumbs/community-leadership-desktop.avif"
+      },
+      "measured": {
+        "route": "/community/leadership/",
+        "status": "measured",
+        "title": "Research Leadership & Governance — INSTAR Lab",
+        "description": "Leadership and governance information for INSTAR Lab, a 501(c)(3) nonprofit research institute advancing applied science across AI, quantum, and computing.",
+        "canonical": "https://www.instarlab.org/community/leadership/",
+        "indexable": true,
+        "h1Count": 1,
+        "mainCount": 1,
+        "words": {
+          "content": 240,
+          "chrome": 747,
+          "total": 987
+        },
+        "links": {
+          "content": 10,
+          "chrome": 180
+        },
+        "images": {
+          "total": 3,
+          "missingAlt": 0
+        }
+      }
+    },
+    {
+      "path": "/community/partner/",
+      "title": "Partner With INSTAR Lab — Research & Philanthropy",
+      "family": "Community",
+      "kind": "editorial",
+      "indexable": true,
+      "inbound": 0,
+      "journeys": [],
+      "capture": {
+        "status": "success",
+        "capturedAt": "2026-11-23T02:21:16.280Z",
+        "selfCapture": false,
+        "depictsGeneration": null,
+        "failure": null,
+        "desktop": {
+          "width": 1440,
+          "height": 4189,
+          "bytes": 201252,
+          "thumbBytes": 28528
+        },
+        "mobile": {
+          "width": 390,
+          "height": 7298,
+          "bytes": 181812,
+          "thumbBytes": 156971
+        },
+        "thumb": "/record/shots/thumbs/community-partner-desktop.avif"
+      },
+      "measured": {
+        "route": "/community/partner/",
+        "status": "measured",
+        "title": "Partner With INSTAR Lab — Research & Philanthropy",
+        "description": "Partner with INSTAR Lab, a 501(c)(3) nonprofit research institute: sponsored research, institutional partnerships, STTR, and philanthropic support.",
+        "canonical": "https://www.instarlab.org/community/partner/",
+        "indexable": true,
+        "h1Count": 1,
+        "mainCount": 1,
+        "words": {
+          "content": 308,
+          "chrome": 748,
+          "total": 1056
+        },
+        "links": {
+          "content": 10,
+          "chrome": 180
+        },
+        "images": {
+          "total": 9,
+          "missingAlt": 0
+        }
+      }
+    },
+    {
+      "path": "/community/support/",
+      "title": "Give to INSTAR Lab — One-Time Gifts & Friends Membership",
+      "family": "Community",
+      "kind": "editorial",
+      "indexable": true,
+      "inbound": 1,
+      "journeys": [
+        "supporter"
+      ],
+      "capture": {
+        "status": "success",
+        "capturedAt": "2026-11-23T02:21:18.912Z",
+        "selfCapture": false,
+        "depictsGeneration": null,
+        "failure": null,
+        "desktop": {
+          "width": 1440,
+          "height": 4776,
+          "bytes": 220225,
+          "thumbBytes": 31113
+        },
+        "mobile": {
+          "width": 390,
+          "height": 7462,
+          "bytes": 196783,
+          "thumbBytes": 170349
+        },
+        "thumb": "/record/shots/thumbs/community-support-desktop.avif"
+      },
+      "measured": {
+        "route": "/community/support/",
+        "status": "measured",
+        "title": "Give to INSTAR Lab — One-Time Gifts & Friends Membership",
+        "description": "Support INSTAR Lab, a 501(c)(3) nonprofit research institute, with a tax-deductible one-time gift or Friends of INSTAR recurring membership (coming soon).",
+        "canonical": "https://www.instarlab.org/community/support/",
+        "indexable": true,
+        "h1Count": 1,
+        "mainCount": 1,
+        "words": {
+          "content": 398,
+          "chrome": 750,
+          "total": 1148
+        },
+        "links": {
+          "content": 9,
+          "chrome": 181
+        },
+        "images": {
+          "total": 2,
+          "missingAlt": 0
+        }
+      }
+    },
+    {
+      "path": "/community/work-with-us/",
+      "title": "Work With INSTAR Lab — Collaboration Opportunities",
+      "family": "Community",
+      "kind": "editorial",
+      "indexable": true,
+      "inbound": 1,
+      "journeys": [
+        "technical-collaborator"
+      ],
+      "capture": {
+        "status": "success",
+        "capturedAt": "2026-11-23T02:21:25.128Z",
+        "selfCapture": false,
+        "depictsGeneration": null,
+        "failure": null,
+        "desktop": {
+          "width": 1440,
+          "height": 3133,
+          "bytes": 148071,
+          "thumbBytes": 21829
+        },
+        "mobile": {
+          "width": 390,
+          "height": 4755,
+          "bytes": 126051,
+          "thumbBytes": 108991
+        },
+        "thumb": "/record/shots/thumbs/community-work-with-us-desktop.avif"
+      },
+      "measured": {
+        "route": "/community/work-with-us/",
+        "status": "measured",
+        "title": "Work With INSTAR Lab — Collaboration Opportunities",
+        "description": "Ways to work with INSTAR Lab, from federal research collaboration and STTR partnerships to enterprise R&amp;D and co-investigation on sponsored programs.",
+        "canonical": "https://www.instarlab.org/community/work-with-us/",
+        "indexable": true,
+        "h1Count": 1,
+        "mainCount": 1,
+        "words": {
+          "content": 170,
+          "chrome": 747,
+          "total": 917
+        },
+        "links": {
+          "content": 9,
+          "chrome": 180
+        },
+        "images": {
+          "total": 2,
+          "missingAlt": 0
+        }
+      }
+    },
+    {
+      "path": "/contact-us/",
+      "title": "Contact INSTAR Lab — Federal Research, Contracts & Partnerships",
+      "family": "Core",
+      "kind": "core",
+      "indexable": true,
+      "inbound": 0,
+      "journeys": [],
+      "capture": {
+        "status": "success",
+        "capturedAt": "2026-11-23T02:21:26.774Z",
+        "selfCapture": false,
+        "depictsGeneration": null,
+        "failure": null,
+        "desktop": {
+          "width": 1440,
+          "height": 2389,
+          "bytes": 106861,
+          "thumbBytes": 14579
+        },
+        "mobile": {
+          "width": 390,
+          "height": 3364,
+          "bytes": 91412,
+          "thumbBytes": 79832
+        },
+        "thumb": "/record/shots/thumbs/contact-us-desktop.avif"
+      },
+      "measured": {
+        "route": "/contact-us/",
+        "status": "measured",
+        "title": "Contact INSTAR Lab — Federal Research, Contracts & Partnerships",
+        "description": "Contact INSTAR Lab about federal research, grants, contracts, sponsored programs, technical partnerships, or a scientific question in AI, quantum, or computing.",
+        "canonical": "https://www.instarlab.org/contact-us/",
+        "indexable": true,
+        "h1Count": 1,
+        "mainCount": 1,
+        "words": {
+          "content": 295,
+          "chrome": 749,
+          "total": 1044
+        },
+        "links": {
+          "content": 1,
+          "chrome": 179
+        },
+        "images": {
+          "total": 2,
+          "missingAlt": 0
+        }
+      }
+    },
+    {
+      "path": "/cookies-and-partners/",
+      "title": "Cookies and Partners — INSTAR Lab",
+      "family": "Core",
+      "kind": "core",
+      "indexable": true,
+      "inbound": 0,
+      "journeys": [],
+      "capture": {
+        "status": "success",
+        "capturedAt": "2026-11-22T17:35:51.084Z",
+        "selfCapture": false,
+        "depictsGeneration": null,
+        "failure": null,
+        "desktop": {
+          "width": 1440,
+          "height": 5650,
+          "bytes": 583548,
+          "thumbBytes": 50610
+        },
+        "mobile": {
+          "width": 854,
+          "height": 8027,
+          "bytes": 564182,
+          "thumbBytes": 148339
+        },
+        "thumb": "/record/shots/thumbs/cookies-and-partners-desktop.avif"
+      },
+      "measured": {
+        "route": "/cookies-and-partners/",
+        "status": "measured",
+        "title": "Cookies and Partners — INSTAR Lab",
+        "description": "The categories of cookies, tools and partners INSTAR Lab uses or may use, what each is for, who receives the data, how long it is kept, and your choices.",
+        "canonical": "https://www.instarlab.org/cookies-and-partners/",
+        "indexable": true,
+        "h1Count": 1,
+        "mainCount": 1,
+        "words": {
+          "content": 1944,
+          "chrome": 746,
+          "total": 2690
+        },
+        "links": {
+          "content": 2,
+          "chrome": 177
+        },
+        "images": {
+          "total": 1,
+          "missingAlt": 0
+        }
+      }
+    },
+    {
+      "path": "/fellowship/",
+      "title": "INSTAR Lab R&D Fellowships — International and Resident Scholars",
+      "family": "Fellowship",
+      "kind": "editorial",
+      "indexable": true,
+      "inbound": 0,
+      "journeys": [],
+      "capture": {
+        "status": "success",
+        "capturedAt": "2026-11-22T17:35:53.895Z",
+        "selfCapture": false,
+        "depictsGeneration": null,
+        "failure": null,
+        "desktop": {
+          "width": 1440,
+          "height": 5816,
+          "bytes": 308965,
+          "thumbBytes": 41493
+        },
+        "mobile": {
+          "width": 390,
+          "height": 8809,
+          "bytes": 294537,
+          "thumbBytes": 253658
+        },
+        "thumb": "/record/shots/thumbs/fellowship-desktop.avif"
+      },
+      "measured": {
+        "route": "/fellowship/",
+        "status": "measured",
+        "title": "INSTAR Lab R&D Fellowships — International and Resident Scholars",
+        "description": "Compare the International and Resident R&amp;D Scholar pathways associated with INSTAR Lab, then apply through the corresponding US Fellows program route.",
+        "canonical": "https://www.instarlab.org/fellowship/",
+        "indexable": true,
+        "h1Count": 1,
+        "mainCount": 1,
+        "words": {
+          "content": 831,
+          "chrome": 749,
+          "total": 1580
+        },
+        "links": {
+          "content": 1,
+          "chrome": 179
+        },
+        "images": {
+          "total": 2,
+          "missingAlt": 0
+        }
+      }
+    },
+    {
+      "path": "/labs/biometric-security/",
+      "title": "Biometrics & Drone Sensing — INSTAR Lab",
+      "family": "Labs",
+      "kind": "editorial",
+      "indexable": true,
+      "inbound": 0,
+      "journeys": [],
+      "capture": {
+        "status": "success",
+        "capturedAt": "2026-11-23T02:21:29.107Z",
+        "selfCapture": false,
+        "depictsGeneration": null,
+        "failure": null,
+        "desktop": {
+          "width": 1440,
+          "height": 14724,
+          "bytes": 1150175,
+          "thumbBytes": 114000
+        },
+        "mobile": {
+          "width": 390,
+          "height": 20960,
+          "bytes": 1133141,
+          "thumbBytes": 562865
+        },
+        "thumb": "/record/shots/thumbs/labs-biometric-security-desktop.avif"
+      },
+      "measured": {
+        "route": "/labs/biometric-security/",
+        "status": "measured",
+        "title": "Biometrics & Drone Sensing — INSTAR Lab",
+        "description": "A plain-language, source-backed overview of biometric sensing with everyday cameras and sensors, and of sensing from small drones and the rules that govern it.",
+        "canonical": "https://www.instarlab.org/labs/biometric-security/",
+        "indexable": true,
+        "h1Count": 1,
+        "mainCount": 1,
+        "words": {
+          "content": 3954,
+          "chrome": 747,
+          "total": 4701
+        },
+        "links": {
+          "content": 20,
+          "chrome": 180
+        },
+        "images": {
+          "total": 2,
+          "missingAlt": 0
+        }
+      }
+    },
+    {
+      "path": "/labs/cognitive-ai/",
+      "title": "Cognitive AI & Persona Systems — INSTAR Lab",
+      "family": "Labs",
+      "kind": "editorial",
+      "indexable": true,
+      "inbound": 0,
+      "journeys": [],
+      "capture": {
+        "status": "success",
+        "capturedAt": "2026-11-23T02:21:32.445Z",
+        "selfCapture": false,
+        "depictsGeneration": null,
+        "failure": null,
+        "desktop": {
+          "width": 1440,
+          "height": 13024,
+          "bytes": 902168,
+          "thumbBytes": 106583
+        },
+        "mobile": {
+          "width": 390,
+          "height": 18657,
+          "bytes": 1028424,
+          "thumbBytes": 647353
+        },
+        "thumb": "/record/shots/thumbs/labs-cognitive-ai-desktop.avif"
+      },
+      "measured": {
+        "route": "/labs/cognitive-ai/",
+        "status": "measured",
+        "title": "Cognitive AI & Persona Systems — INSTAR Lab",
+        "description": "A source-backed overview of how language models are described, tested and shaped: personas, human feedback, and the limits of psychology-style tests.",
+        "canonical": "https://www.instarlab.org/labs/cognitive-ai/",
+        "indexable": true,
+        "h1Count": 1,
+        "mainCount": 1,
+        "words": {
+          "content": 3979,
+          "chrome": 748,
+          "total": 4727
+        },
+        "links": {
+          "content": 22,
+          "chrome": 180
+        },
+        "images": {
+          "total": 2,
+          "missingAlt": 0
+        }
+      }
+    },
+    {
+      "path": "/labs/sovereign-ai/",
+      "title": "Sovereign AI Laboratory — INSTAR Lab",
+      "family": "Labs",
+      "kind": "editorial",
+      "indexable": true,
+      "inbound": 1,
+      "journeys": [
+        "technical-collaborator"
+      ],
+      "capture": {
+        "status": "success",
+        "capturedAt": "2026-11-23T02:21:34.185Z",
+        "selfCapture": false,
+        "depictsGeneration": null,
+        "failure": null,
+        "desktop": {
+          "width": 1440,
+          "height": 15989,
+          "bytes": 1091567,
+          "thumbBytes": 125132
+        },
+        "mobile": {
+          "width": 390,
+          "height": 22662,
+          "bytes": 1229368,
+          "thumbBytes": 509845
+        },
+        "thumb": "/record/shots/thumbs/labs-sovereign-ai-desktop.avif"
+      },
+      "measured": {
+        "route": "/labs/sovereign-ai/",
+        "status": "measured",
+        "title": "Sovereign AI Laboratory — INSTAR Lab",
+        "description": "A source-backed overview of protecting AI model weights and training data on controlled infrastructure: threats, confidential computing and risk frameworks.",
+        "canonical": "https://www.instarlab.org/labs/sovereign-ai/",
+        "indexable": true,
+        "h1Count": 1,
+        "mainCount": 1,
+        "words": {
+          "content": 4160,
+          "chrome": 746,
+          "total": 4906
+        },
+        "links": {
+          "content": 30,
+          "chrome": 180
+        },
+        "images": {
+          "total": 2,
+          "missingAlt": 0
+        }
+      }
+    },
+    {
+      "path": "/mission/",
+      "title": "Our Mission — INSTAR Lab",
+      "family": "Core",
+      "kind": "core",
+      "indexable": true,
+      "inbound": 0,
+      "journeys": [],
+      "capture": {
+        "status": "success",
+        "capturedAt": "2026-11-22T17:37:18.697Z",
+        "selfCapture": false,
+        "depictsGeneration": null,
+        "failure": null,
+        "desktop": {
+          "width": 1440,
+          "height": 2301,
+          "bytes": 101211,
+          "thumbBytes": 12012
+        },
+        "mobile": {
+          "width": 390,
+          "height": 3136,
+          "bytes": 84284,
+          "thumbBytes": 70731
+        },
+        "thumb": "/record/shots/thumbs/mission-desktop.avif"
+      },
+      "measured": {
+        "route": "/mission/",
+        "status": "measured",
+        "title": "Our Mission — INSTAR Lab",
+        "description": "INSTAR Lab advances human knowledge through rigorous research in AI, quantum science, and other domains, with methods and outputs sponsors can evaluate.",
+        "canonical": "https://www.instarlab.org/mission/",
+        "indexable": true,
+        "h1Count": 1,
+        "mainCount": 1,
+        "words": {
+          "content": 106,
+          "chrome": 745,
+          "total": 851
+        },
+        "links": {
+          "content": 1,
+          "chrome": 180
+        },
+        "images": {
+          "total": 2,
+          "missingAlt": 0
+        }
+      }
+    },
+    {
+      "path": "/news/",
+      "title": "News — INSTAR Lab",
+      "family": "Research brief",
+      "kind": "editorial",
+      "indexable": true,
+      "inbound": 1,
+      "journeys": [
+        "researcher"
+      ],
+      "capture": {
+        "status": "success",
+        "capturedAt": "2026-11-23T02:22:03.893Z",
+        "selfCapture": false,
+        "depictsGeneration": null,
+        "failure": null,
+        "desktop": {
+          "width": 1440,
+          "height": 8997,
+          "bytes": 699923,
+          "thumbBytes": 90153
+        },
+        "mobile": {
+          "width": 390,
+          "height": 13248,
+          "bytes": 501789,
+          "thumbBytes": 432229
+        },
+        "thumb": "/record/shots/thumbs/news-desktop.avif"
+      },
+      "measured": {
+        "route": "/news/",
+        "status": "measured",
+        "title": "News — INSTAR Lab",
+        "description": "Research briefs, methods, and evidence from INSTAR Lab’s work in AI, quantum science, computing, health, energy, space, and the sciences.",
+        "canonical": "https://www.instarlab.org/news/",
+        "indexable": true,
+        "h1Count": 1,
+        "mainCount": 1,
+        "words": {
+          "content": 1008,
+          "chrome": 744,
+          "total": 1752
+        },
+        "links": {
+          "content": 48,
+          "chrome": 180
+        },
+        "images": {
+          "total": 17,
+          "missingAlt": 0
+        }
+      }
+    },
+    {
+      "path": "/news/ai-benchmark-scores/",
+      "title": "What an AI Benchmark Score Does and Does Not Tell You — INSTAR Lab",
+      "family": "Research brief",
+      "kind": "editorial",
+      "indexable": true,
+      "inbound": 0,
+      "journeys": [],
+      "capture": {
+        "status": "success",
+        "capturedAt": "2026-11-23T02:22:04.530Z",
+        "selfCapture": false,
+        "depictsGeneration": null,
+        "failure": null,
+        "desktop": {
+          "width": 1440,
+          "height": 7784,
+          "bytes": 505311,
+          "thumbBytes": 62971
+        },
+        "mobile": {
+          "width": 390,
+          "height": 10123,
+          "bytes": 499728,
+          "thumbBytes": 426190
+        },
+        "thumb": "/record/shots/thumbs/news-ai-benchmark-scores-desktop.avif"
+      },
+      "measured": {
+        "route": "/news/ai-benchmark-scores/",
+        "status": "measured",
+        "title": "What an AI Benchmark Score Does and Does Not Tell You — INSTAR Lab",
+        "description": "An INSTAR Lab research brief on how language-model benchmarks work, where their scores can mislead, and the questions to ask before trusting one.",
+        "canonical": "https://www.instarlab.org/news/ai-benchmark-scores/",
+        "indexable": true,
+        "h1Count": 1,
+        "mainCount": 1,
+        "words": {
+          "content": 1606,
+          "chrome": 754,
+          "total": 2360
+        },
+        "links": {
+          "content": 25,
+          "chrome": 182
+        },
+        "images": {
+          "total": 2,
+          "missingAlt": 0
+        }
+      }
+    },
+    {
+      "path": "/news/brain-scan-studies/",
+      "title": "What a Brain Scan Study Can and Cannot Tell You — INSTAR Lab",
+      "family": "Research brief",
+      "kind": "editorial",
+      "indexable": true,
+      "inbound": 0,
+      "journeys": [],
+      "capture": {
+        "status": "success",
+        "capturedAt": "2026-11-23T02:22:09.024Z",
+        "selfCapture": false,
+        "depictsGeneration": null,
+        "failure": null,
+        "desktop": {
+          "width": 1440,
+          "height": 8594,
+          "bytes": 545545,
+          "thumbBytes": 69711
+        },
+        "mobile": {
+          "width": 390,
+          "height": 11609,
+          "bytes": 614236,
+          "thumbBytes": 524015
+        },
+        "thumb": "/record/shots/thumbs/news-brain-scan-studies-desktop.avif"
+      },
+      "measured": {
+        "route": "/news/brain-scan-studies/",
+        "status": "measured",
+        "title": "What a Brain Scan Study Can and Cannot Tell You — INSTAR Lab",
+        "description": "An INSTAR Lab research brief on what functional MRI measures, why testing a whole brain at once can produce false positives, what happened when 70 teams analysed the same scans, and how many people a study of differences between brains needs.",
+        "canonical": "https://www.instarlab.org/news/brain-scan-studies/",
+        "indexable": true,
+        "h1Count": 1,
+        "mainCount": 1,
+        "words": {
+          "content": 1960,
+          "chrome": 753,
+          "total": 2713
+        },
+        "links": {
+          "content": 20,
+          "chrome": 182
+        },
+        "images": {
+          "total": 2,
+          "missingAlt": 0
+        }
+      }
+    },
+    {
+      "path": "/news/clinical-ai-safety/",
+      "title": "Clinical AI Safety Research — INSTAR Lab",
+      "family": "Research brief",
+      "kind": "editorial",
+      "indexable": true,
+      "inbound": 0,
+      "journeys": [],
+      "capture": {
+        "status": "success",
+        "capturedAt": "2026-11-23T02:22:29.008Z",
+        "selfCapture": false,
+        "depictsGeneration": null,
+        "failure": null,
+        "desktop": {
+          "width": 1440,
+          "height": 5956,
+          "bytes": 348260,
+          "thumbBytes": 46458
+        },
+        "mobile": {
+          "width": 390,
+          "height": 7374,
+          "bytes": 328914,
+          "thumbBytes": 280848
+        },
+        "thumb": "/record/shots/thumbs/news-clinical-ai-safety-desktop.avif"
+      },
+      "measured": {
+        "route": "/news/clinical-ai-safety/",
+        "status": "measured",
+        "title": "Clinical AI Safety Research — INSTAR Lab",
+        "description": "An INSTAR Lab research brief on how AI can improve patient safety and clinical workflows, and why safety evaluation and human oversight come before deployment.",
+        "canonical": "https://www.instarlab.org/news/clinical-ai-safety/",
+        "indexable": true,
+        "h1Count": 1,
+        "mainCount": 1,
+        "words": {
+          "content": 913,
+          "chrome": 747,
+          "total": 1660
+        },
+        "links": {
+          "content": 18,
+          "chrome": 182
+        },
+        "images": {
+          "total": 2,
+          "missingAlt": 0
+        }
+      }
+    },
+    {
+      "path": "/news/coral-heat-stress/",
+      "title": "What a Coral Heat-Stress Map Can and Cannot Tell You — INSTAR Lab",
+      "family": "Research brief",
+      "kind": "editorial",
+      "indexable": true,
+      "inbound": 0,
+      "journeys": [],
+      "capture": {
+        "status": "success",
+        "capturedAt": "2026-11-23T02:22:35.107Z",
+        "selfCapture": false,
+        "depictsGeneration": null,
+        "failure": null,
+        "desktop": {
+          "width": 1440,
+          "height": 7827,
+          "bytes": 552762,
+          "thumbBytes": 72159
+        },
+        "mobile": {
+          "width": 390,
+          "height": 10254,
+          "bytes": 541317,
+          "thumbBytes": 463659
+        },
+        "thumb": "/record/shots/thumbs/news-coral-heat-stress-desktop.avif"
+      },
+      "measured": {
+        "route": "/news/coral-heat-stress/",
+        "status": "measured",
+        "title": "What a Coral Heat-Stress Map Can and Cannot Tell You — INSTAR Lab",
+        "description": "An INSTAR Lab research brief on how NOAA's satellite coral-bleaching heat-stress products are built, what a Degree Heating Week measures, why a heat-stress alert is not a report of bleaching, and what field surveys have added.",
+        "canonical": "https://www.instarlab.org/news/coral-heat-stress/",
+        "indexable": true,
+        "h1Count": 1,
+        "mainCount": 1,
+        "words": {
+          "content": 1671,
+          "chrome": 753,
+          "total": 2424
+        },
+        "links": {
+          "content": 14,
+          "chrome": 182
+        },
+        "images": {
+          "total": 2,
+          "missingAlt": 0
+        }
+      }
+    },
+    {
+      "path": "/news/exoplanet-detections/",
+      "title": "What an Exoplanet Detection Can and Cannot Tell You — INSTAR Lab",
+      "family": "Research brief",
+      "kind": "editorial",
+      "indexable": true,
+      "inbound": 0,
+      "journeys": [],
+      "capture": {
+        "status": "success",
+        "capturedAt": "2026-11-23T02:22:36.619Z",
+        "selfCapture": false,
+        "depictsGeneration": null,
+        "failure": null,
+        "desktop": {
+          "width": 1440,
+          "height": 10209,
+          "bytes": 712784,
+          "thumbBytes": 88982
+        },
+        "mobile": {
+          "width": 390,
+          "height": 14129,
+          "bytes": 785358,
+          "thumbBytes": 676398
+        },
+        "thumb": "/record/shots/thumbs/news-exoplanet-detections-desktop.avif"
+      },
+      "measured": {
+        "route": "/news/exoplanet-detections/",
+        "status": "measured",
+        "title": "What an Exoplanet Detection Can and Cannot Tell You — INSTAR Lab",
+        "description": "An INSTAR Lab research brief on what the transit and radial-velocity methods measure, why a planet candidate is not yet a planet, what the habitable zone does and does not mean, and how the claim of a possible biosignature gas on K2-18 b has held up under independent reanalysis.",
+        "canonical": "https://www.instarlab.org/news/exoplanet-detections/",
+        "indexable": true,
+        "h1Count": 1,
+        "mainCount": 1,
+        "words": {
+          "content": 2674,
+          "chrome": 752,
+          "total": 3426
+        },
+        "links": {
+          "content": 22,
+          "chrome": 182
+        },
+        "images": {
+          "total": 2,
+          "missingAlt": 0
+        }
+      }
+    },
+    {
+      "path": "/news/formal-methods-safety-critical-trust/",
+      "title": "Formal Methods and Trust in Safety-Critical Software — INSTAR Lab",
+      "family": "Research brief",
+      "kind": "editorial",
+      "indexable": true,
+      "inbound": 0,
+      "journeys": [],
+      "capture": {
+        "status": "success",
+        "capturedAt": "2026-11-23T02:22:47.293Z",
+        "selfCapture": false,
+        "depictsGeneration": null,
+        "failure": null,
+        "desktop": {
+          "width": 1440,
+          "height": 6018,
+          "bytes": 341963,
+          "thumbBytes": 46146
+        },
+        "mobile": {
+          "width": 390,
+          "height": 7343,
+          "bytes": 327290,
+          "thumbBytes": 280142
+        },
+        "thumb": "/record/shots/thumbs/news-formal-methods-safety-critical-trust-desktop.avif"
+      },
+      "measured": {
+        "route": "/news/formal-methods-safety-critical-trust/",
+        "status": "measured",
+        "title": "Formal Methods and Trust in Safety-Critical Software — INSTAR Lab",
+        "description": "An INSTAR Lab research brief on formal verification for safety-critical and high-assurance software—and why testing alone cannot establish correctness.",
+        "canonical": "https://www.instarlab.org/news/formal-methods-safety-critical-trust/",
+        "indexable": true,
+        "h1Count": 1,
+        "mainCount": 1,
+        "words": {
+          "content": 851,
+          "chrome": 750,
+          "total": 1601
+        },
+        "links": {
+          "content": 15,
+          "chrome": 182
+        },
+        "images": {
+          "total": 2,
+          "missingAlt": 0
+        }
+      }
+    },
+    {
+      "path": "/news/hpc-infrastructure-for-ai/",
+      "title": "HPC Infrastructure for AI — INSTAR Lab",
+      "family": "Research brief",
+      "kind": "editorial",
+      "indexable": true,
+      "inbound": 0,
+      "journeys": [],
+      "capture": {
+        "status": "success",
+        "capturedAt": "2026-11-23T02:22:57.591Z",
+        "selfCapture": false,
+        "depictsGeneration": null,
+        "failure": null,
+        "desktop": {
+          "width": 1440,
+          "height": 5904,
+          "bytes": 371461,
+          "thumbBytes": 45624
+        },
+        "mobile": {
+          "width": 390,
+          "height": 7501,
+          "bytes": 331363,
+          "thumbBytes": 279894
+        },
+        "thumb": "/record/shots/thumbs/news-hpc-infrastructure-for-ai-desktop.avif"
+      },
+      "measured": {
+        "route": "/news/hpc-infrastructure-for-ai/",
+        "status": "measured",
+        "title": "HPC Infrastructure for AI — INSTAR Lab",
+        "description": "An INSTAR Lab research brief on GPU-accelerated computing, sovereign on-premises AI infrastructure, and the applied systems work behind frontier capability.",
+        "canonical": "https://www.instarlab.org/news/hpc-infrastructure-for-ai/",
+        "indexable": true,
+        "h1Count": 1,
+        "mainCount": 1,
+        "words": {
+          "content": 825,
+          "chrome": 747,
+          "total": 1572
+        },
+        "links": {
+          "content": 10,
+          "chrome": 182
+        },
+        "images": {
+          "total": 2,
+          "missingAlt": 0
+        }
+      }
+    },
+    {
+      "path": "/news/legal-foundations-tech-governance/",
+      "title": "Legal Foundations for Emerging Technology Governance — INSTAR Lab",
+      "family": "Research brief",
+      "kind": "editorial",
+      "indexable": true,
+      "inbound": 0,
+      "journeys": [],
+      "capture": {
+        "status": "success",
+        "capturedAt": "2026-11-23T02:23:05.498Z",
+        "selfCapture": false,
+        "depictsGeneration": null,
+        "failure": null,
+        "desktop": {
+          "width": 1440,
+          "height": 6149,
+          "bytes": 352411,
+          "thumbBytes": 46842
+        },
+        "mobile": {
+          "width": 390,
+          "height": 7557,
+          "bytes": 339438,
+          "thumbBytes": 289276
+        },
+        "thumb": "/record/shots/thumbs/news-legal-foundations-tech-governance-desktop.avif"
+      },
+      "measured": {
+        "route": "/news/legal-foundations-tech-governance/",
+        "status": "measured",
+        "title": "Legal Foundations for Emerging Technology Governance — INSTAR Lab",
+        "description": "An INSTAR Lab research brief on how legal and regulatory systems govern fast-moving technologies such as AI, biotechnology, and quantum computing.",
+        "canonical": "https://www.instarlab.org/news/legal-foundations-tech-governance/",
+        "indexable": true,
+        "h1Count": 1,
+        "mainCount": 1,
+        "words": {
+          "content": 870,
+          "chrome": 749,
+          "total": 1619
+        },
+        "links": {
+          "content": 15,
+          "chrome": 182
+        },
+        "images": {
+          "total": 2,
+          "missingAlt": 0
+        }
+      }
+    },
+    {
+      "path": "/news/materials-science-energy-transition/",
+      "title": "Materials Science and the Energy Transition — INSTAR Lab",
+      "family": "Research brief",
+      "kind": "editorial",
+      "indexable": true,
+      "inbound": 0,
+      "journeys": [],
+      "capture": {
+        "status": "success",
+        "capturedAt": "2026-11-23T02:23:07.717Z",
+        "selfCapture": false,
+        "depictsGeneration": null,
+        "failure": null,
+        "desktop": {
+          "width": 1440,
+          "height": 6055,
+          "bytes": 300811,
+          "thumbBytes": 43854
+        },
+        "mobile": {
+          "width": 390,
+          "height": 7423,
+          "bytes": 325664,
+          "thumbBytes": 278049
+        },
+        "thumb": "/record/shots/thumbs/news-materials-science-energy-transition-desktop.avif"
+      },
+      "measured": {
+        "route": "/news/materials-science-energy-transition/",
+        "status": "measured",
+        "title": "Materials Science and the Energy Transition — INSTAR Lab",
+        "description": "An INSTAR Lab research brief on the materials science behind energy storage and generation, and why atomic-scale discovery to a durable system is the hard part.",
+        "canonical": "https://www.instarlab.org/news/materials-science-energy-transition/",
+        "indexable": true,
+        "h1Count": 1,
+        "mainCount": 1,
+        "words": {
+          "content": 843,
+          "chrome": 749,
+          "total": 1592
+        },
+        "links": {
+          "content": 13,
+          "chrome": 182
+        },
+        "images": {
+          "total": 2,
+          "missingAlt": 0
+        }
+      }
+    },
+    {
+      "path": "/news/open-data-research-philosophy/",
+      "title": "Why INSTAR Lab Commits to Open Data — INSTAR Lab",
+      "family": "Research brief",
+      "kind": "editorial",
+      "indexable": true,
+      "inbound": 0,
+      "journeys": [],
+      "capture": {
+        "status": "success",
+        "capturedAt": "2026-11-23T02:23:15.777Z",
+        "selfCapture": false,
+        "depictsGeneration": null,
+        "failure": null,
+        "desktop": {
+          "width": 1440,
+          "height": 5934,
+          "bytes": 383688,
+          "thumbBytes": 47623
+        },
+        "mobile": {
+          "width": 390,
+          "height": 7488,
+          "bytes": 335327,
+          "thumbBytes": 284695
+        },
+        "thumb": "/record/shots/thumbs/news-open-data-research-philosophy-desktop.avif"
+      },
+      "measured": {
+        "route": "/news/open-data-research-philosophy/",
+        "status": "measured",
+        "title": "Open data is part of the research infrastructure — INSTAR Lab",
+        "description": "Why transparent datasets, reproducible methods, and clear limits matter to credible nonprofit research.",
+        "canonical": "https://www.instarlab.org/news/open-data-research-philosophy/",
+        "indexable": true,
+        "h1Count": 1,
+        "mainCount": 1,
+        "words": {
+          "content": 894,
+          "chrome": 751,
+          "total": 1645
+        },
+        "links": {
+          "content": 15,
+          "chrome": 182
+        },
+        "images": {
+          "total": 2,
+          "missingAlt": 0
+        }
+      }
+    },
+    {
+      "path": "/news/polygenic-scores/",
+      "title": "What a Polygenic Score Can and Cannot Tell You — INSTAR Lab",
+      "family": "Research brief",
+      "kind": "editorial",
+      "indexable": true,
+      "inbound": 0,
+      "journeys": [],
+      "capture": {
+        "status": "success",
+        "capturedAt": "2026-11-23T02:23:21.902Z",
+        "selfCapture": false,
+        "depictsGeneration": null,
+        "failure": null,
+        "desktop": {
+          "width": 1440,
+          "height": 7950,
+          "bytes": 483284,
+          "thumbBytes": 63681
+        },
+        "mobile": {
+          "width": 390,
+          "height": 10473,
+          "bytes": 530771,
+          "thumbBytes": 455262
+        },
+        "thumb": "/record/shots/thumbs/news-polygenic-scores-desktop.avif"
+      },
+      "measured": {
+        "route": "/news/polygenic-scores/",
+        "status": "measured",
+        "title": "What a Polygenic Score Can and Cannot Tell You — INSTAR Lab",
+        "description": "An INSTAR Lab research brief on how a polygenic risk score is built, why it describes relative rather than absolute risk, what a 2018 study found at the top of the score range, why today's scores work better for some ancestries than others, and what reporting standards ask for.",
+        "canonical": "https://www.instarlab.org/news/polygenic-scores/",
+        "indexable": true,
+        "h1Count": 1,
+        "mainCount": 1,
+        "words": {
+          "content": 1619,
+          "chrome": 752,
+          "total": 2371
+        },
+        "links": {
+          "content": 15,
+          "chrome": 182
+        },
+        "images": {
+          "total": 2,
+          "missingAlt": 0
+        }
+      }
+    },
+    {
+      "path": "/news/precision-agriculture-open-data/",
+      "title": "Precision Agriculture and Open Agricultural Data — INSTAR Lab",
+      "family": "Research brief",
+      "kind": "editorial",
+      "indexable": true,
+      "inbound": 0,
+      "journeys": [],
+      "capture": {
+        "status": "success",
+        "capturedAt": "2026-11-23T02:23:24.086Z",
+        "selfCapture": false,
+        "depictsGeneration": null,
+        "failure": null,
+        "desktop": {
+          "width": 1440,
+          "height": 6039,
+          "bytes": 407681,
+          "thumbBytes": 58982
+        },
+        "mobile": {
+          "width": 390,
+          "height": 7320,
+          "bytes": 331363,
+          "thumbBytes": 283863
+        },
+        "thumb": "/record/shots/thumbs/news-precision-agriculture-open-data-desktop.avif"
+      },
+      "measured": {
+        "route": "/news/precision-agriculture-open-data/",
+        "status": "measured",
+        "title": "Precision Agriculture and Open Agricultural Data — INSTAR Lab",
+        "description": "An INSTAR Lab research brief on sensor networks, remote sensing, and soil microbiome research in precision agriculture, and why open datasets matter.",
+        "canonical": "https://www.instarlab.org/news/precision-agriculture-open-data/",
+        "indexable": true,
+        "h1Count": 1,
+        "mainCount": 1,
+        "words": {
+          "content": 837,
+          "chrome": 749,
+          "total": 1586
+        },
+        "links": {
+          "content": 10,
+          "chrome": 182
+        },
+        "images": {
+          "total": 2,
+          "missingAlt": 0
+        }
+      }
+    },
+    {
+      "path": "/news/psychology-replication/",
+      "title": "What a Single Psychology Study Can and Cannot Tell You — INSTAR Lab",
+      "family": "Research brief",
+      "kind": "editorial",
+      "indexable": true,
+      "inbound": 0,
+      "journeys": [],
+      "capture": {
+        "status": "success",
+        "capturedAt": "2026-11-23T02:23:32.383Z",
+        "selfCapture": false,
+        "depictsGeneration": null,
+        "failure": null,
+        "desktop": {
+          "width": 1440,
+          "height": 7884,
+          "bytes": 521510,
+          "thumbBytes": 61456
+        },
+        "mobile": {
+          "width": 390,
+          "height": 10381,
+          "bytes": 517209,
+          "thumbBytes": 442287
+        },
+        "thumb": "/record/shots/thumbs/news-psychology-replication-desktop.avif"
+      },
+      "measured": {
+        "route": "/news/psychology-replication/",
+        "status": "measured",
+        "title": "What a Single Psychology Study Can and Cannot Tell You — INSTAR Lab",
+        "description": "An INSTAR Lab research brief on what large replication projects in psychology and the social sciences found, why a failed replication is not a verdict, what a p-value does not measure, and what preregistration changes.",
+        "canonical": "https://www.instarlab.org/news/psychology-replication/",
+        "indexable": true,
+        "h1Count": 1,
+        "mainCount": 1,
+        "words": {
+          "content": 1552,
+          "chrome": 753,
+          "total": 2305
+        },
+        "links": {
+          "content": 20,
+          "chrome": 182
+        },
+        "images": {
+          "total": 2,
+          "missingAlt": 0
+        }
+      }
+    },
+    {
+      "path": "/news/quantum-sensing-breakthroughs/",
+      "title": "Quantum Sensing Breakthroughs — INSTAR Lab",
+      "family": "Research brief",
+      "kind": "editorial",
+      "indexable": true,
+      "inbound": 0,
+      "journeys": [],
+      "capture": {
+        "status": "success",
+        "capturedAt": "2026-11-23T02:23:41.004Z",
+        "selfCapture": false,
+        "depictsGeneration": null,
+        "failure": null,
+        "desktop": {
+          "width": 1440,
+          "height": 5855,
+          "bytes": 331443,
+          "thumbBytes": 44405
+        },
+        "mobile": {
+          "width": 390,
+          "height": 7321,
+          "bytes": 310611,
+          "thumbBytes": 263004
+        },
+        "thumb": "/record/shots/thumbs/news-quantum-sensing-breakthroughs-desktop.avif"
+      },
+      "measured": {
+        "route": "/news/quantum-sensing-breakthroughs/",
+        "status": "measured",
+        "title": "Quantum Sensing Breakthroughs — INSTAR Lab",
+        "description": "An INSTAR Lab research perspective on advances in qubit coherence, quantum error correction, and the path toward practical quantum sensing and computation.",
+        "canonical": "https://www.instarlab.org/news/quantum-sensing-breakthroughs/",
+        "indexable": true,
+        "h1Count": 1,
+        "mainCount": 1,
+        "words": {
+          "content": 774,
+          "chrome": 746,
+          "total": 1520
+        },
+        "links": {
+          "content": 11,
+          "chrome": 182
+        },
+        "images": {
+          "total": 2,
+          "missingAlt": 0
+        }
+      }
+    },
+    {
+      "path": "/news/radiocarbon-dates/",
+      "title": "What a Radiocarbon Date Can and Cannot Tell You — INSTAR Lab",
+      "family": "Research brief",
+      "kind": "editorial",
+      "indexable": true,
+      "inbound": 0,
+      "journeys": [],
+      "capture": {
+        "status": "success",
+        "capturedAt": "2026-11-23T02:23:41.376Z",
+        "selfCapture": false,
+        "depictsGeneration": null,
+        "failure": null,
+        "desktop": {
+          "width": 1440,
+          "height": 10339,
+          "bytes": 754419,
+          "thumbBytes": 96889
+        },
+        "mobile": {
+          "width": 390,
+          "height": 13973,
+          "bytes": 779481,
+          "thumbBytes": 670871
+        },
+        "thumb": "/record/shots/thumbs/news-radiocarbon-dates-desktop.avif"
+      },
+      "measured": {
+        "route": "/news/radiocarbon-dates/",
+        "status": "measured",
+        "title": "What a Radiocarbon Date Can and Cannot Tell You — INSTAR Lab",
+        "description": "An INSTAR Lab research brief on what a radiocarbon lab measures, why a radiocarbon age must be calibrated before it becomes a calendar date, why the answer is a range rather than a year, and how old wood, reservoir effects and contamination can separate a date from the event it is meant to date.",
+        "canonical": "https://www.instarlab.org/news/radiocarbon-dates/",
+        "indexable": true,
+        "h1Count": 1,
+        "mainCount": 1,
+        "words": {
+          "content": 2572,
+          "chrome": 752,
+          "total": 3324
+        },
+        "links": {
+          "content": 19,
+          "chrome": 182
+        },
+        "images": {
+          "total": 2,
+          "missingAlt": 0
+        }
+      }
+    },
+    {
+      "path": "/news/wearable-heart-rate/",
+      "title": "What a Wearable Heart-Rate Reading Can and Cannot Tell You — INSTAR Lab",
+      "family": "Research brief",
+      "kind": "editorial",
+      "indexable": true,
+      "inbound": 0,
+      "journeys": [],
+      "capture": {
+        "status": "success",
+        "capturedAt": "2026-11-23T02:23:53.783Z",
+        "selfCapture": false,
+        "depictsGeneration": null,
+        "failure": null,
+        "desktop": {
+          "width": 1440,
+          "height": 8095,
+          "bytes": 588290,
+          "thumbBytes": 71903
+        },
+        "mobile": {
+          "width": 390,
+          "height": 10583,
+          "bytes": 549429,
+          "thumbBytes": 470154
+        },
+        "thumb": "/record/shots/thumbs/news-wearable-heart-rate-desktop.avif"
+      },
+      "measured": {
+        "route": "/news/wearable-heart-rate/",
+        "status": "measured",
+        "title": "What a Wearable Heart-Rate Reading Can and Cannot Tell You — INSTAR Lab",
+        "description": "An INSTAR Lab research brief on how wrist wearables estimate heart rate, how close their readings come to an ECG, where they drift, and what a heart-rhythm alert means.",
+        "canonical": "https://www.instarlab.org/news/wearable-heart-rate/",
+        "indexable": true,
+        "h1Count": 1,
+        "mainCount": 1,
+        "words": {
+          "content": 1680,
+          "chrome": 753,
+          "total": 2433
+        },
+        "links": {
+          "content": 17,
+          "chrome": 182
+        },
+        "images": {
+          "total": 2,
+          "missingAlt": 0
+        }
+      }
+    },
+    {
+      "path": "/privacy/",
+      "title": "Privacy Policy — INSTAR Lab",
+      "family": "Core",
+      "kind": "core",
+      "indexable": true,
+      "inbound": 0,
+      "journeys": [],
+      "capture": {
+        "status": "success",
+        "capturedAt": "2026-11-22T17:39:10.711Z",
+        "selfCapture": false,
+        "depictsGeneration": null,
+        "failure": null,
+        "desktop": {
+          "width": 1440,
+          "height": 9447,
+          "bytes": 888670,
+          "thumbBytes": 98846
+        },
+        "mobile": {
+          "width": 390,
+          "height": 13963,
+          "bytes": 843776,
+          "thumbBytes": 711774
+        },
+        "thumb": "/record/shots/thumbs/privacy-desktop.avif"
+      },
+      "measured": {
+        "route": "/privacy/",
+        "status": "measured",
+        "title": "Privacy Policy — INSTAR Lab",
+        "description": "INSTAR Lab's privacy policy explains how we collect, use, and protect information on this website and through our research programs.",
+        "canonical": "https://www.instarlab.org/privacy/",
+        "indexable": true,
+        "h1Count": 1,
+        "mainCount": 1,
+        "words": {
+          "content": 2599,
+          "chrome": 745,
+          "total": 3344
+        },
+        "links": {
+          "content": 3,
+          "chrome": 179
+        },
+        "images": {
+          "total": 2,
+          "missingAlt": 0
+        }
+      }
+    },
+    {
+      "path": "/record/",
+      "title": "INSTAR Lab public record",
+      "family": "Public record",
+      "kind": "record",
+      "indexable": true,
+      "inbound": 0,
+      "journeys": [],
+      "capture": {
+        "status": "success",
+        "capturedAt": "2026-11-22T17:39:12.114Z",
+        "selfCapture": false,
+        "depictsGeneration": null,
+        "failure": null,
+        "desktop": {
+          "width": 1440,
+          "height": 3571,
+          "bytes": 216852,
+          "thumbBytes": 25266
+        },
+        "mobile": {
+          "width": 390,
+          "height": 6319,
+          "bytes": 185917,
+          "thumbBytes": 158677
+        },
+        "thumb": "/record/shots/thumbs/record-desktop.avif"
+      },
+      "measured": {
+        "route": "/record/",
+        "status": "measured",
+        "title": "INSTAR Lab public record | INSTAR Lab",
+        "description": "A compact, source-conscious index of INSTAR Lab's public identity, research pathways, website structure, media, and evidence boundaries.",
+        "canonical": "https://www.instarlab.org/record/",
+        "indexable": true,
+        "h1Count": 1,
+        "mainCount": 1,
+        "words": {
+          "content": 1030,
+          "chrome": 11,
+          "total": 1041
+        },
+        "links": {
+          "content": 57,
+          "chrome": 0
+        },
+        "images": {
+          "total": 0,
+          "missingAlt": 0
+        }
+      }
+    },
+    {
+      "path": "/record/affiliations/",
+      "title": "Affiliation register",
+      "family": "Public record",
+      "kind": "record",
+      "indexable": true,
+      "inbound": 0,
+      "journeys": [],
+      "capture": {
+        "status": "success",
+        "capturedAt": "2026-11-07T21:19:34.222Z",
+        "selfCapture": false,
+        "depictsGeneration": null,
+        "failure": null,
+        "desktop": {
+          "width": 1440,
+          "height": 4107,
+          "bytes": 384276,
+          "thumbBytes": 39091
+        },
+        "mobile": {
+          "width": 390,
+          "height": 11645,
+          "bytes": 143614,
+          "thumbBytes": 130237
+        },
+        "thumb": "/record/shots/thumbs/record-affiliations-desktop.avif"
+      },
+      "measured": {
+        "route": "/record/affiliations/",
+        "status": "measured",
+        "title": "Affiliation register | INSTAR Lab",
+        "description": "Each partner organization and named person the public site presents, carried with the status of the evidence behind it rather than as a completed table.",
+        "canonical": "https://www.instarlab.org/record/affiliations/",
+        "indexable": true,
+        "h1Count": 1,
+        "mainCount": 1,
+        "words": {
+          "content": 1760,
+          "chrome": 9,
+          "total": 1769
+        },
+        "links": {
+          "content": 38,
+          "chrome": 0
+        },
+        "images": {
+          "total": 0,
+          "missingAlt": 0
+        }
+      }
+    },
+    {
+      "path": "/record/corrections/",
+      "title": "Corrections register",
+      "family": "Public record",
+      "kind": "record",
+      "indexable": true,
+      "inbound": 0,
+      "journeys": [],
+      "capture": {
+        "status": "success",
+        "capturedAt": "2026-11-07T21:19:45.462Z",
+        "selfCapture": false,
+        "depictsGeneration": null,
+        "failure": null,
+        "desktop": {
+          "width": 1440,
+          "height": 6714,
+          "bytes": 624129,
+          "thumbBytes": 60388
+        },
+        "mobile": {
+          "width": 390,
+          "height": 10270,
+          "bytes": 383160,
+          "thumbBytes": 330714
+        },
+        "thumb": "/record/shots/thumbs/record-corrections-desktop.avif"
+      },
+      "measured": {
+        "route": "/record/corrections/",
+        "status": "measured",
+        "title": "Corrections register | INSTAR Lab",
+        "description": "The claims this site published and then withdrew, each with what was wrong, what the site says now, the date the correction landed, and the commit that landed it.",
+        "canonical": "https://www.instarlab.org/record/corrections/",
+        "indexable": true,
+        "h1Count": 1,
+        "mainCount": 1,
+        "words": {
+          "content": 2294,
+          "chrome": 9,
+          "total": 2303
+        },
+        "links": {
+          "content": 42,
+          "chrome": 0
+        },
+        "images": {
+          "total": 0,
+          "missingAlt": 0
+        }
+      }
+    },
+    {
+      "path": "/record/federal/",
+      "title": "Federal and institutional research posture",
+      "family": "Public record",
+      "kind": "record",
+      "indexable": true,
+      "inbound": 1,
+      "journeys": [
+        "program-officer"
+      ],
+      "capture": {
+        "status": "success",
+        "capturedAt": "2026-11-07T21:19:48.487Z",
+        "selfCapture": false,
+        "depictsGeneration": null,
+        "failure": null,
+        "desktop": {
+          "width": 1440,
+          "height": 3245,
+          "bytes": 240841,
+          "thumbBytes": 27970
+        },
+        "mobile": {
+          "width": 390,
+          "height": 5829,
+          "bytes": 223870,
+          "thumbBytes": 193022
+        },
+        "thumb": "/record/shots/thumbs/record-federal-desktop.avif"
+      },
+      "measured": {
+        "route": "/record/federal/",
+        "status": "measured",
+        "title": "Federal and institutional research posture | INSTAR Lab",
+        "description": "The public evidence for INSTAR Lab's federal, institutional, sponsored-program, and STTR pathways—without implying an award, contract, or credential that is not published.",
+        "canonical": "https://www.instarlab.org/record/federal/",
+        "indexable": true,
+        "h1Count": 1,
+        "mainCount": 1,
+        "words": {
+          "content": 790,
+          "chrome": 12,
+          "total": 802
+        },
+        "links": {
+          "content": 47,
+          "chrome": 0
+        },
+        "images": {
+          "total": 0,
+          "missingAlt": 0
+        }
+      }
+    },
+    {
+      "path": "/record/files/",
+      "title": "Public documents and asset register",
+      "family": "Public record",
+      "kind": "record",
+      "indexable": true,
+      "inbound": 0,
+      "journeys": [],
+      "capture": {
+        "status": "success",
+        "capturedAt": "2026-11-07T21:19:58.977Z",
+        "selfCapture": false,
+        "depictsGeneration": null,
+        "failure": null,
+        "desktop": {
+          "width": 1440,
+          "height": 2555,
+          "bytes": 158077,
+          "thumbBytes": 19655
+        },
+        "mobile": {
+          "width": 390,
+          "height": 4104,
+          "bytes": 76953,
+          "thumbBytes": 71409
+        },
+        "thumb": "/record/shots/thumbs/record-files-desktop.avif"
+      },
+      "measured": {
+        "route": "/record/files/",
+        "status": "measured",
+        "title": "Public documents and asset register | INSTAR Lab",
+        "description": "A focused index of public documents, route-backed content, fonts, logos, and image policy records used by the site.",
+        "canonical": "https://www.instarlab.org/record/files/",
+        "indexable": true,
+        "h1Count": 1,
+        "mainCount": 1,
+        "words": {
+          "content": 582,
+          "chrome": 12,
+          "total": 594
+        },
+        "links": {
+          "content": 37,
+          "chrome": 0
+        },
+        "images": {
+          "total": 0,
+          "missingAlt": 0
+        }
+      }
+    },
+    {
+      "path": "/record/governance/",
+      "title": "Board and policy register",
+      "family": "Public record",
+      "kind": "record",
+      "indexable": true,
+      "inbound": 0,
+      "journeys": [],
+      "capture": {
+        "status": "success",
+        "capturedAt": "2026-11-23T02:23:56.014Z",
+        "selfCapture": false,
+        "depictsGeneration": null,
+        "failure": null,
+        "desktop": {
+          "width": 1440,
+          "height": 6809,
+          "bytes": 558956,
+          "thumbBytes": 56581
+        },
+        "mobile": {
+          "width": 390,
+          "height": 15661,
+          "bytes": 214630,
+          "thumbBytes": 195470
+        },
+        "thumb": "/record/shots/thumbs/record-governance-desktop.avif"
+      },
+      "measured": {
+        "route": "/record/governance/",
+        "status": "measured",
+        "title": "Board and policy register | INSTAR Lab",
+        "description": "The board seats and the policies a donor or a board member would look for, with each row stating what establishes it and the rows nothing establishes published empty rather than omitted.",
+        "canonical": "https://www.instarlab.org/record/governance/",
+        "indexable": true,
+        "h1Count": 1,
+        "mainCount": 1,
+        "words": {
+          "content": 2639,
+          "chrome": 11,
+          "total": 2650
+        },
+        "links": {
+          "content": 41,
+          "chrome": 0
+        },
+        "images": {
+          "total": 0,
+          "missingAlt": 0
+        }
+      }
+    },
+    {
+      "path": "/record/journeys/",
+      "title": "Role-specific paths through the INSTAR site",
+      "family": "Public record",
+      "kind": "record",
+      "indexable": true,
+      "inbound": 0,
+      "journeys": [],
+      "capture": {
+        "status": "success",
+        "capturedAt": "2026-11-07T21:20:03.345Z",
+        "selfCapture": false,
+        "depictsGeneration": null,
+        "failure": null,
+        "desktop": {
+          "width": 1440,
+          "height": 3505,
+          "bytes": 206471,
+          "thumbBytes": 26900
+        },
+        "mobile": {
+          "width": 390,
+          "height": 7138,
+          "bytes": 202959,
+          "thumbBytes": 174517
+        },
+        "thumb": "/record/shots/thumbs/record-journeys-desktop.avif"
+      },
+      "measured": {
+        "route": "/record/journeys/",
+        "status": "measured",
+        "title": "Role-specific paths through the INSTAR site | INSTAR Lab",
+        "description": "Short routes for program officers, collaborators, researchers, fellows, and supporters who need to decide what to inspect next.",
+        "canonical": "https://www.instarlab.org/record/journeys/",
+        "indexable": true,
+        "h1Count": 1,
+        "mainCount": 1,
+        "words": {
+          "content": 655,
+          "chrome": 13,
+          "total": 668
+        },
+        "links": {
+          "content": 68,
+          "chrome": 0
+        },
+        "images": {
+          "total": 0,
+          "missingAlt": 0
+        }
+      }
+    },
+    {
+      "path": "/record/leadership/",
+      "title": "Leadership, governance, and affiliations",
+      "family": "Public record",
+      "kind": "record",
+      "indexable": true,
+      "inbound": 0,
+      "journeys": [],
+      "capture": {
+        "status": "success",
+        "capturedAt": "2026-11-07T21:20:05.759Z",
+        "selfCapture": false,
+        "depictsGeneration": null,
+        "failure": null,
+        "desktop": {
+          "width": 1440,
+          "height": 2267,
+          "bytes": 182526,
+          "thumbBytes": 22270
+        },
+        "mobile": {
+          "width": 390,
+          "height": 4810,
+          "bytes": 167968,
+          "thumbBytes": 145594
+        },
+        "thumb": "/record/shots/thumbs/record-leadership-desktop.avif"
+      },
+      "measured": {
+        "route": "/record/leadership/",
+        "status": "measured",
+        "title": "Leadership, governance, and affiliations | INSTAR Lab",
+        "description": "What the public site identifies about INSTAR Lab's institutional leadership and research relationships, with a clear boundary around unpublished personnel records.",
+        "canonical": "https://www.instarlab.org/record/leadership/",
+        "indexable": true,
+        "h1Count": 1,
+        "mainCount": 1,
+        "words": {
+          "content": 581,
+          "chrome": 11,
+          "total": 592
+        },
+        "links": {
+          "content": 46,
+          "chrome": 0
+        },
+        "images": {
+          "total": 0,
+          "missingAlt": 0
+        }
+      }
+    },
+    {
+      "path": "/record/legal/",
+      "title": "Legal status, filings, and the §6104(d) request path",
+      "family": "Public record",
+      "kind": "record",
+      "indexable": true,
+      "inbound": 0,
+      "journeys": [],
+      "capture": {
+        "status": "success",
+        "capturedAt": "2026-11-07T21:20:13.365Z",
+        "selfCapture": false,
+        "depictsGeneration": null,
+        "failure": null,
+        "desktop": {
+          "width": 1440,
+          "height": 5418,
+          "bytes": 499721,
+          "thumbBytes": 51112
+        },
+        "mobile": {
+          "width": 390,
+          "height": 10557,
+          "bytes": 236061,
+          "thumbBytes": 212076
+        },
+        "thumb": "/record/shots/thumbs/record-legal-desktop.avif"
+      },
+      "measured": {
+        "route": "/record/legal/",
+        "status": "measured",
+        "title": "Legal status, filings, and the §6104(d) request path | INSTAR Lab",
+        "description": "The institution's legal identity, exemption classification, and ruling date, each next to the source that carries it, plus the statutory route for requesting the records a tax-exempt organization has to provide.",
+        "canonical": "https://www.instarlab.org/record/legal/",
+        "indexable": true,
+        "h1Count": 1,
+        "mainCount": 1,
+        "words": {
+          "content": 2033,
+          "chrome": 15,
+          "total": 2048
+        },
+        "links": {
+          "content": 40,
+          "chrome": 0
+        },
+        "images": {
+          "total": 0,
+          "missingAlt": 0
+        }
+      }
+    },
+    {
+      "path": "/record/marketing/",
+      "title": "INSTAR Lab positioning and public claims",
+      "family": "Public record",
+      "kind": "record",
+      "indexable": true,
+      "inbound": 0,
+      "journeys": [],
+      "capture": {
+        "status": "success",
+        "capturedAt": "2026-11-22T17:39:13.900Z",
+        "selfCapture": false,
+        "depictsGeneration": null,
+        "failure": null,
+        "desktop": {
+          "width": 1440,
+          "height": 14638,
+          "bytes": 1889862,
+          "thumbBytes": 183623
+        },
+        "mobile": {
+          "width": 390,
+          "height": 42796,
+          "bytes": 918502,
+          "thumbBytes": 164279
+        },
+        "thumb": "/record/shots/thumbs/record-marketing-desktop.avif"
+      },
+      "measured": {
+        "route": "/record/marketing/",
+        "status": "measured",
+        "title": "INSTAR Lab positioning and public claims | INSTAR Lab",
+        "description": "A readable register of the language, audiences, research domains, and next actions used across the public site.",
+        "canonical": "https://www.instarlab.org/record/marketing/",
+        "indexable": true,
+        "h1Count": 1,
+        "mainCount": 1,
+        "words": {
+          "content": 4413,
+          "chrome": 13,
+          "total": 4426
+        },
+        "links": {
+          "content": 189,
+          "chrome": 0
+        },
+        "images": {
+          "total": 0,
+          "missingAlt": 0
+        }
+      }
+    },
+    {
+      "path": "/record/metrics/",
+      "title": "Captured page inventory: content, media, and metadata",
+      "family": "Public record",
+      "kind": "record",
+      "indexable": true,
+      "inbound": 0,
+      "journeys": [],
+      "capture": {
+        "status": "success",
+        "capturedAt": "2026-11-23T02:44:22.189Z",
+        "selfCapture": true,
+        "depictsGeneration": "0fd2e4ba64f151682d5c8774234287f1e6cd44953fbcd1581ee688b8fa28802a",
+        "failure": null,
+        "desktop": {
+          "width": 1440,
+          "height": 12412,
+          "bytes": 1081096,
+          "thumbBytes": 122825
+        },
+        "mobile": {
+          "width": 390,
+          "height": 19210,
+          "bytes": 642130,
+          "thumbBytes": 419705
+        },
+        "thumb": "/record/shots/thumbs/record-metrics-desktop.avif"
+      },
+      "measured": {
+        "route": "/record/metrics/",
+        "status": "measured",
+        "title": "Captured page inventory: content, media, and metadata | INSTAR Lab",
+        "description": "Build-time measurements from the route manifests, article collection, and public media policy—not claims about audience traffic or research outcomes.",
+        "canonical": "https://www.instarlab.org/record/metrics/",
+        "indexable": true,
+        "h1Count": 1,
+        "mainCount": 1,
+        "words": {
+          "content": 3465,
+          "chrome": 14,
+          "total": 3479
+        },
+        "links": {
+          "content": 140,
+          "chrome": 0
+        },
+        "images": {
+          "total": 1,
+          "missingAlt": 0
+        }
+      }
+    },
+    {
+      "path": "/record/nav/",
+      "title": "INSTAR Lab public site link inventory",
+      "family": "Public record",
+      "kind": "record",
+      "indexable": true,
+      "inbound": 0,
+      "journeys": [],
+      "capture": {
+        "status": "success",
+        "capturedAt": "2026-11-22T17:39:30.767Z",
+        "selfCapture": false,
+        "depictsGeneration": null,
+        "failure": null,
+        "desktop": {
+          "width": 1440,
+          "height": 18401,
+          "bytes": 1464117,
+          "thumbBytes": 145301
+        },
+        "mobile": {
+          "width": 390,
+          "height": 40623,
+          "bytes": 783971,
+          "thumbBytes": 135335
+        },
+        "thumb": "/record/shots/thumbs/record-nav-desktop.avif"
+      },
+      "measured": {
+        "route": "/record/nav/",
+        "status": "measured",
+        "title": "INSTAR Lab public site link inventory | INSTAR Lab",
+        "description": "The complete source-derived route inventory for the current public website, grouped by family and searchable in the browser.",
+        "canonical": "https://www.instarlab.org/record/nav/",
+        "indexable": true,
+        "h1Count": 1,
+        "mainCount": 1,
+        "words": {
+          "content": 9184,
+          "chrome": 13,
+          "total": 9197
+        },
+        "links": {
+          "content": 453,
+          "chrome": 0
+        },
+        "images": {
+          "total": 1,
+          "missingAlt": 0
+        }
+      }
+    },
+    {
+      "path": "/record/ops/",
+      "title": "Static delivery and operational readiness",
+      "family": "Public record",
+      "kind": "record",
+      "indexable": true,
+      "inbound": 0,
+      "journeys": [],
+      "capture": {
+        "status": "success",
+        "capturedAt": "2026-11-07T21:20:28.248Z",
+        "selfCapture": false,
+        "depictsGeneration": null,
+        "failure": null,
+        "desktop": {
+          "width": 1440,
+          "height": 5722,
+          "bytes": 528845,
+          "thumbBytes": 52766
+        },
+        "mobile": {
+          "width": 390,
+          "height": 12977,
+          "bytes": 446169,
+          "thumbBytes": 383039
+        },
+        "thumb": "/record/shots/thumbs/record-ops-desktop.avif"
+      },
+      "measured": {
+        "route": "/record/ops/",
+        "status": "measured",
+        "title": "Static delivery and operational readiness | INSTAR Lab",
+        "description": "A public-facing view of the site's delivery model, content ownership boundaries, forms posture, and the checks that protect the static build.",
+        "canonical": "https://www.instarlab.org/record/ops/",
+        "indexable": true,
+        "h1Count": 1,
+        "mainCount": 1,
+        "words": {
+          "content": 2166,
+          "chrome": 12,
+          "total": 2178
+        },
+        "links": {
+          "content": 49,
+          "chrome": 0
+        },
+        "images": {
+          "total": 0,
+          "missingAlt": 0
+        }
+      }
+    },
+    {
+      "path": "/record/screens/",
+      "title": "See the public site in context",
+      "family": "Public record",
+      "kind": "record",
+      "indexable": true,
+      "inbound": 0,
+      "journeys": [],
+      "capture": {
+        "status": "success",
+        "capturedAt": "2026-11-23T02:44:22.288Z",
+        "selfCapture": true,
+        "depictsGeneration": "0fd2e4ba64f151682d5c8774234287f1e6cd44953fbcd1581ee688b8fa28802a",
+        "failure": null,
+        "desktop": {
+          "width": 1440,
+          "height": 43933,
+          "bytes": 3135156,
+          "thumbBytes": 428537
+        },
+        "mobile": {
+          "width": 390,
+          "height": 105054,
+          "bytes": 2725987,
+          "thumbBytes": 75974
+        },
+        "thumb": "/record/shots/thumbs/record-screens-desktop.avif"
+      },
+      "measured": {
+        "route": "/record/screens/",
+        "status": "measured",
+        "title": "See the public site in context | INSTAR Lab",
+        "description": "Full-page browser screenshots of every public page, captured from one frozen production build with per-page provenance. This archive page’s own capture depicts the previous generation by design.",
+        "canonical": "https://www.instarlab.org/record/screens/",
+        "indexable": true,
+        "h1Count": 1,
+        "mainCount": 1,
+        "words": {
+          "content": 10347,
+          "chrome": 13,
+          "total": 10360
+        },
+        "links": {
+          "content": 166,
+          "chrome": 0
+        },
+        "images": {
+          "total": 256,
+          "missingAlt": 0
+        }
+      }
+    },
+    {
+      "path": "/record/style/",
+      "title": "INSTAR Lab visual system and public assets",
+      "family": "Public record",
+      "kind": "record",
+      "indexable": true,
+      "inbound": 0,
+      "journeys": [],
+      "capture": {
+        "status": "success",
+        "capturedAt": "2026-11-07T21:20:58.544Z",
+        "selfCapture": false,
+        "depictsGeneration": null,
+        "failure": null,
+        "desktop": {
+          "width": 1440,
+          "height": 2608,
+          "bytes": 142121,
+          "thumbBytes": 19524
+        },
+        "mobile": {
+          "width": 390,
+          "height": 4360,
+          "bytes": 93240,
+          "thumbBytes": 85351
+        },
+        "thumb": "/record/shots/thumbs/record-style-desktop.avif"
+      },
+      "measured": {
+        "route": "/record/style/",
+        "status": "measured",
+        "title": "INSTAR Lab visual system and public assets | INSTAR Lab",
+        "description": "A compact reference for the current INSTAR visual language: logo, type, palette, spacing, image policy, and accessible interaction principles.",
+        "canonical": "https://www.instarlab.org/record/style/",
+        "indexable": true,
+        "h1Count": 1,
+        "mainCount": 1,
+        "words": {
+          "content": 553,
+          "chrome": 14,
+          "total": 567
+        },
+        "links": {
+          "content": 38,
+          "chrome": 0
+        },
+        "images": {
+          "total": 0,
+          "missingAlt": 0
+        }
+      }
+    },
+    {
+      "path": "/record/verify/",
+      "title": "Source register and verification limits",
+      "family": "Public record",
+      "kind": "record",
+      "indexable": true,
+      "inbound": 0,
+      "journeys": [],
+      "capture": {
+        "status": "success",
+        "capturedAt": "2026-11-07T21:21:09.442Z",
+        "selfCapture": false,
+        "depictsGeneration": null,
+        "failure": null,
+        "desktop": {
+          "width": 1440,
+          "height": 3544,
+          "bytes": 332173,
+          "thumbBytes": 32902
+        },
+        "mobile": {
+          "width": 390,
+          "height": 6687,
+          "bytes": 122014,
+          "thumbBytes": 111987
+        },
+        "thumb": "/record/shots/thumbs/record-verify-desktop.avif"
+      },
+      "measured": {
+        "route": "/record/verify/",
+        "status": "measured",
+        "title": "Source register and verification limits | INSTAR Lab",
+        "description": "A dated-in-practice register of the repository sources behind this record room, including what is verified, what requires review, and what is not public.",
+        "canonical": "https://www.instarlab.org/record/verify/",
+        "indexable": true,
+        "h1Count": 1,
+        "mainCount": 1,
+        "words": {
+          "content": 1244,
+          "chrome": 12,
+          "total": 1256
+        },
+        "links": {
+          "content": 39,
+          "chrome": 0
+        },
+        "images": {
+          "total": 0,
+          "missingAlt": 0
+        }
+      }
+    },
+    {
+      "path": "/research/",
+      "title": "Research",
+      "family": "Research",
+      "kind": "section",
+      "indexable": true,
+      "inbound": 0,
+      "journeys": [],
+      "capture": {
+        "status": "success",
+        "capturedAt": "2026-11-22T17:39:57.299Z",
+        "selfCapture": false,
+        "depictsGeneration": null,
+        "failure": null,
+        "desktop": {
+          "width": 1440,
+          "height": 6432,
+          "bytes": 257608,
+          "thumbBytes": 42559
+        },
+        "mobile": {
+          "width": 390,
+          "height": 10250,
+          "bytes": 304517,
+          "thumbBytes": 260744
+        },
+        "thumb": "/record/shots/thumbs/research-desktop.avif"
+      },
+      "measured": {
+        "route": "/research/",
+        "status": "measured",
+        "title": "Research — INSTAR Lab",
+        "description": "Orient yourself in the INSTAR Lab research portfolio, methods, data, facilities, and engagement routes.",
+        "canonical": "https://www.instarlab.org/research/",
+        "indexable": true,
+        "h1Count": 1,
+        "mainCount": 1,
+        "words": {
+          "content": 816,
+          "chrome": 744,
+          "total": 1560
+        },
+        "links": {
+          "content": 24,
+          "chrome": 182
+        },
+        "images": {
+          "total": 1,
+          "missingAlt": 0
+        }
+      }
+    },
+    {
+      "path": "/research/consortium/",
+      "title": "INSTAR Consortium — Collaborative Research Network",
+      "family": "Research",
+      "kind": "editorial",
+      "indexable": true,
+      "inbound": 0,
+      "journeys": [],
+      "capture": {
+        "status": "success",
+        "capturedAt": "2026-11-23T02:24:17.203Z",
+        "selfCapture": false,
+        "depictsGeneration": null,
+        "failure": null,
+        "desktop": {
+          "width": 1440,
+          "height": 3375,
+          "bytes": 151608,
+          "thumbBytes": 23585
+        },
+        "mobile": {
+          "width": 390,
+          "height": 4567,
+          "bytes": 115133,
+          "thumbBytes": 100260
+        },
+        "thumb": "/record/shots/thumbs/research-consortium-desktop.avif"
+      },
+      "measured": {
+        "route": "/research/consortium/",
+        "status": "measured",
+        "title": "INSTAR Consortium — Collaborative Research Network",
+        "description": "INSTAR’s network of affiliated organizations. Each affiliation’s verification status is listed in the public record.",
+        "canonical": "https://www.instarlab.org/research/consortium/",
+        "indexable": true,
+        "h1Count": 1,
+        "mainCount": 1,
+        "words": {
+          "content": 126,
+          "chrome": 746,
+          "total": 872
+        },
+        "links": {
+          "content": 9,
+          "chrome": 180
+        },
+        "images": {
+          "total": 3,
+          "missingAlt": 0
+        }
+      }
+    },
+    {
+      "path": "/research/current-programs/",
+      "title": "Current Research Programs — INSTAR Lab",
+      "family": "Research",
+      "kind": "editorial",
+      "indexable": true,
+      "inbound": 1,
+      "journeys": [
+        "supporter"
+      ],
+      "capture": {
+        "status": "success",
+        "capturedAt": "2026-11-23T02:24:34.593Z",
+        "selfCapture": false,
+        "depictsGeneration": null,
+        "failure": null,
+        "desktop": {
+          "width": 1440,
+          "height": 3866,
+          "bytes": 182901,
+          "thumbBytes": 27119
+        },
+        "mobile": {
+          "width": 390,
+          "height": 6529,
+          "bytes": 162523,
+          "thumbBytes": 139688
+        },
+        "thumb": "/record/shots/thumbs/research-current-programs-desktop.avif"
+      },
+      "measured": {
+        "route": "/research/current-programs/",
+        "status": "measured",
+        "title": "Current Research Programs — INSTAR Lab",
+        "description": "The INSTAR Lab research portfolio across AI, quantum, HPC, health, energy, space, and the sciences. Program status, outputs, and schedules are not listed here.",
+        "canonical": "https://www.instarlab.org/research/current-programs/",
+        "indexable": true,
+        "h1Count": 1,
+        "mainCount": 1,
+        "words": {
+          "content": 302,
+          "chrome": 746,
+          "total": 1048
+        },
+        "links": {
+          "content": 15,
+          "chrome": 179
+        },
+        "images": {
+          "total": 2,
+          "missingAlt": 0
+        }
+      }
+    },
+    {
+      "path": "/research/facilities/",
+      "title": "Research Facilities — INSTAR Lab",
+      "family": "Research",
+      "kind": "editorial",
+      "indexable": true,
+      "inbound": 1,
+      "journeys": [
+        "program-officer"
+      ],
+      "capture": {
+        "status": "success",
+        "capturedAt": "2026-11-23T02:24:46.313Z",
+        "selfCapture": false,
+        "depictsGeneration": null,
+        "failure": null,
+        "desktop": {
+          "width": 1440,
+          "height": 3342,
+          "bytes": 139655,
+          "thumbBytes": 23021
+        },
+        "mobile": {
+          "width": 390,
+          "height": 4309,
+          "bytes": 103715,
+          "thumbBytes": 89480
+        },
+        "thumb": "/record/shots/thumbs/research-facilities-desktop.avif"
+      },
+      "measured": {
+        "route": "/research/facilities/",
+        "status": "measured",
+        "title": "Research Facilities — INSTAR Lab",
+        "description": "Review the laboratory, compute, sensing, and collaboration infrastructure that supports INSTAR Lab research programs and sponsored work.",
+        "canonical": "https://www.instarlab.org/research/facilities/",
+        "indexable": true,
+        "h1Count": 1,
+        "mainCount": 1,
+        "words": {
+          "content": 97,
+          "chrome": 745,
+          "total": 842
+        },
+        "links": {
+          "content": 8,
+          "chrome": 180
+        },
+        "images": {
+          "total": 3,
+          "missingAlt": 0
+        }
+      }
+    },
+    {
+      "path": "/research/funding/",
+      "title": "Federal Research & Sponsored Programs — INSTAR Lab",
+      "family": "Research",
+      "kind": "editorial",
+      "indexable": true,
+      "inbound": 0,
+      "journeys": [],
+      "capture": {
+        "status": "success",
+        "capturedAt": "2026-11-22T17:40:49.570Z",
+        "selfCapture": false,
+        "depictsGeneration": null,
+        "failure": null,
+        "desktop": {
+          "width": 1440,
+          "height": 19762,
+          "bytes": 1258819,
+          "thumbBytes": 112406
+        },
+        "mobile": {
+          "width": 390,
+          "height": 25492,
+          "bytes": 1262630,
+          "thumbBytes": 405101
+        },
+        "thumb": "/record/shots/thumbs/research-funding-desktop.avif"
+      },
+      "measured": {
+        "route": "/research/funding/",
+        "status": "measured",
+        "title": "Federal R&D Funding Guide: SBIR, STTR and Agency Grants — INSTAR Lab",
+        "description": "A plain-language guide to federal research funding: how SBIR and STTR work, where solicitations are published, and what a small business should prepare.",
+        "canonical": "https://www.instarlab.org/research/funding/",
+        "indexable": true,
+        "h1Count": 1,
+        "mainCount": 1,
+        "words": {
+          "content": 5741,
+          "chrome": 752,
+          "total": 6493
+        },
+        "links": {
+          "content": 1,
+          "chrome": 179
+        },
+        "images": {
+          "total": 2,
+          "missingAlt": 0
+        }
+      }
+    },
+    {
+      "path": "/research/innovation/",
+      "title": "Research Innovation — INSTAR Lab",
+      "family": "Research",
+      "kind": "editorial",
+      "indexable": true,
+      "inbound": 0,
+      "journeys": [],
+      "capture": {
+        "status": "success",
+        "capturedAt": "2026-11-23T02:24:54.116Z",
+        "selfCapture": false,
+        "depictsGeneration": null,
+        "failure": null,
+        "desktop": {
+          "width": 1440,
+          "height": 3342,
+          "bytes": 148323,
+          "thumbBytes": 23070
+        },
+        "mobile": {
+          "width": 390,
+          "height": 4309,
+          "bytes": 105692,
+          "thumbBytes": 90871
+        },
+        "thumb": "/record/shots/thumbs/research-innovation-desktop.avif"
+      },
+      "measured": {
+        "route": "/research/innovation/",
+        "status": "measured",
+        "title": "Research Innovation — INSTAR Lab",
+        "description": "INSTAR Lab develops research at the frontier of AI, quantum science, HPC, health, energy, and space, with methods and outputs that can move to applied programs.",
+        "canonical": "https://www.instarlab.org/research/innovation/",
+        "indexable": true,
+        "h1Count": 1,
+        "mainCount": 1,
+        "words": {
+          "content": 109,
+          "chrome": 745,
+          "total": 854
+        },
+        "links": {
+          "content": 8,
+          "chrome": 180
+        },
+        "images": {
+          "total": 3,
+          "missingAlt": 0
+        }
+      }
+    },
+    {
+      "path": "/research/open-data/",
+      "title": "Open Data & Public Datasets — INSTAR Lab",
+      "family": "Research",
+      "kind": "editorial",
+      "indexable": true,
+      "inbound": 1,
+      "journeys": [
+        "researcher"
+      ],
+      "capture": {
+        "status": "success",
+        "capturedAt": "2026-11-23T02:25:03.583Z",
+        "selfCapture": false,
+        "depictsGeneration": null,
+        "failure": null,
+        "desktop": {
+          "width": 1440,
+          "height": 23202,
+          "bytes": 1906661,
+          "thumbBytes": 188103
+        },
+        "mobile": {
+          "width": 390,
+          "height": 45800,
+          "bytes": 1817276,
+          "thumbBytes": 163306
+        },
+        "thumb": "/record/shots/thumbs/research-open-data-desktop.avif"
+      },
+      "measured": {
+        "route": "/research/open-data/",
+        "status": "measured",
+        "title": "Open Data & Public Datasets — INSTAR Lab",
+        "description": "A curated, searchable reference list of third-party public datasets from federal portals, science agencies and repositories, organized by research area. INSTAR-published datasets: none yet.",
+        "canonical": "https://www.instarlab.org/research/open-data/",
+        "indexable": true,
+        "h1Count": 1,
+        "mainCount": 1,
+        "words": {
+          "content": 7859,
+          "chrome": 748,
+          "total": 8607
+        },
+        "links": {
+          "content": 36,
+          "chrome": 180
+        },
+        "images": {
+          "total": 3,
+          "missingAlt": 0
+        }
+      }
+    },
+    {
+      "path": "/research/opportunities/",
+      "title": "Research Opportunities — INSTAR Lab",
+      "family": "Research",
+      "kind": "editorial",
+      "indexable": true,
+      "inbound": 0,
+      "journeys": [],
+      "capture": {
+        "status": "success",
+        "capturedAt": "2026-11-23T02:25:10.291Z",
+        "selfCapture": false,
+        "depictsGeneration": null,
+        "failure": null,
+        "desktop": {
+          "width": 1440,
+          "height": 3052,
+          "bytes": 184378,
+          "thumbBytes": 23441
+        },
+        "mobile": {
+          "width": 390,
+          "height": 5037,
+          "bytes": 163045,
+          "thumbBytes": 140203
+        },
+        "thumb": "/record/shots/thumbs/research-opportunities-desktop.avif"
+      },
+      "measured": {
+        "route": "/research/opportunities/",
+        "status": "measured",
+        "title": "Research Opportunities — INSTAR Lab",
+        "description": "Engagement opportunities at INSTAR Lab: collaborative programs, STTR partnerships, co-investigation, fellowship, and sponsored research pathways.",
+        "canonical": "https://www.instarlab.org/research/opportunities/",
+        "indexable": true,
+        "h1Count": 1,
+        "mainCount": 1,
+        "words": {
+          "content": 291,
+          "chrome": 745,
+          "total": 1036
+        },
+        "links": {
+          "content": 13,
+          "chrome": 180
+        },
+        "images": {
+          "total": 2,
+          "missingAlt": 0
+        }
+      }
+    },
+    {
+      "path": "/research/our-process/",
+      "title": "Our Research Process — INSTAR Lab",
+      "family": "Research",
+      "kind": "editorial",
+      "indexable": true,
+      "inbound": 1,
+      "journeys": [
+        "program-officer"
+      ],
+      "capture": {
+        "status": "success",
+        "capturedAt": "2026-11-23T02:25:29.620Z",
+        "selfCapture": false,
+        "depictsGeneration": null,
+        "failure": null,
+        "desktop": {
+          "width": 1440,
+          "height": 3571,
+          "bytes": 179629,
+          "thumbBytes": 27700
+        },
+        "mobile": {
+          "width": 390,
+          "height": 5527,
+          "bytes": 159009,
+          "thumbBytes": 134982
+        },
+        "thumb": "/record/shots/thumbs/research-our-process-desktop.avif"
+      },
+      "measured": {
+        "route": "/research/our-process/",
+        "status": "measured",
+        "title": "Our Research Process — INSTAR Lab",
+        "description": "Review how INSTAR Lab frames research questions, selects methods, examines evidence, and documents limitations before sharing a result.",
+        "canonical": "https://www.instarlab.org/research/our-process/",
+        "indexable": true,
+        "h1Count": 1,
+        "mainCount": 1,
+        "words": {
+          "content": 280,
+          "chrome": 746,
+          "total": 1026
+        },
+        "links": {
+          "content": 3,
+          "chrome": 179
+        },
+        "images": {
+          "total": 2,
+          "missingAlt": 0
+        }
+      }
+    },
+    {
+      "path": "/research/outputs/",
+      "title": "Research Outputs — INSTAR Lab",
+      "family": "Research",
+      "kind": "editorial",
+      "indexable": true,
+      "inbound": 0,
+      "journeys": [],
+      "capture": {
+        "status": "success",
+        "capturedAt": "2026-11-23T02:25:41.934Z",
+        "selfCapture": false,
+        "depictsGeneration": null,
+        "failure": null,
+        "desktop": {
+          "width": 1440,
+          "height": 10504,
+          "bytes": 1000549,
+          "thumbBytes": 108617
+        },
+        "mobile": {
+          "width": 390,
+          "height": 24197,
+          "bytes": 948063,
+          "thumbBytes": 361665
+        },
+        "thumb": "/record/shots/thumbs/research-outputs-desktop.avif"
+      },
+      "measured": {
+        "route": "/research/outputs/",
+        "status": "measured",
+        "title": "Research Outputs — INSTAR Lab",
+        "description": "Every INSTAR Lab output in one filterable list: research briefs, field overviews, the capability statement, the dataset catalogue, the funders page and public code. Peer-reviewed publications: none yet.",
+        "canonical": "https://www.instarlab.org/research/outputs/",
+        "indexable": true,
+        "h1Count": 1,
+        "mainCount": 1,
+        "words": {
+          "content": 2641,
+          "chrome": 745,
+          "total": 3386
+        },
+        "links": {
+          "content": 68,
+          "chrome": 182
+        },
+        "images": {
+          "total": 2,
+          "missingAlt": 0
+        }
+      }
+    },
+    {
+      "path": "/research/publications/",
+      "title": "Research Publications — INSTAR Lab",
+      "family": "Research",
+      "kind": "editorial",
+      "indexable": true,
+      "inbound": 0,
+      "journeys": [],
+      "capture": {
+        "status": "success",
+        "capturedAt": "2026-11-23T02:26:11.634Z",
+        "selfCapture": false,
+        "depictsGeneration": null,
+        "failure": null,
+        "desktop": {
+          "width": 1440,
+          "height": 6438,
+          "bytes": 518311,
+          "thumbBytes": 59010
+        },
+        "mobile": {
+          "width": 390,
+          "height": 12483,
+          "bytes": 487701,
+          "thumbBytes": 418307
+        },
+        "thumb": "/record/shots/thumbs/research-publications-desktop.avif"
+      },
+      "measured": {
+        "route": "/research/publications/",
+        "status": "measured",
+        "title": "Research Publications — INSTAR Lab",
+        "description": "INSTAR Lab has no peer-reviewed publications yet, a measured zero attested by its chief executive officer. The research briefs it has published are listed here with citations.",
+        "canonical": "https://www.instarlab.org/research/publications/",
+        "indexable": true,
+        "h1Count": 1,
+        "mainCount": 1,
+        "words": {
+          "content": 1414,
+          "chrome": 745,
+          "total": 2159
+        },
+        "links": {
+          "content": 26,
+          "chrome": 182
+        },
+        "images": {
+          "total": 2,
+          "missingAlt": 0
+        }
+      }
+    },
+    {
+      "path": "/sciences/agriculture/",
+      "title": "Agriculture Research — INSTAR Lab Sciences",
+      "family": "Sciences",
+      "kind": "editorial",
+      "indexable": true,
+      "inbound": 0,
+      "journeys": [],
+      "capture": {
+        "status": "success",
+        "capturedAt": "2026-11-23T02:26:21.497Z",
+        "selfCapture": false,
+        "depictsGeneration": null,
+        "failure": null,
+        "desktop": {
+          "width": 1440,
+          "height": 12279,
+          "bytes": 762932,
+          "thumbBytes": 91706
+        },
+        "mobile": {
+          "width": 390,
+          "height": 16012,
+          "bytes": 778509,
+          "thumbBytes": 645380
+        },
+        "thumb": "/record/shots/thumbs/sciences-agriculture-desktop.avif"
+      },
+      "measured": {
+        "route": "/sciences/agriculture/",
+        "status": "measured",
+        "title": "Agriculture Research — INSTAR Lab Sciences",
+        "description": "A source-backed overview of agriculture through data: satellite yield monitoring, machine-learning crop models, and what remains uncertain.",
+        "canonical": "https://www.instarlab.org/sciences/agriculture/",
+        "indexable": true,
+        "h1Count": 1,
+        "mainCount": 1,
+        "words": {
+          "content": 2531,
+          "chrome": 746,
+          "total": 3277
+        },
+        "links": {
+          "content": 22,
+          "chrome": 180
+        },
+        "images": {
+          "total": 4,
+          "missingAlt": 0
+        }
+      }
+    },
+    {
+      "path": "/sciences/anthropology/",
+      "title": "Anthropology Research — INSTAR Lab Sciences",
+      "family": "Sciences",
+      "kind": "editorial",
+      "indexable": true,
+      "inbound": 0,
+      "journeys": [],
+      "capture": {
+        "status": "success",
+        "capturedAt": "2026-11-23T02:26:39.013Z",
+        "selfCapture": false,
+        "depictsGeneration": null,
+        "failure": null,
+        "desktop": {
+          "width": 1440,
+          "height": 11749,
+          "bytes": 738762,
+          "thumbBytes": 77009
+        },
+        "mobile": {
+          "width": 390,
+          "height": 16242,
+          "bytes": 730870,
+          "thumbBytes": 575119
+        },
+        "thumb": "/record/shots/thumbs/sciences-anthropology-desktop.avif"
+      },
+      "measured": {
+        "route": "/sciences/anthropology/",
+        "status": "measured",
+        "title": "Anthropology Research — INSTAR Lab Sciences",
+        "description": "A source-backed overview of anthropology through data and AI: digital ethnography, data ethics, Indigenous data governance and comparing societies.",
+        "canonical": "https://www.instarlab.org/sciences/anthropology/",
+        "indexable": true,
+        "h1Count": 1,
+        "mainCount": 1,
+        "words": {
+          "content": 2405,
+          "chrome": 746,
+          "total": 3151
+        },
+        "links": {
+          "content": 26,
+          "chrome": 180
+        },
+        "images": {
+          "total": 3,
+          "missingAlt": 0
+        }
+      }
+    },
+    {
+      "path": "/sciences/archaeology/",
+      "title": "Archaeology Research — INSTAR Lab Sciences",
+      "family": "Sciences",
+      "kind": "editorial",
+      "indexable": true,
+      "inbound": 0,
+      "journeys": [],
+      "capture": {
+        "status": "success",
+        "capturedAt": "2026-11-23T02:27:01.253Z",
+        "selfCapture": false,
+        "depictsGeneration": null,
+        "failure": null,
+        "desktop": {
+          "width": 1440,
+          "height": 12278,
+          "bytes": 753867,
+          "thumbBytes": 90840
+        },
+        "mobile": {
+          "width": 390,
+          "height": 16743,
+          "bytes": 832585,
+          "thumbBytes": 624051
+        },
+        "thumb": "/record/shots/thumbs/sciences-archaeology-desktop.avif"
+      },
+      "measured": {
+        "route": "/sciences/archaeology/",
+        "status": "measured",
+        "title": "Archaeology Research — INSTAR Lab Sciences",
+        "description": "A source-backed overview of archaeology through remote sensing, lidar and machine learning, with attention to reproducibility and geographic imbalance.",
+        "canonical": "https://www.instarlab.org/sciences/archaeology/",
+        "indexable": true,
+        "h1Count": 1,
+        "mainCount": 1,
+        "words": {
+          "content": 2738,
+          "chrome": 746,
+          "total": 3484
+        },
+        "links": {
+          "content": 19,
+          "chrome": 180
+        },
+        "images": {
+          "total": 4,
+          "missingAlt": 0
+        }
+      }
+    },
+    {
+      "path": "/sciences/biology/",
+      "title": "Biology Research — INSTAR Lab Sciences",
+      "family": "Sciences",
+      "kind": "editorial",
+      "indexable": true,
+      "inbound": 0,
+      "journeys": [],
+      "capture": {
+        "status": "success",
+        "capturedAt": "2026-11-23T02:27:10.244Z",
+        "selfCapture": false,
+        "depictsGeneration": null,
+        "failure": null,
+        "desktop": {
+          "width": 1440,
+          "height": 12606,
+          "bytes": 800966,
+          "thumbBytes": 85210
+        },
+        "mobile": {
+          "width": 390,
+          "height": 16745,
+          "bytes": 770786,
+          "thumbBytes": 583338
+        },
+        "thumb": "/record/shots/thumbs/sciences-biology-desktop.avif"
+      },
+      "measured": {
+        "route": "/sciences/biology/",
+        "status": "measured",
+        "title": "Biology Research — INSTAR Lab Sciences",
+        "description": "A source-backed overview of computational biology: protein structure prediction, single-cell atlases and whole-cell models, and what is still unresolved.",
+        "canonical": "https://www.instarlab.org/sciences/biology/",
+        "indexable": true,
+        "h1Count": 1,
+        "mainCount": 1,
+        "words": {
+          "content": 2589,
+          "chrome": 746,
+          "total": 3335
+        },
+        "links": {
+          "content": 31,
+          "chrome": 180
+        },
+        "images": {
+          "total": 4,
+          "missingAlt": 0
+        }
+      }
+    },
+    {
+      "path": "/sciences/chemistry/",
+      "title": "Chemistry Research — INSTAR Lab Sciences",
+      "family": "Sciences",
+      "kind": "editorial",
+      "indexable": true,
+      "inbound": 0,
+      "journeys": [],
+      "capture": {
+        "status": "success",
+        "capturedAt": "2026-11-23T02:27:37.105Z",
+        "selfCapture": false,
+        "depictsGeneration": null,
+        "failure": null,
+        "desktop": {
+          "width": 1440,
+          "height": 10659,
+          "bytes": 680048,
+          "thumbBytes": 74995
+        },
+        "mobile": {
+          "width": 390,
+          "height": 14046,
+          "bytes": 656981,
+          "thumbBytes": 560348
+        },
+        "thumb": "/record/shots/thumbs/sciences-chemistry-desktop.avif"
+      },
+      "measured": {
+        "route": "/sciences/chemistry/",
+        "status": "measured",
+        "title": "Chemistry Research — INSTAR Lab Sciences",
+        "description": "A source-backed overview of chemistry through computation: quantum-chemistry data, machine-learned potentials, reaction prediction and benchmarks.",
+        "canonical": "https://www.instarlab.org/sciences/chemistry/",
+        "indexable": true,
+        "h1Count": 1,
+        "mainCount": 1,
+        "words": {
+          "content": 2125,
+          "chrome": 746,
+          "total": 2871
+        },
+        "links": {
+          "content": 23,
+          "chrome": 180
+        },
+        "images": {
+          "total": 4,
+          "missingAlt": 0
+        }
+      }
+    },
+    {
+      "path": "/sciences/cognitive-sciences/",
+      "title": "Cognitive Sciences Research — INSTAR Lab Sciences",
+      "family": "Sciences",
+      "kind": "editorial",
+      "indexable": true,
+      "inbound": 0,
+      "journeys": [],
+      "capture": {
+        "status": "success",
+        "capturedAt": "2026-11-23T02:27:54.078Z",
+        "selfCapture": false,
+        "depictsGeneration": null,
+        "failure": null,
+        "desktop": {
+          "width": 1440,
+          "height": 11128,
+          "bytes": 626818,
+          "thumbBytes": 76093
+        },
+        "mobile": {
+          "width": 390,
+          "height": 15437,
+          "bytes": 691861,
+          "thumbBytes": 588585
+        },
+        "thumb": "/record/shots/thumbs/sciences-cognitive-sciences-desktop.avif"
+      },
+      "measured": {
+        "route": "/sciences/cognitive-sciences/",
+        "status": "measured",
+        "title": "Cognitive Sciences Research — INSTAR Lab Sciences",
+        "description": "A source-backed overview of computational cognitive science: formal models of the mind, language models as subjects, and open questions about evidence.",
+        "canonical": "https://www.instarlab.org/sciences/cognitive-sciences/",
+        "indexable": true,
+        "h1Count": 1,
+        "mainCount": 1,
+        "words": {
+          "content": 2349,
+          "chrome": 747,
+          "total": 3096
+        },
+        "links": {
+          "content": 32,
+          "chrome": 180
+        },
+        "images": {
+          "total": 4,
+          "missingAlt": 0
+        }
+      }
+    },
+    {
+      "path": "/sciences/economics/",
+      "title": "Economics Research — INSTAR Lab Sciences",
+      "family": "Sciences",
+      "kind": "editorial",
+      "indexable": true,
+      "inbound": 0,
+      "journeys": [],
+      "capture": {
+        "status": "success",
+        "capturedAt": "2026-11-23T02:28:11.018Z",
+        "selfCapture": false,
+        "depictsGeneration": null,
+        "failure": null,
+        "desktop": {
+          "width": 1440,
+          "height": 10415,
+          "bytes": 698372,
+          "thumbBytes": 73387
+        },
+        "mobile": {
+          "width": 390,
+          "height": 14122,
+          "bytes": 669894,
+          "thumbBytes": 573284
+        },
+        "thumb": "/record/shots/thumbs/sciences-economics-desktop.avif"
+      },
+      "measured": {
+        "route": "/sciences/economics/",
+        "status": "measured",
+        "title": "Economics Research — INSTAR Lab Sciences",
+        "description": "A source-backed overview of economics through data and AI: machine learning, causal inference, replication and satellite-based measurement.",
+        "canonical": "https://www.instarlab.org/sciences/economics/",
+        "indexable": true,
+        "h1Count": 1,
+        "mainCount": 1,
+        "words": {
+          "content": 2303,
+          "chrome": 746,
+          "total": 3049
+        },
+        "links": {
+          "content": 18,
+          "chrome": 180
+        },
+        "images": {
+          "total": 4,
+          "missingAlt": 0
+        }
+      }
+    },
+    {
+      "path": "/sciences/energy/",
+      "title": "Energy Research — INSTAR Lab Sciences",
+      "family": "Sciences",
+      "kind": "editorial",
+      "indexable": true,
+      "inbound": 0,
+      "journeys": [],
+      "capture": {
+        "status": "success",
+        "capturedAt": "2026-11-23T02:28:25.622Z",
+        "selfCapture": false,
+        "depictsGeneration": null,
+        "failure": null,
+        "desktop": {
+          "width": 1440,
+          "height": 11134,
+          "bytes": 667605,
+          "thumbBytes": 72457
+        },
+        "mobile": {
+          "width": 390,
+          "height": 14465,
+          "bytes": 655534,
+          "thumbBytes": 557376
+        },
+        "thumb": "/record/shots/thumbs/sciences-energy-desktop.avif"
+      },
+      "measured": {
+        "route": "/sciences/energy/",
+        "status": "measured",
+        "title": "Energy Research — INSTAR Lab Sciences",
+        "description": "A source-backed overview of energy through data and modelling: grid and system models, solar and demand data, forecasting and machine learning.",
+        "canonical": "https://www.instarlab.org/sciences/energy/",
+        "indexable": true,
+        "h1Count": 1,
+        "mainCount": 1,
+        "words": {
+          "content": 2220,
+          "chrome": 746,
+          "total": 2966
+        },
+        "links": {
+          "content": 21,
+          "chrome": 179
+        },
+        "images": {
+          "total": 4,
+          "missingAlt": 0
+        }
+      }
+    },
+    {
+      "path": "/sciences/genetics/",
+      "title": "Genetics Research — INSTAR Lab Sciences",
+      "family": "Sciences",
+      "kind": "editorial",
+      "indexable": true,
+      "inbound": 0,
+      "journeys": [],
+      "capture": {
+        "status": "success",
+        "capturedAt": "2026-11-23T02:28:27.197Z",
+        "selfCapture": false,
+        "depictsGeneration": null,
+        "failure": null,
+        "desktop": {
+          "width": 1440,
+          "height": 11336,
+          "bytes": 693455,
+          "thumbBytes": 75869
+        },
+        "mobile": {
+          "width": 390,
+          "height": 15230,
+          "bytes": 677909,
+          "thumbBytes": 577861
+        },
+        "thumb": "/record/shots/thumbs/sciences-genetics-desktop.avif"
+      },
+      "measured": {
+        "route": "/sciences/genetics/",
+        "status": "measured",
+        "title": "Genetics Research — INSTAR Lab Sciences",
+        "description": "A source-backed overview of computational genetics: reference genomes, biobanks, variant interpretation and sequence-based prediction, with open questions.",
+        "canonical": "https://www.instarlab.org/sciences/genetics/",
+        "indexable": true,
+        "h1Count": 1,
+        "mainCount": 1,
+        "words": {
+          "content": 2201,
+          "chrome": 746,
+          "total": 2947
+        },
+        "links": {
+          "content": 23,
+          "chrome": 180
+        },
+        "images": {
+          "total": 4,
+          "missingAlt": 0
+        }
+      }
+    },
+    {
+      "path": "/sciences/geology/",
+      "title": "Geology Research — INSTAR Lab Sciences",
+      "family": "Sciences",
+      "kind": "editorial",
+      "indexable": true,
+      "inbound": 0,
+      "journeys": [],
+      "capture": {
+        "status": "success",
+        "capturedAt": "2026-11-23T02:28:43.619Z",
+        "selfCapture": false,
+        "depictsGeneration": null,
+        "failure": null,
+        "desktop": {
+          "width": 1440,
+          "height": 12567,
+          "bytes": 800796,
+          "thumbBytes": 85965
+        },
+        "mobile": {
+          "width": 390,
+          "height": 16043,
+          "bytes": 739764,
+          "thumbBytes": 592802
+        },
+        "thumb": "/record/shots/thumbs/sciences-geology-desktop.avif"
+      },
+      "measured": {
+        "route": "/sciences/geology/",
+        "status": "measured",
+        "title": "Geology Research — INSTAR Lab Sciences",
+        "description": "A source-backed overview of geology through data: seismic catalogues, machine-learning phase picking, and open questions in earthquake science.",
+        "canonical": "https://www.instarlab.org/sciences/geology/",
+        "indexable": true,
+        "h1Count": 1,
+        "mainCount": 1,
+        "words": {
+          "content": 2373,
+          "chrome": 746,
+          "total": 3119
+        },
+        "links": {
+          "content": 21,
+          "chrome": 180
+        },
+        "images": {
+          "total": 4,
+          "missingAlt": 0
+        }
+      }
+    },
+    {
+      "path": "/sciences/kinesiology/",
+      "title": "Kinesiology Research — INSTAR Lab Sciences",
+      "family": "Sciences",
+      "kind": "editorial",
+      "indexable": true,
+      "inbound": 0,
+      "journeys": [],
+      "capture": {
+        "status": "success",
+        "capturedAt": "2026-11-23T02:28:55.910Z",
+        "selfCapture": false,
+        "depictsGeneration": null,
+        "failure": null,
+        "desktop": {
+          "width": 1440,
+          "height": 11576,
+          "bytes": 788577,
+          "thumbBytes": 82752
+        },
+        "mobile": {
+          "width": 390,
+          "height": 15640,
+          "bytes": 753782,
+          "thumbBytes": 645112
+        },
+        "thumb": "/record/shots/thumbs/sciences-kinesiology-desktop.avif"
+      },
+      "measured": {
+        "route": "/sciences/kinesiology/",
+        "status": "measured",
+        "title": "Kinesiology Research — INSTAR Lab Sciences",
+        "description": "A source-backed overview of computational kinesiology: motion capture, pose estimation, musculoskeletal simulation and accelerometer-based measurement.",
+        "canonical": "https://www.instarlab.org/sciences/kinesiology/",
+        "indexable": true,
+        "h1Count": 1,
+        "mainCount": 1,
+        "words": {
+          "content": 2568,
+          "chrome": 746,
+          "total": 3314
+        },
+        "links": {
+          "content": 24,
+          "chrome": 180
+        },
+        "images": {
+          "total": 4,
+          "missingAlt": 0
+        }
+      }
+    },
+    {
+      "path": "/sciences/law/",
+      "title": "Law & Legal Research — INSTAR Lab Sciences",
+      "family": "Sciences",
+      "kind": "editorial",
+      "indexable": true,
+      "inbound": 0,
+      "journeys": [],
+      "capture": {
+        "status": "success",
+        "capturedAt": "2026-11-23T02:28:59.907Z",
+        "selfCapture": false,
+        "depictsGeneration": null,
+        "failure": null,
+        "desktop": {
+          "width": 1440,
+          "height": 13073,
+          "bytes": 870953,
+          "thumbBytes": 89680
+        },
+        "mobile": {
+          "width": 390,
+          "height": 17967,
+          "bytes": 855213,
+          "thumbBytes": 561598
+        },
+        "thumb": "/record/shots/thumbs/sciences-law-desktop.avif"
+      },
+      "measured": {
+        "route": "/sciences/law/",
+        "status": "measured",
+        "title": "Law & Legal Research — INSTAR Lab Sciences",
+        "description": "A source-backed overview of law and AI: legal prediction, language models, hallucination evidence, and the EU, OECD and NIST governance texts.",
+        "canonical": "https://www.instarlab.org/sciences/law/",
+        "indexable": true,
+        "h1Count": 1,
+        "mainCount": 1,
+        "words": {
+          "content": 3097,
+          "chrome": 748,
+          "total": 3845
+        },
+        "links": {
+          "content": 33,
+          "chrome": 180
+        },
+        "images": {
+          "total": 4,
+          "missingAlt": 0
+        }
+      }
+    },
+    {
+      "path": "/sciences/linguistics/",
+      "title": "Linguistics Research — INSTAR Lab Sciences",
+      "family": "Sciences",
+      "kind": "editorial",
+      "indexable": true,
+      "inbound": 0,
+      "journeys": [],
+      "capture": {
+        "status": "success",
+        "capturedAt": "2026-11-23T02:29:21.785Z",
+        "selfCapture": false,
+        "depictsGeneration": null,
+        "failure": null,
+        "desktop": {
+          "width": 1440,
+          "height": 9663,
+          "bytes": 611965,
+          "thumbBytes": 65154
+        },
+        "mobile": {
+          "width": 390,
+          "height": 13436,
+          "bytes": 603779,
+          "thumbBytes": 512348
+        },
+        "thumb": "/record/shots/thumbs/sciences-linguistics-desktop.avif"
+      },
+      "measured": {
+        "route": "/sciences/linguistics/",
+        "status": "measured",
+        "title": "Linguistics Research — INSTAR Lab Sciences",
+        "description": "A source-backed overview of linguistics in the age of language models: language diversity, endangered-language documentation and what models learn.",
+        "canonical": "https://www.instarlab.org/sciences/linguistics/",
+        "indexable": true,
+        "h1Count": 1,
+        "mainCount": 1,
+        "words": {
+          "content": 1973,
+          "chrome": 746,
+          "total": 2719
+        },
+        "links": {
+          "content": 21,
+          "chrome": 180
+        },
+        "images": {
+          "total": 3,
+          "missingAlt": 0
+        }
+      }
+    },
+    {
+      "path": "/sciences/materials-science/",
+      "title": "Materials Science Research — INSTAR Lab Sciences",
+      "family": "Sciences",
+      "kind": "editorial",
+      "indexable": true,
+      "inbound": 0,
+      "journeys": [],
+      "capture": {
+        "status": "success",
+        "capturedAt": "2026-11-23T02:29:30.032Z",
+        "selfCapture": false,
+        "depictsGeneration": null,
+        "failure": null,
+        "desktop": {
+          "width": 1440,
+          "height": 10980,
+          "bytes": 625753,
+          "thumbBytes": 77734
+        },
+        "mobile": {
+          "width": 390,
+          "height": 14477,
+          "bytes": 666871,
+          "thumbBytes": 572853
+        },
+        "thumb": "/record/shots/thumbs/sciences-materials-science-desktop.avif"
+      },
+      "measured": {
+        "route": "/sciences/materials-science/",
+        "status": "measured",
+        "title": "Materials Science Research — INSTAR Lab Sciences",
+        "description": "A source-backed overview of materials science through data: open computed databases, machine-learning discovery and autonomous synthesis.",
+        "canonical": "https://www.instarlab.org/sciences/materials-science/",
+        "indexable": true,
+        "h1Count": 1,
+        "mainCount": 1,
+        "words": {
+          "content": 2107,
+          "chrome": 747,
+          "total": 2854
+        },
+        "links": {
+          "content": 24,
+          "chrome": 180
+        },
+        "images": {
+          "total": 4,
+          "missingAlt": 0
+        }
+      }
+    },
+    {
+      "path": "/sciences/medicine/",
+      "title": "Medicine & Health Research — INSTAR Lab Sciences",
+      "family": "Sciences",
+      "kind": "editorial",
+      "indexable": true,
+      "inbound": 0,
+      "journeys": [],
+      "capture": {
+        "status": "success",
+        "capturedAt": "2026-11-23T02:29:37.379Z",
+        "selfCapture": false,
+        "depictsGeneration": null,
+        "failure": null,
+        "desktop": {
+          "width": 1440,
+          "height": 12077,
+          "bytes": 836087,
+          "thumbBytes": 88927
+        },
+        "mobile": {
+          "width": 390,
+          "height": 16959,
+          "bytes": 823610,
+          "thumbBytes": 612374
+        },
+        "thumb": "/record/shots/thumbs/sciences-medicine-desktop.avif"
+      },
+      "measured": {
+        "route": "/sciences/medicine/",
+        "status": "measured",
+        "title": "Medicine & Health Research — INSTAR Lab Sciences",
+        "description": "A source-backed overview of clinical AI: how medical algorithms are built, regulated and evaluated, including the FDA's AI-enabled device guidance.",
+        "canonical": "https://www.instarlab.org/sciences/medicine/",
+        "indexable": true,
+        "h1Count": 1,
+        "mainCount": 1,
+        "words": {
+          "content": 2744,
+          "chrome": 748,
+          "total": 3492
+        },
+        "links": {
+          "content": 26,
+          "chrome": 179
+        },
+        "images": {
+          "total": 4,
+          "missingAlt": 0
+        }
+      }
+    },
+    {
+      "path": "/sciences/neuroscience/",
+      "title": "Neuroscience Research — INSTAR Lab Sciences",
+      "family": "Sciences",
+      "kind": "editorial",
+      "indexable": true,
+      "inbound": 0,
+      "journeys": [],
+      "capture": {
+        "status": "success",
+        "capturedAt": "2026-11-23T02:29:50.721Z",
+        "selfCapture": false,
+        "depictsGeneration": null,
+        "failure": null,
+        "desktop": {
+          "width": 1440,
+          "height": 13683,
+          "bytes": 926815,
+          "thumbBytes": 94739
+        },
+        "mobile": {
+          "width": 390,
+          "height": 19328,
+          "bytes": 917041,
+          "thumbBytes": 533933
+        },
+        "thumb": "/record/shots/thumbs/sciences-neuroscience-desktop.avif"
+      },
+      "measured": {
+        "route": "/sciences/neuroscience/",
+        "status": "measured",
+        "title": "Neuroscience Research — INSTAR Lab Sciences",
+        "description": "A source-backed overview of computational neuroscience: open neuroimaging data, brain-wide association studies, connectomes and brain models.",
+        "canonical": "https://www.instarlab.org/sciences/neuroscience/",
+        "indexable": true,
+        "h1Count": 1,
+        "mainCount": 1,
+        "words": {
+          "content": 3220,
+          "chrome": 746,
+          "total": 3966
+        },
+        "links": {
+          "content": 26,
+          "chrome": 180
+        },
+        "images": {
+          "total": 4,
+          "missingAlt": 0
+        }
+      }
+    },
+    {
+      "path": "/sciences/ocean-science/",
+      "title": "Ocean Science Research — INSTAR Lab Sciences",
+      "family": "Sciences",
+      "kind": "editorial",
+      "indexable": true,
+      "inbound": 0,
+      "journeys": [],
+      "capture": {
+        "status": "success",
+        "capturedAt": "2026-11-23T02:30:00.892Z",
+        "selfCapture": false,
+        "depictsGeneration": null,
+        "failure": null,
+        "desktop": {
+          "width": 1440,
+          "height": 12039,
+          "bytes": 774894,
+          "thumbBytes": 82875
+        },
+        "mobile": {
+          "width": 390,
+          "height": 15617,
+          "bytes": 719297,
+          "thumbBytes": 610811
+        },
+        "thumb": "/record/shots/thumbs/sciences-ocean-science-desktop.avif"
+      },
+      "measured": {
+        "route": "/sciences/ocean-science/",
+        "status": "measured",
+        "title": "Ocean Science Research — INSTAR Lab Sciences",
+        "description": "A source-backed overview of ocean science through data: profiling floats, global observing systems, and machine learning for marine data.",
+        "canonical": "https://www.instarlab.org/sciences/ocean-science/",
+        "indexable": true,
+        "h1Count": 1,
+        "mainCount": 1,
+        "words": {
+          "content": 2470,
+          "chrome": 747,
+          "total": 3217
+        },
+        "links": {
+          "content": 23,
+          "chrome": 180
+        },
+        "images": {
+          "total": 4,
+          "missingAlt": 0
+        }
+      }
+    },
+    {
+      "path": "/sciences/outer-space/",
+      "title": "Outer Space Research — INSTAR Lab Sciences",
+      "family": "Sciences",
+      "kind": "editorial",
+      "indexable": true,
+      "inbound": 0,
+      "journeys": [],
+      "capture": {
+        "status": "success",
+        "capturedAt": "2026-11-23T02:30:14.804Z",
+        "selfCapture": false,
+        "depictsGeneration": null,
+        "failure": null,
+        "desktop": {
+          "width": 1440,
+          "height": 11501,
+          "bytes": 616530,
+          "thumbBytes": 78519
+        },
+        "mobile": {
+          "width": 390,
+          "height": 14949,
+          "bytes": 686417,
+          "thumbBytes": 586050
+        },
+        "thumb": "/record/shots/thumbs/sciences-outer-space-desktop.avif"
+      },
+      "measured": {
+        "route": "/sciences/outer-space/",
+        "status": "measured",
+        "title": "Outer Space Research — INSTAR Lab Sciences",
+        "description": "A source-backed overview of outer space science through data: exoplanet surveys, public archives, sky surveys and machine learning in astronomy.",
+        "canonical": "https://www.instarlab.org/sciences/outer-space/",
+        "indexable": true,
+        "h1Count": 1,
+        "mainCount": 1,
+        "words": {
+          "content": 2305,
+          "chrome": 747,
+          "total": 3052
+        },
+        "links": {
+          "content": 23,
+          "chrome": 180
+        },
+        "images": {
+          "total": 4,
+          "missingAlt": 0
+        }
+      }
+    },
+    {
+      "path": "/sciences/physics/",
+      "title": "Physics Research — INSTAR Lab Sciences",
+      "family": "Sciences",
+      "kind": "editorial",
+      "indexable": true,
+      "inbound": 0,
+      "journeys": [],
+      "capture": {
+        "status": "success",
+        "capturedAt": "2026-11-23T02:30:30.314Z",
+        "selfCapture": false,
+        "depictsGeneration": null,
+        "failure": null,
+        "desktop": {
+          "width": 1440,
+          "height": 11605,
+          "bytes": 668624,
+          "thumbBytes": 83063
+        },
+        "mobile": {
+          "width": 390,
+          "height": 15305,
+          "bytes": 716100,
+          "thumbBytes": 612644
+        },
+        "thumb": "/record/shots/thumbs/sciences-physics-desktop.avif"
+      },
+      "measured": {
+        "route": "/sciences/physics/",
+        "status": "measured",
+        "title": "Physics Research — INSTAR Lab Sciences",
+        "description": "A source-backed overview of physics through computation: simulation, machine learning, particle-physics data and gravitational-wave detection.",
+        "canonical": "https://www.instarlab.org/sciences/physics/",
+        "indexable": true,
+        "h1Count": 1,
+        "mainCount": 1,
+        "words": {
+          "content": 2432,
+          "chrome": 746,
+          "total": 3178
+        },
+        "links": {
+          "content": 23,
+          "chrome": 180
+        },
+        "images": {
+          "total": 4,
+          "missingAlt": 0
+        }
+      }
+    },
+    {
+      "path": "/sciences/physiology/",
+      "title": "Physiology Research — INSTAR Lab Sciences",
+      "family": "Sciences",
+      "kind": "editorial",
+      "indexable": true,
+      "inbound": 0,
+      "journeys": [],
+      "capture": {
+        "status": "success",
+        "capturedAt": "2026-11-23T02:30:35.318Z",
+        "selfCapture": false,
+        "depictsGeneration": null,
+        "failure": null,
+        "desktop": {
+          "width": 1440,
+          "height": 11471,
+          "bytes": 769383,
+          "thumbBytes": 81899
+        },
+        "mobile": {
+          "width": 390,
+          "height": 15814,
+          "bytes": 743819,
+          "thumbBytes": 634185
+        },
+        "thumb": "/record/shots/thumbs/sciences-physiology-desktop.avif"
+      },
+      "measured": {
+        "route": "/sciences/physiology/",
+        "status": "measured",
+        "title": "Physiology Research — INSTAR Lab Sciences",
+        "description": "A source-backed overview of computational physiology: open signal archives, heart rate variability, ECG deep learning and wearable sensor accuracy.",
+        "canonical": "https://www.instarlab.org/sciences/physiology/",
+        "indexable": true,
+        "h1Count": 1,
+        "mainCount": 1,
+        "words": {
+          "content": 2407,
+          "chrome": 746,
+          "total": 3153
+        },
+        "links": {
+          "content": 25,
+          "chrome": 180
+        },
+        "images": {
+          "total": 4,
+          "missingAlt": 0
+        }
+      }
+    },
+    {
+      "path": "/sciences/psychology/",
+      "title": "Psychology Research — INSTAR Lab Sciences",
+      "family": "Sciences",
+      "kind": "editorial",
+      "indexable": true,
+      "inbound": 0,
+      "journeys": [],
+      "capture": {
+        "status": "success",
+        "capturedAt": "2026-11-23T02:30:47.806Z",
+        "selfCapture": false,
+        "depictsGeneration": null,
+        "failure": null,
+        "desktop": {
+          "width": 1440,
+          "height": 12192,
+          "bytes": 772127,
+          "thumbBytes": 81397
+        },
+        "mobile": {
+          "width": 390,
+          "height": 16422,
+          "bytes": 754151,
+          "thumbBytes": 582445
+        },
+        "thumb": "/record/shots/thumbs/sciences-psychology-desktop.avif"
+      },
+      "measured": {
+        "route": "/sciences/psychology/",
+        "status": "measured",
+        "title": "Psychology Research — INSTAR Lab Sciences",
+        "description": "A source-backed overview of psychology as a data science: replication, preregistration, prediction and who is actually studied.",
+        "canonical": "https://www.instarlab.org/sciences/psychology/",
+        "indexable": true,
+        "h1Count": 1,
+        "mainCount": 1,
+        "words": {
+          "content": 2609,
+          "chrome": 746,
+          "total": 3355
+        },
+        "links": {
+          "content": 34,
+          "chrome": 180
+        },
+        "images": {
+          "total": 4,
+          "missingAlt": 0
+        }
+      }
+    },
+    {
+      "path": "/sciences/sociology/",
+      "title": "Sociology Research — INSTAR Lab Sciences",
+      "family": "Sciences",
+      "kind": "editorial",
+      "indexable": true,
+      "inbound": 0,
+      "journeys": [],
+      "capture": {
+        "status": "success",
+        "capturedAt": "2026-11-23T02:31:02.593Z",
+        "selfCapture": false,
+        "depictsGeneration": null,
+        "failure": null,
+        "desktop": {
+          "width": 1440,
+          "height": 9641,
+          "bytes": 628128,
+          "thumbBytes": 66838
+        },
+        "mobile": {
+          "width": 390,
+          "height": 13471,
+          "bytes": 606635,
+          "thumbBytes": 520296
+        },
+        "thumb": "/record/shots/thumbs/sciences-sociology-desktop.avif"
+      },
+      "measured": {
+        "route": "/sciences/sociology/",
+        "status": "measured",
+        "title": "Sociology Research — INSTAR Lab Sciences",
+        "description": "A source-backed overview of computational sociology: digital data, text as data, prediction limits and language models in social research.",
+        "canonical": "https://www.instarlab.org/sciences/sociology/",
+        "indexable": true,
+        "h1Count": 1,
+        "mainCount": 1,
+        "words": {
+          "content": 2053,
+          "chrome": 746,
+          "total": 2799
+        },
+        "links": {
+          "content": 18,
+          "chrome": 180
+        },
+        "images": {
+          "total": 3,
+          "missingAlt": 0
+        }
+      }
+    },
+    {
+      "path": "/tech-transfer/enterprise-rd/",
+      "title": "Enterprise R&D — INSTAR Lab Technology Transfer",
+      "family": "Tech transfer",
+      "kind": "editorial",
+      "indexable": true,
+      "inbound": 1,
+      "journeys": [
+        "institutional-partner"
+      ],
+      "capture": {
+        "status": "success",
+        "capturedAt": "2026-11-23T02:31:09.579Z",
+        "selfCapture": false,
+        "depictsGeneration": null,
+        "failure": null,
+        "desktop": {
+          "width": 1440,
+          "height": 3095,
+          "bytes": 154923,
+          "thumbBytes": 23979
+        },
+        "mobile": {
+          "width": 390,
+          "height": 4386,
+          "bytes": 120938,
+          "thumbBytes": 105115
+        },
+        "thumb": "/record/shots/thumbs/tech-transfer-enterprise-rd-desktop.avif"
+      },
+      "measured": {
+        "route": "/tech-transfer/enterprise-rd/",
+        "status": "measured",
+        "title": "Enterprise R&D — INSTAR Lab Technology Transfer",
+        "description": "INSTAR Lab is a 501(c)(3) research institute. A technology-transfer model for applied AI, secure software, sensing, simulation, and learning science research.",
+        "canonical": "https://www.instarlab.org/tech-transfer/enterprise-rd/",
+        "indexable": true,
+        "h1Count": 1,
+        "mainCount": 1,
+        "words": {
+          "content": 158,
+          "chrome": 747,
+          "total": 905
+        },
+        "links": {
+          "content": 8,
+          "chrome": 180
+        },
+        "images": {
+          "total": 2,
+          "missingAlt": 0
+        }
+      }
+    },
+    {
+      "path": "/tech-transfer/portfolio/",
+      "title": "Research Portfolio — INSTAR Lab Technology Transfer",
+      "family": "Tech transfer",
+      "kind": "editorial",
+      "indexable": true,
+      "inbound": 1,
+      "journeys": [
+        "institutional-partner"
+      ],
+      "capture": {
+        "status": "success",
+        "capturedAt": "2026-11-23T02:31:20.089Z",
+        "selfCapture": false,
+        "depictsGeneration": null,
+        "failure": null,
+        "desktop": {
+          "width": 1440,
+          "height": 3755,
+          "bytes": 152376,
+          "thumbBytes": 24453
+        },
+        "mobile": {
+          "width": 390,
+          "height": 4530,
+          "bytes": 118494,
+          "thumbBytes": 102057
+        },
+        "thumb": "/record/shots/thumbs/tech-transfer-portfolio-desktop.avif"
+      },
+      "measured": {
+        "route": "/tech-transfer/portfolio/",
+        "status": "measured",
+        "title": "Research Portfolio — INSTAR Lab Technology Transfer",
+        "description": "INSTAR Lab’s technology-transfer portfolio: autonomous software engineering, multi-domain sensing, generative AI, decision intelligence, and learning science.",
+        "canonical": "https://www.instarlab.org/tech-transfer/portfolio/",
+        "indexable": true,
+        "h1Count": 1,
+        "mainCount": 1,
+        "words": {
+          "content": 131,
+          "chrome": 747,
+          "total": 878
+        },
+        "links": {
+          "content": 7,
+          "chrome": 180
+        },
+        "images": {
+          "total": 3,
+          "missingAlt": 0
+        }
+      }
+    },
+    {
+      "path": "/tech-transfer/sttr-programs/",
+      "title": "STTR Programs — INSTAR Lab Technology Transfer",
+      "family": "Tech transfer",
+      "kind": "editorial",
+      "indexable": true,
+      "inbound": 1,
+      "journeys": [
+        "institutional-partner"
+      ],
+      "capture": {
+        "status": "success",
+        "capturedAt": "2026-11-22T17:48:07.983Z",
+        "selfCapture": false,
+        "depictsGeneration": null,
+        "failure": null,
+        "desktop": {
+          "width": 1440,
+          "height": 3141,
+          "bytes": 239720,
+          "thumbBytes": 25323
+        },
+        "mobile": {
+          "width": 390,
+          "height": 4928,
+          "bytes": 216463,
+          "thumbBytes": 185319
+        },
+        "thumb": "/record/shots/thumbs/tech-transfer-sttr-programs-desktop.avif"
+      },
+      "measured": {
+        "route": "/tech-transfer/sttr-programs/",
+        "status": "measured",
+        "title": "STTR Research Institution Partner — INSTAR Lab Technology Transfer",
+        "description": "INSTAR Lab participates in STTR as a nonprofit research institution partner. See the project roles, our research areas, and the steps to a signed agreement.",
+        "canonical": "https://www.instarlab.org/tech-transfer/sttr-programs/",
+        "indexable": true,
+        "h1Count": 1,
+        "mainCount": 1,
+        "words": {
+          "content": 530,
+          "chrome": 749,
+          "total": 1279
+        },
+        "links": {
+          "content": 6,
+          "chrome": 180
+        },
+        "images": {
+          "total": 2,
+          "missingAlt": 0
+        }
+      }
+    },
+    {
+      "path": "/tech-transfer/workshops-events/",
+      "title": "Workshops & Events — INSTAR Lab Technology Transfer",
+      "family": "Tech transfer",
+      "kind": "editorial",
+      "indexable": true,
+      "inbound": 0,
+      "journeys": [],
+      "capture": {
+        "status": "success",
+        "capturedAt": "2026-11-23T02:31:21.607Z",
+        "selfCapture": false,
+        "depictsGeneration": null,
+        "failure": null,
+        "desktop": {
+          "width": 1440,
+          "height": 4374,
+          "bytes": 182257,
+          "thumbBytes": 27735
+        },
+        "mobile": {
+          "width": 390,
+          "height": 5458,
+          "bytes": 148464,
+          "thumbBytes": 128020
+        },
+        "thumb": "/record/shots/thumbs/tech-transfer-workshops-events-desktop.avif"
+      },
+      "measured": {
+        "route": "/tech-transfer/workshops-events/",
+        "status": "measured",
+        "title": "Workshops & Events — INSTAR Lab Technology Transfer",
+        "description": "Workshop and knowledge-exchange formats INSTAR Lab plans for researchers, partners, and federal program stakeholders. No scheduled events are listed yet.",
+        "canonical": "https://www.instarlab.org/tech-transfer/workshops-events/",
+        "indexable": true,
+        "h1Count": 1,
+        "mainCount": 1,
+        "words": {
+          "content": 218,
+          "chrome": 748,
+          "total": 966
+        },
+        "links": {
+          "content": 8,
+          "chrome": 180
+        },
+        "images": {
+          "total": 3,
+          "missingAlt": 0
+        }
+      }
+    },
+    {
+      "path": "/technology/augmented-reality/",
+      "title": "Augmented Reality Research — INSTAR Lab Technology",
+      "family": "Technology",
+      "kind": "editorial",
+      "indexable": true,
+      "inbound": 0,
+      "journeys": [],
+      "capture": {
+        "status": "success",
+        "capturedAt": "2026-11-23T02:31:29.425Z",
+        "selfCapture": false,
+        "depictsGeneration": null,
+        "failure": null,
+        "desktop": {
+          "width": 1440,
+          "height": 10822,
+          "bytes": 704266,
+          "thumbBytes": 77185
+        },
+        "mobile": {
+          "width": 390,
+          "height": 14090,
+          "bytes": 662921,
+          "thumbBytes": 571000
+        },
+        "thumb": "/record/shots/thumbs/technology-augmented-reality-desktop.avif"
+      },
+      "measured": {
+        "route": "/technology/augmented-reality/",
+        "status": "measured",
+        "title": "Augmented Reality Research — INSTAR Lab Technology",
+        "description": "What augmented reality is, how devices track the world and place digital content in it, and what the research literature says about usability and perception.",
+        "canonical": "https://www.instarlab.org/technology/augmented-reality/",
+        "indexable": true,
+        "h1Count": 1,
+        "mainCount": 1,
+        "words": {
+          "content": 2212,
+          "chrome": 747,
+          "total": 2959
+        },
+        "links": {
+          "content": 17,
+          "chrome": 180
+        },
+        "images": {
+          "total": 4,
+          "missingAlt": 0
+        }
+      }
+    },
+    {
+      "path": "/technology/biotechnology/",
+      "title": "Biotechnology Research — INSTAR Lab Technology",
+      "family": "Technology",
+      "kind": "editorial",
+      "indexable": true,
+      "inbound": 0,
+      "journeys": [],
+      "capture": {
+        "status": "success",
+        "capturedAt": "2026-11-23T02:31:30.249Z",
+        "selfCapture": false,
+        "depictsGeneration": null,
+        "failure": null,
+        "desktop": {
+          "width": 1440,
+          "height": 11438,
+          "bytes": 755232,
+          "thumbBytes": 79077
+        },
+        "mobile": {
+          "width": 390,
+          "height": 15832,
+          "bytes": 743974,
+          "thumbBytes": 632986
+        },
+        "thumb": "/record/shots/thumbs/technology-biotechnology-desktop.avif"
+      },
+      "measured": {
+        "route": "/technology/biotechnology/",
+        "status": "measured",
+        "title": "Biotechnology Research — INSTAR Lab Technology",
+        "description": "A source-backed overview of biotechnology: robot scientists, self-driving laboratories, biofoundries, on-demand biomanufacturing and biosensing.",
+        "canonical": "https://www.instarlab.org/technology/biotechnology/",
+        "indexable": true,
+        "h1Count": 1,
+        "mainCount": 1,
+        "words": {
+          "content": 2544,
+          "chrome": 746,
+          "total": 3290
+        },
+        "links": {
+          "content": 34,
+          "chrome": 180
+        },
+        "images": {
+          "total": 2,
+          "missingAlt": 0
+        }
+      }
+    },
+    {
+      "path": "/technology/computer-science/",
+      "title": "Computer Science Research — INSTAR Lab Technology",
+      "family": "Technology",
+      "kind": "editorial",
+      "indexable": true,
+      "inbound": 1,
+      "journeys": [
+        "technical-collaborator"
+      ],
+      "capture": {
+        "status": "success",
+        "capturedAt": "2026-11-23T02:31:33.311Z",
+        "selfCapture": false,
+        "depictsGeneration": null,
+        "failure": null,
+        "desktop": {
+          "width": 1440,
+          "height": 11485,
+          "bytes": 678464,
+          "thumbBytes": 82059
+        },
+        "mobile": {
+          "width": 390,
+          "height": 15867,
+          "bytes": 728591,
+          "thumbBytes": 619605
+        },
+        "thumb": "/record/shots/thumbs/technology-computer-science-desktop.avif"
+      },
+      "measured": {
+        "route": "/technology/computer-science/",
+        "status": "measured",
+        "title": "Computer Science Research — INSTAR Lab Technology",
+        "description": "A plain-language, source-backed overview of computer science: its theoretical foundations, quantum computing, and the open problems in the field.",
+        "canonical": "https://www.instarlab.org/technology/computer-science/",
+        "indexable": true,
+        "h1Count": 1,
+        "mainCount": 1,
+        "words": {
+          "content": 2632,
+          "chrome": 747,
+          "total": 3379
+        },
+        "links": {
+          "content": 49,
+          "chrome": 179
+        },
+        "images": {
+          "total": 4,
+          "missingAlt": 0
+        }
+      }
+    },
+    {
+      "path": "/technology/data-science/",
+      "title": "Data Science Research — INSTAR Lab Technology",
+      "family": "Technology",
+      "kind": "editorial",
+      "indexable": true,
+      "inbound": 0,
+      "journeys": [],
+      "capture": {
+        "status": "success",
+        "capturedAt": "2026-11-23T02:32:03.135Z",
+        "selfCapture": false,
+        "depictsGeneration": null,
+        "failure": null,
+        "desktop": {
+          "width": 1440,
+          "height": 10832,
+          "bytes": 610835,
+          "thumbBytes": 74826
+        },
+        "mobile": {
+          "width": 390,
+          "height": 14898,
+          "bytes": 656507,
+          "thumbBytes": 561608
+        },
+        "thumb": "/record/shots/thumbs/technology-data-science-desktop.avif"
+      },
+      "measured": {
+        "route": "/technology/data-science/",
+        "status": "measured",
+        "title": "Data Science Research — INSTAR Lab Technology",
+        "description": "A plain-language, source-backed overview of data science: how evidence is drawn from data, how findings are checked, and what remains open.",
+        "canonical": "https://www.instarlab.org/technology/data-science/",
+        "indexable": true,
+        "h1Count": 1,
+        "mainCount": 1,
+        "words": {
+          "content": 2428,
+          "chrome": 747,
+          "total": 3175
+        },
+        "links": {
+          "content": 49,
+          "chrome": 179
+        },
+        "images": {
+          "total": 4,
+          "missingAlt": 0
+        }
+      }
+    },
+    {
+      "path": "/technology/formal-methods/",
+      "title": "Formal Methods Research — INSTAR Lab Technology",
+      "family": "Technology",
+      "kind": "editorial",
+      "indexable": true,
+      "inbound": 0,
+      "journeys": [],
+      "capture": {
+        "status": "success",
+        "capturedAt": "2026-11-23T02:32:07.778Z",
+        "selfCapture": false,
+        "depictsGeneration": null,
+        "failure": null,
+        "desktop": {
+          "width": 1440,
+          "height": 10567,
+          "bytes": 574517,
+          "thumbBytes": 70432
+        },
+        "mobile": {
+          "width": 390,
+          "height": 13690,
+          "bytes": 618861,
+          "thumbBytes": 526789
+        },
+        "thumb": "/record/shots/thumbs/technology-formal-methods-desktop.avif"
+      },
+      "measured": {
+        "route": "/technology/formal-methods/",
+        "status": "measured",
+        "title": "Formal Methods Research — INSTAR Lab Technology",
+        "description": "How mathematical proof is used to show that software and hardware behave as specified, where it works in practice, and what remains hard.",
+        "canonical": "https://www.instarlab.org/technology/formal-methods/",
+        "indexable": true,
+        "h1Count": 1,
+        "mainCount": 1,
+        "words": {
+          "content": 2063,
+          "chrome": 747,
+          "total": 2810
+        },
+        "links": {
+          "content": 22,
+          "chrome": 180
+        },
+        "images": {
+          "total": 4,
+          "missingAlt": 0
+        }
+      }
+    },
+    {
+      "path": "/technology/machine-intelligence/",
+      "title": "Machine Intelligence Research — INSTAR Lab Technology",
+      "family": "Technology",
+      "kind": "editorial",
+      "indexable": true,
+      "inbound": 0,
+      "journeys": [],
+      "capture": {
+        "status": "success",
+        "capturedAt": "2026-11-23T02:32:09.239Z",
+        "selfCapture": false,
+        "depictsGeneration": null,
+        "failure": null,
+        "desktop": {
+          "width": 1440,
+          "height": 11092,
+          "bytes": 625708,
+          "thumbBytes": 78911
+        },
+        "mobile": {
+          "width": 390,
+          "height": 14646,
+          "bytes": 669459,
+          "thumbBytes": 570761
+        },
+        "thumb": "/record/shots/thumbs/technology-machine-intelligence-desktop.avif"
+      },
+      "measured": {
+        "route": "/technology/machine-intelligence/",
+        "status": "measured",
+        "title": "Machine Intelligence Research — INSTAR Lab Technology",
+        "description": "A plain-language, source-backed overview of machine intelligence: how learning systems work, how they are evaluated, and what remains unresolved.",
+        "canonical": "https://www.instarlab.org/technology/machine-intelligence/",
+        "indexable": true,
+        "h1Count": 1,
+        "mainCount": 1,
+        "words": {
+          "content": 2468,
+          "chrome": 747,
+          "total": 3215
+        },
+        "links": {
+          "content": 53,
+          "chrome": 179
+        },
+        "images": {
+          "total": 4,
+          "missingAlt": 0
+        }
+      }
+    },
+    {
+      "path": "/technology/natural-language-processing/",
+      "title": "Natural Language Processing Research — INSTAR Lab Technology",
+      "family": "Technology",
+      "kind": "editorial",
+      "indexable": true,
+      "inbound": 0,
+      "journeys": [],
+      "capture": {
+        "status": "success",
+        "capturedAt": "2026-11-23T02:32:37.158Z",
+        "selfCapture": false,
+        "depictsGeneration": null,
+        "failure": null,
+        "desktop": {
+          "width": 1440,
+          "height": 11512,
+          "bytes": 607867,
+          "thumbBytes": 78077
+        },
+        "mobile": {
+          "width": 390,
+          "height": 15342,
+          "bytes": 674246,
+          "thumbBytes": 576579
+        },
+        "thumb": "/record/shots/thumbs/technology-natural-language-processing-desktop.avif"
+      },
+      "measured": {
+        "route": "/technology/natural-language-processing/",
+        "status": "measured",
+        "title": "Natural Language Processing Research — INSTAR Lab Technology",
+        "description": "A plain-language, source-backed overview of natural language processing: how computers handle human language, how it is tested, and what is unresolved.",
+        "canonical": "https://www.instarlab.org/technology/natural-language-processing/",
+        "indexable": true,
+        "h1Count": 1,
+        "mainCount": 1,
+        "words": {
+          "content": 2342,
+          "chrome": 748,
+          "total": 3090
+        },
+        "links": {
+          "content": 35,
+          "chrome": 180
+        },
+        "images": {
+          "total": 4,
+          "missingAlt": 0
+        }
+      }
+    },
+    {
+      "path": "/technology/quantum-computing/",
+      "title": "Quantum Computing Research — INSTAR Lab Technology",
+      "family": "Technology",
+      "kind": "editorial",
+      "indexable": true,
+      "inbound": 0,
+      "journeys": [],
+      "capture": {
+        "status": "success",
+        "capturedAt": "2026-11-23T02:32:39.982Z",
+        "selfCapture": false,
+        "depictsGeneration": null,
+        "failure": null,
+        "desktop": {
+          "width": 1440,
+          "height": 11977,
+          "bytes": 685725,
+          "thumbBytes": 84604
+        },
+        "mobile": {
+          "width": 390,
+          "height": 15688,
+          "bytes": 727522,
+          "thumbBytes": 620734
+        },
+        "thumb": "/record/shots/thumbs/technology-quantum-computing-desktop.avif"
+      },
+      "measured": {
+        "route": "/technology/quantum-computing/",
+        "status": "measured",
+        "title": "Quantum Computing Research — INSTAR Lab Technology",
+        "description": "A plain-language look at quantum computing: what has been demonstrated, why error correction is the central obstacle, and why cryptography is already changing.",
+        "canonical": "https://www.instarlab.org/technology/quantum-computing/",
+        "indexable": true,
+        "h1Count": 1,
+        "mainCount": 1,
+        "words": {
+          "content": 2567,
+          "chrome": 747,
+          "total": 3314
+        },
+        "links": {
+          "content": 33,
+          "chrome": 179
+        },
+        "images": {
+          "total": 4,
+          "missingAlt": 0
+        }
+      }
+    },
+    {
+      "path": "/technology/robotics/",
+      "title": "Robotics Research — INSTAR Lab Technology",
+      "family": "Technology",
+      "kind": "editorial",
+      "indexable": true,
+      "inbound": 0,
+      "journeys": [],
+      "capture": {
+        "status": "success",
+        "capturedAt": "2026-11-23T02:32:45.038Z",
+        "selfCapture": false,
+        "depictsGeneration": null,
+        "failure": null,
+        "desktop": {
+          "width": 1440,
+          "height": 10095,
+          "bytes": 639890,
+          "thumbBytes": 77472
+        },
+        "mobile": {
+          "width": 390,
+          "height": 14452,
+          "bytes": 703510,
+          "thumbBytes": 599716
+        },
+        "thumb": "/record/shots/thumbs/technology-robotics-desktop.avif"
+      },
+      "measured": {
+        "route": "/technology/robotics/",
+        "status": "measured",
+        "title": "Robotics Research — INSTAR Lab Technology",
+        "description": "A source-backed overview of robotics and embodied AI: robot foundation models, safe learning, human-robot teaming, swarms and robots for hard places.",
+        "canonical": "https://www.instarlab.org/technology/robotics/",
+        "indexable": true,
+        "h1Count": 1,
+        "mainCount": 1,
+        "words": {
+          "content": 2531,
+          "chrome": 746,
+          "total": 3277
+        },
+        "links": {
+          "content": 23,
+          "chrome": 180
+        },
+        "images": {
+          "total": 2,
+          "missingAlt": 0
+        }
+      }
+    },
+    {
+      "path": "/terms/",
+      "title": "Terms of Use — INSTAR Lab",
+      "family": "Core",
+      "kind": "core",
+      "indexable": true,
+      "inbound": 0,
+      "journeys": [],
+      "capture": {
+        "status": "success",
+        "capturedAt": "2026-11-22T17:49:47.173Z",
+        "selfCapture": false,
+        "depictsGeneration": null,
+        "failure": null,
+        "desktop": {
+          "width": 1440,
+          "height": 4517,
+          "bytes": 284842,
+          "thumbBytes": 34823
+        },
+        "mobile": {
+          "width": 390,
+          "height": 6019,
+          "bytes": 266930,
+          "thumbBytes": 220826
+        },
+        "thumb": "/record/shots/thumbs/terms-desktop.avif"
+      },
+      "measured": {
+        "route": "/terms/",
+        "status": "measured",
+        "title": "Terms of Use — INSTAR Lab",
+        "description": "Terms governing use of the INSTAR Lab website, including intellectual property, disclaimers, and acceptable use of our research content.",
+        "canonical": "https://www.instarlab.org/terms/",
+        "indexable": true,
+        "h1Count": 1,
+        "mainCount": 1,
+        "words": {
+          "content": 694,
+          "chrome": 746,
+          "total": 1440
+        },
+        "links": {
+          "content": 1,
+          "chrome": 181
+        },
+        "images": {
+          "total": 2,
+          "missingAlt": 0
+        }
+      }
+    }
+  ],
+  "journeyCount": 5,
+  "capture": {
+    "generationId": "095833141f787e3b1a42682ca65a8d44c121cdff9ef9daa64e391458bbe3feb3",
+    "generatedAt": "2026-11-23T02:46:37.173Z",
+    "complete": true,
+    "required": 126,
+    "success": 126,
+    "failed": 0
+  },
+  "reconciliation": {
+    "inventoryRoutes": 99,
+    "captureRequired": 126,
+    "captureSuccess": 126,
+    "captureFailed": 0,
+    "ledgerOnlyCaptures": [
+      "/capability-statement/",
+      "/community/",
+      "/faq/",
+      "/funders/",
+      "/funders/sttr-by-the-numbers/",
+      "/funders/sttr-in-practice/",
+      "/funders/sttr-in-practice/curved-grating-spectrometer-nsf-phase-i/",
+      "/funders/sttr-in-practice/dementia-risk-blood-test-nia-phase-i/",
+      "/funders/sttr-in-practice/fetal-oxygen-monitor-nsf-phase-ii/",
+      "/funders/sttr-in-practice/hearing-loss-antibodies-nidcd-phase-i/",
+      "/funders/sttr-in-practice/heart-repair-imaging-nhlbi-phase-i/",
+      "/funders/sttr-in-practice/mental-health-referral-nimh-phase-ii/",
+      "/labs/",
+      "/press/",
+      "/research/at-a-glance/",
+      "/research/connections/",
+      "/research/glossary/",
+      "/research/how-we-check/",
+      "/research/index/",
+      "/research/open-data/licences/",
+      "/research/sources/",
+      "/sciences/",
+      "/search/",
+      "/tech-transfer/",
+      "/tech-transfer/sttr-partner/",
+      "/technology/",
+      "/timeline/"
+    ]
+  },
+  "provenance": {
+    "inventory": "Route manifests (SRC-002)",
+    "capture": "Record capture generation 095833141f78 (RRP-201)",
+    "limits": "No traffic, funding, conversion, contrast, keyboard, or screen-reader figures. Unmeasured content fields are null, never zero."
+  },
+  "measurement": {
+    "source": "rendered production HTML, measured after the build by the record page-metrics builder (RRP-205)",
+    "generatedAt": "2026-11-23T03:58:42.072Z",
+    "rows": 99,
+    "measured": 99,
+    "unzoned": 0,
+    "unmeasured": 0,
+    "words": {
+      "content": 185089,
+      "chrome": 62226
+    },
+    "links": {
+      "content": 3092,
+      "chrome": 14971
+    },
+    "images": {
+      "total": 540,
+      "missingAlt": 0
+    },
+    "limits": "Static counts of the published HTML. They say nothing about traffic, funding, conversion, contrast, keyboard or screen-reader quality."
+  }
+}
