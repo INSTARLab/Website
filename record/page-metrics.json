@@ -5296,7 +5296,7 @@
   },
   "measurement": {
     "source": "rendered production HTML, measured after the build by the record page-metrics builder (RRP-205)",
-    "generatedAt": "2026-11-23T09:45:44.455Z",
+    "generatedAt": "2026-11-23T11:40:45.167Z",
     "rows": 99,
     "measured": 99,
     "unzoned": 0,
