@@ -76,15 +76,15 @@
       "journeys": [],
       "capture": {
         "status": "success",
-        "capturedAt": "2026-11-22T17:35:07.849Z",
+        "capturedAt": "2026-11-23T21:12:44.736Z",
         "selfCapture": false,
         "depictsGeneration": null,
         "failure": null,
         "desktop": {
           "width": 1440,
           "height": 9467,
-          "bytes": 584483,
-          "thumbBytes": 89131
+          "bytes": 554021,
+          "thumbBytes": 86074
         },
         "mobile": {
           "width": 390,
@@ -128,7 +128,7 @@
       "journeys": [],
       "capture": {
         "status": "success",
-        "capturedAt": "2026-11-22T17:35:07.851Z",
+        "capturedAt": "2026-11-23T21:12:44.741Z",
         "selfCapture": false,
         "depictsGeneration": null,
         "failure": null,
@@ -180,7 +180,7 @@
       "journeys": [],
       "capture": {
         "status": "success",
-        "capturedAt": "2026-11-22T17:35:07.851Z",
+        "capturedAt": "2026-11-23T21:12:44.844Z",
         "selfCapture": false,
         "depictsGeneration": null,
         "failure": null,
@@ -232,7 +232,7 @@
       "journeys": [],
       "capture": {
         "status": "success",
-        "capturedAt": "2026-11-22T17:35:14.696Z",
+        "capturedAt": "2026-11-23T21:13:00.536Z",
         "selfCapture": false,
         "depictsGeneration": null,
         "failure": null,
@@ -286,7 +286,7 @@
       ],
       "capture": {
         "status": "success",
-        "capturedAt": "2026-11-23T02:21:05.725Z",
+        "capturedAt": "2026-11-23T21:13:16.133Z",
         "selfCapture": false,
         "depictsGeneration": null,
         "failure": null,
@@ -340,7 +340,7 @@
       ],
       "capture": {
         "status": "success",
-        "capturedAt": "2026-11-23T02:21:05.789Z",
+        "capturedAt": "2026-11-23T21:13:30.036Z",
         "selfCapture": false,
         "depictsGeneration": null,
         "failure": null,
@@ -392,7 +392,7 @@
       "journeys": [],
       "capture": {
         "status": "success",
-        "capturedAt": "2026-11-23T02:21:05.792Z",
+        "capturedAt": "2026-11-23T21:13:41.851Z",
         "selfCapture": false,
         "depictsGeneration": null,
         "failure": null,
@@ -444,7 +444,7 @@
       "journeys": [],
       "capture": {
         "status": "success",
-        "capturedAt": "2026-11-23T02:21:15.682Z",
+        "capturedAt": "2026-11-23T21:13:43.670Z",
         "selfCapture": false,
         "depictsGeneration": null,
         "failure": null,
@@ -496,7 +496,7 @@
       "journeys": [],
       "capture": {
         "status": "success",
-        "capturedAt": "2026-11-23T02:21:16.280Z",
+        "capturedAt": "2026-11-23T21:13:48.341Z",
         "selfCapture": false,
         "depictsGeneration": null,
         "failure": null,
@@ -550,7 +550,7 @@
       ],
       "capture": {
         "status": "success",
-        "capturedAt": "2026-11-23T02:21:18.912Z",
+        "capturedAt": "2026-11-23T21:14:01.155Z",
         "selfCapture": false,
         "depictsGeneration": null,
         "failure": null,
@@ -604,7 +604,7 @@
       ],
       "capture": {
         "status": "success",
-        "capturedAt": "2026-11-23T02:21:25.128Z",
+        "capturedAt": "2026-11-23T21:14:04.940Z",
         "selfCapture": false,
         "depictsGeneration": null,
         "failure": null,
@@ -656,7 +656,7 @@
       "journeys": [],
       "capture": {
         "status": "success",
-        "capturedAt": "2026-11-23T02:21:26.774Z",
+        "capturedAt": "2026-11-23T21:14:11.738Z",
         "selfCapture": false,
         "depictsGeneration": null,
         "failure": null,
@@ -708,7 +708,7 @@
       "journeys": [],
       "capture": {
         "status": "success",
-        "capturedAt": "2026-11-22T17:35:51.084Z",
+        "capturedAt": "2026-11-23T21:14:20.548Z",
         "selfCapture": false,
         "depictsGeneration": null,
         "failure": null,
@@ -760,7 +760,7 @@
       "journeys": [],
       "capture": {
         "status": "success",
-        "capturedAt": "2026-11-22T17:35:53.895Z",
+        "capturedAt": "2026-11-23T21:14:22.735Z",
         "selfCapture": false,
         "depictsGeneration": null,
         "failure": null,
@@ -812,7 +812,7 @@
       "journeys": [],
       "capture": {
         "status": "success",
-        "capturedAt": "2026-11-23T02:21:29.107Z",
+        "capturedAt": "2026-11-23T21:16:02.636Z",
         "selfCapture": false,
         "depictsGeneration": null,
         "failure": null,
@@ -864,7 +864,7 @@
       "journeys": [],
       "capture": {
         "status": "success",
-        "capturedAt": "2026-11-23T02:21:32.445Z",
+        "capturedAt": "2026-11-23T21:16:06.339Z",
         "selfCapture": false,
         "depictsGeneration": null,
         "failure": null,
@@ -918,7 +918,7 @@
       ],
       "capture": {
         "status": "success",
-        "capturedAt": "2026-11-23T02:21:34.185Z",
+        "capturedAt": "2026-11-23T21:16:21.641Z",
         "selfCapture": false,
         "depictsGeneration": null,
         "failure": null,
@@ -970,7 +970,7 @@
       "journeys": [],
       "capture": {
         "status": "success",
-        "capturedAt": "2026-11-22T17:37:18.697Z",
+        "capturedAt": "2026-11-23T21:17:09.835Z",
         "selfCapture": false,
         "depictsGeneration": null,
         "failure": null,
@@ -1024,21 +1024,21 @@
       ],
       "capture": {
         "status": "success",
-        "capturedAt": "2026-11-23T02:22:03.893Z",
+        "capturedAt": "2026-11-23T21:17:13.634Z",
         "selfCapture": false,
         "depictsGeneration": null,
         "failure": null,
         "desktop": {
           "width": 1440,
           "height": 8997,
-          "bytes": 699923,
-          "thumbBytes": 90153
+          "bytes": 603070,
+          "thumbBytes": 83528
         },
         "mobile": {
           "width": 390,
           "height": 13248,
-          "bytes": 501789,
-          "thumbBytes": 432229
+          "bytes": 496258,
+          "thumbBytes": 427264
         },
         "thumb": "/record/shots/thumbs/news-desktop.avif"
       },
@@ -1076,7 +1076,7 @@
       "journeys": [],
       "capture": {
         "status": "success",
-        "capturedAt": "2026-11-23T02:22:04.530Z",
+        "capturedAt": "2026-11-23T21:17:22.338Z",
         "selfCapture": false,
         "depictsGeneration": null,
         "failure": null,
@@ -1128,7 +1128,7 @@
       "journeys": [],
       "capture": {
         "status": "success",
-        "capturedAt": "2026-11-23T02:22:09.024Z",
+        "capturedAt": "2026-11-23T21:17:27.544Z",
         "selfCapture": false,
         "depictsGeneration": null,
         "failure": null,
@@ -1180,7 +1180,7 @@
       "journeys": [],
       "capture": {
         "status": "success",
-        "capturedAt": "2026-11-23T02:22:29.008Z",
+        "capturedAt": "2026-11-23T21:17:54.834Z",
         "selfCapture": false,
         "depictsGeneration": null,
         "failure": null,
@@ -1232,7 +1232,7 @@
       "journeys": [],
       "capture": {
         "status": "success",
-        "capturedAt": "2026-11-23T02:22:35.107Z",
+        "capturedAt": "2026-11-23T21:17:54.847Z",
         "selfCapture": false,
         "depictsGeneration": null,
         "failure": null,
@@ -1284,7 +1284,7 @@
       "journeys": [],
       "capture": {
         "status": "success",
-        "capturedAt": "2026-11-23T02:22:36.619Z",
+        "capturedAt": "2026-11-23T21:18:02.035Z",
         "selfCapture": false,
         "depictsGeneration": null,
         "failure": null,
@@ -1336,7 +1336,7 @@
       "journeys": [],
       "capture": {
         "status": "success",
-        "capturedAt": "2026-11-23T02:22:47.293Z",
+        "capturedAt": "2026-11-23T21:18:18.553Z",
         "selfCapture": false,
         "depictsGeneration": null,
         "failure": null,
@@ -1388,7 +1388,7 @@
       "journeys": [],
       "capture": {
         "status": "success",
-        "capturedAt": "2026-11-23T02:22:57.591Z",
+        "capturedAt": "2026-11-23T21:18:29.036Z",
         "selfCapture": false,
         "depictsGeneration": null,
         "failure": null,
@@ -1440,7 +1440,7 @@
       "journeys": [],
       "capture": {
         "status": "success",
-        "capturedAt": "2026-11-23T02:23:05.498Z",
+        "capturedAt": "2026-11-23T21:18:45.849Z",
         "selfCapture": false,
         "depictsGeneration": null,
         "failure": null,
@@ -1492,7 +1492,7 @@
       "journeys": [],
       "capture": {
         "status": "success",
-        "capturedAt": "2026-11-23T02:23:07.717Z",
+        "capturedAt": "2026-11-23T21:18:48.340Z",
         "selfCapture": false,
         "depictsGeneration": null,
         "failure": null,
@@ -1544,7 +1544,7 @@
       "journeys": [],
       "capture": {
         "status": "success",
-        "capturedAt": "2026-11-23T02:23:15.777Z",
+        "capturedAt": "2026-11-23T21:19:01.650Z",
         "selfCapture": false,
         "depictsGeneration": null,
         "failure": null,
@@ -1596,7 +1596,7 @@
       "journeys": [],
       "capture": {
         "status": "success",
-        "capturedAt": "2026-11-23T02:23:21.902Z",
+        "capturedAt": "2026-11-23T21:19:21.338Z",
         "selfCapture": false,
         "depictsGeneration": null,
         "failure": null,
@@ -1648,7 +1648,7 @@
       "journeys": [],
       "capture": {
         "status": "success",
-        "capturedAt": "2026-11-23T02:23:24.086Z",
+        "capturedAt": "2026-11-23T21:19:23.251Z",
         "selfCapture": false,
         "depictsGeneration": null,
         "failure": null,
@@ -1700,7 +1700,7 @@
       "journeys": [],
       "capture": {
         "status": "success",
-        "capturedAt": "2026-11-23T02:23:32.383Z",
+        "capturedAt": "2026-11-23T21:19:32.452Z",
         "selfCapture": false,
         "depictsGeneration": null,
         "failure": null,
@@ -1752,7 +1752,7 @@
       "journeys": [],
       "capture": {
         "status": "success",
-        "capturedAt": "2026-11-23T02:23:41.004Z",
+        "capturedAt": "2026-11-23T21:19:51.144Z",
         "selfCapture": false,
         "depictsGeneration": null,
         "failure": null,
@@ -1804,7 +1804,7 @@
       "journeys": [],
       "capture": {
         "status": "success",
-        "capturedAt": "2026-11-23T02:23:41.376Z",
+        "capturedAt": "2026-11-23T21:19:56.336Z",
         "selfCapture": false,
         "depictsGeneration": null,
         "failure": null,
@@ -1856,7 +1856,7 @@
       "journeys": [],
       "capture": {
         "status": "success",
-        "capturedAt": "2026-11-23T02:23:53.783Z",
+        "capturedAt": "2026-11-23T21:20:07.545Z",
         "selfCapture": false,
         "depictsGeneration": null,
         "failure": null,
@@ -1908,7 +1908,7 @@
       "journeys": [],
       "capture": {
         "status": "success",
-        "capturedAt": "2026-11-22T17:39:10.711Z",
+        "capturedAt": "2026-11-23T21:20:44.736Z",
         "selfCapture": false,
         "depictsGeneration": null,
         "failure": null,
@@ -1960,7 +1960,7 @@
       "journeys": [],
       "capture": {
         "status": "success",
-        "capturedAt": "2026-11-23T14:42:47.415Z",
+        "capturedAt": "2026-11-23T21:20:46.259Z",
         "selfCapture": false,
         "depictsGeneration": null,
         "failure": null,
@@ -2012,7 +2012,7 @@
       "journeys": [],
       "capture": {
         "status": "success",
-        "capturedAt": "2026-11-23T14:42:47.478Z",
+        "capturedAt": "2026-11-23T21:20:47.035Z",
         "selfCapture": false,
         "depictsGeneration": null,
         "failure": null,
@@ -2064,7 +2064,7 @@
       "journeys": [],
       "capture": {
         "status": "success",
-        "capturedAt": "2026-11-23T14:42:47.479Z",
+        "capturedAt": "2026-11-23T21:21:06.448Z",
         "selfCapture": false,
         "depictsGeneration": null,
         "failure": null,
@@ -2118,7 +2118,7 @@
       ],
       "capture": {
         "status": "success",
-        "capturedAt": "2026-11-23T14:43:02.425Z",
+        "capturedAt": "2026-11-23T21:21:10.249Z",
         "selfCapture": false,
         "depictsGeneration": null,
         "failure": null,
@@ -2170,7 +2170,7 @@
       "journeys": [],
       "capture": {
         "status": "success",
-        "capturedAt": "2026-11-23T14:43:05.172Z",
+        "capturedAt": "2026-11-23T21:21:26.554Z",
         "selfCapture": false,
         "depictsGeneration": null,
         "failure": null,
@@ -2222,7 +2222,7 @@
       "journeys": [],
       "capture": {
         "status": "success",
-        "capturedAt": "2026-11-23T14:43:14.190Z",
+        "capturedAt": "2026-11-23T21:21:32.441Z",
         "selfCapture": false,
         "depictsGeneration": null,
         "failure": null,
@@ -2274,7 +2274,7 @@
       "journeys": [],
       "capture": {
         "status": "success",
-        "capturedAt": "2026-11-23T14:43:17.065Z",
+        "capturedAt": "2026-11-23T21:21:33.981Z",
         "selfCapture": false,
         "depictsGeneration": null,
         "failure": null,
@@ -2326,7 +2326,7 @@
       "journeys": [],
       "capture": {
         "status": "success",
-        "capturedAt": "2026-11-23T14:43:19.019Z",
+        "capturedAt": "2026-11-23T21:21:37.943Z",
         "selfCapture": false,
         "depictsGeneration": null,
         "failure": null,
@@ -2378,7 +2378,7 @@
       "journeys": [],
       "capture": {
         "status": "success",
-        "capturedAt": "2026-11-23T14:43:33.475Z",
+        "capturedAt": "2026-11-23T21:21:50.247Z",
         "selfCapture": false,
         "depictsGeneration": null,
         "failure": null,
@@ -2430,7 +2430,7 @@
       "journeys": [],
       "capture": {
         "status": "success",
-        "capturedAt": "2026-11-23T14:43:35.488Z",
+        "capturedAt": "2026-11-23T21:21:50.853Z",
         "selfCapture": false,
         "depictsGeneration": null,
         "failure": null,
@@ -2482,21 +2482,21 @@
       "journeys": [],
       "capture": {
         "status": "success",
-        "capturedAt": "2026-11-23T16:03:37.382Z",
+        "capturedAt": "2026-11-23T21:21:58.447Z",
         "selfCapture": true,
-        "depictsGeneration": "f5d4188c2602466254aecb2bcdbd99a03883ee892bdb4a22def9af5e3374fc8b",
+        "depictsGeneration": null,
         "failure": null,
         "desktop": {
           "width": 1440,
-          "height": 12412,
-          "bytes": 1081367,
-          "thumbBytes": 123015
+          "height": 11431,
+          "bytes": 1078645,
+          "thumbBytes": 123492
         },
         "mobile": {
           "width": 390,
-          "height": 19221,
-          "bytes": 638306,
-          "thumbBytes": 419194
+          "height": 17675,
+          "bytes": 581734,
+          "thumbBytes": 453840
         },
         "thumb": "/record/shots/thumbs/record-metrics-desktop.avif"
       },
@@ -2534,21 +2534,21 @@
       "journeys": [],
       "capture": {
         "status": "success",
-        "capturedAt": "2026-11-23T14:43:51.860Z",
+        "capturedAt": "2026-11-23T21:22:06.150Z",
         "selfCapture": false,
         "depictsGeneration": null,
         "failure": null,
         "desktop": {
           "width": 1440,
           "height": 18401,
-          "bytes": 1465074,
-          "thumbBytes": 145491
+          "bytes": 1465305,
+          "thumbBytes": 145314
         },
         "mobile": {
           "width": 390,
           "height": 40634,
-          "bytes": 781030,
-          "thumbBytes": 134694
+          "bytes": 780708,
+          "thumbBytes": 134991
         },
         "thumb": "/record/shots/thumbs/record-nav-desktop.avif"
       },
@@ -2586,21 +2586,21 @@
       "journeys": [],
       "capture": {
         "status": "success",
-        "capturedAt": "2026-11-23T14:44:01.220Z",
+        "capturedAt": "2026-11-23T21:22:22.652Z",
         "selfCapture": false,
         "depictsGeneration": null,
         "failure": null,
         "desktop": {
           "width": 1440,
           "height": 5722,
-          "bytes": 530047,
-          "thumbBytes": 52821
+          "bytes": 530099,
+          "thumbBytes": 52793
         },
         "mobile": {
           "width": 390,
           "height": 12988,
-          "bytes": 451201,
-          "thumbBytes": 387958
+          "bytes": 451298,
+          "thumbBytes": 388097
         },
         "thumb": "/record/shots/thumbs/record-ops-desktop.avif"
       },
@@ -2638,21 +2638,21 @@
       "journeys": [],
       "capture": {
         "status": "success",
-        "capturedAt": "2026-11-23T16:03:37.482Z",
+        "capturedAt": "2026-11-23T21:23:06.853Z",
         "selfCapture": true,
-        "depictsGeneration": "f5d4188c2602466254aecb2bcdbd99a03883ee892bdb4a22def9af5e3374fc8b",
+        "depictsGeneration": null,
         "failure": null,
         "desktop": {
           "width": 1440,
-          "height": 43891,
-          "bytes": 3142624,
-          "thumbBytes": 427438
+          "height": 1919,
+          "bytes": 114917,
+          "thumbBytes": 14362
         },
         "mobile": {
           "width": 390,
-          "height": 105011,
-          "bytes": 2721996,
-          "thumbBytes": 76135
+          "height": 3279,
+          "bytes": 112247,
+          "thumbBytes": 95315
         },
         "thumb": "/record/shots/thumbs/record-screens-desktop.avif"
       },
@@ -2666,9 +2666,9 @@
         "h1Count": 1,
         "mainCount": 1,
         "words": {
-          "content": 10359,
+          "content": 10303,
           "chrome": 13,
-          "total": 10372
+          "total": 10316
         },
         "links": {
           "content": 166,
@@ -2690,7 +2690,7 @@
       "journeys": [],
       "capture": {
         "status": "success",
-        "capturedAt": "2026-11-23T14:44:36.398Z",
+        "capturedAt": "2026-11-23T21:23:08.435Z",
         "selfCapture": false,
         "depictsGeneration": null,
         "failure": null,
@@ -2742,7 +2742,7 @@
       "journeys": [],
       "capture": {
         "status": "success",
-        "capturedAt": "2026-11-23T14:44:56.787Z",
+        "capturedAt": "2026-11-23T21:23:19.367Z",
         "selfCapture": false,
         "depictsGeneration": null,
         "failure": null,
@@ -2794,7 +2794,7 @@
       "journeys": [],
       "capture": {
         "status": "success",
-        "capturedAt": "2026-11-22T17:39:57.299Z",
+        "capturedAt": "2026-11-23T21:23:31.357Z",
         "selfCapture": false,
         "depictsGeneration": null,
         "failure": null,
@@ -2846,7 +2846,7 @@
       "journeys": [],
       "capture": {
         "status": "success",
-        "capturedAt": "2026-11-23T02:24:17.203Z",
+        "capturedAt": "2026-11-23T21:23:52.636Z",
         "selfCapture": false,
         "depictsGeneration": null,
         "failure": null,
@@ -2900,7 +2900,7 @@
       ],
       "capture": {
         "status": "success",
-        "capturedAt": "2026-11-23T02:24:34.593Z",
+        "capturedAt": "2026-11-23T21:24:11.649Z",
         "selfCapture": false,
         "depictsGeneration": null,
         "failure": null,
@@ -2954,7 +2954,7 @@
       ],
       "capture": {
         "status": "success",
-        "capturedAt": "2026-11-23T02:24:46.313Z",
+        "capturedAt": "2026-11-23T21:24:13.160Z",
         "selfCapture": false,
         "depictsGeneration": null,
         "failure": null,
@@ -3006,7 +3006,7 @@
       "journeys": [],
       "capture": {
         "status": "success",
-        "capturedAt": "2026-11-22T17:40:49.570Z",
+        "capturedAt": "2026-11-23T21:24:20.663Z",
         "selfCapture": false,
         "depictsGeneration": null,
         "failure": null,
@@ -3058,7 +3058,7 @@
       "journeys": [],
       "capture": {
         "status": "success",
-        "capturedAt": "2026-11-23T02:24:54.116Z",
+        "capturedAt": "2026-11-23T21:25:53.143Z",
         "selfCapture": false,
         "depictsGeneration": null,
         "failure": null,
@@ -3112,7 +3112,7 @@
       ],
       "capture": {
         "status": "success",
-        "capturedAt": "2026-11-23T02:25:03.583Z",
+        "capturedAt": "2026-11-23T21:25:59.141Z",
         "selfCapture": false,
         "depictsGeneration": null,
         "failure": null,
@@ -3164,7 +3164,7 @@
       "journeys": [],
       "capture": {
         "status": "success",
-        "capturedAt": "2026-11-23T02:25:10.291Z",
+        "capturedAt": "2026-11-23T21:26:36.836Z",
         "selfCapture": false,
         "depictsGeneration": null,
         "failure": null,
@@ -3218,7 +3218,7 @@
       ],
       "capture": {
         "status": "success",
-        "capturedAt": "2026-11-23T02:25:29.620Z",
+        "capturedAt": "2026-11-23T21:26:56.044Z",
         "selfCapture": false,
         "depictsGeneration": null,
         "failure": null,
@@ -3270,7 +3270,7 @@
       "journeys": [],
       "capture": {
         "status": "success",
-        "capturedAt": "2026-11-23T02:25:41.934Z",
+        "capturedAt": "2026-11-23T21:27:18.640Z",
         "selfCapture": false,
         "depictsGeneration": null,
         "failure": null,
@@ -3322,7 +3322,7 @@
       "journeys": [],
       "capture": {
         "status": "success",
-        "capturedAt": "2026-11-23T02:26:11.634Z",
+        "capturedAt": "2026-11-23T21:28:09.045Z",
         "selfCapture": false,
         "depictsGeneration": null,
         "failure": null,
@@ -3374,7 +3374,7 @@
       "journeys": [],
       "capture": {
         "status": "success",
-        "capturedAt": "2026-11-23T02:26:21.497Z",
+        "capturedAt": "2026-11-23T21:28:58.538Z",
         "selfCapture": false,
         "depictsGeneration": null,
         "failure": null,
@@ -3426,7 +3426,7 @@
       "journeys": [],
       "capture": {
         "status": "success",
-        "capturedAt": "2026-11-23T02:26:39.013Z",
+        "capturedAt": "2026-11-23T21:29:17.244Z",
         "selfCapture": false,
         "depictsGeneration": null,
         "failure": null,
@@ -3478,7 +3478,7 @@
       "journeys": [],
       "capture": {
         "status": "success",
-        "capturedAt": "2026-11-23T02:27:01.253Z",
+        "capturedAt": "2026-11-23T21:29:54.367Z",
         "selfCapture": false,
         "depictsGeneration": null,
         "failure": null,
@@ -3530,7 +3530,7 @@
       "journeys": [],
       "capture": {
         "status": "success",
-        "capturedAt": "2026-11-23T02:27:10.244Z",
+        "capturedAt": "2026-11-23T21:30:08.947Z",
         "selfCapture": false,
         "depictsGeneration": null,
         "failure": null,
@@ -3582,7 +3582,7 @@
       "journeys": [],
       "capture": {
         "status": "success",
-        "capturedAt": "2026-11-23T02:27:37.105Z",
+        "capturedAt": "2026-11-23T21:30:49.345Z",
         "selfCapture": false,
         "depictsGeneration": null,
         "failure": null,
@@ -3634,7 +3634,7 @@
       "journeys": [],
       "capture": {
         "status": "success",
-        "capturedAt": "2026-11-23T02:27:54.078Z",
+        "capturedAt": "2026-11-23T21:31:03.048Z",
         "selfCapture": false,
         "depictsGeneration": null,
         "failure": null,
@@ -3686,7 +3686,7 @@
       "journeys": [],
       "capture": {
         "status": "success",
-        "capturedAt": "2026-11-23T02:28:11.018Z",
+        "capturedAt": "2026-11-23T21:31:41.950Z",
         "selfCapture": false,
         "depictsGeneration": null,
         "failure": null,
@@ -3738,7 +3738,7 @@
       "journeys": [],
       "capture": {
         "status": "success",
-        "capturedAt": "2026-11-23T02:28:25.622Z",
+        "capturedAt": "2026-11-23T21:32:08.450Z",
         "selfCapture": false,
         "depictsGeneration": null,
         "failure": null,
@@ -3790,7 +3790,7 @@
       "journeys": [],
       "capture": {
         "status": "success",
-        "capturedAt": "2026-11-23T02:28:27.197Z",
+        "capturedAt": "2026-11-23T21:32:53.635Z",
         "selfCapture": false,
         "depictsGeneration": null,
         "failure": null,
@@ -3842,7 +3842,7 @@
       "journeys": [],
       "capture": {
         "status": "success",
-        "capturedAt": "2026-11-23T02:28:43.619Z",
+        "capturedAt": "2026-11-23T21:33:18.037Z",
         "selfCapture": false,
         "depictsGeneration": null,
         "failure": null,
@@ -3894,7 +3894,7 @@
       "journeys": [],
       "capture": {
         "status": "success",
-        "capturedAt": "2026-11-23T02:28:55.910Z",
+        "capturedAt": "2026-11-23T21:33:55.739Z",
         "selfCapture": false,
         "depictsGeneration": null,
         "failure": null,
@@ -3946,7 +3946,7 @@
       "journeys": [],
       "capture": {
         "status": "success",
-        "capturedAt": "2026-11-23T02:28:59.907Z",
+        "capturedAt": "2026-11-23T21:33:59.244Z",
         "selfCapture": false,
         "depictsGeneration": null,
         "failure": null,
@@ -3998,7 +3998,7 @@
       "journeys": [],
       "capture": {
         "status": "success",
-        "capturedAt": "2026-11-23T02:29:21.785Z",
+        "capturedAt": "2026-11-23T21:34:22.236Z",
         "selfCapture": false,
         "depictsGeneration": null,
         "failure": null,
@@ -4050,7 +4050,7 @@
       "journeys": [],
       "capture": {
         "status": "success",
-        "capturedAt": "2026-11-23T02:29:30.032Z",
+        "capturedAt": "2026-11-23T21:34:55.536Z",
         "selfCapture": false,
         "depictsGeneration": null,
         "failure": null,
@@ -4102,7 +4102,7 @@
       "journeys": [],
       "capture": {
         "status": "success",
-        "capturedAt": "2026-11-23T02:29:37.379Z",
+        "capturedAt": "2026-11-23T21:35:02.145Z",
         "selfCapture": false,
         "depictsGeneration": null,
         "failure": null,
@@ -4154,7 +4154,7 @@
       "journeys": [],
       "capture": {
         "status": "success",
-        "capturedAt": "2026-11-23T02:29:50.721Z",
+        "capturedAt": "2026-11-23T21:35:08.848Z",
         "selfCapture": false,
         "depictsGeneration": null,
         "failure": null,
@@ -4206,7 +4206,7 @@
       "journeys": [],
       "capture": {
         "status": "success",
-        "capturedAt": "2026-11-23T02:30:00.892Z",
+        "capturedAt": "2026-11-23T21:35:49.753Z",
         "selfCapture": false,
         "depictsGeneration": null,
         "failure": null,
@@ -4258,7 +4258,7 @@
       "journeys": [],
       "capture": {
         "status": "success",
-        "capturedAt": "2026-11-23T02:30:14.804Z",
+        "capturedAt": "2026-11-23T21:36:10.544Z",
         "selfCapture": false,
         "depictsGeneration": null,
         "failure": null,
@@ -4310,7 +4310,7 @@
       "journeys": [],
       "capture": {
         "status": "success",
-        "capturedAt": "2026-11-23T02:30:30.314Z",
+        "capturedAt": "2026-11-23T21:36:23.547Z",
         "selfCapture": false,
         "depictsGeneration": null,
         "failure": null,
@@ -4362,7 +4362,7 @@
       "journeys": [],
       "capture": {
         "status": "success",
-        "capturedAt": "2026-11-23T02:30:35.318Z",
+        "capturedAt": "2026-11-23T21:36:58.554Z",
         "selfCapture": false,
         "depictsGeneration": null,
         "failure": null,
@@ -4414,7 +4414,7 @@
       "journeys": [],
       "capture": {
         "status": "success",
-        "capturedAt": "2026-11-23T02:30:47.806Z",
+        "capturedAt": "2026-11-23T21:37:14.454Z",
         "selfCapture": false,
         "depictsGeneration": null,
         "failure": null,
@@ -4466,7 +4466,7 @@
       "journeys": [],
       "capture": {
         "status": "success",
-        "capturedAt": "2026-11-23T02:31:02.593Z",
+        "capturedAt": "2026-11-23T21:37:26.343Z",
         "selfCapture": false,
         "depictsGeneration": null,
         "failure": null,
@@ -4520,7 +4520,7 @@
       ],
       "capture": {
         "status": "success",
-        "capturedAt": "2026-11-23T02:31:09.579Z",
+        "capturedAt": "2026-11-23T21:38:22.239Z",
         "selfCapture": false,
         "depictsGeneration": null,
         "failure": null,
@@ -4574,7 +4574,7 @@
       ],
       "capture": {
         "status": "success",
-        "capturedAt": "2026-11-23T02:31:20.089Z",
+        "capturedAt": "2026-11-23T21:38:37.046Z",
         "selfCapture": false,
         "depictsGeneration": null,
         "failure": null,
@@ -4628,7 +4628,7 @@
       ],
       "capture": {
         "status": "success",
-        "capturedAt": "2026-11-22T17:48:07.983Z",
+        "capturedAt": "2026-11-23T21:38:57.251Z",
         "selfCapture": false,
         "depictsGeneration": null,
         "failure": null,
@@ -4680,7 +4680,7 @@
       "journeys": [],
       "capture": {
         "status": "success",
-        "capturedAt": "2026-11-23T02:31:21.607Z",
+        "capturedAt": "2026-11-23T21:39:01.038Z",
         "selfCapture": false,
         "depictsGeneration": null,
         "failure": null,
@@ -4732,7 +4732,7 @@
       "journeys": [],
       "capture": {
         "status": "success",
-        "capturedAt": "2026-11-23T02:31:29.425Z",
+        "capturedAt": "2026-11-23T21:39:18.056Z",
         "selfCapture": false,
         "depictsGeneration": null,
         "failure": null,
@@ -4784,7 +4784,7 @@
       "journeys": [],
       "capture": {
         "status": "success",
-        "capturedAt": "2026-11-23T02:31:30.249Z",
+        "capturedAt": "2026-11-23T21:39:23.868Z",
         "selfCapture": false,
         "depictsGeneration": null,
         "failure": null,
@@ -4838,7 +4838,7 @@
       ],
       "capture": {
         "status": "success",
-        "capturedAt": "2026-11-23T02:31:33.311Z",
+        "capturedAt": "2026-11-23T21:39:35.650Z",
         "selfCapture": false,
         "depictsGeneration": null,
         "failure": null,
@@ -4890,7 +4890,7 @@
       "journeys": [],
       "capture": {
         "status": "success",
-        "capturedAt": "2026-11-23T02:32:03.135Z",
+        "capturedAt": "2026-11-23T21:40:15.254Z",
         "selfCapture": false,
         "depictsGeneration": null,
         "failure": null,
@@ -4942,7 +4942,7 @@
       "journeys": [],
       "capture": {
         "status": "success",
-        "capturedAt": "2026-11-23T02:32:07.778Z",
+        "capturedAt": "2026-11-23T21:40:24.845Z",
         "selfCapture": false,
         "depictsGeneration": null,
         "failure": null,
@@ -4994,7 +4994,7 @@
       "journeys": [],
       "capture": {
         "status": "success",
-        "capturedAt": "2026-11-23T02:32:09.239Z",
+        "capturedAt": "2026-11-23T21:40:35.051Z",
         "selfCapture": false,
         "depictsGeneration": null,
         "failure": null,
@@ -5046,7 +5046,7 @@
       "journeys": [],
       "capture": {
         "status": "success",
-        "capturedAt": "2026-11-23T02:32:37.158Z",
+        "capturedAt": "2026-11-23T21:41:06.635Z",
         "selfCapture": false,
         "depictsGeneration": null,
         "failure": null,
@@ -5098,7 +5098,7 @@
       "journeys": [],
       "capture": {
         "status": "success",
-        "capturedAt": "2026-11-23T02:32:39.982Z",
+        "capturedAt": "2026-11-23T21:41:11.136Z",
         "selfCapture": false,
         "depictsGeneration": null,
         "failure": null,
@@ -5150,7 +5150,7 @@
       "journeys": [],
       "capture": {
         "status": "success",
-        "capturedAt": "2026-11-23T02:32:45.038Z",
+        "capturedAt": "2026-11-23T21:41:25.055Z",
         "selfCapture": false,
         "depictsGeneration": null,
         "failure": null,
@@ -5202,7 +5202,7 @@
       "journeys": [],
       "capture": {
         "status": "success",
-        "capturedAt": "2026-11-22T17:49:47.173Z",
+        "capturedAt": "2026-11-23T21:42:00.542Z",
         "selfCapture": false,
         "depictsGeneration": null,
         "failure": null,
@@ -5247,8 +5247,8 @@
   ],
   "journeyCount": 5,
   "capture": {
-    "generationId": "fb67df4e83fa8b36f836f56e281905f853ede4dea984b5f826687ae6fb28127c",
-    "generatedAt": "2026-11-23T16:07:00.385Z",
+    "generationId": "eb245d38be8f0e1124aee1cdc3f9ccf024a6e08f4db4d4bac7f36210d08243a6",
+    "generatedAt": "2026-11-23T21:42:25.834Z",
     "complete": true,
     "required": 126,
     "success": 126,
@@ -5291,18 +5291,18 @@
   },
   "provenance": {
     "inventory": "Route manifests (SRC-002)",
-    "capture": "Record capture generation fb67df4e83fa (RRP-201)",
+    "capture": "Record capture generation eb245d38be8f (RRP-201)",
     "limits": "No traffic, funding, conversion, contrast, keyboard, or screen-reader figures. Unmeasured content fields are null, never zero."
   },
   "measurement": {
     "source": "rendered production HTML, measured after the build by the record page-metrics builder (RRP-205)",
-    "generatedAt": "2026-11-23T16:31:35.571Z",
+    "generatedAt": "2026-11-23T21:42:40.575Z",
     "rows": 99,
     "measured": 99,
     "unzoned": 0,
     "unmeasured": 0,
     "words": {
-      "content": 185611,
+      "content": 185555,
       "chrome": 62226
     },
     "links": {
