@@ -2482,21 +2482,21 @@
       "journeys": [],
       "capture": {
         "status": "success",
-        "capturedAt": "2026-11-23T21:21:58.447Z",
+        "capturedAt": "2026-11-23T22:14:32.079Z",
         "selfCapture": true,
-        "depictsGeneration": null,
+        "depictsGeneration": "eb245d38be8f0e1124aee1cdc3f9ccf024a6e08f4db4d4bac7f36210d08243a6",
         "failure": null,
         "desktop": {
           "width": 1440,
-          "height": 11431,
-          "bytes": 1078645,
-          "thumbBytes": 123492
+          "height": 12412,
+          "bytes": 1087105,
+          "thumbBytes": 124429
         },
         "mobile": {
           "width": 390,
-          "height": 17675,
-          "bytes": 581734,
-          "thumbBytes": 453840
+          "height": 19221,
+          "bytes": 638775,
+          "thumbBytes": 419769
         },
         "thumb": "/record/shots/thumbs/record-metrics-desktop.avif"
       },
@@ -2638,21 +2638,21 @@
       "journeys": [],
       "capture": {
         "status": "success",
-        "capturedAt": "2026-11-23T21:23:06.853Z",
+        "capturedAt": "2026-11-23T22:14:32.177Z",
         "selfCapture": true,
-        "depictsGeneration": null,
+        "depictsGeneration": "eb245d38be8f0e1124aee1cdc3f9ccf024a6e08f4db4d4bac7f36210d08243a6",
         "failure": null,
         "desktop": {
           "width": 1440,
-          "height": 1919,
-          "bytes": 114917,
-          "thumbBytes": 14362
+          "height": 43760,
+          "bytes": 3066522,
+          "thumbBytes": 420670
         },
         "mobile": {
           "width": 390,
-          "height": 3279,
-          "bytes": 112247,
-          "thumbBytes": 95315
+          "height": 103167,
+          "bytes": 2662943,
+          "thumbBytes": 75940
         },
         "thumb": "/record/shots/thumbs/record-screens-desktop.avif"
       },
@@ -2666,9 +2666,9 @@
         "h1Count": 1,
         "mainCount": 1,
         "words": {
-          "content": 10303,
+          "content": 10359,
           "chrome": 13,
-          "total": 10316
+          "total": 10372
         },
         "links": {
           "content": 166,
@@ -5247,8 +5247,8 @@
   ],
   "journeyCount": 5,
   "capture": {
-    "generationId": "eb245d38be8f0e1124aee1cdc3f9ccf024a6e08f4db4d4bac7f36210d08243a6",
-    "generatedAt": "2026-11-23T21:42:25.834Z",
+    "generationId": "cd5d4603e4a7a1792a46021dc66342434b0bbc674e51679d3a3ffefd3239b9e2",
+    "generatedAt": "2026-11-23T22:18:57.175Z",
     "complete": true,
     "required": 126,
     "success": 126,
@@ -5291,18 +5291,18 @@
   },
   "provenance": {
     "inventory": "Route manifests (SRC-002)",
-    "capture": "Record capture generation eb245d38be8f (RRP-201)",
+    "capture": "Record capture generation cd5d4603e4a7 (RRP-201)",
     "limits": "No traffic, funding, conversion, contrast, keyboard, or screen-reader figures. Unmeasured content fields are null, never zero."
   },
   "measurement": {
     "source": "rendered production HTML, measured after the build by the record page-metrics builder (RRP-205)",
-    "generatedAt": "2026-11-23T21:42:40.575Z",
+    "generatedAt": "2026-11-23T22:19:15.285Z",
     "rows": 99,
     "measured": 99,
     "unzoned": 0,
     "unmeasured": 0,
     "words": {
-      "content": 185555,
+      "content": 185611,
       "chrome": 62226
     },
     "links": {
