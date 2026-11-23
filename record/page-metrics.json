@@ -1960,7 +1960,7 @@
       "journeys": [],
       "capture": {
         "status": "success",
-        "capturedAt": "2026-11-22T17:39:12.114Z",
+        "capturedAt": "2026-11-23T07:58:34.828Z",
         "selfCapture": false,
         "depictsGeneration": null,
         "failure": null,
@@ -2012,7 +2012,7 @@
       "journeys": [],
       "capture": {
         "status": "success",
-        "capturedAt": "2026-11-07T21:19:34.222Z",
+        "capturedAt": "2026-11-23T07:58:34.879Z",
         "selfCapture": false,
         "depictsGeneration": null,
         "failure": null,
@@ -2064,7 +2064,7 @@
       "journeys": [],
       "capture": {
         "status": "success",
-        "capturedAt": "2026-11-07T21:19:45.462Z",
+        "capturedAt": "2026-11-23T07:58:34.880Z",
         "selfCapture": false,
         "depictsGeneration": null,
         "failure": null,
@@ -2118,7 +2118,7 @@
       ],
       "capture": {
         "status": "success",
-        "capturedAt": "2026-11-07T21:19:48.487Z",
+        "capturedAt": "2026-11-23T07:58:46.721Z",
         "selfCapture": false,
         "depictsGeneration": null,
         "failure": null,
@@ -2170,7 +2170,7 @@
       "journeys": [],
       "capture": {
         "status": "success",
-        "capturedAt": "2026-11-07T21:19:58.977Z",
+        "capturedAt": "2026-11-23T07:58:48.603Z",
         "selfCapture": false,
         "depictsGeneration": null,
         "failure": null,
@@ -2222,7 +2222,7 @@
       "journeys": [],
       "capture": {
         "status": "success",
-        "capturedAt": "2026-11-23T02:23:56.014Z",
+        "capturedAt": "2026-11-23T07:58:56.478Z",
         "selfCapture": false,
         "depictsGeneration": null,
         "failure": null,
@@ -2274,7 +2274,7 @@
       "journeys": [],
       "capture": {
         "status": "success",
-        "capturedAt": "2026-11-07T21:20:03.345Z",
+        "capturedAt": "2026-11-23T07:58:57.527Z",
         "selfCapture": false,
         "depictsGeneration": null,
         "failure": null,
@@ -2326,21 +2326,21 @@
       "journeys": [],
       "capture": {
         "status": "success",
-        "capturedAt": "2026-11-07T21:20:05.759Z",
+        "capturedAt": "2026-11-23T07:58:58.843Z",
         "selfCapture": false,
         "depictsGeneration": null,
         "failure": null,
         "desktop": {
           "width": 1440,
-          "height": 2267,
-          "bytes": 182526,
-          "thumbBytes": 22270
+          "height": 2275,
+          "bytes": 185815,
+          "thumbBytes": 22729
         },
         "mobile": {
           "width": 390,
-          "height": 4810,
-          "bytes": 167968,
-          "thumbBytes": 145594
+          "height": 4684,
+          "bytes": 166107,
+          "thumbBytes": 144614
         },
         "thumb": "/record/shots/thumbs/record-leadership-desktop.avif"
       },
@@ -2354,9 +2354,9 @@
         "h1Count": 1,
         "mainCount": 1,
         "words": {
-          "content": 581,
+          "content": 605,
           "chrome": 11,
-          "total": 592
+          "total": 616
         },
         "links": {
           "content": 46,
@@ -2378,7 +2378,7 @@
       "journeys": [],
       "capture": {
         "status": "success",
-        "capturedAt": "2026-11-07T21:20:13.365Z",
+        "capturedAt": "2026-11-23T07:59:08.477Z",
         "selfCapture": false,
         "depictsGeneration": null,
         "failure": null,
@@ -2430,21 +2430,21 @@
       "journeys": [],
       "capture": {
         "status": "success",
-        "capturedAt": "2026-11-22T17:39:13.900Z",
+        "capturedAt": "2026-11-23T07:59:10.413Z",
         "selfCapture": false,
         "depictsGeneration": null,
         "failure": null,
         "desktop": {
           "width": 1440,
-          "height": 14638,
-          "bytes": 1889862,
-          "thumbBytes": 183623
+          "height": 3104,
+          "bytes": 184292,
+          "thumbBytes": 22936
         },
         "mobile": {
           "width": 390,
-          "height": 42796,
-          "bytes": 918502,
-          "thumbBytes": 164279
+          "height": 5055,
+          "bytes": 180676,
+          "thumbBytes": 153645
         },
         "thumb": "/record/shots/thumbs/record-marketing-desktop.avif"
       },
@@ -2458,9 +2458,9 @@
         "h1Count": 1,
         "mainCount": 1,
         "words": {
-          "content": 4413,
+          "content": 4429,
           "chrome": 13,
-          "total": 4426
+          "total": 4442
         },
         "links": {
           "content": 189,
@@ -2482,21 +2482,21 @@
       "journeys": [],
       "capture": {
         "status": "success",
-        "capturedAt": "2026-11-23T06:19:44.408Z",
+        "capturedAt": "2026-11-23T07:59:15.518Z",
         "selfCapture": true,
-        "depictsGeneration": "095833141f787e3b1a42682ca65a8d44c121cdff9ef9daa64e391458bbe3feb3",
+        "depictsGeneration": "013ef4e998e7fddc55717ca6980ffc664c7ebaa42f8173367744e2e9432b0760",
         "failure": null,
         "desktop": {
           "width": 1440,
           "height": 12412,
-          "bytes": 1081190,
-          "thumbBytes": 122707
+          "bytes": 1081108,
+          "thumbBytes": 122628
         },
         "mobile": {
           "width": 390,
           "height": 19210,
-          "bytes": 642458,
-          "thumbBytes": 419213
+          "bytes": 642586,
+          "thumbBytes": 419175
         },
         "thumb": "/record/shots/thumbs/record-metrics-desktop.avif"
       },
@@ -2534,21 +2534,21 @@
       "journeys": [],
       "capture": {
         "status": "success",
-        "capturedAt": "2026-11-22T17:39:30.767Z",
+        "capturedAt": "2026-11-23T07:59:20.696Z",
         "selfCapture": false,
         "depictsGeneration": null,
         "failure": null,
         "desktop": {
           "width": 1440,
           "height": 18401,
-          "bytes": 1464117,
-          "thumbBytes": 145301
+          "bytes": 1464665,
+          "thumbBytes": 145858
         },
         "mobile": {
           "width": 390,
           "height": 40623,
-          "bytes": 783971,
-          "thumbBytes": 135335
+          "bytes": 784006,
+          "thumbBytes": 135440
         },
         "thumb": "/record/shots/thumbs/record-nav-desktop.avif"
       },
@@ -2586,7 +2586,7 @@
       "journeys": [],
       "capture": {
         "status": "success",
-        "capturedAt": "2026-11-07T21:20:28.248Z",
+        "capturedAt": "2026-11-23T07:59:26.619Z",
         "selfCapture": false,
         "depictsGeneration": null,
         "failure": null,
@@ -2638,21 +2638,21 @@
       "journeys": [],
       "capture": {
         "status": "success",
-        "capturedAt": "2026-11-23T06:19:44.484Z",
+        "capturedAt": "2026-11-23T07:59:50.007Z",
         "selfCapture": true,
-        "depictsGeneration": "095833141f787e3b1a42682ca65a8d44c121cdff9ef9daa64e391458bbe3feb3",
+        "depictsGeneration": "013ef4e998e7fddc55717ca6980ffc664c7ebaa42f8173367744e2e9432b0760",
         "failure": null,
         "desktop": {
           "width": 1440,
           "height": 43933,
-          "bytes": 3134485,
-          "thumbBytes": 428493
+          "bytes": 3134975,
+          "thumbBytes": 428938
         },
         "mobile": {
           "width": 390,
           "height": 105054,
-          "bytes": 2725630,
-          "thumbBytes": 75980
+          "bytes": 2725942,
+          "thumbBytes": 75942
         },
         "thumb": "/record/shots/thumbs/record-screens-desktop.avif"
       },
@@ -2666,9 +2666,9 @@
         "h1Count": 1,
         "mainCount": 1,
         "words": {
-          "content": 10347,
+          "content": 10326,
           "chrome": 13,
-          "total": 10360
+          "total": 10339
         },
         "links": {
           "content": 166,
@@ -2690,7 +2690,7 @@
       "journeys": [],
       "capture": {
         "status": "success",
-        "capturedAt": "2026-11-07T21:20:58.544Z",
+        "capturedAt": "2026-11-23T07:59:52.195Z",
         "selfCapture": false,
         "depictsGeneration": null,
         "failure": null,
@@ -2742,7 +2742,7 @@
       "journeys": [],
       "capture": {
         "status": "success",
-        "capturedAt": "2026-11-07T21:21:09.442Z",
+        "capturedAt": "2026-11-23T08:00:08.182Z",
         "selfCapture": false,
         "depictsGeneration": null,
         "failure": null,
@@ -5247,8 +5247,8 @@
   ],
   "journeyCount": 5,
   "capture": {
-    "generationId": "013ef4e998e7fddc55717ca6980ffc664c7ebaa42f8173367744e2e9432b0760",
-    "generatedAt": "2026-11-23T06:22:39.812Z",
+    "generationId": "76be02872ccfb422932342a667d88d92c696394ad076bfb9db66e67389083a4a",
+    "generatedAt": "2026-11-23T08:02:36.043Z",
     "complete": true,
     "required": 126,
     "success": 126,
@@ -5291,18 +5291,18 @@
   },
   "provenance": {
     "inventory": "Route manifests (SRC-002)",
-    "capture": "Record capture generation 013ef4e998e7 (RRP-201)",
+    "capture": "Record capture generation 76be02872ccf (RRP-201)",
     "limits": "No traffic, funding, conversion, contrast, keyboard, or screen-reader figures. Unmeasured content fields are null, never zero."
   },
   "measurement": {
     "source": "rendered production HTML, measured after the build by the record page-metrics builder (RRP-205)",
-    "generatedAt": "2026-11-23T07:41:13.145Z",
+    "generatedAt": "2026-11-23T09:09:14.286Z",
     "rows": 99,
     "measured": 99,
     "unzoned": 0,
     "unmeasured": 0,
     "words": {
-      "content": 185089,
+      "content": 185108,
       "chrome": 62226
     },
     "links": {
