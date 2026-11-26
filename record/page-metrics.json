@@ -2482,21 +2482,21 @@
       "journeys": [],
       "capture": {
         "status": "success",
-        "capturedAt": "2026-11-26T11:02:28.968Z",
+        "capturedAt": "2026-11-26T11:59:50.966Z",
         "selfCapture": true,
-        "depictsGeneration": "eb20dd0c75020468e15740ca3ebf1a1228d4603af62d7ebbad83feb1646e44c4",
+        "depictsGeneration": "0e23697331a85e6d554d2cc8ea50d85fba413dad150622c8288884fafc8fba46",
         "failure": null,
         "desktop": {
           "width": 1440,
           "height": 12358,
-          "bytes": 1088983,
-          "thumbBytes": 125076
+          "bytes": 1088070,
+          "thumbBytes": 125002
         },
         "mobile": {
           "width": 390,
           "height": 19221,
-          "bytes": 638271,
-          "thumbBytes": 419180
+          "bytes": 638329,
+          "thumbBytes": 419397
         },
         "thumb": "/record/shots/thumbs/record-metrics-desktop.avif"
       },
@@ -2534,21 +2534,21 @@
       "journeys": [],
       "capture": {
         "status": "success",
-        "capturedAt": "2026-11-26T11:02:28.875Z",
+        "capturedAt": "2026-11-26T11:59:46.195Z",
         "selfCapture": false,
         "depictsGeneration": null,
         "failure": null,
         "desktop": {
           "width": 1440,
           "height": 18346,
-          "bytes": 1454612,
-          "thumbBytes": 143478
+          "bytes": 1470570,
+          "thumbBytes": 144759
         },
         "mobile": {
           "width": 390,
-          "height": 40634,
-          "bytes": 781030,
-          "thumbBytes": 134694
+          "height": 41026,
+          "bytes": 798317,
+          "thumbBytes": 135863
         },
         "thumb": "/record/shots/thumbs/record-nav-desktop.avif"
       },
@@ -2562,9 +2562,9 @@
         "h1Count": 1,
         "mainCount": 1,
         "words": {
-          "content": 9201,
+          "content": 9249,
           "chrome": 13,
-          "total": 9214
+          "total": 9262
         },
         "links": {
           "content": 453,
@@ -2638,21 +2638,21 @@
       "journeys": [],
       "capture": {
         "status": "success",
-        "capturedAt": "2026-11-26T11:02:25.069Z",
+        "capturedAt": "2026-11-26T11:59:51.254Z",
         "selfCapture": true,
-        "depictsGeneration": "eb20dd0c75020468e15740ca3ebf1a1228d4603af62d7ebbad83feb1646e44c4",
+        "depictsGeneration": "0e23697331a85e6d554d2cc8ea50d85fba413dad150622c8288884fafc8fba46",
         "failure": null,
         "desktop": {
           "width": 1440,
-          "height": 43706,
-          "bytes": 3063521,
-          "thumbBytes": 417381
+          "height": 43687,
+          "bytes": 3061267,
+          "thumbBytes": 420537
         },
         "mobile": {
           "width": 390,
           "height": 103167,
-          "bytes": 2663372,
-          "thumbBytes": 75771
+          "bytes": 2667446,
+          "thumbBytes": 75803
         },
         "thumb": "/record/shots/thumbs/record-screens-desktop.avif"
       },
@@ -5247,8 +5247,8 @@
   ],
   "journeyCount": 5,
   "capture": {
-    "generationId": "0e23697331a85e6d554d2cc8ea50d85fba413dad150622c8288884fafc8fba46",
-    "generatedAt": "2026-11-26T11:07:59.677Z",
+    "generationId": "235294c4e0c29d9949dada4d0bce0d3c9efd41f5f19068da0a1860974d2fe226",
+    "generatedAt": "2026-11-26T12:05:14.903Z",
     "complete": true,
     "required": 126,
     "success": 126,
@@ -5291,18 +5291,18 @@
   },
   "provenance": {
     "inventory": "Route manifests (SRC-002)",
-    "capture": "Record capture generation 0e23697331a8 (RRP-201)",
+    "capture": "Record capture generation 235294c4e0c2 (RRP-201)",
     "limits": "No traffic, funding, conversion, contrast, keyboard, or screen-reader figures. Unmeasured content fields are null, never zero."
   },
   "measurement": {
     "source": "rendered production HTML, measured after the build by the record page-metrics builder (RRP-205)",
-    "generatedAt": "2026-11-26T11:08:11.751Z",
+    "generatedAt": "2026-11-26T12:05:21.712Z",
     "rows": 99,
     "measured": 99,
     "unzoned": 0,
     "unmeasured": 0,
     "words": {
-      "content": 185607,
+      "content": 185655,
       "chrome": 62226
     },
     "links": {
