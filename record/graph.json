@@ -684,7 +684,7 @@
       "unzoned": [],
       "aliases": [],
       "undocumented": [],
-      "generatedAt": "2026-11-26T12:05:21.314Z"
+      "generatedAt": "2026-11-27T19:14:27.695Z"
     },
     "summary": {
       "nodes": 126,
@@ -7001,7 +7001,7 @@
       {
         "source": "/record/metrics/",
         "target": "/record/nav/",
-        "occurrences": 5,
+        "occurrences": 6,
         "label": "11 Site map"
       },
       {
@@ -7013,7 +7013,7 @@
       {
         "source": "/record/metrics/",
         "target": "/record/screens/",
-        "occurrences": 5,
+        "occurrences": 6,
         "label": "13 Visual archive"
       },
       {
@@ -7589,7 +7589,7 @@
       {
         "source": "/record/nav/",
         "target": "/record/metrics/",
-        "occurrences": 7,
+        "occurrences": 8,
         "label": "12 Content inventory"
       },
       {
@@ -7601,7 +7601,7 @@
       {
         "source": "/record/nav/",
         "target": "/record/screens/",
-        "occurrences": 7,
+        "occurrences": 8,
         "label": "13 Visual archive"
       },
       {
@@ -8375,13 +8375,13 @@
       {
         "source": "/record/screens/",
         "target": "/record/metrics/",
-        "occurrences": 3,
+        "occurrences": 4,
         "label": "12 Content inventory"
       },
       {
         "source": "/record/screens/",
         "target": "/record/nav/",
-        "occurrences": 4,
+        "occurrences": 5,
         "label": "11 Site map"
       },
       {

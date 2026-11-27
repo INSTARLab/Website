@@ -1,0 +1,1 @@
+function e(e,t,n){let r=e.querySelector(`[data-selection-views]`);if(!r)return;let i=0;for(let e of r.querySelectorAll(`[data-selection-view]`)){let r=e.dataset.selectionView,a=r?t?.[r]:void 0,o=e.querySelector(`a`);e.hidden=!a,a&&o&&(o.href=n(a),i+=1)}r.hidden=i===0}export{e as t};

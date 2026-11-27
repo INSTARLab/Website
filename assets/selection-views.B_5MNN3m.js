@@ -1,0 +1,1 @@
+function e(e,t){let n=`#${t}=`;if(typeof e!=`string`||!e.startsWith(n))return``;try{return decodeURIComponent(e.slice(n.length))}catch{return``}}export{e as t};
